@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {PolicyDocument} from "../iam";
+
 /**
  * Provides a resource to manage a CloudWatch log resource policy.
  *
@@ -147,7 +149,7 @@ export interface LogResourcePolicyState {
     /**
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      */
-    policyDocument?: pulumi.Input<string>;
+    policyDocument?: pulumi.Input<string | PolicyDocument>;
     /**
      * Name of the resource policy.
      */
@@ -161,7 +163,7 @@ export interface LogResourcePolicyArgs {
     /**
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      */
-    policyDocument: pulumi.Input<string>;
+    policyDocument: pulumi.Input<string | PolicyDocument>;
     /**
      * Name of the resource policy.
      */

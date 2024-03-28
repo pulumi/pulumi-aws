@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {PolicyDocument} from "../iam";
+
 /**
  * Provides an SNS topic policy resource
  *
@@ -149,7 +151,7 @@ export interface TopicPolicyState {
     /**
      * The fully-formed AWS policy as JSON.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | PolicyDocument>;
 }
 
 /**
@@ -163,5 +165,5 @@ export interface TopicPolicyArgs {
     /**
      * The fully-formed AWS policy as JSON.
      */
-    policy: pulumi.Input<string>;
+    policy: pulumi.Input<string | PolicyDocument>;
 }
