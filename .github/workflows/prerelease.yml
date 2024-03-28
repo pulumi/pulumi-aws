@@ -117,6 +117,7 @@ jobs:
       with:
         name: ${{ matrix.language  }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
+        retention-days: 30
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
@@ -133,6 +134,7 @@ jobs:
         - dotnet
         - go
         - java
+
   license_check:
     name: License Check
     uses: ./.github/workflows/license.yml
@@ -153,12 +155,15 @@ jobs:
         ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
+    - name: Prepare upstream code
+      run: make upstream
     - name: Install Go
       uses: actions/setup-go@v5
       with:
-        cache-dependency-path: |
-            sdk/go.sum
         go-version: 1.21.x
+        cache-dependency-path: |
+          provider/*.sum
+          upstream/*.sum
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
@@ -179,8 +184,14 @@ jobs:
         dotnet: ${{ matrix.language != 'dotnet' }}
         swap-storage: false
         tool-cache: false
-    - name: Build tfgen & provider binaries
-      run: make provider
+    - name: Build schema generator binary
+      run: make tfgen_build_only
+    - name: Install plugins
+      run: make install_plugins
+    - name: Generate schema
+      run: make tfgen_no_deps
+    - name: Build provider binary
+      run: make provider_no_deps
     - name: Unit-test provider code
       run: make test_provider
     - if: github.event_name == 'pull_request'
@@ -211,7 +222,7 @@ jobs:
       name: Check Configuration section
       run: |
         sed -n '/## Configuration/,$p' README.md | sed -n '/## Reference/q;p' >> config_section.txt
-        jq -r '.config[] | keys[]' < provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> keys.txt
+        jq -r '.config | select(.variables) | .variables | keys[]' < provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> keys.txt
         EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
         {
           echo "MISSING_CONFIG<<$EOF";
@@ -500,7 +511,6 @@ jobs:
             uses: codecov/codecov-action@v4
       timeout-minutes: 60
   provider_test:
-      if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
       name: provider_test
       needs: build_sdk
       permissions:
@@ -521,11 +531,14 @@ jobs:
               repository: pulumi/scripts
           - name: Unshallow clone for tags
             run: git fetch --prune --unshallow --tags
+          - name: Make upstream
+            run: make upstream
           - name: Install Go
             uses: actions/setup-go@v5
             with:
               cache-dependency-path: |
-                  sdk/go.sum
+                  provider/*.sum
+                  upstream/*.sum
               go-version: 1.21.x
           - name: Install pulumictl
             uses: jaxxstorm/action-install-gh-release@v1.11.0
@@ -608,8 +621,6 @@ jobs:
               role-duration-seconds: 3600
               role-session-name: ${{ env.PROVIDER }}@githubActions
               role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
-          - name: Make upstream
-            run: make upstream
           - name: Run provider tests
             run: |
               cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt

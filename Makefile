@@ -142,11 +142,14 @@ test_provider:
 	@echo ""
 	cd provider && go test -v -short ./... -parallel $(TESTPARALLELISM)
 
-tfgen: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
-tfgen: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
-tfgen: install_plugins upstream
-	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
-	PULUMI_CONVERT=$(PULUMI_CONVERT) PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION=$(PULUMI_CONVERT) $(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
+tfgen: install_plugins upstream tfgen_no_deps
+
+tfgen_no_deps: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
+tfgen_no_deps: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
+tfgen_no_deps: export PULUMI_CONVERT := $(PULUMI_CONVERT)
+tfgen_no_deps: export PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION := $(PULUMI_CONVERT)
+tfgen_no_deps: tfgen_build_only
+	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(VERSION) go generate cmd/$(PROVIDER)/main.go)
 
 tfgen_build_only:
