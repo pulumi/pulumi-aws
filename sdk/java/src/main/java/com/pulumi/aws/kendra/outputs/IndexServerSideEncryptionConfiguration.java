@@ -44,13 +44,14 @@ public final class IndexServerSideEncryptionConfiguration {
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         public IndexServerSideEncryptionConfiguration build() {
-            final var o = new IndexServerSideEncryptionConfiguration();
-            o.kmsKeyId = kmsKeyId;
-            return o;
+            final var _resultValue = new IndexServerSideEncryptionConfiguration();
+            _resultValue.kmsKeyId = kmsKeyId;
+            return _resultValue;
         }
     }
 }

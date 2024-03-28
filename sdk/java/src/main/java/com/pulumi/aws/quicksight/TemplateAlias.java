@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS QuickSight Template Alias.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,20 +45,21 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new TemplateAlias(&#34;example&#34;, TemplateAliasArgs.builder()        
  *             .aliasName(&#34;example-alias&#34;)
- *             .templateId(aws_quicksight_template.test().template_id())
- *             .templateVersionNumber(aws_quicksight_template.test().version_number())
+ *             .templateId(test.templateId())
+ *             .templateVersionNumber(test.versionNumber())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
+ * $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
  * ```
  * 
  */

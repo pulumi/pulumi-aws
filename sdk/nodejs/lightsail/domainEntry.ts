@@ -11,24 +11,27 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testDomain = new aws.lightsail.Domain("testDomain", {domainName: "mydomain.com"});
- * const testDomainEntry = new aws.lightsail.DomainEntry("testDomainEntry", {
- *     domainName: aws_lightsail_domain.domain_test.domain_name,
+ * const test = new aws.lightsail.Domain("test", {domainName: "mydomain.com"});
+ * const testDomainEntry = new aws.lightsail.DomainEntry("test", {
+ *     domainName: domainTest.domainName,
+ *     name: "www",
  *     type: "A",
  *     target: "127.0.0.1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
+ * $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
  * ```
  */
 export class DomainEntry extends pulumi.CustomResource {

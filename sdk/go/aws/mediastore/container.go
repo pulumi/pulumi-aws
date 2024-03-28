@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mediastore.NewContainer(ctx, "example", nil)
+//			_, err := mediastore.NewContainer(ctx, "example", &mediastore.ContainerArgs{
+//				Name: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -36,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:mediastore/container:Container example example
-//
+// $ pulumi import aws:mediastore/container:Container example example
 // ```
 type Container struct {
 	pulumi.CustomResourceState
@@ -70,10 +72,6 @@ func NewContainer(ctx *pulumi.Context,
 		args = &ContainerArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Container
 	err := ctx.RegisterResource("aws:mediastore/container:Container", name, args, &resource, opts...)

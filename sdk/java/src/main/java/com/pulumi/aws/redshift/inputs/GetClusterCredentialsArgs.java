@@ -5,6 +5,7 @@ package com.pulumi.aws.redshift.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -274,8 +275,12 @@ public final class GetClusterCredentialsArgs extends com.pulumi.resources.Invoke
         }
 
         public GetClusterCredentialsArgs build() {
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
-            $.dbUser = Objects.requireNonNull($.dbUser, "expected parameter 'dbUser' to be non-null");
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("GetClusterCredentialsArgs", "clusterIdentifier");
+            }
+            if ($.dbUser == null) {
+                throw new MissingRequiredPropertyException("GetClusterCredentialsArgs", "dbUser");
+            }
             return $;
         }
     }

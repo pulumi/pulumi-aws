@@ -7,6 +7,7 @@ import com.pulumi.aws.mskconnect.inputs.ConnectorCapacityAutoscalingScaleInPolic
 import com.pulumi.aws.mskconnect.inputs.ConnectorCapacityAutoscalingScaleOutPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -226,8 +227,12 @@ public final class ConnectorCapacityAutoscalingArgs extends com.pulumi.resources
         }
 
         public ConnectorCapacityAutoscalingArgs build() {
-            $.maxWorkerCount = Objects.requireNonNull($.maxWorkerCount, "expected parameter 'maxWorkerCount' to be non-null");
-            $.minWorkerCount = Objects.requireNonNull($.minWorkerCount, "expected parameter 'minWorkerCount' to be non-null");
+            if ($.maxWorkerCount == null) {
+                throw new MissingRequiredPropertyException("ConnectorCapacityAutoscalingArgs", "maxWorkerCount");
+            }
+            if ($.minWorkerCount == null) {
+                throw new MissingRequiredPropertyException("ConnectorCapacityAutoscalingArgs", "minWorkerCount");
+            }
             return $;
         }
     }

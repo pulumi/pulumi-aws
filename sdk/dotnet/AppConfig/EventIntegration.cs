@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,12 +25,13 @@ namespace Pulumi.Aws.AppConfig
     /// {
     ///     var example = new Aws.AppConfig.EventIntegration("example", new()
     ///     {
+    ///         Name = "example-name",
     ///         Description = "Example Description",
+    ///         EventbridgeBus = "default",
     ///         EventFilter = new Aws.AppConfig.Inputs.EventIntegrationEventFilterArgs
     ///         {
     ///             Source = "aws.partner/examplepartner.com",
     ///         },
-    ///         EventbridgeBus = "default",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Event Integration" },
@@ -38,13 +40,14 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+    /// $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/eventIntegration:EventIntegration")]
@@ -115,10 +118,6 @@ namespace Pulumi.Aws.AppConfig
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -238,11 +237,7 @@ namespace Pulumi.Aws.AppConfig
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public EventIntegrationState()

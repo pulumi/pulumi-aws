@@ -114,43 +114,49 @@ public final class UserPoolVerificationMessageTemplate {
 
         @CustomType.Setter
         public Builder defaultEmailOption(@Nullable String defaultEmailOption) {
+
             this.defaultEmailOption = defaultEmailOption;
             return this;
         }
         @CustomType.Setter
         public Builder emailMessage(@Nullable String emailMessage) {
+
             this.emailMessage = emailMessage;
             return this;
         }
         @CustomType.Setter
         public Builder emailMessageByLink(@Nullable String emailMessageByLink) {
+
             this.emailMessageByLink = emailMessageByLink;
             return this;
         }
         @CustomType.Setter
         public Builder emailSubject(@Nullable String emailSubject) {
+
             this.emailSubject = emailSubject;
             return this;
         }
         @CustomType.Setter
         public Builder emailSubjectByLink(@Nullable String emailSubjectByLink) {
+
             this.emailSubjectByLink = emailSubjectByLink;
             return this;
         }
         @CustomType.Setter
         public Builder smsMessage(@Nullable String smsMessage) {
+
             this.smsMessage = smsMessage;
             return this;
         }
         public UserPoolVerificationMessageTemplate build() {
-            final var o = new UserPoolVerificationMessageTemplate();
-            o.defaultEmailOption = defaultEmailOption;
-            o.emailMessage = emailMessage;
-            o.emailMessageByLink = emailMessageByLink;
-            o.emailSubject = emailSubject;
-            o.emailSubjectByLink = emailSubjectByLink;
-            o.smsMessage = smsMessage;
-            return o;
+            final var _resultValue = new UserPoolVerificationMessageTemplate();
+            _resultValue.defaultEmailOption = defaultEmailOption;
+            _resultValue.emailMessage = emailMessage;
+            _resultValue.emailMessageByLink = emailMessageByLink;
+            _resultValue.emailSubject = emailSubject;
+            _resultValue.emailSubjectByLink = emailSubjectByLink;
+            _resultValue.smsMessage = smsMessage;
+            return _resultValue;
         }
     }
 }

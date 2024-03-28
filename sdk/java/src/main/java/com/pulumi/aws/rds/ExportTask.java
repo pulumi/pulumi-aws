@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS RDS (Relational Database) Export Task.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,16 +48,20 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ExportTask(&#34;example&#34;, ExportTaskArgs.builder()        
  *             .exportTaskIdentifier(&#34;example&#34;)
- *             .sourceArn(aws_db_snapshot.example().db_snapshot_arn())
- *             .s3BucketName(aws_s3_bucket.example().id())
- *             .iamRoleArn(aws_iam_role.example().arn())
- *             .kmsKeyId(aws_kms_key.example().arn())
+ *             .sourceArn(exampleAwsDbSnapshot.dbSnapshotArn())
+ *             .s3BucketName(exampleAwsS3Bucket.id())
+ *             .iamRoleArn(exampleAwsIamRole.arn())
+ *             .kmsKeyId(exampleAwsKmsKey.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Complete Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -96,6 +103,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
  *             .forceDestroy(true)
  *             .build());
  * 
@@ -105,21 +113,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;export.rds.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;sid&#34;, &#34;&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;export.rds.amazonaws.com&#34;)
  *                         ))
  *                     )))
  *                 )))
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .actions(&#34;s3:ListAllMyBuckets&#34;)
@@ -141,7 +150,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .name(&#34;example&#34;)
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
@@ -184,13 +194,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/exportTask:ExportTask example example
+ * $ pulumi import aws:rds/exportTask:ExportTask example example
  * ```
  * 
  */

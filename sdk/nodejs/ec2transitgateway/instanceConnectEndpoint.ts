@@ -12,19 +12,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ec2transitgateway.InstanceConnectEndpoint("example", {subnetId: aws_subnet.example.id});
+ * const example = new aws.ec2transitgateway.InstanceConnectEndpoint("example", {subnetId: exampleAwsSubnet.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
+ * $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
  * ```
  */
 export class InstanceConnectEndpoint extends pulumi.CustomResource {
@@ -153,8 +155,6 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(InstanceConnectEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

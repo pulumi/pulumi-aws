@@ -14,18 +14,20 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const _this = new aws.cloudwatch.EventEndpoint("this", {
- *     roleArn: aws_iam_role.replication.arn,
+ *     name: "global-endpoint",
+ *     roleArn: replication.arn,
  *     eventBuses: [
  *         {
- *             eventBusArn: aws_cloudwatch_event_bus.primary.arn,
+ *             eventBusArn: primary.arn,
  *         },
  *         {
- *             eventBusArn: aws_cloudwatch_event_bus.secondary.arn,
+ *             eventBusArn: secondary.arn,
  *         },
  *     ],
  *     replicationConfig: {
@@ -34,7 +36,7 @@ import * as utilities from "../utilities";
  *     routingConfig: {
  *         failoverConfig: {
  *             primary: {
- *                 healthCheck: aws_route53_health_check.primary.arn,
+ *                 healthCheck: primaryAwsRoute53HealthCheck.arn,
  *             },
  *             secondary: {
  *                 route: "us-east-2",
@@ -43,13 +45,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
+ * $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
  * ```
  */
 export class EventEndpoint extends pulumi.CustomResource {

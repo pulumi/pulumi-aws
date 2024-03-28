@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.DistributionOrderedCacheBehaviorForwardedValuesCookies;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -88,11 +89,15 @@ public final class DistributionOrderedCacheBehaviorForwardedValues {
 
         @CustomType.Setter
         public Builder cookies(DistributionOrderedCacheBehaviorForwardedValuesCookies cookies) {
-            this.cookies = Objects.requireNonNull(cookies);
+            if (cookies == null) {
+              throw new MissingRequiredPropertyException("DistributionOrderedCacheBehaviorForwardedValues", "cookies");
+            }
+            this.cookies = cookies;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<String> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -101,11 +106,15 @@ public final class DistributionOrderedCacheBehaviorForwardedValues {
         }
         @CustomType.Setter
         public Builder queryString(Boolean queryString) {
-            this.queryString = Objects.requireNonNull(queryString);
+            if (queryString == null) {
+              throw new MissingRequiredPropertyException("DistributionOrderedCacheBehaviorForwardedValues", "queryString");
+            }
+            this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder queryStringCacheKeys(@Nullable List<String> queryStringCacheKeys) {
+
             this.queryStringCacheKeys = queryStringCacheKeys;
             return this;
         }
@@ -113,12 +122,12 @@ public final class DistributionOrderedCacheBehaviorForwardedValues {
             return queryStringCacheKeys(List.of(queryStringCacheKeys));
         }
         public DistributionOrderedCacheBehaviorForwardedValues build() {
-            final var o = new DistributionOrderedCacheBehaviorForwardedValues();
-            o.cookies = cookies;
-            o.headers = headers;
-            o.queryString = queryString;
-            o.queryStringCacheKeys = queryStringCacheKeys;
-            return o;
+            final var _resultValue = new DistributionOrderedCacheBehaviorForwardedValues();
+            _resultValue.cookies = cookies;
+            _resultValue.headers = headers;
+            _resultValue.queryString = queryString;
+            _resultValue.queryStringCacheKeys = queryStringCacheKeys;
+            return _resultValue;
         }
     }
 }

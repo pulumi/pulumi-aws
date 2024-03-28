@@ -59,19 +59,21 @@ public final class FunctionEventInvokeConfigDestinationConfig {
 
         @CustomType.Setter
         public Builder onFailure(@Nullable FunctionEventInvokeConfigDestinationConfigOnFailure onFailure) {
+
             this.onFailure = onFailure;
             return this;
         }
         @CustomType.Setter
         public Builder onSuccess(@Nullable FunctionEventInvokeConfigDestinationConfigOnSuccess onSuccess) {
+
             this.onSuccess = onSuccess;
             return this;
         }
         public FunctionEventInvokeConfigDestinationConfig build() {
-            final var o = new FunctionEventInvokeConfigDestinationConfig();
-            o.onFailure = onFailure;
-            o.onSuccess = onSuccess;
-            return o;
+            final var _resultValue = new FunctionEventInvokeConfigDestinationConfig();
+            _resultValue.onFailure = onFailure;
+            _resultValue.onSuccess = onSuccess;
+            return _resultValue;
         }
     }
 }

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker App Image Config resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,8 +39,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Default File System Config
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,23 +57,24 @@ namespace Pulumi.Aws.Sagemaker
     ///         AppImageConfigName = "example",
     ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
     ///         {
-    ///             FileSystemConfig = null,
     ///             KernelSpec = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs
     ///             {
     ///                 Name = "example",
     ///             },
+    ///             FileSystemConfig = null,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
+    /// $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/appImageConfig:AppImageConfig")]
@@ -85,6 +91,9 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        [Output("jupyterLabImageConfig")]
+        public Output<Outputs.AppImageConfigJupyterLabImageConfig?> JupyterLabImageConfig { get; private set; } = null!;
 
         /// <summary>
         /// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
@@ -127,10 +136,6 @@ namespace Pulumi.Aws.Sagemaker
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -159,6 +164,9 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("appImageConfigName", required: true)]
         public Input<string> AppImageConfigName { get; set; } = null!;
+
+        [Input("jupyterLabImageConfig")]
+        public Input<Inputs.AppImageConfigJupyterLabImageConfigArgs>? JupyterLabImageConfig { get; set; }
 
         /// <summary>
         /// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
@@ -198,6 +206,9 @@ namespace Pulumi.Aws.Sagemaker
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        [Input("jupyterLabImageConfig")]
+        public Input<Inputs.AppImageConfigJupyterLabImageConfigGetArgs>? JupyterLabImageConfig { get; set; }
+
         /// <summary>
         /// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         /// </summary>
@@ -226,11 +237,7 @@ namespace Pulumi.Aws.Sagemaker
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public AppImageConfigState()

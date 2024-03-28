@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     repositoryName: "MyTestRepository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
 
@@ -41,7 +43,7 @@ export interface GetRepositoryArgs {
  */
 export interface GetRepositoryResult {
     /**
-     * ARN of the repository
+     * ARN of the repository.
      */
     readonly arn: string;
     /**
@@ -57,7 +59,11 @@ export interface GetRepositoryResult {
      */
     readonly id: string;
     /**
-     * ID of the repository
+     * The ID of the encryption key.
+     */
+    readonly kmsKeyId: string;
+    /**
+     * ID of the repository.
      */
     readonly repositoryId: string;
     readonly repositoryName: string;
@@ -67,6 +73,7 @@ export interface GetRepositoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -75,6 +82,7 @@ export interface GetRepositoryResult {
  *     repositoryName: "MyTestRepository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRepository(a, opts))

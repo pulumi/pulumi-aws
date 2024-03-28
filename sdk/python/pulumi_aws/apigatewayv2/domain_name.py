@@ -227,8 +227,10 @@ class DomainName(pulumi.CustomResource):
         a particular domain name. An API stage can be associated with the domain name using the `apigatewayv2.ApiMapping` resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,41 +238,45 @@ class DomainName(pulumi.CustomResource):
         example = aws.apigatewayv2.DomainName("example",
             domain_name="ws-api.example.com",
             domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=aws_acm_certificate["example"]["arn"],
+                certificate_arn=example_aws_acm_certificate["arn"],
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Associated Route 53 Resource Record
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_name = aws.apigatewayv2.DomainName("exampleDomainName",
+        example = aws.apigatewayv2.DomainName("example",
             domain_name="http-api.example.com",
             domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=aws_acm_certificate["example"]["arn"],
+                certificate_arn=example_aws_acm_certificate["arn"],
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))
-        example_record = aws.route53.Record("exampleRecord",
-            name=example_domain_name.domain_name,
-            type="A",
-            zone_id=aws_route53_zone["example"]["zone_id"],
+        example_record = aws.route53.Record("example",
+            name=example.domain_name,
+            type=aws.route53.RecordType.A,
+            zone_id=example_aws_route53_zone["zoneId"],
             aliases=[aws.route53.RecordAliasArgs(
-                name=example_domain_name.domain_name_configuration.target_domain_name,
-                zone_id=example_domain_name.domain_name_configuration.hosted_zone_id,
+                name=example.domain_name_configuration.target_domain_name,
+                zone_id=example.domain_name_configuration.hosted_zone_id,
                 evaluate_target_health=False,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+        $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -294,8 +300,10 @@ class DomainName(pulumi.CustomResource):
         a particular domain name. An API stage can be associated with the domain name using the `apigatewayv2.ApiMapping` resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -303,41 +311,45 @@ class DomainName(pulumi.CustomResource):
         example = aws.apigatewayv2.DomainName("example",
             domain_name="ws-api.example.com",
             domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=aws_acm_certificate["example"]["arn"],
+                certificate_arn=example_aws_acm_certificate["arn"],
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Associated Route 53 Resource Record
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_domain_name = aws.apigatewayv2.DomainName("exampleDomainName",
+        example = aws.apigatewayv2.DomainName("example",
             domain_name="http-api.example.com",
             domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=aws_acm_certificate["example"]["arn"],
+                certificate_arn=example_aws_acm_certificate["arn"],
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))
-        example_record = aws.route53.Record("exampleRecord",
-            name=example_domain_name.domain_name,
-            type="A",
-            zone_id=aws_route53_zone["example"]["zone_id"],
+        example_record = aws.route53.Record("example",
+            name=example.domain_name,
+            type=aws.route53.RecordType.A,
+            zone_id=example_aws_route53_zone["zoneId"],
             aliases=[aws.route53.RecordAliasArgs(
-                name=example_domain_name.domain_name_configuration.target_domain_name,
-                zone_id=example_domain_name.domain_name_configuration.hosted_zone_id,
+                name=example.domain_name_configuration.target_domain_name,
+                zone_id=example.domain_name_configuration.hosted_zone_id,
                 evaluate_target_health=False,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+        $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -379,8 +391,6 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["api_mapping_selection_expression"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DomainName, __self__).__init__(
             'aws:apigatewayv2/domainName:DomainName',
             resource_name,

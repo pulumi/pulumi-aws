@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMat
 
         @CustomType.Setter
         public Builder fallbackBehavior(String fallbackBehavior) {
-            this.fallbackBehavior = Objects.requireNonNull(fallbackBehavior);
+            if (fallbackBehavior == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig", "fallbackBehavior");
+            }
+            this.fallbackBehavior = fallbackBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder headerName(String headerName) {
-            this.headerName = Objects.requireNonNull(headerName);
+            if (headerName == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig", "headerName");
+            }
+            this.headerName = headerName;
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig();
-            o.fallbackBehavior = fallbackBehavior;
-            o.headerName = headerName;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig();
+            _resultValue.fallbackBehavior = fallbackBehavior;
+            _resultValue.headerName = headerName;
+            return _resultValue;
         }
     }
 }

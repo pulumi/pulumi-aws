@@ -130,49 +130,56 @@ public final class SpotFleetRequestLaunchTemplateConfigOverride {
 
         @CustomType.Setter
         public Builder availabilityZone(@Nullable String availabilityZone) {
+
             this.availabilityZone = availabilityZone;
             return this;
         }
         @CustomType.Setter
         public Builder instanceRequirements(@Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements) {
+
             this.instanceRequirements = instanceRequirements;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(@Nullable String instanceType) {
+
             this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Double priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder spotPrice(@Nullable String spotPrice) {
+
             this.spotPrice = spotPrice;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder weightedCapacity(@Nullable Double weightedCapacity) {
+
             this.weightedCapacity = weightedCapacity;
             return this;
         }
         public SpotFleetRequestLaunchTemplateConfigOverride build() {
-            final var o = new SpotFleetRequestLaunchTemplateConfigOverride();
-            o.availabilityZone = availabilityZone;
-            o.instanceRequirements = instanceRequirements;
-            o.instanceType = instanceType;
-            o.priority = priority;
-            o.spotPrice = spotPrice;
-            o.subnetId = subnetId;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchTemplateConfigOverride();
+            _resultValue.availabilityZone = availabilityZone;
+            _resultValue.instanceRequirements = instanceRequirements;
+            _resultValue.instanceType = instanceType;
+            _resultValue.priority = priority;
+            _resultValue.spotPrice = spotPrice;
+            _resultValue.subnetId = subnetId;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

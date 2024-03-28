@@ -12,27 +12,13 @@ import * as utilities from "../utilities";
  * > **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
  *
  * ## Example Usage
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const test = new aws.cloudfront.Function("test", {
- *     runtime: "cloudfront-js-1.0",
- *     comment: "my function",
- *     publish: true,
- *     code: fs.readFileSync(`${path.module}/function.js`),
- * });
- * ```
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront Functions using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudfront/function:Function test my_test_function
+ * $ pulumi import aws:cloudfront/function:Function test my_test_function
  * ```
  */
 export class Function extends pulumi.CustomResource {
@@ -92,7 +78,7 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly publish!: pulumi.Output<boolean | undefined>;
     /**
-     * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+     * Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      *
      * The following arguments are optional:
      */
@@ -180,7 +166,7 @@ export interface FunctionState {
      */
     publish?: pulumi.Input<boolean>;
     /**
-     * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+     * Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      *
      * The following arguments are optional:
      */
@@ -212,7 +198,7 @@ export interface FunctionArgs {
      */
     publish?: pulumi.Input<boolean>;
     /**
-     * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+     * Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
      *
      * The following arguments are optional:
      */

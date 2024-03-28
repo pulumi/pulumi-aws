@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     ecrRepositoryPrefix: "ecr-public",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPullThroughCacheRule(args: GetPullThroughCacheRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetPullThroughCacheRuleResult> {
 
@@ -40,6 +42,10 @@ export interface GetPullThroughCacheRuleArgs {
  * A collection of values returned by getPullThroughCacheRule.
  */
 export interface GetPullThroughCacheRuleResult {
+    /**
+     * ARN of the Secret which will be used to authenticate against the registry.
+     */
+    readonly credentialArn: string;
     readonly ecrRepositoryPrefix: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -59,6 +65,7 @@ export interface GetPullThroughCacheRuleResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -67,6 +74,7 @@ export interface GetPullThroughCacheRuleResult {
  *     ecrRepositoryPrefix: "ecr-public",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPullThroughCacheRuleOutput(args: GetPullThroughCacheRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPullThroughCacheRuleResult> {
     return pulumi.output(args).apply((a: any) => getPullThroughCacheRule(a, opts))

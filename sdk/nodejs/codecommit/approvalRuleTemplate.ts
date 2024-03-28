@@ -9,30 +9,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codecommit.ApprovalRuleTemplate("example", {
+ *     name: "MyExampleApprovalRuleTemplate",
  *     description: "This is an example approval rule template",
  *     content: JSON.stringify({
- *         Version: "2018-11-08",
- *         DestinationReferences: ["refs/heads/master"],
- *         Statements: [{
- *             Type: "Approvers",
- *             NumberOfApprovalsNeeded: 2,
- *             ApprovalPoolMembers: ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"],
+ *         version: "2018-11-08",
+ *         destinationReferences: ["refs/heads/master"],
+ *         statements: [{
+ *             type: "Approvers",
+ *             numberOfApprovalsNeeded: 2,
+ *             approvalPoolMembers: ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"],
  *         }],
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
+ * $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
  * ```
  */
 export class ApprovalRuleTemplate extends pulumi.CustomResource {

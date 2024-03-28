@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,12 +23,12 @@ namespace Pulumi.Aws.Ses
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new()
+    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("example", new()
     ///     {
     ///         Domain = "example.com",
     ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -57,21 +58,23 @@ namespace Pulumi.Aws.Ses
     ///         },
     ///     });
     /// 
-    ///     var exampleIdentityPolicy = new Aws.Ses.IdentityPolicy("exampleIdentityPolicy", new()
+    ///     var exampleIdentityPolicy = new Aws.Ses.IdentityPolicy("example", new()
     ///     {
     ///         Identity = exampleDomainIdentity.Arn,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "example",
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
+    /// $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/identityPolicy:IdentityPolicy")]

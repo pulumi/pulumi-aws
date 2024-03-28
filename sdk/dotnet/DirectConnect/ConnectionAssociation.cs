@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,26 +23,29 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleConnection = new Aws.DirectConnect.Connection("exampleConnection", new()
+    ///     var example = new Aws.DirectConnect.Connection("example", new()
     ///     {
+    ///         Name = "example",
     ///         Bandwidth = "1Gbps",
     ///         Location = "EqSe2-EQ",
     ///     });
     /// 
-    ///     var exampleLinkAggregationGroup = new Aws.DirectConnect.LinkAggregationGroup("exampleLinkAggregationGroup", new()
+    ///     var exampleLinkAggregationGroup = new Aws.DirectConnect.LinkAggregationGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         ConnectionsBandwidth = "1Gbps",
     ///         Location = "EqSe2-EQ",
     ///     });
     /// 
-    ///     var exampleConnectionAssociation = new Aws.DirectConnect.ConnectionAssociation("exampleConnectionAssociation", new()
+    ///     var exampleConnectionAssociation = new Aws.DirectConnect.ConnectionAssociation("example", new()
     ///     {
-    ///         ConnectionId = exampleConnection.Id,
+    ///         ConnectionId = example.Id,
     ///         LagId = exampleLinkAggregationGroup.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:directconnect/connectionAssociation:ConnectionAssociation")]
     public partial class ConnectionAssociation : global::Pulumi.CustomResource

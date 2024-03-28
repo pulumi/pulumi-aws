@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,6 +63,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var cloudwatchRole = new Role(&#34;cloudwatchRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;api_gateway_cloudwatch_global&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
@@ -68,7 +71,7 @@ import javax.annotation.Nullable;
  *             .cloudwatchRoleArn(cloudwatchRole.arn())
  *             .build());
  * 
- *         final var cloudwatchPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var cloudwatch = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(                
@@ -84,20 +87,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var cloudwatchRolePolicy = new RolePolicy(&#34;cloudwatchRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;default&#34;)
  *             .role(cloudwatchRole.id())
- *             .policy(cloudwatchPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(cloudwatch.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+ * $ pulumi import aws:apigateway/account:Account demo api-gateway-account
  * ```
  * 
  */

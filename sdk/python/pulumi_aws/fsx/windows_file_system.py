@@ -841,33 +841,38 @@ class WindowsFileSystem(pulumi.CustomResource):
         > **NOTE:** Either the `active_directory_id` argument or `self_managed_active_directory` configuration block must be specified.
 
         ## Example Usage
+
         ### Using AWS Directory Service
 
         Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.fsx.WindowsFileSystem("example",
-            active_directory_id=aws_directory_service_directory["example"]["id"],
-            kms_key_id=aws_kms_key["example"]["arn"],
+            active_directory_id=example_aws_directory_service_directory["id"],
+            kms_key_id=example_aws_kms_key["arn"],
             storage_capacity=300,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=[example_aws_subnet["id"]],
             throughput_capacity=1024)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using a Self-Managed Microsoft Active Directory
 
         Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.fsx.WindowsFileSystem("example",
-            kms_key_id=aws_kms_key["example"]["arn"],
+            kms_key_id=example_aws_kms_key["arn"],
             storage_capacity=300,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=[example_aws_subnet["id"]],
             throughput_capacity=1024,
             self_managed_active_directory=aws.fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs(
                 dns_ips=[
@@ -879,15 +884,16 @@ class WindowsFileSystem(pulumi.CustomResource):
                 username="Admin",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx File Systems using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
+        $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
         ```
-         Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -926,33 +932,38 @@ class WindowsFileSystem(pulumi.CustomResource):
         > **NOTE:** Either the `active_directory_id` argument or `self_managed_active_directory` configuration block must be specified.
 
         ## Example Usage
+
         ### Using AWS Directory Service
 
         Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.fsx.WindowsFileSystem("example",
-            active_directory_id=aws_directory_service_directory["example"]["id"],
-            kms_key_id=aws_kms_key["example"]["arn"],
+            active_directory_id=example_aws_directory_service_directory["id"],
+            kms_key_id=example_aws_kms_key["arn"],
             storage_capacity=300,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=[example_aws_subnet["id"]],
             throughput_capacity=1024)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using a Self-Managed Microsoft Active Directory
 
         Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.fsx.WindowsFileSystem("example",
-            kms_key_id=aws_kms_key["example"]["arn"],
+            kms_key_id=example_aws_kms_key["arn"],
             storage_capacity=300,
-            subnet_ids=[aws_subnet["example"]["id"]],
+            subnet_ids=[example_aws_subnet["id"]],
             throughput_capacity=1024,
             self_managed_active_directory=aws.fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs(
                 dns_ips=[
@@ -964,15 +975,16 @@ class WindowsFileSystem(pulumi.CustomResource):
                 username="Admin",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx File Systems using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
+        $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
         ```
-         Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param WindowsFileSystemArgs args: The arguments to use to populate this resource's properties.
@@ -1050,8 +1062,6 @@ class WindowsFileSystem(pulumi.CustomResource):
             __props__.__dict__["remote_administration_endpoint"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WindowsFileSystem, __self__).__init__(
             'aws:fsx/windowsFileSystem:WindowsFileSystem',
             resource_name,

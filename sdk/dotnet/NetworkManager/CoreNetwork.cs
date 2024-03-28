@@ -13,8 +13,10 @@ namespace Pulumi.Aws.NetworkManager
     /// Provides a core network resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,13 +27,16 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var example = new Aws.NetworkManager.CoreNetwork("example", new()
     ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
+    ///         GlobalNetworkId = exampleAwsNetworkmanagerGlobalNetwork.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With description
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,14 +47,17 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var example = new Aws.NetworkManager.CoreNetwork("example", new()
     ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
+    ///         GlobalNetworkId = exampleAwsNetworkmanagerGlobalNetwork.Id,
     ///         Description = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With tags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,7 +68,7 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var example = new Aws.NetworkManager.CoreNetwork("example", new()
     ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
+    ///         GlobalNetworkId = exampleAwsNetworkmanagerGlobalNetwork.Id,
     ///         Tags = 
     ///         {
     ///             { "hello", "world" },
@@ -69,16 +77,20 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With VPC Attachment (Single Region)
     /// 
     /// The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument. There are 2 options to implement this:
     /// 
     /// - Option 1: Use the `base_policy_document` argument that allows the most customizations to a base policy. Use this to customize the `edge_locations` `asn`. In the example below, `us-west-2` and ASN `65500` are used in the base policy.
     /// - Option 2: Use the `create_base_policy` argument only. This creates a base policy in the region specified in the `provider` block.
+    /// 
     /// ### Option 1 - using base_policy_document
     /// 
     /// If you require a custom ASN for the edge location, please use the `base_policy_document` argument to pass a specific ASN. For example:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,7 +99,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork");
+    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("example");
     /// 
     ///     var @base = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
     ///     {
@@ -118,21 +130,21 @@ namespace Pulumi.Aws.NetworkManager
     ///         },
     ///     });
     /// 
-    ///     var exampleCoreNetwork = new Aws.NetworkManager.CoreNetwork("exampleCoreNetwork", new()
+    ///     var exampleCoreNetwork = new Aws.NetworkManager.CoreNetwork("example", new()
     ///     {
     ///         GlobalNetworkId = exampleGlobalNetwork.Id,
     ///         BasePolicyDocument = @base.Apply(@base =&gt; @base.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json)),
     ///         CreateBasePolicy = true,
     ///     });
     /// 
-    ///     var exampleVpcAttachment = new Aws.NetworkManager.VpcAttachment("exampleVpcAttachment", new()
+    ///     var exampleVpcAttachment = new Aws.NetworkManager.VpcAttachment("example", new()
     ///     {
     ///         CoreNetworkId = exampleCoreNetwork.Id,
-    ///         SubnetArns = aws_subnet.Example.Select(__item =&gt; __item.Arn).ToList(),
-    ///         VpcArn = aws_vpc.Example.Arn,
+    ///         SubnetArns = exampleAwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
+    ///         VpcArn = exampleAwsVpc.Arn,
     ///     });
     /// 
-    ///     var exampleCoreNetworkPolicyDocument = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
+    ///     var example = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
     ///     {
     ///         CoreNetworkConfigurations = new[]
     ///         {
@@ -177,16 +189,19 @@ namespace Pulumi.Aws.NetworkManager
     ///         },
     ///     });
     /// 
-    ///     var exampleCoreNetworkPolicyAttachment = new Aws.NetworkManager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", new()
+    ///     var exampleCoreNetworkPolicyAttachment = new Aws.NetworkManager.CoreNetworkPolicyAttachment("example", new()
     ///     {
     ///         CoreNetworkId = exampleCoreNetwork.Id,
-    ///         PolicyDocument = exampleCoreNetworkPolicyDocument.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json),
+    ///         PolicyDocument = example.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Option 2 - create_base_policy only
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -195,22 +210,22 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork");
+    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("example");
     /// 
-    ///     var exampleCoreNetwork = new Aws.NetworkManager.CoreNetwork("exampleCoreNetwork", new()
+    ///     var exampleCoreNetwork = new Aws.NetworkManager.CoreNetwork("example", new()
     ///     {
     ///         GlobalNetworkId = exampleGlobalNetwork.Id,
     ///         CreateBasePolicy = true,
     ///     });
     /// 
-    ///     var exampleVpcAttachment = new Aws.NetworkManager.VpcAttachment("exampleVpcAttachment", new()
+    ///     var exampleVpcAttachment = new Aws.NetworkManager.VpcAttachment("example", new()
     ///     {
     ///         CoreNetworkId = exampleCoreNetwork.Id,
-    ///         SubnetArns = aws_subnet.Example.Select(__item =&gt; __item.Arn).ToList(),
-    ///         VpcArn = aws_vpc.Example.Arn,
+    ///         SubnetArns = exampleAwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
+    ///         VpcArn = exampleAwsVpc.Arn,
     ///     });
     /// 
-    ///     var exampleCoreNetworkPolicyDocument = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
+    ///     var example = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
     ///     {
     ///         CoreNetworkConfigurations = new[]
     ///         {
@@ -254,22 +269,26 @@ namespace Pulumi.Aws.NetworkManager
     ///         },
     ///     });
     /// 
-    ///     var exampleCoreNetworkPolicyAttachment = new Aws.NetworkManager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", new()
+    ///     var exampleCoreNetworkPolicyAttachment = new Aws.NetworkManager.CoreNetworkPolicyAttachment("example", new()
     ///     {
     ///         CoreNetworkId = exampleCoreNetwork.Id,
-    ///         PolicyDocument = exampleCoreNetworkPolicyDocument.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json),
+    ///         PolicyDocument = example.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With VPC Attachment (Multi-Region)
     /// 
     /// The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument of the `aws.networkmanager.CoreNetwork` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument. For multi-region in a core network that does not yet have a `LIVE` policy, there are 2 options:
     /// 
     /// - Option 1: Use the `base_policy_document` argument that allows the most customizations to a base policy. Use this to customize the `edge_locations` `asn`. In the example below, `us-west-2`, `us-east-1` and specific ASNs are used in the base policy.
     /// - Option 2: Pass a list of regions to the `aws.networkmanager.CoreNetwork` `base_policy_regions` argument. In the example below, `us-west-2` and `us-east-1` are specified in the base policy.
+    /// 
     /// ### Option 1 - using base_policy_document
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -278,7 +297,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork");
+    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("example");
     /// 
     ///     var @base = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
     ///     {
@@ -314,31 +333,28 @@ namespace Pulumi.Aws.NetworkManager
     ///         },
     ///     });
     /// 
-    ///     var exampleCoreNetwork = new Aws.NetworkManager.CoreNetwork("exampleCoreNetwork", new()
+    ///     var exampleCoreNetwork = new Aws.NetworkManager.CoreNetwork("example", new()
     ///     {
     ///         GlobalNetworkId = exampleGlobalNetwork.Id,
     ///         BasePolicyDocument = @base.Apply(@base =&gt; @base.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json)),
     ///         CreateBasePolicy = true,
     ///     });
     /// 
-    ///     var exampleUsWest2 = new Aws.NetworkManager.VpcAttachment("exampleUsWest2", new()
+    ///     var exampleUsWest2 = new Aws.NetworkManager.VpcAttachment("example_us_west_2", new()
     ///     {
     ///         CoreNetworkId = exampleCoreNetwork.Id,
-    ///         SubnetArns = aws_subnet.Example_us_west_2.Select(__item =&gt; __item.Arn).ToList(),
-    ///         VpcArn = aws_vpc.Example_us_west_2.Arn,
+    ///         SubnetArns = exampleUsWest2AwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
+    ///         VpcArn = exampleUsWest2AwsVpc.Arn,
     ///     });
     /// 
-    ///     var exampleUsEast1 = new Aws.NetworkManager.VpcAttachment("exampleUsEast1", new()
+    ///     var exampleUsEast1 = new Aws.NetworkManager.VpcAttachment("example_us_east_1", new()
     ///     {
     ///         CoreNetworkId = exampleCoreNetwork.Id,
-    ///         SubnetArns = aws_subnet.Example_us_east_1.Select(__item =&gt; __item.Arn).ToList(),
-    ///         VpcArn = aws_vpc.Example_us_east_1.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "alternate",
+    ///         SubnetArns = exampleUsEast1AwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
+    ///         VpcArn = exampleUsEast1AwsVpc.Arn,
     ///     });
     /// 
-    ///     var exampleCoreNetworkPolicyDocument = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
+    ///     var example = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
     ///     {
     ///         CoreNetworkConfigurations = new[]
     ///         {
@@ -405,16 +421,19 @@ namespace Pulumi.Aws.NetworkManager
     ///         },
     ///     });
     /// 
-    ///     var exampleCoreNetworkPolicyAttachment = new Aws.NetworkManager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", new()
+    ///     var exampleCoreNetworkPolicyAttachment = new Aws.NetworkManager.CoreNetworkPolicyAttachment("example", new()
     ///     {
     ///         CoreNetworkId = exampleCoreNetwork.Id,
-    ///         PolicyDocument = exampleCoreNetworkPolicyDocument.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json),
+    ///         PolicyDocument = example.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Option 2 - using base_policy_regions
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -423,9 +442,9 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork");
+    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("example");
     /// 
-    ///     var exampleCoreNetwork = new Aws.NetworkManager.CoreNetwork("exampleCoreNetwork", new()
+    ///     var exampleCoreNetwork = new Aws.NetworkManager.CoreNetwork("example", new()
     ///     {
     ///         GlobalNetworkId = exampleGlobalNetwork.Id,
     ///         BasePolicyRegions = new[]
@@ -436,24 +455,21 @@ namespace Pulumi.Aws.NetworkManager
     ///         CreateBasePolicy = true,
     ///     });
     /// 
-    ///     var exampleUsWest2 = new Aws.NetworkManager.VpcAttachment("exampleUsWest2", new()
+    ///     var exampleUsWest2 = new Aws.NetworkManager.VpcAttachment("example_us_west_2", new()
     ///     {
     ///         CoreNetworkId = exampleCoreNetwork.Id,
-    ///         SubnetArns = aws_subnet.Example_us_west_2.Select(__item =&gt; __item.Arn).ToList(),
-    ///         VpcArn = aws_vpc.Example_us_west_2.Arn,
+    ///         SubnetArns = exampleUsWest2AwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
+    ///         VpcArn = exampleUsWest2AwsVpc.Arn,
     ///     });
     /// 
-    ///     var exampleUsEast1 = new Aws.NetworkManager.VpcAttachment("exampleUsEast1", new()
+    ///     var exampleUsEast1 = new Aws.NetworkManager.VpcAttachment("example_us_east_1", new()
     ///     {
     ///         CoreNetworkId = exampleCoreNetwork.Id,
-    ///         SubnetArns = aws_subnet.Example_us_east_1.Select(__item =&gt; __item.Arn).ToList(),
-    ///         VpcArn = aws_vpc.Example_us_east_1.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "alternate",
+    ///         SubnetArns = exampleUsEast1AwsSubnet.Select(__item =&gt; __item.Arn).ToList(),
+    ///         VpcArn = exampleUsEast1AwsVpc.Arn,
     ///     });
     /// 
-    ///     var exampleCoreNetworkPolicyDocument = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
+    ///     var example = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
     ///     {
     ///         CoreNetworkConfigurations = new[]
     ///         {
@@ -518,21 +534,22 @@ namespace Pulumi.Aws.NetworkManager
     ///         },
     ///     });
     /// 
-    ///     var exampleCoreNetworkPolicyAttachment = new Aws.NetworkManager.CoreNetworkPolicyAttachment("exampleCoreNetworkPolicyAttachment", new()
+    ///     var exampleCoreNetworkPolicyAttachment = new Aws.NetworkManager.CoreNetworkPolicyAttachment("example", new()
     ///     {
     ///         CoreNetworkId = exampleCoreNetwork.Id,
-    ///         PolicyDocument = exampleCoreNetworkPolicyDocument.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json),
+    ///         PolicyDocument = example.Apply(getCoreNetworkPolicyDocumentResult =&gt; getCoreNetworkPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_core_network` using the core network ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4
+    /// $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/coreNetwork:CoreNetwork")]
@@ -565,14 +582,29 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        /// "version": "2021.12",
+        /// "core-network-configuration": {
+        /// "asn-ranges": [
+        /// "64512-65534"
+        /// ],
+        /// "vpn-ecmp-support": false,
+        /// "edge-locations": [
+        /// {
+        /// "location": "us-east-1"
+        /// }
+        /// ]
+        /// },
+        /// "segments": [
+        /// {
+        /// "name": "segment",
+        /// "description": "base-policy",
+        /// "isolate-attachments": false,
+        /// "require-attachment-acceptance": false
+        /// }
+        /// ]
+        /// }
         /// ```
         /// </summary>
         [Output("createBasePolicy")]
@@ -649,10 +681,6 @@ namespace Pulumi.Aws.NetworkManager
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -703,14 +731,29 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        /// "version": "2021.12",
+        /// "core-network-configuration": {
+        /// "asn-ranges": [
+        /// "64512-65534"
+        /// ],
+        /// "vpn-ecmp-support": false,
+        /// "edge-locations": [
+        /// {
+        /// "location": "us-east-1"
+        /// }
+        /// ]
+        /// },
+        /// "segments": [
+        /// {
+        /// "name": "segment",
+        /// "description": "base-policy",
+        /// "isolate-attachments": false,
+        /// "require-attachment-acceptance": false
+        /// }
+        /// ]
+        /// }
         /// ```
         /// </summary>
         [Input("createBasePolicy")]
@@ -781,14 +824,29 @@ namespace Pulumi.Aws.NetworkManager
         /// <summary>
         /// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
         /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
+        /// ```json
         /// {
-        /// });
+        /// "version": "2021.12",
+        /// "core-network-configuration": {
+        /// "asn-ranges": [
+        /// "64512-65534"
+        /// ],
+        /// "vpn-ecmp-support": false,
+        /// "edge-locations": [
+        /// {
+        /// "location": "us-east-1"
+        /// }
+        /// ]
+        /// },
+        /// "segments": [
+        /// {
+        /// "name": "segment",
+        /// "description": "base-policy",
+        /// "isolate-attachments": false,
+        /// "require-attachment-acceptance": false
+        /// }
+        /// ]
+        /// }
         /// ```
         /// </summary>
         [Input("createBasePolicy")]
@@ -864,11 +922,7 @@ namespace Pulumi.Aws.NetworkManager
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public CoreNetworkState()

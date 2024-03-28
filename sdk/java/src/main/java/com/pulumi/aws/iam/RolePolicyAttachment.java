@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role&#39;s managed policy attachments and Pulumi will show a permanent difference.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,10 +62,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *             .name(&#34;test-role&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var policyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;ec2:Describe*&#34;)
@@ -72,8 +75,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var policyPolicy = new Policy(&#34;policyPolicy&#34;, PolicyArgs.builder()        
+ *             .name(&#34;test-policy&#34;)
  *             .description(&#34;A test policy&#34;)
- *             .policy(policyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(policy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var test_attach = new RolePolicyAttachment(&#34;test-attach&#34;, RolePolicyAttachmentArgs.builder()        
@@ -84,13 +88,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
  * ```
  * 
  */

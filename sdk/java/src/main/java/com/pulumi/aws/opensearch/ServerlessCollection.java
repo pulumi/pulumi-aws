@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,7 +24,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -37,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.opensearch.ServerlessCollection;
  * import com.pulumi.aws.opensearch.ServerlessCollectionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,7 +52,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleServerlessSecurityPolicy = new ServerlessSecurityPolicy(&#34;exampleServerlessSecurityPolicy&#34;, ServerlessSecurityPolicyArgs.builder()        
+ *         var example = new ServerlessSecurityPolicy(&#34;example&#34;, ServerlessSecurityPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;encryption&#34;)
  *             .policy(serializeJson(
  *                 jsonObject(
@@ -63,20 +65,21 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleServerlessCollection = new ServerlessCollection(&#34;exampleServerlessCollection&#34;, ServerlessCollectionArgs.Empty, CustomResourceOptions.builder()
- *             .dependsOn(exampleServerlessSecurityPolicy)
+ *         var exampleServerlessCollection = new ServerlessCollection(&#34;exampleServerlessCollection&#34;, ServerlessCollectionArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
+ * $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
  * ```
  * 
  */
@@ -171,6 +174,20 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * 
+     */
+    @Export(name="standbyReplicas", refs={String.class}, tree="[0]")
+    private Output<String> standbyReplicas;
+
+    /**
+     * @return Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * 
+     */
+    public Output<String> standbyReplicas() {
+        return this.standbyReplicas;
+    }
+    /**
      * A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -249,9 +266,6 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

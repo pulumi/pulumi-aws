@@ -9,11 +9,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.lightsail.Lb("test", {
+ *     name: "test-load-balancer",
  *     healthCheckPath: "/",
  *     instancePort: 80,
  *     tags: {
@@ -21,13 +23,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+ * $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
  * ```
  */
 export class Lb extends pulumi.CustomResource {
@@ -150,8 +153,6 @@ export class Lb extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Lb.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -331,52 +331,55 @@ class CostCategory(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.costexplorer.CostCategory("test",
+            name="NAME",
+            rule_version="CostCategoryExpression.v1",
             rules=[
                 aws.costexplorer.CostCategoryRuleArgs(
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            match_options=["ENDS_WITH"],
-                            values=["-prod"],
-                        ),
-                    ),
                     value="production",
-                ),
-                aws.costexplorer.CostCategoryRuleArgs(
                     rule=aws.costexplorer.CostCategoryRuleRuleArgs(
                         dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
                             key="LINKED_ACCOUNT_NAME",
+                            values=["-prod"],
                             match_options=["ENDS_WITH"],
-                            values=["-stg"],
                         ),
                     ),
+                ),
+                aws.costexplorer.CostCategoryRuleArgs(
                     value="staging",
-                ),
-                aws.costexplorer.CostCategoryRuleArgs(
                     rule=aws.costexplorer.CostCategoryRuleRuleArgs(
                         dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
                             key="LINKED_ACCOUNT_NAME",
+                            values=["-stg"],
                             match_options=["ENDS_WITH"],
-                            values=["-dev"],
                         ),
                     ),
-                    value="testing",
                 ),
-            ],
-            rule_version="CostCategoryExpression.v1")
+                aws.costexplorer.CostCategoryRuleArgs(
+                    value="testing",
+                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
+                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
+                            key="LINKED_ACCOUNT_NAME",
+                            values=["-dev"],
+                            match_options=["ENDS_WITH"],
+                        ),
+                    ),
+                ),
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
 
         ```sh
-         $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+        $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
         ```
 
         :param str resource_name: The name of the resource.
@@ -402,52 +405,55 @@ class CostCategory(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.costexplorer.CostCategory("test",
+            name="NAME",
+            rule_version="CostCategoryExpression.v1",
             rules=[
                 aws.costexplorer.CostCategoryRuleArgs(
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            match_options=["ENDS_WITH"],
-                            values=["-prod"],
-                        ),
-                    ),
                     value="production",
-                ),
-                aws.costexplorer.CostCategoryRuleArgs(
                     rule=aws.costexplorer.CostCategoryRuleRuleArgs(
                         dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
                             key="LINKED_ACCOUNT_NAME",
+                            values=["-prod"],
                             match_options=["ENDS_WITH"],
-                            values=["-stg"],
                         ),
                     ),
+                ),
+                aws.costexplorer.CostCategoryRuleArgs(
                     value="staging",
-                ),
-                aws.costexplorer.CostCategoryRuleArgs(
                     rule=aws.costexplorer.CostCategoryRuleRuleArgs(
                         dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
                             key="LINKED_ACCOUNT_NAME",
+                            values=["-stg"],
                             match_options=["ENDS_WITH"],
-                            values=["-dev"],
                         ),
                     ),
-                    value="testing",
                 ),
-            ],
-            rule_version="CostCategoryExpression.v1")
+                aws.costexplorer.CostCategoryRuleArgs(
+                    value="testing",
+                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
+                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
+                            key="LINKED_ACCOUNT_NAME",
+                            values=["-dev"],
+                            match_options=["ENDS_WITH"],
+                        ),
+                    ),
+                ),
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
 
         ```sh
-         $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+        $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
         ```
 
         :param str resource_name: The name of the resource.
@@ -495,8 +501,6 @@ class CostCategory(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["effective_end"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CostCategory, __self__).__init__(
             'aws:costexplorer/costCategory:CostCategory',
             resource_name,

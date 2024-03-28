@@ -5,6 +5,7 @@ package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.aws.msk.outputs.ServerlessClusterClientAuthenticationSasl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class ServerlessClusterClientAuthentication {
 
         @CustomType.Setter
         public Builder sasl(ServerlessClusterClientAuthenticationSasl sasl) {
-            this.sasl = Objects.requireNonNull(sasl);
+            if (sasl == null) {
+              throw new MissingRequiredPropertyException("ServerlessClusterClientAuthentication", "sasl");
+            }
+            this.sasl = sasl;
             return this;
         }
         public ServerlessClusterClientAuthentication build() {
-            final var o = new ServerlessClusterClientAuthentication();
-            o.sasl = sasl;
-            return o;
+            final var _resultValue = new ServerlessClusterClientAuthentication();
+            _resultValue.sasl = sasl;
+            return _resultValue;
         }
     }
 }

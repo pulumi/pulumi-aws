@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			production, err := ssm.NewPatchBaseline(ctx, "production", &ssm.PatchBaselineArgs{
+//				Name: pulumi.String("patch-baseline"),
 //				ApprovedPatches: pulumi.StringArray{
 //					pulumi.String("KB123456"),
 //				},
@@ -48,6 +50,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type PatchGroup struct {
 	pulumi.CustomResourceState
 

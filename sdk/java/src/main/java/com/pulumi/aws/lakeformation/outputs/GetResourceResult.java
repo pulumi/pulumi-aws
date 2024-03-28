@@ -4,6 +4,7 @@
 package com.pulumi.aws.lakeformation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -76,31 +77,43 @@ public final class GetResourceResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastModified(String lastModified) {
-            this.lastModified = Objects.requireNonNull(lastModified);
+            if (lastModified == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "lastModified");
+            }
+            this.lastModified = lastModified;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("GetResourceResult", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public GetResourceResult build() {
-            final var o = new GetResourceResult();
-            o.arn = arn;
-            o.id = id;
-            o.lastModified = lastModified;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new GetResourceResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.lastModified = lastModified;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

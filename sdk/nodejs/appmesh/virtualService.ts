@@ -11,47 +11,55 @@ import * as utilities from "../utilities";
  * Provides an AWS App Mesh virtual service resource.
  *
  * ## Example Usage
+ *
  * ### Virtual Node Provider
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const servicea = new aws.appmesh.VirtualService("servicea", {
- *     meshName: aws_appmesh_mesh.simple.id,
+ *     name: "servicea.simpleapp.local",
+ *     meshName: simple.id,
  *     spec: {
  *         provider: {
  *             virtualNode: {
- *                 virtualNodeName: aws_appmesh_virtual_node.serviceb1.name,
+ *                 virtualNodeName: serviceb1.name,
  *             },
  *         },
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Virtual Router Provider
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const servicea = new aws.appmesh.VirtualService("servicea", {
- *     meshName: aws_appmesh_mesh.simple.id,
+ *     name: "servicea.simpleapp.local",
+ *     meshName: simple.id,
  *     spec: {
  *         provider: {
  *             virtualRouter: {
- *                 virtualRouterName: aws_appmesh_virtual_router.serviceb.name,
+ *                 virtualRouterName: serviceb.name,
  *             },
  *         },
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
+ * $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
  * ```
  */
 export class VirtualService extends pulumi.CustomResource {
@@ -168,8 +176,6 @@ export class VirtualService extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VirtualService.__pulumiType, name, resourceInputs, opts);
     }
 }

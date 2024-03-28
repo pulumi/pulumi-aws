@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Use the `aws.pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+ * $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
  * ```
  * 
  */

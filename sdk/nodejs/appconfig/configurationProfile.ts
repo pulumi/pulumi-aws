@@ -12,16 +12,18 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appconfig.ConfigurationProfile("example", {
- *     applicationId: aws_appconfig_application.example.id,
+ *     applicationId: exampleAwsAppconfigApplication.id,
  *     description: "Example Configuration Profile",
+ *     name: "example-configuration-profile-tf",
  *     locationUri: "hosted",
  *     validators: [{
- *         content: aws_lambda_function.example.arn,
+ *         content: exampleAwsLambdaFunction.arn,
  *         type: "LAMBDA",
  *     }],
  *     tags: {
@@ -29,13 +31,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Configuration Profiles using the configuration profile ID and application ID separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
+ * $ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
  * ```
  */
 export class ConfigurationProfile extends pulumi.CustomResource {
@@ -82,6 +85,10 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      * Description of the configuration profile. Can be at most 1024 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     */
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     /**
      * URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
      */
@@ -130,6 +137,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["configurationProfileId"] = state ? state.configurationProfileId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
             resourceInputs["locationUri"] = state ? state.locationUri : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["retrievalRoleArn"] = state ? state.retrievalRoleArn : undefined;
@@ -147,6 +155,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["locationUri"] = args ? args.locationUri : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
@@ -158,8 +167,6 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ConfigurationProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -184,6 +191,10 @@ export interface ConfigurationProfileState {
      * Description of the configuration profile. Can be at most 1024 characters.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
      */
@@ -228,6 +239,10 @@ export interface ConfigurationProfileArgs {
      * Description of the configuration profile. Can be at most 1024 characters.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
      */

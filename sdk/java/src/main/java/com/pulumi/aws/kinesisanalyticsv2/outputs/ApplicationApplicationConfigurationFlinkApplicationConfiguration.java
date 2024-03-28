@@ -74,25 +74,28 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
 
         @CustomType.Setter
         public Builder checkpointConfiguration(@Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration checkpointConfiguration) {
+
             this.checkpointConfiguration = checkpointConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder monitoringConfiguration(@Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration monitoringConfiguration) {
+
             this.monitoringConfiguration = monitoringConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder parallelismConfiguration(@Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration parallelismConfiguration) {
+
             this.parallelismConfiguration = parallelismConfiguration;
             return this;
         }
         public ApplicationApplicationConfigurationFlinkApplicationConfiguration build() {
-            final var o = new ApplicationApplicationConfigurationFlinkApplicationConfiguration();
-            o.checkpointConfiguration = checkpointConfiguration;
-            o.monitoringConfiguration = monitoringConfiguration;
-            o.parallelismConfiguration = parallelismConfiguration;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationFlinkApplicationConfiguration();
+            _resultValue.checkpointConfiguration = checkpointConfiguration;
+            _resultValue.monitoringConfiguration = monitoringConfiguration;
+            _resultValue.parallelismConfiguration = parallelismConfiguration;
+            return _resultValue;
         }
     }
 }

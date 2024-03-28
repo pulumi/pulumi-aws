@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class GetMulticastDomainSource {
 
         @CustomType.Setter
         public Builder groupIpAddress(String groupIpAddress) {
-            this.groupIpAddress = Objects.requireNonNull(groupIpAddress);
+            if (groupIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainSource", "groupIpAddress");
+            }
+            this.groupIpAddress = groupIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
-            this.networkInterfaceId = Objects.requireNonNull(networkInterfaceId);
+            if (networkInterfaceId == null) {
+              throw new MissingRequiredPropertyException("GetMulticastDomainSource", "networkInterfaceId");
+            }
+            this.networkInterfaceId = networkInterfaceId;
             return this;
         }
         public GetMulticastDomainSource build() {
-            final var o = new GetMulticastDomainSource();
-            o.groupIpAddress = groupIpAddress;
-            o.networkInterfaceId = networkInterfaceId;
-            return o;
+            final var _resultValue = new GetMulticastDomainSource();
+            _resultValue.groupIpAddress = groupIpAddress;
+            _resultValue.networkInterfaceId = networkInterfaceId;
+            return _resultValue;
         }
     }
 }

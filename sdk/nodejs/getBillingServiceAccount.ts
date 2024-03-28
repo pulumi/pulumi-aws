@@ -9,17 +9,18 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.getBillingServiceAccount({});
- * const billingLogs = new aws.s3.BucketV2("billingLogs", {});
- * const billingLogsAcl = new aws.s3.BucketAclV2("billingLogsAcl", {
+ * const billingLogs = new aws.s3.BucketV2("billing_logs", {bucket: "my-billing-tf-test-bucket"});
+ * const billingLogsAcl = new aws.s3.BucketAclV2("billing_logs_acl", {
  *     bucket: billingLogs.id,
  *     acl: "private",
  * });
- * const allowBillingLoggingPolicyDocument = pulumi.all([main, billingLogs.arn, main, billingLogs.arn]).apply(([main, billingLogsArn, main1, billingLogsArn1]) => aws.iam.getPolicyDocumentOutput({
+ * const allowBillingLogging = pulumi.all([main, billingLogs.arn, main, billingLogs.arn]).apply(([main, billingLogsArn, main1, billingLogsArn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -44,11 +45,12 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  * }));
- * const allowBillingLoggingBucketPolicy = new aws.s3.BucketPolicy("allowBillingLoggingBucketPolicy", {
+ * const allowBillingLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_billing_logging", {
  *     bucket: billingLogs.id,
- *     policy: allowBillingLoggingPolicyDocument.apply(allowBillingLoggingPolicyDocument => allowBillingLoggingPolicyDocument.json),
+ *     policy: allowBillingLogging.apply(allowBillingLogging => allowBillingLogging.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBillingServiceAccount(args?: GetBillingServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingServiceAccountResult> {
     args = args || {};
@@ -87,17 +89,18 @@ export interface GetBillingServiceAccountResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.getBillingServiceAccount({});
- * const billingLogs = new aws.s3.BucketV2("billingLogs", {});
- * const billingLogsAcl = new aws.s3.BucketAclV2("billingLogsAcl", {
+ * const billingLogs = new aws.s3.BucketV2("billing_logs", {bucket: "my-billing-tf-test-bucket"});
+ * const billingLogsAcl = new aws.s3.BucketAclV2("billing_logs_acl", {
  *     bucket: billingLogs.id,
  *     acl: "private",
  * });
- * const allowBillingLoggingPolicyDocument = pulumi.all([main, billingLogs.arn, main, billingLogs.arn]).apply(([main, billingLogsArn, main1, billingLogsArn1]) => aws.iam.getPolicyDocumentOutput({
+ * const allowBillingLogging = pulumi.all([main, billingLogs.arn, main, billingLogs.arn]).apply(([main, billingLogsArn, main1, billingLogsArn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -122,11 +125,12 @@ export interface GetBillingServiceAccountResult {
  *         },
  *     ],
  * }));
- * const allowBillingLoggingBucketPolicy = new aws.s3.BucketPolicy("allowBillingLoggingBucketPolicy", {
+ * const allowBillingLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_billing_logging", {
  *     bucket: billingLogs.id,
- *     policy: allowBillingLoggingPolicyDocument.apply(allowBillingLoggingPolicyDocument => allowBillingLoggingPolicyDocument.json),
+ *     policy: allowBillingLogging.apply(allowBillingLogging => allowBillingLogging.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBillingServiceAccountOutput(args?: GetBillingServiceAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingServiceAccountResult> {
     return pulumi.output(args).apply((a: any) => getBillingServiceAccount(a, opts))

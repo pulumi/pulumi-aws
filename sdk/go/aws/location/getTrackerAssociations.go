@@ -14,8 +14,10 @@ import (
 // Retrieve information about Location Service Tracker Associations.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetTrackerAssociations(ctx *pulumi.Context, args *GetTrackerAssociationsArgs, opts ...pulumi.InvokeOption) (*GetTrackerAssociationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTrackerAssociationsResult

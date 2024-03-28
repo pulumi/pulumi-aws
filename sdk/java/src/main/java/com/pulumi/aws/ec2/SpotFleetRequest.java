@@ -29,7 +29,10 @@ import javax.annotation.Nullable;
  * We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
  * 
  * ## Example Usage
+ * 
  * ### Using launch specifications
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,14 +67,14 @@ import javax.annotation.Nullable;
  *                     .ami(&#34;ami-1234&#34;)
  *                     .spotPrice(&#34;2.793&#34;)
  *                     .placementTenancy(&#34;dedicated&#34;)
- *                     .iamInstanceProfileArn(aws_iam_instance_profile.example().arn())
+ *                     .iamInstanceProfileArn(example.arn())
  *                     .build(),
  *                 SpotFleetRequestLaunchSpecificationArgs.builder()
  *                     .instanceType(&#34;m4.4xlarge&#34;)
  *                     .ami(&#34;ami-5678&#34;)
  *                     .keyName(&#34;my-key&#34;)
  *                     .spotPrice(&#34;1.117&#34;)
- *                     .iamInstanceProfileArn(aws_iam_instance_profile.example().arn())
+ *                     .iamInstanceProfileArn(example.arn())
  *                     .availabilityZone(&#34;us-west-1a&#34;)
  *                     .subnetId(&#34;subnet-1234&#34;)
  *                     .weightedCapacity(35)
@@ -86,7 +89,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using launch templates
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -99,7 +106,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.SpotFleetRequestArgs;
  * import com.pulumi.aws.ec2.inputs.SpotFleetRequestLaunchTemplateConfigArgs;
  * import com.pulumi.aws.ec2.inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -113,7 +119,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooLaunchTemplate = new LaunchTemplate(&#34;fooLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
+ *         var foo = new LaunchTemplate(&#34;foo&#34;, LaunchTemplateArgs.builder()        
+ *             .name(&#34;launch-template&#34;)
  *             .imageId(&#34;ami-516b9131&#34;)
  *             .instanceType(&#34;m1.small&#34;)
  *             .keyName(&#34;some-key&#34;)
@@ -126,21 +133,23 @@ import javax.annotation.Nullable;
  *             .validUntil(&#34;2019-11-04T20:44:20Z&#34;)
  *             .launchTemplateConfigs(SpotFleetRequestLaunchTemplateConfigArgs.builder()
  *                 .launchTemplateSpecification(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
- *                     .id(fooLaunchTemplate.id())
- *                     .version(fooLaunchTemplate.latestVersion())
+ *                     .id(foo.id())
+ *                     .version(foo.latestVersion())
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_policy_attachment.test-attach())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
  * launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
+ * 
  * ### Using multiple launch specifications
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -165,68 +174,37 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new SpotFleetRequest(&#34;foo&#34;, SpotFleetRequestArgs.builder()        
  *             .iamFleetRole(&#34;arn:aws:iam::12345678:role/spot-fleet&#34;)
- *             .launchSpecifications(            
- *                 SpotFleetRequestLaunchSpecificationArgs.builder()
- *                     .ami(&#34;ami-d06a90b0&#34;)
- *                     .availabilityZone(&#34;us-west-2a&#34;)
- *                     .instanceType(&#34;m1.small&#34;)
- *                     .keyName(&#34;my-key&#34;)
- *                     .build(),
- *                 SpotFleetRequestLaunchSpecificationArgs.builder()
- *                     .ami(&#34;ami-d06a90b0&#34;)
- *                     .availabilityZone(&#34;us-west-2a&#34;)
- *                     .instanceType(&#34;m5.large&#34;)
- *                     .keyName(&#34;my-key&#34;)
- *                     .build())
  *             .spotPrice(&#34;0.005&#34;)
  *             .targetCapacity(2)
  *             .validUntil(&#34;2019-11-04T20:44:20Z&#34;)
+ *             .launchSpecifications(            
+ *                 SpotFleetRequestLaunchSpecificationArgs.builder()
+ *                     .instanceType(&#34;m1.small&#34;)
+ *                     .ami(&#34;ami-d06a90b0&#34;)
+ *                     .keyName(&#34;my-key&#34;)
+ *                     .availabilityZone(&#34;us-west-2a&#34;)
+ *                     .build(),
+ *                 SpotFleetRequestLaunchSpecificationArgs.builder()
+ *                     .instanceType(&#34;m5.large&#34;)
+ *                     .ami(&#34;ami-d06a90b0&#34;)
+ *                     .keyName(&#34;my-key&#34;)
+ *                     .availabilityZone(&#34;us-west-2a&#34;)
+ *                     .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
  * 
- * ```java
- * package generated_program;
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.SpotFleetRequest;
- * import com.pulumi.aws.ec2.SpotFleetRequestArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var subnets = config.get(&#34;subnets&#34;);
- *         var example = new SpotFleetRequest(&#34;example&#34;, SpotFleetRequestArgs.builder()        
- *             .iamFleetRole(&#34;arn:aws:iam::12345678:role/spot-fleet&#34;)
- *             .targetCapacity(3)
- *             .validUntil(&#34;2019-11-04T20:44:20Z&#34;)
- *             .allocationStrategy(&#34;lowestPrice&#34;)
- *             .fleetType(&#34;request&#34;)
- *             .waitForFulfillment(&#34;true&#34;)
- *             .terminateInstancesWithExpiration(&#34;true&#34;)
- *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Using multiple launch configurations
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -241,7 +219,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.SpotFleetRequestArgs;
  * import com.pulumi.aws.ec2.inputs.SpotFleetRequestLaunchTemplateConfigArgs;
  * import com.pulumi.aws.ec2.inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -258,11 +235,12 @@ import javax.annotation.Nullable;
  *         final var example = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
  *             .filters(GetSubnetsFilterArgs.builder()
  *                 .name(&#34;vpc-id&#34;)
- *                 .values(var_.vpc_id())
+ *                 .values(vpcId)
  *                 .build())
  *             .build());
  * 
- *         var fooLaunchTemplate = new LaunchTemplate(&#34;fooLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
+ *         var foo = new LaunchTemplate(&#34;foo&#34;, LaunchTemplateArgs.builder()        
+ *             .name(&#34;launch-template&#34;)
  *             .imageId(&#34;ami-516b9131&#34;)
  *             .instanceType(&#34;m1.small&#34;)
  *             .keyName(&#34;some-key&#34;)
@@ -275,8 +253,8 @@ import javax.annotation.Nullable;
  *             .validUntil(&#34;2019-11-04T20:44:20Z&#34;)
  *             .launchTemplateConfigs(SpotFleetRequestLaunchTemplateConfigArgs.builder()
  *                 .launchTemplateSpecification(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
- *                     .id(fooLaunchTemplate.id())
- *                     .version(fooLaunchTemplate.latestVersion())
+ *                     .id(foo.id())
+ *                     .version(foo.latestVersion())
  *                     .build())
  *                 .overrides(                
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
@@ -289,20 +267,19 @@ import javax.annotation.Nullable;
  *                         .subnetId(example.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[2]))
  *                         .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_policy_attachment.test-attach())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Spot Fleet Requests using `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
+ * $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
  * ```
  * 
  */
@@ -785,9 +762,6 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

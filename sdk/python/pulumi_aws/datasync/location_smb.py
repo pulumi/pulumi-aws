@@ -351,6 +351,7 @@ class LocationSmb(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -360,15 +361,16 @@ class LocationSmb(pulumi.CustomResource):
             subdirectory="/exported/path",
             user="Guest",
             password="ANotGreatPassword",
-            agent_arns=[aws_datasync_agent["example"]["arn"]])
+            agent_arns=[example_aws_datasync_agent["arn"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -395,6 +397,7 @@ class LocationSmb(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -404,15 +407,16 @@ class LocationSmb(pulumi.CustomResource):
             subdirectory="/exported/path",
             user="Guest",
             password="ANotGreatPassword",
-            agent_arns=[aws_datasync_agent["example"]["arn"]])
+            agent_arns=[example_aws_datasync_agent["arn"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -468,7 +472,7 @@ class LocationSmb(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["uri"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LocationSmb, __self__).__init__(
             'aws:datasync/locationSmb:LocationSmb',

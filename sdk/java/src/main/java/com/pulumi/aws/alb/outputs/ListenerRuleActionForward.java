@@ -6,6 +6,7 @@ package com.pulumi.aws.alb.outputs;
 import com.pulumi.aws.alb.outputs.ListenerRuleActionForwardStickiness;
 import com.pulumi.aws.alb.outputs.ListenerRuleActionForwardTargetGroup;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -60,22 +61,26 @@ public final class ListenerRuleActionForward {
 
         @CustomType.Setter
         public Builder stickiness(@Nullable ListenerRuleActionForwardStickiness stickiness) {
+
             this.stickiness = stickiness;
             return this;
         }
         @CustomType.Setter
         public Builder targetGroups(List<ListenerRuleActionForwardTargetGroup> targetGroups) {
-            this.targetGroups = Objects.requireNonNull(targetGroups);
+            if (targetGroups == null) {
+              throw new MissingRequiredPropertyException("ListenerRuleActionForward", "targetGroups");
+            }
+            this.targetGroups = targetGroups;
             return this;
         }
         public Builder targetGroups(ListenerRuleActionForwardTargetGroup... targetGroups) {
             return targetGroups(List.of(targetGroups));
         }
         public ListenerRuleActionForward build() {
-            final var o = new ListenerRuleActionForward();
-            o.stickiness = stickiness;
-            o.targetGroups = targetGroups;
-            return o;
+            final var _resultValue = new ListenerRuleActionForward();
+            _resultValue.stickiness = stickiness;
+            _resultValue.targetGroups = targetGroups;
+            return _resultValue;
         }
     }
 }

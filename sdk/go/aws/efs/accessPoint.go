@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := efs.NewAccessPoint(ctx, "test", &efs.AccessPointArgs{
-//				FileSystemId: pulumi.Any(aws_efs_file_system.Foo.Id),
+//				FileSystemId: pulumi.Any(foo.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the EFS access points using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
-//
+// $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
 // ```
 type AccessPoint struct {
 	pulumi.CustomResourceState
@@ -81,10 +81,6 @@ func NewAccessPoint(ctx *pulumi.Context,
 	if args.FileSystemId == nil {
 		return nil, errors.New("invalid value for required argument 'FileSystemId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessPoint
 	err := ctx.RegisterResource("aws:efs/accessPoint:AccessPoint", name, args, &resource, opts...)

@@ -4,6 +4,7 @@
 package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -114,7 +115,10 @@ public final class GetReportPlanReportSetting {
 
         @CustomType.Setter
         public Builder accounts(List<String> accounts) {
-            this.accounts = Objects.requireNonNull(accounts);
+            if (accounts == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanReportSetting", "accounts");
+            }
+            this.accounts = accounts;
             return this;
         }
         public Builder accounts(String... accounts) {
@@ -122,7 +126,10 @@ public final class GetReportPlanReportSetting {
         }
         @CustomType.Setter
         public Builder frameworkArns(List<String> frameworkArns) {
-            this.frameworkArns = Objects.requireNonNull(frameworkArns);
+            if (frameworkArns == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanReportSetting", "frameworkArns");
+            }
+            this.frameworkArns = frameworkArns;
             return this;
         }
         public Builder frameworkArns(String... frameworkArns) {
@@ -130,12 +137,18 @@ public final class GetReportPlanReportSetting {
         }
         @CustomType.Setter
         public Builder numberOfFrameworks(Integer numberOfFrameworks) {
-            this.numberOfFrameworks = Objects.requireNonNull(numberOfFrameworks);
+            if (numberOfFrameworks == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanReportSetting", "numberOfFrameworks");
+            }
+            this.numberOfFrameworks = numberOfFrameworks;
             return this;
         }
         @CustomType.Setter
         public Builder organizationUnits(List<String> organizationUnits) {
-            this.organizationUnits = Objects.requireNonNull(organizationUnits);
+            if (organizationUnits == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanReportSetting", "organizationUnits");
+            }
+            this.organizationUnits = organizationUnits;
             return this;
         }
         public Builder organizationUnits(String... organizationUnits) {
@@ -143,7 +156,10 @@ public final class GetReportPlanReportSetting {
         }
         @CustomType.Setter
         public Builder regions(List<String> regions) {
-            this.regions = Objects.requireNonNull(regions);
+            if (regions == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanReportSetting", "regions");
+            }
+            this.regions = regions;
             return this;
         }
         public Builder regions(String... regions) {
@@ -151,18 +167,21 @@ public final class GetReportPlanReportSetting {
         }
         @CustomType.Setter
         public Builder reportTemplate(String reportTemplate) {
-            this.reportTemplate = Objects.requireNonNull(reportTemplate);
+            if (reportTemplate == null) {
+              throw new MissingRequiredPropertyException("GetReportPlanReportSetting", "reportTemplate");
+            }
+            this.reportTemplate = reportTemplate;
             return this;
         }
         public GetReportPlanReportSetting build() {
-            final var o = new GetReportPlanReportSetting();
-            o.accounts = accounts;
-            o.frameworkArns = frameworkArns;
-            o.numberOfFrameworks = numberOfFrameworks;
-            o.organizationUnits = organizationUnits;
-            o.regions = regions;
-            o.reportTemplate = reportTemplate;
-            return o;
+            final var _resultValue = new GetReportPlanReportSetting();
+            _resultValue.accounts = accounts;
+            _resultValue.frameworkArns = frameworkArns;
+            _resultValue.numberOfFrameworks = numberOfFrameworks;
+            _resultValue.organizationUnits = organizationUnits;
+            _resultValue.regions = regions;
+            _resultValue.reportTemplate = reportTemplate;
+            return _resultValue;
         }
     }
 }

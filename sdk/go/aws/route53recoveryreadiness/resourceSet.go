@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,7 +34,7 @@ import (
 //				ResourceSetType: pulumi.String("AWS::CloudWatch::Alarm"),
 //				Resources: route53recoveryreadiness.ResourceSetResourceArray{
 //					&route53recoveryreadiness.ResourceSetResourceArgs{
-//						ResourceArn: pulumi.Any(aws_cloudwatch_metric_alarm.Example.Arn),
+//						ResourceArn: pulumi.Any(exampleAwsCloudwatchMetricAlarm.Arn),
 //					},
 //				},
 //			})
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
-//
+// $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
 // ```
 type ResourceSet struct {
 	pulumi.CustomResourceState
@@ -92,10 +92,6 @@ func NewResourceSet(ctx *pulumi.Context,
 	if args.Resources == nil {
 		return nil, errors.New("invalid value for required argument 'Resources'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceSet
 	err := ctx.RegisterResource("aws:route53recoveryreadiness/resourceSet:ResourceSet", name, args, &resource, opts...)

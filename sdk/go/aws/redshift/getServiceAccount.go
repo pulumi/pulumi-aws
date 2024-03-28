@@ -16,6 +16,90 @@ import (
 //
 // > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
 // The `redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
+//
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// main, err := redshift.GetServiceAccount(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+// Bucket: pulumi.String("tf-redshift-logging-test-bucket"),
+// ForceDestroy: pulumi.Bool(true),
+// })
+// if err != nil {
+// return err
+// }
+// allowAuditLogging := bucket.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Sid: "Put bucket policy needed for audit logging",
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: interface{}{
+// main.Arn,
+// },
+// },
+// },
+// Actions: []string{
+// "s3:PutObject",
+// },
+// Resources: []string{
+// fmt.Sprintf("%v/*", arn),
+// },
+// },
+// {
+// Sid: "Get bucket policy needed for audit logging",
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: interface{}{
+// main.Arn,
+// },
+// },
+// },
+// Actions: []string{
+// "s3:GetBucketAcl",
+// },
+// Resources: bucketAwsS3Bucket.Arn,
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = s3.NewBucketPolicy(ctx, "allow_audit_logging", &s3.BucketPolicyArgs{
+// Bucket: bucket.ID(),
+// Policy: allowAuditLogging.ApplyT(func(allowAuditLogging iam.GetPolicyDocumentResult) (*string, error) {
+// return &allowAuditLogging.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// <!--End PulumiCodeChooser -->
 func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetServiceAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceAccountResult

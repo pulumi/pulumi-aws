@@ -72,25 +72,28 @@ public final class QueueOutboundCallerConfig {
 
         @CustomType.Setter
         public Builder outboundCallerIdName(@Nullable String outboundCallerIdName) {
+
             this.outboundCallerIdName = outboundCallerIdName;
             return this;
         }
         @CustomType.Setter
         public Builder outboundCallerIdNumberId(@Nullable String outboundCallerIdNumberId) {
+
             this.outboundCallerIdNumberId = outboundCallerIdNumberId;
             return this;
         }
         @CustomType.Setter
         public Builder outboundFlowId(@Nullable String outboundFlowId) {
+
             this.outboundFlowId = outboundFlowId;
             return this;
         }
         public QueueOutboundCallerConfig build() {
-            final var o = new QueueOutboundCallerConfig();
-            o.outboundCallerIdName = outboundCallerIdName;
-            o.outboundCallerIdNumberId = outboundCallerIdNumberId;
-            o.outboundFlowId = outboundFlowId;
-            return o;
+            final var _resultValue = new QueueOutboundCallerConfig();
+            _resultValue.outboundCallerIdName = outboundCallerIdName;
+            _resultValue.outboundCallerIdNumberId = outboundCallerIdNumberId;
+            _resultValue.outboundFlowId = outboundFlowId;
+            return _resultValue;
         }
     }
 }

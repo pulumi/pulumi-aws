@@ -58,19 +58,21 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
 
         @CustomType.Setter
         public Builder clientCertificateTlsAuth(@Nullable String clientCertificateTlsAuth) {
+
             this.clientCertificateTlsAuth = clientCertificateTlsAuth;
             return this;
         }
         @CustomType.Setter
         public Builder saslScram512Auth(@Nullable String saslScram512Auth) {
+
             this.saslScram512Auth = saslScram512Auth;
             return this;
         }
         public PipeSourceParametersManagedStreamingKafkaParametersCredentials build() {
-            final var o = new PipeSourceParametersManagedStreamingKafkaParametersCredentials();
-            o.clientCertificateTlsAuth = clientCertificateTlsAuth;
-            o.saslScram512Auth = saslScram512Auth;
-            return o;
+            final var _resultValue = new PipeSourceParametersManagedStreamingKafkaParametersCredentials();
+            _resultValue.clientCertificateTlsAuth = clientCertificateTlsAuth;
+            _resultValue.saslScram512Auth = saslScram512Auth;
+            return _resultValue;
         }
     }
 }

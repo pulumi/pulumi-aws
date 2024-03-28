@@ -18,14 +18,70 @@ import (
 //
 // > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			replica, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
+//				Replicas: dynamodb.TableReplicaTypeArray{
+//					&dynamodb.TableReplicaTypeArgs{
+//						RegionName: pulumi.String(replica.Name),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dynamodb.NewTag(ctx, "test", &dynamodb.TagArgs{
+//				ResourceArn: example.Arn.ApplyT(func(arn string) (std.ReplaceResult, error) {
+//					return std.ReplaceOutput(ctx, std.ReplaceOutputArgs{
+//						Text:    arn,
+//						Search:  current.Name,
+//						Replace: replica.Name,
+//					}, nil), nil
+//				}).(std.ReplaceResultOutput).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
+//					return invoke.Result, nil
+//				}).(pulumi.StringPtrOutput),
+//				Key:   pulumi.String("testkey"),
+//				Value: pulumi.String("testvalue"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
-//
+// $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
 // ```
 type Tag struct {
 	pulumi.CustomResourceState

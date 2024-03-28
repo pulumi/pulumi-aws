@@ -14,11 +14,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {forceDestroy: true});
+ * const b = new aws.s3.BucketV2("b", {
+ *     bucket: "example-awsconfig",
+ *     forceDestroy: true,
+ * });
+ * const foo = new aws.cfg.DeliveryChannel("foo", {
+ *     name: "example",
+ *     s3BucketName: b.bucket,
+ * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -29,33 +37,38 @@ import * as utilities from "../utilities";
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const fooRecorder = new aws.cfg.Recorder("fooRecorder", {roleArn: role.arn});
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("fooDeliveryChannel", {s3BucketName: bucketV2.bucket}, {
- *     dependsOn: [fooRecorder],
+ * const r = new aws.iam.Role("r", {
+ *     name: "awsconfig-example",
+ *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const policyDocument = aws.iam.getPolicyDocumentOutput({
+ * const fooRecorder = new aws.cfg.Recorder("foo", {
+ *     name: "example",
+ *     roleArn: r.arn,
+ * });
+ * const p = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["s3:*"],
  *         resources: [
- *             bucketV2.arn,
- *             pulumi.interpolate`${bucketV2.arn}/*`,
+ *             b.arn,
+ *             pulumi.interpolate`${b.arn}/*`,
  *         ],
  *     }],
  * });
- * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
- *     role: role.id,
- *     policy: policyDocument.apply(policyDocument => policyDocument.json),
+ * const pRolePolicy = new aws.iam.RolePolicy("p", {
+ *     name: "awsconfig-example",
+ *     role: r.id,
+ *     policy: p.apply(p => p.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Delivery Channel using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+ * $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
  * ```
  */
 export class DeliveryChannel extends pulumi.CustomResource {

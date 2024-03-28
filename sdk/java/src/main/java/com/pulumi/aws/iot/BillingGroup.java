@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Manages an AWS IoT Billing Group.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,6 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new BillingGroup(&#34;example&#34;, BillingGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .properties(BillingGroupPropertiesArgs.builder()
  *                 .description(&#34;This is my billing group&#34;)
  *                 .build())
@@ -55,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IoT Billing Groups using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/billingGroup:BillingGroup example example
+ * $ pulumi import aws:iot/billingGroup:BillingGroup example example
  * ```
  * 
  */
@@ -188,9 +192,6 @@ public class BillingGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

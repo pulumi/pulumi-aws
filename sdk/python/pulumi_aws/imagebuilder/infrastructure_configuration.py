@@ -546,25 +546,27 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.imagebuilder.InfrastructureConfiguration("example",
             description="example description",
-            instance_profile_name=aws_iam_instance_profile["example"]["name"],
+            instance_profile_name=example_aws_iam_instance_profile["name"],
             instance_types=[
                 "t2.nano",
                 "t3.micro",
             ],
-            key_pair=aws_key_pair["example"]["key_name"],
-            security_group_ids=[aws_security_group["example"]["id"]],
-            sns_topic_arn=aws_sns_topic["example"]["arn"],
-            subnet_id=aws_subnet["main"]["id"],
+            key_pair=example_aws_key_pair["keyName"],
+            name="example",
+            security_group_ids=[example_aws_security_group["id"]],
+            sns_topic_arn=example_aws_sns_topic["arn"],
+            subnet_id=main["id"],
             terminate_instance_on_failure=True,
             logging=aws.imagebuilder.InfrastructureConfigurationLoggingArgs(
                 s3_logs=aws.imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs(
-                    s3_bucket_name=aws_s3_bucket["example"]["bucket"],
+                    s3_bucket_name=example_aws_s3_bucket["bucket"],
                     s3_key_prefix="logs",
                 ),
             ),
@@ -572,13 +574,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
+        $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -610,25 +613,27 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.imagebuilder.InfrastructureConfiguration("example",
             description="example description",
-            instance_profile_name=aws_iam_instance_profile["example"]["name"],
+            instance_profile_name=example_aws_iam_instance_profile["name"],
             instance_types=[
                 "t2.nano",
                 "t3.micro",
             ],
-            key_pair=aws_key_pair["example"]["key_name"],
-            security_group_ids=[aws_security_group["example"]["id"]],
-            sns_topic_arn=aws_sns_topic["example"]["arn"],
-            subnet_id=aws_subnet["main"]["id"],
+            key_pair=example_aws_key_pair["keyName"],
+            name="example",
+            security_group_ids=[example_aws_security_group["id"]],
+            sns_topic_arn=example_aws_sns_topic["arn"],
+            subnet_id=main["id"],
             terminate_instance_on_failure=True,
             logging=aws.imagebuilder.InfrastructureConfigurationLoggingArgs(
                 s3_logs=aws.imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs(
-                    s3_bucket_name=aws_s3_bucket["example"]["bucket"],
+                    s3_bucket_name=example_aws_s3_bucket["bucket"],
                     s3_key_prefix="logs",
                 ),
             ),
@@ -636,13 +641,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
+        $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -701,8 +707,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__.__dict__["date_created"] = None
             __props__.__dict__["date_updated"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(InfrastructureConfiguration, __self__).__init__(
             'aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration',
             resource_name,

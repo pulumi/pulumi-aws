@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,10 +32,10 @@ import (
 //			_, err := ec2.NewCustomerGateway(ctx, "main", &ec2.CustomerGatewayArgs{
 //				BgpAsn:    pulumi.String("65000"),
 //				IpAddress: pulumi.String("172.83.124.10"),
+//				Type:      pulumi.String("ipsec.1"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("main-customer-gateway"),
 //				},
-//				Type: pulumi.String("ipsec.1"),
 //			})
 //			if err != nil {
 //				return err
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Customer Gateways using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
-//
+// $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
 // ```
 type CustomerGateway struct {
 	pulumi.CustomResourceState
@@ -91,10 +91,6 @@ func NewCustomerGateway(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomerGateway
 	err := ctx.RegisterResource("aws:ec2/customerGateway:CustomerGateway", name, args, &resource, opts...)

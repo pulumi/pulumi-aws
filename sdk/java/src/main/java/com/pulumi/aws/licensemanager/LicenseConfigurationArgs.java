@@ -5,6 +5,7 @@ package com.pulumi.aws.licensemanager;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -312,7 +313,9 @@ public final class LicenseConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         public LicenseConfigurationArgs build() {
-            $.licenseCountingType = Objects.requireNonNull($.licenseCountingType, "expected parameter 'licenseCountingType' to be non-null");
+            if ($.licenseCountingType == null) {
+                throw new MissingRequiredPropertyException("LicenseConfigurationArgs", "licenseCountingType");
+            }
             return $;
         }
     }

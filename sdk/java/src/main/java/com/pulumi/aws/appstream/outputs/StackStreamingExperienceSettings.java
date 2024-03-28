@@ -46,13 +46,14 @@ public final class StackStreamingExperienceSettings {
 
         @CustomType.Setter
         public Builder preferredProtocol(@Nullable String preferredProtocol) {
+
             this.preferredProtocol = preferredProtocol;
             return this;
         }
         public StackStreamingExperienceSettings build() {
-            final var o = new StackStreamingExperienceSettings();
-            o.preferredProtocol = preferredProtocol;
-            return o;
+            final var _resultValue = new StackStreamingExperienceSettings();
+            _resultValue.preferredProtocol = preferredProtocol;
+            return _resultValue;
         }
     }
 }

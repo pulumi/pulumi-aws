@@ -132,6 +132,7 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
 
         @CustomType.Setter
         public Builder containerOverrides(@Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverride> containerOverrides) {
+
             this.containerOverrides = containerOverrides;
             return this;
         }
@@ -140,21 +141,25 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
         }
         @CustomType.Setter
         public Builder cpu(@Nullable String cpu) {
+
             this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder ephemeralStorage(@Nullable PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage ephemeralStorage) {
+
             this.ephemeralStorage = ephemeralStorage;
             return this;
         }
         @CustomType.Setter
         public Builder executionRoleArn(@Nullable String executionRoleArn) {
+
             this.executionRoleArn = executionRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder inferenceAcceleratorOverrides(@Nullable List<PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides) {
+
             this.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
             return this;
         }
@@ -163,24 +168,26 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
         }
         @CustomType.Setter
         public Builder memory(@Nullable String memory) {
+
             this.memory = memory;
             return this;
         }
         @CustomType.Setter
         public Builder taskRoleArn(@Nullable String taskRoleArn) {
+
             this.taskRoleArn = taskRoleArn;
             return this;
         }
         public PipeTargetParametersEcsTaskParametersOverrides build() {
-            final var o = new PipeTargetParametersEcsTaskParametersOverrides();
-            o.containerOverrides = containerOverrides;
-            o.cpu = cpu;
-            o.ephemeralStorage = ephemeralStorage;
-            o.executionRoleArn = executionRoleArn;
-            o.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
-            o.memory = memory;
-            o.taskRoleArn = taskRoleArn;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersOverrides();
+            _resultValue.containerOverrides = containerOverrides;
+            _resultValue.cpu = cpu;
+            _resultValue.ephemeralStorage = ephemeralStorage;
+            _resultValue.executionRoleArn = executionRoleArn;
+            _resultValue.inferenceAcceleratorOverrides = inferenceAcceleratorOverrides;
+            _resultValue.memory = memory;
+            _resultValue.taskRoleArn = taskRoleArn;
+            return _resultValue;
         }
     }
 }

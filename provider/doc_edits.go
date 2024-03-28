@@ -26,7 +26,6 @@ import (
 
 func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	return append(defaults,
-		fixupImports(),
 		// This fixes up strings such as:
 		//
 		//	name        = "terraform-kinesis-firehose-os",
@@ -67,44 +66,11 @@ func reReplace(from string, to string) tfbridge.DocsEdit {
 	}
 }
 
-func fixupImports() tfbridge.DocsEdit {
-	const tfOrTODO = `([tT]erraform|TODO)`
-
-	var inlineImportRegexp = regexp.MustCompile("% " + tfOrTODO + " import.*")
-	var quotedImportRegexp = regexp.MustCompile("`" + tfOrTODO + " import`")
-
-	// (?s) makes the '.' match newlines (in addition to everything else).
-	var blockImportRegexp = regexp.MustCompile("(?s)In " + tfOrTODO + " v[0-9]+\\.[0-9]+\\.[0-9]+ and later," +
-		" use an `import` block.*?```.+?```\n")
-
-	return tfbridge.DocsEdit{
-		Path: "*",
-		Edit: func(_ string, content []byte) ([]byte, error) {
-			content = blockImportRegexp.ReplaceAllLiteral(content, nil)
-			content = inlineImportRegexp.ReplaceAllFunc(content, func(match []byte) []byte {
-				match = bytes.ReplaceAll(match, []byte("terraform"), []byte("pulumi"))
-				match = bytes.ReplaceAll(match, []byte("Terraform"), []byte("pulumi"))
-				match = bytes.ReplaceAll(match, []byte("TODO"), []byte("pulumi"))
-				return match
-			})
-			content = quotedImportRegexp.ReplaceAllLiteral(content, []byte("`pulumi import`"))
-			return content, nil
-		},
-	}
-}
-
 // Apply replacements from `replacements.json` (as search and replace) to read in docs.
 func applyReplacementsDotJSON() tfbridge.DocsEdit {
 	filePath := "./provider/replacements.json"
-	fileBytes, err := os.ReadFile(filePath)
-	if err != nil {
-		panic(err)
-	}
-	var replacements replacementFile
-	err = json.Unmarshal(fileBytes, &replacements)
-	if err != nil {
-		panic(err)
-	}
+	replacements := make(replacementFile)
+	replacements.mustReadJSONFile(filePath)
 
 	fmt.Printf("Gathered %d replacements\n", len(replacements))
 	var applied int
@@ -186,11 +152,47 @@ func (r replacementFile) checkForTODOs(path string, content []byte) {
 		start, end = findLine(content, m[0])
 		line := string(content[start:end])
 
-		r[path] = append(r[path], replacement{
+		r.addReplacement(path, replacement{
 			Old:     line,
 			New:     elidedText.ReplaceAllLiteralString(line, "TODO"),
 			wasUsed: true,
 		})
+	}
+}
+
+// Checks if file under path already has a replacement specified for a string old.
+func (r replacementFile) hasReplacement(path string, old string) bool {
+	for _, oldReplacement := range r[path] {
+		if oldReplacement.Old == old {
+			return true
+		}
+	}
+	return false
+}
+
+func (r replacementFile) addReplacement(path string, repl replacement) {
+	// Adding a replacement for the same old string would be no-op since replacements are
+	// applied sequentially. Skip adding it.
+	if r.hasReplacement(path, repl.Old) {
+		return
+	}
+	r[path] = append(r[path], repl)
+}
+
+func (r replacementFile) mustReadJSONFile(filePath string) {
+	fileBytes, err := os.ReadFile(filePath)
+	if err != nil {
+		panic(err)
+	}
+	var replacements replacementFile
+	err = json.Unmarshal(fileBytes, &replacements)
+	if err != nil {
+		panic(err)
+	}
+	for path, rs := range replacements {
+		for _, repl := range rs {
+			r.addReplacement(path, repl)
+		}
 	}
 }
 

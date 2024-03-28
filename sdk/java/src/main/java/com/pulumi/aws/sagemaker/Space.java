@@ -6,13 +6,14 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.sagemaker.SpaceArgs;
 import com.pulumi.aws.sagemaker.inputs.SpaceState;
+import com.pulumi.aws.sagemaker.outputs.SpaceOwnershipSettings;
 import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSettings;
+import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSharingSettings;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +22,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Space resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,20 +48,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Space(&#34;example&#34;, SpaceArgs.builder()        
- *             .domainId(aws_sagemaker_domain.test().id())
+ *             .domainId(test.id())
  *             .spaceName(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Spaces using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
+ * $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
  * ```
  * 
  */
@@ -106,6 +111,34 @@ public class Space extends com.pulumi.resources.CustomResource {
         return this.homeEfsFileSystemUid;
     }
     /**
+     * A collection of ownership settings. See Ownership Settings below.
+     * 
+     */
+    @Export(name="ownershipSettings", refs={SpaceOwnershipSettings.class}, tree="[0]")
+    private Output</* @Nullable */ SpaceOwnershipSettings> ownershipSettings;
+
+    /**
+     * @return A collection of ownership settings. See Ownership Settings below.
+     * 
+     */
+    public Output<Optional<SpaceOwnershipSettings>> ownershipSettings() {
+        return Codegen.optional(this.ownershipSettings);
+    }
+    /**
+     * The name of the space that appears in the SageMaker Studio UI.
+     * 
+     */
+    @Export(name="spaceDisplayName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> spaceDisplayName;
+
+    /**
+     * @return The name of the space that appears in the SageMaker Studio UI.
+     * 
+     */
+    public Output<Optional<String>> spaceDisplayName() {
+        return Codegen.optional(this.spaceDisplayName);
+    }
+    /**
      * The name of the space.
      * 
      */
@@ -132,6 +165,20 @@ public class Space extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<SpaceSpaceSettings>> spaceSettings() {
         return Codegen.optional(this.spaceSettings);
+    }
+    /**
+     * A collection of space sharing settings. See Space Sharing Settings below.
+     * 
+     */
+    @Export(name="spaceSharingSettings", refs={SpaceSpaceSharingSettings.class}, tree="[0]")
+    private Output</* @Nullable */ SpaceSpaceSharingSettings> spaceSharingSettings;
+
+    /**
+     * @return A collection of space sharing settings. See Space Sharing Settings below.
+     * 
+     */
+    public Output<Optional<SpaceSpaceSharingSettings>> spaceSharingSettings() {
+        return Codegen.optional(this.spaceSharingSettings);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -164,6 +211,20 @@ public class Space extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+     * 
+     */
+    @Export(name="url", refs={String.class}, tree="[0]")
+    private Output<String> url;
+
+    /**
+     * @return Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
+     * 
+     */
+    public Output<String> url() {
+        return this.url;
     }
 
     /**
@@ -198,9 +259,6 @@ public class Space extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

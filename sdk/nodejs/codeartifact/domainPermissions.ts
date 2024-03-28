@@ -9,16 +9,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "domain key"});
- * const exampleDomain = new aws.codeartifact.Domain("exampleDomain", {
+ * const example = new aws.kms.Key("example", {description: "domain key"});
+ * const exampleDomain = new aws.codeartifact.Domain("example", {
  *     domain: "example",
- *     encryptionKey: exampleKey.arn,
+ *     encryptionKey: example.arn,
  * });
- * const testPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const test = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -29,18 +30,19 @@ import * as utilities from "../utilities";
  *         resources: [exampleDomain.arn],
  *     }],
  * });
- * const testDomainPermissions = new aws.codeartifact.DomainPermissions("testDomainPermissions", {
+ * const testDomainPermissions = new aws.codeartifact.DomainPermissions("test", {
  *     domain: exampleDomain.domain,
- *     policyDocument: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
+ *     policyDocument: test.apply(test => test.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
+ * $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
  * ```
  */
 export class DomainPermissions extends pulumi.CustomResource {

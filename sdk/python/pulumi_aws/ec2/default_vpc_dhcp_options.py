@@ -217,6 +217,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
         Basic usage with tags:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,13 +226,14 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
             "Name": "Default DHCP Option Set",
         })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
+        $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
         ```
 
         :param str resource_name: The name of the resource.
@@ -261,6 +263,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
         Basic usage with tags:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,13 +272,14 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
             "Name": "Default DHCP Option Set",
         })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
+        $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
         ```
 
         :param str resource_name: The name of the resource.
@@ -313,8 +317,6 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
             __props__.__dict__["netbios_node_type"] = None
             __props__.__dict__["ntp_servers"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DefaultVpcDhcpOptions, __self__).__init__(
             'aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions',
             resource_name,

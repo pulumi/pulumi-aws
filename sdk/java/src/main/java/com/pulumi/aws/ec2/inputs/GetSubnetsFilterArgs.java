@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -18,6 +19,8 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
      * Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * For example, if matching against tag `Name`, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,6 +52,7 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="name", required=true)
@@ -58,6 +62,8 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
      * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * For example, if matching against tag `Name`, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -89,6 +95,7 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<String> name() {
@@ -141,6 +148,8 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
          * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -172,6 +181,7 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -185,6 +195,8 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
          * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -216,6 +228,7 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -259,8 +272,12 @@ public final class GetSubnetsFilterArgs extends com.pulumi.resources.ResourceArg
         }
 
         public GetSubnetsFilterArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetSubnetsFilterArgs", "name");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("GetSubnetsFilterArgs", "values");
+            }
             return $;
         }
     }

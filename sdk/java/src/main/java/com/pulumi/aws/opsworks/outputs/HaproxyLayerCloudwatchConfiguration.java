@@ -44,11 +44,13 @@ public final class HaproxyLayerCloudwatchConfiguration {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder logStreams(@Nullable List<HaproxyLayerCloudwatchConfigurationLogStream> logStreams) {
+
             this.logStreams = logStreams;
             return this;
         }
@@ -56,10 +58,10 @@ public final class HaproxyLayerCloudwatchConfiguration {
             return logStreams(List.of(logStreams));
         }
         public HaproxyLayerCloudwatchConfiguration build() {
-            final var o = new HaproxyLayerCloudwatchConfiguration();
-            o.enabled = enabled;
-            o.logStreams = logStreams;
-            return o;
+            final var _resultValue = new HaproxyLayerCloudwatchConfiguration();
+            _resultValue.enabled = enabled;
+            _resultValue.logStreams = logStreams;
+            return _resultValue;
         }
     }
 }

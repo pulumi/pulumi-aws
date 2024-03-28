@@ -11,6 +11,7 @@ import com.pulumi.aws.mq.inputs.BrokerMaintenanceWindowStartTimeArgs;
 import com.pulumi.aws.mq.inputs.BrokerUserArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -97,6 +98,36 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<BrokerConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
+    }
+
+    /**
+     * Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+     * 
+     */
+    @Import(name="dataReplicationMode")
+    private @Nullable Output<String> dataReplicationMode;
+
+    /**
+     * @return Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+     * 
+     */
+    public Optional<Output<String>> dataReplicationMode() {
+        return Optional.ofNullable(this.dataReplicationMode);
+    }
+
+    /**
+     * The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+     * 
+     */
+    @Import(name="dataReplicationPrimaryBrokerArn")
+    private @Nullable Output<String> dataReplicationPrimaryBrokerArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+     * 
+     */
+    public Optional<Output<String>> dataReplicationPrimaryBrokerArn() {
+        return Optional.ofNullable(this.dataReplicationPrimaryBrokerArn);
     }
 
     /**
@@ -321,6 +352,8 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
         this.autoMinorVersionUpgrade = $.autoMinorVersionUpgrade;
         this.brokerName = $.brokerName;
         this.configuration = $.configuration;
+        this.dataReplicationMode = $.dataReplicationMode;
+        this.dataReplicationPrimaryBrokerArn = $.dataReplicationPrimaryBrokerArn;
         this.deploymentMode = $.deploymentMode;
         this.encryptionOptions = $.encryptionOptions;
         this.engineType = $.engineType;
@@ -458,6 +491,48 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder configuration(BrokerConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
+        }
+
+        /**
+         * @param dataReplicationMode Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataReplicationMode(@Nullable Output<String> dataReplicationMode) {
+            $.dataReplicationMode = dataReplicationMode;
+            return this;
+        }
+
+        /**
+         * @param dataReplicationMode Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataReplicationMode(String dataReplicationMode) {
+            return dataReplicationMode(Output.of(dataReplicationMode));
+        }
+
+        /**
+         * @param dataReplicationPrimaryBrokerArn The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataReplicationPrimaryBrokerArn(@Nullable Output<String> dataReplicationPrimaryBrokerArn) {
+            $.dataReplicationPrimaryBrokerArn = dataReplicationPrimaryBrokerArn;
+            return this;
+        }
+
+        /**
+         * @param dataReplicationPrimaryBrokerArn The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataReplicationPrimaryBrokerArn(String dataReplicationPrimaryBrokerArn) {
+            return dataReplicationPrimaryBrokerArn(Output.of(dataReplicationPrimaryBrokerArn));
         }
 
         /**
@@ -791,10 +866,18 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BrokerArgs build() {
-            $.engineType = Objects.requireNonNull($.engineType, "expected parameter 'engineType' to be non-null");
-            $.engineVersion = Objects.requireNonNull($.engineVersion, "expected parameter 'engineVersion' to be non-null");
-            $.hostInstanceType = Objects.requireNonNull($.hostInstanceType, "expected parameter 'hostInstanceType' to be non-null");
-            $.users = Objects.requireNonNull($.users, "expected parameter 'users' to be non-null");
+            if ($.engineType == null) {
+                throw new MissingRequiredPropertyException("BrokerArgs", "engineType");
+            }
+            if ($.engineVersion == null) {
+                throw new MissingRequiredPropertyException("BrokerArgs", "engineVersion");
+            }
+            if ($.hostInstanceType == null) {
+                throw new MissingRequiredPropertyException("BrokerArgs", "hostInstanceType");
+            }
+            if ($.users == null) {
+                throw new MissingRequiredPropertyException("BrokerArgs", "users");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2clientvpn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -41,19 +42,25 @@ public final class GetEndpointClientLoginBannerOption {
 
         @CustomType.Setter
         public Builder bannerText(String bannerText) {
-            this.bannerText = Objects.requireNonNull(bannerText);
+            if (bannerText == null) {
+              throw new MissingRequiredPropertyException("GetEndpointClientLoginBannerOption", "bannerText");
+            }
+            this.bannerText = bannerText;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetEndpointClientLoginBannerOption", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         public GetEndpointClientLoginBannerOption build() {
-            final var o = new GetEndpointClientLoginBannerOption();
-            o.bannerText = bannerText;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new GetEndpointClientLoginBannerOption();
+            _resultValue.bannerText = bannerText;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

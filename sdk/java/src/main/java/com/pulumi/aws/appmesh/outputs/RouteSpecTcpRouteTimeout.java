@@ -44,13 +44,14 @@ public final class RouteSpecTcpRouteTimeout {
 
         @CustomType.Setter
         public Builder idle(@Nullable RouteSpecTcpRouteTimeoutIdle idle) {
+
             this.idle = idle;
             return this;
         }
         public RouteSpecTcpRouteTimeout build() {
-            final var o = new RouteSpecTcpRouteTimeout();
-            o.idle = idle;
-            return o;
+            final var _resultValue = new RouteSpecTcpRouteTimeout();
+            _resultValue.idle = idle;
+            return _resultValue;
         }
     }
 }

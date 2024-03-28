@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -235,7 +236,9 @@ public final class BucketNotificationLambdaFunctionArgs extends com.pulumi.resou
         }
 
         public BucketNotificationLambdaFunctionArgs build() {
-            $.events = Objects.requireNonNull($.events, "expected parameter 'events' to be non-null");
+            if ($.events == null) {
+                throw new MissingRequiredPropertyException("BucketNotificationLambdaFunctionArgs", "events");
+            }
             return $;
         }
     }

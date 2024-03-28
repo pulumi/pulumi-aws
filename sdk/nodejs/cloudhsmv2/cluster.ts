@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
+ * $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
  * ```
  */
 export class Cluster extends pulumi.CustomResource {
@@ -146,8 +146,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }

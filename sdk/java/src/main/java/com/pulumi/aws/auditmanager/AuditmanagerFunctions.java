@@ -21,7 +21,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Control.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -51,7 +54,11 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Framework Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -76,7 +83,7 @@ public final class AuditmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleControl = AuditmanagerFunctions.getControl(GetControlArgs.builder()
+     *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
      *             .name(&#34;1. Risk Management&#34;)
      *             .type(&#34;Standard&#34;)
      *             .build());
@@ -87,11 +94,12 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
      *                     .name(&#34;example&#34;)
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(exampleControl.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example.applyValue(getControlResult -&gt; getControlResult.id()))
      *                         .build())
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
@@ -105,6 +113,7 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetControlResult> getControl(GetControlArgs args) {
@@ -114,7 +123,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Control.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -144,7 +156,11 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Framework Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -169,7 +185,7 @@ public final class AuditmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleControl = AuditmanagerFunctions.getControl(GetControlArgs.builder()
+     *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
      *             .name(&#34;1. Risk Management&#34;)
      *             .type(&#34;Standard&#34;)
      *             .build());
@@ -180,11 +196,12 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
      *                     .name(&#34;example&#34;)
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(exampleControl.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example.applyValue(getControlResult -&gt; getControlResult.id()))
      *                         .build())
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
@@ -198,6 +215,7 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetControlResult> getControlPlain(GetControlPlainArgs args) {
@@ -207,7 +225,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Control.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -237,7 +258,11 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Framework Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -262,7 +287,7 @@ public final class AuditmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleControl = AuditmanagerFunctions.getControl(GetControlArgs.builder()
+     *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
      *             .name(&#34;1. Risk Management&#34;)
      *             .type(&#34;Standard&#34;)
      *             .build());
@@ -273,11 +298,12 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
      *                     .name(&#34;example&#34;)
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(exampleControl.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example.applyValue(getControlResult -&gt; getControlResult.id()))
      *                         .build())
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
@@ -291,6 +317,7 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetControlResult> getControl(GetControlArgs args, InvokeOptions options) {
@@ -300,7 +327,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Control.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -330,7 +360,11 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Framework Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -355,7 +389,7 @@ public final class AuditmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleControl = AuditmanagerFunctions.getControl(GetControlArgs.builder()
+     *         final var example = AuditmanagerFunctions.getControl(GetControlArgs.builder()
      *             .name(&#34;1. Risk Management&#34;)
      *             .type(&#34;Standard&#34;)
      *             .build());
@@ -366,11 +400,12 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework(&#34;exampleFramework&#34;, FrameworkArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
      *                     .name(&#34;example&#34;)
      *                     .controls(FrameworkControlSetControlArgs.builder()
-     *                         .id(exampleControl.applyValue(getControlResult -&gt; getControlResult.id()))
+     *                         .id(example.applyValue(getControlResult -&gt; getControlResult.id()))
      *                         .build())
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
@@ -384,6 +419,7 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetControlResult> getControlPlain(GetControlPlainArgs args, InvokeOptions options) {
@@ -393,7 +429,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Framework.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -416,13 +455,14 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .frameworkType(&#34;Standard&#34;)
      *             .name(&#34;Essential Eight&#34;)
+     *             .frameworkType(&#34;Standard&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrameworkResult> getFramework(GetFrameworkArgs args) {
@@ -432,7 +472,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Framework.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -455,13 +498,14 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .frameworkType(&#34;Standard&#34;)
      *             .name(&#34;Essential Eight&#34;)
+     *             .frameworkType(&#34;Standard&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrameworkResult> getFrameworkPlain(GetFrameworkPlainArgs args) {
@@ -471,7 +515,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Framework.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -494,13 +541,14 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .frameworkType(&#34;Standard&#34;)
      *             .name(&#34;Essential Eight&#34;)
+     *             .frameworkType(&#34;Standard&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrameworkResult> getFramework(GetFrameworkArgs args, InvokeOptions options) {
@@ -510,7 +558,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Framework.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -533,13 +584,14 @@ public final class AuditmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AuditmanagerFunctions.getFramework(GetFrameworkArgs.builder()
-     *             .frameworkType(&#34;Standard&#34;)
      *             .name(&#34;Essential Eight&#34;)
+     *             .frameworkType(&#34;Standard&#34;)
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrameworkResult> getFrameworkPlain(GetFrameworkPlainArgs args, InvokeOptions options) {

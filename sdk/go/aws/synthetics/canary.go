@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,14 +32,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synthetics.NewCanary(ctx, "some", &synthetics.CanaryArgs{
+//				Name:               pulumi.String("some-canary"),
 //				ArtifactS3Location: pulumi.String("s3://some-bucket/"),
 //				ExecutionRoleArn:   pulumi.String("some-role"),
 //				Handler:            pulumi.String("exports.handler"),
+//				ZipFile:            pulumi.String("test-fixtures/lambdatest.zip"),
 //				RuntimeVersion:     pulumi.String("syn-1.0"),
 //				Schedule: &synthetics.CanaryScheduleArgs{
 //					Expression: pulumi.String("rate(0 minute)"),
 //				},
-//				ZipFile: pulumi.String("test-fixtures/lambdatest.zip"),
 //			})
 //			if err != nil {
 //				return err
@@ -48,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:synthetics/canary:Canary some some-canary
-//
+// $ pulumi import aws:synthetics/canary:Canary some some-canary
 // ```
 type Canary struct {
 	pulumi.CustomResourceState
@@ -137,10 +138,6 @@ func NewCanary(ctx *pulumi.Context,
 	if args.Schedule == nil {
 		return nil, errors.New("invalid value for required argument 'Schedule'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Canary
 	err := ctx.RegisterResource("aws:synthetics/canary:Canary", name, args, &resource, opts...)

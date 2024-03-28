@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string ExecutionRole;
         /// <summary>
-        /// The Jupyter server's app settings. See Jupyter Server App Settings below.
+        /// The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsJupyterServerAppSettings? JupyterServerAppSettings;
         /// <summary>
-        /// The kernel gateway app settings. See Kernel Gateway App Settings below.
+        /// The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultSpaceSettingsKernelGatewayAppSettings? KernelGatewayAppSettings;
         /// <summary>

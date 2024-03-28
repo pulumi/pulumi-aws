@@ -74,16 +74,19 @@ public final class WorkflowStepTagStepDetails {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sourceFileLocation(@Nullable String sourceFileLocation) {
+
             this.sourceFileLocation = sourceFileLocation;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable List<WorkflowStepTagStepDetailsTag> tags) {
+
             this.tags = tags;
             return this;
         }
@@ -91,11 +94,11 @@ public final class WorkflowStepTagStepDetails {
             return tags(List.of(tags));
         }
         public WorkflowStepTagStepDetails build() {
-            final var o = new WorkflowStepTagStepDetails();
-            o.name = name;
-            o.sourceFileLocation = sourceFileLocation;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new WorkflowStepTagStepDetails();
+            _resultValue.name = name;
+            _resultValue.sourceFileLocation = sourceFileLocation;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

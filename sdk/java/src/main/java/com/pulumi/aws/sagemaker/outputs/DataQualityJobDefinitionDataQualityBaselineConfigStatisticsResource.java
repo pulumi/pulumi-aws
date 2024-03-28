@@ -44,13 +44,14 @@ public final class DataQualityJobDefinitionDataQualityBaselineConfigStatisticsRe
 
         @CustomType.Setter
         public Builder s3Uri(@Nullable String s3Uri) {
+
             this.s3Uri = s3Uri;
             return this;
         }
         public DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource build() {
-            final var o = new DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource();
-            o.s3Uri = s3Uri;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource();
+            _resultValue.s3Uri = s3Uri;
+            return _resultValue;
         }
     }
 }

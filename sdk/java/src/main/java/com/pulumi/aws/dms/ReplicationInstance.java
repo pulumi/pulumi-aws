@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -38,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.dms.ReplicationInstance;
  * import com.pulumi.aws.dms.ReplicationInstanceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,6 +65,7 @@ import javax.annotation.Nullable;
  * 
  *         var dms_access_for_endpoint = new Role(&#34;dms-access-for-endpoint&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;dms-access-for-endpoint&#34;)
  *             .build());
  * 
  *         var dms_access_for_endpoint_AmazonDMSRedshiftS3Role = new RolePolicyAttachment(&#34;dms-access-for-endpoint-AmazonDMSRedshiftS3Role&#34;, RolePolicyAttachmentArgs.builder()        
@@ -73,6 +75,7 @@ import javax.annotation.Nullable;
  * 
  *         var dms_cloudwatch_logs_role = new Role(&#34;dms-cloudwatch-logs-role&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;dms-cloudwatch-logs-role&#34;)
  *             .build());
  * 
  *         var dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole = new RolePolicyAttachment(&#34;dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole&#34;, RolePolicyAttachmentArgs.builder()        
@@ -82,6 +85,7 @@ import javax.annotation.Nullable;
  * 
  *         var dms_vpc_role = new Role(&#34;dms-vpc-role&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(dmsAssumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .name(&#34;dms-vpc-role&#34;)
  *             .build());
  * 
  *         var dms_vpc_role_AmazonDMSVPCManagementRole = new RolePolicyAttachment(&#34;dms-vpc-role-AmazonDMSVPCManagementRole&#34;, RolePolicyAttachmentArgs.builder()        
@@ -101,26 +105,22 @@ import javax.annotation.Nullable;
  *             .publiclyAccessible(true)
  *             .replicationInstanceClass(&#34;dms.t2.micro&#34;)
  *             .replicationInstanceId(&#34;test-dms-replication-instance-tf&#34;)
- *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test-dms-replication-subnet-group-tf().id())
+ *             .replicationSubnetGroupId(test_dms_replication_subnet_group_tf.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
  *             .vpcSecurityGroupIds(&#34;sg-12345678&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
- *                     dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole,
- *                     dms_vpc_role_AmazonDMSVPCManagementRole)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
+ * $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
  * ```
  * 
  */
@@ -463,9 +463,6 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

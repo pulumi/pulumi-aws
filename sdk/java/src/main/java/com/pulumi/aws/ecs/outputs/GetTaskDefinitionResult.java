@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -161,67 +162,97 @@ public final class GetTaskDefinitionResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder arnWithoutRevision(String arnWithoutRevision) {
-            this.arnWithoutRevision = Objects.requireNonNull(arnWithoutRevision);
+            if (arnWithoutRevision == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "arnWithoutRevision");
+            }
+            this.arnWithoutRevision = arnWithoutRevision;
             return this;
         }
         @CustomType.Setter
         public Builder executionRoleArn(String executionRoleArn) {
-            this.executionRoleArn = Objects.requireNonNull(executionRoleArn);
+            if (executionRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "executionRoleArn");
+            }
+            this.executionRoleArn = executionRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder family(String family) {
-            this.family = Objects.requireNonNull(family);
+            if (family == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "family");
+            }
+            this.family = family;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder networkMode(String networkMode) {
-            this.networkMode = Objects.requireNonNull(networkMode);
+            if (networkMode == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "networkMode");
+            }
+            this.networkMode = networkMode;
             return this;
         }
         @CustomType.Setter
         public Builder revision(Integer revision) {
-            this.revision = Objects.requireNonNull(revision);
+            if (revision == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "revision");
+            }
+            this.revision = revision;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder taskDefinition(String taskDefinition) {
-            this.taskDefinition = Objects.requireNonNull(taskDefinition);
+            if (taskDefinition == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "taskDefinition");
+            }
+            this.taskDefinition = taskDefinition;
             return this;
         }
         @CustomType.Setter
         public Builder taskRoleArn(String taskRoleArn) {
-            this.taskRoleArn = Objects.requireNonNull(taskRoleArn);
+            if (taskRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "taskRoleArn");
+            }
+            this.taskRoleArn = taskRoleArn;
             return this;
         }
         public GetTaskDefinitionResult build() {
-            final var o = new GetTaskDefinitionResult();
-            o.arn = arn;
-            o.arnWithoutRevision = arnWithoutRevision;
-            o.executionRoleArn = executionRoleArn;
-            o.family = family;
-            o.id = id;
-            o.networkMode = networkMode;
-            o.revision = revision;
-            o.status = status;
-            o.taskDefinition = taskDefinition;
-            o.taskRoleArn = taskRoleArn;
-            return o;
+            final var _resultValue = new GetTaskDefinitionResult();
+            _resultValue.arn = arn;
+            _resultValue.arnWithoutRevision = arnWithoutRevision;
+            _resultValue.executionRoleArn = executionRoleArn;
+            _resultValue.family = family;
+            _resultValue.id = id;
+            _resultValue.networkMode = networkMode;
+            _resultValue.revision = revision;
+            _resultValue.status = status;
+            _resultValue.taskDefinition = taskDefinition;
+            _resultValue.taskRoleArn = taskRoleArn;
+            return _resultValue;
         }
     }
 }

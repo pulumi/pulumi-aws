@@ -16,6 +16,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,11 +26,15 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "example",
+    ///     });
+    /// 
+    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
+    ///     {
+    ///         Bucket = example.Id,
+    ///         Name = "example",
     ///         PublicAccessBlockConfiguration = new Aws.S3.Inputs.AccessPointPublicAccessBlockConfigurationArgs
     ///         {
     ///             BlockPublicAcls = true,
@@ -39,23 +44,23 @@ namespace Pulumi.Aws.S3Control
     ///         },
     ///     });
     /// 
-    ///     var exampleAccessPointPolicy = new Aws.S3Control.AccessPointPolicy("exampleAccessPointPolicy", new()
+    ///     var exampleAccessPointPolicy = new Aws.S3Control.AccessPointPolicy("example", new()
     ///     {
     ///         AccessPointArn = exampleAccessPoint.Arn,
-    ///         Policy = exampleAccessPoint.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2008-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2008-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = "s3:GetObjectTagging",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["action"] = "s3:GetObjectTagging",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "*",
     ///                     },
-    ///                     ["Resource"] = $"{arn}/object/*",
+    ///                     ["resource"] = exampleAccessPoint.Arn.Apply(arn =&gt; $"{arn}/object/*"),
     ///                 },
     ///             },
     ///         })),
@@ -63,13 +68,14 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
+    /// $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/accessPointPolicy:AccessPointPolicy")]

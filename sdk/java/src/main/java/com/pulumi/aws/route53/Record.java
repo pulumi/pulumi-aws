@@ -10,6 +10,7 @@ import com.pulumi.aws.route53.outputs.RecordAlias;
 import com.pulumi.aws.route53.outputs.RecordCidrRoutingPolicy;
 import com.pulumi.aws.route53.outputs.RecordFailoverRoutingPolicy;
 import com.pulumi.aws.route53.outputs.RecordGeolocationRoutingPolicy;
+import com.pulumi.aws.route53.outputs.RecordGeoproximityRoutingPolicy;
 import com.pulumi.aws.route53.outputs.RecordLatencyRoutingPolicy;
 import com.pulumi.aws.route53.outputs.RecordWeightedRoutingPolicy;
 import com.pulumi.core.Output;
@@ -27,7 +28,10 @@ import javax.annotation.Nullable;
  * Provides a Route53 record resource.
  * 
  * ## Example Usage
+ * 
  * ### Simple routing policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,19 +54,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
+ *             .zoneId(primary.zoneId())
  *             .name(&#34;www.example.com&#34;)
  *             .type(&#34;A&#34;)
  *             .ttl(300)
- *             .records(aws_eip.lb().public_ip())
+ *             .records(lb.publicIp())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Weighted routing policy
  * 
  * Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -86,7 +94,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var www_dev = new Record(&#34;www-dev&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
+ *             .zoneId(primary.zoneId())
  *             .name(&#34;www&#34;)
  *             .type(&#34;CNAME&#34;)
  *             .ttl(5)
@@ -98,7 +106,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var www_live = new Record(&#34;www-live&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
+ *             .zoneId(primary.zoneId())
  *             .name(&#34;www&#34;)
  *             .type(&#34;CNAME&#34;)
  *             .ttl(5)
@@ -112,6 +120,53 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Geoproximity routing policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53.Record;
+ * import com.pulumi.aws.route53.RecordArgs;
+ * import com.pulumi.aws.route53.inputs.RecordGeoproximityRoutingPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
+ *             .zoneId(primary.zoneId())
+ *             .name(&#34;www.example.com&#34;)
+ *             .type(&#34;CNAME&#34;)
+ *             .ttl(300)
+ *             .geoproximityRoutingPolicy(RecordGeoproximityRoutingPolicyArgs.builder()
+ *                 .coordinates(RecordGeoproximityRoutingPolicyCoordinateArgs.builder()
+ *                     .latitude(&#34;49.22&#34;)
+ *                     .longitude(&#34;-74.01&#34;)
+ *                     .build())
+ *                 .build())
+ *             .setIdentifier(&#34;dev&#34;)
+ *             .records(&#34;dev.example.com&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Alias record
  * 
  * See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
@@ -119,6 +174,8 @@ import javax.annotation.Nullable;
  * 
  * TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
  * you cannot change this, therefore `ttl` has to be omitted in alias records.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -145,6 +202,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new LoadBalancer(&#34;main&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;foobar-elb&#34;)
  *             .availabilityZones(&#34;us-east-1c&#34;)
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(80)
@@ -155,7 +213,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
+ *             .zoneId(primary.zoneId())
  *             .name(&#34;example.com&#34;)
  *             .type(&#34;A&#34;)
  *             .aliases(RecordAliasArgs.builder()
@@ -168,9 +226,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### NS and SOA Record Management
  * 
  * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -178,6 +240,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53.Zone;
+ * import com.pulumi.aws.route53.ZoneArgs;
  * import com.pulumi.aws.route53.Record;
  * import com.pulumi.aws.route53.RecordArgs;
  * import java.util.List;
@@ -193,24 +256,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleZone = new Zone(&#34;exampleZone&#34;);
+ *         var example = new Zone(&#34;example&#34;, ZoneArgs.builder()        
+ *             .name(&#34;test.example.com&#34;)
+ *             .build());
  * 
  *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
  *             .allowOverwrite(true)
  *             .name(&#34;test.example.com&#34;)
  *             .ttl(172800)
  *             .type(&#34;NS&#34;)
- *             .zoneId(exampleZone.zoneId())
+ *             .zoneId(example.zoneId())
  *             .records(            
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[0]),
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[1]),
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[2]),
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[3]))
+ *                 example.nameServers().applyValue(nameServers -&gt; nameServers[0]),
+ *                 example.nameServers().applyValue(nameServers -&gt; nameServers[1]),
+ *                 example.nameServers().applyValue(nameServers -&gt; nameServers[2]),
+ *                 example.nameServers().applyValue(nameServers -&gt; nameServers[3]))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -223,12 +289,12 @@ import javax.annotation.Nullable;
  * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
  * 
  * ```sh
- *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
+ * $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
  * ```
- *  If the record also contains a set identifier, append it:
+ * If the record also contains a set identifier, append it:
  * 
  * ```sh
- *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
+ * $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
  * ```
  * 
  */
@@ -325,6 +391,20 @@ public class Record extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.geolocationRoutingPolicies);
     }
     /**
+     * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+     * 
+     */
+    @Export(name="geoproximityRoutingPolicy", refs={RecordGeoproximityRoutingPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ RecordGeoproximityRoutingPolicy> geoproximityRoutingPolicy;
+
+    /**
+     * @return A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+     * 
+     */
+    public Output<Optional<RecordGeoproximityRoutingPolicy>> geoproximityRoutingPolicy() {
+        return Codegen.optional(this.geoproximityRoutingPolicy);
+    }
+    /**
      * The health check the record should be associated with.
      * 
      */
@@ -395,14 +475,14 @@ public class Record extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.records);
     }
     /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+     * Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
      * 
      */
     @Export(name="setIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> setIdentifier;
 
     /**
-     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
+     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
      * 
      */
     public Output<Optional<String>> setIdentifier() {

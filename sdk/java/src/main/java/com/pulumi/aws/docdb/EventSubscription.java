@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a DocumentDB event subscription resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.docdb.Cluster;
  * import com.pulumi.aws.docdb.ClusterArgs;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.docdb.EventSubscription;
  * import com.pulumi.aws.docdb.EventSubscriptionArgs;
  * import java.util.List;
@@ -45,39 +48,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
+ *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
  *             .clusterIdentifier(&#34;example&#34;)
  *             .availabilityZones(            
- *                 data.aws_availability_zones().available().names()[0],
- *                 data.aws_availability_zones().available().names()[1],
- *                 data.aws_availability_zones().available().names()[2])
+ *                 available.names()[0],
+ *                 available.names()[1],
+ *                 available.names()[2])
  *             .masterUsername(&#34;foo&#34;)
  *             .masterPassword(&#34;mustbeeightcharaters&#34;)
  *             .skipFinalSnapshot(true)
  *             .build());
  * 
- *         var exampleTopic = new Topic(&#34;exampleTopic&#34;);
+ *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;example-events&#34;)
+ *             .build());
  * 
  *         var exampleEventSubscription = new EventSubscription(&#34;exampleEventSubscription&#34;, EventSubscriptionArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .enabled(true)
  *             .eventCategories(            
  *                 &#34;creation&#34;,
  *                 &#34;failure&#34;)
  *             .sourceType(&#34;db-cluster&#34;)
- *             .sourceIds(exampleCluster.id())
+ *             .sourceIds(example.id())
  *             .snsTopicArn(exampleTopic.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+ * $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
  * ```
  * 
  */
@@ -266,9 +273,6 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

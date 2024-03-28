@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,10 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewStudioSessionMapping(ctx, "example", &emr.StudioSessionMappingArgs{
-//				StudioId:         pulumi.Any(aws_emr_studio.Example.Id),
+//				StudioId:         pulumi.Any(exampleAwsEmrStudio.Id),
 //				IdentityType:     pulumi.String("USER"),
 //				IdentityId:       pulumi.String("example"),
-//				SessionPolicyArn: pulumi.Any(aws_iam_policy.Example.Arn),
+//				SessionPolicyArn: pulumi.Any(exampleAwsIamPolicy.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
-//
+// $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
 // ```
 type StudioSessionMapping struct {
 	pulumi.CustomResourceState

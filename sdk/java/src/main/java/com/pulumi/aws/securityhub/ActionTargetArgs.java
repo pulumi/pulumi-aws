@@ -5,6 +5,7 @@ package com.pulumi.aws.securityhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ActionTargetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ActionTargetArgs build() {
-            $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
-            $.identifier = Objects.requireNonNull($.identifier, "expected parameter 'identifier' to be non-null");
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("ActionTargetArgs", "description");
+            }
+            if ($.identifier == null) {
+                throw new MissingRequiredPropertyException("ActionTargetArgs", "identifier");
+            }
             return $;
         }
     }

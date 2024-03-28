@@ -11,23 +11,26 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
+ * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
  *     regionName: current.then(current => current.name),
  * }]});
- * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
+ * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("example", {
  *     addressFamily: "ipv4",
- *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
+ *     ipamScopeId: example.privateDefaultScopeId,
  *     locale: current.then(current => current.name),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Nested Pools:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,7 +43,7 @@ import * as utilities from "../utilities";
  *     addressFamily: "ipv4",
  *     ipamScopeId: example.privateDefaultScopeId,
  * });
- * const parentTest = new aws.ec2.VpcIpamPoolCidr("parentTest", {
+ * const parentTest = new aws.ec2.VpcIpamPoolCidr("parent_test", {
  *     ipamPoolId: parent.id,
  *     cidr: "172.20.0.0/16",
  * });
@@ -50,18 +53,19 @@ import * as utilities from "../utilities";
  *     locale: current.then(current => current.name),
  *     sourceIpamPoolId: parent.id,
  * });
- * const childTest = new aws.ec2.VpcIpamPoolCidr("childTest", {
+ * const childTest = new aws.ec2.VpcIpamPoolCidr("child_test", {
  *     ipamPoolId: child.id,
  *     cidr: "172.20.0.0/24",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
+ * $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
  * ```
  */
 export class VpcIpamPool extends pulumi.CustomResource {
@@ -227,8 +231,6 @@ export class VpcIpamPool extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(VpcIpamPool.__pulumiType, name, resourceInputs, opts);
     }
 }

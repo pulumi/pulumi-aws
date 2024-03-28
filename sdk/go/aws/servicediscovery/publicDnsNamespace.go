@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicediscovery.NewPublicDnsNamespace(ctx, "example", &servicediscovery.PublicDnsNamespaceArgs{
+//				Name:        pulumi.String("hoge.example.com"),
 //				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -38,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
-//
+// $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
 // ```
 type PublicDnsNamespace struct {
 	pulumi.CustomResourceState
@@ -74,10 +75,6 @@ func NewPublicDnsNamespace(ctx *pulumi.Context,
 		args = &PublicDnsNamespaceArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PublicDnsNamespace
 	err := ctx.RegisterResource("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, args, &resource, opts...)

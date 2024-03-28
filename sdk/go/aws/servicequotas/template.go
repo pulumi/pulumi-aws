@@ -17,8 +17,10 @@ import (
 // > Only the management account of an organization can alter Service Quota templates, and this must be done from the `us-east-1` region.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,8 +34,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicequotas.NewTemplate(ctx, "example", &servicequotas.TemplateArgs{
-//				QuotaCode:   pulumi.String("L-2ACBD22F"),
 //				Region:      pulumi.String("us-east-1"),
+//				QuotaCode:   pulumi.String("L-2ACBD22F"),
 //				ServiceCode: pulumi.String("lambda"),
 //				Value:       pulumi.Float64(80),
 //			})
@@ -45,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Service Quotas Template using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
-//
+// $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
 // ```
 type Template struct {
 	pulumi.CustomResourceState

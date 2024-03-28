@@ -73,11 +73,13 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
 
         @CustomType.Setter
         public Builder assignPublicIp(@Nullable String assignPublicIp) {
+
             this.assignPublicIp = assignPublicIp;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
+
             this.securityGroups = securityGroups;
             return this;
         }
@@ -86,6 +88,7 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
         }
         @CustomType.Setter
         public Builder subnets(@Nullable List<String> subnets) {
+
             this.subnets = subnets;
             return this;
         }
@@ -93,11 +96,11 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
             return subnets(List.of(subnets));
         }
         public PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration build() {
-            final var o = new PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration();
-            o.assignPublicIp = assignPublicIp;
-            o.securityGroups = securityGroups;
-            o.subnets = subnets;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration();
+            _resultValue.assignPublicIp = assignPublicIp;
+            _resultValue.securityGroups = securityGroups;
+            _resultValue.subnets = subnets;
+            return _resultValue;
         }
     }
 }

@@ -72,25 +72,28 @@ public final class WindowsFileSystemAuditLogConfiguration {
 
         @CustomType.Setter
         public Builder auditLogDestination(@Nullable String auditLogDestination) {
+
             this.auditLogDestination = auditLogDestination;
             return this;
         }
         @CustomType.Setter
         public Builder fileAccessAuditLogLevel(@Nullable String fileAccessAuditLogLevel) {
+
             this.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
             return this;
         }
         @CustomType.Setter
         public Builder fileShareAccessAuditLogLevel(@Nullable String fileShareAccessAuditLogLevel) {
+
             this.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
             return this;
         }
         public WindowsFileSystemAuditLogConfiguration build() {
-            final var o = new WindowsFileSystemAuditLogConfiguration();
-            o.auditLogDestination = auditLogDestination;
-            o.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
-            o.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
-            return o;
+            final var _resultValue = new WindowsFileSystemAuditLogConfiguration();
+            _resultValue.auditLogDestination = auditLogDestination;
+            _resultValue.fileAccessAuditLogLevel = fileAccessAuditLogLevel;
+            _resultValue.fileShareAccessAuditLogLevel = fileShareAccessAuditLogLevel;
+            return _resultValue;
         }
     }
 }

@@ -439,25 +439,28 @@ class Application(pulumi.CustomResource):
         > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `kinesis.AnalyticsApplication` resource.
 
         ## Example Usage
+
         ### Apache Flink Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example-flink-application")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
+            bucket=example.id,
             key="example-flink-application",
             source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
+        example_application = aws.kinesisanalyticsv2.Application("example",
+            name="example-flink-application",
             runtime_environment="FLINK-1_8",
-            service_execution_role=aws_iam_role["example"]["arn"],
+            service_execution_role=example_aws_iam_role["arn"],
             application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
                 application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
                     code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
                         s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket_v2.arn,
+                            bucket_arn=example.arn,
                             file_key=example_bucket_objectv2.key,
                         ),
                     ),
@@ -501,17 +504,23 @@ class Application(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SQL Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_log_stream = aws.cloudwatch.LogStream("exampleLogStream", log_group_name=example_log_group.name)
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
+        example = aws.cloudwatch.LogGroup("example", name="example-sql-application")
+        example_log_stream = aws.cloudwatch.LogStream("example",
+            name="example-sql-application",
+            log_group_name=example.name)
+        example_application = aws.kinesisanalyticsv2.Application("example",
+            name="example-sql-application",
             runtime_environment="SQL-1_0",
-            service_execution_role=aws_iam_role["example"]["arn"],
+            service_execution_role=example_aws_iam_role["arn"],
             application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
                 application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
                     code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
@@ -549,7 +558,7 @@ class Application(pulumi.CustomResource):
                             ),
                         ),
                         kinesis_streams_input=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs(
-                            resource_arn=aws_kinesis_stream["example"]["arn"],
+                            resource_arn=example_aws_kinesis_stream["arn"],
                         ),
                     ),
                     outputs=[
@@ -559,7 +568,7 @@ class Application(pulumi.CustomResource):
                                 record_format_type="JSON",
                             ),
                             lambda_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs(
-                                resource_arn=aws_lambda_function["example"]["arn"],
+                                resource_arn=example_aws_lambda_function["arn"],
                             ),
                         ),
                         aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs(
@@ -568,7 +577,7 @@ class Application(pulumi.CustomResource):
                                 record_format_type="CSV",
                             ),
                             kinesis_firehose_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs(
-                                resource_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+                                resource_arn=example_aws_kinesis_firehose_delivery_stream["arn"],
                             ),
                         ),
                     ],
@@ -589,7 +598,7 @@ class Application(pulumi.CustomResource):
                             ),
                         ),
                         s3_reference_data_source=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs(
-                            bucket_arn=aws_s3_bucket["example"]["arn"],
+                            bucket_arn=example_aws_s3_bucket["arn"],
                             file_key="KEY-1",
                         ),
                     ),
@@ -599,25 +608,29 @@ class Application(pulumi.CustomResource):
                 log_stream_arn=example_log_stream.arn,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### VPC Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example-flink-application")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
+            bucket=example.id,
             key="example-flink-application",
             source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
+        example_application = aws.kinesisanalyticsv2.Application("example",
+            name="example-flink-application",
             runtime_environment="FLINK-1_8",
-            service_execution_role=aws_iam_role["example"]["arn"],
+            service_execution_role=example_aws_iam_role["arn"],
             application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
                 application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
                     code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
                         s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket_v2.arn,
+                            bucket_arn=example.arn,
                             file_key=example_bucket_objectv2.key,
                         ),
                     ),
@@ -625,20 +638,21 @@ class Application(pulumi.CustomResource):
                 ),
                 vpc_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfigurationArgs(
                     security_group_ids=[
-                        aws_security_group["example"][0]["id"],
-                        aws_security_group["example"][1]["id"],
+                        example_aws_security_group[0]["id"],
+                        example_aws_security_group[1]["id"],
                     ],
-                    subnet_ids=[aws_subnet["example"]["id"]],
+                    subnet_ids=[example_aws_subnet["id"]],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
 
         ```sh
-         $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+        $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
         ```
 
         :param str resource_name: The name of the resource.
@@ -666,25 +680,28 @@ class Application(pulumi.CustomResource):
         > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `kinesis.AnalyticsApplication` resource.
 
         ## Example Usage
+
         ### Apache Flink Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example-flink-application")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
+            bucket=example.id,
             key="example-flink-application",
             source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
+        example_application = aws.kinesisanalyticsv2.Application("example",
+            name="example-flink-application",
             runtime_environment="FLINK-1_8",
-            service_execution_role=aws_iam_role["example"]["arn"],
+            service_execution_role=example_aws_iam_role["arn"],
             application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
                 application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
                     code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
                         s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket_v2.arn,
+                            bucket_arn=example.arn,
                             file_key=example_bucket_objectv2.key,
                         ),
                     ),
@@ -728,17 +745,23 @@ class Application(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SQL Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_log_stream = aws.cloudwatch.LogStream("exampleLogStream", log_group_name=example_log_group.name)
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
+        example = aws.cloudwatch.LogGroup("example", name="example-sql-application")
+        example_log_stream = aws.cloudwatch.LogStream("example",
+            name="example-sql-application",
+            log_group_name=example.name)
+        example_application = aws.kinesisanalyticsv2.Application("example",
+            name="example-sql-application",
             runtime_environment="SQL-1_0",
-            service_execution_role=aws_iam_role["example"]["arn"],
+            service_execution_role=example_aws_iam_role["arn"],
             application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
                 application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
                     code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
@@ -776,7 +799,7 @@ class Application(pulumi.CustomResource):
                             ),
                         ),
                         kinesis_streams_input=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs(
-                            resource_arn=aws_kinesis_stream["example"]["arn"],
+                            resource_arn=example_aws_kinesis_stream["arn"],
                         ),
                     ),
                     outputs=[
@@ -786,7 +809,7 @@ class Application(pulumi.CustomResource):
                                 record_format_type="JSON",
                             ),
                             lambda_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs(
-                                resource_arn=aws_lambda_function["example"]["arn"],
+                                resource_arn=example_aws_lambda_function["arn"],
                             ),
                         ),
                         aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs(
@@ -795,7 +818,7 @@ class Application(pulumi.CustomResource):
                                 record_format_type="CSV",
                             ),
                             kinesis_firehose_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs(
-                                resource_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+                                resource_arn=example_aws_kinesis_firehose_delivery_stream["arn"],
                             ),
                         ),
                     ],
@@ -816,7 +839,7 @@ class Application(pulumi.CustomResource):
                             ),
                         ),
                         s3_reference_data_source=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs(
-                            bucket_arn=aws_s3_bucket["example"]["arn"],
+                            bucket_arn=example_aws_s3_bucket["arn"],
                             file_key="KEY-1",
                         ),
                     ),
@@ -826,25 +849,29 @@ class Application(pulumi.CustomResource):
                 log_stream_arn=example_log_stream.arn,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### VPC Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_v2.id,
+        example = aws.s3.BucketV2("example", bucket="example-flink-application")
+        example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
+            bucket=example.id,
             key="example-flink-application",
             source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
+        example_application = aws.kinesisanalyticsv2.Application("example",
+            name="example-flink-application",
             runtime_environment="FLINK-1_8",
-            service_execution_role=aws_iam_role["example"]["arn"],
+            service_execution_role=example_aws_iam_role["arn"],
             application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
                 application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
                     code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
                         s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket_v2.arn,
+                            bucket_arn=example.arn,
                             file_key=example_bucket_objectv2.key,
                         ),
                     ),
@@ -852,20 +879,21 @@ class Application(pulumi.CustomResource):
                 ),
                 vpc_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfigurationArgs(
                     security_group_ids=[
-                        aws_security_group["example"][0]["id"],
-                        aws_security_group["example"][1]["id"],
+                        example_aws_security_group[0]["id"],
+                        example_aws_security_group[1]["id"],
                     ],
-                    subnet_ids=[aws_subnet["example"]["id"]],
+                    subnet_ids=[example_aws_subnet["id"]],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
 
         ```sh
-         $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+        $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
         ```
 
         :param str resource_name: The name of the resource.
@@ -920,8 +948,6 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Application, __self__).__init__(
             'aws:kinesisanalyticsv2/application:Application',
             resource_name,

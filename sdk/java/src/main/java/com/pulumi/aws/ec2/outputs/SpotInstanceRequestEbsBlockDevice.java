@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -49,6 +50,11 @@ public final class SpotInstanceRequestEbsBlockDevice {
      * 
      */
     private @Nullable Map<String,String> tags;
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    private @Nullable Map<String,String> tagsAll;
     /**
      * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
      * 
@@ -119,6 +125,13 @@ public final class SpotInstanceRequestEbsBlockDevice {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Map<String,String> tagsAll() {
+        return this.tagsAll == null ? Map.of() : this.tagsAll;
+    }
+    /**
      * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
      * 
      */
@@ -161,6 +174,7 @@ public final class SpotInstanceRequestEbsBlockDevice {
         private @Nullable String kmsKeyId;
         private @Nullable String snapshotId;
         private @Nullable Map<String,String> tags;
+        private @Nullable Map<String,String> tagsAll;
         private @Nullable Integer throughput;
         private @Nullable String volumeId;
         private @Nullable Integer volumeSize;
@@ -175,6 +189,7 @@ public final class SpotInstanceRequestEbsBlockDevice {
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.snapshotId = defaults.snapshotId;
     	      this.tags = defaults.tags;
+    	      this.tagsAll = defaults.tagsAll;
     	      this.throughput = defaults.throughput;
     	      this.volumeId = defaults.volumeId;
     	      this.volumeSize = defaults.volumeSize;
@@ -183,73 +198,93 @@ public final class SpotInstanceRequestEbsBlockDevice {
 
         @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
+
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder deviceName(String deviceName) {
-            this.deviceName = Objects.requireNonNull(deviceName);
+            if (deviceName == null) {
+              throw new MissingRequiredPropertyException("SpotInstanceRequestEbsBlockDevice", "deviceName");
+            }
+            this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
+
             this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
+
             this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotId(@Nullable String snapshotId) {
+
             this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
+        public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
+
+            this.tagsAll = tagsAll;
+            return this;
+        }
+        @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
+
             this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
         public Builder volumeId(@Nullable String volumeId) {
+
             this.volumeId = volumeId;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
+
             this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
+
             this.volumeType = volumeType;
             return this;
         }
         public SpotInstanceRequestEbsBlockDevice build() {
-            final var o = new SpotInstanceRequestEbsBlockDevice();
-            o.deleteOnTermination = deleteOnTermination;
-            o.deviceName = deviceName;
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.kmsKeyId = kmsKeyId;
-            o.snapshotId = snapshotId;
-            o.tags = tags;
-            o.throughput = throughput;
-            o.volumeId = volumeId;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new SpotInstanceRequestEbsBlockDevice();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.deviceName = deviceName;
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.tags = tags;
+            _resultValue.tagsAll = tagsAll;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeId = volumeId;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

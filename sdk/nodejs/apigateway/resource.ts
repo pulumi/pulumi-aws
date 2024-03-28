@@ -11,24 +11,29 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
- * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
+ * const myDemoAPI = new aws.apigateway.RestApi("MyDemoAPI", {
+ *     name: "MyDemoAPI",
+ *     description: "This is my API for demonstration purposes",
+ * });
+ * const myDemoResource = new aws.apigateway.Resource("MyDemoResource", {
  *     restApi: myDemoAPI.id,
  *     parentId: myDemoAPI.rootResourceId,
  *     pathPart: "mydemoresource",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
+ * $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
  * ```
  */
 export class Resource extends pulumi.CustomResource {

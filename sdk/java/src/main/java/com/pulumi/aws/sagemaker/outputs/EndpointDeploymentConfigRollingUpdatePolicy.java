@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize;
 import com.pulumi.aws.sagemaker.outputs.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointDeploymentConfigRollingUpdatePolicy {
     /**
-     * @return Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
+     * @return Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5%!t(MISSING)o 50%!o(MISSING)f the variant&#39;s total instance count. See Maximum Batch Size.
      * 
      */
     private EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize maximumBatchSize;
@@ -24,7 +25,7 @@ public final class EndpointDeploymentConfigRollingUpdatePolicy {
      */
     private @Nullable Integer maximumExecutionTimeoutInSeconds;
     /**
-     * @return Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+     * @return Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100%!o(MISSING)f total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
      * 
      */
     private @Nullable EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize rollbackMaximumBatchSize;
@@ -36,7 +37,7 @@ public final class EndpointDeploymentConfigRollingUpdatePolicy {
 
     private EndpointDeploymentConfigRollingUpdatePolicy() {}
     /**
-     * @return Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
+     * @return Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5%!t(MISSING)o 50%!o(MISSING)f the variant&#39;s total instance count. See Maximum Batch Size.
      * 
      */
     public EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize maximumBatchSize() {
@@ -50,7 +51,7 @@ public final class EndpointDeploymentConfigRollingUpdatePolicy {
         return Optional.ofNullable(this.maximumExecutionTimeoutInSeconds);
     }
     /**
-     * @return Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+     * @return Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100%!o(MISSING)f total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
      * 
      */
     public Optional<EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize> rollbackMaximumBatchSize() {
@@ -88,31 +89,39 @@ public final class EndpointDeploymentConfigRollingUpdatePolicy {
 
         @CustomType.Setter
         public Builder maximumBatchSize(EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize maximumBatchSize) {
-            this.maximumBatchSize = Objects.requireNonNull(maximumBatchSize);
+            if (maximumBatchSize == null) {
+              throw new MissingRequiredPropertyException("EndpointDeploymentConfigRollingUpdatePolicy", "maximumBatchSize");
+            }
+            this.maximumBatchSize = maximumBatchSize;
             return this;
         }
         @CustomType.Setter
         public Builder maximumExecutionTimeoutInSeconds(@Nullable Integer maximumExecutionTimeoutInSeconds) {
+
             this.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder rollbackMaximumBatchSize(@Nullable EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize rollbackMaximumBatchSize) {
+
             this.rollbackMaximumBatchSize = rollbackMaximumBatchSize;
             return this;
         }
         @CustomType.Setter
         public Builder waitIntervalInSeconds(Integer waitIntervalInSeconds) {
-            this.waitIntervalInSeconds = Objects.requireNonNull(waitIntervalInSeconds);
+            if (waitIntervalInSeconds == null) {
+              throw new MissingRequiredPropertyException("EndpointDeploymentConfigRollingUpdatePolicy", "waitIntervalInSeconds");
+            }
+            this.waitIntervalInSeconds = waitIntervalInSeconds;
             return this;
         }
         public EndpointDeploymentConfigRollingUpdatePolicy build() {
-            final var o = new EndpointDeploymentConfigRollingUpdatePolicy();
-            o.maximumBatchSize = maximumBatchSize;
-            o.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
-            o.rollbackMaximumBatchSize = rollbackMaximumBatchSize;
-            o.waitIntervalInSeconds = waitIntervalInSeconds;
-            return o;
+            final var _resultValue = new EndpointDeploymentConfigRollingUpdatePolicy();
+            _resultValue.maximumBatchSize = maximumBatchSize;
+            _resultValue.maximumExecutionTimeoutInSeconds = maximumExecutionTimeoutInSeconds;
+            _resultValue.rollbackMaximumBatchSize = rollbackMaximumBatchSize;
+            _resultValue.waitIntervalInSeconds = waitIntervalInSeconds;
+            return _resultValue;
         }
     }
 }

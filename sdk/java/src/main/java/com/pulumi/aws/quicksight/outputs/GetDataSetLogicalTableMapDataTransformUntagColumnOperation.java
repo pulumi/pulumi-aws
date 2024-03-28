@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -41,22 +42,28 @@ public final class GetDataSetLogicalTableMapDataTransformUntagColumnOperation {
 
         @CustomType.Setter
         public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+            if (columnName == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransformUntagColumnOperation", "columnName");
+            }
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
         public Builder tagNames(List<String> tagNames) {
-            this.tagNames = Objects.requireNonNull(tagNames);
+            if (tagNames == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransformUntagColumnOperation", "tagNames");
+            }
+            this.tagNames = tagNames;
             return this;
         }
         public Builder tagNames(String... tagNames) {
             return tagNames(List.of(tagNames));
         }
         public GetDataSetLogicalTableMapDataTransformUntagColumnOperation build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformUntagColumnOperation();
-            o.columnName = columnName;
-            o.tagNames = tagNames;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformUntagColumnOperation();
+            _resultValue.columnName = columnName;
+            _resultValue.tagNames = tagNames;
+            return _resultValue;
         }
     }
 }

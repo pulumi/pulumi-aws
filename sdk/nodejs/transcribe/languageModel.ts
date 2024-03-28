@@ -13,13 +13,15 @@ import * as utilities from "../utilities";
  * > This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ * const example = aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -28,28 +30,35 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
- * const testPolicy = new aws.iam.RolePolicy("testPolicy", {
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: example.then(example => example.json),
+ * });
+ * const testPolicy = new aws.iam.RolePolicy("test_policy", {
+ *     name: "example",
  *     role: exampleRole.id,
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: [
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: [
  *                 "s3:GetObject",
  *                 "s3:ListBucket",
  *             ],
- *             Effect: "Allow",
- *             Resource: ["*"],
+ *             effect: "Allow",
+ *             resource: ["*"],
  *         }],
  *     }),
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ *     bucket: "example-transcribe",
+ *     forceDestroy: true,
+ * });
  * const object = new aws.s3.BucketObjectv2("object", {
  *     bucket: exampleBucketV2.id,
  *     key: "transcribe/test1.txt",
  *     source: new pulumi.asset.FileAsset("test1.txt"),
  * });
- * const exampleLanguageModel = new aws.transcribe.LanguageModel("exampleLanguageModel", {
+ * const exampleLanguageModel = new aws.transcribe.LanguageModel("example", {
  *     modelName: "example",
  *     baseModelName: "NarrowBand",
  *     inputDataConfig: {
@@ -62,13 +71,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
+ * $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
  * ```
  */
 export class LanguageModel extends pulumi.CustomResource {
@@ -171,8 +181,6 @@ export class LanguageModel extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LanguageModel.__pulumiType, name, resourceInputs, opts);
     }
 }

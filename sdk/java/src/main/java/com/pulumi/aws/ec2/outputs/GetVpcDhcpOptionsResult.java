@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetVpcDhcpOptionsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -178,22 +179,34 @@ public final class GetVpcDhcpOptionsResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder dhcpOptionsId(String dhcpOptionsId) {
-            this.dhcpOptionsId = Objects.requireNonNull(dhcpOptionsId);
+            if (dhcpOptionsId == null) {
+              throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "dhcpOptionsId");
+            }
+            this.dhcpOptionsId = dhcpOptionsId;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder domainNameServers(List<String> domainNameServers) {
-            this.domainNameServers = Objects.requireNonNull(domainNameServers);
+            if (domainNameServers == null) {
+              throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "domainNameServers");
+            }
+            this.domainNameServers = domainNameServers;
             return this;
         }
         public Builder domainNameServers(String... domainNameServers) {
@@ -201,6 +214,7 @@ public final class GetVpcDhcpOptionsResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcDhcpOptionsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -209,12 +223,18 @@ public final class GetVpcDhcpOptionsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder netbiosNameServers(List<String> netbiosNameServers) {
-            this.netbiosNameServers = Objects.requireNonNull(netbiosNameServers);
+            if (netbiosNameServers == null) {
+              throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "netbiosNameServers");
+            }
+            this.netbiosNameServers = netbiosNameServers;
             return this;
         }
         public Builder netbiosNameServers(String... netbiosNameServers) {
@@ -222,12 +242,18 @@ public final class GetVpcDhcpOptionsResult {
         }
         @CustomType.Setter
         public Builder netbiosNodeType(String netbiosNodeType) {
-            this.netbiosNodeType = Objects.requireNonNull(netbiosNodeType);
+            if (netbiosNodeType == null) {
+              throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "netbiosNodeType");
+            }
+            this.netbiosNodeType = netbiosNodeType;
             return this;
         }
         @CustomType.Setter
         public Builder ntpServers(List<String> ntpServers) {
-            this.ntpServers = Objects.requireNonNull(ntpServers);
+            if (ntpServers == null) {
+              throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "ntpServers");
+            }
+            this.ntpServers = ntpServers;
             return this;
         }
         public Builder ntpServers(String... ntpServers) {
@@ -235,28 +261,34 @@ public final class GetVpcDhcpOptionsResult {
         }
         @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetVpcDhcpOptionsResult build() {
-            final var o = new GetVpcDhcpOptionsResult();
-            o.arn = arn;
-            o.dhcpOptionsId = dhcpOptionsId;
-            o.domainName = domainName;
-            o.domainNameServers = domainNameServers;
-            o.filters = filters;
-            o.id = id;
-            o.netbiosNameServers = netbiosNameServers;
-            o.netbiosNodeType = netbiosNodeType;
-            o.ntpServers = ntpServers;
-            o.ownerId = ownerId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetVpcDhcpOptionsResult();
+            _resultValue.arn = arn;
+            _resultValue.dhcpOptionsId = dhcpOptionsId;
+            _resultValue.domainName = domainName;
+            _resultValue.domainNameServers = domainNameServers;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.netbiosNameServers = netbiosNameServers;
+            _resultValue.netbiosNodeType = netbiosNodeType;
+            _resultValue.ntpServers = ntpServers;
+            _resultValue.ownerId = ownerId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

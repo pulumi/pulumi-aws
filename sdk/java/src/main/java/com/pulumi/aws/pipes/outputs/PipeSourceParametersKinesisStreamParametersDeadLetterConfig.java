@@ -44,13 +44,14 @@ public final class PipeSourceParametersKinesisStreamParametersDeadLetterConfig {
 
         @CustomType.Setter
         public Builder arn(@Nullable String arn) {
+
             this.arn = arn;
             return this;
         }
         public PipeSourceParametersKinesisStreamParametersDeadLetterConfig build() {
-            final var o = new PipeSourceParametersKinesisStreamParametersDeadLetterConfig();
-            o.arn = arn;
-            return o;
+            final var _resultValue = new PipeSourceParametersKinesisStreamParametersDeadLetterConfig();
+            _resultValue.arn = arn;
+            return _resultValue;
         }
     }
 }

@@ -44,13 +44,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
 
         @CustomType.Setter
         public Builder oversizeHandling(@Nullable String oversizeHandling) {
+
             this.oversizeHandling = oversizeHandling;
             return this;
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody();
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody();
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

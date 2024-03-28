@@ -15,8 +15,10 @@ import (
 // Provides a CloudWatch Evidently Segment resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
+//				Name:    pulumi.String("example"),
 //				Pattern: pulumi.String("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("example Segment"),
@@ -43,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With JSON object in pattern
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,6 +64,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
+//				Name: pulumi.String("example"),
 //				Pattern: pulumi.String(`  {
 //	    "Price": [
 //	      {
@@ -80,8 +87,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Description
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,8 +105,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewSegment(ctx, "example", &evidently.SegmentArgs{
-//				Description: pulumi.String("example"),
+//				Name:        pulumi.String("example"),
 //				Pattern:     pulumi.String("{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}"),
+//				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -106,15 +117,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
-//
+// $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
 // ```
 type Segment struct {
 	pulumi.CustomResourceState
@@ -153,10 +163,6 @@ func NewSegment(ctx *pulumi.Context,
 	if args.Pattern == nil {
 		return nil, errors.New("invalid value for required argument 'Pattern'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Segment
 	err := ctx.RegisterResource("aws:evidently/segment:Segment", name, args, &resource, opts...)

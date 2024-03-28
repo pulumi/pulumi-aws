@@ -312,23 +312,26 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.ecr.Repository("foo",
+            name="bar",
+            image_tag_mutability="MUTABLE",
             image_scanning_configuration=aws.ecr.RepositoryImageScanningConfigurationArgs(
                 scan_on_push=True,
-            ),
-            image_tag_mutability="MUTABLE")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Repositories using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ecr/repository:Repository service test-service
+        $ pulumi import aws:ecr/repository:Repository service test-service
         ```
 
         :param str resource_name: The name of the resource.
@@ -352,23 +355,26 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.ecr.Repository("foo",
+            name="bar",
+            image_tag_mutability="MUTABLE",
             image_scanning_configuration=aws.ecr.RepositoryImageScanningConfigurationArgs(
                 scan_on_push=True,
-            ),
-            image_tag_mutability="MUTABLE")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Repositories using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ecr/repository:Repository service test-service
+        $ pulumi import aws:ecr/repository:Repository service test-service
         ```
 
         :param str resource_name: The name of the resource.
@@ -411,8 +417,6 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["registry_id"] = None
             __props__.__dict__["repository_url"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Repository, __self__).__init__(
             'aws:ecr/repository:Repository',
             resource_name,

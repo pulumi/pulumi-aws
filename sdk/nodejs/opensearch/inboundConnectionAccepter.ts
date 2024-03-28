@@ -8,36 +8,39 @@ import * as utilities from "../utilities";
  * Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentRegion = aws.getRegion({});
- * const fooOutboundConnection = new aws.opensearch.OutboundConnection("fooOutboundConnection", {
+ * const current = aws.getCallerIdentity({});
+ * const currentGetRegion = aws.getRegion({});
+ * const foo = new aws.opensearch.OutboundConnection("foo", {
  *     connectionAlias: "outbound_connection",
  *     localDomainInfo: {
- *         ownerId: currentCallerIdentity.then(currentCallerIdentity => currentCallerIdentity.accountId),
- *         region: currentRegion.then(currentRegion => currentRegion.name),
- *         domainName: aws_opensearch_domain.local_domain.domain_name,
+ *         ownerId: current.then(current => current.accountId),
+ *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.name),
+ *         domainName: localDomain.domainName,
  *     },
  *     remoteDomainInfo: {
- *         ownerId: currentCallerIdentity.then(currentCallerIdentity => currentCallerIdentity.accountId),
- *         region: currentRegion.then(currentRegion => currentRegion.name),
- *         domainName: aws_opensearch_domain.remote_domain.domain_name,
+ *         ownerId: current.then(current => current.accountId),
+ *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.name),
+ *         domainName: remoteDomain.domainName,
  *     },
  * });
- * const fooInboundConnectionAccepter = new aws.opensearch.InboundConnectionAccepter("fooInboundConnectionAccepter", {connectionId: fooOutboundConnection.id});
+ * const fooInboundConnectionAccepter = new aws.opensearch.InboundConnectionAccepter("foo", {connectionId: foo.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
+ * $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
  * ```
  */
 export class InboundConnectionAccepter extends pulumi.CustomResource {

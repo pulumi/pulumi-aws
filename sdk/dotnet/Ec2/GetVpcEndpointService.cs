@@ -15,11 +15,11 @@ namespace Pulumi.Aws.Ec2
         /// The VPC Endpoint Service data source details about a specific service that
         /// can be specified when creating a VPC endpoint within the region configured in the provider.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### AWS Service
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var s3 = Aws.Ec2.GetVpcEndpointService.Invoke(new()
         ///     {
         ///         Service = "s3",
@@ -49,10 +50,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Non-AWS Service
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,10 +70,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -97,8 +100,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcEndpointServiceResult> InvokeAsync(GetVpcEndpointServiceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointServiceResult>("aws:ec2/getVpcEndpointService:getVpcEndpointService", args ?? new GetVpcEndpointServiceArgs(), options.WithDefaults());
@@ -107,11 +109,11 @@ namespace Pulumi.Aws.Ec2
         /// The VPC Endpoint Service data source details about a specific service that
         /// can be specified when creating a VPC endpoint within the region configured in the provider.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### AWS Service
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -120,6 +122,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var s3 = Aws.Ec2.GetVpcEndpointService.Invoke(new()
         ///     {
         ///         Service = "s3",
@@ -141,10 +144,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Non-AWS Service
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -160,10 +164,11 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -189,8 +194,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcEndpointServiceResult> Invoke(GetVpcEndpointServiceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcEndpointServiceResult>("aws:ec2/getVpcEndpointService:getVpcEndpointService", args ?? new GetVpcEndpointServiceInvokeArgs(), options.WithDefaults());

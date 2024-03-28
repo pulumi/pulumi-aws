@@ -21,6 +21,8 @@ public final class DynamodbFunctions {
      * Provides information about a DynamoDB table.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,6 +51,7 @@ public final class DynamodbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTableResult> getTable(GetTableArgs args) {
@@ -58,6 +61,8 @@ public final class DynamodbFunctions {
      * Provides information about a DynamoDB table.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -86,6 +91,7 @@ public final class DynamodbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTableResult> getTablePlain(GetTablePlainArgs args) {
@@ -95,6 +101,8 @@ public final class DynamodbFunctions {
      * Provides information about a DynamoDB table.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +131,7 @@ public final class DynamodbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTableResult> getTable(GetTableArgs args, InvokeOptions options) {
@@ -132,6 +141,8 @@ public final class DynamodbFunctions {
      * Provides information about a DynamoDB table.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -160,6 +171,7 @@ public final class DynamodbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTableResult> getTablePlain(GetTablePlainArgs args, InvokeOptions options) {
@@ -169,7 +181,10 @@ public final class DynamodbFunctions {
      * Data source for retrieving a value from an AWS DynamoDB table.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -192,7 +207,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(aws_dynamodb_table.example().name())
+     *             .tableName(example.name())
      *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
      *             .projectionExpression(&#34;#P&#34;)
      *             .key(&#34;&#34;&#34;
@@ -205,6 +220,7 @@ public final class DynamodbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTableItemResult> getTableItem(GetTableItemArgs args) {
@@ -214,7 +230,10 @@ public final class DynamodbFunctions {
      * Data source for retrieving a value from an AWS DynamoDB table.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -237,7 +256,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(aws_dynamodb_table.example().name())
+     *             .tableName(example.name())
      *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
      *             .projectionExpression(&#34;#P&#34;)
      *             .key(&#34;&#34;&#34;
@@ -250,6 +269,7 @@ public final class DynamodbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTableItemResult> getTableItemPlain(GetTableItemPlainArgs args) {
@@ -259,7 +279,10 @@ public final class DynamodbFunctions {
      * Data source for retrieving a value from an AWS DynamoDB table.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -282,7 +305,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(aws_dynamodb_table.example().name())
+     *             .tableName(example.name())
      *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
      *             .projectionExpression(&#34;#P&#34;)
      *             .key(&#34;&#34;&#34;
@@ -295,6 +318,7 @@ public final class DynamodbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTableItemResult> getTableItem(GetTableItemArgs args, InvokeOptions options) {
@@ -304,7 +328,10 @@ public final class DynamodbFunctions {
      * Data source for retrieving a value from an AWS DynamoDB table.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -327,7 +354,7 @@ public final class DynamodbFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = DynamodbFunctions.getTableItem(GetTableItemArgs.builder()
-     *             .tableName(aws_dynamodb_table.example().name())
+     *             .tableName(example.name())
      *             .expressionAttributeNames(Map.of(&#34;#P&#34;, &#34;Percentile&#34;))
      *             .projectionExpression(&#34;#P&#34;)
      *             .key(&#34;&#34;&#34;
@@ -340,6 +367,7 @@ public final class DynamodbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTableItemResult> getTableItemPlain(GetTableItemPlainArgs args, InvokeOptions options) {

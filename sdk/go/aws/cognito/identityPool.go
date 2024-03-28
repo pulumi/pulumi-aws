@@ -16,31 +16,30 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewSamlProvider(ctx, "default", &iam.SamlProviderArgs{
-//				SamlMetadataDocument: readFileOrPanic("saml-metadata.xml"),
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "saml-metadata.xml",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewSamlProvider(ctx, "default", &iam.SamlProviderArgs{
+//				Name:                 pulumi.String("my-saml-provider"),
+//				SamlMetadataDocument: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err
@@ -80,15 +79,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cognito Identity Pool using its ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
-//
+// $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
 // ```
 type IdentityPool struct {
 	pulumi.CustomResourceState
@@ -130,10 +128,6 @@ func NewIdentityPool(ctx *pulumi.Context,
 	if args.IdentityPoolName == nil {
 		return nil, errors.New("invalid value for required argument 'IdentityPoolName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityPool
 	err := ctx.RegisterResource("aws:cognito/identityPool:IdentityPool", name, args, &resource, opts...)

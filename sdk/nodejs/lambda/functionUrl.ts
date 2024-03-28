@@ -14,16 +14,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testLatest = new aws.lambda.FunctionUrl("testLatest", {
- *     functionName: aws_lambda_function.test.function_name,
+ * const testLatest = new aws.lambda.FunctionUrl("test_latest", {
+ *     functionName: test.functionName,
  *     authorizationType: "NONE",
  * });
- * const testLive = new aws.lambda.FunctionUrl("testLive", {
- *     functionName: aws_lambda_function.test.function_name,
+ * const testLive = new aws.lambda.FunctionUrl("test_live", {
+ *     functionName: test.functionName,
  *     qualifier: "my_alias",
  *     authorizationType: "AWS_IAM",
  *     cors: {
@@ -42,13 +43,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+ * $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
  * ```
  */
 export class FunctionUrl extends pulumi.CustomResource {
@@ -96,7 +98,7 @@ export class FunctionUrl extends pulumi.CustomResource {
      */
     public readonly functionName!: pulumi.Output<string>;
     /**
-     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
      */
     public /*out*/ readonly functionUrl!: pulumi.Output<string>;
     /**
@@ -176,7 +178,7 @@ export interface FunctionUrlState {
      */
     functionName?: pulumi.Input<string>;
     /**
-     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
+     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
      */
     functionUrl?: pulumi.Input<string>;
     /**

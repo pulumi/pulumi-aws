@@ -44,13 +44,14 @@ public final class SdkvoiceGlobalSettingsVoiceConnector {
 
         @CustomType.Setter
         public Builder cdrBucket(@Nullable String cdrBucket) {
+
             this.cdrBucket = cdrBucket;
             return this;
         }
         public SdkvoiceGlobalSettingsVoiceConnector build() {
-            final var o = new SdkvoiceGlobalSettingsVoiceConnector();
-            o.cdrBucket = cdrBucket;
-            return o;
+            final var _resultValue = new SdkvoiceGlobalSettingsVoiceConnector();
+            _resultValue.cdrBucket = cdrBucket;
+            return _resultValue;
         }
     }
 }

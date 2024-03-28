@@ -14,8 +14,10 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,20 +28,21 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.RouteResponse("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         RouteId = aws_apigatewayv2_route.Example.Id,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
+    ///         RouteId = exampleAwsApigatewayv2Route.Id,
     ///         RouteResponseKey = "$default",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_apigatewayv2_route_response` using the API identifier, route identifier and route response identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
+    /// $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/routeResponse:RouteResponse")]

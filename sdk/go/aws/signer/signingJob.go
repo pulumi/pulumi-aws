@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,13 +29,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testSp, err := signer.NewSigningProfile(ctx, "testSp", &signer.SigningProfileArgs{
+//			testSp, err := signer.NewSigningProfile(ctx, "test_sp", &signer.SigningProfileArgs{
 //				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = signer.NewSigningJob(ctx, "buildSigningJob", &signer.SigningJobArgs{
+//			_, err = signer.NewSigningJob(ctx, "build_signing_job", &signer.SigningJobArgs{
 //				ProfileName: testSp.Name,
 //				Source: &signer.SigningJobSourceArgs{
 //					S3: &signer.SigningJobSourceS3Args{
@@ -59,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
-//
+// $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
 // ```
 type SigningJob struct {
 	pulumi.CustomResourceState

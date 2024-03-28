@@ -14,11 +14,11 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Lists the provisioning artifacts for the specified product.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetProvisioningArtifactsResult> InvokeAsync(GetProvisioningArtifactsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProvisioningArtifactsResult>("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args ?? new GetProvisioningArtifactsArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Lists the provisioning artifacts for the specified product.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetProvisioningArtifactsResult> Invoke(GetProvisioningArtifactsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProvisioningArtifactsResult>("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args ?? new GetProvisioningArtifactsInvokeArgs(), options.WithDefaults());

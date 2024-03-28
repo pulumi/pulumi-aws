@@ -44,13 +44,14 @@ public final class EventTargetSqsTarget {
 
         @CustomType.Setter
         public Builder messageGroupId(@Nullable String messageGroupId) {
+
             this.messageGroupId = messageGroupId;
             return this;
         }
         public EventTargetSqsTarget build() {
-            final var o = new EventTargetSqsTarget();
-            o.messageGroupId = messageGroupId;
-            return o;
+            final var _resultValue = new EventTargetSqsTarget();
+            _resultValue.messageGroupId = messageGroupId;
+            return _resultValue;
         }
     }
 }

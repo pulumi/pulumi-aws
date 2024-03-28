@@ -524,15 +524,18 @@ class LayerVersion(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        lambda_layer = aws.lambda_.LayerVersion("lambdaLayer",
-            compatible_runtimes=["nodejs16.x"],
+        lambda_layer = aws.lambda_.LayerVersion("lambda_layer",
             code=pulumi.FileArchive("lambda_layer_payload.zip"),
-            layer_name="lambda_layer_name")
+            layer_name="lambda_layer_name",
+            compatible_runtimes=["nodejs16.x"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Specifying the Deployment Package
 
         AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
@@ -549,7 +552,7 @@ class LayerVersion(pulumi.CustomResource):
         Using `pulumi import`, import Lambda Layers using `arn`. For example:
 
         ```sh
-         $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+        $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
         ```
 
         :param str resource_name: The name of the resource.
@@ -583,15 +586,18 @@ class LayerVersion(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        lambda_layer = aws.lambda_.LayerVersion("lambdaLayer",
-            compatible_runtimes=["nodejs16.x"],
+        lambda_layer = aws.lambda_.LayerVersion("lambda_layer",
             code=pulumi.FileArchive("lambda_layer_payload.zip"),
-            layer_name="lambda_layer_name")
+            layer_name="lambda_layer_name",
+            compatible_runtimes=["nodejs16.x"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Specifying the Deployment Package
 
         AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
@@ -608,7 +614,7 @@ class LayerVersion(pulumi.CustomResource):
         Using `pulumi import`, import Lambda Layers using `arn`. For example:
 
         ```sh
-         $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+        $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
         ```
 
         :param str resource_name: The name of the resource.

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.aws.ec2transitgateway.outputs.GetPeeringAttachmentFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +31,7 @@ public final class GetPeeringAttachmentResult {
      * 
      */
     private String peerTransitGatewayId;
+    private String state;
     private Map<String,String> tags;
     /**
      * @return Identifier of the local EC2 Transit Gateway
@@ -65,6 +67,9 @@ public final class GetPeeringAttachmentResult {
     public String peerTransitGatewayId() {
         return this.peerTransitGatewayId;
     }
+    public String state() {
+        return this.state;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -90,6 +95,7 @@ public final class GetPeeringAttachmentResult {
         private String peerAccountId;
         private String peerRegion;
         private String peerTransitGatewayId;
+        private String state;
         private Map<String,String> tags;
         private String transitGatewayId;
         public Builder() {}
@@ -100,12 +106,14 @@ public final class GetPeeringAttachmentResult {
     	      this.peerAccountId = defaults.peerAccountId;
     	      this.peerRegion = defaults.peerRegion;
     	      this.peerTransitGatewayId = defaults.peerTransitGatewayId;
+    	      this.state = defaults.state;
     	      this.tags = defaults.tags;
     	      this.transitGatewayId = defaults.transitGatewayId;
         }
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetPeeringAttachmentFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -114,44 +122,71 @@ public final class GetPeeringAttachmentResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAttachmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder peerAccountId(String peerAccountId) {
-            this.peerAccountId = Objects.requireNonNull(peerAccountId);
+            if (peerAccountId == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAttachmentResult", "peerAccountId");
+            }
+            this.peerAccountId = peerAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder peerRegion(String peerRegion) {
-            this.peerRegion = Objects.requireNonNull(peerRegion);
+            if (peerRegion == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAttachmentResult", "peerRegion");
+            }
+            this.peerRegion = peerRegion;
             return this;
         }
         @CustomType.Setter
         public Builder peerTransitGatewayId(String peerTransitGatewayId) {
-            this.peerTransitGatewayId = Objects.requireNonNull(peerTransitGatewayId);
+            if (peerTransitGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAttachmentResult", "peerTransitGatewayId");
+            }
+            this.peerTransitGatewayId = peerTransitGatewayId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder state(String state) {
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAttachmentResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAttachmentResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
-            this.transitGatewayId = Objects.requireNonNull(transitGatewayId);
+            if (transitGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAttachmentResult", "transitGatewayId");
+            }
+            this.transitGatewayId = transitGatewayId;
             return this;
         }
         public GetPeeringAttachmentResult build() {
-            final var o = new GetPeeringAttachmentResult();
-            o.filters = filters;
-            o.id = id;
-            o.peerAccountId = peerAccountId;
-            o.peerRegion = peerRegion;
-            o.peerTransitGatewayId = peerTransitGatewayId;
-            o.tags = tags;
-            o.transitGatewayId = transitGatewayId;
-            return o;
+            final var _resultValue = new GetPeeringAttachmentResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.peerAccountId = peerAccountId;
+            _resultValue.peerRegion = peerRegion;
+            _resultValue.peerTransitGatewayId = peerTransitGatewayId;
+            _resultValue.state = state;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayId = transitGatewayId;
+            return _resultValue;
         }
     }
 }

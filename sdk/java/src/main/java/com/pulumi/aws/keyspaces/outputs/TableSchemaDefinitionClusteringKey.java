@@ -4,6 +4,7 @@
 package com.pulumi.aws.keyspaces.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class TableSchemaDefinitionClusteringKey {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("TableSchemaDefinitionClusteringKey", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder orderBy(String orderBy) {
-            this.orderBy = Objects.requireNonNull(orderBy);
+            if (orderBy == null) {
+              throw new MissingRequiredPropertyException("TableSchemaDefinitionClusteringKey", "orderBy");
+            }
+            this.orderBy = orderBy;
             return this;
         }
         public TableSchemaDefinitionClusteringKey build() {
-            final var o = new TableSchemaDefinitionClusteringKey();
-            o.name = name;
-            o.orderBy = orderBy;
-            return o;
+            final var _resultValue = new TableSchemaDefinitionClusteringKey();
+            _resultValue.name = name;
+            _resultValue.orderBy = orderBy;
+            return _resultValue;
         }
     }
 }

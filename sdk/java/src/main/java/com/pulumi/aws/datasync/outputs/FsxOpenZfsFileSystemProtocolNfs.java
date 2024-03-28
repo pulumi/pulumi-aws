@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync.outputs;
 
 import com.pulumi.aws.datasync.outputs.FsxOpenZfsFileSystemProtocolNfsMountOptions;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,13 +43,16 @@ public final class FsxOpenZfsFileSystemProtocolNfs {
 
         @CustomType.Setter
         public Builder mountOptions(FsxOpenZfsFileSystemProtocolNfsMountOptions mountOptions) {
-            this.mountOptions = Objects.requireNonNull(mountOptions);
+            if (mountOptions == null) {
+              throw new MissingRequiredPropertyException("FsxOpenZfsFileSystemProtocolNfs", "mountOptions");
+            }
+            this.mountOptions = mountOptions;
             return this;
         }
         public FsxOpenZfsFileSystemProtocolNfs build() {
-            final var o = new FsxOpenZfsFileSystemProtocolNfs();
-            o.mountOptions = mountOptions;
-            return o;
+            final var _resultValue = new FsxOpenZfsFileSystemProtocolNfs();
+            _resultValue.mountOptions = mountOptions;
+            return _resultValue;
         }
     }
 }

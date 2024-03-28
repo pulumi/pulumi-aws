@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
  * 
  * ## Example Usage
+ * 
  * ### Dynamic Invocation Example Using Triggers
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,9 +50,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Invocation(&#34;example&#34;, InvocationArgs.builder()        
- *             .functionName(aws_lambda_function.lambda_function_test().function_name())
- *             .triggers(Map.of(&#34;redeployment&#34;, computeSHA1(serializeJson(
- *                 jsonArray(aws_lambda_function.example().environment())))))
+ *             .functionName(lambdaFunctionTest.functionName())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1(Sha1Args.builder()
+ *                 .input(serializeJson(
+ *                     jsonArray(exampleAwsLambdaFunction.environment())))
+ *                 .build()).result()))
  *             .input(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;key1&#34;, &#34;value1&#34;),
@@ -60,7 +65,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### CRUD Lifecycle Scope
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -84,7 +93,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Invocation(&#34;example&#34;, InvocationArgs.builder()        
- *             .functionName(aws_lambda_function.lambda_function_test().function_name())
+ *             .functionName(lambdaFunctionTest.functionName())
  *             .input(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;key1&#34;, &#34;value1&#34;),
@@ -96,6 +105,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** `lifecycle_scope = &#34;CRUD&#34;` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
  * 
@@ -105,76 +115,10 @@ import javax.annotation.Nullable;
  * * `prev_input` - Input JSON payload from the previous invocation. This can be used to handle update and delete events.
  * 
  * When the resource from the example above is created, the Lambda will get following JSON payload:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *     }
- * }
- * ```
  * 
  * If the input value of `key1` changes to &#34;valueB&#34;, then the lambda will be invoked again with the following JSON payload:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *     }
- * }
- * ```
  * 
  * When the invocation resource is removed, the final invocation will have the following JSON payload:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *     }
- * }
- * ```
  * 
  */
 @ResourceType(type="aws:lambda/invocation:Invocation")

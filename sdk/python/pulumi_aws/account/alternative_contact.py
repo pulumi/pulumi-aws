@@ -232,16 +232,19 @@ class AlternativeContact(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         operations = aws.account.AlternativeContact("operations",
             alternate_contact_type="OPERATIONS",
+            name="Example",
+            title="Example",
             email_address="test@example.com",
-            phone_number="+1234567890",
-            title="Example")
+            phone_number="+1234567890")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -252,12 +255,12 @@ class AlternativeContact(pulumi.CustomResource):
         Import the Alternate Contact for the current account:
 
         ```sh
-         $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
+        $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
         ```
-         Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
+        Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
 
         ```sh
-         $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
+        $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
         ```
 
         :param str resource_name: The name of the resource.
@@ -280,16 +283,19 @@ class AlternativeContact(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         operations = aws.account.AlternativeContact("operations",
             alternate_contact_type="OPERATIONS",
+            name="Example",
+            title="Example",
             email_address="test@example.com",
-            phone_number="+1234567890",
-            title="Example")
+            phone_number="+1234567890")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -300,12 +306,12 @@ class AlternativeContact(pulumi.CustomResource):
         Import the Alternate Contact for the current account:
 
         ```sh
-         $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
+        $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
         ```
-         Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
+        Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
 
         ```sh
-         $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
+        $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
         ```
 
         :param str resource_name: The name of the resource.

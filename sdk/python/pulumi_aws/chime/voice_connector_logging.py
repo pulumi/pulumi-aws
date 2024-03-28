@@ -136,23 +136,27 @@ class VoiceConnectorLogging(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_logging = aws.chime.VoiceConnectorLogging("defaultVoiceConnectorLogging",
+        default = aws.chime.VoiceConnector("default",
+            name="vc-name-test",
+            require_encryption=True)
+        default_voice_connector_logging = aws.chime.VoiceConnectorLogging("default",
             enable_sip_logs=True,
             enable_media_metric_logs=True,
-            voice_connector_id=default_voice_connector.id)
+            voice_connector_id=default.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
+        $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
         ```
 
         :param str resource_name: The name of the resource.
@@ -172,23 +176,27 @@ class VoiceConnectorLogging(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_logging = aws.chime.VoiceConnectorLogging("defaultVoiceConnectorLogging",
+        default = aws.chime.VoiceConnector("default",
+            name="vc-name-test",
+            require_encryption=True)
+        default_voice_connector_logging = aws.chime.VoiceConnectorLogging("default",
             enable_sip_logs=True,
             enable_media_metric_logs=True,
-            voice_connector_id=default_voice_connector.id)
+            voice_connector_id=default.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
+        $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
         ```
 
         :param str resource_name: The name of the resource.

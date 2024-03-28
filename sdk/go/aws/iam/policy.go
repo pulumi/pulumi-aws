@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,14 +32,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"ec2:Describe*",
 //						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
+//						"effect":   "Allow",
+//						"resource": "*",
 //					},
 //				},
 //			})
@@ -47,6 +48,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
+//				Name:        pulumi.String("test_policy"),
 //				Path:        pulumi.String("/"),
 //				Description: pulumi.String("My test policy"),
 //				Policy:      pulumi.String(json0),
@@ -59,15 +61,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Policies using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
-//
+// $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
 // ```
 type Policy struct {
 	pulumi.CustomResourceState
@@ -105,10 +106,6 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Policy
 	err := ctx.RegisterResource("aws:iam/policy:Policy", name, args, &resource, opts...)

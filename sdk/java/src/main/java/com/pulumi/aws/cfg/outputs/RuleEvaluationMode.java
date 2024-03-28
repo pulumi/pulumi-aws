@@ -44,13 +44,14 @@ public final class RuleEvaluationMode {
 
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         public RuleEvaluationMode build() {
-            final var o = new RuleEvaluationMode();
-            o.mode = mode;
-            return o;
+            final var _resultValue = new RuleEvaluationMode();
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

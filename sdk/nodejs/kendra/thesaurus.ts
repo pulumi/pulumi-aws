@@ -12,29 +12,32 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Thesaurus("example", {
- *     indexId: aws_kendra_index.example.id,
- *     roleArn: aws_iam_role.example.arn,
+ *     indexId: exampleAwsKendraIndex.id,
+ *     name: "Example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     sourceS3Path: {
- *         bucket: aws_s3_bucket.example.id,
- *         key: aws_s3_object.example.key,
+ *         bucket: exampleAwsS3Bucket.id,
+ *         key: exampleAwsS3Object.key,
  *     },
  *     tags: {
  *         Name: "Example Kendra Thesaurus",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
+ * $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
  * ```
  */
 export class Thesaurus extends pulumi.CustomResource {
@@ -153,8 +156,6 @@ export class Thesaurus extends pulumi.CustomResource {
             resourceInputs["thesaurusId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Thesaurus.__pulumiType, name, resourceInputs, opts);
     }
 }

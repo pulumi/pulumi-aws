@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -26,18 +25,20 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = .Select(__value =&gt; 
-        ///     {
+        ///     var example = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
         ///         return Aws.Ec2.GetLocalGatewayVirtualInterface.Invoke(new()
         ///         {
         ///             Id = __value,
         ///         });
-        ///     }).ToList();
+        ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocalGatewayVirtualInterfaceResult> InvokeAsync(GetLocalGatewayVirtualInterfaceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayVirtualInterfaceResult>("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", args ?? new GetLocalGatewayVirtualInterfaceArgs(), options.WithDefaults());
@@ -45,10 +46,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,18 +57,20 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = .Select(__value =&gt; 
-        ///     {
+        ///     var example = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __value = item.Value;
         ///         return Aws.Ec2.GetLocalGatewayVirtualInterface.Invoke(new()
         ///         {
         ///             Id = __value,
         ///         });
-        ///     }).ToList();
+        ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocalGatewayVirtualInterfaceResult> Invoke(GetLocalGatewayVirtualInterfaceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayVirtualInterfaceResult>("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", args ?? new GetLocalGatewayVirtualInterfaceInvokeArgs(), options.WithDefaults());

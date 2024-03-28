@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,11 +30,13 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// queue, err := sqs.NewQueue(ctx, "queue", nil)
+// q, err := sqs.NewQueue(ctx, "q", &sqs.QueueArgs{
+// Name: pulumi.String("examplequeue"),
+// })
 // if err != nil {
 // return err
 // }
-// testPolicyDocument := queue.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// test := q.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
 // return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 // Statements: []iam.GetPolicyDocumentStatement{
 // {
@@ -58,7 +61,7 @@ import (
 // Test: "ArnEquals",
 // Variable: "aws:SourceArn",
 // Values: interface{}{
-// aws_sns_topic.Example.Arn,
+// example.Arn,
 // },
 // },
 // },
@@ -66,10 +69,10 @@ import (
 // },
 // }, nil), nil
 // }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sqs.NewQueuePolicy(ctx, "testQueuePolicy", &sqs.QueuePolicyArgs{
-// QueueUrl: queue.ID(),
-// Policy: testPolicyDocument.ApplyT(func(testPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-// return &testPolicyDocument.Json, nil
+// _, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
+// QueueUrl: q.ID(),
+// Policy: test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
+// return &test.Json, nil
 // }).(pulumi.StringPtrOutput),
 // })
 // if err != nil {
@@ -79,15 +82,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
-//
+// $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
 // ```
 type QueuePolicy struct {
 	pulumi.CustomResourceState

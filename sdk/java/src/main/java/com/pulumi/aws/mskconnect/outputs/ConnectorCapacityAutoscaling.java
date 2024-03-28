@@ -6,6 +6,7 @@ package com.pulumi.aws.mskconnect.outputs;
 import com.pulumi.aws.mskconnect.outputs.ConnectorCapacityAutoscalingScaleInPolicy;
 import com.pulumi.aws.mskconnect.outputs.ConnectorCapacityAutoscalingScaleOutPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -102,37 +103,46 @@ public final class ConnectorCapacityAutoscaling {
 
         @CustomType.Setter
         public Builder maxWorkerCount(Integer maxWorkerCount) {
-            this.maxWorkerCount = Objects.requireNonNull(maxWorkerCount);
+            if (maxWorkerCount == null) {
+              throw new MissingRequiredPropertyException("ConnectorCapacityAutoscaling", "maxWorkerCount");
+            }
+            this.maxWorkerCount = maxWorkerCount;
             return this;
         }
         @CustomType.Setter
         public Builder mcuCount(@Nullable Integer mcuCount) {
+
             this.mcuCount = mcuCount;
             return this;
         }
         @CustomType.Setter
         public Builder minWorkerCount(Integer minWorkerCount) {
-            this.minWorkerCount = Objects.requireNonNull(minWorkerCount);
+            if (minWorkerCount == null) {
+              throw new MissingRequiredPropertyException("ConnectorCapacityAutoscaling", "minWorkerCount");
+            }
+            this.minWorkerCount = minWorkerCount;
             return this;
         }
         @CustomType.Setter
         public Builder scaleInPolicy(@Nullable ConnectorCapacityAutoscalingScaleInPolicy scaleInPolicy) {
+
             this.scaleInPolicy = scaleInPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder scaleOutPolicy(@Nullable ConnectorCapacityAutoscalingScaleOutPolicy scaleOutPolicy) {
+
             this.scaleOutPolicy = scaleOutPolicy;
             return this;
         }
         public ConnectorCapacityAutoscaling build() {
-            final var o = new ConnectorCapacityAutoscaling();
-            o.maxWorkerCount = maxWorkerCount;
-            o.mcuCount = mcuCount;
-            o.minWorkerCount = minWorkerCount;
-            o.scaleInPolicy = scaleInPolicy;
-            o.scaleOutPolicy = scaleOutPolicy;
-            return o;
+            final var _resultValue = new ConnectorCapacityAutoscaling();
+            _resultValue.maxWorkerCount = maxWorkerCount;
+            _resultValue.mcuCount = mcuCount;
+            _resultValue.minWorkerCount = minWorkerCount;
+            _resultValue.scaleInPolicy = scaleInPolicy;
+            _resultValue.scaleOutPolicy = scaleOutPolicy;
+            return _resultValue;
         }
     }
 }

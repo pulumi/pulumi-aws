@@ -11,22 +11,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const rules = aws.inspector.getRulesPackages({});
  * // e.g., Use in aws_inspector_assessment_template
  * const group = new aws.inspector.ResourceGroup("group", {tags: {
  *     test: "test",
  * }});
- * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessmentAssessmentTarget", {resourceGroupArn: group.arn});
- * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessmentAssessmentTemplate", {
- *     targetArn: assessmentAssessmentTarget.arn,
+ * const assessment = new aws.inspector.AssessmentTarget("assessment", {
+ *     name: "test",
+ *     resourceGroupArn: group.arn,
+ * });
+ * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessment", {
+ *     name: "Test",
+ *     targetArn: assessment.arn,
  *     duration: 60,
  *     rulesPackageArns: rules.then(rules => rules.arns),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> {
 
@@ -55,22 +62,29 @@ export interface GetRulesPackagesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Declare the data source
  * const rules = aws.inspector.getRulesPackages({});
  * // e.g., Use in aws_inspector_assessment_template
  * const group = new aws.inspector.ResourceGroup("group", {tags: {
  *     test: "test",
  * }});
- * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessmentAssessmentTarget", {resourceGroupArn: group.arn});
- * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessmentAssessmentTemplate", {
- *     targetArn: assessmentAssessmentTarget.arn,
+ * const assessment = new aws.inspector.AssessmentTarget("assessment", {
+ *     name: "test",
+ *     resourceGroupArn: group.arn,
+ * });
+ * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessment", {
+ *     name: "Test",
+ *     targetArn: assessment.arn,
  *     duration: 60,
  *     rulesPackageArns: rules.then(rules => rules.arns),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRulesPackagesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesPackagesResult> {
     return pulumi.output(getRulesPackages(opts))

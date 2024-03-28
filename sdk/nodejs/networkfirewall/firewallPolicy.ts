@@ -12,18 +12,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.FirewallPolicy("example", {
+ *     name: "example",
  *     firewallPolicy: {
  *         statelessDefaultActions: ["aws:pass"],
  *         statelessFragmentDefaultActions: ["aws:drop"],
  *         statelessRuleGroupReferences: [{
  *             priority: 1,
- *             resourceArn: aws_networkfirewall_rule_group.example.arn,
+ *             resourceArn: exampleAwsNetworkfirewallRuleGroup.arn,
  *         }],
+ *         tlsInspectionConfigurationArn: "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
  *     },
  *     tags: {
  *         Tag1: "Value1",
@@ -31,13 +34,17 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Policy with a HOME_NET Override
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.FirewallPolicy("example", {
+ *     name: "example",
  *     firewallPolicy: {
  *         policyVariables: {
  *             ruleVariables: [{
@@ -54,7 +61,7 @@ import * as utilities from "../utilities";
  *         statelessFragmentDefaultActions: ["aws:drop"],
  *         statelessRuleGroupReferences: [{
  *             priority: 1,
- *             resourceArn: aws_networkfirewall_rule_group.example.arn,
+ *             resourceArn: exampleAwsNetworkfirewallRuleGroup.arn,
  *         }],
  *     },
  *     tags: {
@@ -63,13 +70,44 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ## Policy with a Custom Action for Stateless Inspection
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.networkfirewall.FirewallPolicy("test", {
+ *     name: "example",
+ *     firewallPolicy: {
+ *         statelessDefaultActions: [
+ *             "aws:pass",
+ *             "ExampleCustomAction",
+ *         ],
+ *         statelessFragmentDefaultActions: ["aws:drop"],
+ *         statelessCustomActions: [{
+ *             actionDefinition: {
+ *                 publishMetricAction: {
+ *                     dimensions: [{
+ *                         value: "1",
+ *                     }],
+ *                 },
+ *             },
+ *             actionName: "ExampleCustomAction",
+ *         }],
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Network Firewall Policies using their `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
+ * $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
  * ```
  */
 export class FirewallPolicy extends pulumi.CustomResource {
@@ -171,8 +209,6 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["updateToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(FirewallPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }

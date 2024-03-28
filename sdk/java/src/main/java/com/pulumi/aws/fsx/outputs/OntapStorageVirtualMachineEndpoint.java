@@ -89,6 +89,7 @@ public final class OntapStorageVirtualMachineEndpoint {
 
         @CustomType.Setter
         public Builder iscsis(@Nullable List<OntapStorageVirtualMachineEndpointIscsi> iscsis) {
+
             this.iscsis = iscsis;
             return this;
         }
@@ -97,6 +98,7 @@ public final class OntapStorageVirtualMachineEndpoint {
         }
         @CustomType.Setter
         public Builder managements(@Nullable List<OntapStorageVirtualMachineEndpointManagement> managements) {
+
             this.managements = managements;
             return this;
         }
@@ -105,6 +107,7 @@ public final class OntapStorageVirtualMachineEndpoint {
         }
         @CustomType.Setter
         public Builder nfs(@Nullable List<OntapStorageVirtualMachineEndpointNf> nfs) {
+
             this.nfs = nfs;
             return this;
         }
@@ -113,6 +116,7 @@ public final class OntapStorageVirtualMachineEndpoint {
         }
         @CustomType.Setter
         public Builder smbs(@Nullable List<OntapStorageVirtualMachineEndpointSmb> smbs) {
+
             this.smbs = smbs;
             return this;
         }
@@ -120,12 +124,12 @@ public final class OntapStorageVirtualMachineEndpoint {
             return smbs(List.of(smbs));
         }
         public OntapStorageVirtualMachineEndpoint build() {
-            final var o = new OntapStorageVirtualMachineEndpoint();
-            o.iscsis = iscsis;
-            o.managements = managements;
-            o.nfs = nfs;
-            o.smbs = smbs;
-            return o;
+            final var _resultValue = new OntapStorageVirtualMachineEndpoint();
+            _resultValue.iscsis = iscsis;
+            _resultValue.managements = managements;
+            _resultValue.nfs = nfs;
+            _resultValue.smbs = smbs;
+            return _resultValue;
         }
     }
 }

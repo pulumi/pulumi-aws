@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages an EKS add-on.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,16 +44,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
- *             .clusterName(aws_eks_cluster.example().name())
+ *             .clusterName(exampleAwsEksCluster.name())
  *             .addonName(&#34;vpc-cni&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
  * 
  * `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,7 +80,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
- *             .clusterName(aws_eks_cluster.example().name())
+ *             .clusterName(exampleAwsEksCluster.name())
  *             .addonName(&#34;coredns&#34;)
  *             .addonVersion(&#34;v1.10.1-eksbuild.1&#34;)
  *             .resolveConflictsOnUpdate(&#34;PRESERVE&#34;)
@@ -84,6 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example add-on usage with custom configuration_values
  * 
@@ -93,30 +99,10 @@ import javax.annotation.Nullable;
  * 
  * To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
  * This below is an example for extracting the `configuration_values` schema for `coredns`.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *     }
- * }
- * ```
  * 
  * Example to create a `coredns` managed addon with custom `configuration_values`.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -163,13 +149,90 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Example IAM Role for EKS Addon &#34;vpc-cni&#34; with AWS managed policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.eks.Cluster;
+ * import com.pulumi.tls.TlsFunctions;
+ * import com.pulumi.tls.inputs.GetCertificateArgs;
+ * import com.pulumi.aws.iam.OpenIdConnectProvider;
+ * import com.pulumi.aws.iam.OpenIdConnectProviderArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;);
+ * 
+ *         final var example = TlsFunctions.getCertificate(GetCertificateArgs.builder()
+ *             .url(exampleCluster.identities().applyValue(identities -&gt; identities[0].oidcs()[0].issuer()))
+ *             .build());
+ * 
+ *         var exampleOpenIdConnectProvider = new OpenIdConnectProvider(&#34;exampleOpenIdConnectProvider&#34;, OpenIdConnectProviderArgs.builder()        
+ *             .clientIdLists(&#34;sts.amazonaws.com&#34;)
+ *             .thumbprintLists(example.applyValue(getCertificateResult -&gt; getCertificateResult).applyValue(example -&gt; example.applyValue(getCertificateResult -&gt; getCertificateResult.certificates()[0].sha1Fingerprint())))
+ *             .url(exampleCluster.identities().applyValue(identities -&gt; identities[0].oidcs()[0].issuer()))
+ *             .build());
+ * 
+ *         final var exampleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions(&#34;sts:AssumeRoleWithWebIdentity&#34;)
+ *                 .effect(&#34;Allow&#34;)
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test(&#34;StringEquals&#34;)
+ *                     .variable(StdFunctions.replace().applyValue(invoke -&gt; String.format(&#34;%s:sub&#34;, invoke.result())))
+ *                     .values(&#34;system:serviceaccount:kube-system:aws-node&#34;)
+ *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .identifiers(exampleOpenIdConnectProvider.arn())
+ *                     .type(&#34;Federated&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .assumeRolePolicy(exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(exampleAssumeRolePolicy -&gt; exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .name(&#34;example-vpc-cni-role&#34;)
+ *             .build());
+ * 
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy&#34;)
+ *             .role(exampleRole.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+ * $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
  * ```
  * 
  */
@@ -222,7 +285,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the EKS Cluster.
      * 
      * The following arguments are optional:
      * 
@@ -231,7 +294,7 @@ public class Addon extends com.pulumi.resources.CustomResource {
     private Output<String> clusterName;
 
     /**
-     * @return Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * @return Name of the EKS Cluster.
      * 
      * The following arguments are optional:
      * 
@@ -440,9 +503,6 @@ public class Addon extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

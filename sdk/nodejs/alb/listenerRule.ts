@@ -14,20 +14,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
- * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {});
- * // Other parameters
+ * const frontEnd = new aws.lb.LoadBalancer("front_end", {});
+ * const frontEndListener = new aws.lb.Listener("front_end", {});
  * const static = new aws.lb.ListenerRule("static", {
  *     listenerArn: frontEndListener.arn,
  *     priority: 100,
  *     actions: [{
  *         type: "forward",
- *         targetGroupArn: aws_lb_target_group.static.arn,
+ *         targetGroupArn: staticAwsLbTargetGroup.arn,
  *     }],
  *     conditions: [
  *         {
@@ -43,12 +42,12 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * // Forward action
- * const hostBasedWeightedRouting = new aws.lb.ListenerRule("hostBasedWeightedRouting", {
+ * const hostBasedWeightedRouting = new aws.lb.ListenerRule("host_based_weighted_routing", {
  *     listenerArn: frontEndListener.arn,
  *     priority: 99,
  *     actions: [{
  *         type: "forward",
- *         targetGroupArn: aws_lb_target_group.static.arn,
+ *         targetGroupArn: staticAwsLbTargetGroup.arn,
  *     }],
  *     conditions: [{
  *         hostHeader: {
@@ -57,7 +56,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Weighted Forward action
- * const hostBasedRouting = new aws.lb.ListenerRule("hostBasedRouting", {
+ * const hostBasedRouting = new aws.lb.ListenerRule("host_based_routing", {
  *     listenerArn: frontEndListener.arn,
  *     priority: 99,
  *     actions: [{
@@ -65,11 +64,11 @@ import * as utilities from "../utilities";
  *         forward: {
  *             targetGroups: [
  *                 {
- *                     arn: aws_lb_target_group.main.arn,
+ *                     arn: main.arn,
  *                     weight: 80,
  *                 },
  *                 {
- *                     arn: aws_lb_target_group.canary.arn,
+ *                     arn: canary.arn,
  *                     weight: 20,
  *                 },
  *             ],
@@ -86,7 +85,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Redirect action
- * const redirectHttpToHttps = new aws.lb.ListenerRule("redirectHttpToHttps", {
+ * const redirectHttpToHttps = new aws.lb.ListenerRule("redirect_http_to_https", {
  *     listenerArn: frontEndListener.arn,
  *     actions: [{
  *         type: "redirect",
@@ -104,7 +103,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Fixed-response action
- * const healthCheck = new aws.lb.ListenerRule("healthCheck", {
+ * const healthCheck = new aws.lb.ListenerRule("health_check", {
  *     listenerArn: frontEndListener.arn,
  *     actions: [{
  *         type: "fixed-response",
@@ -128,11 +127,8 @@ import * as utilities from "../utilities";
  * });
  * // Authenticate-cognito Action
  * const pool = new aws.cognito.UserPool("pool", {});
- * // ...
  * const client = new aws.cognito.UserPoolClient("client", {});
- * // ...
  * const domain = new aws.cognito.UserPoolDomain("domain", {});
- * // ...
  * const admin = new aws.lb.ListenerRule("admin", {
  *     listenerArn: frontEndListener.arn,
  *     actions: [
@@ -146,7 +142,7 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             type: "forward",
- *             targetGroupArn: aws_lb_target_group.static.arn,
+ *             targetGroupArn: staticAwsLbTargetGroup.arn,
  *         },
  *     ],
  * });
@@ -167,18 +163,19 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             type: "forward",
- *             targetGroupArn: aws_lb_target_group.static.arn,
+ *             targetGroupArn: staticAwsLbTargetGroup.arn,
  *         },
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import rules using their ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:alb/listenerRule:ListenerRule front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener-rule/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b
+ * $ pulumi import aws:alb/listenerRule:ListenerRule front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener-rule/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b
  * ```
  */
 export class ListenerRule extends pulumi.CustomResource {
@@ -282,8 +279,6 @@ export class ListenerRule extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listenerRule:ListenerRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ListenerRule.__pulumiType, name, resourceInputs, opts);
     }
 }

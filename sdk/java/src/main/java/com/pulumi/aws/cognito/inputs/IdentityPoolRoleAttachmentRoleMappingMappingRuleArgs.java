@@ -5,6 +5,7 @@ package com.pulumi.aws.cognito.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs extends 
         }
 
         public IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs build() {
-            $.claim = Objects.requireNonNull($.claim, "expected parameter 'claim' to be non-null");
-            $.matchType = Objects.requireNonNull($.matchType, "expected parameter 'matchType' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.claim == null) {
+                throw new MissingRequiredPropertyException("IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs", "claim");
+            }
+            if ($.matchType == null) {
+                throw new MissingRequiredPropertyException("IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs", "matchType");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs", "roleArn");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs", "value");
+            }
             return $;
         }
     }

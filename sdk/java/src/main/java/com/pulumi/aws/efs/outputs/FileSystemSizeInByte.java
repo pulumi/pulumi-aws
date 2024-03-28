@@ -72,25 +72,28 @@ public final class FileSystemSizeInByte {
 
         @CustomType.Setter
         public Builder value(@Nullable Integer value) {
+
             this.value = value;
             return this;
         }
         @CustomType.Setter
         public Builder valueInIa(@Nullable Integer valueInIa) {
+
             this.valueInIa = valueInIa;
             return this;
         }
         @CustomType.Setter
         public Builder valueInStandard(@Nullable Integer valueInStandard) {
+
             this.valueInStandard = valueInStandard;
             return this;
         }
         public FileSystemSizeInByte build() {
-            final var o = new FileSystemSizeInByte();
-            o.value = value;
-            o.valueInIa = valueInIa;
-            o.valueInStandard = valueInStandard;
-            return o;
+            final var _resultValue = new FileSystemSizeInByte();
+            _resultValue.value = value;
+            _resultValue.valueInIa = valueInIa;
+            _resultValue.valueInStandard = valueInStandard;
+            return _resultValue;
         }
     }
 }

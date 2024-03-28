@@ -186,24 +186,26 @@ class Template(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_template = aws.ses.Template("myTemplate",
-            html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
+        my_template = aws.ses.Template("MyTemplate",
+            name="MyTemplate",
             subject="Greetings, {{name}}!",
+            html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
             text=\"\"\"Hello {{name}},
-        Your favorite animal is {{favoriteanimal}}.
-        \"\"\")
+        Your favorite animal is {{favoriteanimal}}.\"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES templates using the template name. For example:
 
         ```sh
-         $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+        $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
         ```
 
         :param str resource_name: The name of the resource.
@@ -224,24 +226,26 @@ class Template(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        my_template = aws.ses.Template("myTemplate",
-            html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
+        my_template = aws.ses.Template("MyTemplate",
+            name="MyTemplate",
             subject="Greetings, {{name}}!",
+            html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
             text=\"\"\"Hello {{name}},
-        Your favorite animal is {{favoriteanimal}}.
-        \"\"\")
+        Your favorite animal is {{favoriteanimal}}.\"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES templates using the template name. For example:
 
         ```sh
-         $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+        $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
         ```
 
         :param str resource_name: The name of the resource.

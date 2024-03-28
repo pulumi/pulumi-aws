@@ -213,39 +213,47 @@ class KxUser(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx User.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="Example KMS Key",
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "ec2.amazonaws.com",
-                },
-            }],
-        }))
-        example_kx_user = aws.finspace.KxUser("exampleKxUser",
+        example_kx_environment = aws.finspace.KxEnvironment("example",
+            name="my-tf-kx-environment",
+            kms_key_id=example.arn)
+        example_role = aws.iam.Role("example",
+            name="example-role",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "ec2.amazonaws.com",
+                    },
+                }],
+            }))
+        example_kx_user = aws.finspace.KxUser("example",
+            name="my-tf-kx-user",
             environment_id=example_kx_environment.id,
             iam_role=example_role.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx User using the `id` (environment ID and user name, comma-delimited). For example:
 
         ```sh
-         $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
+        $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,39 +275,47 @@ class KxUser(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx User.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey",
+        example = aws.kms.Key("example",
             description="Example KMS Key",
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "ec2.amazonaws.com",
-                },
-            }],
-        }))
-        example_kx_user = aws.finspace.KxUser("exampleKxUser",
+        example_kx_environment = aws.finspace.KxEnvironment("example",
+            name="my-tf-kx-environment",
+            kms_key_id=example.arn)
+        example_role = aws.iam.Role("example",
+            name="example-role",
+            assume_role_policy=json.dumps({
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "ec2.amazonaws.com",
+                    },
+                }],
+            }))
+        example_kx_user = aws.finspace.KxUser("example",
+            name="my-tf-kx-user",
             environment_id=example_kx_environment.id,
             iam_role=example_role.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx User using the `id` (environment ID and user name, comma-delimited). For example:
 
         ```sh
-         $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
+        $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
         ```
 
         :param str resource_name: The name of the resource.
@@ -340,8 +356,6 @@ class KxUser(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(KxUser, __self__).__init__(
             'aws:finspace/kxUser:KxUser',
             resource_name,

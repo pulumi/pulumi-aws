@@ -20,28 +20,30 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.cfg.DeliveryChannel;
- * import com.pulumi.aws.cfg.DeliveryChannelArgs;
- * import com.pulumi.aws.cfg.RecorderStatus;
- * import com.pulumi.aws.cfg.RecorderStatusArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.cfg.Recorder;
  * import com.pulumi.aws.cfg.RecorderArgs;
+ * import com.pulumi.aws.cfg.RecorderStatus;
+ * import com.pulumi.aws.cfg.RecorderStatusArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.cfg.DeliveryChannel;
+ * import com.pulumi.aws.cfg.DeliveryChannelArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,18 +57,6 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;);
- * 
- *         var fooDeliveryChannel = new DeliveryChannel(&#34;fooDeliveryChannel&#34;, DeliveryChannelArgs.builder()        
- *             .s3BucketName(bucketV2.bucket())
- *             .build());
- * 
- *         var fooRecorderStatus = new RecorderStatus(&#34;fooRecorderStatus&#34;, RecorderStatusArgs.builder()        
- *             .isEnabled(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(fooDeliveryChannel)
- *                 .build());
- * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
@@ -78,44 +68,62 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
+ *         var r = new Role(&#34;r&#34;, RoleArgs.builder()        
+ *             .name(&#34;example-awsconfig&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var rolePolicyAttachment = new RolePolicyAttachment(&#34;rolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(role.name())
+ *         var fooRecorder = new Recorder(&#34;fooRecorder&#34;, RecorderArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .roleArn(r.arn())
+ *             .build());
+ * 
+ *         var foo = new RecorderStatus(&#34;foo&#34;, RecorderStatusArgs.builder()        
+ *             .name(fooRecorder.name())
+ *             .isEnabled(true)
+ *             .build());
+ * 
+ *         var a = new RolePolicyAttachment(&#34;a&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .role(r.name())
  *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWS_ConfigRole&#34;)
  *             .build());
  * 
- *         var fooRecorder = new Recorder(&#34;fooRecorder&#34;, RecorderArgs.builder()        
- *             .roleArn(role.arn())
+ *         var b = new BucketV2(&#34;b&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;awsconfig-example&#34;)
  *             .build());
  * 
- *         final var policyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         var fooDeliveryChannel = new DeliveryChannel(&#34;fooDeliveryChannel&#34;, DeliveryChannelArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .s3BucketName(b.bucket())
+ *             .build());
+ * 
+ *         final var p = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;s3:*&#34;)
  *                 .resources(                
- *                     bucketV2.arn(),
- *                     bucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                     b.arn(),
+ *                     b.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
  *                 .build())
  *             .build());
  * 
- *         var rolePolicy = new RolePolicy(&#34;rolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(role.id())
- *             .policy(policyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(policyDocument -&gt; policyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *         var pRolePolicy = new RolePolicy(&#34;pRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;awsconfig-example&#34;)
+ *             .role(r.id())
+ *             .policy(p.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(p -&gt; p.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+ * $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
  * ```
  * 
  */

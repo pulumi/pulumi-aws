@@ -10,23 +10,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkmanager.Connection("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     deviceId: aws_networkmanager_device.example1.id,
- *     connectedDeviceId: aws_networkmanager_device.example2.id,
+ *     globalNetworkId: exampleAwsNetworkmanagerGlobalNetwork.id,
+ *     deviceId: example1.id,
+ *     connectedDeviceId: example2.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_connection` using the connection ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
+ * $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
  * ```
  */
 export class Connection extends pulumi.CustomResource {
@@ -140,8 +142,6 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Comprehend
     /// Resource for managing an AWS Comprehend Document Classifier.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,35 +27,29 @@ namespace Pulumi.Aws.Comprehend
     /// {
     ///     var documents = new Aws.S3.BucketObjectv2("documents");
     /// 
-    ///     // ...
     ///     var example = new Aws.Comprehend.DocumentClassifier("example", new()
     ///     {
-    ///         DataAccessRoleArn = aws_iam_role.Example.Arn,
+    ///         Name = "example",
+    ///         DataAccessRoleArn = exampleAwsIamRole.Arn,
     ///         LanguageCode = "en",
     ///         InputDataConfig = new Aws.Comprehend.Inputs.DocumentClassifierInputDataConfigArgs
     ///         {
-    ///             S3Uri = documents.Id.Apply(id =&gt; $"s3://{aws_s3_bucket.Test.Bucket}/{id}"),
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy.Example,
+    ///             S3Uri = documents.Id.Apply(id =&gt; $"s3://{test.Bucket}/{id}"),
     ///         },
     ///     });
     /// 
     ///     var entities = new Aws.S3.BucketObjectv2("entities");
     /// 
-    ///     // ...
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+    /// $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:comprehend/documentClassifier:DocumentClassifier")]
@@ -187,10 +183,6 @@ namespace Pulumi.Aws.Comprehend
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -401,11 +393,7 @@ namespace Pulumi.Aws.Comprehend
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

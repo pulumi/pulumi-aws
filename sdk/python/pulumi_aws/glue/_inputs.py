@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'CatalogDatabaseCreateTableDefaultPermissionArgs',
     'CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs',
+    'CatalogDatabaseFederatedDatabaseArgs',
     'CatalogDatabaseTargetDatabaseArgs',
     'CatalogTableOpenTableFormatInputArgs',
     'CatalogTableOpenTableFormatInputIcebergInputArgs',
@@ -134,6 +135,45 @@ class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs:
     @data_lake_principal_identifier.setter
     def data_lake_principal_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_lake_principal_identifier", value)
+
+
+@pulumi.input_type
+class CatalogDatabaseFederatedDatabaseArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 identifier: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] connection_name: Name of the connection to the external metastore.
+        :param pulumi.Input[str] identifier: Unique identifier for the federated database.
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the connection to the external metastore.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique identifier for the federated database.
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identifier", value)
 
 
 @pulumi.input_type
@@ -898,15 +938,19 @@ class CatalogTableTargetTableArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  database_name: pulumi.Input[str],
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[str],
+                 region: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the table resides.
         :param pulumi.Input[str] database_name: Name of the catalog database that contains the target table.
         :param pulumi.Input[str] name: Name of the target table.
+        :param pulumi.Input[str] region: Region of the target table.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -944,6 +988,18 @@ class CatalogTableTargetTableArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Region of the target table.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class ClassifierCsvClassifierArgs:
@@ -955,7 +1011,8 @@ class ClassifierCsvClassifierArgs:
                  delimiter: Optional[pulumi.Input[str]] = None,
                  disable_value_trimming: Optional[pulumi.Input[bool]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 quote_symbol: Optional[pulumi.Input[str]] = None):
+                 quote_symbol: Optional[pulumi.Input[str]] = None,
+                 serde: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] allow_single_column: Enables the processing of files that contain only one column.
         :param pulumi.Input[str] contains_header: Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
@@ -982,6 +1039,8 @@ class ClassifierCsvClassifierArgs:
             pulumi.set(__self__, "headers", headers)
         if quote_symbol is not None:
             pulumi.set(__self__, "quote_symbol", quote_symbol)
+        if serde is not None:
+            pulumi.set(__self__, "serde", serde)
 
     @property
     @pulumi.getter(name="allowSingleColumn")
@@ -1078,6 +1137,15 @@ class ClassifierCsvClassifierArgs:
     @quote_symbol.setter
     def quote_symbol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "quote_symbol", value)
+
+    @property
+    @pulumi.getter
+    def serde(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "serde")
+
+    @serde.setter
+    def serde(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "serde", value)
 
 
 @pulumi.input_type

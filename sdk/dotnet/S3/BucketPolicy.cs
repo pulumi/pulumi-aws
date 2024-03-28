@@ -12,9 +12,13 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Attaches a policy to an S3 bucket resource.
     /// 
+    /// &gt; Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
+    /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,9 +27,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "my-tf-test-bucket",
+    ///     });
     /// 
-    ///     var allowAccessFromAnotherAccountPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var allowAccessFromAnotherAccount = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -56,21 +63,22 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var allowAccessFromAnotherAccountBucketPolicy = new Aws.S3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", new()
+    ///     var allowAccessFromAnotherAccountBucketPolicy = new Aws.S3.BucketPolicy("allow_access_from_another_account", new()
     ///     {
     ///         Bucket = example.Id,
-    ///         Policy = allowAccessFromAnotherAccountPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = allowAccessFromAnotherAccount.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
+    /// $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketPolicy:BucketPolicy")]

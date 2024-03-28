@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,18 +29,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := signer.NewSigningProfile(ctx, "testSp", &signer.SigningProfileArgs{
+//			_, err := signer.NewSigningProfile(ctx, "test_sp", &signer.SigningProfileArgs{
 //				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = signer.NewSigningProfile(ctx, "prodSp", &signer.SigningProfileArgs{
-//				NamePrefix: pulumi.String("prod_sp_"),
+//			_, err = signer.NewSigningProfile(ctx, "prod_sp", &signer.SigningProfileArgs{
 //				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
+//				NamePrefix: pulumi.String("prod_sp_"),
 //				SignatureValidityPeriod: &signer.SigningProfileSignatureValidityPeriodArgs{
-//					Type:  pulumi.String("YEARS"),
 //					Value: pulumi.Int(5),
+//					Type:  pulumi.String("YEARS"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"tag1": pulumi.String("value1"),
@@ -54,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Signer signing profiles using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
-//
+// $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
 // ```
 type SigningProfile struct {
 	pulumi.CustomResourceState
@@ -106,10 +106,6 @@ func NewSigningProfile(ctx *pulumi.Context,
 	if args.PlatformId == nil {
 		return nil, errors.New("invalid value for required argument 'PlatformId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SigningProfile
 	err := ctx.RegisterResource("aws:signer/signingProfile:SigningProfile", name, args, &resource, opts...)

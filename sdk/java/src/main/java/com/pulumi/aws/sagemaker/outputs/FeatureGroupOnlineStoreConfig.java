@@ -89,31 +89,35 @@ public final class FeatureGroupOnlineStoreConfig {
 
         @CustomType.Setter
         public Builder enableOnlineStore(@Nullable Boolean enableOnlineStore) {
+
             this.enableOnlineStore = enableOnlineStore;
             return this;
         }
         @CustomType.Setter
         public Builder securityConfig(@Nullable FeatureGroupOnlineStoreConfigSecurityConfig securityConfig) {
+
             this.securityConfig = securityConfig;
             return this;
         }
         @CustomType.Setter
         public Builder storageType(@Nullable String storageType) {
+
             this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
         public Builder ttlDuration(@Nullable FeatureGroupOnlineStoreConfigTtlDuration ttlDuration) {
+
             this.ttlDuration = ttlDuration;
             return this;
         }
         public FeatureGroupOnlineStoreConfig build() {
-            final var o = new FeatureGroupOnlineStoreConfig();
-            o.enableOnlineStore = enableOnlineStore;
-            o.securityConfig = securityConfig;
-            o.storageType = storageType;
-            o.ttlDuration = ttlDuration;
-            return o;
+            final var _resultValue = new FeatureGroupOnlineStoreConfig();
+            _resultValue.enableOnlineStore = enableOnlineStore;
+            _resultValue.securityConfig = securityConfig;
+            _resultValue.storageType = storageType;
+            _resultValue.ttlDuration = ttlDuration;
+            return _resultValue;
         }
     }
 }

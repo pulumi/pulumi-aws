@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -85,31 +86,43 @@ public final class GetPublicIpv4PoolPoolAddressRange {
 
         @CustomType.Setter
         public Builder addressCount(Integer addressCount) {
-            this.addressCount = Objects.requireNonNull(addressCount);
+            if (addressCount == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolPoolAddressRange", "addressCount");
+            }
+            this.addressCount = addressCount;
             return this;
         }
         @CustomType.Setter
         public Builder availableAddressCount(Integer availableAddressCount) {
-            this.availableAddressCount = Objects.requireNonNull(availableAddressCount);
+            if (availableAddressCount == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolPoolAddressRange", "availableAddressCount");
+            }
+            this.availableAddressCount = availableAddressCount;
             return this;
         }
         @CustomType.Setter
         public Builder firstAddress(String firstAddress) {
-            this.firstAddress = Objects.requireNonNull(firstAddress);
+            if (firstAddress == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolPoolAddressRange", "firstAddress");
+            }
+            this.firstAddress = firstAddress;
             return this;
         }
         @CustomType.Setter
         public Builder lastAddress(String lastAddress) {
-            this.lastAddress = Objects.requireNonNull(lastAddress);
+            if (lastAddress == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolPoolAddressRange", "lastAddress");
+            }
+            this.lastAddress = lastAddress;
             return this;
         }
         public GetPublicIpv4PoolPoolAddressRange build() {
-            final var o = new GetPublicIpv4PoolPoolAddressRange();
-            o.addressCount = addressCount;
-            o.availableAddressCount = availableAddressCount;
-            o.firstAddress = firstAddress;
-            o.lastAddress = lastAddress;
-            return o;
+            final var _resultValue = new GetPublicIpv4PoolPoolAddressRange();
+            _resultValue.addressCount = addressCount;
+            _resultValue.availableAddressCount = availableAddressCount;
+            _resultValue.firstAddress = firstAddress;
+            _resultValue.lastAddress = lastAddress;
+            return _resultValue;
         }
     }
 }

@@ -104,21 +104,23 @@ class Cache(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.storagegateway.Cache("example",
-            disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
-            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
+            disk_id=example_aws_storagegateway_local_disk["id"],
+            gateway_arn=example_aws_storagegateway_gateway["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_storagegateway_cache` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:storagegateway/cache:Cache example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+        $ pulumi import aws:storagegateway/cache:Cache example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
         ```
 
         :param str resource_name: The name of the resource.
@@ -139,21 +141,23 @@ class Cache(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.storagegateway.Cache("example",
-            disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
-            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
+            disk_id=example_aws_storagegateway_local_disk["id"],
+            gateway_arn=example_aws_storagegateway_gateway["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_storagegateway_cache` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:storagegateway/cache:Cache example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
+        $ pulumi import aws:storagegateway/cache:Cache example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
         ```
 
         :param str resource_name: The name of the resource.

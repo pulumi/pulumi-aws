@@ -21,8 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS DataSync Location FSx Ontap File System.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,9 +50,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new LocationFsxOntapFileSystem(&#34;test&#34;, LocationFsxOntapFileSystemArgs.builder()        
- *             .fsxFilesystemArn(aws_fsx_ontap_file_system.test().arn())
- *             .securityGroupArns(aws_security_group.test().arn())
- *             .storageVirtualMachineArn(aws_fsx_ontap_storage_virtual_machine.test().arn())
+ *             .fsxFilesystemArn(testAwsFsxOntapFileSystem.arn())
+ *             .securityGroupArns(testAwsSecurityGroup.arn())
+ *             .storageVirtualMachineArn(testAwsFsxOntapStorageVirtualMachine.arn())
  *             .protocol(LocationFsxOntapFileSystemProtocolArgs.builder()
  *                 .nfs(LocationFsxOntapFileSystemProtocolNfsArgs.builder()
  *                     .mountOptions(LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs.builder()
@@ -63,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123
+ * $ pulumi import aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123
  * ```
  * 
  */
@@ -246,9 +249,6 @@ public class LocationFsxOntapFileSystem extends com.pulumi.resources.CustomResou
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

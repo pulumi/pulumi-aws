@@ -106,6 +106,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -118,26 +119,30 @@ class RolePolicyAttachment(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        role = aws.iam.Role("role",
+            name="test-role",
+            assume_role_policy=assume_role.json)
+        policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
         )])
-        policy_policy = aws.iam.Policy("policyPolicy",
+        policy_policy = aws.iam.Policy("policy",
+            name="test-policy",
             description="A test policy",
-            policy=policy_policy_document.json)
+            policy=policy.json)
         test_attach = aws.iam.RolePolicyAttachment("test-attach",
             role=role.name,
             policy_arn=policy_policy.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
 
         :param str resource_name: The name of the resource.
@@ -160,6 +165,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -172,26 +178,30 @@ class RolePolicyAttachment(pulumi.CustomResource):
             )],
             actions=["sts:AssumeRole"],
         )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        role = aws.iam.Role("role",
+            name="test-role",
+            assume_role_policy=assume_role.json)
+        policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
         )])
-        policy_policy = aws.iam.Policy("policyPolicy",
+        policy_policy = aws.iam.Policy("policy",
+            name="test-policy",
             description="A test policy",
-            policy=policy_policy_document.json)
+            policy=policy.json)
         test_attach = aws.iam.RolePolicyAttachment("test-attach",
             role=role.name,
             policy_arn=policy_policy.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
 
         :param str resource_name: The name of the resource.

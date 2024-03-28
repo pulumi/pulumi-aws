@@ -15,6 +15,7 @@ namespace Pulumi.Aws.ElastiCache
     /// &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,19 +26,21 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.User("test", new()
     ///     {
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
     ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
     ///         Engine = "REDIS",
     ///         Passwords = new[]
     ///         {
     ///             "password123456789",
     ///         },
-    ///         UserId = "testUserId",
-    ///         UserName = "testUserName",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,19 +51,21 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.User("test", new()
     ///     {
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
     ///         AccessString = "on ~* +@all",
+    ///         Engine = "REDIS",
     ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
     ///         {
     ///             Type = "iam",
     ///         },
-    ///         Engine = "REDIS",
-    ///         UserId = "testUserId",
-    ///         UserName = "testUserName",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,30 +76,31 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.User("test", new()
     ///     {
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
     ///         AccessString = "on ~* +@all",
+    ///         Engine = "REDIS",
     ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
     ///         {
+    ///             Type = "password",
     ///             Passwords = new[]
     ///             {
     ///                 "password1",
     ///                 "password2",
     ///             },
-    ///             Type = "password",
     ///         },
-    ///         Engine = "REDIS",
-    ///         UserId = "testUserId",
-    ///         UserName = "testUserName",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticache/user:User my_user userId1
+    /// $ pulumi import aws:elasticache/user:User my_user userId1
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/user:User")]
@@ -185,7 +191,6 @@ namespace Pulumi.Aws.ElastiCache
                 AdditionalSecretOutputs =
                 {
                     "passwords",
-                    "tagsAll",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -348,11 +353,7 @@ namespace Pulumi.Aws.ElastiCache
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -11,14 +11,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.guardduty.Detector("primary", {enable: true});
  * const bucket = new aws.s3.BucketV2("bucket", {});
- * // ... other configuration
- * const myIPSet = new aws.s3.BucketObjectv2("myIPSet", {
+ * const myIPSet = new aws.s3.BucketObjectv2("MyIPSet", {
  *     content: "10.0.0.0/8\n",
  *     bucket: bucket.id,
  *     key: "MyIPSet",
@@ -28,19 +28,21 @@ import * as utilities from "../utilities";
  *     detectorId: primary.id,
  *     format: "TXT",
  *     location: pulumi.interpolate`https://s3.amazonaws.com/${myIPSet.bucket}/${myIPSet.key}`,
+ *     name: "MyIPSet",
  * });
- * const bucketAcl = new aws.s3.BucketAclV2("bucketAcl", {
+ * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+ * $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
  * ```
  */
 export class IPSet extends pulumi.CustomResource {
@@ -151,8 +153,6 @@ export class IPSet extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(IPSet.__pulumiType, name, resourceInputs, opts);
     }
 }

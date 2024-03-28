@@ -4,6 +4,7 @@
 package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class BotIntent {
 
         @CustomType.Setter
         public Builder intentName(String intentName) {
-            this.intentName = Objects.requireNonNull(intentName);
+            if (intentName == null) {
+              throw new MissingRequiredPropertyException("BotIntent", "intentName");
+            }
+            this.intentName = intentName;
             return this;
         }
         @CustomType.Setter
         public Builder intentVersion(String intentVersion) {
-            this.intentVersion = Objects.requireNonNull(intentVersion);
+            if (intentVersion == null) {
+              throw new MissingRequiredPropertyException("BotIntent", "intentVersion");
+            }
+            this.intentVersion = intentVersion;
             return this;
         }
         public BotIntent build() {
-            final var o = new BotIntent();
-            o.intentName = intentName;
-            o.intentVersion = intentVersion;
-            return o;
+            final var _resultValue = new BotIntent();
+            _resultValue.intentName = intentName;
+            _resultValue.intentVersion = intentVersion;
+            return _resultValue;
         }
     }
 }

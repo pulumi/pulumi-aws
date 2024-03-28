@@ -4,6 +4,7 @@
 package com.pulumi.aws.grafana.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -308,17 +309,26 @@ public final class GetWorkspaceResult {
 
         @CustomType.Setter
         public Builder accountAccessType(String accountAccessType) {
-            this.accountAccessType = Objects.requireNonNull(accountAccessType);
+            if (accountAccessType == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "accountAccessType");
+            }
+            this.accountAccessType = accountAccessType;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder authenticationProviders(List<String> authenticationProviders) {
-            this.authenticationProviders = Objects.requireNonNull(authenticationProviders);
+            if (authenticationProviders == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "authenticationProviders");
+            }
+            this.authenticationProviders = authenticationProviders;
             return this;
         }
         public Builder authenticationProviders(String... authenticationProviders) {
@@ -326,12 +336,18 @@ public final class GetWorkspaceResult {
         }
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
-            this.createdDate = Objects.requireNonNull(createdDate);
+            if (createdDate == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "createdDate");
+            }
+            this.createdDate = createdDate;
             return this;
         }
         @CustomType.Setter
         public Builder dataSources(List<String> dataSources) {
-            this.dataSources = Objects.requireNonNull(dataSources);
+            if (dataSources == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "dataSources");
+            }
+            this.dataSources = dataSources;
             return this;
         }
         public Builder dataSources(String... dataSources) {
@@ -339,37 +355,58 @@ public final class GetWorkspaceResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder grafanaVersion(String grafanaVersion) {
-            this.grafanaVersion = Objects.requireNonNull(grafanaVersion);
+            if (grafanaVersion == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "grafanaVersion");
+            }
+            this.grafanaVersion = grafanaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdatedDate(String lastUpdatedDate) {
-            this.lastUpdatedDate = Objects.requireNonNull(lastUpdatedDate);
+            if (lastUpdatedDate == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "lastUpdatedDate");
+            }
+            this.lastUpdatedDate = lastUpdatedDate;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder notificationDestinations(List<String> notificationDestinations) {
-            this.notificationDestinations = Objects.requireNonNull(notificationDestinations);
+            if (notificationDestinations == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "notificationDestinations");
+            }
+            this.notificationDestinations = notificationDestinations;
             return this;
         }
         public Builder notificationDestinations(String... notificationDestinations) {
@@ -377,12 +414,18 @@ public final class GetWorkspaceResult {
         }
         @CustomType.Setter
         public Builder organizationRoleName(String organizationRoleName) {
-            this.organizationRoleName = Objects.requireNonNull(organizationRoleName);
+            if (organizationRoleName == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "organizationRoleName");
+            }
+            this.organizationRoleName = organizationRoleName;
             return this;
         }
         @CustomType.Setter
         public Builder organizationalUnits(List<String> organizationalUnits) {
-            this.organizationalUnits = Objects.requireNonNull(organizationalUnits);
+            if (organizationalUnits == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "organizationalUnits");
+            }
+            this.organizationalUnits = organizationalUnits;
             return this;
         }
         public Builder organizationalUnits(String... organizationalUnits) {
@@ -390,63 +433,84 @@ public final class GetWorkspaceResult {
         }
         @CustomType.Setter
         public Builder permissionType(String permissionType) {
-            this.permissionType = Objects.requireNonNull(permissionType);
+            if (permissionType == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "permissionType");
+            }
+            this.permissionType = permissionType;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder samlConfigurationStatus(String samlConfigurationStatus) {
-            this.samlConfigurationStatus = Objects.requireNonNull(samlConfigurationStatus);
+            if (samlConfigurationStatus == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "samlConfigurationStatus");
+            }
+            this.samlConfigurationStatus = samlConfigurationStatus;
             return this;
         }
         @CustomType.Setter
         public Builder stackSetName(String stackSetName) {
-            this.stackSetName = Objects.requireNonNull(stackSetName);
+            if (stackSetName == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "stackSetName");
+            }
+            this.stackSetName = stackSetName;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
-            this.workspaceId = Objects.requireNonNull(workspaceId);
+            if (workspaceId == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "workspaceId");
+            }
+            this.workspaceId = workspaceId;
             return this;
         }
         public GetWorkspaceResult build() {
-            final var o = new GetWorkspaceResult();
-            o.accountAccessType = accountAccessType;
-            o.arn = arn;
-            o.authenticationProviders = authenticationProviders;
-            o.createdDate = createdDate;
-            o.dataSources = dataSources;
-            o.description = description;
-            o.endpoint = endpoint;
-            o.grafanaVersion = grafanaVersion;
-            o.id = id;
-            o.lastUpdatedDate = lastUpdatedDate;
-            o.name = name;
-            o.notificationDestinations = notificationDestinations;
-            o.organizationRoleName = organizationRoleName;
-            o.organizationalUnits = organizationalUnits;
-            o.permissionType = permissionType;
-            o.roleArn = roleArn;
-            o.samlConfigurationStatus = samlConfigurationStatus;
-            o.stackSetName = stackSetName;
-            o.status = status;
-            o.tags = tags;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new GetWorkspaceResult();
+            _resultValue.accountAccessType = accountAccessType;
+            _resultValue.arn = arn;
+            _resultValue.authenticationProviders = authenticationProviders;
+            _resultValue.createdDate = createdDate;
+            _resultValue.dataSources = dataSources;
+            _resultValue.description = description;
+            _resultValue.endpoint = endpoint;
+            _resultValue.grafanaVersion = grafanaVersion;
+            _resultValue.id = id;
+            _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.name = name;
+            _resultValue.notificationDestinations = notificationDestinations;
+            _resultValue.organizationRoleName = organizationRoleName;
+            _resultValue.organizationalUnits = organizationalUnits;
+            _resultValue.permissionType = permissionType;
+            _resultValue.roleArn = roleArn;
+            _resultValue.samlConfigurationStatus = samlConfigurationStatus;
+            _resultValue.stackSetName = stackSetName;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

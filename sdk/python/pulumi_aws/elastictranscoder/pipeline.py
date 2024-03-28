@@ -412,29 +412,32 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         bar = aws.elastictranscoder.Pipeline("bar",
-            input_bucket=aws_s3_bucket["input_bucket"]["id"],
-            role=aws_iam_role["test_role"]["arn"],
+            input_bucket=input_bucket["id"],
+            name="aws_elastictranscoder_pipeline_my_test_",
+            role=test_role["arn"],
             content_config=aws.elastictranscoder.PipelineContentConfigArgs(
-                bucket=aws_s3_bucket["content_bucket"]["id"],
+                bucket=content_bucket["id"],
                 storage_class="Standard",
             ),
             thumbnail_config=aws.elastictranscoder.PipelineThumbnailConfigArgs(
-                bucket=aws_s3_bucket["thumb_bucket"]["id"],
+                bucket=thumb_bucket["id"],
                 storage_class="Standard",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
+        $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
         ```
 
         :param str resource_name: The name of the resource.
@@ -468,29 +471,32 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         bar = aws.elastictranscoder.Pipeline("bar",
-            input_bucket=aws_s3_bucket["input_bucket"]["id"],
-            role=aws_iam_role["test_role"]["arn"],
+            input_bucket=input_bucket["id"],
+            name="aws_elastictranscoder_pipeline_my_test_",
+            role=test_role["arn"],
             content_config=aws.elastictranscoder.PipelineContentConfigArgs(
-                bucket=aws_s3_bucket["content_bucket"]["id"],
+                bucket=content_bucket["id"],
                 storage_class="Standard",
             ),
             thumbnail_config=aws.elastictranscoder.PipelineThumbnailConfigArgs(
-                bucket=aws_s3_bucket["thumb_bucket"]["id"],
+                bucket=thumb_bucket["id"],
                 storage_class="Standard",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
+        $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
         ```
 
         :param str resource_name: The name of the resource.

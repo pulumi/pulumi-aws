@@ -8,65 +8,75 @@ import * as utilities from "../utilities";
  * Provides a resource to create a VPC NAT Gateway.
  *
  * ## Example Usage
+ *
  * ### Public NAT
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.NatGateway("example", {
- *     allocationId: aws_eip.example.id,
- *     subnetId: aws_subnet.example.id,
+ *     allocationId: exampleAwsEip.id,
+ *     subnetId: exampleAwsSubnet.id,
  *     tags: {
  *         Name: "gw NAT",
  *     },
- * }, {
- *     dependsOn: [aws_internet_gateway.example],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Public NAT with Secondary Private IP Addresses
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.NatGateway("example", {
- *     allocationId: aws_eip.example.id,
- *     subnetId: aws_subnet.example.id,
- *     secondaryAllocationIds: [aws_eip.secondary.id],
+ *     allocationId: exampleAwsEip.id,
+ *     subnetId: exampleAwsSubnet.id,
+ *     secondaryAllocationIds: [secondary.id],
  *     secondaryPrivateIpAddresses: ["10.0.1.5"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Private NAT
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.NatGateway("example", {
  *     connectivityType: "private",
- *     subnetId: aws_subnet.example.id,
+ *     subnetId: exampleAwsSubnet.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Private NAT with Secondary Private IP Addresses
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.NatGateway("example", {
  *     connectivityType: "private",
- *     subnetId: aws_subnet.example.id,
+ *     subnetId: exampleAwsSubnet.id,
  *     secondaryPrivateIpAddressCount: 7,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import NAT Gateways using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+ * $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
  * ```
  */
 export class NatGateway extends pulumi.CustomResource {
@@ -192,8 +202,6 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NatGateway.__pulumiType, name, resourceInputs, opts);
     }
 }

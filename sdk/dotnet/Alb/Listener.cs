@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Alb
     /// &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Forward Action
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,15 +27,13 @@ namespace Pulumi.Aws.Alb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer");
+    ///     var frontEnd = new Aws.LB.LoadBalancer("front_end");
     /// 
-    ///     // ...
-    ///     var frontEndTargetGroup = new Aws.LB.TargetGroup("frontEndTargetGroup");
+    ///     var frontEndTargetGroup = new Aws.LB.TargetGroup("front_end");
     /// 
-    ///     // ...
-    ///     var frontEndListener = new Aws.LB.Listener("frontEndListener", new()
+    ///     var frontEndListener = new Aws.LB.Listener("front_end", new()
     ///     {
-    ///         LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///         LoadBalancerArn = frontEnd.Arn,
     ///         Port = 443,
     ///         Protocol = "HTTPS",
     ///         SslPolicy = "ELBSecurityPolicy-2016-08",
@@ -50,9 +50,11 @@ namespace Pulumi.Aws.Alb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// To a NLB:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,9 +63,9 @@ namespace Pulumi.Aws.Alb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var frontEnd = new Aws.LB.Listener("frontEnd", new()
+    ///     var frontEnd = new Aws.LB.Listener("front_end", new()
     ///     {
-    ///         LoadBalancerArn = aws_lb.Front_end.Arn,
+    ///         LoadBalancerArn = frontEndAwsLb.Arn,
     ///         Port = 443,
     ///         Protocol = "TLS",
     ///         CertificateArn = "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
@@ -73,15 +75,18 @@ namespace Pulumi.Aws.Alb
     ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
     ///             {
     ///                 Type = "forward",
-    ///                 TargetGroupArn = aws_lb_target_group.Front_end.Arn,
+    ///                 TargetGroupArn = frontEndAwsLbTargetGroup.Arn,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Redirect Action
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,12 +95,11 @@ namespace Pulumi.Aws.Alb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer");
+    ///     var frontEnd = new Aws.LB.LoadBalancer("front_end");
     /// 
-    ///     // ...
-    ///     var frontEndListener = new Aws.LB.Listener("frontEndListener", new()
+    ///     var frontEndListener = new Aws.LB.Listener("front_end", new()
     ///     {
-    ///         LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///         LoadBalancerArn = frontEnd.Arn,
     ///         Port = 80,
     ///         Protocol = "HTTP",
     ///         DefaultActions = new[]
@@ -115,8 +119,11 @@ namespace Pulumi.Aws.Alb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Fixed-response Action
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -125,12 +132,11 @@ namespace Pulumi.Aws.Alb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer");
+    ///     var frontEnd = new Aws.LB.LoadBalancer("front_end");
     /// 
-    ///     // ...
-    ///     var frontEndListener = new Aws.LB.Listener("frontEndListener", new()
+    ///     var frontEndListener = new Aws.LB.Listener("front_end", new()
     ///     {
-    ///         LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///         LoadBalancerArn = frontEnd.Arn,
     ///         Port = 80,
     ///         Protocol = "HTTP",
     ///         DefaultActions = new[]
@@ -150,8 +156,11 @@ namespace Pulumi.Aws.Alb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Authenticate-cognito Action
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -160,24 +169,19 @@ namespace Pulumi.Aws.Alb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer");
+    ///     var frontEnd = new Aws.LB.LoadBalancer("front_end");
     /// 
-    ///     // ...
-    ///     var frontEndTargetGroup = new Aws.LB.TargetGroup("frontEndTargetGroup");
+    ///     var frontEndTargetGroup = new Aws.LB.TargetGroup("front_end");
     /// 
-    ///     // ...
     ///     var pool = new Aws.Cognito.UserPool("pool");
     /// 
-    ///     // ...
     ///     var client = new Aws.Cognito.UserPoolClient("client");
     /// 
-    ///     // ...
     ///     var domain = new Aws.Cognito.UserPoolDomain("domain");
     /// 
-    ///     // ...
-    ///     var frontEndListener = new Aws.LB.Listener("frontEndListener", new()
+    ///     var frontEndListener = new Aws.LB.Listener("front_end", new()
     ///     {
-    ///         LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///         LoadBalancerArn = frontEnd.Arn,
     ///         Port = 80,
     ///         Protocol = "HTTP",
     ///         DefaultActions = new[]
@@ -202,8 +206,11 @@ namespace Pulumi.Aws.Alb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Authenticate-OIDC Action
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -212,15 +219,13 @@ namespace Pulumi.Aws.Alb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer");
+    ///     var frontEnd = new Aws.LB.LoadBalancer("front_end");
     /// 
-    ///     // ...
-    ///     var frontEndTargetGroup = new Aws.LB.TargetGroup("frontEndTargetGroup");
+    ///     var frontEndTargetGroup = new Aws.LB.TargetGroup("front_end");
     /// 
-    ///     // ...
-    ///     var frontEndListener = new Aws.LB.Listener("frontEndListener", new()
+    ///     var frontEndListener = new Aws.LB.Listener("front_end", new()
     ///     {
-    ///         LoadBalancerArn = frontEndLoadBalancer.Arn,
+    ///         LoadBalancerArn = frontEnd.Arn,
     ///         Port = 80,
     ///         Protocol = "HTTP",
     ///         DefaultActions = new[]
@@ -248,8 +253,11 @@ namespace Pulumi.Aws.Alb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Gateway Load Balancer Listener
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -258,23 +266,25 @@ namespace Pulumi.Aws.Alb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLoadBalancer = new Aws.LB.LoadBalancer("exampleLoadBalancer", new()
+    ///     var example = new Aws.LB.LoadBalancer("example", new()
     ///     {
     ///         LoadBalancerType = "gateway",
+    ///         Name = "example",
     ///         SubnetMappings = new[]
     ///         {
     ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Example.Id,
+    ///                 SubnetId = exampleAwsSubnet.Id,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleTargetGroup = new Aws.LB.TargetGroup("exampleTargetGroup", new()
+    ///     var exampleTargetGroup = new Aws.LB.TargetGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Port = 6081,
     ///         Protocol = "GENEVE",
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         HealthCheck = new Aws.LB.Inputs.TargetGroupHealthCheckArgs
     ///         {
     ///             Port = "80",
@@ -282,9 +292,9 @@ namespace Pulumi.Aws.Alb
     ///         },
     ///     });
     /// 
-    ///     var exampleListener = new Aws.LB.Listener("exampleListener", new()
+    ///     var exampleListener = new Aws.LB.Listener("example", new()
     ///     {
-    ///         LoadBalancerArn = exampleLoadBalancer.Id,
+    ///         LoadBalancerArn = example.Id,
     ///         DefaultActions = new[]
     ///         {
     ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
@@ -297,13 +307,54 @@ namespace Pulumi.Aws.Alb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Mutual TLS Authentication
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.LB.LoadBalancer("example", new()
+    ///     {
+    ///         LoadBalancerType = "application",
+    ///     });
+    /// 
+    ///     var exampleTargetGroup = new Aws.LB.TargetGroup("example");
+    /// 
+    ///     var exampleListener = new Aws.LB.Listener("example", new()
+    ///     {
+    ///         LoadBalancerArn = example.Id,
+    ///         DefaultActions = new[]
+    ///         {
+    ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///             {
+    ///                 TargetGroupArn = exampleTargetGroup.Id,
+    ///                 Type = "forward",
+    ///             },
+    ///         },
+    ///         MutualAuthentication = new Aws.LB.Inputs.ListenerMutualAuthenticationArgs
+    ///         {
+    ///             Mode = "verify",
+    ///             TrustStoreArn = "...",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import listeners using their ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:alb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
+    /// $ pulumi import aws:alb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
     /// ```
     /// </summary>
     [AwsResourceType("aws:alb/listener:Listener")]
@@ -342,6 +393,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Output("loadBalancerArn")]
         public Output<string> LoadBalancerArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The mutual authentication configuration information. Detailed below.
+        /// </summary>
+        [Output("mutualAuthentication")]
+        public Output<Outputs.ListenerMutualAuthentication> MutualAuthentication { get; private set; } = null!;
 
         /// <summary>
         /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
@@ -400,11 +457,7 @@ namespace Pulumi.Aws.Alb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:applicationloadbalancing/listener:Listener"},
-                },
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
+                    new global::Pulumi.Alias { Type = "aws:applicationloadbalancing/listener:Listener" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -460,6 +513,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("loadBalancerArn", required: true)]
         public Input<string> LoadBalancerArn { get; set; } = null!;
+
+        /// <summary>
+        /// The mutual authentication configuration information. Detailed below.
+        /// </summary>
+        [Input("mutualAuthentication")]
+        public Input<Inputs.ListenerMutualAuthenticationArgs>? MutualAuthentication { get; set; }
 
         /// <summary>
         /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
@@ -542,6 +601,12 @@ namespace Pulumi.Aws.Alb
         public Input<string>? LoadBalancerArn { get; set; }
 
         /// <summary>
+        /// The mutual authentication configuration information. Detailed below.
+        /// </summary>
+        [Input("mutualAuthentication")]
+        public Input<Inputs.ListenerMutualAuthenticationGetArgs>? MutualAuthentication { get; set; }
+
+        /// <summary>
         /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         /// </summary>
         [Input("port")]
@@ -583,11 +648,7 @@ namespace Pulumi.Aws.Alb
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ListenerState()

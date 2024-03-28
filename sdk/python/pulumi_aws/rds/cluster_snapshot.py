@@ -357,21 +357,23 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.ClusterSnapshot("example",
-            db_cluster_identifier=aws_rds_cluster["example"]["id"],
+            db_cluster_identifier=example_aws_rds_cluster["id"],
             db_cluster_snapshot_identifier="resourcetestsnapshot1234")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_db_cluster_snapshot` using the cluster snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+        $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
         ```
 
         :param str resource_name: The name of the resource.
@@ -391,21 +393,23 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.ClusterSnapshot("example",
-            db_cluster_identifier=aws_rds_cluster["example"]["id"],
+            db_cluster_identifier=example_aws_rds_cluster["id"],
             db_cluster_snapshot_identifier="resourcetestsnapshot1234")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_db_cluster_snapshot` using the cluster snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+        $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
         ```
 
         :param str resource_name: The name of the resource.
@@ -456,8 +460,6 @@ class ClusterSnapshot(pulumi.CustomResource):
             __props__.__dict__["storage_encrypted"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ClusterSnapshot, __self__).__init__(
             'aws:rds/clusterSnapshot:ClusterSnapshot',
             resource_name,

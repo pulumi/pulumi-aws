@@ -12,45 +12,59 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.worklink.Fleet("example", {});
+ * const example = new aws.worklink.Fleet("example", {name: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Network Configuration Usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.worklink.Fleet("example", {network: {
- *     vpcId: aws_vpc.test.id,
- *     subnetIds: [aws_subnet.test.map(__item => __item.id)],
- *     securityGroupIds: [aws_security_group.test.id],
- * }});
+ * const example = new aws.worklink.Fleet("example", {
+ *     name: "example",
+ *     network: {
+ *         vpcId: testAwsVpc.id,
+ *         subnetIds: [testAwsSubnet.map(__item => __item.id)],
+ *         securityGroupIds: [test.id],
+ *     },
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Identity Provider Configuration Usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const test = new aws.worklink.Fleet("test", {identityProvider: {
- *     type: "SAML",
- *     samlMetadata: fs.readFileSync("saml-metadata.xml"),
- * }});
+ * const test = new aws.worklink.Fleet("test", {
+ *     name: "tf-worklink-fleet",
+ *     identityProvider: {
+ *         type: "SAML",
+ *         samlMetadata: std.file({
+ *             input: "saml-metadata.xml",
+ *         }).then(invoke => invoke.result),
+ *     },
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WorkLink using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+ * $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
  * ```
  */
 export class Fleet extends pulumi.CustomResource {

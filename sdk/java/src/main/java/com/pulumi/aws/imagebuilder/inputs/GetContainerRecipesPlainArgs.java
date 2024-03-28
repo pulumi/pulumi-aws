@@ -32,14 +32,14 @@ public final class GetContainerRecipesPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      * 
      */
     @Import(name="owner")
     private @Nullable String owner;
 
     /**
-     * @return Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+     * @return Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      * 
      */
     public Optional<String> owner() {
@@ -93,7 +93,7 @@ public final class GetContainerRecipesPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param owner Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+         * @param owner Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
          * 
          * @return builder
          * 

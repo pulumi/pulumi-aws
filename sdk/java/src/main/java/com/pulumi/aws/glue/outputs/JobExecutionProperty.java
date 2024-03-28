@@ -44,13 +44,14 @@ public final class JobExecutionProperty {
 
         @CustomType.Setter
         public Builder maxConcurrentRuns(@Nullable Integer maxConcurrentRuns) {
+
             this.maxConcurrentRuns = maxConcurrentRuns;
             return this;
         }
         public JobExecutionProperty build() {
-            final var o = new JobExecutionProperty();
-            o.maxConcurrentRuns = maxConcurrentRuns;
-            return o;
+            final var _resultValue = new JobExecutionProperty();
+            _resultValue.maxConcurrentRuns = maxConcurrentRuns;
+            return _resultValue;
         }
     }
 }

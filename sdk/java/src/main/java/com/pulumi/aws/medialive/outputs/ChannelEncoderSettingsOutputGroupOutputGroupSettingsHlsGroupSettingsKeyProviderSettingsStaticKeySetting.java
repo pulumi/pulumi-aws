@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -43,19 +44,23 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
         @CustomType.Setter
         public Builder keyProviderServer(@Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer keyProviderServer) {
+
             this.keyProviderServer = keyProviderServer;
             return this;
         }
         @CustomType.Setter
         public Builder staticKeyValue(String staticKeyValue) {
-            this.staticKeyValue = Objects.requireNonNull(staticKeyValue);
+            if (staticKeyValue == null) {
+              throw new MissingRequiredPropertyException("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting", "staticKeyValue");
+            }
+            this.staticKeyValue = staticKeyValue;
             return this;
         }
         public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting build() {
-            final var o = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting();
-            o.keyProviderServer = keyProviderServer;
-            o.staticKeyValue = staticKeyValue;
-            return o;
+            final var _resultValue = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting();
+            _resultValue.keyProviderServer = keyProviderServer;
+            _resultValue.staticKeyValue = staticKeyValue;
+            return _resultValue;
         }
     }
 }

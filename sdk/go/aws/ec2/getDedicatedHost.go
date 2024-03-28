@@ -14,8 +14,40 @@ import (
 // Use this data source to get information about an EC2 Dedicated Host.
 //
 // ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testDedicatedHost, err := ec2.NewDedicatedHost(ctx, "test", &ec2.DedicatedHostArgs{
+//				InstanceType:     pulumi.String("c5.18xlarge"),
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = ec2.LookupDedicatedHostOutput(ctx, ec2.GetDedicatedHostOutputArgs{
+//				HostId: testDedicatedHost.ID(),
+//			}, nil)
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,6 +78,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupDedicatedHost(ctx *pulumi.Context, args *LookupDedicatedHostArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedHostResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDedicatedHostResult

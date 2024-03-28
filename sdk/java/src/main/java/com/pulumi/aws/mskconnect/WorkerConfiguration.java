@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Provides an Amazon MSK Connect Worker Configuration Resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,23 +45,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WorkerConfiguration(&#34;example&#34;, WorkerConfigurationArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .propertiesFileContent(&#34;&#34;&#34;
  * key.converter=org.apache.kafka.connect.storage.StringConverter
  * value.converter=org.apache.kafka.connect.storage.StringConverter
- * 
  *             &#34;&#34;&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MSK Connect Worker Configuration using the plugin&#39;s `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4&#39;
+ * $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4&#39;
  * ```
  * 
  */

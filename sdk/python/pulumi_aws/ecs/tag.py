@@ -138,26 +138,28 @@ class Tag(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_compute_environment = aws.batch.ComputeEnvironment("exampleComputeEnvironment",
+        example = aws.batch.ComputeEnvironment("example",
             compute_environment_name="example",
-            service_role=aws_iam_role["example"]["arn"],
+            service_role=example_aws_iam_role["arn"],
             type="UNMANAGED")
-        example_tag = aws.ecs.Tag("exampleTag",
-            resource_arn=example_compute_environment.ecs_cluster_arn,
+        example_tag = aws.ecs.Tag("example",
+            resource_arn=example.ecs_cluster_arn,
             key="Name",
             value="Hello World")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+        $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
         ```
 
         :param str resource_name: The name of the resource.
@@ -181,26 +183,28 @@ class Tag(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_compute_environment = aws.batch.ComputeEnvironment("exampleComputeEnvironment",
+        example = aws.batch.ComputeEnvironment("example",
             compute_environment_name="example",
-            service_role=aws_iam_role["example"]["arn"],
+            service_role=example_aws_iam_role["arn"],
             type="UNMANAGED")
-        example_tag = aws.ecs.Tag("exampleTag",
-            resource_arn=example_compute_environment.ecs_cluster_arn,
+        example_tag = aws.ecs.Tag("example",
+            resource_arn=example.ecs_cluster_arn,
             key="Name",
             value="Hello World")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+        $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
         ```
 
         :param str resource_name: The name of the resource.

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Distribution.
  *
  * ## Example Usage
+ *
  * ### Route53 Record
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,15 +28,18 @@ import * as utilities from "../utilities";
  * const example = new aws.route53.Record("example", {
  *     zoneId: testZone.then(testZone => testZone.id),
  *     name: "bucket",
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     aliases: [{
  *         name: selected.then(selected => selected.websiteDomain),
  *         zoneId: selected.then(selected => selected.hostedZoneId),
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### CloudFront Origin
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,6 +52,7 @@ import * as utilities from "../utilities";
  *     originId: "s3-selected-bucket",
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
 
@@ -111,8 +117,10 @@ export interface GetBucketResult {
  * Distribution.
  *
  * ## Example Usage
+ *
  * ### Route53 Record
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -126,15 +134,18 @@ export interface GetBucketResult {
  * const example = new aws.route53.Record("example", {
  *     zoneId: testZone.then(testZone => testZone.id),
  *     name: "bucket",
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     aliases: [{
  *         name: selected.then(selected => selected.websiteDomain),
  *         zoneId: selected.then(selected => selected.hostedZoneId),
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### CloudFront Origin
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -147,6 +158,7 @@ export interface GetBucketResult {
  *     originId: "s3-selected-bucket",
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
     return pulumi.output(args).apply((a: any) => getBucket(a, opts))

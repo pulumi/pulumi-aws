@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Inspector
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,8 @@ namespace Pulumi.Aws.Inspector
     /// {
     ///     var example = new Aws.Inspector.AssessmentTemplate("example", new()
     ///     {
-    ///         TargetArn = aws_inspector_assessment_target.Example.Arn,
+    ///         Name = "example",
+    ///         TargetArn = exampleAwsInspectorAssessmentTarget.Arn,
     ///         Duration = 3600,
     ///         RulesPackageArns = new[]
     ///         {
@@ -38,20 +40,21 @@ namespace Pulumi.Aws.Inspector
     ///             new Aws.Inspector.Inputs.AssessmentTemplateEventSubscriptionArgs
     ///             {
     ///                 Event = "ASSESSMENT_RUN_COMPLETED",
-    ///                 TopicArn = aws_sns_topic.Example.Arn,
+    ///                 TopicArn = exampleAwsSnsTopic.Arn,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+    /// $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
     /// ```
     /// </summary>
     [AwsResourceType("aws:inspector/assessmentTemplate:AssessmentTemplate")]
@@ -128,10 +131,6 @@ namespace Pulumi.Aws.Inspector
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -281,11 +280,7 @@ namespace Pulumi.Aws.Inspector
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

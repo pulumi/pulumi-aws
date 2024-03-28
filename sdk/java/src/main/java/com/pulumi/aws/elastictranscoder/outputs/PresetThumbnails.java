@@ -142,55 +142,63 @@ public final class PresetThumbnails {
 
         @CustomType.Setter
         public Builder aspectRatio(@Nullable String aspectRatio) {
+
             this.aspectRatio = aspectRatio;
             return this;
         }
         @CustomType.Setter
         public Builder format(@Nullable String format) {
+
             this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable String interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder maxHeight(@Nullable String maxHeight) {
+
             this.maxHeight = maxHeight;
             return this;
         }
         @CustomType.Setter
         public Builder maxWidth(@Nullable String maxWidth) {
+
             this.maxWidth = maxWidth;
             return this;
         }
         @CustomType.Setter
         public Builder paddingPolicy(@Nullable String paddingPolicy) {
+
             this.paddingPolicy = paddingPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder resolution(@Nullable String resolution) {
+
             this.resolution = resolution;
             return this;
         }
         @CustomType.Setter
         public Builder sizingPolicy(@Nullable String sizingPolicy) {
+
             this.sizingPolicy = sizingPolicy;
             return this;
         }
         public PresetThumbnails build() {
-            final var o = new PresetThumbnails();
-            o.aspectRatio = aspectRatio;
-            o.format = format;
-            o.interval = interval;
-            o.maxHeight = maxHeight;
-            o.maxWidth = maxWidth;
-            o.paddingPolicy = paddingPolicy;
-            o.resolution = resolution;
-            o.sizingPolicy = sizingPolicy;
-            return o;
+            final var _resultValue = new PresetThumbnails();
+            _resultValue.aspectRatio = aspectRatio;
+            _resultValue.format = format;
+            _resultValue.interval = interval;
+            _resultValue.maxHeight = maxHeight;
+            _resultValue.maxWidth = maxWidth;
+            _resultValue.paddingPolicy = paddingPolicy;
+            _resultValue.resolution = resolution;
+            _resultValue.sizingPolicy = sizingPolicy;
+            return _resultValue;
         }
     }
 }

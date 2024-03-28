@@ -305,21 +305,24 @@ class Channel(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Channel.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ivs.Channel("example")
+        example = aws.ivs.Channel("example", name="channel-1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
+        $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
         ```
 
         :param str resource_name: The name of the resource.
@@ -341,21 +344,24 @@ class Channel(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Channel.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ivs.Channel("example")
+        example = aws.ivs.Channel("example", name="channel-1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
+        $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
         ```
 
         :param str resource_name: The name of the resource.
@@ -398,8 +404,6 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["ingest_endpoint"] = None
             __props__.__dict__["playback_url"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Channel, __self__).__init__(
             'aws:ivs/channel:Channel',
             resource_name,

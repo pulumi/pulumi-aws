@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,6 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Acl(&#34;example&#34;, AclArgs.builder()        
+ *             .name(&#34;my-acl&#34;)
  *             .userNames(            
  *                 &#34;my-user-1&#34;,
  *                 &#34;my-user-2&#34;)
@@ -52,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import an ACL using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:memorydb/acl:Acl example my-acl
+ * $ pulumi import aws:memorydb/acl:Acl example my-acl
  * ```
  * 
  */
@@ -199,9 +203,6 @@ public class Acl extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

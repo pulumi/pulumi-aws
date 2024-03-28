@@ -4,6 +4,7 @@
 package com.pulumi.aws.licensemanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class GetReceivedLicenseReceivedMetadata {
 
         @CustomType.Setter
         public Builder allowedOperations(List<String> allowedOperations) {
-            this.allowedOperations = Objects.requireNonNull(allowedOperations);
+            if (allowedOperations == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseReceivedMetadata", "allowedOperations");
+            }
+            this.allowedOperations = allowedOperations;
             return this;
         }
         public Builder allowedOperations(String... allowedOperations) {
@@ -79,20 +83,26 @@ public final class GetReceivedLicenseReceivedMetadata {
         }
         @CustomType.Setter
         public Builder receivedStatus(String receivedStatus) {
-            this.receivedStatus = Objects.requireNonNull(receivedStatus);
+            if (receivedStatus == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseReceivedMetadata", "receivedStatus");
+            }
+            this.receivedStatus = receivedStatus;
             return this;
         }
         @CustomType.Setter
         public Builder receivedStatusReason(String receivedStatusReason) {
-            this.receivedStatusReason = Objects.requireNonNull(receivedStatusReason);
+            if (receivedStatusReason == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseReceivedMetadata", "receivedStatusReason");
+            }
+            this.receivedStatusReason = receivedStatusReason;
             return this;
         }
         public GetReceivedLicenseReceivedMetadata build() {
-            final var o = new GetReceivedLicenseReceivedMetadata();
-            o.allowedOperations = allowedOperations;
-            o.receivedStatus = receivedStatus;
-            o.receivedStatusReason = receivedStatusReason;
-            return o;
+            final var _resultValue = new GetReceivedLicenseReceivedMetadata();
+            _resultValue.allowedOperations = allowedOperations;
+            _resultValue.receivedStatus = receivedStatus;
+            _resultValue.receivedStatusReason = receivedStatusReason;
+            return _resultValue;
         }
     }
 }

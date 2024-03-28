@@ -12,33 +12,38 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.imagebuilder.DistributionConfiguration("example", {distributions: [{
- *     amiDistributionConfiguration: {
- *         amiTags: {
- *             CostCenter: "IT",
+ * const example = new aws.imagebuilder.DistributionConfiguration("example", {
+ *     name: "example",
+ *     distributions: [{
+ *         amiDistributionConfiguration: {
+ *             amiTags: {
+ *                 CostCenter: "IT",
+ *             },
+ *             name: "example-{{ imagebuilder:buildDate }}",
+ *             launchPermission: {
+ *                 userIds: ["123456789012"],
+ *             },
  *         },
- *         launchPermission: {
- *             userIds: ["123456789012"],
- *         },
- *         name: "example-{{ imagebuilder:buildDate }}",
- *     },
- *     launchTemplateConfigurations: [{
- *         launchTemplateId: "lt-0aaa1bcde2ff3456",
+ *         launchTemplateConfigurations: [{
+ *             launchTemplateId: "lt-0aaa1bcde2ff3456",
+ *         }],
+ *         region: "us-east-1",
  *     }],
- *     region: "us-east-1",
- * }]});
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
+ * $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
  * ```
  */
 export class DistributionConfiguration extends pulumi.CustomResource {
@@ -142,8 +147,6 @@ export class DistributionConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DistributionConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }

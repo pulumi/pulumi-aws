@@ -145,6 +145,7 @@ class InstanceState(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -161,23 +162,24 @@ class InstanceState(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        test_instance = aws.ec2.Instance("testInstance",
+        test = aws.ec2.Instance("test",
             ami=ubuntu.id,
-            instance_type="t3.micro",
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
             tags={
                 "Name": "HelloWorld",
             })
-        test_instance_state = aws.ec2transitgateway.InstanceState("testInstanceState",
-            instance_id=test_instance.id,
+        test_instance_state = aws.ec2transitgateway.InstanceState("test",
+            instance_id=test.id,
             state="stopped")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
+        $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
         ```
 
         :param str resource_name: The name of the resource.
@@ -201,6 +203,7 @@ class InstanceState(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,23 +220,24 @@ class InstanceState(pulumi.CustomResource):
                 ),
             ],
             owners=["099720109477"])
-        test_instance = aws.ec2.Instance("testInstance",
+        test = aws.ec2.Instance("test",
             ami=ubuntu.id,
-            instance_type="t3.micro",
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
             tags={
                 "Name": "HelloWorld",
             })
-        test_instance_state = aws.ec2transitgateway.InstanceState("testInstanceState",
-            instance_id=test_instance.id,
+        test_instance_state = aws.ec2transitgateway.InstanceState("test",
+            instance_id=test.id,
             state="stopped")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
+        $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
         ```
 
         :param str resource_name: The name of the resource.

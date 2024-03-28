@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Audit Manager Framework Share.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,19 +46,20 @@ import javax.annotation.Nullable;
  *         var example = new FrameworkShare(&#34;example&#34;, FrameworkShareArgs.builder()        
  *             .destinationAccount(&#34;012345678901&#34;)
  *             .destinationRegion(&#34;us-east-1&#34;)
- *             .frameworkId(aws_auditmanager_framework.example().id())
+ *             .frameworkId(exampleAwsAuditmanagerFramework.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Audit Manager Framework Share using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
+ * $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456
  * ```
  * 
  */

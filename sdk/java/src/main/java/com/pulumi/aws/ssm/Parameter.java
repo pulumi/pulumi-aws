@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that&#39;s not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
  * 
  * ## Example Usage
+ * 
  * ### Basic example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,6 +50,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Parameter(&#34;foo&#34;, ParameterArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .type(&#34;String&#34;)
  *             .value(&#34;bar&#34;)
  *             .build());
@@ -54,7 +58,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Encrypted string using default SSM KMS key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -86,28 +94,30 @@ import javax.annotation.Nullable;
  *             .instanceClass(&#34;db.t2.micro&#34;)
  *             .dbName(&#34;mydb&#34;)
  *             .username(&#34;foo&#34;)
- *             .password(var_.database_master_password())
+ *             .password(databaseMasterPassword)
  *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
  *             .parameterGroupName(&#34;default.mysql5.7&#34;)
  *             .build());
  * 
  *         var secret = new Parameter(&#34;secret&#34;, ParameterArgs.builder()        
+ *             .name(&#34;/production/database/password/master&#34;)
  *             .description(&#34;The parameter description&#34;)
  *             .type(&#34;SecureString&#34;)
- *             .value(var_.database_master_password())
+ *             .value(databaseMasterPassword)
  *             .tags(Map.of(&#34;environment&#34;, &#34;production&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+ * $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
  * ```
  * 
  */
@@ -359,7 +369,6 @@ public class Parameter extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "tagsAll",
                 "value"
             ))
             .build();

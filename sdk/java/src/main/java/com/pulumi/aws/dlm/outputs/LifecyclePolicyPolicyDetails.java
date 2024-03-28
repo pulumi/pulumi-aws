@@ -152,31 +152,37 @@ public final class LifecyclePolicyPolicyDetails {
 
         @CustomType.Setter
         public Builder action(@Nullable LifecyclePolicyPolicyDetailsAction action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder eventSource(@Nullable LifecyclePolicyPolicyDetailsEventSource eventSource) {
+
             this.eventSource = eventSource;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable LifecyclePolicyPolicyDetailsParameters parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder policyType(@Nullable String policyType) {
+
             this.policyType = policyType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceLocations(@Nullable String resourceLocations) {
+
             this.resourceLocations = resourceLocations;
             return this;
         }
         @CustomType.Setter
         public Builder resourceTypes(@Nullable List<String> resourceTypes) {
+
             this.resourceTypes = resourceTypes;
             return this;
         }
@@ -185,6 +191,7 @@ public final class LifecyclePolicyPolicyDetails {
         }
         @CustomType.Setter
         public Builder schedules(@Nullable List<LifecyclePolicyPolicyDetailsSchedule> schedules) {
+
             this.schedules = schedules;
             return this;
         }
@@ -193,20 +200,21 @@ public final class LifecyclePolicyPolicyDetails {
         }
         @CustomType.Setter
         public Builder targetTags(@Nullable Map<String,String> targetTags) {
+
             this.targetTags = targetTags;
             return this;
         }
         public LifecyclePolicyPolicyDetails build() {
-            final var o = new LifecyclePolicyPolicyDetails();
-            o.action = action;
-            o.eventSource = eventSource;
-            o.parameters = parameters;
-            o.policyType = policyType;
-            o.resourceLocations = resourceLocations;
-            o.resourceTypes = resourceTypes;
-            o.schedules = schedules;
-            o.targetTags = targetTags;
-            return o;
+            final var _resultValue = new LifecyclePolicyPolicyDetails();
+            _resultValue.action = action;
+            _resultValue.eventSource = eventSource;
+            _resultValue.parameters = parameters;
+            _resultValue.policyType = policyType;
+            _resultValue.resourceLocations = resourceLocations;
+            _resultValue.resourceTypes = resourceTypes;
+            _resultValue.schedules = schedules;
+            _resultValue.targetTags = targetTags;
+            return _resultValue;
         }
     }
 }

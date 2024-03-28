@@ -58,19 +58,21 @@ public final class PipeTargetParametersEcsTaskParametersPlacementConstraint {
 
         @CustomType.Setter
         public Builder expression(@Nullable String expression) {
+
             this.expression = expression;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public PipeTargetParametersEcsTaskParametersPlacementConstraint build() {
-            final var o = new PipeTargetParametersEcsTaskParametersPlacementConstraint();
-            o.expression = expression;
-            o.type = type;
-            return o;
+            final var _resultValue = new PipeTargetParametersEcsTaskParametersPlacementConstraint();
+            _resultValue.expression = expression;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

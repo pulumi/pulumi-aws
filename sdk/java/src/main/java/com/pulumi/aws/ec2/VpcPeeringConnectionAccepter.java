@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,14 +29,14 @@ import javax.annotation.Nullable;
  * connection into management.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
  * import com.pulumi.aws.ec2.Vpc;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.AwsFunctions;
@@ -46,7 +45,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepter;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,26 +58,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var peer = new Provider(&#34;peer&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-west-2&#34;)
- *             .build());
- * 
  *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var peerVpc = new Vpc(&#34;peerVpc&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.1.0.0/16&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.peer())
- *                 .build());
+ *             .build());
  * 
- *         final var peerCallerIdentity = AwsFunctions.getCallerIdentity();
+ *         final var peer = AwsFunctions.getCallerIdentity();
  * 
  *         var peerVpcPeeringConnection = new VpcPeeringConnection(&#34;peerVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
  *             .vpcId(main.id())
  *             .peerVpcId(peerVpc.id())
- *             .peerOwnerId(peerCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *             .peerOwnerId(peer.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *             .peerRegion(&#34;us-west-2&#34;)
  *             .autoAccept(false)
  *             .tags(Map.of(&#34;Side&#34;, &#34;Requester&#34;))
@@ -89,22 +81,21 @@ import javax.annotation.Nullable;
  *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
  *             .autoAccept(true)
  *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.peer())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
+ * $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
  * ```
- *  Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
  * 
  */
 @ResourceType(type="aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter")
@@ -304,9 +295,6 @@ public class VpcPeeringConnectionAccepter extends com.pulumi.resources.CustomRes
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

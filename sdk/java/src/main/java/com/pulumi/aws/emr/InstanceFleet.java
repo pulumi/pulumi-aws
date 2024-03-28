@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * the provider will resize any Instance Fleet to zero when destroying the resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var task = new InstanceFleet(&#34;task&#34;, InstanceFleetArgs.builder()        
- *             .clusterId(aws_emr_cluster.cluster().id())
+ *             .clusterId(cluster.id())
  *             .instanceTypeConfigs(            
  *                 InstanceFleetInstanceTypeConfigArgs.builder()
  *                     .bidPriceAsPercentageOfOnDemandPrice(100)
@@ -81,6 +83,7 @@ import javax.annotation.Nullable;
  *                     .timeoutDurationMinutes(10)
  *                     .build())
  *                 .build())
+ *             .name(&#34;task fleet&#34;)
  *             .targetOnDemandCapacity(1)
  *             .targetSpotCapacity(1)
  *             .build());
@@ -88,13 +91,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
+ * $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
  * ```
  * 
  */

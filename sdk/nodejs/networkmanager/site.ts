@@ -12,20 +12,22 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {});
- * const exampleSite = new aws.networkmanager.Site("exampleSite", {globalNetworkId: exampleGlobalNetwork.id});
+ * const example = new aws.networkmanager.GlobalNetwork("example", {});
+ * const exampleSite = new aws.networkmanager.Site("example", {globalNetworkId: example.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
+ * $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
  * ```
  */
 export class Site extends pulumi.CustomResource {
@@ -115,8 +117,6 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Site.__pulumiType, name, resourceInputs, opts);
     }
 }

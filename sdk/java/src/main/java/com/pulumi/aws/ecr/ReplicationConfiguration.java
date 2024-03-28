@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic Container Registry Replication Configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,13 +48,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var exampleRegions = AwsFunctions.getRegions();
+ *         final var example = AwsFunctions.getRegions();
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                         .region(exampleRegions.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
+ *                         .region(example.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
  *                         .registryId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *                         .build())
  *                     .build())
@@ -62,7 +64,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Multiple Region Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -90,18 +96,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var exampleRegions = AwsFunctions.getRegions();
+ *         final var example = AwsFunctions.getRegions();
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(                    
  *                         ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                             .region(exampleRegions.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
+ *                             .region(example.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
  *                             .registryId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *                             .build(),
  *                         ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                             .region(exampleRegions.applyValue(getRegionsResult -&gt; getRegionsResult.names()[1]))
+ *                             .region(example.applyValue(getRegionsResult -&gt; getRegionsResult.names()[1]))
  *                             .registryId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *                             .build())
  *                     .build())
@@ -111,8 +117,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Repository Filter Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -140,13 +149,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
- *         final var exampleRegions = AwsFunctions.getRegions();
+ *         final var example = AwsFunctions.getRegions();
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration(&#34;exampleReplicationConfiguration&#34;, ReplicationConfigurationArgs.builder()        
  *             .replicationConfiguration(ReplicationConfigurationReplicationConfigurationArgs.builder()
  *                 .rules(ReplicationConfigurationReplicationConfigurationRuleArgs.builder()
  *                     .destinations(ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.builder()
- *                         .region(exampleRegions.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
+ *                         .region(example.applyValue(getRegionsResult -&gt; getRegionsResult.names()[0]))
  *                         .registryId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *                         .build())
  *                     .repositoryFilters(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs.builder()
@@ -160,13 +169,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+ * $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
  * ```
  * 
  */

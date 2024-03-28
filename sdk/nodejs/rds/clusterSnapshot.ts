@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.ClusterSnapshot("example", {
- *     dbClusterIdentifier: aws_rds_cluster.example.id,
+ *     dbClusterIdentifier: exampleAwsRdsCluster.id,
  *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_db_cluster_snapshot` using the cluster snapshot identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+ * $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
  * ```
  */
 export class ClusterSnapshot extends pulumi.CustomResource {
@@ -177,8 +179,6 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ClusterSnapshot.__pulumiType, name, resourceInputs, opts);
     }
 }

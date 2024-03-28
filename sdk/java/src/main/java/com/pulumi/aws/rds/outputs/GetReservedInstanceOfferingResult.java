@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -117,61 +118,88 @@ public final class GetReservedInstanceOfferingResult {
 
         @CustomType.Setter
         public Builder currencyCode(String currencyCode) {
-            this.currencyCode = Objects.requireNonNull(currencyCode);
+            if (currencyCode == null) {
+              throw new MissingRequiredPropertyException("GetReservedInstanceOfferingResult", "currencyCode");
+            }
+            this.currencyCode = currencyCode;
             return this;
         }
         @CustomType.Setter
         public Builder dbInstanceClass(String dbInstanceClass) {
-            this.dbInstanceClass = Objects.requireNonNull(dbInstanceClass);
+            if (dbInstanceClass == null) {
+              throw new MissingRequiredPropertyException("GetReservedInstanceOfferingResult", "dbInstanceClass");
+            }
+            this.dbInstanceClass = dbInstanceClass;
             return this;
         }
         @CustomType.Setter
         public Builder duration(Integer duration) {
-            this.duration = Objects.requireNonNull(duration);
+            if (duration == null) {
+              throw new MissingRequiredPropertyException("GetReservedInstanceOfferingResult", "duration");
+            }
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder fixedPrice(Double fixedPrice) {
-            this.fixedPrice = Objects.requireNonNull(fixedPrice);
+            if (fixedPrice == null) {
+              throw new MissingRequiredPropertyException("GetReservedInstanceOfferingResult", "fixedPrice");
+            }
+            this.fixedPrice = fixedPrice;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReservedInstanceOfferingResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder multiAz(Boolean multiAz) {
-            this.multiAz = Objects.requireNonNull(multiAz);
+            if (multiAz == null) {
+              throw new MissingRequiredPropertyException("GetReservedInstanceOfferingResult", "multiAz");
+            }
+            this.multiAz = multiAz;
             return this;
         }
         @CustomType.Setter
         public Builder offeringId(String offeringId) {
-            this.offeringId = Objects.requireNonNull(offeringId);
+            if (offeringId == null) {
+              throw new MissingRequiredPropertyException("GetReservedInstanceOfferingResult", "offeringId");
+            }
+            this.offeringId = offeringId;
             return this;
         }
         @CustomType.Setter
         public Builder offeringType(String offeringType) {
-            this.offeringType = Objects.requireNonNull(offeringType);
+            if (offeringType == null) {
+              throw new MissingRequiredPropertyException("GetReservedInstanceOfferingResult", "offeringType");
+            }
+            this.offeringType = offeringType;
             return this;
         }
         @CustomType.Setter
         public Builder productDescription(String productDescription) {
-            this.productDescription = Objects.requireNonNull(productDescription);
+            if (productDescription == null) {
+              throw new MissingRequiredPropertyException("GetReservedInstanceOfferingResult", "productDescription");
+            }
+            this.productDescription = productDescription;
             return this;
         }
         public GetReservedInstanceOfferingResult build() {
-            final var o = new GetReservedInstanceOfferingResult();
-            o.currencyCode = currencyCode;
-            o.dbInstanceClass = dbInstanceClass;
-            o.duration = duration;
-            o.fixedPrice = fixedPrice;
-            o.id = id;
-            o.multiAz = multiAz;
-            o.offeringId = offeringId;
-            o.offeringType = offeringType;
-            o.productDescription = productDescription;
-            return o;
+            final var _resultValue = new GetReservedInstanceOfferingResult();
+            _resultValue.currencyCode = currencyCode;
+            _resultValue.dbInstanceClass = dbInstanceClass;
+            _resultValue.duration = duration;
+            _resultValue.fixedPrice = fixedPrice;
+            _resultValue.id = id;
+            _resultValue.multiAz = multiAz;
+            _resultValue.offeringId = offeringId;
+            _resultValue.offeringType = offeringType;
+            _resultValue.productDescription = productDescription;
+            return _resultValue;
         }
     }
 }

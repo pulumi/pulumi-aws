@@ -18,36 +18,42 @@ import * as utilities from "../utilities";
  * - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `aws.ram.ResourceShareAccepter` resource to accept these invitations.
  *
  * ## Example Usage
+ *
  * ### AWS Account ID
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleResourceShare = new aws.ram.ResourceShare("exampleResourceShare", {allowExternalPrincipals: true});
- * const examplePrincipalAssociation = new aws.ram.PrincipalAssociation("examplePrincipalAssociation", {
+ * const example = new aws.ram.ResourceShare("example", {allowExternalPrincipals: true});
+ * const examplePrincipalAssociation = new aws.ram.PrincipalAssociation("example", {
  *     principal: "111111111111",
- *     resourceShareArn: exampleResourceShare.arn,
+ *     resourceShareArn: example.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS Organization
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ram.PrincipalAssociation("example", {
- *     principal: aws_organizations_organization.example.arn,
- *     resourceShareArn: aws_ram_resource_share.example.arn,
+ *     principal: exampleAwsOrganizationsOrganization.arn,
+ *     resourceShareArn: exampleAwsRamResourceShare.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:
  *
  * ```sh
- *  $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
+ * $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
  * ```
  */
 export class PrincipalAssociation extends pulumi.CustomResource {

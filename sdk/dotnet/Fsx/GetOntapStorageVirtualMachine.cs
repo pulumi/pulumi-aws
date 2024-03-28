@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,10 +34,11 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Filter Example
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +64,7 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOntapStorageVirtualMachineResult> InvokeAsync(GetOntapStorageVirtualMachineArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOntapStorageVirtualMachineResult>("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", args ?? new GetOntapStorageVirtualMachineArgs(), options.WithDefaults());
@@ -72,11 +72,11 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -92,10 +92,11 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Filter Example
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -121,8 +122,7 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOntapStorageVirtualMachineResult> Invoke(GetOntapStorageVirtualMachineInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOntapStorageVirtualMachineResult>("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", args ?? new GetOntapStorageVirtualMachineInvokeArgs(), options.WithDefaults());

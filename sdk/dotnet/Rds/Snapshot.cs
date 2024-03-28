@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,7 +28,7 @@ namespace Pulumi.Aws.Rds
     ///         AllocatedStorage = 10,
     ///         Engine = "mysql",
     ///         EngineVersion = "5.6.21",
-    ///         InstanceClass = "db.t2.micro",
+    ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
     ///         DbName = "baz",
     ///         Password = "barbarbarbar",
     ///         Username = "foo",
@@ -44,13 +45,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
+    /// $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/snapshot:Snapshot")]
@@ -205,10 +207,6 @@ namespace Pulumi.Aws.Rds
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -412,11 +410,7 @@ namespace Pulumi.Aws.Rds
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

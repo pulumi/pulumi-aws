@@ -106,12 +106,14 @@ def get_ledger(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.qldb.get_ledger(name="an_example_ledger")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Friendly name of the ledger to match.
@@ -141,12 +143,14 @@ def get_ledger_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.qldb.get_ledger(name="an_example_ledger")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Friendly name of the ledger to match.

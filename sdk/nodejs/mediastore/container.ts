@@ -9,19 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.mediastore.Container("example", {});
+ * const example = new aws.mediastore.Container("example", {name: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For example:
  *
  * ```sh
- *  $ pulumi import aws:mediastore/container:Container example example
+ * $ pulumi import aws:mediastore/container:Container example example
  * ```
  */
 export class Container extends pulumi.CustomResource {
@@ -102,8 +104,6 @@ export class Container extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Container.__pulumiType, name, resourceInputs, opts);
     }
 }

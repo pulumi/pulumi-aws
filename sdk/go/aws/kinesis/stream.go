@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +31,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
-//				RetentionPeriod: pulumi.Int(48),
+//			_, err := kinesis.NewStream(ctx, "test_stream", &kinesis.StreamArgs{
+//				Name:            pulumi.String("kinesis-test"),
 //				ShardCount:      pulumi.Int(1),
+//				RetentionPeriod: pulumi.Int(48),
 //				ShardLevelMetrics: pulumi.StringArray{
 //					pulumi.String("IncomingBytes"),
 //					pulumi.String("OutgoingBytes"),
@@ -52,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Kinesis Streams using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
-//
+// $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
 // ```
 type Stream struct {
 	pulumi.CustomResourceState
@@ -99,10 +100,6 @@ func NewStream(ctx *pulumi.Context,
 		args = &StreamArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stream
 	err := ctx.RegisterResource("aws:kinesis/stream:Stream", name, args, &resource, opts...)

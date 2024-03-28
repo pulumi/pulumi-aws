@@ -264,34 +264,45 @@ class Certificate(pulumi.CustomResource):
         Creates and manages an AWS IoT certificate.
 
         ## Example Usage
+
         ### With CSR
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("/my/csr.pem"),
+            csr=std.file(input="/my/csr.pem").result,
             active=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Without CSR
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         cert = aws.iot.Certificate("cert", active=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### From existing certificate without a CA
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         cert = aws.iot.Certificate("cert",
-            certificate_pem=(lambda path: open(path).read())("/my/cert.pem"),
+            certificate_pem=std.file(input="/my/cert.pem").result,
             active=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -318,34 +329,45 @@ class Certificate(pulumi.CustomResource):
         Creates and manages an AWS IoT certificate.
 
         ## Example Usage
+
         ### With CSR
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         cert = aws.iot.Certificate("cert",
-            csr=(lambda path: open(path).read())("/my/csr.pem"),
+            csr=std.file(input="/my/csr.pem").result,
             active=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Without CSR
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         cert = aws.iot.Certificate("cert", active=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### From existing certificate without a CA
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         cert = aws.iot.Certificate("cert",
-            certificate_pem=(lambda path: open(path).read())("/my/cert.pem"),
+            certificate_pem=std.file(input="/my/cert.pem").result,
             active=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

@@ -119,6 +119,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
 
         @CustomType.Setter
         public Builder destinationPorts(@Nullable List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPort> destinationPorts) {
+
             this.destinationPorts = destinationPorts;
             return this;
         }
@@ -127,6 +128,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
         @CustomType.Setter
         public Builder destinations(@Nullable List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination> destinations) {
+
             this.destinations = destinations;
             return this;
         }
@@ -135,6 +137,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
         @CustomType.Setter
         public Builder protocols(@Nullable List<Integer> protocols) {
+
             this.protocols = protocols;
             return this;
         }
@@ -143,6 +146,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
         @CustomType.Setter
         public Builder sourcePorts(@Nullable List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort> sourcePorts) {
+
             this.sourcePorts = sourcePorts;
             return this;
         }
@@ -151,6 +155,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
         @CustomType.Setter
         public Builder sources(@Nullable List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSource> sources) {
+
             this.sources = sources;
             return this;
         }
@@ -159,6 +164,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         }
         @CustomType.Setter
         public Builder tcpFlags(@Nullable List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag> tcpFlags) {
+
             this.tcpFlags = tcpFlags;
             return this;
         }
@@ -166,14 +172,14 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
             return tcpFlags(List.of(tcpFlags));
         }
         public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes build() {
-            final var o = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes();
-            o.destinationPorts = destinationPorts;
-            o.destinations = destinations;
-            o.protocols = protocols;
-            o.sourcePorts = sourcePorts;
-            o.sources = sources;
-            o.tcpFlags = tcpFlags;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributes();
+            _resultValue.destinationPorts = destinationPorts;
+            _resultValue.destinations = destinations;
+            _resultValue.protocols = protocols;
+            _resultValue.sourcePorts = sourcePorts;
+            _resultValue.sources = sources;
+            _resultValue.tcpFlags = tcpFlags;
+            return _resultValue;
         }
     }
 }

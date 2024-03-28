@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class GetDataSetLogicalTableMapDataTransformRenameColumnOperation {
 
         @CustomType.Setter
         public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+            if (columnName == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransformRenameColumnOperation", "columnName");
+            }
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
         public Builder newColumnName(String newColumnName) {
-            this.newColumnName = Objects.requireNonNull(newColumnName);
+            if (newColumnName == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransformRenameColumnOperation", "newColumnName");
+            }
+            this.newColumnName = newColumnName;
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformRenameColumnOperation build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformRenameColumnOperation();
-            o.columnName = columnName;
-            o.newColumnName = newColumnName;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformRenameColumnOperation();
+            _resultValue.columnName = columnName;
+            _resultValue.newColumnName = newColumnName;
+            return _resultValue;
         }
     }
 }

@@ -20,6 +20,7 @@ env:
   NODEVERSION: 20.x
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
+  OIDC_ROLE_ARN: ${{ secrets.OIDC_ROLE_ARN }}
   PUBLISH_REPO_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
   PUBLISH_REPO_USERNAME: ${{ secrets.OSSRH_USERNAME }}
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
@@ -27,8 +28,9 @@ env:
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   PULUMI_MISSING_DOCS_ERROR: true
-  PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-  PYTHONVERSION: "3.9"
+  PYPI_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+  PYPI_USERNAME: __token__
+  PYTHONVERSION: "3.11"
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
@@ -42,13 +44,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5
       with:
         cache-dependency-path: |
             sdk/go.sum
@@ -64,6 +66,7 @@ jobs:
           github.com/cloudflare/circl,
           github.com/golang,
           github.com/gorhill/cronexpr,
+          github.com/in-toto/in-toto-golang,
           github.com/jmespath/go-jmespath,
           github.com/keybase/go-crypto,
           github.com/klauspost/compress,

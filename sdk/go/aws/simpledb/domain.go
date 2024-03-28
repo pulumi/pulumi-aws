@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := simpledb.NewDomain(ctx, "users", nil)
+//			_, err := simpledb.NewDomain(ctx, "users", &simpledb.DomainArgs{
+//				Name: pulumi.String("users"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -36,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SimpleDB Domains using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:simpledb/domain:Domain users users
-//
+// $ pulumi import aws:simpledb/domain:Domain users users
 // ```
 type Domain struct {
 	pulumi.CustomResourceState

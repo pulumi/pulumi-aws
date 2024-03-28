@@ -14,24 +14,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
+ * const example = new aws.s3.BucketV2("example", {bucket: "my-bucket"});
+ * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ *     bucket: example.id,
  *     acl: "private",
  * });
- * const exampleLustreFileSystem = new aws.fsx.LustreFileSystem("exampleLustreFileSystem", {
+ * const exampleLustreFileSystem = new aws.fsx.LustreFileSystem("example", {
  *     storageCapacity: 1200,
- *     subnetIds: [aws_subnet.example.id],
+ *     subnetIds: exampleAwsSubnet.id,
  *     deploymentType: "PERSISTENT_2",
  *     perUnitStorageThroughput: 125,
  * });
- * const exampleDataRepositoryAssociation = new aws.fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation", {
+ * const exampleDataRepositoryAssociation = new aws.fsx.DataRepositoryAssociation("example", {
  *     fileSystemId: exampleLustreFileSystem.id,
- *     dataRepositoryPath: pulumi.interpolate`s3://${exampleBucketV2.id}`,
+ *     dataRepositoryPath: pulumi.interpolate`s3://${example.id}`,
  *     fileSystemPath: "/my-bucket",
  *     s3: {
  *         autoExportPolicy: {
@@ -51,13 +52,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import FSx Data Repository Associations using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
+ * $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
  * ```
  */
 export class DataRepositoryAssociation extends pulumi.CustomResource {
@@ -181,8 +183,6 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DataRepositoryAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }

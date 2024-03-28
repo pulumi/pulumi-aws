@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon elasticsearch Service-managed VPC endpoint.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,27 +45,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new VpcEndpoint(&#34;foo&#34;, VpcEndpointArgs.builder()        
- *             .domainArn(aws_elasticsearch_domain.domain_1().arn())
+ *             .domainArn(domain1.arn())
  *             .vpcOptions(VpcEndpointVpcOptionsArgs.builder()
  *                 .securityGroupIds(                
- *                     aws_security_group.test().id(),
- *                     aws_security_group.test2().id())
+ *                     test.id(),
+ *                     test2.id())
  *                 .subnetIds(                
- *                     aws_subnet.test().id(),
- *                     aws_subnet.test2().id())
+ *                     testAwsSubnet.id(),
+ *                     test2AwsSubnet.id())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import elasticsearch VPC endpoint connections using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id
+ * $ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id
  * ```
  * 
  */

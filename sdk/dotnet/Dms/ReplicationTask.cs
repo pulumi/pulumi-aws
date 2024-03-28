@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,42 +28,43 @@ namespace Pulumi.Aws.Dms
     ///     // Create a new replication task
     ///     var test = new Aws.Dms.ReplicationTask("test", new()
     ///     {
-    ///         CdcStartTime = "1484346880",
+    ///         CdcStartTime = "1993-05-21T05:50:00Z",
     ///         MigrationType = "full-load",
-    ///         ReplicationInstanceArn = aws_dms_replication_instance.Test_dms_replication_instance_tf.Replication_instance_arn,
+    ///         ReplicationInstanceArn = test_dms_replication_instance_tf.ReplicationInstanceArn,
     ///         ReplicationTaskId = "test-dms-replication-task-tf",
     ///         ReplicationTaskSettings = "...",
-    ///         SourceEndpointArn = aws_dms_endpoint.Test_dms_source_endpoint_tf.Endpoint_arn,
+    ///         SourceEndpointArn = test_dms_source_endpoint_tf.EndpointArn,
     ///         TableMappings = "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}",
     ///         Tags = 
     ///         {
     ///             { "Name", "test" },
     ///         },
-    ///         TargetEndpointArn = aws_dms_endpoint.Test_dms_target_endpoint_tf.Endpoint_arn,
+    ///         TargetEndpointArn = test_dms_target_endpoint_tf.EndpointArn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
+    /// $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/replicationTask:ReplicationTask")]
     public partial class ReplicationTask : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+        /// Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         /// </summary>
         [Output("cdcStartPosition")]
         public Output<string> CdcStartPosition { get; private set; } = null!;
 
         /// <summary>
-        /// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+        /// RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         /// </summary>
         [Output("cdcStartTime")]
         public Output<string?> CdcStartTime { get; private set; } = null!;
@@ -167,10 +169,6 @@ namespace Pulumi.Aws.Dms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -195,13 +193,13 @@ namespace Pulumi.Aws.Dms
     public sealed class ReplicationTaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+        /// Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         /// </summary>
         [Input("cdcStartPosition")]
         public Input<string>? CdcStartPosition { get; set; }
 
         /// <summary>
-        /// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+        /// RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         /// </summary>
         [Input("cdcStartTime")]
         public Input<string>? CdcStartTime { get; set; }
@@ -280,13 +278,13 @@ namespace Pulumi.Aws.Dms
     public sealed class ReplicationTaskState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+        /// Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         /// </summary>
         [Input("cdcStartPosition")]
         public Input<string>? CdcStartPosition { get; set; }
 
         /// <summary>
-        /// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
+        /// RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         /// </summary>
         [Input("cdcStartTime")]
         public Input<string>? CdcStartTime { get; set; }
@@ -372,11 +370,7 @@ namespace Pulumi.Aws.Dms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

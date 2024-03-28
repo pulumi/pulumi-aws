@@ -8,42 +8,45 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
  * const example = new aws.msk.ClusterPolicy("example", {
- *     clusterArn: aws_msk_cluster.example.arn,
- *     policy: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "ExampleMskClusterPolicy",
- *             Effect: "Allow",
- *             Principal: {
- *                 AWS: `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`,
+ *     clusterArn: exampleAwsMskCluster.arn,
+ *     policy: JSON.stringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             sid: "ExampleMskClusterPolicy",
+ *             effect: "Allow",
+ *             principal: {
+ *                 AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
  *             },
- *             Action: [
+ *             action: [
  *                 "kafka:Describe*",
  *                 "kafka:Get*",
  *                 "kafka:CreateVpcConnection",
  *                 "kafka:GetBootstrapBrokers",
  *             ],
- *             Resource: aws_msk_cluster.example.arn,
+ *             resource: exampleAwsMskCluster.arn,
  *         }],
- *     })),
+ *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+ * $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
  * ```
  */
 export class ClusterPolicy extends pulumi.CustomResource {

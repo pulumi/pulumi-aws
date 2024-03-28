@@ -4,6 +4,7 @@
 package com.pulumi.aws.codedeploy.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class DeploymentGroupTriggerConfiguration {
 
         @CustomType.Setter
         public Builder triggerEvents(List<String> triggerEvents) {
-            this.triggerEvents = Objects.requireNonNull(triggerEvents);
+            if (triggerEvents == null) {
+              throw new MissingRequiredPropertyException("DeploymentGroupTriggerConfiguration", "triggerEvents");
+            }
+            this.triggerEvents = triggerEvents;
             return this;
         }
         public Builder triggerEvents(String... triggerEvents) {
@@ -79,20 +83,26 @@ public final class DeploymentGroupTriggerConfiguration {
         }
         @CustomType.Setter
         public Builder triggerName(String triggerName) {
-            this.triggerName = Objects.requireNonNull(triggerName);
+            if (triggerName == null) {
+              throw new MissingRequiredPropertyException("DeploymentGroupTriggerConfiguration", "triggerName");
+            }
+            this.triggerName = triggerName;
             return this;
         }
         @CustomType.Setter
         public Builder triggerTargetArn(String triggerTargetArn) {
-            this.triggerTargetArn = Objects.requireNonNull(triggerTargetArn);
+            if (triggerTargetArn == null) {
+              throw new MissingRequiredPropertyException("DeploymentGroupTriggerConfiguration", "triggerTargetArn");
+            }
+            this.triggerTargetArn = triggerTargetArn;
             return this;
         }
         public DeploymentGroupTriggerConfiguration build() {
-            final var o = new DeploymentGroupTriggerConfiguration();
-            o.triggerEvents = triggerEvents;
-            o.triggerName = triggerName;
-            o.triggerTargetArn = triggerTargetArn;
-            return o;
+            final var _resultValue = new DeploymentGroupTriggerConfiguration();
+            _resultValue.triggerEvents = triggerEvents;
+            _resultValue.triggerName = triggerName;
+            _resultValue.triggerTargetArn = triggerTargetArn;
+            return _resultValue;
         }
     }
 }

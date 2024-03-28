@@ -377,26 +377,27 @@ class Member(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_member = aws.macie2.Member("exampleMember",
+        example = aws.macie2.Account("example")
+        example_member = aws.macie2.Member("example",
             account_id="AWS ACCOUNT ID",
             email="EMAIL",
             invite=True,
             invitation_message="Message of the invitation",
-            invitation_disable_email_notification=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            invitation_disable_email_notification=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:
 
         ```sh
-         $ pulumi import aws:macie2/member:Member example 123456789012
+        $ pulumi import aws:macie2/member:Member example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -420,26 +421,27 @@ class Member(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_account = aws.macie2.Account("exampleAccount")
-        example_member = aws.macie2.Member("exampleMember",
+        example = aws.macie2.Account("example")
+        example_member = aws.macie2.Member("example",
             account_id="AWS ACCOUNT ID",
             email="EMAIL",
             invite=True,
             invitation_message="Message of the invitation",
-            invitation_disable_email_notification=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
+            invitation_disable_email_notification=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:
 
         ```sh
-         $ pulumi import aws:macie2/member:Member example 123456789012
+        $ pulumi import aws:macie2/member:Member example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -491,8 +493,6 @@ class Member(pulumi.CustomResource):
             __props__.__dict__["relationship_status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["updated_at"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Member, __self__).__init__(
             'aws:macie2/member:Member',
             resource_name,

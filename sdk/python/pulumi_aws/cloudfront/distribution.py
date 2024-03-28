@@ -913,25 +913,29 @@ class Distribution(pulumi.CustomResource):
         > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
 
         ## Example Usage
+
         ### S3 Origin
 
         The example below creates a CloudFront distribution with an S3 origin.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
-            "Name": "My bucket",
-        })
-        b_acl = aws.s3.BucketAclV2("bAcl",
-            bucket=bucket_v2.id,
+        b = aws.s3.BucketV2("b",
+            bucket="mybucket",
+            tags={
+                "Name": "My bucket",
+            })
+        b_acl = aws.s3.BucketAclV2("b_acl",
+            bucket=b.id,
             acl="private")
         s3_origin_id = "myS3Origin"
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
+        s3_distribution = aws.cloudfront.Distribution("s3_distribution",
             origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=bucket_v2.bucket_regional_domain_name,
-                origin_access_control_id=aws_cloudfront_origin_access_control["default"]["id"],
+                domain_name=b.bucket_regional_domain_name,
+                origin_access_control_id=default["id"],
                 origin_id=s3_origin_id,
             )],
             enabled=True,
@@ -1044,15 +1048,18 @@ class Distribution(pulumi.CustomResource):
                 cloudfront_default_certificate=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Failover Routing
 
         The example below creates a CloudFront distribution with an origin group for failover routing.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
+        s3_distribution = aws.cloudfront.Distribution("s3_distribution",
             origin_groups=[aws.cloudfront.DistributionOriginGroupArgs(
                 origin_id="groupS3",
                 failover_criteria=aws.cloudfront.DistributionOriginGroupFailoverCriteriaArgs(
@@ -1074,40 +1081,42 @@ class Distribution(pulumi.CustomResource):
             )],
             origins=[
                 aws.cloudfront.DistributionOriginArgs(
-                    domain_name=aws_s3_bucket["primary"]["bucket_regional_domain_name"],
+                    domain_name=primary["bucketRegionalDomainName"],
                     origin_id="primaryS3",
                     s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
+                        origin_access_identity=default["cloudfrontAccessIdentityPath"],
                     ),
                 ),
                 aws.cloudfront.DistributionOriginArgs(
-                    domain_name=aws_s3_bucket["failover"]["bucket_regional_domain_name"],
+                    domain_name=failover["bucketRegionalDomainName"],
                     origin_id="failoverS3",
                     s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
+                        origin_access_identity=default["cloudfrontAccessIdentityPath"],
                     ),
                 ),
             ],
             default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
                 target_origin_id="groupS3",
             ))
-        # ... other configuration ...
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Managed Caching Policy
 
         The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         s3_origin_id = "myS3Origin"
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
+        s3_distribution = aws.cloudfront.Distribution("s3_distribution",
             origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=aws_s3_bucket["primary"]["bucket_regional_domain_name"],
+                domain_name=primary["bucketRegionalDomainName"],
                 origin_id="myS3Origin",
                 s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                    origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
+                    origin_access_identity=default["cloudfrontAccessIdentityPath"],
                 ),
             )],
             enabled=True,
@@ -1137,15 +1146,15 @@ class Distribution(pulumi.CustomResource):
             viewer_certificate=aws.cloudfront.DistributionViewerCertificateArgs(
                 cloudfront_default_certificate=True,
             ))
-        # ... other configuration ...
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
+        $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
         ```
 
         :param str resource_name: The name of the resource.
@@ -1186,25 +1195,29 @@ class Distribution(pulumi.CustomResource):
         > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
 
         ## Example Usage
+
         ### S3 Origin
 
         The example below creates a CloudFront distribution with an S3 origin.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
-            "Name": "My bucket",
-        })
-        b_acl = aws.s3.BucketAclV2("bAcl",
-            bucket=bucket_v2.id,
+        b = aws.s3.BucketV2("b",
+            bucket="mybucket",
+            tags={
+                "Name": "My bucket",
+            })
+        b_acl = aws.s3.BucketAclV2("b_acl",
+            bucket=b.id,
             acl="private")
         s3_origin_id = "myS3Origin"
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
+        s3_distribution = aws.cloudfront.Distribution("s3_distribution",
             origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=bucket_v2.bucket_regional_domain_name,
-                origin_access_control_id=aws_cloudfront_origin_access_control["default"]["id"],
+                domain_name=b.bucket_regional_domain_name,
+                origin_access_control_id=default["id"],
                 origin_id=s3_origin_id,
             )],
             enabled=True,
@@ -1317,15 +1330,18 @@ class Distribution(pulumi.CustomResource):
                 cloudfront_default_certificate=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Failover Routing
 
         The example below creates a CloudFront distribution with an origin group for failover routing.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
+        s3_distribution = aws.cloudfront.Distribution("s3_distribution",
             origin_groups=[aws.cloudfront.DistributionOriginGroupArgs(
                 origin_id="groupS3",
                 failover_criteria=aws.cloudfront.DistributionOriginGroupFailoverCriteriaArgs(
@@ -1347,40 +1363,42 @@ class Distribution(pulumi.CustomResource):
             )],
             origins=[
                 aws.cloudfront.DistributionOriginArgs(
-                    domain_name=aws_s3_bucket["primary"]["bucket_regional_domain_name"],
+                    domain_name=primary["bucketRegionalDomainName"],
                     origin_id="primaryS3",
                     s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
+                        origin_access_identity=default["cloudfrontAccessIdentityPath"],
                     ),
                 ),
                 aws.cloudfront.DistributionOriginArgs(
-                    domain_name=aws_s3_bucket["failover"]["bucket_regional_domain_name"],
+                    domain_name=failover["bucketRegionalDomainName"],
                     origin_id="failoverS3",
                     s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
+                        origin_access_identity=default["cloudfrontAccessIdentityPath"],
                     ),
                 ),
             ],
             default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
                 target_origin_id="groupS3",
             ))
-        # ... other configuration ...
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Managed Caching Policy
 
         The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         s3_origin_id = "myS3Origin"
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
+        s3_distribution = aws.cloudfront.Distribution("s3_distribution",
             origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=aws_s3_bucket["primary"]["bucket_regional_domain_name"],
+                domain_name=primary["bucketRegionalDomainName"],
                 origin_id="myS3Origin",
                 s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                    origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
+                    origin_access_identity=default["cloudfrontAccessIdentityPath"],
                 ),
             )],
             enabled=True,
@@ -1410,15 +1428,15 @@ class Distribution(pulumi.CustomResource):
             viewer_certificate=aws.cloudfront.DistributionViewerCertificateArgs(
                 cloudfront_default_certificate=True,
             ))
-        # ... other configuration ...
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
+        $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
         ```
 
         :param str resource_name: The name of the resource.
@@ -1508,8 +1526,6 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["trusted_key_groups"] = None
             __props__.__dict__["trusted_signers"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Distribution, __self__).__init__(
             'aws:cloudfront/distribution:Distribution',
             resource_name,

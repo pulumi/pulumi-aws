@@ -13,19 +13,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.fsx.OpenZfsVolume("test", {parentVolumeId: aws_fsx_openzfs_file_system.test.root_volume_id});
+ * const test = new aws.fsx.OpenZfsVolume("test", {
+ *     name: "testvolume",
+ *     parentVolumeId: testAwsFsxOpenzfsFileSystem.rootVolumeId,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import FSx Volumes using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
+ * $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
  * ```
  */
 export class OpenZfsVolume extends pulumi.CustomResource {
@@ -77,11 +82,11 @@ export class OpenZfsVolume extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+     * NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
      */
     public readonly nfsExports!: pulumi.Output<outputs.fsx.OpenZfsVolumeNfsExports | undefined>;
     /**
-     * The ARN of the source snapshot to create the volume from.
+     * Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
      */
     public readonly originSnapshot!: pulumi.Output<outputs.fsx.OpenZfsVolumeOriginSnapshot | undefined>;
     /**
@@ -115,7 +120,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
      */
     public readonly userAndGroupQuotas!: pulumi.Output<outputs.fsx.OpenZfsVolumeUserAndGroupQuota[]>;
     public readonly volumeType!: pulumi.Output<string | undefined>;
@@ -172,8 +177,6 @@ export class OpenZfsVolume extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OpenZfsVolume.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -203,11 +206,11 @@ export interface OpenZfsVolumeState {
      */
     name?: pulumi.Input<string>;
     /**
-     * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+     * NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
      */
     nfsExports?: pulumi.Input<inputs.fsx.OpenZfsVolumeNfsExports>;
     /**
-     * The ARN of the source snapshot to create the volume from.
+     * Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
      */
     originSnapshot?: pulumi.Input<inputs.fsx.OpenZfsVolumeOriginSnapshot>;
     /**
@@ -241,7 +244,7 @@ export interface OpenZfsVolumeState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
      */
     userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsVolumeUserAndGroupQuota>[]>;
     volumeType?: pulumi.Input<string>;
@@ -268,11 +271,11 @@ export interface OpenZfsVolumeArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+     * NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block Below for details.
      */
     nfsExports?: pulumi.Input<inputs.fsx.OpenZfsVolumeNfsExports>;
     /**
-     * The ARN of the source snapshot to create the volume from.
+     * Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
      */
     originSnapshot?: pulumi.Input<inputs.fsx.OpenZfsVolumeOriginSnapshot>;
     /**
@@ -300,7 +303,7 @@ export interface OpenZfsVolumeArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block Below.
      */
     userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsVolumeUserAndGroupQuota>[]>;
     volumeType?: pulumi.Input<string>;

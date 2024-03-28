@@ -59,6 +59,7 @@ public final class InstanceFleetLaunchSpecifications {
 
         @CustomType.Setter
         public Builder onDemandSpecifications(@Nullable List<InstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications) {
+
             this.onDemandSpecifications = onDemandSpecifications;
             return this;
         }
@@ -67,6 +68,7 @@ public final class InstanceFleetLaunchSpecifications {
         }
         @CustomType.Setter
         public Builder spotSpecifications(@Nullable List<InstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications) {
+
             this.spotSpecifications = spotSpecifications;
             return this;
         }
@@ -74,10 +76,10 @@ public final class InstanceFleetLaunchSpecifications {
             return spotSpecifications(List.of(spotSpecifications));
         }
         public InstanceFleetLaunchSpecifications build() {
-            final var o = new InstanceFleetLaunchSpecifications();
-            o.onDemandSpecifications = onDemandSpecifications;
-            o.spotSpecifications = spotSpecifications;
-            return o;
+            final var _resultValue = new InstanceFleetLaunchSpecifications();
+            _resultValue.onDemandSpecifications = onDemandSpecifications;
+            _resultValue.spotSpecifications = spotSpecifications;
+            return _resultValue;
         }
     }
 }

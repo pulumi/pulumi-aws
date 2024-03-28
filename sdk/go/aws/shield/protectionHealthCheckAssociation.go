@@ -18,8 +18,10 @@ import (
 // Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
 //
 // ## Example Usage
+//
 // ### Create an association between a protected EIP and a Route53 Health Check
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,19 +39,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			current, err := aws.GetRegion(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			currentGetPartition, err := aws.GetPartition(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
+//			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
 //				Domain: pulumi.String("vpc"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
@@ -58,16 +60,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleProtection, err := shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
-//				ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
-//					return fmt.Sprintf("arn:%v:ec2:%v:%v:eip-allocation/%v", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId, id), nil
+//			exampleProtection, err := shield.NewProtection(ctx, "example", &shield.ProtectionArgs{
+//				Name: pulumi.String("example-protection"),
+//				ResourceArn: example.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("arn:%v:ec2:%v:%v:eip-allocation/%v", currentGetPartition.Partition, current.Name, currentGetCallerIdentity.AccountId, id), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleHealthCheck, err := route53.NewHealthCheck(ctx, "exampleHealthCheck", &route53.HealthCheckArgs{
-//				IpAddress:        exampleEip.PublicIp,
+//			exampleHealthCheck, err := route53.NewHealthCheck(ctx, "example", &route53.HealthCheckArgs{
+//				IpAddress:        example.PublicIp,
 //				Port:             pulumi.Int(80),
 //				Type:             pulumi.String("HTTP"),
 //				ResourcePath:     pulumi.String("/ready"),
@@ -80,7 +83,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = shield.NewProtectionHealthCheckAssociation(ctx, "exampleProtectionHealthCheckAssociation", &shield.ProtectionHealthCheckAssociationArgs{
+//			_, err = shield.NewProtectionHealthCheckAssociation(ctx, "example", &shield.ProtectionHealthCheckAssociationArgs{
 //				HealthCheckArn:     exampleHealthCheck.Arn,
 //				ShieldProtectionId: exampleProtection.ID(),
 //			})
@@ -92,15 +95,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Shield protection health check association resources using the `shield_protection_id` and `health_check_arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
-//
+// $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
 // ```
 type ProtectionHealthCheckAssociation struct {
 	pulumi.CustomResourceState

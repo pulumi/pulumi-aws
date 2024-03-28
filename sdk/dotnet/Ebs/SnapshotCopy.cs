@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +33,7 @@ namespace Pulumi.Aws.Ebs
     ///         },
     ///     });
     /// 
-    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new()
+    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("example_snapshot", new()
     ///     {
     ///         VolumeId = example.Id,
     ///         Tags = 
@@ -41,7 +42,7 @@ namespace Pulumi.Aws.Ebs
     ///         },
     ///     });
     /// 
-    ///     var exampleCopy = new Aws.Ebs.SnapshotCopy("exampleCopy", new()
+    ///     var exampleCopy = new Aws.Ebs.SnapshotCopy("example_copy", new()
     ///     {
     ///         SourceSnapshotId = exampleSnapshot.Id,
     ///         SourceRegion = "us-west-2",
@@ -53,6 +54,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:ebs/snapshotCopy:SnapshotCopy")]
     public partial class SnapshotCopy : global::Pulumi.CustomResource
@@ -176,10 +178,6 @@ namespace Pulumi.Aws.Ebs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -362,11 +360,7 @@ namespace Pulumi.Aws.Ebs
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

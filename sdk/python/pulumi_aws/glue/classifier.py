@@ -206,63 +206,83 @@ class Classifier(pulumi.CustomResource):
         > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
 
         ## Example Usage
+
         ### Csv Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", csv_classifier=aws.glue.ClassifierCsvClassifierArgs(
-            allow_single_column=False,
-            contains_header="PRESENT",
-            delimiter=",",
-            disable_value_trimming=False,
-            headers=[
-                "example1",
-                "example2",
-            ],
-            quote_symbol="'",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            csv_classifier=aws.glue.ClassifierCsvClassifierArgs(
+                allow_single_column=False,
+                contains_header="PRESENT",
+                delimiter=",",
+                disable_value_trimming=False,
+                headers=[
+                    "example1",
+                    "example2",
+                ],
+                quote_symbol="'",
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Grok Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", grok_classifier=aws.glue.ClassifierGrokClassifierArgs(
-            classification="example",
-            grok_pattern="example",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            grok_classifier=aws.glue.ClassifierGrokClassifierArgs(
+                classification="example",
+                grok_pattern="example",
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### JSON Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", json_classifier=aws.glue.ClassifierJsonClassifierArgs(
-            json_path="example",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            json_classifier=aws.glue.ClassifierJsonClassifierArgs(
+                json_path="example",
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### XML Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", xml_classifier=aws.glue.ClassifierXmlClassifierArgs(
-            classification="example",
-            row_tag="example",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            xml_classifier=aws.glue.ClassifierXmlClassifierArgs(
+                classification="example",
+                row_tag="example",
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Classifiers using their name. For example:
 
         ```sh
-         $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
+        $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
         ```
 
         :param str resource_name: The name of the resource.
@@ -285,63 +305,83 @@ class Classifier(pulumi.CustomResource):
         > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
 
         ## Example Usage
+
         ### Csv Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", csv_classifier=aws.glue.ClassifierCsvClassifierArgs(
-            allow_single_column=False,
-            contains_header="PRESENT",
-            delimiter=",",
-            disable_value_trimming=False,
-            headers=[
-                "example1",
-                "example2",
-            ],
-            quote_symbol="'",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            csv_classifier=aws.glue.ClassifierCsvClassifierArgs(
+                allow_single_column=False,
+                contains_header="PRESENT",
+                delimiter=",",
+                disable_value_trimming=False,
+                headers=[
+                    "example1",
+                    "example2",
+                ],
+                quote_symbol="'",
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Grok Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", grok_classifier=aws.glue.ClassifierGrokClassifierArgs(
-            classification="example",
-            grok_pattern="example",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            grok_classifier=aws.glue.ClassifierGrokClassifierArgs(
+                classification="example",
+                grok_pattern="example",
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### JSON Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", json_classifier=aws.glue.ClassifierJsonClassifierArgs(
-            json_path="example",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            json_classifier=aws.glue.ClassifierJsonClassifierArgs(
+                json_path="example",
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### XML Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.Classifier("example", xml_classifier=aws.glue.ClassifierXmlClassifierArgs(
-            classification="example",
-            row_tag="example",
-        ))
+        example = aws.glue.Classifier("example",
+            name="example",
+            xml_classifier=aws.glue.ClassifierXmlClassifierArgs(
+                classification="example",
+                row_tag="example",
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Classifiers using their name. For example:
 
         ```sh
-         $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
+        $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
         ```
 
         :param str resource_name: The name of the resource.

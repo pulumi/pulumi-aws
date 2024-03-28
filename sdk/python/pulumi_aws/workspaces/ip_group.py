@@ -194,34 +194,37 @@ class IpGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         contractors = aws.workspaces.IpGroup("contractors",
+            name="Contractors",
             description="Contractors IP access control group",
             rules=[
                 aws.workspaces.IpGroupRuleArgs(
-                    description="NY",
                     source="150.24.14.0/24",
+                    description="NY",
                 ),
                 aws.workspaces.IpGroupRuleArgs(
-                    description="LA",
                     source="125.191.14.85/32",
+                    description="LA",
                 ),
                 aws.workspaces.IpGroupRuleArgs(
-                    description="STL",
                     source="44.98.100.0/24",
+                    description="STL",
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
 
         ```sh
-         $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+        $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
         ```
 
         :param str resource_name: The name of the resource.
@@ -242,34 +245,37 @@ class IpGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         contractors = aws.workspaces.IpGroup("contractors",
+            name="Contractors",
             description="Contractors IP access control group",
             rules=[
                 aws.workspaces.IpGroupRuleArgs(
-                    description="NY",
                     source="150.24.14.0/24",
+                    description="NY",
                 ),
                 aws.workspaces.IpGroupRuleArgs(
-                    description="LA",
                     source="125.191.14.85/32",
+                    description="LA",
                 ),
                 aws.workspaces.IpGroupRuleArgs(
-                    description="STL",
                     source="44.98.100.0/24",
+                    description="STL",
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
 
         ```sh
-         $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+        $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
         ```
 
         :param str resource_name: The name of the resource.
@@ -305,8 +311,6 @@ class IpGroup(pulumi.CustomResource):
             __props__.__dict__["rules"] = rules
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(IpGroup, __self__).__init__(
             'aws:workspaces/ipGroup:IpGroup',
             resource_name,

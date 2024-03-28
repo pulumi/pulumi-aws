@@ -5,6 +5,7 @@ package com.pulumi.aws.fsx.outputs;
 
 import com.pulumi.aws.fsx.outputs.GetOpenZfsSnapshotFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -150,16 +151,23 @@ public final class GetOpenZfsSnapshotResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetOpenZfsSnapshotResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+            if (creationTime == null) {
+              throw new MissingRequiredPropertyException("GetOpenZfsSnapshotResult", "creationTime");
+            }
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetOpenZfsSnapshotFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -168,26 +176,35 @@ public final class GetOpenZfsSnapshotResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetOpenZfsSnapshotResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder mostRecent(@Nullable Boolean mostRecent) {
+
             this.mostRecent = mostRecent;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotId(String snapshotId) {
-            this.snapshotId = Objects.requireNonNull(snapshotId);
+            if (snapshotId == null) {
+              throw new MissingRequiredPropertyException("GetOpenZfsSnapshotResult", "snapshotId");
+            }
+            this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotIds(@Nullable List<String> snapshotIds) {
+
             this.snapshotIds = snapshotIds;
             return this;
         }
@@ -196,27 +213,33 @@ public final class GetOpenZfsSnapshotResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetOpenZfsSnapshotResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder volumeId(String volumeId) {
-            this.volumeId = Objects.requireNonNull(volumeId);
+            if (volumeId == null) {
+              throw new MissingRequiredPropertyException("GetOpenZfsSnapshotResult", "volumeId");
+            }
+            this.volumeId = volumeId;
             return this;
         }
         public GetOpenZfsSnapshotResult build() {
-            final var o = new GetOpenZfsSnapshotResult();
-            o.arn = arn;
-            o.creationTime = creationTime;
-            o.filters = filters;
-            o.id = id;
-            o.mostRecent = mostRecent;
-            o.name = name;
-            o.snapshotId = snapshotId;
-            o.snapshotIds = snapshotIds;
-            o.tags = tags;
-            o.volumeId = volumeId;
-            return o;
+            final var _resultValue = new GetOpenZfsSnapshotResult();
+            _resultValue.arn = arn;
+            _resultValue.creationTime = creationTime;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.mostRecent = mostRecent;
+            _resultValue.name = name;
+            _resultValue.snapshotId = snapshotId;
+            _resultValue.snapshotIds = snapshotIds;
+            _resultValue.tags = tags;
+            _resultValue.volumeId = volumeId;
+            return _resultValue;
         }
     }
 }

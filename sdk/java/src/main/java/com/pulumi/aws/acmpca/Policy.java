@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Attaches a resource based policy to a private CA.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,14 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid(&#34;1&#34;)
  *                     .effect(&#34;Allow&#34;)
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type(&#34;AWS&#34;)
- *                         .identifiers(data.aws_caller_identity().current().account_id())
+ *                         .identifiers(current.accountId())
  *                         .build())
  *                     .actions(                    
  *                         &#34;acm-pca:DescribeCertificateAuthority&#34;,
@@ -56,17 +59,17 @@ import javax.annotation.Nullable;
  *                         &#34;acm-pca:GetCertificateAuthorityCertificate&#34;,
  *                         &#34;acm-pca:ListPermissions&#34;,
  *                         &#34;acm-pca:ListTags&#34;)
- *                     .resources(aws_acmpca_certificate_authority.example().arn())
+ *                     .resources(exampleAwsAcmpcaCertificateAuthority.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid(&#34;2&#34;)
- *                     .effect(Allow)
+ *                     .effect(allow)
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type(&#34;AWS&#34;)
- *                         .identifiers(data.aws_caller_identity().current().account_id())
+ *                         .identifiers(current.accountId())
  *                         .build())
  *                     .actions(&#34;acm-pca:IssueCertificate&#34;)
- *                     .resources(aws_acmpca_certificate_authority.example().arn())
+ *                     .resources(exampleAwsAcmpcaCertificateAuthority.arn())
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test(&#34;StringEquals&#34;)
  *                         .variable(&#34;acm-pca:TemplateArn&#34;)
@@ -76,20 +79,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePolicy = new Policy(&#34;examplePolicy&#34;, PolicyArgs.builder()        
- *             .resourceArn(aws_acmpca_certificate_authority.example().arn())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .resourceArn(exampleAwsAcmpcaCertificateAuthority.arn())
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For example:
  * 
  * ```sh
- *  $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+ * $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
  * ```
  * 
  */

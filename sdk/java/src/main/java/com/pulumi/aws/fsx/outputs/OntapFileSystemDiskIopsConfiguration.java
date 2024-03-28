@@ -59,19 +59,21 @@ public final class OntapFileSystemDiskIopsConfiguration {
 
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         public OntapFileSystemDiskIopsConfiguration build() {
-            final var o = new OntapFileSystemDiskIopsConfiguration();
-            o.iops = iops;
-            o.mode = mode;
-            return o;
+            final var _resultValue = new OntapFileSystemDiskIopsConfiguration();
+            _resultValue.iops = iops;
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

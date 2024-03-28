@@ -59,19 +59,21 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExport {
 
         @CustomType.Setter
         public Builder cloudWatchMetrics(@Nullable StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics cloudWatchMetrics) {
+
             this.cloudWatchMetrics = cloudWatchMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder s3BucketDestination(@Nullable StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination s3BucketDestination) {
+
             this.s3BucketDestination = s3BucketDestination;
             return this;
         }
         public StorageLensConfigurationStorageLensConfigurationDataExport build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationDataExport();
-            o.cloudWatchMetrics = cloudWatchMetrics;
-            o.s3BucketDestination = s3BucketDestination;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationDataExport();
+            _resultValue.cloudWatchMetrics = cloudWatchMetrics;
+            _resultValue.s3BucketDestination = s3BucketDestination;
+            return _resultValue;
         }
     }
 }

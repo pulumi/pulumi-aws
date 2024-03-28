@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opsworks.NewNodejsAppLayer(ctx, "app", &opsworks.NodejsAppLayerArgs{
-//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
+//				StackId: pulumi.Any(main.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type NodejsAppLayer struct {
 	pulumi.CustomResourceState
 
@@ -105,10 +107,6 @@ func NewNodejsAppLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NodejsAppLayer
 	err := ctx.RegisterResource("aws:opsworks/nodejsAppLayer:NodejsAppLayer", name, args, &resource, opts...)

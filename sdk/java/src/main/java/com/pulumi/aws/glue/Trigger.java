@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * Manages a Glue Trigger resource.
  * 
  * ## Example Usage
+ * 
  * ### Conditional Trigger
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +52,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;CONDITIONAL&#34;)
  *             .actions(TriggerActionArgs.builder()
- *                 .jobName(aws_glue_job.example1().name())
+ *                 .jobName(example1.name())
  *                 .build())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .jobName(aws_glue_job.example2().name())
+ *                     .jobName(example2.name())
  *                     .state(&#34;SUCCEEDED&#34;)
  *                     .build())
  *                 .build())
@@ -64,7 +68,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### On-Demand Trigger
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -88,16 +96,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;ON_DEMAND&#34;)
  *             .actions(TriggerActionArgs.builder()
- *                 .jobName(aws_glue_job.example().name())
+ *                 .jobName(exampleAwsGlueJob.name())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Scheduled Trigger
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -121,19 +134,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .schedule(&#34;cron(15 12 * * ? *)&#34;)
  *             .type(&#34;SCHEDULED&#34;)
  *             .actions(TriggerActionArgs.builder()
- *                 .jobName(aws_glue_job.example().name())
+ *                 .jobName(exampleAwsGlueJob.name())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Conditional Trigger with Crawler Action
  * 
  * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -158,13 +176,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;CONDITIONAL&#34;)
  *             .actions(TriggerActionArgs.builder()
- *                 .crawlerName(aws_glue_crawler.example1().name())
+ *                 .crawlerName(example1.name())
  *                 .build())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .jobName(aws_glue_job.example2().name())
+ *                     .jobName(example2.name())
  *                     .state(&#34;SUCCEEDED&#34;)
  *                     .build())
  *                 .build())
@@ -173,9 +192,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Conditional Trigger with Crawler Condition
  * 
  * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -200,13 +223,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Trigger(&#34;example&#34;, TriggerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;CONDITIONAL&#34;)
  *             .actions(TriggerActionArgs.builder()
- *                 .jobName(aws_glue_job.example1().name())
+ *                 .jobName(example1.name())
  *                 .build())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
- *                     .crawlerName(aws_glue_crawler.example2().name())
+ *                     .crawlerName(example2.name())
  *                     .crawlState(&#34;SUCCEEDED&#34;)
  *                     .build())
  *                 .build())
@@ -215,13 +239,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Triggers using `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+ * $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
  * ```
  * 
  */
@@ -460,9 +485,6 @@ public class Trigger extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

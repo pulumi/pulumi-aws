@@ -253,39 +253,45 @@ class Invocation(pulumi.CustomResource):
         > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
 
         ## Example Usage
+
         ### Dynamic Invocation Example Using Triggers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
-        import hashlib
         import json
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
+            function_name=lambda_function_test["functionName"],
             triggers={
-                "redeployment": hashlib.sha1(json.dumps([aws_lambda_function["example"]["environment"]]).encode()).hexdigest(),
+                "redeployment": std.sha1(input=json.dumps([example_aws_lambda_function["environment"]])).result,
             },
             input=json.dumps({
                 "key1": "value1",
                 "key2": "value2",
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CRUD Lifecycle Scope
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
+            function_name=lambda_function_test["functionName"],
             input=json.dumps({
                 "key1": "value1",
                 "key2": "value2",
             }),
             lifecycle_scope="CRUD")
         ```
+        <!--End PulumiCodeChooser -->
 
         > **NOTE:** `lifecycle_scope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
 
@@ -296,21 +302,9 @@ class Invocation(pulumi.CustomResource):
 
         When the resource from the example above is created, the Lambda will get following JSON payload:
 
-        ```python
-        import pulumi
-        ```
-
         If the input value of `key1` changes to "valueB", then the lambda will be invoked again with the following JSON payload:
 
-        ```python
-        import pulumi
-        ```
-
         When the invocation resource is removed, the final invocation will have the following JSON payload:
-
-        ```python
-        import pulumi
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -336,39 +330,45 @@ class Invocation(pulumi.CustomResource):
         > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
 
         ## Example Usage
+
         ### Dynamic Invocation Example Using Triggers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
-        import hashlib
         import json
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
+            function_name=lambda_function_test["functionName"],
             triggers={
-                "redeployment": hashlib.sha1(json.dumps([aws_lambda_function["example"]["environment"]]).encode()).hexdigest(),
+                "redeployment": std.sha1(input=json.dumps([example_aws_lambda_function["environment"]])).result,
             },
             input=json.dumps({
                 "key1": "value1",
                 "key2": "value2",
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CRUD Lifecycle Scope
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
+            function_name=lambda_function_test["functionName"],
             input=json.dumps({
                 "key1": "value1",
                 "key2": "value2",
             }),
             lifecycle_scope="CRUD")
         ```
+        <!--End PulumiCodeChooser -->
 
         > **NOTE:** `lifecycle_scope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
 
@@ -379,21 +379,9 @@ class Invocation(pulumi.CustomResource):
 
         When the resource from the example above is created, the Lambda will get following JSON payload:
 
-        ```python
-        import pulumi
-        ```
-
         If the input value of `key1` changes to "valueB", then the lambda will be invoked again with the following JSON payload:
 
-        ```python
-        import pulumi
-        ```
-
         When the invocation resource is removed, the final invocation will have the following JSON payload:
-
-        ```python
-        import pulumi
-        ```
 
         :param str resource_name: The name of the resource.
         :param InvocationArgs args: The arguments to use to populate this resource's properties.

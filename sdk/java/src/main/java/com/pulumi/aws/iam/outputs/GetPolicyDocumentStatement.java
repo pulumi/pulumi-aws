@@ -160,6 +160,7 @@ public final class GetPolicyDocumentStatement {
 
         @CustomType.Setter
         public Builder actions(@Nullable List<String> actions) {
+
             this.actions = actions;
             return this;
         }
@@ -168,6 +169,7 @@ public final class GetPolicyDocumentStatement {
         }
         @CustomType.Setter
         public Builder conditions(@Nullable List<GetPolicyDocumentStatementCondition> conditions) {
+
             this.conditions = conditions;
             return this;
         }
@@ -176,11 +178,13 @@ public final class GetPolicyDocumentStatement {
         }
         @CustomType.Setter
         public Builder effect(@Nullable String effect) {
+
             this.effect = effect;
             return this;
         }
         @CustomType.Setter
         public Builder notActions(@Nullable List<String> notActions) {
+
             this.notActions = notActions;
             return this;
         }
@@ -189,6 +193,7 @@ public final class GetPolicyDocumentStatement {
         }
         @CustomType.Setter
         public Builder notPrincipals(@Nullable List<GetPolicyDocumentStatementNotPrincipal> notPrincipals) {
+
             this.notPrincipals = notPrincipals;
             return this;
         }
@@ -197,6 +202,7 @@ public final class GetPolicyDocumentStatement {
         }
         @CustomType.Setter
         public Builder notResources(@Nullable List<String> notResources) {
+
             this.notResources = notResources;
             return this;
         }
@@ -205,6 +211,7 @@ public final class GetPolicyDocumentStatement {
         }
         @CustomType.Setter
         public Builder principals(@Nullable List<GetPolicyDocumentStatementPrincipal> principals) {
+
             this.principals = principals;
             return this;
         }
@@ -213,6 +220,7 @@ public final class GetPolicyDocumentStatement {
         }
         @CustomType.Setter
         public Builder resources(@Nullable List<String> resources) {
+
             this.resources = resources;
             return this;
         }
@@ -221,21 +229,22 @@ public final class GetPolicyDocumentStatement {
         }
         @CustomType.Setter
         public Builder sid(@Nullable String sid) {
+
             this.sid = sid;
             return this;
         }
         public GetPolicyDocumentStatement build() {
-            final var o = new GetPolicyDocumentStatement();
-            o.actions = actions;
-            o.conditions = conditions;
-            o.effect = effect;
-            o.notActions = notActions;
-            o.notPrincipals = notPrincipals;
-            o.notResources = notResources;
-            o.principals = principals;
-            o.resources = resources;
-            o.sid = sid;
-            return o;
+            final var _resultValue = new GetPolicyDocumentStatement();
+            _resultValue.actions = actions;
+            _resultValue.conditions = conditions;
+            _resultValue.effect = effect;
+            _resultValue.notActions = notActions;
+            _resultValue.notPrincipals = notPrincipals;
+            _resultValue.notResources = notResources;
+            _resultValue.principals = principals;
+            _resultValue.resources = resources;
+            _resultValue.sid = sid;
+            return _resultValue;
         }
     }
 }

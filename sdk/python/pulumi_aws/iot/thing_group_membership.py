@@ -135,22 +135,24 @@ class ThingGroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iot.ThingGroupMembership("example",
-            override_dynamic_group=True,
+            thing_name="example-thing",
             thing_group_name="example-group",
-            thing_name="example-thing")
+            override_dynamic_group=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For example:
 
         ```sh
-         $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
+        $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -170,22 +172,24 @@ class ThingGroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iot.ThingGroupMembership("example",
-            override_dynamic_group=True,
+            thing_name="example-thing",
             thing_group_name="example-group",
-            thing_name="example-thing")
+            override_dynamic_group=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For example:
 
         ```sh
-         $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
+        $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
         ```
 
         :param str resource_name: The name of the resource.

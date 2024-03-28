@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
+    /// $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshiftserverless/endpointAccess:EndpointAccess")]
@@ -59,6 +61,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Output("endpointName")]
         public Output<string> EndpointName { get; private set; } = null!;
+
+        /// <summary>
+        /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+        /// </summary>
+        [Output("ownerAccount")]
+        public Output<string?> OwnerAccount { get; private set; } = null!;
 
         /// <summary>
         /// The port that Amazon Redshift Serverless listens on.
@@ -142,6 +150,12 @@ namespace Pulumi.Aws.RedshiftServerless
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
 
+        /// <summary>
+        /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+        /// </summary>
+        [Input("ownerAccount")]
+        public Input<string>? OwnerAccount { get; set; }
+
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
 
@@ -197,6 +211,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
+
+        /// <summary>
+        /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+        /// </summary>
+        [Input("ownerAccount")]
+        public Input<string>? OwnerAccount { get; set; }
 
         /// <summary>
         /// The port that Amazon Redshift Serverless listens on.

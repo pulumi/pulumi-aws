@@ -9,25 +9,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testEnvironmentEC2 = new aws.cloud9.EnvironmentEC2("testEnvironmentEC2", {instanceType: "t2.micro"});
- * const testUser = new aws.iam.User("testUser", {});
- * const testEnvironmentMembership = new aws.cloud9.EnvironmentMembership("testEnvironmentMembership", {
- *     environmentId: testEnvironmentEC2.id,
+ * const test = new aws.cloud9.EnvironmentEC2("test", {
+ *     instanceType: "t2.micro",
+ *     name: "some-env",
+ * });
+ * const testUser = new aws.iam.User("test", {name: "some-user"});
+ * const testEnvironmentMembership = new aws.cloud9.EnvironmentMembership("test", {
+ *     environmentId: test.id,
  *     permissions: "read-only",
  *     userArn: testUser.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+ * $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
  * ```
  */
 export class EnvironmentMembership extends pulumi.CustomResource {

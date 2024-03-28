@@ -11,33 +11,45 @@ import * as utilities from "../utilities";
  * Provides an Elastic File System (EFS) File System resource.
  *
  * ## Example Usage
+ *
  * ### EFS File System w/ tags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.efs.FileSystem("foo", {tags: {
- *     Name: "MyProduct",
- * }});
+ * const foo = new aws.efs.FileSystem("foo", {
+ *     creationToken: "my-product",
+ *     tags: {
+ *         Name: "MyProduct",
+ *     },
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Using lifecycle policy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooWithLifecylePolicy = new aws.efs.FileSystem("fooWithLifecylePolicy", {lifecyclePolicies: [{
- *     transitionToIa: "AFTER_30_DAYS",
- * }]});
+ * const fooWithLifecylePolicy = new aws.efs.FileSystem("foo_with_lifecyle_policy", {
+ *     creationToken: "my-product",
+ *     lifecyclePolicies: [{
+ *         transitionToIa: "AFTER_30_DAYS",
+ *     }],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the EFS file systems using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+ * $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
  * ```
  */
 export class FileSystem extends pulumi.CustomResource {
@@ -77,7 +89,7 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly availabilityZoneId!: pulumi.Output<string>;
     /**
-     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      */
     public readonly availabilityZoneName!: pulumi.Output<string>;
     /**
@@ -100,7 +112,7 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
-     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
      */
     public readonly lifecyclePolicies!: pulumi.Output<outputs.efs.FileSystemLifecyclePolicy[] | undefined>;
     /**
@@ -119,6 +131,10 @@ export class FileSystem extends pulumi.CustomResource {
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
     public readonly performanceMode!: pulumi.Output<string>;
+    /**
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+     */
+    public readonly protection!: pulumi.Output<outputs.efs.FileSystemProtection>;
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */
@@ -167,6 +183,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["numberOfMountTargets"] = state ? state.numberOfMountTargets : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["performanceMode"] = state ? state.performanceMode : undefined;
+            resourceInputs["protection"] = state ? state.protection : undefined;
             resourceInputs["provisionedThroughputInMibps"] = state ? state.provisionedThroughputInMibps : undefined;
             resourceInputs["sizeInBytes"] = state ? state.sizeInBytes : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -180,6 +197,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["lifecyclePolicies"] = args ? args.lifecyclePolicies : undefined;
             resourceInputs["performanceMode"] = args ? args.performanceMode : undefined;
+            resourceInputs["protection"] = args ? args.protection : undefined;
             resourceInputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["throughputMode"] = args ? args.throughputMode : undefined;
@@ -193,8 +211,6 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(FileSystem.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -212,7 +228,7 @@ export interface FileSystemState {
      */
     availabilityZoneId?: pulumi.Input<string>;
     /**
-     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      */
     availabilityZoneName?: pulumi.Input<string>;
     /**
@@ -235,7 +251,7 @@ export interface FileSystemState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
      */
     lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicy>[]>;
     /**
@@ -254,6 +270,10 @@ export interface FileSystemState {
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
     performanceMode?: pulumi.Input<string>;
+    /**
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+     */
+    protection?: pulumi.Input<inputs.efs.FileSystemProtection>;
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */
@@ -283,7 +303,7 @@ export interface FileSystemState {
  */
 export interface FileSystemArgs {
     /**
-     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+     * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      */
     availabilityZoneName?: pulumi.Input<string>;
     /**
@@ -302,13 +322,17 @@ export interface FileSystemArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+     * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecyclePolicy` block below for details.
      */
     lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicy>[]>;
     /**
      * The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
      */
     performanceMode?: pulumi.Input<string>;
+    /**
+     * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+     */
+    protection?: pulumi.Input<inputs.efs.FileSystemProtection>;
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
      */

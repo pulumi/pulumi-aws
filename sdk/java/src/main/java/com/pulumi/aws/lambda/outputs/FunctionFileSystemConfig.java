@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class FunctionFileSystemConfig {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("FunctionFileSystemConfig", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder localMountPath(String localMountPath) {
-            this.localMountPath = Objects.requireNonNull(localMountPath);
+            if (localMountPath == null) {
+              throw new MissingRequiredPropertyException("FunctionFileSystemConfig", "localMountPath");
+            }
+            this.localMountPath = localMountPath;
             return this;
         }
         public FunctionFileSystemConfig build() {
-            final var o = new FunctionFileSystemConfig();
-            o.arn = arn;
-            o.localMountPath = localMountPath;
-            return o;
+            final var _resultValue = new FunctionFileSystemConfig();
+            _resultValue.arn = arn;
+            _resultValue.localMountPath = localMountPath;
+            return _resultValue;
         }
     }
 }

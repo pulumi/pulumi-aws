@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a Route 53 Resolver endpoint resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,33 +46,36 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new ResolverEndpoint(&#34;foo&#34;, ResolverEndpointArgs.builder()        
+ *             .name(&#34;foo&#34;)
  *             .direction(&#34;INBOUND&#34;)
  *             .securityGroupIds(            
- *                 aws_security_group.sg1().id(),
- *                 aws_security_group.sg2().id())
+ *                 sg1.id(),
+ *                 sg2.id())
  *             .ipAddresses(            
  *                 ResolverEndpointIpAddressArgs.builder()
- *                     .subnetId(aws_subnet.sn1().id())
+ *                     .subnetId(sn1.id())
  *                     .build(),
  *                 ResolverEndpointIpAddressArgs.builder()
- *                     .subnetId(aws_subnet.sn2().id())
+ *                     .subnetId(sn2.id())
  *                     .ip(&#34;10.0.64.4&#34;)
  *                     .build())
+ *             .protocols(            
+ *                 &#34;Do53&#34;,
+ *                 &#34;DoH&#34;)
  *             .tags(Map.of(&#34;Environment&#34;, &#34;Prod&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import
- * 
- * Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
+ * Using `pulumi import`, import  Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+ * $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
  * ```
  * 
  */
@@ -153,6 +158,34 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     * 
+     */
+    @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> protocols;
+
+    /**
+     * @return The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     * 
+     */
+    public Output<List<String>> protocols() {
+        return this.protocols;
+    }
+    /**
+     * The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     * 
+     */
+    @Export(name="resolverEndpointType", refs={String.class}, tree="[0]")
+    private Output<String> resolverEndpointType;
+
+    /**
+     * @return The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     * 
+     */
+    public Output<String> resolverEndpointType() {
+        return this.resolverEndpointType;
+    }
+    /**
      * The ID of one or more security groups that you want to use to control access to this VPC.
      * 
      */
@@ -231,9 +264,6 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -62,25 +63,34 @@ public final class GetFirehoseDeliveryStreamResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetFirehoseDeliveryStreamResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFirehoseDeliveryStreamResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFirehoseDeliveryStreamResult", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetFirehoseDeliveryStreamResult build() {
-            final var o = new GetFirehoseDeliveryStreamResult();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetFirehoseDeliveryStreamResult();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

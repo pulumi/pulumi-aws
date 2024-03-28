@@ -237,28 +237,30 @@ class VpcConnector(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         connector = aws.apprunner.VpcConnector("connector",
-            security_groups=[
-                "sg1",
-                "sg2",
-            ],
+            vpc_connector_name="name",
             subnets=[
                 "subnet1",
                 "subnet2",
             ],
-            vpc_connector_name="name")
+            security_groups=[
+                "sg1",
+                "sg2",
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
+        $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
         ```
 
         :param str resource_name: The name of the resource.
@@ -279,28 +281,30 @@ class VpcConnector(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         connector = aws.apprunner.VpcConnector("connector",
-            security_groups=[
-                "sg1",
-                "sg2",
-            ],
+            vpc_connector_name="name",
             subnets=[
                 "subnet1",
                 "subnet2",
             ],
-            vpc_connector_name="name")
+            security_groups=[
+                "sg1",
+                "sg2",
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
+        $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
         ```
 
         :param str resource_name: The name of the resource.
@@ -345,8 +349,6 @@ class VpcConnector(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_connector_revision"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcConnector, __self__).__init__(
             'aws:apprunner/vpcConnector:VpcConnector',
             resource_name,

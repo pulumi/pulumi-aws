@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,17 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
+//			_, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewMember(ctx, "exampleMember", &securityhub.MemberArgs{
+//			_, err = securityhub.NewMember(ctx, "example", &securityhub.MemberArgs{
 //				AccountId: pulumi.String("123456789012"),
 //				Email:     pulumi.String("example@example.com"),
 //				Invite:    pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccount,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -47,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Security Hub members using their account ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:securityhub/member:Member example 123456789012
-//
+// $ pulumi import aws:securityhub/member:Member example 123456789012
 // ```
 type Member struct {
 	pulumi.CustomResourceState

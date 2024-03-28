@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,7 +30,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         Ami = "ami-21f78e11",
     ///         AvailabilityZone = "us-west-2a",
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         Tags = 
     ///         {
     ///             { "Name", "HelloWorld" },
@@ -42,7 +43,7 @@ namespace Pulumi.Aws.Ec2
     ///         Size = 1,
     ///     });
     /// 
-    ///     var ebsAtt = new Aws.Ec2.VolumeAttachment("ebsAtt", new()
+    ///     var ebsAtt = new Aws.Ec2.VolumeAttachment("ebs_att", new()
     ///     {
     ///         DeviceName = "/dev/sdh",
     ///         VolumeId = example.Id,
@@ -51,13 +52,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
+    /// $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/volumeAttachment:VolumeAttachment")]

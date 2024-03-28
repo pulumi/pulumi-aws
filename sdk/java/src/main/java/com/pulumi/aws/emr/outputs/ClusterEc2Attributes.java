@@ -4,6 +4,7 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,46 +162,57 @@ public final class ClusterEc2Attributes {
 
         @CustomType.Setter
         public Builder additionalMasterSecurityGroups(@Nullable String additionalMasterSecurityGroups) {
+
             this.additionalMasterSecurityGroups = additionalMasterSecurityGroups;
             return this;
         }
         @CustomType.Setter
         public Builder additionalSlaveSecurityGroups(@Nullable String additionalSlaveSecurityGroups) {
+
             this.additionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
             return this;
         }
         @CustomType.Setter
         public Builder emrManagedMasterSecurityGroup(@Nullable String emrManagedMasterSecurityGroup) {
+
             this.emrManagedMasterSecurityGroup = emrManagedMasterSecurityGroup;
             return this;
         }
         @CustomType.Setter
         public Builder emrManagedSlaveSecurityGroup(@Nullable String emrManagedSlaveSecurityGroup) {
+
             this.emrManagedSlaveSecurityGroup = emrManagedSlaveSecurityGroup;
             return this;
         }
         @CustomType.Setter
         public Builder instanceProfile(String instanceProfile) {
-            this.instanceProfile = Objects.requireNonNull(instanceProfile);
+            if (instanceProfile == null) {
+              throw new MissingRequiredPropertyException("ClusterEc2Attributes", "instanceProfile");
+            }
+            this.instanceProfile = instanceProfile;
             return this;
         }
         @CustomType.Setter
         public Builder keyName(@Nullable String keyName) {
+
             this.keyName = keyName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceAccessSecurityGroup(@Nullable String serviceAccessSecurityGroup) {
+
             this.serviceAccessSecurityGroup = serviceAccessSecurityGroup;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetIds(@Nullable List<String> subnetIds) {
+
             this.subnetIds = subnetIds;
             return this;
         }
@@ -208,17 +220,17 @@ public final class ClusterEc2Attributes {
             return subnetIds(List.of(subnetIds));
         }
         public ClusterEc2Attributes build() {
-            final var o = new ClusterEc2Attributes();
-            o.additionalMasterSecurityGroups = additionalMasterSecurityGroups;
-            o.additionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
-            o.emrManagedMasterSecurityGroup = emrManagedMasterSecurityGroup;
-            o.emrManagedSlaveSecurityGroup = emrManagedSlaveSecurityGroup;
-            o.instanceProfile = instanceProfile;
-            o.keyName = keyName;
-            o.serviceAccessSecurityGroup = serviceAccessSecurityGroup;
-            o.subnetId = subnetId;
-            o.subnetIds = subnetIds;
-            return o;
+            final var _resultValue = new ClusterEc2Attributes();
+            _resultValue.additionalMasterSecurityGroups = additionalMasterSecurityGroups;
+            _resultValue.additionalSlaveSecurityGroups = additionalSlaveSecurityGroups;
+            _resultValue.emrManagedMasterSecurityGroup = emrManagedMasterSecurityGroup;
+            _resultValue.emrManagedSlaveSecurityGroup = emrManagedSlaveSecurityGroup;
+            _resultValue.instanceProfile = instanceProfile;
+            _resultValue.keyName = keyName;
+            _resultValue.serviceAccessSecurityGroup = serviceAccessSecurityGroup;
+            _resultValue.subnetId = subnetId;
+            _resultValue.subnetIds = subnetIds;
+            return _resultValue;
         }
     }
 }

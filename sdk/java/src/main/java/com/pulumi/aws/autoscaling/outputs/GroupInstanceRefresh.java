@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.aws.autoscaling.outputs.GroupInstanceRefreshPreferences;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -90,16 +91,21 @@ public final class GroupInstanceRefresh {
 
         @CustomType.Setter
         public Builder preferences(@Nullable GroupInstanceRefreshPreferences preferences) {
+
             this.preferences = preferences;
             return this;
         }
         @CustomType.Setter
         public Builder strategy(String strategy) {
-            this.strategy = Objects.requireNonNull(strategy);
+            if (strategy == null) {
+              throw new MissingRequiredPropertyException("GroupInstanceRefresh", "strategy");
+            }
+            this.strategy = strategy;
             return this;
         }
         @CustomType.Setter
         public Builder triggers(@Nullable List<String> triggers) {
+
             this.triggers = triggers;
             return this;
         }
@@ -107,11 +113,11 @@ public final class GroupInstanceRefresh {
             return triggers(List.of(triggers));
         }
         public GroupInstanceRefresh build() {
-            final var o = new GroupInstanceRefresh();
-            o.preferences = preferences;
-            o.strategy = strategy;
-            o.triggers = triggers;
-            return o;
+            final var _resultValue = new GroupInstanceRefresh();
+            _resultValue.preferences = preferences;
+            _resultValue.strategy = strategy;
+            _resultValue.triggers = triggers;
+            return _resultValue;
         }
     }
 }

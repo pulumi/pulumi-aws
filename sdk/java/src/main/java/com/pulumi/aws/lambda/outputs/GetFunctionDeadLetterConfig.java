@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,13 +35,16 @@ public final class GetFunctionDeadLetterConfig {
 
         @CustomType.Setter
         public Builder targetArn(String targetArn) {
-            this.targetArn = Objects.requireNonNull(targetArn);
+            if (targetArn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionDeadLetterConfig", "targetArn");
+            }
+            this.targetArn = targetArn;
             return this;
         }
         public GetFunctionDeadLetterConfig build() {
-            final var o = new GetFunctionDeadLetterConfig();
-            o.targetArn = targetArn;
-            return o;
+            final var _resultValue = new GetFunctionDeadLetterConfig();
+            _resultValue.targetArn = targetArn;
+            return _resultValue;
         }
     }
 }

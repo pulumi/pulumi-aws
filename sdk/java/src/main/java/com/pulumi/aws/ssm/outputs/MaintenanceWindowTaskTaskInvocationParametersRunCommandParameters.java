@@ -189,46 +189,55 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
 
         @CustomType.Setter
         public Builder cloudwatchConfig(@Nullable MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig cloudwatchConfig) {
+
             this.cloudwatchConfig = cloudwatchConfig;
             return this;
         }
         @CustomType.Setter
         public Builder comment(@Nullable String comment) {
+
             this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder documentHash(@Nullable String documentHash) {
+
             this.documentHash = documentHash;
             return this;
         }
         @CustomType.Setter
         public Builder documentHashType(@Nullable String documentHashType) {
+
             this.documentHashType = documentHashType;
             return this;
         }
         @CustomType.Setter
         public Builder documentVersion(@Nullable String documentVersion) {
+
             this.documentVersion = documentVersion;
             return this;
         }
         @CustomType.Setter
         public Builder notificationConfig(@Nullable MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig notificationConfig) {
+
             this.notificationConfig = notificationConfig;
             return this;
         }
         @CustomType.Setter
         public Builder outputS3Bucket(@Nullable String outputS3Bucket) {
+
             this.outputS3Bucket = outputS3Bucket;
             return this;
         }
         @CustomType.Setter
         public Builder outputS3KeyPrefix(@Nullable String outputS3KeyPrefix) {
+
             this.outputS3KeyPrefix = outputS3KeyPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable List<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }
@@ -237,28 +246,30 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
         }
         @CustomType.Setter
         public Builder serviceRoleArn(@Nullable String serviceRoleArn) {
+
             this.serviceRoleArn = serviceRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutSeconds(@Nullable Integer timeoutSeconds) {
+
             this.timeoutSeconds = timeoutSeconds;
             return this;
         }
         public MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters build() {
-            final var o = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters();
-            o.cloudwatchConfig = cloudwatchConfig;
-            o.comment = comment;
-            o.documentHash = documentHash;
-            o.documentHashType = documentHashType;
-            o.documentVersion = documentVersion;
-            o.notificationConfig = notificationConfig;
-            o.outputS3Bucket = outputS3Bucket;
-            o.outputS3KeyPrefix = outputS3KeyPrefix;
-            o.parameters = parameters;
-            o.serviceRoleArn = serviceRoleArn;
-            o.timeoutSeconds = timeoutSeconds;
-            return o;
+            final var _resultValue = new MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters();
+            _resultValue.cloudwatchConfig = cloudwatchConfig;
+            _resultValue.comment = comment;
+            _resultValue.documentHash = documentHash;
+            _resultValue.documentHashType = documentHashType;
+            _resultValue.documentVersion = documentVersion;
+            _resultValue.notificationConfig = notificationConfig;
+            _resultValue.outputS3Bucket = outputS3Bucket;
+            _resultValue.outputS3KeyPrefix = outputS3KeyPrefix;
+            _resultValue.parameters = parameters;
+            _resultValue.serviceRoleArn = serviceRoleArn;
+            _resultValue.timeoutSeconds = timeoutSeconds;
+            return _resultValue;
         }
     }
 }

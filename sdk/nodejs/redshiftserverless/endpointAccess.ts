@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +22,14 @@ import * as utilities from "../utilities";
  *     workgroupName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
+ * $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
  * ```
  */
 export class EndpointAccess extends pulumi.CustomResource {
@@ -71,6 +73,10 @@ export class EndpointAccess extends pulumi.CustomResource {
      */
     public readonly endpointName!: pulumi.Output<string>;
     /**
+     * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+     */
+    public readonly ownerAccount!: pulumi.Output<string | undefined>;
+    /**
      * The port that Amazon Redshift Serverless listens on.
      */
     public /*out*/ readonly port!: pulumi.Output<number>;
@@ -107,6 +113,7 @@ export class EndpointAccess extends pulumi.CustomResource {
             resourceInputs["address"] = state ? state.address : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["endpointName"] = state ? state.endpointName : undefined;
+            resourceInputs["ownerAccount"] = state ? state.ownerAccount : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["vpcEndpoints"] = state ? state.vpcEndpoints : undefined;
@@ -124,6 +131,7 @@ export class EndpointAccess extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workgroupName'");
             }
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["ownerAccount"] = args ? args.ownerAccount : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
@@ -154,6 +162,10 @@ export interface EndpointAccessState {
      */
     endpointName?: pulumi.Input<string>;
     /**
+     * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+     */
+    ownerAccount?: pulumi.Input<string>;
+    /**
      * The port that Amazon Redshift Serverless listens on.
      */
     port?: pulumi.Input<number>;
@@ -183,6 +195,10 @@ export interface EndpointAccessArgs {
      * The name of the endpoint.
      */
     endpointName: pulumi.Input<string>;
+    /**
+     * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
+     */
+    ownerAccount?: pulumi.Input<string>;
     /**
      * An array of VPC subnet IDs to associate with the endpoint.
      */

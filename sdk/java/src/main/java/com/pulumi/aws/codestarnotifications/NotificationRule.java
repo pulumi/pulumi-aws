@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a CodeStar Notifications Rule.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -30,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codecommit.Repository;
  * import com.pulumi.aws.codecommit.RepositoryArgs;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.sns.TopicPolicy;
@@ -54,7 +57,9 @@ import javax.annotation.Nullable;
  *             .repositoryName(&#34;example-code-repo&#34;)
  *             .build());
  * 
- *         var notif = new Topic(&#34;notif&#34;);
+ *         var notif = new Topic(&#34;notif&#34;, TopicArgs.builder()        
+ *             .name(&#34;notification&#34;)
+ *             .build());
  * 
  *         final var notifAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -75,6 +80,7 @@ import javax.annotation.Nullable;
  *         var commits = new NotificationRule(&#34;commits&#34;, NotificationRuleArgs.builder()        
  *             .detailType(&#34;BASIC&#34;)
  *             .eventTypeIds(&#34;codecommit-repository-comments-on-commits&#34;)
+ *             .name(&#34;example-code-repo-commits&#34;)
  *             .resource(code.arn())
  *             .targets(NotificationRuleTargetArgs.builder()
  *                 .address(notif.arn())
@@ -84,13 +90,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
+ * $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
  * ```
  * 
  */
@@ -261,9 +268,6 @@ public class NotificationRule extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

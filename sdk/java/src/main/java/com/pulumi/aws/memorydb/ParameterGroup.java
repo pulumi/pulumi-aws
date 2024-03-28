@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,6 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ParameterGroup(&#34;example&#34;, ParameterGroupArgs.builder()        
+ *             .name(&#34;my-parameter-group&#34;)
  *             .family(&#34;memorydb_redis6&#34;)
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .name(&#34;activedefrag&#34;)
@@ -56,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a parameter group using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+ * $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
  * ```
  * 
  */
@@ -221,9 +225,6 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -7,9 +7,11 @@ import com.pulumi.aws.lambda.outputs.GetFunctionDeadLetterConfig;
 import com.pulumi.aws.lambda.outputs.GetFunctionEnvironment;
 import com.pulumi.aws.lambda.outputs.GetFunctionEphemeralStorage;
 import com.pulumi.aws.lambda.outputs.GetFunctionFileSystemConfig;
+import com.pulumi.aws.lambda.outputs.GetFunctionLoggingConfig;
 import com.pulumi.aws.lambda.outputs.GetFunctionTracingConfig;
 import com.pulumi.aws.lambda.outputs.GetFunctionVpcConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -96,6 +98,11 @@ public final class GetFunctionResult {
      * 
      */
     private List<String> layers;
+    /**
+     * @return Advanced logging settings.
+     * 
+     */
+    private List<GetFunctionLoggingConfig> loggingConfigs;
     /**
      * @return Amount of memory in MB your Lambda Function can use at runtime.
      * 
@@ -279,6 +286,13 @@ public final class GetFunctionResult {
         return this.layers;
     }
     /**
+     * @return Advanced logging settings.
+     * 
+     */
+    public List<GetFunctionLoggingConfig> loggingConfigs() {
+        return this.loggingConfigs;
+    }
+    /**
      * @return Amount of memory in MB your Lambda Function can use at runtime.
      * 
      */
@@ -408,6 +422,7 @@ public final class GetFunctionResult {
         private String kmsKeyArn;
         private String lastModified;
         private List<String> layers;
+        private List<GetFunctionLoggingConfig> loggingConfigs;
         private Integer memorySize;
         private String qualifiedArn;
         private String qualifiedInvokeArn;
@@ -443,6 +458,7 @@ public final class GetFunctionResult {
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.lastModified = defaults.lastModified;
     	      this.layers = defaults.layers;
+    	      this.loggingConfigs = defaults.loggingConfigs;
     	      this.memorySize = defaults.memorySize;
     	      this.qualifiedArn = defaults.qualifiedArn;
     	      this.qualifiedInvokeArn = defaults.qualifiedInvokeArn;
@@ -463,7 +479,10 @@ public final class GetFunctionResult {
 
         @CustomType.Setter
         public Builder architectures(List<String> architectures) {
-            this.architectures = Objects.requireNonNull(architectures);
+            if (architectures == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "architectures");
+            }
+            this.architectures = architectures;
             return this;
         }
         public Builder architectures(String... architectures) {
@@ -471,32 +490,50 @@ public final class GetFunctionResult {
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder codeSigningConfigArn(String codeSigningConfigArn) {
-            this.codeSigningConfigArn = Objects.requireNonNull(codeSigningConfigArn);
+            if (codeSigningConfigArn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "codeSigningConfigArn");
+            }
+            this.codeSigningConfigArn = codeSigningConfigArn;
             return this;
         }
         @CustomType.Setter
         public Builder deadLetterConfig(GetFunctionDeadLetterConfig deadLetterConfig) {
-            this.deadLetterConfig = Objects.requireNonNull(deadLetterConfig);
+            if (deadLetterConfig == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "deadLetterConfig");
+            }
+            this.deadLetterConfig = deadLetterConfig;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder environment(GetFunctionEnvironment environment) {
-            this.environment = Objects.requireNonNull(environment);
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "environment");
+            }
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder ephemeralStorages(List<GetFunctionEphemeralStorage> ephemeralStorages) {
-            this.ephemeralStorages = Objects.requireNonNull(ephemeralStorages);
+            if (ephemeralStorages == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "ephemeralStorages");
+            }
+            this.ephemeralStorages = ephemeralStorages;
             return this;
         }
         public Builder ephemeralStorages(GetFunctionEphemeralStorage... ephemeralStorages) {
@@ -504,7 +541,10 @@ public final class GetFunctionResult {
         }
         @CustomType.Setter
         public Builder fileSystemConfigs(List<GetFunctionFileSystemConfig> fileSystemConfigs) {
-            this.fileSystemConfigs = Objects.requireNonNull(fileSystemConfigs);
+            if (fileSystemConfigs == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "fileSystemConfigs");
+            }
+            this.fileSystemConfigs = fileSystemConfigs;
             return this;
         }
         public Builder fileSystemConfigs(GetFunctionFileSystemConfig... fileSystemConfigs) {
@@ -512,162 +552,244 @@ public final class GetFunctionResult {
         }
         @CustomType.Setter
         public Builder functionName(String functionName) {
-            this.functionName = Objects.requireNonNull(functionName);
+            if (functionName == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "functionName");
+            }
+            this.functionName = functionName;
             return this;
         }
         @CustomType.Setter
         public Builder handler(String handler) {
-            this.handler = Objects.requireNonNull(handler);
+            if (handler == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "handler");
+            }
+            this.handler = handler;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageUri(String imageUri) {
-            this.imageUri = Objects.requireNonNull(imageUri);
+            if (imageUri == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "imageUri");
+            }
+            this.imageUri = imageUri;
             return this;
         }
         @CustomType.Setter
         public Builder invokeArn(String invokeArn) {
-            this.invokeArn = Objects.requireNonNull(invokeArn);
+            if (invokeArn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "invokeArn");
+            }
+            this.invokeArn = invokeArn;
             return this;
         }
         @CustomType.Setter
         public Builder kmsKeyArn(String kmsKeyArn) {
-            this.kmsKeyArn = Objects.requireNonNull(kmsKeyArn);
+            if (kmsKeyArn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "kmsKeyArn");
+            }
+            this.kmsKeyArn = kmsKeyArn;
             return this;
         }
         @CustomType.Setter
         public Builder lastModified(String lastModified) {
-            this.lastModified = Objects.requireNonNull(lastModified);
+            if (lastModified == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "lastModified");
+            }
+            this.lastModified = lastModified;
             return this;
         }
         @CustomType.Setter
         public Builder layers(List<String> layers) {
-            this.layers = Objects.requireNonNull(layers);
+            if (layers == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "layers");
+            }
+            this.layers = layers;
             return this;
         }
         public Builder layers(String... layers) {
             return layers(List.of(layers));
         }
         @CustomType.Setter
+        public Builder loggingConfigs(List<GetFunctionLoggingConfig> loggingConfigs) {
+            if (loggingConfigs == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "loggingConfigs");
+            }
+            this.loggingConfigs = loggingConfigs;
+            return this;
+        }
+        public Builder loggingConfigs(GetFunctionLoggingConfig... loggingConfigs) {
+            return loggingConfigs(List.of(loggingConfigs));
+        }
+        @CustomType.Setter
         public Builder memorySize(Integer memorySize) {
-            this.memorySize = Objects.requireNonNull(memorySize);
+            if (memorySize == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "memorySize");
+            }
+            this.memorySize = memorySize;
             return this;
         }
         @CustomType.Setter
         public Builder qualifiedArn(String qualifiedArn) {
-            this.qualifiedArn = Objects.requireNonNull(qualifiedArn);
+            if (qualifiedArn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "qualifiedArn");
+            }
+            this.qualifiedArn = qualifiedArn;
             return this;
         }
         @CustomType.Setter
         public Builder qualifiedInvokeArn(String qualifiedInvokeArn) {
-            this.qualifiedInvokeArn = Objects.requireNonNull(qualifiedInvokeArn);
+            if (qualifiedInvokeArn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "qualifiedInvokeArn");
+            }
+            this.qualifiedInvokeArn = qualifiedInvokeArn;
             return this;
         }
         @CustomType.Setter
         public Builder qualifier(@Nullable String qualifier) {
+
             this.qualifier = qualifier;
             return this;
         }
         @CustomType.Setter
         public Builder reservedConcurrentExecutions(Integer reservedConcurrentExecutions) {
-            this.reservedConcurrentExecutions = Objects.requireNonNull(reservedConcurrentExecutions);
+            if (reservedConcurrentExecutions == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "reservedConcurrentExecutions");
+            }
+            this.reservedConcurrentExecutions = reservedConcurrentExecutions;
             return this;
         }
         @CustomType.Setter
         public Builder role(String role) {
-            this.role = Objects.requireNonNull(role);
+            if (role == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "role");
+            }
+            this.role = role;
             return this;
         }
         @CustomType.Setter
         public Builder runtime(String runtime) {
-            this.runtime = Objects.requireNonNull(runtime);
+            if (runtime == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "runtime");
+            }
+            this.runtime = runtime;
             return this;
         }
         @CustomType.Setter
         public Builder signingJobArn(String signingJobArn) {
-            this.signingJobArn = Objects.requireNonNull(signingJobArn);
+            if (signingJobArn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "signingJobArn");
+            }
+            this.signingJobArn = signingJobArn;
             return this;
         }
         @CustomType.Setter
         public Builder signingProfileVersionArn(String signingProfileVersionArn) {
-            this.signingProfileVersionArn = Objects.requireNonNull(signingProfileVersionArn);
+            if (signingProfileVersionArn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "signingProfileVersionArn");
+            }
+            this.signingProfileVersionArn = signingProfileVersionArn;
             return this;
         }
         @CustomType.Setter
         public Builder sourceCodeHash(String sourceCodeHash) {
-            this.sourceCodeHash = Objects.requireNonNull(sourceCodeHash);
+            if (sourceCodeHash == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "sourceCodeHash");
+            }
+            this.sourceCodeHash = sourceCodeHash;
             return this;
         }
         @CustomType.Setter
         public Builder sourceCodeSize(Integer sourceCodeSize) {
-            this.sourceCodeSize = Objects.requireNonNull(sourceCodeSize);
+            if (sourceCodeSize == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "sourceCodeSize");
+            }
+            this.sourceCodeSize = sourceCodeSize;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(Integer timeout) {
-            this.timeout = Objects.requireNonNull(timeout);
+            if (timeout == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "timeout");
+            }
+            this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
         public Builder tracingConfig(GetFunctionTracingConfig tracingConfig) {
-            this.tracingConfig = Objects.requireNonNull(tracingConfig);
+            if (tracingConfig == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "tracingConfig");
+            }
+            this.tracingConfig = tracingConfig;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder vpcConfig(GetFunctionVpcConfig vpcConfig) {
-            this.vpcConfig = Objects.requireNonNull(vpcConfig);
+            if (vpcConfig == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "vpcConfig");
+            }
+            this.vpcConfig = vpcConfig;
             return this;
         }
         public GetFunctionResult build() {
-            final var o = new GetFunctionResult();
-            o.architectures = architectures;
-            o.arn = arn;
-            o.codeSigningConfigArn = codeSigningConfigArn;
-            o.deadLetterConfig = deadLetterConfig;
-            o.description = description;
-            o.environment = environment;
-            o.ephemeralStorages = ephemeralStorages;
-            o.fileSystemConfigs = fileSystemConfigs;
-            o.functionName = functionName;
-            o.handler = handler;
-            o.id = id;
-            o.imageUri = imageUri;
-            o.invokeArn = invokeArn;
-            o.kmsKeyArn = kmsKeyArn;
-            o.lastModified = lastModified;
-            o.layers = layers;
-            o.memorySize = memorySize;
-            o.qualifiedArn = qualifiedArn;
-            o.qualifiedInvokeArn = qualifiedInvokeArn;
-            o.qualifier = qualifier;
-            o.reservedConcurrentExecutions = reservedConcurrentExecutions;
-            o.role = role;
-            o.runtime = runtime;
-            o.signingJobArn = signingJobArn;
-            o.signingProfileVersionArn = signingProfileVersionArn;
-            o.sourceCodeHash = sourceCodeHash;
-            o.sourceCodeSize = sourceCodeSize;
-            o.tags = tags;
-            o.timeout = timeout;
-            o.tracingConfig = tracingConfig;
-            o.version = version;
-            o.vpcConfig = vpcConfig;
-            return o;
+            final var _resultValue = new GetFunctionResult();
+            _resultValue.architectures = architectures;
+            _resultValue.arn = arn;
+            _resultValue.codeSigningConfigArn = codeSigningConfigArn;
+            _resultValue.deadLetterConfig = deadLetterConfig;
+            _resultValue.description = description;
+            _resultValue.environment = environment;
+            _resultValue.ephemeralStorages = ephemeralStorages;
+            _resultValue.fileSystemConfigs = fileSystemConfigs;
+            _resultValue.functionName = functionName;
+            _resultValue.handler = handler;
+            _resultValue.id = id;
+            _resultValue.imageUri = imageUri;
+            _resultValue.invokeArn = invokeArn;
+            _resultValue.kmsKeyArn = kmsKeyArn;
+            _resultValue.lastModified = lastModified;
+            _resultValue.layers = layers;
+            _resultValue.loggingConfigs = loggingConfigs;
+            _resultValue.memorySize = memorySize;
+            _resultValue.qualifiedArn = qualifiedArn;
+            _resultValue.qualifiedInvokeArn = qualifiedInvokeArn;
+            _resultValue.qualifier = qualifier;
+            _resultValue.reservedConcurrentExecutions = reservedConcurrentExecutions;
+            _resultValue.role = role;
+            _resultValue.runtime = runtime;
+            _resultValue.signingJobArn = signingJobArn;
+            _resultValue.signingProfileVersionArn = signingProfileVersionArn;
+            _resultValue.sourceCodeHash = sourceCodeHash;
+            _resultValue.sourceCodeSize = sourceCodeSize;
+            _resultValue.tags = tags;
+            _resultValue.timeout = timeout;
+            _resultValue.tracingConfig = tracingConfig;
+            _resultValue.version = version;
+            _resultValue.vpcConfig = vpcConfig;
+            return _resultValue;
         }
     }
 }

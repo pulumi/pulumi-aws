@@ -102,33 +102,35 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.redshift.ResourcePolicy("example",
-            resource_arn=aws_redshift_cluster["example"]["cluster_namespace_arn"],
+            resource_arn=example_aws_redshift_cluster["clusterNamespaceArn"],
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
                         "AWS": "arn:aws:iam::12345678901:root",
                     },
-                    "Action": "redshift:CreateInboundIntegration",
-                    "Resource": aws_redshift_cluster["example"]["cluster_namespace_arn"],
-                    "Sid": "",
+                    "action": "redshift:CreateInboundIntegration",
+                    "resource": example_aws_redshift_cluster["clusterNamespaceArn"],
+                    "sid": "",
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Resource Policies using the `resource_arn`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example
+        $ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -147,33 +149,35 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
         import pulumi_aws as aws
 
         example = aws.redshift.ResourcePolicy("example",
-            resource_arn=aws_redshift_cluster["example"]["cluster_namespace_arn"],
+            resource_arn=example_aws_redshift_cluster["clusterNamespaceArn"],
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Principal": {
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
                         "AWS": "arn:aws:iam::12345678901:root",
                     },
-                    "Action": "redshift:CreateInboundIntegration",
-                    "Resource": aws_redshift_cluster["example"]["cluster_namespace_arn"],
-                    "Sid": "",
+                    "action": "redshift:CreateInboundIntegration",
+                    "resource": example_aws_redshift_cluster["clusterNamespaceArn"],
+                    "sid": "",
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Resource Policies using the `resource_arn`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example
+        $ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example
         ```
 
         :param str resource_name: The name of the resource.

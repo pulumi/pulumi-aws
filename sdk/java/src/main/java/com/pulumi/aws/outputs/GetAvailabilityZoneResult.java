@@ -5,6 +5,7 @@ package com.pulumi.aws.outputs;
 
 import com.pulumi.aws.outputs.GetAvailabilityZoneFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -193,11 +194,13 @@ public final class GetAvailabilityZoneResult {
 
         @CustomType.Setter
         public Builder allAvailabilityZones(@Nullable Boolean allAvailabilityZones) {
+
             this.allAvailabilityZones = allAvailabilityZones;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetAvailabilityZoneFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -206,81 +209,117 @@ public final class GetAvailabilityZoneResult {
         }
         @CustomType.Setter
         public Builder groupName(String groupName) {
-            this.groupName = Objects.requireNonNull(groupName);
+            if (groupName == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "groupName");
+            }
+            this.groupName = groupName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nameSuffix(String nameSuffix) {
-            this.nameSuffix = Objects.requireNonNull(nameSuffix);
+            if (nameSuffix == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "nameSuffix");
+            }
+            this.nameSuffix = nameSuffix;
             return this;
         }
         @CustomType.Setter
         public Builder networkBorderGroup(String networkBorderGroup) {
-            this.networkBorderGroup = Objects.requireNonNull(networkBorderGroup);
+            if (networkBorderGroup == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "networkBorderGroup");
+            }
+            this.networkBorderGroup = networkBorderGroup;
             return this;
         }
         @CustomType.Setter
         public Builder optInStatus(String optInStatus) {
-            this.optInStatus = Objects.requireNonNull(optInStatus);
+            if (optInStatus == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "optInStatus");
+            }
+            this.optInStatus = optInStatus;
             return this;
         }
         @CustomType.Setter
         public Builder parentZoneId(String parentZoneId) {
-            this.parentZoneId = Objects.requireNonNull(parentZoneId);
+            if (parentZoneId == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "parentZoneId");
+            }
+            this.parentZoneId = parentZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder parentZoneName(String parentZoneName) {
-            this.parentZoneName = Objects.requireNonNull(parentZoneName);
+            if (parentZoneName == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "parentZoneName");
+            }
+            this.parentZoneName = parentZoneName;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder zoneId(String zoneId) {
-            this.zoneId = Objects.requireNonNull(zoneId);
+            if (zoneId == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "zoneId");
+            }
+            this.zoneId = zoneId;
             return this;
         }
         @CustomType.Setter
         public Builder zoneType(String zoneType) {
-            this.zoneType = Objects.requireNonNull(zoneType);
+            if (zoneType == null) {
+              throw new MissingRequiredPropertyException("GetAvailabilityZoneResult", "zoneType");
+            }
+            this.zoneType = zoneType;
             return this;
         }
         public GetAvailabilityZoneResult build() {
-            final var o = new GetAvailabilityZoneResult();
-            o.allAvailabilityZones = allAvailabilityZones;
-            o.filters = filters;
-            o.groupName = groupName;
-            o.id = id;
-            o.name = name;
-            o.nameSuffix = nameSuffix;
-            o.networkBorderGroup = networkBorderGroup;
-            o.optInStatus = optInStatus;
-            o.parentZoneId = parentZoneId;
-            o.parentZoneName = parentZoneName;
-            o.region = region;
-            o.state = state;
-            o.zoneId = zoneId;
-            o.zoneType = zoneType;
-            return o;
+            final var _resultValue = new GetAvailabilityZoneResult();
+            _resultValue.allAvailabilityZones = allAvailabilityZones;
+            _resultValue.filters = filters;
+            _resultValue.groupName = groupName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.nameSuffix = nameSuffix;
+            _resultValue.networkBorderGroup = networkBorderGroup;
+            _resultValue.optInStatus = optInStatus;
+            _resultValue.parentZoneId = parentZoneId;
+            _resultValue.parentZoneName = parentZoneName;
+            _resultValue.region = region;
+            _resultValue.state = state;
+            _resultValue.zoneId = zoneId;
+            _resultValue.zoneType = zoneType;
+            return _resultValue;
         }
     }
 }

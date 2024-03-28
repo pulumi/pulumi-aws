@@ -15,29 +15,9 @@ import (
 //
 // ## Example Usage
 //
-// ```go
-// package main
+// ### Basic Example
 //
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewConfigurationSet(ctx, "test", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Require TLS Connections
-//
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,6 +31,35 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
+//				Name: pulumi.String("some-configuration-set-test"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Require TLS Connections
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
+//				Name: pulumi.String("some-configuration-set-test"),
 //				DeliveryOptions: &ses.ConfigurationSetDeliveryOptionsArgs{
 //					TlsPolicy: pulumi.String("Require"),
 //				},
@@ -63,15 +72,45 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Tracking Options
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
+//				Name: pulumi.String("some-configuration-set-test"),
+//				TrackingOptions: &ses.ConfigurationSetTrackingOptionsArgs{
+//					CustomRedirectDomain: pulumi.String("sub.example.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
-//
+// $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
 // ```
 type ConfigurationSet struct {
 	pulumi.CustomResourceState

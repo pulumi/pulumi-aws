@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.PolicyTableAssociation("example", {
- *     transitGatewayAttachmentId: aws_networkmanager_transit_gateway_peering.example.transit_gateway_peering_attachment_id,
- *     transitGatewayPolicyTableId: aws_ec2_transit_gateway_policy_table.example.id,
+ *     transitGatewayAttachmentId: exampleAwsNetworkmanagerTransitGatewayPeering.transitGatewayPeeringAttachmentId,
+ *     transitGatewayPolicyTableId: exampleAwsEc2TransitGatewayPolicyTable.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table_association` using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
+ * $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
  * ```
  */
 export class PolicyTableAssociation extends pulumi.CustomResource {

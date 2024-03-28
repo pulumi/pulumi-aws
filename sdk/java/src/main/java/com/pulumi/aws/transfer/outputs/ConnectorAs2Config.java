@@ -4,6 +4,7 @@
 package com.pulumi.aws.transfer.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -142,55 +143,75 @@ public final class ConnectorAs2Config {
 
         @CustomType.Setter
         public Builder compression(String compression) {
-            this.compression = Objects.requireNonNull(compression);
+            if (compression == null) {
+              throw new MissingRequiredPropertyException("ConnectorAs2Config", "compression");
+            }
+            this.compression = compression;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionAlgorithm(String encryptionAlgorithm) {
-            this.encryptionAlgorithm = Objects.requireNonNull(encryptionAlgorithm);
+            if (encryptionAlgorithm == null) {
+              throw new MissingRequiredPropertyException("ConnectorAs2Config", "encryptionAlgorithm");
+            }
+            this.encryptionAlgorithm = encryptionAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder localProfileId(String localProfileId) {
-            this.localProfileId = Objects.requireNonNull(localProfileId);
+            if (localProfileId == null) {
+              throw new MissingRequiredPropertyException("ConnectorAs2Config", "localProfileId");
+            }
+            this.localProfileId = localProfileId;
             return this;
         }
         @CustomType.Setter
         public Builder mdnResponse(String mdnResponse) {
-            this.mdnResponse = Objects.requireNonNull(mdnResponse);
+            if (mdnResponse == null) {
+              throw new MissingRequiredPropertyException("ConnectorAs2Config", "mdnResponse");
+            }
+            this.mdnResponse = mdnResponse;
             return this;
         }
         @CustomType.Setter
         public Builder mdnSigningAlgorithm(@Nullable String mdnSigningAlgorithm) {
+
             this.mdnSigningAlgorithm = mdnSigningAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder messageSubject(@Nullable String messageSubject) {
+
             this.messageSubject = messageSubject;
             return this;
         }
         @CustomType.Setter
         public Builder partnerProfileId(String partnerProfileId) {
-            this.partnerProfileId = Objects.requireNonNull(partnerProfileId);
+            if (partnerProfileId == null) {
+              throw new MissingRequiredPropertyException("ConnectorAs2Config", "partnerProfileId");
+            }
+            this.partnerProfileId = partnerProfileId;
             return this;
         }
         @CustomType.Setter
         public Builder signingAlgorithm(String signingAlgorithm) {
-            this.signingAlgorithm = Objects.requireNonNull(signingAlgorithm);
+            if (signingAlgorithm == null) {
+              throw new MissingRequiredPropertyException("ConnectorAs2Config", "signingAlgorithm");
+            }
+            this.signingAlgorithm = signingAlgorithm;
             return this;
         }
         public ConnectorAs2Config build() {
-            final var o = new ConnectorAs2Config();
-            o.compression = compression;
-            o.encryptionAlgorithm = encryptionAlgorithm;
-            o.localProfileId = localProfileId;
-            o.mdnResponse = mdnResponse;
-            o.mdnSigningAlgorithm = mdnSigningAlgorithm;
-            o.messageSubject = messageSubject;
-            o.partnerProfileId = partnerProfileId;
-            o.signingAlgorithm = signingAlgorithm;
-            return o;
+            final var _resultValue = new ConnectorAs2Config();
+            _resultValue.compression = compression;
+            _resultValue.encryptionAlgorithm = encryptionAlgorithm;
+            _resultValue.localProfileId = localProfileId;
+            _resultValue.mdnResponse = mdnResponse;
+            _resultValue.mdnSigningAlgorithm = mdnSigningAlgorithm;
+            _resultValue.messageSubject = messageSubject;
+            _resultValue.partnerProfileId = partnerProfileId;
+            _resultValue.signingAlgorithm = signingAlgorithm;
+            return _resultValue;
         }
     }
 }

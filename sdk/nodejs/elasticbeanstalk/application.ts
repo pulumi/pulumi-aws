@@ -17,26 +17,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const tftest = new aws.elasticbeanstalk.Application("tftest", {
+ *     name: "tf-test-name",
  *     description: "tf-test-desc",
  *     appversionLifecycle: {
- *         serviceRole: aws_iam_role.beanstalk_service.arn,
+ *         serviceRole: beanstalkService.arn,
  *         maxCount: 128,
  *         deleteSourceFromS3: true,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+ * $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
  * ```
  */
 export class Application extends pulumi.CustomResource {
@@ -120,8 +123,6 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }

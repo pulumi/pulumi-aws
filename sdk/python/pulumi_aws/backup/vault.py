@@ -224,19 +224,23 @@ class Vault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.Vault("example", kms_key_arn=aws_kms_key["example"]["arn"])
+        example = aws.backup.Vault("example",
+            name="example_backup_vault",
+            kms_key_arn=example_aws_kms_key["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vault:Vault test-vault TestVault
+        $ pulumi import aws:backup/vault:Vault test-vault TestVault
         ```
 
         :param str resource_name: The name of the resource.
@@ -257,19 +261,23 @@ class Vault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.backup.Vault("example", kms_key_arn=aws_kms_key["example"]["arn"])
+        example = aws.backup.Vault("example",
+            name="example_backup_vault",
+            kms_key_arn=example_aws_kms_key["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vault:Vault test-vault TestVault
+        $ pulumi import aws:backup/vault:Vault test-vault TestVault
         ```
 
         :param str resource_name: The name of the resource.
@@ -307,8 +315,6 @@ class Vault(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["recovery_points"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Vault, __self__).__init__(
             'aws:backup/vault:Vault',
             resource_name,

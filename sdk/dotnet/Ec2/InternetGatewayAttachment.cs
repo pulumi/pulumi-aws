@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,14 +23,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var exampleInternetGateway = new Aws.Ec2.InternetGateway("exampleInternetGateway");
+    ///     var exampleInternetGateway = new Aws.Ec2.InternetGateway("example");
     /// 
-    ///     var exampleInternetGatewayAttachment = new Aws.Ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment", new()
+    ///     var example = new Aws.Ec2.InternetGatewayAttachment("example", new()
     ///     {
     ///         InternetGatewayId = exampleInternetGateway.Id,
     ///         VpcId = exampleVpc.Id,
@@ -37,13 +38,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Internet Gateway Attachments using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
+    /// $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/internetGatewayAttachment:InternetGatewayAttachment")]

@@ -59,19 +59,21 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
         @CustomType.Setter
         public Builder instanceUrl(@Nullable String instanceUrl) {
+
             this.instanceUrl = instanceUrl;
             return this;
         }
         @CustomType.Setter
         public Builder isSandboxEnvironment(@Nullable Boolean isSandboxEnvironment) {
+
             this.isSandboxEnvironment = isSandboxEnvironment;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce();
-            o.instanceUrl = instanceUrl;
-            o.isSandboxEnvironment = isSandboxEnvironment;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce();
+            _resultValue.instanceUrl = instanceUrl;
+            _resultValue.isSandboxEnvironment = isSandboxEnvironment;
+            return _resultValue;
         }
     }
 }

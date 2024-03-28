@@ -12,14 +12,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.gamelift.Fleet("example", {
- *     buildId: aws_gamelift_build.example.id,
+ *     buildId: exampleAwsGameliftBuild.id,
  *     ec2InstanceType: "t2.micro",
  *     fleetType: "ON_DEMAND",
+ *     name: "example-fleet-name",
  *     runtimeConfiguration: {
  *         serverProcesses: [{
  *             concurrentExecutions: 1,
@@ -28,13 +30,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import GameLift Fleets using the ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
+ * $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
  * ```
  */
 export class Fleet extends pulumi.CustomResource {
@@ -205,8 +208,6 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
 }

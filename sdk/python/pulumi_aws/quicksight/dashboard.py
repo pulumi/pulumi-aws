@@ -505,32 +505,36 @@ class Dashboard(pulumi.CustomResource):
         Resource for managing a QuickSight Dashboard.
 
         ## Example Usage
+
         ### From Source Template
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Dashboard("example",
             dashboard_id="example-id",
+            name="example-name",
             version_description="version",
             source_entity=aws.quicksight.DashboardSourceEntityArgs(
                 source_template=aws.quicksight.DashboardSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=source["arn"],
                     data_set_references=[aws.quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
+                        data_set_arn=dataset["arn"],
                         data_set_placeholder="1",
                     )],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
+        $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -558,32 +562,36 @@ class Dashboard(pulumi.CustomResource):
         Resource for managing a QuickSight Dashboard.
 
         ## Example Usage
+
         ### From Source Template
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Dashboard("example",
             dashboard_id="example-id",
+            name="example-name",
             version_description="version",
             source_entity=aws.quicksight.DashboardSourceEntityArgs(
                 source_template=aws.quicksight.DashboardSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=source["arn"],
                     data_set_references=[aws.quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
+                        data_set_arn=dataset["arn"],
                         data_set_placeholder="1",
                     )],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
+        $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -642,8 +650,6 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_number"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Dashboard, __self__).__init__(
             'aws:quicksight/dashboard:Dashboard',
             resource_name,

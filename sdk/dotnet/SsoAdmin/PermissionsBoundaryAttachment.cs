@@ -15,8 +15,10 @@ namespace Pulumi.Aws.SsoAdmin
     /// &gt; **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `aws.ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Attaching an AWS-managed policy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,8 +29,8 @@ namespace Pulumi.Aws.SsoAdmin
     /// {
     ///     var example = new Aws.SsoAdmin.PermissionsBoundaryAttachment("example", new()
     ///     {
-    ///         InstanceArn = aws_ssoadmin_permission_set.Example.Instance_arn,
-    ///         PermissionSetArn = aws_ssoadmin_permission_set.Example.Arn,
+    ///         InstanceArn = exampleAwsSsoadminPermissionSet.InstanceArn,
+    ///         PermissionSetArn = exampleAwsSsoadminPermissionSet.Arn,
     ///         PermissionsBoundary = new Aws.SsoAdmin.Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs
     ///         {
     ///             ManagedPolicyArn = "arn:aws:iam::aws:policy/ReadOnlyAccess",
@@ -37,13 +39,14 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSO Admin Permissions Boundary Attachments using the `permission_set_arn` and `instance_arn`, separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+    /// $ pulumi import aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment")]

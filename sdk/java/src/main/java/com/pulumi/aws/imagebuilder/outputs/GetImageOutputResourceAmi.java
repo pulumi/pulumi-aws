@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,37 +99,52 @@ public final class GetImageOutputResourceAmi {
 
         @CustomType.Setter
         public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetImageOutputResourceAmi", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetImageOutputResourceAmi", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+            if (image == null) {
+              throw new MissingRequiredPropertyException("GetImageOutputResourceAmi", "image");
+            }
+            this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetImageOutputResourceAmi", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetImageOutputResourceAmi", "region");
+            }
+            this.region = region;
             return this;
         }
         public GetImageOutputResourceAmi build() {
-            final var o = new GetImageOutputResourceAmi();
-            o.accountId = accountId;
-            o.description = description;
-            o.image = image;
-            o.name = name;
-            o.region = region;
-            return o;
+            final var _resultValue = new GetImageOutputResourceAmi();
+            _resultValue.accountId = accountId;
+            _resultValue.description = description;
+            _resultValue.image = image;
+            _resultValue.name = name;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

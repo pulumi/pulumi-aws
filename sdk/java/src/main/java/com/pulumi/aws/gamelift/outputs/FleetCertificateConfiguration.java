@@ -44,13 +44,14 @@ public final class FleetCertificateConfiguration {
 
         @CustomType.Setter
         public Builder certificateType(@Nullable String certificateType) {
+
             this.certificateType = certificateType;
             return this;
         }
         public FleetCertificateConfiguration build() {
-            final var o = new FleetCertificateConfiguration();
-            o.certificateType = certificateType;
-            return o;
+            final var _resultValue = new FleetCertificateConfiguration();
+            _resultValue.certificateType = certificateType;
+            return _resultValue;
         }
     }
 }

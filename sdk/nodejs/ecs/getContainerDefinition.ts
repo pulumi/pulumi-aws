@@ -10,15 +10,17 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const ecs-mongo = aws.ecs.getContainerDefinition({
- *     taskDefinition: aws_ecs_task_definition.mongo.id,
+ *     taskDefinition: mongo.id,
  *     containerName: "mongodb",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerDefinitionResult> {
 
@@ -92,15 +94,17 @@ export interface GetContainerDefinitionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const ecs-mongo = aws.ecs.getContainerDefinition({
- *     taskDefinition: aws_ecs_task_definition.mongo.id,
+ *     taskDefinition: mongo.id,
  *     containerName: "mongodb",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getContainerDefinitionOutput(args: GetContainerDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getContainerDefinition(a, opts))

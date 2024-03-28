@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an Amplify Branch resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -28,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.amplify.App;
+ * import com.pulumi.aws.amplify.AppArgs;
  * import com.pulumi.aws.amplify.Branch;
  * import com.pulumi.aws.amplify.BranchArgs;
  * import java.util.List;
@@ -43,7 +46,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;);
+ *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;app&#34;)
+ *             .build());
  * 
  *         var master = new Branch(&#34;master&#34;, BranchArgs.builder()        
  *             .appId(example.id())
@@ -56,9 +61,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Notifications
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
+ * ### Basic Authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,11 +73,59 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.amplify.App;
+ * import com.pulumi.aws.amplify.AppArgs;
+ * import com.pulumi.aws.amplify.Branch;
+ * import com.pulumi.aws.amplify.BranchArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;app&#34;)
+ *             .build());
+ * 
+ *         var master = new Branch(&#34;master&#34;, BranchArgs.builder()        
+ *             .appId(example.id())
+ *             .branchName(&#34;master&#34;)
+ *             .enableBasicAuth(true)
+ *             .basicAuthCredentials(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                 .input(&#34;username:password&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Notifications
+ * 
+ * Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amplify.App;
+ * import com.pulumi.aws.amplify.AppArgs;
  * import com.pulumi.aws.amplify.Branch;
  * import com.pulumi.aws.amplify.BranchArgs;
  * import com.pulumi.aws.cloudwatch.EventRule;
  * import com.pulumi.aws.cloudwatch.EventRuleArgs;
  * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.cloudwatch.EventTarget;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventTargetInputTransformerArgs;
@@ -94,7 +149,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;);
+ *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;app&#34;)
+ *             .build());
  * 
  *         var master = new Branch(&#34;master&#34;, BranchArgs.builder()        
  *             .appId(example.id())
@@ -103,7 +160,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var amplifyAppMasterEventRule = new EventRule(&#34;amplifyAppMasterEventRule&#34;, EventRuleArgs.builder()        
- *             .description(master.branchName().applyValue(branchName -&gt; String.format(&#34;AWS Amplify build notifications for :  App: %s Branch: %s&#34;, aws_amplify_app.app().id(),branchName)))
+ *             .name(master.branchName().applyValue(branchName -&gt; String.format(&#34;amplify-%s-%s-branch-notification&#34;, app.id(),branchName)))
+ *             .description(master.branchName().applyValue(branchName -&gt; String.format(&#34;AWS Amplify build notifications for :  App: %s Branch: %s&#34;, app.id(),branchName)))
  *             .eventPattern(Output.tuple(example.id(), master.branchName()).applyValue(values -&gt; {
  *                 var id = values.t1;
  *                 var branchName = values.t2;
@@ -124,10 +182,13 @@ import javax.annotation.Nullable;
  *             }))
  *             .build());
  * 
- *         var amplifyAppMasterTopic = new Topic(&#34;amplifyAppMasterTopic&#34;);
+ *         var amplifyAppMasterTopic = new Topic(&#34;amplifyAppMasterTopic&#34;, TopicArgs.builder()        
+ *             .name(master.branchName().applyValue(branchName -&gt; String.format(&#34;amplify-%s_%s&#34;, app.id(),branchName)))
+ *             .build());
  * 
  *         var amplifyAppMasterEventTarget = new EventTarget(&#34;amplifyAppMasterEventTarget&#34;, EventTargetArgs.builder()        
  *             .rule(amplifyAppMasterEventRule.name())
+ *             .targetId(master.branchName())
  *             .arn(amplifyAppMasterTopic.arn())
  *             .inputTransformer(EventTargetInputTransformerArgs.builder()
  *                 .inputPaths(Map.ofEntries(
@@ -141,7 +202,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var amplifyAppMasterPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var amplifyAppMaster = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(master.arn().applyValue(arn -&gt; String.format(&#34;Allow_Publish_Events %s&#34;, arn)))
  *                 .effect(&#34;Allow&#34;)
@@ -156,7 +217,7 @@ import javax.annotation.Nullable;
  * 
  *         var amplifyAppMasterTopicPolicy = new TopicPolicy(&#34;amplifyAppMasterTopicPolicy&#34;, TopicPolicyArgs.builder()        
  *             .arn(amplifyAppMasterTopic.arn())
- *             .policy(amplifyAppMasterPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(amplifyAppMasterPolicyDocument -&gt; amplifyAppMasterPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(amplifyAppMaster.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(amplifyAppMaster -&gt; amplifyAppMaster.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var this_ = new TopicSubscription(&#34;this&#34;, TopicSubscriptionArgs.builder()        
@@ -168,13 +229,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
+ * $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
  * ```
  * 
  */
@@ -540,8 +602,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "basicAuthCredentials",
-                "tagsAll"
+                "basicAuthCredentials"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

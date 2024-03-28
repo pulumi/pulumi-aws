@@ -6,6 +6,7 @@ package com.pulumi.aws.efs;
 import com.pulumi.aws.efs.inputs.ReplicationConfigurationDestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class ReplicationConfigurationArgs extends com.pulumi.resources.Res
         }
 
         public ReplicationConfigurationArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.sourceFileSystemId = Objects.requireNonNull($.sourceFileSystemId, "expected parameter 'sourceFileSystemId' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("ReplicationConfigurationArgs", "destination");
+            }
+            if ($.sourceFileSystemId == null) {
+                throw new MissingRequiredPropertyException("ReplicationConfigurationArgs", "sourceFileSystemId");
+            }
             return $;
         }
     }

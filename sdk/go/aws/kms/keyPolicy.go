@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,33 +31,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Id": "example",
-//				"Statement": []map[string]interface{}{
+//				"id": "example",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": "kms:*",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"action": "kms:*",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
 //							"AWS": "*",
 //						},
-//						"Resource": "*",
-//						"Sid":      "Enable IAM User Permissions",
+//						"resource": "*",
+//						"sid":      "Enable IAM User Permissions",
 //					},
 //				},
-//				"Version": "2012-10-17",
+//				"version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = kms.NewKeyPolicy(ctx, "exampleKeyPolicy", &kms.KeyPolicyArgs{
-//				KeyId:  exampleKey.ID(),
+//			_, err = kms.NewKeyPolicy(ctx, "example", &kms.KeyPolicyArgs{
+//				KeyId:  example.ID(),
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -67,15 +68,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import KMS Key Policies using the `key_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
-//
+// $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
 // ```
 type KeyPolicy struct {
 	pulumi.CustomResourceState

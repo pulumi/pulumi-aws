@@ -7,6 +7,7 @@ import com.pulumi.aws.appautoscaling.inputs.PolicyTargetTrackingScalingPolicyCon
 import com.pulumi.aws.appautoscaling.inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -265,7 +266,9 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationArgs extends co
         }
 
         public PolicyTargetTrackingScalingPolicyConfigurationArgs build() {
-            $.targetValue = Objects.requireNonNull($.targetValue, "expected parameter 'targetValue' to be non-null");
+            if ($.targetValue == null) {
+                throw new MissingRequiredPropertyException("PolicyTargetTrackingScalingPolicyConfigurationArgs", "targetValue");
+            }
             return $;
         }
     }

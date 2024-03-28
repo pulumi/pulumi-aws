@@ -227,19 +227,21 @@ class ScheduleGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.scheduler.ScheduleGroup("example")
+        example = aws.scheduler.ScheduleGroup("example", name="my-schedule-group")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import schedule groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
+        $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -263,19 +265,21 @@ class ScheduleGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.scheduler.ScheduleGroup("example")
+        example = aws.scheduler.ScheduleGroup("example", name="my-schedule-group")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import schedule groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
+        $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -313,8 +317,6 @@ class ScheduleGroup(pulumi.CustomResource):
             __props__.__dict__["last_modification_date"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ScheduleGroup, __self__).__init__(
             'aws:scheduler/scheduleGroup:ScheduleGroup',
             resource_name,

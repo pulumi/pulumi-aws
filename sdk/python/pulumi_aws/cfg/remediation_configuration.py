@@ -395,16 +395,19 @@ class RemediationConfiguration(pulumi.CustomResource):
 
         AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        this_rule = aws.cfg.Rule("thisRule", source=aws.cfg.RuleSourceArgs(
-            owner="AWS",
-            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-        ))
-        this_remediation_configuration = aws.cfg.RemediationConfiguration("thisRemediationConfiguration",
-            config_rule_name=this_rule.name,
+        this = aws.cfg.Rule("this",
+            name="example",
+            source=aws.cfg.RuleSourceArgs(
+                owner="AWS",
+                source_identifier="S3_BUCKET_VERSIONING_ENABLED",
+            ))
+        this_remediation_configuration = aws.cfg.RemediationConfiguration("this",
+            config_rule_name=this.name,
             resource_type="AWS::S3::Bucket",
             target_type="SSM_DOCUMENT",
             target_id="AWS-EnableS3BucketEncryption",
@@ -433,13 +436,14 @@ class RemediationConfiguration(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
+        $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
         ```
 
         :param str resource_name: The name of the resource.
@@ -472,16 +476,19 @@ class RemediationConfiguration(pulumi.CustomResource):
 
         AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        this_rule = aws.cfg.Rule("thisRule", source=aws.cfg.RuleSourceArgs(
-            owner="AWS",
-            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-        ))
-        this_remediation_configuration = aws.cfg.RemediationConfiguration("thisRemediationConfiguration",
-            config_rule_name=this_rule.name,
+        this = aws.cfg.Rule("this",
+            name="example",
+            source=aws.cfg.RuleSourceArgs(
+                owner="AWS",
+                source_identifier="S3_BUCKET_VERSIONING_ENABLED",
+            ))
+        this_remediation_configuration = aws.cfg.RemediationConfiguration("this",
+            config_rule_name=this.name,
             resource_type="AWS::S3::Bucket",
             target_type="SSM_DOCUMENT",
             target_id="AWS-EnableS3BucketEncryption",
@@ -510,13 +517,14 @@ class RemediationConfiguration(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
+        $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
         ```
 
         :param str resource_name: The name of the resource.

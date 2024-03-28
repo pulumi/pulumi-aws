@@ -5,6 +5,7 @@ package com.pulumi.aws.glue;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -617,7 +618,9 @@ public final class DevEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DevEndpointArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("DevEndpointArgs", "roleArn");
+            }
             return $;
         }
     }

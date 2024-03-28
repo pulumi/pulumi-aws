@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Kendra
     /// Resource for managing an AWS Kendra FAQ.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,12 +27,13 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Faq("example", new()
     ///     {
-    ///         IndexId = aws_kendra_index.Example.Id,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "Example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Key = aws_s3_object.Example.Key,
+    ///             Bucket = exampleAwsS3Bucket.Id,
+    ///             Key = exampleAwsS3Object.Key,
     ///         },
     ///         Tags = 
     ///         {
@@ -40,8 +43,11 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With File Format
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,20 +58,24 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Faq("example", new()
     ///     {
-    ///         IndexId = aws_kendra_index.Example.Id,
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "Example",
     ///         FileFormat = "CSV",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Key = aws_s3_object.Example.Key,
+    ///             Bucket = exampleAwsS3Bucket.Id,
+    ///             Key = exampleAwsS3Object.Key,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Language Code
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,25 +86,27 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Faq("example", new()
     ///     {
-    ///         IndexId = aws_kendra_index.Example.Id,
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "Example",
     ///         LanguageCode = "en",
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Key = aws_s3_object.Example.Key,
+    ///             Bucket = exampleAwsS3Bucket.Id,
+    ///             Key = exampleAwsS3Object.Key,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
+    /// $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
     /// ```
     /// </summary>
     [AwsResourceType("aws:kendra/faq:Faq")]
@@ -215,10 +227,6 @@ namespace Pulumi.Aws.Kendra
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -402,11 +410,7 @@ namespace Pulumi.Aws.Kendra
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

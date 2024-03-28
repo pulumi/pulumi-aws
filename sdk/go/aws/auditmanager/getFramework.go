@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS Audit Manager Framework.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,8 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.LookupFramework(ctx, &auditmanager.LookupFrameworkArgs{
-//				FrameworkType: "Standard",
 //				Name:          "Essential Eight",
+//				FrameworkType: "Standard",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -40,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupFramework(ctx *pulumi.Context, args *LookupFrameworkArgs, opts ...pulumi.InvokeOption) (*LookupFrameworkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrameworkResult

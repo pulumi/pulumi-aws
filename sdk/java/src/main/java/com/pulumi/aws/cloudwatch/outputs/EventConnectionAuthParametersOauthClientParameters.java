@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class EventConnectionAuthParametersOauthClientParameters {
 
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("EventConnectionAuthParametersOauthClientParameters", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+            if (clientSecret == null) {
+              throw new MissingRequiredPropertyException("EventConnectionAuthParametersOauthClientParameters", "clientSecret");
+            }
+            this.clientSecret = clientSecret;
             return this;
         }
         public EventConnectionAuthParametersOauthClientParameters build() {
-            final var o = new EventConnectionAuthParametersOauthClientParameters();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            return o;
+            final var _resultValue = new EventConnectionAuthParametersOauthClientParameters();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            return _resultValue;
         }
     }
 }

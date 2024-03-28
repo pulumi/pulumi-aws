@@ -5,6 +5,7 @@ package com.pulumi.aws.backup.outputs;
 
 import com.pulumi.aws.backup.outputs.PlanRuleCopyActionLifecycle;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,19 +60,23 @@ public final class PlanRuleCopyAction {
 
         @CustomType.Setter
         public Builder destinationVaultArn(String destinationVaultArn) {
-            this.destinationVaultArn = Objects.requireNonNull(destinationVaultArn);
+            if (destinationVaultArn == null) {
+              throw new MissingRequiredPropertyException("PlanRuleCopyAction", "destinationVaultArn");
+            }
+            this.destinationVaultArn = destinationVaultArn;
             return this;
         }
         @CustomType.Setter
         public Builder lifecycle(@Nullable PlanRuleCopyActionLifecycle lifecycle) {
+
             this.lifecycle = lifecycle;
             return this;
         }
         public PlanRuleCopyAction build() {
-            final var o = new PlanRuleCopyAction();
-            o.destinationVaultArn = destinationVaultArn;
-            o.lifecycle = lifecycle;
-            return o;
+            final var _resultValue = new PlanRuleCopyAction();
+            _resultValue.destinationVaultArn = destinationVaultArn;
+            _resultValue.lifecycle = lifecycle;
+            return _resultValue;
         }
     }
 }

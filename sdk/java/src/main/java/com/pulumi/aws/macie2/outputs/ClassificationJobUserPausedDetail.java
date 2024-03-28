@@ -48,25 +48,28 @@ public final class ClassificationJobUserPausedDetail {
 
         @CustomType.Setter
         public Builder jobExpiresAt(@Nullable String jobExpiresAt) {
+
             this.jobExpiresAt = jobExpiresAt;
             return this;
         }
         @CustomType.Setter
         public Builder jobImminentExpirationHealthEventArn(@Nullable String jobImminentExpirationHealthEventArn) {
+
             this.jobImminentExpirationHealthEventArn = jobImminentExpirationHealthEventArn;
             return this;
         }
         @CustomType.Setter
         public Builder jobPausedAt(@Nullable String jobPausedAt) {
+
             this.jobPausedAt = jobPausedAt;
             return this;
         }
         public ClassificationJobUserPausedDetail build() {
-            final var o = new ClassificationJobUserPausedDetail();
-            o.jobExpiresAt = jobExpiresAt;
-            o.jobImminentExpirationHealthEventArn = jobImminentExpirationHealthEventArn;
-            o.jobPausedAt = jobPausedAt;
-            return o;
+            final var _resultValue = new ClassificationJobUserPausedDetail();
+            _resultValue.jobExpiresAt = jobExpiresAt;
+            _resultValue.jobImminentExpirationHealthEventArn = jobImminentExpirationHealthEventArn;
+            _resultValue.jobPausedAt = jobPausedAt;
+            return _resultValue;
         }
     }
 }

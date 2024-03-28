@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS IVS (Interactive Video) Stream Key.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetStreamKey(ctx *pulumi.Context, args *GetStreamKeyArgs, opts ...pulumi.InvokeOption) (*GetStreamKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStreamKeyResult

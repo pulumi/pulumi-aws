@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,14 +29,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraph, err := detective.NewGraph(ctx, "exampleGraph", nil)
+//			example, err := detective.NewGraph(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = detective.NewMember(ctx, "exampleMember", &detective.MemberArgs{
+//			_, err = detective.NewMember(ctx, "example", &detective.MemberArgs{
 //				AccountId:                pulumi.String("AWS ACCOUNT ID"),
 //				EmailAddress:             pulumi.String("EMAIL"),
-//				GraphArn:                 exampleGraph.ID(),
+//				GraphArn:                 example.ID(),
 //				Message:                  pulumi.String("Message of the invitation"),
 //				DisableEmailNotification: pulumi.Bool(true),
 //			})
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_detective_member` using the ARN of the graph followed by the account ID of the member account. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
-//
+// $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
 // ```
 type Member struct {
 	pulumi.CustomResourceState

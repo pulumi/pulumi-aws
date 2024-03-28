@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,10 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datasync.NewS3Location(ctx, "example", &datasync.S3LocationArgs{
-//				S3BucketArn:  pulumi.Any(aws_s3_bucket.Example.Arn),
+//				S3BucketArn:  pulumi.Any(exampleAwsS3Bucket.Arn),
 //				Subdirectory: pulumi.String("/example/prefix"),
 //				S3Config: &datasync.S3LocationS3ConfigArgs{
-//					BucketAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//					BucketAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_s3` using the DataSync Task Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
+// $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 // ```
 type S3Location struct {
 	pulumi.CustomResourceState
@@ -94,10 +94,6 @@ func NewS3Location(ctx *pulumi.Context,
 	if args.Subdirectory == nil {
 		return nil, errors.New("invalid value for required argument 'Subdirectory'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource S3Location
 	err := ctx.RegisterResource("aws:datasync/s3Location:S3Location", name, args, &resource, opts...)

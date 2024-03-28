@@ -59,19 +59,21 @@ public final class VirtualGatewaySpecListenerTlsValidationTrust {
 
         @CustomType.Setter
         public Builder file(@Nullable VirtualGatewaySpecListenerTlsValidationTrustFile file) {
+
             this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder sds(@Nullable VirtualGatewaySpecListenerTlsValidationTrustSds sds) {
+
             this.sds = sds;
             return this;
         }
         public VirtualGatewaySpecListenerTlsValidationTrust build() {
-            final var o = new VirtualGatewaySpecListenerTlsValidationTrust();
-            o.file = file;
-            o.sds = sds;
-            return o;
+            final var _resultValue = new VirtualGatewaySpecListenerTlsValidationTrust();
+            _resultValue.file = file;
+            _resultValue.sds = sds;
+            return _resultValue;
         }
     }
 }

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
-//
+// $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
 // ```
 type AggregateAuthorization struct {
 	pulumi.CustomResourceState
@@ -80,10 +80,6 @@ func NewAggregateAuthorization(ctx *pulumi.Context,
 	if args.Region == nil {
 		return nil, errors.New("invalid value for required argument 'Region'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AggregateAuthorization
 	err := ctx.RegisterResource("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, args, &resource, opts...)

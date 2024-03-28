@@ -5,6 +5,7 @@ package com.pulumi.aws.ebs.outputs;
 
 import com.pulumi.aws.ebs.outputs.GetEbsVolumesFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -74,6 +75,7 @@ public final class GetEbsVolumesResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetEbsVolumesFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -82,12 +84,18 @@ public final class GetEbsVolumesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEbsVolumesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetEbsVolumesResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -95,16 +103,17 @@ public final class GetEbsVolumesResult {
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         public GetEbsVolumesResult build() {
-            final var o = new GetEbsVolumesResult();
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetEbsVolumesResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

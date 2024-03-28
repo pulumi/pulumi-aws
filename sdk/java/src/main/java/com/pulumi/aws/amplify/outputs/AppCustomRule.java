@@ -4,6 +4,7 @@
 package com.pulumi.aws.amplify.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,31 +87,39 @@ public final class AppCustomRule {
 
         @CustomType.Setter
         public Builder condition(@Nullable String condition) {
+
             this.condition = condition;
             return this;
         }
         @CustomType.Setter
         public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("AppCustomRule", "source");
+            }
+            this.source = source;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder target(String target) {
-            this.target = Objects.requireNonNull(target);
+            if (target == null) {
+              throw new MissingRequiredPropertyException("AppCustomRule", "target");
+            }
+            this.target = target;
             return this;
         }
         public AppCustomRule build() {
-            final var o = new AppCustomRule();
-            o.condition = condition;
-            o.source = source;
-            o.status = status;
-            o.target = target;
-            return o;
+            final var _resultValue = new AppCustomRule();
+            _resultValue.condition = condition;
+            _resultValue.source = source;
+            _resultValue.status = status;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

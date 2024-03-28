@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -27,15 +28,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewSizeConstraintSet(ctx, "sizeConstraintSet", &wafregional.SizeConstraintSetArgs{
+//			_, err := wafregional.NewSizeConstraintSet(ctx, "size_constraint_set", &wafregional.SizeConstraintSetArgs{
+//				Name: pulumi.String("tfsize_constraints"),
 //				SizeConstraints: wafregional.SizeConstraintSetSizeConstraintArray{
 //					&wafregional.SizeConstraintSetSizeConstraintArgs{
+//						TextTransformation: pulumi.String("NONE"),
 //						ComparisonOperator: pulumi.String("EQ"),
+//						Size:               pulumi.Int(4096),
 //						FieldToMatch: &wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs{
 //							Type: pulumi.String("BODY"),
 //						},
-//						Size:               pulumi.Int(4096),
-//						TextTransformation: pulumi.String("NONE"),
 //					},
 //				},
 //			})
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WAF Size Constraint Set using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
+// $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type SizeConstraintSet struct {
 	pulumi.CustomResourceState

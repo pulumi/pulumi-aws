@@ -3,12 +3,14 @@
 
 package com.pulumi.aws.eks;
 
+import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterEncryptionConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterKubernetesNetworkConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +22,21 @@ import javax.annotation.Nullable;
 public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterArgs Empty = new ClusterArgs();
+
+    /**
+     * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+     * 
+     */
+    @Import(name="accessConfig")
+    private @Nullable Output<ClusterAccessConfigArgs> accessConfig;
+
+    /**
+     * @return Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+     * 
+     */
+    public Optional<Output<ClusterAccessConfigArgs>> accessConfig() {
+        return Optional.ofNullable(this.accessConfig);
+    }
 
     @Import(name="defaultAddonsToRemoves")
     private @Nullable Output<List<String>> defaultAddonsToRemoves;
@@ -74,14 +91,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * @return Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      * 
      */
     public Optional<Output<String>> name() {
@@ -170,6 +187,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     private ClusterArgs() {}
 
     private ClusterArgs(ClusterArgs $) {
+        this.accessConfig = $.accessConfig;
         this.defaultAddonsToRemoves = $.defaultAddonsToRemoves;
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
         this.encryptionConfig = $.encryptionConfig;
@@ -198,6 +216,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ClusterArgs defaults) {
             $ = new ClusterArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessConfig Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessConfig(@Nullable Output<ClusterAccessConfigArgs> accessConfig) {
+            $.accessConfig = accessConfig;
+            return this;
+        }
+
+        /**
+         * @param accessConfig Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessConfig(ClusterAccessConfigArgs accessConfig) {
+            return accessConfig(Output.of(accessConfig));
         }
 
         public Builder defaultAddonsToRemoves(@Nullable Output<List<String>> defaultAddonsToRemoves) {
@@ -287,7 +326,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
          * 
          * @return builder
          * 
@@ -298,7 +337,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+         * @param name Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
          * 
          * @return builder
          * 
@@ -417,8 +456,12 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
-            $.vpcConfig = Objects.requireNonNull($.vpcConfig, "expected parameter 'vpcConfig' to be non-null");
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "roleArn");
+            }
+            if ($.vpcConfig == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "vpcConfig");
+            }
             return $;
         }
     }

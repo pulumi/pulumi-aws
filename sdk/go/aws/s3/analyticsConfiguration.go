@@ -14,9 +14,13 @@ import (
 
 // Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
 //
+// > This resource cannot be used with S3 directory buckets.
+//
 // ## Example Usage
+//
 // ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,16 +33,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			analytics, err := s3.NewBucketV2(ctx, "analytics", nil)
+//			analytics, err := s3.NewBucketV2(ctx, "analytics", &s3.BucketV2Args{
+//				Bucket: pulumi.String("analytics destination"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewAnalyticsConfiguration(ctx, "example-entire-bucket", &s3.AnalyticsConfigurationArgs{
 //				Bucket: example.ID(),
+//				Name:   pulumi.String("EntireBucket"),
 //				StorageClassAnalysis: &s3.AnalyticsConfigurationStorageClassAnalysisArgs{
 //					DataExport: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportArgs{
 //						Destination: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs{
@@ -57,8 +66,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Add analytics configuration with S3 object filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,12 +83,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewAnalyticsConfiguration(ctx, "example-filtered", &s3.AnalyticsConfigurationArgs{
 //				Bucket: example.ID(),
+//				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Filter: &s3.AnalyticsConfigurationFilterArgs{
 //					Prefix: pulumi.String("documents/"),
 //					Tags: pulumi.StringMap{
@@ -93,15 +108,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 bucket analytics configurations using `bucket:analytics`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
-//
+// $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
 // ```
 type AnalyticsConfiguration struct {
 	pulumi.CustomResourceState

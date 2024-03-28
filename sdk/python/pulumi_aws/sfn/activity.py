@@ -142,19 +142,21 @@ class Activity(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        sfn_activity = aws.sfn.Activity("sfnActivity")
+        sfn_activity = aws.sfn.Activity("sfn_activity", name="my-activity")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import activities using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+        $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,19 +175,21 @@ class Activity(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        sfn_activity = aws.sfn.Activity("sfnActivity")
+        sfn_activity = aws.sfn.Activity("sfn_activity", name="my-activity")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import activities using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+        $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
         ```
 
         :param str resource_name: The name of the resource.
@@ -218,8 +222,6 @@ class Activity(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Activity, __self__).__init__(
             'aws:sfn/activity:Activity',
             resource_name,

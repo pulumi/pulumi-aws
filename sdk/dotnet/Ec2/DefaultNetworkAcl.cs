@@ -21,10 +21,12 @@ namespace Pulumi.Aws.Ec2
     /// For more information about Network ACLs, see the AWS Documentation on [Network ACLs][aws-network-acls].
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Example
     /// 
     /// The following config gives the Default Network ACL the same rules that AWS includes but pulls the resource under management by this provider. This means that any ACL rules added or changed will be detected as drift.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,10 +71,13 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example: Deny All Egress Traffic, Allow Ingress
     /// 
     /// The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,7 +101,7 @@ namespace Pulumi.Aws.Ec2
     ///                 Protocol = "-1",
     ///                 RuleNo = 100,
     ///                 Action = "allow",
-    ///                 CidrBlock = aws_default_vpc.Mainvpc.Cidr_block,
+    ///                 CidrBlock = mainvpcAwsDefaultVpc.CidrBlock,
     ///                 FromPort = 0,
     ///                 ToPort = 0,
     ///             },
@@ -105,10 +110,13 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
     /// 
     /// This config denies all traffic in the Default ACL. This can be useful if you want to lock down the VPC to force all resources to assign a non-default ACL.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -127,9 +135,10 @@ namespace Pulumi.Aws.Ec2
     ///         DefaultNetworkAclId = mainvpc.DefaultNetworkAclId,
     ///     });
     /// 
-    ///     // no rules defined, deny all traffic in this ACL
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Managing Subnets In A Default Network ACL
     /// 
     /// Within a VPC, all Subnets must be associated with a Network ACL. In order to "delete" the association between a Subnet and a non-default Network ACL, the association is destroyed by replacing it with an association between the Subnet and the Default ACL instead.
@@ -140,6 +149,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// As an alternative to the above, you can also specify the following lifecycle configuration in your `aws.ec2.DefaultNetworkAcl` resource:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -148,11 +158,12 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration ...
     ///     var @default = new Aws.Ec2.DefaultNetworkAcl("default");
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Removing `aws.ec2.DefaultNetworkAcl` From Your Configuration
     /// 
     /// Each AWS VPC comes with a Default Network ACL that cannot be deleted. The `aws.ec2.DefaultNetworkAcl` allows you to manage this Network ACL, but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile and management, **but will not destroy the Network ACL.** All Subnets associations and ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
@@ -162,7 +173,7 @@ namespace Pulumi.Aws.Ec2
     /// Using `pulumi import`, import Default Network ACLs using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
+    /// $ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl")]
@@ -247,10 +258,6 @@ namespace Pulumi.Aws.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -416,11 +423,7 @@ namespace Pulumi.Aws.Ec2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

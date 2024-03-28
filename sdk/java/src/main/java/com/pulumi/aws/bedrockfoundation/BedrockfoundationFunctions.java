@@ -21,7 +21,10 @@ public final class BedrockfoundationFunctions {
      * Data source for managing an AWS Bedrock Foundation Model.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -44,15 +47,16 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testModels = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels();
      * 
-     *         final var testModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(testModels.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
+     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(test.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetModelResult> getModel(GetModelArgs args) {
@@ -62,7 +66,10 @@ public final class BedrockfoundationFunctions {
      * Data source for managing an AWS Bedrock Foundation Model.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -85,15 +92,16 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testModels = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels();
      * 
-     *         final var testModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(testModels.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
+     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(test.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetModelResult> getModelPlain(GetModelPlainArgs args) {
@@ -103,7 +111,10 @@ public final class BedrockfoundationFunctions {
      * Data source for managing an AWS Bedrock Foundation Model.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,15 +137,16 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testModels = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels();
      * 
-     *         final var testModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(testModels.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
+     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(test.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetModelResult> getModel(GetModelArgs args, InvokeOptions options) {
@@ -144,7 +156,10 @@ public final class BedrockfoundationFunctions {
      * Data source for managing an AWS Bedrock Foundation Model.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -167,15 +182,16 @@ public final class BedrockfoundationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testModels = BedrockfoundationFunctions.getModels();
+     *         final var test = BedrockfoundationFunctions.getModels();
      * 
-     *         final var testModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
-     *             .modelId(testModels.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
+     *         final var testGetModel = BedrockfoundationFunctions.getModel(GetModelArgs.builder()
+     *             .modelId(test.applyValue(getModelsResult -&gt; getModelsResult.modelSummaries()[0].modelId()))
      *             .build());
      * 
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetModelResult> getModelPlain(GetModelPlainArgs args, InvokeOptions options) {
@@ -185,7 +201,10 @@ public final class BedrockfoundationFunctions {
      * Data source for managing AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -212,7 +231,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter by Inference Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -241,6 +264,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetModelsResult> getModels() {
@@ -250,7 +274,10 @@ public final class BedrockfoundationFunctions {
      * Data source for managing AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -277,7 +304,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter by Inference Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -306,6 +337,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetModelsResult> getModelsPlain() {
@@ -315,7 +347,10 @@ public final class BedrockfoundationFunctions {
      * Data source for managing AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -342,7 +377,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter by Inference Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -371,6 +410,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetModelsResult> getModels(GetModelsArgs args) {
@@ -380,7 +420,10 @@ public final class BedrockfoundationFunctions {
      * Data source for managing AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -407,7 +450,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter by Inference Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -436,6 +483,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetModelsResult> getModelsPlain(GetModelsPlainArgs args) {
@@ -445,7 +493,10 @@ public final class BedrockfoundationFunctions {
      * Data source for managing AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -472,7 +523,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter by Inference Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -501,6 +556,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetModelsResult> getModels(GetModelsArgs args, InvokeOptions options) {
@@ -510,7 +566,10 @@ public final class BedrockfoundationFunctions {
      * Data source for managing AWS Bedrock Foundation Models.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -537,7 +596,11 @@ public final class BedrockfoundationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter by Inference Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -566,6 +629,7 @@ public final class BedrockfoundationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetModelsResult> getModelsPlain(GetModelsPlainArgs args, InvokeOptions options) {

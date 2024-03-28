@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         public ExtensionAssociationArgs build() {
-            $.extensionArn = Objects.requireNonNull($.extensionArn, "expected parameter 'extensionArn' to be non-null");
-            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
+            if ($.extensionArn == null) {
+                throw new MissingRequiredPropertyException("ExtensionAssociationArgs", "extensionArn");
+            }
+            if ($.resourceArn == null) {
+                throw new MissingRequiredPropertyException("ExtensionAssociationArgs", "resourceArn");
+            }
             return $;
         }
     }

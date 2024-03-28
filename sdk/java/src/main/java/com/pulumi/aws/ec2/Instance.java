@@ -35,7 +35,10 @@ import javax.annotation.Nullable;
  * Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
  * 
  * ## Example Usage
+ * 
  * ### Basic example using AMI lookup
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,7 +67,7 @@ import javax.annotation.Nullable;
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
  *                     .name(&#34;name&#34;)
- *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*&#34;)
+ *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*&#34;)
  *                     .build(),
  *                 GetAmiFilterArgs.builder()
  *                     .name(&#34;virtualization-type&#34;)
@@ -82,7 +85,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Spot instance example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -108,7 +115,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var thisAmi = Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var this = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .owners(&#34;amazon&#34;)
  *             .filters(            
@@ -123,7 +130,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var thisInstance = new Instance(&#34;thisInstance&#34;, InstanceArgs.builder()        
- *             .ami(thisAmi.applyValue(getAmiResult -&gt; getAmiResult.id()))
+ *             .ami(this_.id())
  *             .instanceMarketOptions(InstanceInstanceMarketOptionsArgs.builder()
  *                 .spotOptions(InstanceInstanceMarketOptionsSpotOptionsArgs.builder()
  *                     .maxPrice(0.0031)
@@ -136,7 +143,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Network and credit specification example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -178,7 +189,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
  *             .build());
  * 
- *         var fooNetworkInterface = new NetworkInterface(&#34;fooNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+ *         var foo = new NetworkInterface(&#34;foo&#34;, NetworkInterfaceArgs.builder()        
  *             .subnetId(mySubnet.id())
  *             .privateIps(&#34;172.16.10.100&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;primary_network_interface&#34;))
@@ -188,7 +199,7 @@ import javax.annotation.Nullable;
  *             .ami(&#34;ami-005e54dee72cc1d00&#34;)
  *             .instanceType(&#34;t2.micro&#34;)
  *             .networkInterfaces(InstanceNetworkInterfaceArgs.builder()
- *                 .networkInterfaceId(fooNetworkInterface.id())
+ *                 .networkInterfaceId(foo.id())
  *                 .deviceIndex(0)
  *                 .build())
  *             .creditSpecification(InstanceCreditSpecificationArgs.builder()
@@ -199,7 +210,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### CPU options example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -228,13 +243,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;172.16.0.0/16&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .vpcId(exampleVpc.id())
+ *             .vpcId(example.id())
  *             .cidrBlock(&#34;172.16.10.0/24&#34;)
  *             .availabilityZone(&#34;us-east-2a&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
@@ -263,11 +278,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Host resource group or Licence Manager registered AMI example
  * 
  * A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
  * 
  * &gt; **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -291,21 +310,34 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var this_ = new Instance(&#34;this&#34;, InstanceArgs.builder()        
  *             .ami(&#34;ami-0dcc1e21636832c5d&#34;)
- *             .hostResourceGroupArn(&#34;arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost&#34;)
  *             .instanceType(&#34;m5.large&#34;)
+ *             .hostResourceGroupArn(&#34;arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost&#34;)
  *             .tenancy(&#34;host&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Tag Guide
+ * 
+ * These are the five types of tags you might encounter relative to an `aws.ec2.Instance`:
+ * 
+ * 1. **Instance tags**: Applied to instances but not to `ebs_block_device` and `root_block_device` volumes.
+ * 2. **Default tags**: Applied to the instance and to `ebs_block_device` and `root_block_device` volumes.
+ * 3. **Volume tags**: Applied during creation to `ebs_block_device` and `root_block_device` volumes.
+ * 4. **Root block device tags**: Applied only to the `root_block_device` volume. These conflict with `volume_tags`.
+ * 5. **EBS block device tags**: Applied only to the specific `ebs_block_device` volume you configure them for and cannot be updated. These conflict with `volume_tags`.
+ * 
+ * Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
  * 
  * ## Import
  * 
  * Using `pulumi import`, import instances using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/instance:Instance web i-12345678
+ * $ pulumi import aws:ec2/instance:Instance web i-12345678
  * ```
  * 
  */
@@ -1170,9 +1202,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

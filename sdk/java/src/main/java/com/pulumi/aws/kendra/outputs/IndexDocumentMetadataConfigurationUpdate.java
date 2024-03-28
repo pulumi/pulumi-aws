@@ -6,6 +6,7 @@ package com.pulumi.aws.kendra.outputs;
 import com.pulumi.aws.kendra.outputs.IndexDocumentMetadataConfigurationUpdateRelevance;
 import com.pulumi.aws.kendra.outputs.IndexDocumentMetadataConfigurationUpdateSearch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -88,31 +89,39 @@ public final class IndexDocumentMetadataConfigurationUpdate {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("IndexDocumentMetadataConfigurationUpdate", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder relevance(@Nullable IndexDocumentMetadataConfigurationUpdateRelevance relevance) {
+
             this.relevance = relevance;
             return this;
         }
         @CustomType.Setter
         public Builder search(@Nullable IndexDocumentMetadataConfigurationUpdateSearch search) {
+
             this.search = search;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("IndexDocumentMetadataConfigurationUpdate", "type");
+            }
+            this.type = type;
             return this;
         }
         public IndexDocumentMetadataConfigurationUpdate build() {
-            final var o = new IndexDocumentMetadataConfigurationUpdate();
-            o.name = name;
-            o.relevance = relevance;
-            o.search = search;
-            o.type = type;
-            return o;
+            final var _resultValue = new IndexDocumentMetadataConfigurationUpdate();
+            _resultValue.name = name;
+            _resultValue.relevance = relevance;
+            _resultValue.search = search;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

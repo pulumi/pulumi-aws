@@ -9,12 +9,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fs = new aws.efs.FileSystem("fs", {});
- * const policyPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const fs = new aws.efs.FileSystem("fs", {creationToken: "my-product"});
+ * const policy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: "ExampleStatement01",
  *         effect: "Allow",
@@ -34,18 +35,19 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const policyFileSystemPolicy = new aws.efs.FileSystemPolicy("policyFileSystemPolicy", {
+ * const policyFileSystemPolicy = new aws.efs.FileSystemPolicy("policy", {
  *     fileSystemId: fs.id,
- *     policy: policyPolicyDocument.apply(policyPolicyDocument => policyPolicyDocument.json),
+ *     policy: policy.apply(policy => policy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the EFS file system policies using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+ * $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
  * ```
  */
 export class FileSystemPolicy extends pulumi.CustomResource {

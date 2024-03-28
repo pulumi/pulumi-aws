@@ -12,18 +12,130 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS NetworkManager ConnectAttachment.
+// Resource for managing an AWS Network Manager ConnectAttachment.
 //
 // ## Example Usage
+//
+// ### Basic Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var splat0 []interface{}
+// for _, val0 := range exampleAwsSubnet {
+// splat0 = append(splat0, val0.Arn)
+// }
+// example, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
+// SubnetArns: toPulumiArray(splat0),
+// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+// VpcArn: pulumi.Any(exampleAwsVpc.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager.NewConnectAttachment(ctx, "example", &networkmanager.ConnectAttachmentArgs{
+// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+// TransportAttachmentId: example.ID(),
+// EdgeLocation: example.EdgeLocation,
+// Options: &networkmanager.ConnectAttachmentOptionsArgs{
+// Protocol: pulumi.String("GRE"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiArray(arr []) pulumi.Array {
+// var pulumiArr pulumi.Array
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.(v))
+// }
+// return pulumiArr
+// }
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Usage with attachment accepter
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var splat0 []interface{}
+// for _, val0 := range exampleAwsSubnet {
+// splat0 = append(splat0, val0.Arn)
+// }
+// example, err := networkmanager.NewVpcAttachment(ctx, "example", &networkmanager.VpcAttachmentArgs{
+// SubnetArns: toPulumiArray(splat0),
+// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+// VpcArn: pulumi.Any(exampleAwsVpc.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager.NewAttachmentAccepter(ctx, "example", &networkmanager.AttachmentAccepterArgs{
+// AttachmentId: example.ID(),
+// AttachmentType: example.AttachmentType,
+// })
+// if err != nil {
+// return err
+// }
+// exampleConnectAttachment, err := networkmanager.NewConnectAttachment(ctx, "example", &networkmanager.ConnectAttachmentArgs{
+// CoreNetworkId: pulumi.Any(exampleAwsccNetworkmanagerCoreNetwork.Id),
+// TransportAttachmentId: example.ID(),
+// EdgeLocation: example.EdgeLocation,
+// Options: &networkmanager.ConnectAttachmentOptionsArgs{
+// Protocol: pulumi.String("GRE"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = networkmanager.NewAttachmentAccepter(ctx, "example2", &networkmanager.AttachmentAccepterArgs{
+// AttachmentId: exampleConnectAttachment.ID(),
+// AttachmentType: exampleConnectAttachment.AttachmentType,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiArray(arr []) pulumi.Array {
+// var pulumiArr pulumi.Array
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.(v))
+// }
+// return pulumiArr
+// }
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
-//
+// $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
 // ```
 type ConnectAttachment struct {
 	pulumi.CustomResourceState
@@ -82,10 +194,6 @@ func NewConnectAttachment(ctx *pulumi.Context,
 	if args.TransportAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransportAttachmentId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectAttachment
 	err := ctx.RegisterResource("aws:networkmanager/connectAttachment:ConnectAttachment", name, args, &resource, opts...)

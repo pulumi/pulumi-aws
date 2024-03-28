@@ -20,6 +20,7 @@ import (
 //
 // AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,7 +33,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			thisRule, err := cfg.NewRule(ctx, "thisRule", &cfg.RuleArgs{
+//			this, err := cfg.NewRule(ctx, "this", &cfg.RuleArgs{
+//				Name: pulumi.String("example"),
 //				Source: &cfg.RuleSourceArgs{
 //					Owner:            pulumi.String("AWS"),
 //					SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
@@ -41,8 +43,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cfg.NewRemediationConfiguration(ctx, "thisRemediationConfiguration", &cfg.RemediationConfigurationArgs{
-//				ConfigRuleName: thisRule.Name,
+//			_, err = cfg.NewRemediationConfiguration(ctx, "this", &cfg.RemediationConfigurationArgs{
+//				ConfigRuleName: this.Name,
 //				ResourceType:   pulumi.String("AWS::S3::Bucket"),
 //				TargetType:     pulumi.String("SSM_DOCUMENT"),
 //				TargetId:       pulumi.String("AWS-EnableS3BucketEncryption"),
@@ -79,15 +81,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
-//
+// $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
 // ```
 type RemediationConfiguration struct {
 	pulumi.CustomResourceState

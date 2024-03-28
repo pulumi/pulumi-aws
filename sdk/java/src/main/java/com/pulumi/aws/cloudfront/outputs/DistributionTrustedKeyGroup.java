@@ -60,11 +60,13 @@ public final class DistributionTrustedKeyGroup {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder items(@Nullable List<DistributionTrustedKeyGroupItem> items) {
+
             this.items = items;
             return this;
         }
@@ -72,10 +74,10 @@ public final class DistributionTrustedKeyGroup {
             return items(List.of(items));
         }
         public DistributionTrustedKeyGroup build() {
-            final var o = new DistributionTrustedKeyGroup();
-            o.enabled = enabled;
-            o.items = items;
-            return o;
+            final var _resultValue = new DistributionTrustedKeyGroup();
+            _resultValue.enabled = enabled;
+            _resultValue.items = items;
+            return _resultValue;
         }
     }
 }

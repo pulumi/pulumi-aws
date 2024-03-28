@@ -12,30 +12,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const bar = new aws.elastictranscoder.Pipeline("bar", {
- *     inputBucket: aws_s3_bucket.input_bucket.id,
- *     role: aws_iam_role.test_role.arn,
+ *     inputBucket: inputBucket.id,
+ *     name: "aws_elastictranscoder_pipeline_my_test_",
+ *     role: testRole.arn,
  *     contentConfig: {
- *         bucket: aws_s3_bucket.content_bucket.id,
+ *         bucket: contentBucket.id,
  *         storageClass: "Standard",
  *     },
  *     thumbnailConfig: {
- *         bucket: aws_s3_bucket.thumb_bucket.id,
+ *         bucket: thumbBucket.id,
  *         storageClass: "Standard",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
+ * $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
  * ```
  */
 export class Pipeline extends pulumi.CustomResource {

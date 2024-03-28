@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Backup.Outputs
         /// Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         /// </summary>
         public readonly int? DeleteAfter;
+        /// <summary>
+        /// This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
+        /// </summary>
+        public readonly bool? OptInToArchiveForSupportedResources;
 
         [OutputConstructor]
         private PlanRuleCopyActionLifecycle(
             int? coldStorageAfter,
 
-            int? deleteAfter)
+            int? deleteAfter,
+
+            bool? optInToArchiveForSupportedResources)
         {
             ColdStorageAfter = coldStorageAfter;
             DeleteAfter = deleteAfter;
+            OptInToArchiveForSupportedResources = optInToArchiveForSupportedResources;
         }
     }
 }

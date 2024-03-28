@@ -209,15 +209,19 @@ class Rule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
+        ipset = aws.wafregional.IpSet("ipset",
+            name="tfIPSet",
+            ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            )])
         wafrule = aws.wafregional.Rule("wafrule",
+            name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[aws.wafregional.RulePredicateArgs(
                 type="IPMatch",
@@ -225,6 +229,8 @@ class Rule(pulumi.CustomResource):
                 negated=False,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Nested Fields
 
         ### `predicate`
@@ -242,7 +248,7 @@ class Rule(pulumi.CustomResource):
         Using `pulumi import`, import WAF Regional Rule using the id. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -263,15 +269,19 @@ class Rule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
+        ipset = aws.wafregional.IpSet("ipset",
+            name="tfIPSet",
+            ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            )])
         wafrule = aws.wafregional.Rule("wafrule",
+            name="tfWAFRule",
             metric_name="tfWAFRule",
             predicates=[aws.wafregional.RulePredicateArgs(
                 type="IPMatch",
@@ -279,6 +289,8 @@ class Rule(pulumi.CustomResource):
                 negated=False,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Nested Fields
 
         ### `predicate`
@@ -296,7 +308,7 @@ class Rule(pulumi.CustomResource):
         Using `pulumi import`, import WAF Regional Rule using the id. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -335,8 +347,6 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Rule, __self__).__init__(
             'aws:wafregional/rule:Rule',
             resource_name,

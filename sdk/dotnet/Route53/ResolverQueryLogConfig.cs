@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,8 @@ namespace Pulumi.Aws.Route53
     /// {
     ///     var example = new Aws.Route53.ResolverQueryLogConfig("example", new()
     ///     {
-    ///         DestinationArn = aws_s3_bucket.Example.Arn,
+    ///         Name = "example",
+    ///         DestinationArn = exampleAwsS3Bucket.Arn,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Prod" },
@@ -33,15 +35,14 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import
-    /// 
-    /// Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
+    /// Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+    /// $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig")]
@@ -115,10 +116,6 @@ namespace Pulumi.Aws.Route53
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -230,11 +227,7 @@ namespace Pulumi.Aws.Route53
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ResolverQueryLogConfigState()

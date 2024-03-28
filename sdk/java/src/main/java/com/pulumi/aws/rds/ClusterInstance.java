@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -37,6 +36,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** `aurora` is no longer a valid `engine` because of [Amazon Aurora&#39;s MySQL-Compatible Edition version 1 end of life](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.MySQL56.EOL.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -86,13 +87,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+ * $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
  * ```
  * 
  */
@@ -267,14 +269,16 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
+     * @return Name of the database engine to be used for the RDS cluster instance.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
     public Output<String> engine() {
@@ -509,14 +513,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> publiclyAccessible;
+    private Output<Boolean> publiclyAccessible;
 
     /**
      * @return Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
      * 
      */
-    public Output<Optional<Boolean>> publiclyAccessible() {
-        return Codegen.optional(this.publiclyAccessible);
+    public Output<Boolean> publiclyAccessible() {
+        return this.publiclyAccessible;
     }
     /**
      * Specifies whether the DB cluster is encrypted.
@@ -611,9 +615,6 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

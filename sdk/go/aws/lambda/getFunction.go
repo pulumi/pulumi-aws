@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulumi.InvokeOption) (*LookupFunctionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionResult
@@ -93,6 +95,8 @@ type LookupFunctionResult struct {
 	LastModified string `pulumi:"lastModified"`
 	// List of Lambda Layer ARNs attached to your Lambda Function.
 	Layers []string `pulumi:"layers"`
+	// Advanced logging settings.
+	LoggingConfigs []GetFunctionLoggingConfig `pulumi:"loggingConfigs"`
 	// Amount of memory in MB your Lambda Function can use at runtime.
 	MemorySize int `pulumi:"memorySize"`
 	// Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
@@ -243,6 +247,11 @@ func (o LookupFunctionResultOutput) LastModified() pulumi.StringOutput {
 // List of Lambda Layer ARNs attached to your Lambda Function.
 func (o LookupFunctionResultOutput) Layers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []string { return v.Layers }).(pulumi.StringArrayOutput)
+}
+
+// Advanced logging settings.
+func (o LookupFunctionResultOutput) LoggingConfigs() GetFunctionLoggingConfigArrayOutput {
+	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionLoggingConfig { return v.LoggingConfigs }).(GetFunctionLoggingConfigArrayOutput)
 }
 
 // Amount of memory in MB your Lambda Function can use at runtime.

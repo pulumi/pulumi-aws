@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +25,7 @@ namespace Pulumi.Aws.Iot
     /// {
     ///     var example = new Aws.Iot.Thing("example", new()
     ///     {
+    ///         Name = "example",
     ///         Attributes = 
     ///         {
     ///             { "First", "examplevalue" },
@@ -32,13 +34,14 @@ namespace Pulumi.Aws.Iot
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IOT Things using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iot/thing:Thing example example
+    /// $ pulumi import aws:iot/thing:Thing example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/thing:Thing")]

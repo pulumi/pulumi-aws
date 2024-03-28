@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -35,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.route53.RecordArgs;
  * import com.pulumi.aws.ses.DomainIdentityVerification;
  * import com.pulumi.aws.ses.DomainIdentityVerificationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,7 +55,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAmazonsesVerificationRecord = new Record(&#34;exampleAmazonsesVerificationRecord&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.example().zone_id())
+ *             .zoneId(exampleAwsRoute53Zone.zoneId())
  *             .name(example.id().applyValue(id -&gt; String.format(&#34;_amazonses.%s&#34;, id)))
  *             .type(&#34;TXT&#34;)
  *             .ttl(&#34;600&#34;)
@@ -63,13 +64,12 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVerification = new DomainIdentityVerification(&#34;exampleVerification&#34;, DomainIdentityVerificationArgs.builder()        
  *             .domain(example.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAmazonsesVerificationRecord)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ses/domainIdentityVerification:DomainIdentityVerification")

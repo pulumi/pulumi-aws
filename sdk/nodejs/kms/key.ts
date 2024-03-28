@@ -13,22 +13,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const key = new aws.kms.Key("key", {
- *     deletionWindowInDays: 10,
+ * const a = new aws.kms.Key("a", {
  *     description: "KMS key 1",
+ *     deletionWindowInDays: 10,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import KMS Keys using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
+ * $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
  * ```
  */
 export class Key extends pulumi.CustomResource {
@@ -126,6 +128,10 @@ export class Key extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Identifies the external key that serves as key material for the KMS key in an external key store.
+     */
+    public readonly xksKeyId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -154,6 +160,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["xksKeyId"] = state ? state.xksKeyId : undefined;
         } else {
             const args = argsOrState as KeyArgs | undefined;
             resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
@@ -167,13 +174,12 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["multiRegion"] = args ? args.multiRegion : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["xksKeyId"] = args ? args.xksKeyId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Key.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -249,6 +255,10 @@ export interface KeyState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Identifies the external key that serves as key material for the KMS key in an external key store.
+     */
+    xksKeyId?: pulumi.Input<string>;
 }
 
 /**
@@ -308,4 +318,8 @@ export interface KeyArgs {
      * A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Identifies the external key that serves as key material for the KMS key in an external key store.
+     */
+    xksKeyId?: pulumi.Input<string>;
 }

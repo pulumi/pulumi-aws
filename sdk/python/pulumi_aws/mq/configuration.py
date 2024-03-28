@@ -329,13 +329,19 @@ class Configuration(pulumi.CustomResource):
         For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
 
         ## Example Usage
+
         ### ActiveMQ
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.mq.Configuration("example",
+            description="Example Configuration",
+            name="example",
+            engine_type="ActiveMQ",
+            engine_version="5.17.6",
             data=\"\"\"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <broker xmlns="http://activemq.apache.org/schema/core">
           <plugins>
@@ -344,34 +350,34 @@ class Configuration(pulumi.CustomResource):
             <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
           </plugins>
         </broker>
-
-        \"\"\",
-            description="Example Configuration",
-            engine_type="ActiveMQ",
-            engine_version="5.17.6")
+        \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RabbitMQ
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.mq.Configuration("example",
+            description="Example Configuration",
+            name="example",
+            engine_type="RabbitMQ",
+            engine_version="3.11.20",
             data=\"\"\"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
         consumer_timeout = 1800000
-
-        \"\"\",
-            description="Example Configuration",
-            engine_type="RabbitMQ",
-            engine_version="3.11.20")
+        \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
 
         ```sh
-         $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+        $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
         ```
 
         :param str resource_name: The name of the resource.
@@ -398,13 +404,19 @@ class Configuration(pulumi.CustomResource):
         For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
 
         ## Example Usage
+
         ### ActiveMQ
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.mq.Configuration("example",
+            description="Example Configuration",
+            name="example",
+            engine_type="ActiveMQ",
+            engine_version="5.17.6",
             data=\"\"\"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
         <broker xmlns="http://activemq.apache.org/schema/core">
           <plugins>
@@ -413,34 +425,34 @@ class Configuration(pulumi.CustomResource):
             <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
           </plugins>
         </broker>
-
-        \"\"\",
-            description="Example Configuration",
-            engine_type="ActiveMQ",
-            engine_version="5.17.6")
+        \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RabbitMQ
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.mq.Configuration("example",
+            description="Example Configuration",
+            name="example",
+            engine_type="RabbitMQ",
+            engine_version="3.11.20",
             data=\"\"\"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
         consumer_timeout = 1800000
-
-        \"\"\",
-            description="Example Configuration",
-            engine_type="RabbitMQ",
-            engine_version="3.11.20")
+        \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
 
         ```sh
-         $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+        $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
         ```
 
         :param str resource_name: The name of the resource.
@@ -490,8 +502,6 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["latest_revision"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Configuration, __self__).__init__(
             'aws:mq/configuration:Configuration',
             resource_name,

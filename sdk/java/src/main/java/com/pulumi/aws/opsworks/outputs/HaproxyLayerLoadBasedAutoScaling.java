@@ -50,25 +50,28 @@ public final class HaproxyLayerLoadBasedAutoScaling {
 
         @CustomType.Setter
         public Builder downscaling(@Nullable HaproxyLayerLoadBasedAutoScalingDownscaling downscaling) {
+
             this.downscaling = downscaling;
             return this;
         }
         @CustomType.Setter
         public Builder enable(@Nullable Boolean enable) {
+
             this.enable = enable;
             return this;
         }
         @CustomType.Setter
         public Builder upscaling(@Nullable HaproxyLayerLoadBasedAutoScalingUpscaling upscaling) {
+
             this.upscaling = upscaling;
             return this;
         }
         public HaproxyLayerLoadBasedAutoScaling build() {
-            final var o = new HaproxyLayerLoadBasedAutoScaling();
-            o.downscaling = downscaling;
-            o.enable = enable;
-            o.upscaling = upscaling;
-            return o;
+            final var _resultValue = new HaproxyLayerLoadBasedAutoScaling();
+            _resultValue.downscaling = downscaling;
+            _resultValue.enable = enable;
+            _resultValue.upscaling = upscaling;
+            return _resultValue;
         }
     }
 }

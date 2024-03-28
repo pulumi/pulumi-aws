@@ -290,11 +290,16 @@ class HoursOfOperation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.connect.HoursOfOperation("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Office Hours",
+            description="Monday office hours",
+            time_zone="EST",
             configs=[
                 aws.connect.HoursOfOperationConfigArgs(
                     day="MONDAY",
@@ -319,20 +324,18 @@ class HoursOfOperation(pulumi.CustomResource):
                     ),
                 ),
             ],
-            description="Monday office hours",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             tags={
                 "Name": "Example Hours of Operation",
-            },
-            time_zone="EST")
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -356,11 +359,16 @@ class HoursOfOperation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.connect.HoursOfOperation("test",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="Office Hours",
+            description="Monday office hours",
+            time_zone="EST",
             configs=[
                 aws.connect.HoursOfOperationConfigArgs(
                     day="MONDAY",
@@ -385,20 +393,18 @@ class HoursOfOperation(pulumi.CustomResource):
                     ),
                 ),
             ],
-            description="Monday office hours",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             tags={
                 "Name": "Example Hours of Operation",
-            },
-            time_zone="EST")
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -446,8 +452,6 @@ class HoursOfOperation(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["hours_of_operation_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HoursOfOperation, __self__).__init__(
             'aws:connect/hoursOfOperation:HoursOfOperation',
             resource_name,

@@ -12,45 +12,53 @@ import * as utilities from "../utilities";
  * See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.fsx.OntapVolume("test", {
+ *     name: "test",
  *     junctionPath: "/test",
  *     sizeInMegabytes: 1024,
  *     storageEfficiencyEnabled: true,
- *     storageVirtualMachineId: aws_fsx_ontap_storage_virtual_machine.test.id,
+ *     storageVirtualMachineId: testAwsFsxOntapStorageVirtualMachine.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Using Tiering Policy
  *
  * Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.fsx.OntapVolume("test", {
+ *     name: "test",
  *     junctionPath: "/test",
  *     sizeInMegabytes: 1024,
  *     storageEfficiencyEnabled: true,
- *     storageVirtualMachineId: aws_fsx_ontap_storage_virtual_machine.test.id,
+ *     storageVirtualMachineId: testAwsFsxOntapStorageVirtualMachine.id,
  *     tieringPolicy: {
  *         name: "AUTO",
  *         coolingPeriod: 31,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import FSx ONTAP volume using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
+ * $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
  * ```
  */
 export class OntapVolume extends pulumi.CustomResource {
@@ -227,8 +235,6 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OntapVolume.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -18,7 +18,10 @@ public final class Ec2clientvpnFunctions {
      * Get information on an EC2 Client VPN endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -50,7 +53,11 @@ public final class Ec2clientvpnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -79,6 +86,7 @@ public final class Ec2clientvpnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEndpointResult> getEndpoint() {
@@ -88,7 +96,10 @@ public final class Ec2clientvpnFunctions {
      * Get information on an EC2 Client VPN endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -120,7 +131,11 @@ public final class Ec2clientvpnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -149,6 +164,7 @@ public final class Ec2clientvpnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain() {
@@ -158,7 +174,10 @@ public final class Ec2clientvpnFunctions {
      * Get information on an EC2 Client VPN endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -190,7 +209,11 @@ public final class Ec2clientvpnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -219,6 +242,7 @@ public final class Ec2clientvpnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args) {
@@ -228,7 +252,10 @@ public final class Ec2clientvpnFunctions {
      * Get information on an EC2 Client VPN endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -260,7 +287,11 @@ public final class Ec2clientvpnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -289,6 +320,7 @@ public final class Ec2clientvpnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args) {
@@ -298,7 +330,10 @@ public final class Ec2clientvpnFunctions {
      * Get information on an EC2 Client VPN endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -330,7 +365,11 @@ public final class Ec2clientvpnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -359,6 +398,7 @@ public final class Ec2clientvpnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOptions options) {
@@ -368,7 +408,10 @@ public final class Ec2clientvpnFunctions {
      * Get information on an EC2 Client VPN endpoint.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -400,7 +443,11 @@ public final class Ec2clientvpnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -429,6 +476,7 @@ public final class Ec2clientvpnFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {

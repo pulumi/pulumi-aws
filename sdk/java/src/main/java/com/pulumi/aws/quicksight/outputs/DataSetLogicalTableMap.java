@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.aws.quicksight.outputs.DataSetLogicalTableMapDataTransform;
 import com.pulumi.aws.quicksight.outputs.DataSetLogicalTableMapSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -88,11 +89,15 @@ public final class DataSetLogicalTableMap {
 
         @CustomType.Setter
         public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+            if (alias == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMap", "alias");
+            }
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder dataTransforms(@Nullable List<DataSetLogicalTableMapDataTransform> dataTransforms) {
+
             this.dataTransforms = dataTransforms;
             return this;
         }
@@ -101,21 +106,27 @@ public final class DataSetLogicalTableMap {
         }
         @CustomType.Setter
         public Builder logicalTableMapId(String logicalTableMapId) {
-            this.logicalTableMapId = Objects.requireNonNull(logicalTableMapId);
+            if (logicalTableMapId == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMap", "logicalTableMapId");
+            }
+            this.logicalTableMapId = logicalTableMapId;
             return this;
         }
         @CustomType.Setter
         public Builder source(DataSetLogicalTableMapSource source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("DataSetLogicalTableMap", "source");
+            }
+            this.source = source;
             return this;
         }
         public DataSetLogicalTableMap build() {
-            final var o = new DataSetLogicalTableMap();
-            o.alias = alias;
-            o.dataTransforms = dataTransforms;
-            o.logicalTableMapId = logicalTableMapId;
-            o.source = source;
-            return o;
+            final var _resultValue = new DataSetLogicalTableMap();
+            _resultValue.alias = alias;
+            _resultValue.dataTransforms = dataTransforms;
+            _resultValue.logicalTableMapId = logicalTableMapId;
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

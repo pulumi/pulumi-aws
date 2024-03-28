@@ -5,6 +5,7 @@ package com.pulumi.aws.appstream;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -270,8 +271,12 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public UserArgs build() {
-            $.authenticationType = Objects.requireNonNull($.authenticationType, "expected parameter 'authenticationType' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.authenticationType == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "authenticationType");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("UserArgs", "userName");
+            }
             return $;
         }
     }

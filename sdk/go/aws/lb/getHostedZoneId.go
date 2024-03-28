@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,13 +34,13 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
+//				ZoneId: pulumi.Any(primary.ZoneId),
 //				Name:   pulumi.String("example.com"),
-//				Type:   pulumi.String("A"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
-//						Name:                 pulumi.Any(aws_lb.Main.Dns_name),
-//						ZoneId:               *pulumi.String(main.Id),
+//						Name:                 pulumi.Any(mainAwsLb.DnsName),
+//						ZoneId:               pulumi.String(main.Id),
 //						EvaluateTargetHealth: pulumi.Bool(true),
 //					},
 //				},
@@ -52,6 +53,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetHostedZoneId(ctx *pulumi.Context, args *GetHostedZoneIdArgs, opts ...pulumi.InvokeOption) (*GetHostedZoneIdResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetHostedZoneIdResult

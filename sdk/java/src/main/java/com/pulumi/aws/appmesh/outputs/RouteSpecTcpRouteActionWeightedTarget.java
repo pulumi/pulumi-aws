@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,25 +74,32 @@ public final class RouteSpecTcpRouteActionWeightedTarget {
 
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNode(String virtualNode) {
-            this.virtualNode = Objects.requireNonNull(virtualNode);
+            if (virtualNode == null) {
+              throw new MissingRequiredPropertyException("RouteSpecTcpRouteActionWeightedTarget", "virtualNode");
+            }
+            this.virtualNode = virtualNode;
             return this;
         }
         @CustomType.Setter
         public Builder weight(Integer weight) {
-            this.weight = Objects.requireNonNull(weight);
+            if (weight == null) {
+              throw new MissingRequiredPropertyException("RouteSpecTcpRouteActionWeightedTarget", "weight");
+            }
+            this.weight = weight;
             return this;
         }
         public RouteSpecTcpRouteActionWeightedTarget build() {
-            final var o = new RouteSpecTcpRouteActionWeightedTarget();
-            o.port = port;
-            o.virtualNode = virtualNode;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new RouteSpecTcpRouteActionWeightedTarget();
+            _resultValue.port = port;
+            _resultValue.virtualNode = virtualNode;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

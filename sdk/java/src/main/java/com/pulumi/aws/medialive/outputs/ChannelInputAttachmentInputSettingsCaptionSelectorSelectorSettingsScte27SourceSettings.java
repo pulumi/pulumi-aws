@@ -59,19 +59,21 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
         @CustomType.Setter
         public Builder ocrLanguage(@Nullable String ocrLanguage) {
+
             this.ocrLanguage = ocrLanguage;
             return this;
         }
         @CustomType.Setter
         public Builder pid(@Nullable Integer pid) {
+
             this.pid = pid;
             return this;
         }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings build() {
-            final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings();
-            o.ocrLanguage = ocrLanguage;
-            o.pid = pid;
-            return o;
+            final var _resultValue = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings();
+            _resultValue.ocrLanguage = ocrLanguage;
+            _resultValue.pid = pid;
+            return _resultValue;
         }
     }
 }

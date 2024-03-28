@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewEndpointAuthorization(ctx, "example", &redshift.EndpointAuthorizationArgs{
 //				Account:           pulumi.String("01234567910"),
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
+//				ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.ClusterIdentifier),
 //			})
 //			if err != nil {
 //				return err
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift endpoint authorization using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
-//
+// $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
 // ```
 type EndpointAuthorization struct {
 	pulumi.CustomResourceState

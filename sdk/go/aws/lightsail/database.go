@@ -19,8 +19,10 @@ import (
 // > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones"](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
 //
 // ## Example Usage
+//
 // ### Basic mysql blueprint
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,13 +36,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
+//				RelationalDatabaseName: pulumi.String("test"),
 //				AvailabilityZone:       pulumi.String("us-east-1a"),
+//				MasterDatabaseName:     pulumi.String("testdatabasename"),
+//				MasterPassword:         pulumi.String("testdatabasepassword"),
+//				MasterUsername:         pulumi.String("test"),
 //				BlueprintId:            pulumi.String("mysql_8_0"),
 //				BundleId:               pulumi.String("micro_1_0"),
-//				MasterDatabaseName:     pulumi.String("testdatabasename"),
-//				MasterPassword:         pulumi.String("testdatabasepassword"),
-//				MasterUsername:         pulumi.String("test"),
-//				RelationalDatabaseName: pulumi.String("test"),
 //			})
 //			if err != nil {
 //				return err
@@ -50,8 +52,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic postrgres blueprint
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,13 +70,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
+//				RelationalDatabaseName: pulumi.String("test"),
 //				AvailabilityZone:       pulumi.String("us-east-1a"),
-//				BlueprintId:            pulumi.String("postgres_12"),
-//				BundleId:               pulumi.String("micro_1_0"),
 //				MasterDatabaseName:     pulumi.String("testdatabasename"),
 //				MasterPassword:         pulumi.String("testdatabasepassword"),
 //				MasterUsername:         pulumi.String("test"),
-//				RelationalDatabaseName: pulumi.String("test"),
+//				BlueprintId:            pulumi.String("postgres_12"),
+//				BundleId:               pulumi.String("micro_1_0"),
 //			})
 //			if err != nil {
 //				return err
@@ -81,10 +86,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Custom backup and maintenance windows
 //
 // Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,15 +106,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
+//				RelationalDatabaseName:     pulumi.String("test"),
 //				AvailabilityZone:           pulumi.String("us-east-1a"),
-//				BlueprintId:                pulumi.String("postgres_12"),
-//				BundleId:                   pulumi.String("micro_1_0"),
 //				MasterDatabaseName:         pulumi.String("testdatabasename"),
 //				MasterPassword:             pulumi.String("testdatabasepassword"),
 //				MasterUsername:             pulumi.String("test"),
+//				BlueprintId:                pulumi.String("postgres_12"),
+//				BundleId:                   pulumi.String("micro_1_0"),
 //				PreferredBackupWindow:      pulumi.String("16:00-16:30"),
 //				PreferredMaintenanceWindow: pulumi.String("Tue:17:00-Tue:17:30"),
-//				RelationalDatabaseName:     pulumi.String("test"),
 //			})
 //			if err != nil {
 //				return err
@@ -116,10 +124,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Final Snapshots
 //
 // To enable creating a final snapshot of your database on deletion, use the `finalSnapshotName` argument to provide a name to be used for the snapshot.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -133,16 +144,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
+//				RelationalDatabaseName:     pulumi.String("test"),
 //				AvailabilityZone:           pulumi.String("us-east-1a"),
-//				BlueprintId:                pulumi.String("postgres_12"),
-//				BundleId:                   pulumi.String("micro_1_0"),
-//				FinalSnapshotName:          pulumi.String("MyFinalSnapshot"),
 //				MasterDatabaseName:         pulumi.String("testdatabasename"),
 //				MasterPassword:             pulumi.String("testdatabasepassword"),
 //				MasterUsername:             pulumi.String("test"),
+//				BlueprintId:                pulumi.String("postgres_12"),
+//				BundleId:                   pulumi.String("micro_1_0"),
 //				PreferredBackupWindow:      pulumi.String("16:00-16:30"),
 //				PreferredMaintenanceWindow: pulumi.String("Tue:17:00-Tue:17:30"),
-//				RelationalDatabaseName:     pulumi.String("test"),
+//				FinalSnapshotName:          pulumi.String("MyFinalSnapshot"),
 //			})
 //			if err != nil {
 //				return err
@@ -152,10 +163,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Apply Immediately
 //
 // To enable applying changes immediately instead of waiting for a maintiance window, use the `applyImmediately` argument.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -169,14 +183,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewDatabase(ctx, "test", &lightsail.DatabaseArgs{
-//				ApplyImmediately:       pulumi.Bool(true),
+//				RelationalDatabaseName: pulumi.String("test"),
 //				AvailabilityZone:       pulumi.String("us-east-1a"),
-//				BlueprintId:            pulumi.String("postgres_12"),
-//				BundleId:               pulumi.String("micro_1_0"),
 //				MasterDatabaseName:     pulumi.String("testdatabasename"),
 //				MasterPassword:         pulumi.String("testdatabasepassword"),
 //				MasterUsername:         pulumi.String("test"),
-//				RelationalDatabaseName: pulumi.String("test"),
+//				BlueprintId:            pulumi.String("postgres_12"),
+//				BundleId:               pulumi.String("micro_1_0"),
+//				ApplyImmediately:       pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -186,6 +200,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Blueprint Ids
 //
 // A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
@@ -238,9 +254,7 @@ import (
 // Using `pulumi import`, import Lightsail Databases using their name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/database:Database foo 'bar'
-//
+// $ pulumi import aws:lightsail/database:Database foo 'bar'
 // ```
 type Database struct {
 	pulumi.CustomResourceState
@@ -335,7 +349,6 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"masterPassword",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

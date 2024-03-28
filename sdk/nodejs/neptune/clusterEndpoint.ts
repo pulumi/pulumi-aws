@@ -9,23 +9,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.neptune.ClusterEndpoint("example", {
- *     clusterIdentifier: aws_neptune_cluster.test.cluster_identifier,
+ *     clusterIdentifier: test.clusterIdentifier,
  *     clusterEndpointIdentifier: "example",
  *     endpointType: "READER",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
+ * $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
  * ```
  */
 export class ClusterEndpoint extends pulumi.CustomResource {
@@ -139,8 +141,6 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ClusterEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.aws.cloudwatch.outputs.MetricStreamStatisticsConfigurationIncludeMetric;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class MetricStreamStatisticsConfiguration {
 
         @CustomType.Setter
         public Builder additionalStatistics(List<String> additionalStatistics) {
-            this.additionalStatistics = Objects.requireNonNull(additionalStatistics);
+            if (additionalStatistics == null) {
+              throw new MissingRequiredPropertyException("MetricStreamStatisticsConfiguration", "additionalStatistics");
+            }
+            this.additionalStatistics = additionalStatistics;
             return this;
         }
         public Builder additionalStatistics(String... additionalStatistics) {
@@ -66,17 +70,20 @@ public final class MetricStreamStatisticsConfiguration {
         }
         @CustomType.Setter
         public Builder includeMetrics(List<MetricStreamStatisticsConfigurationIncludeMetric> includeMetrics) {
-            this.includeMetrics = Objects.requireNonNull(includeMetrics);
+            if (includeMetrics == null) {
+              throw new MissingRequiredPropertyException("MetricStreamStatisticsConfiguration", "includeMetrics");
+            }
+            this.includeMetrics = includeMetrics;
             return this;
         }
         public Builder includeMetrics(MetricStreamStatisticsConfigurationIncludeMetric... includeMetrics) {
             return includeMetrics(List.of(includeMetrics));
         }
         public MetricStreamStatisticsConfiguration build() {
-            final var o = new MetricStreamStatisticsConfiguration();
-            o.additionalStatistics = additionalStatistics;
-            o.includeMetrics = includeMetrics;
-            return o;
+            final var _resultValue = new MetricStreamStatisticsConfiguration();
+            _resultValue.additionalStatistics = additionalStatistics;
+            _resultValue.includeMetrics = includeMetrics;
+            return _resultValue;
         }
     }
 }

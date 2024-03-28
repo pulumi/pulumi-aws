@@ -14,17 +14,23 @@ import * as utilities from "../utilities";
  *
  * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooLocalGateways = aws.ec2.getLocalGateways({
- *     tags: {
- *         service: "production",
- *     },
- * });
- * export const foo = fooLocalGateways.then(fooLocalGateways => fooLocalGateways.ids);
+ * export = async () => {
+ *     const foo = await aws.ec2.getLocalGateways({
+ *         tags: {
+ *             service: "production",
+ *         },
+ *     });
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalGateways(args?: GetLocalGatewaysArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewaysResult> {
     args = args || {};
@@ -76,17 +82,23 @@ export interface GetLocalGatewaysResult {
  *
  * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooLocalGateways = aws.ec2.getLocalGateways({
- *     tags: {
- *         service: "production",
- *     },
- * });
- * export const foo = fooLocalGateways.then(fooLocalGateways => fooLocalGateways.ids);
+ * export = async () => {
+ *     const foo = await aws.ec2.getLocalGateways({
+ *         tags: {
+ *             service: "production",
+ *         },
+ *     });
+ *     return {
+ *         foo: foo.ids,
+ *     };
+ * }
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalGatewaysOutput(args?: GetLocalGatewaysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewaysResult> {
     return pulumi.output(args).apply((a: any) => getLocalGateways(a, opts))

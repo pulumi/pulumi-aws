@@ -117,12 +117,28 @@ class TopicRuleDestination(pulumi.CustomResource):
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArgs']]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iot.TopicRuleDestination("example", vpc_configuration=aws.iot.TopicRuleDestinationVpcConfigurationArgs(
+            role_arn=example_aws_iam_role["arn"],
+            security_groups=[example_aws_security_group["id"]],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
+            vpc_id=example_aws_vpc["id"],
+        ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import IoT topic rule destinations using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+        $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
         ```
 
         :param str resource_name: The name of the resource.
@@ -137,12 +153,28 @@ class TopicRuleDestination(pulumi.CustomResource):
                  args: TopicRuleDestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iot.TopicRuleDestination("example", vpc_configuration=aws.iot.TopicRuleDestinationVpcConfigurationArgs(
+            role_arn=example_aws_iam_role["arn"],
+            security_groups=[example_aws_security_group["id"]],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
+            vpc_id=example_aws_vpc["id"],
+        ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import IoT topic rule destinations using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+        $ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
         ```
 
         :param str resource_name: The name of the resource.

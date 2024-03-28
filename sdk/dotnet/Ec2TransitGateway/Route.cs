@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// Manages an EC2 Transit Gateway Route.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Standard usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,14 +28,17 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     var example = new Aws.Ec2TransitGateway.Route("example", new()
     ///     {
     ///         DestinationCidrBlock = "0.0.0.0/0",
-    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
-    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
+    ///         TransitGatewayAttachmentId = exampleAwsEc2TransitGatewayVpcAttachment.Id,
+    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Blackhole route
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,18 +51,19 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     {
     ///         DestinationCidrBlock = "0.0.0.0/0",
     ///         Blackhole = true,
-    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
+    ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGateway.AssociationDefaultRouteTableId,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
+    /// $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/route:Route")]

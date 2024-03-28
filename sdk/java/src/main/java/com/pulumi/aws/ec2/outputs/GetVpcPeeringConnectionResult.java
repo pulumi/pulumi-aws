@@ -5,8 +5,11 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionCidrBlockSet;
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionFilter;
+import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionIpv6CidrBlockSet;
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionPeerCidrBlockSet;
+import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionPeerIpv6CidrBlockSet;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -28,19 +31,29 @@ public final class GetVpcPeeringConnectionResult {
      */
     private String cidrBlock;
     /**
-     * @return List of objects with CIDR blocks of the requester VPC.
+     * @return List of objects with IPv4 CIDR blocks of the requester VPC.
      * 
      */
     private List<GetVpcPeeringConnectionCidrBlockSet> cidrBlockSets;
     private @Nullable List<GetVpcPeeringConnectionFilter> filters;
     private String id;
+    /**
+     * @return List of objects with IPv6 CIDR blocks of the requester VPC.
+     * 
+     */
+    private List<GetVpcPeeringConnectionIpv6CidrBlockSet> ipv6CidrBlockSets;
     private String ownerId;
     private String peerCidrBlock;
     /**
-     * @return List of objects with CIDR blocks of the accepter VPC.
+     * @return List of objects with IPv4 CIDR blocks of the accepter VPC.
      * 
      */
     private List<GetVpcPeeringConnectionPeerCidrBlockSet> peerCidrBlockSets;
+    /**
+     * @return List of objects with IPv6 CIDR blocks of the accepter VPC.
+     * 
+     */
+    private List<GetVpcPeeringConnectionPeerIpv6CidrBlockSet> peerIpv6CidrBlockSets;
     private String peerOwnerId;
     private String peerRegion;
     private String peerVpcId;
@@ -72,7 +85,7 @@ public final class GetVpcPeeringConnectionResult {
         return this.cidrBlock;
     }
     /**
-     * @return List of objects with CIDR blocks of the requester VPC.
+     * @return List of objects with IPv4 CIDR blocks of the requester VPC.
      * 
      */
     public List<GetVpcPeeringConnectionCidrBlockSet> cidrBlockSets() {
@@ -84,6 +97,13 @@ public final class GetVpcPeeringConnectionResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of objects with IPv6 CIDR blocks of the requester VPC.
+     * 
+     */
+    public List<GetVpcPeeringConnectionIpv6CidrBlockSet> ipv6CidrBlockSets() {
+        return this.ipv6CidrBlockSets;
+    }
     public String ownerId() {
         return this.ownerId;
     }
@@ -91,11 +111,18 @@ public final class GetVpcPeeringConnectionResult {
         return this.peerCidrBlock;
     }
     /**
-     * @return List of objects with CIDR blocks of the accepter VPC.
+     * @return List of objects with IPv4 CIDR blocks of the accepter VPC.
      * 
      */
     public List<GetVpcPeeringConnectionPeerCidrBlockSet> peerCidrBlockSets() {
         return this.peerCidrBlockSets;
+    }
+    /**
+     * @return List of objects with IPv6 CIDR blocks of the accepter VPC.
+     * 
+     */
+    public List<GetVpcPeeringConnectionPeerIpv6CidrBlockSet> peerIpv6CidrBlockSets() {
+        return this.peerIpv6CidrBlockSets;
     }
     public String peerOwnerId() {
         return this.peerOwnerId;
@@ -141,9 +168,11 @@ public final class GetVpcPeeringConnectionResult {
         private List<GetVpcPeeringConnectionCidrBlockSet> cidrBlockSets;
         private @Nullable List<GetVpcPeeringConnectionFilter> filters;
         private String id;
+        private List<GetVpcPeeringConnectionIpv6CidrBlockSet> ipv6CidrBlockSets;
         private String ownerId;
         private String peerCidrBlock;
         private List<GetVpcPeeringConnectionPeerCidrBlockSet> peerCidrBlockSets;
+        private List<GetVpcPeeringConnectionPeerIpv6CidrBlockSet> peerIpv6CidrBlockSets;
         private String peerOwnerId;
         private String peerRegion;
         private String peerVpcId;
@@ -160,9 +189,11 @@ public final class GetVpcPeeringConnectionResult {
     	      this.cidrBlockSets = defaults.cidrBlockSets;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.ipv6CidrBlockSets = defaults.ipv6CidrBlockSets;
     	      this.ownerId = defaults.ownerId;
     	      this.peerCidrBlock = defaults.peerCidrBlock;
     	      this.peerCidrBlockSets = defaults.peerCidrBlockSets;
+    	      this.peerIpv6CidrBlockSets = defaults.peerIpv6CidrBlockSets;
     	      this.peerOwnerId = defaults.peerOwnerId;
     	      this.peerRegion = defaults.peerRegion;
     	      this.peerVpcId = defaults.peerVpcId;
@@ -175,17 +206,26 @@ public final class GetVpcPeeringConnectionResult {
 
         @CustomType.Setter
         public Builder accepter(Map<String,Boolean> accepter) {
-            this.accepter = Objects.requireNonNull(accepter);
+            if (accepter == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "accepter");
+            }
+            this.accepter = accepter;
             return this;
         }
         @CustomType.Setter
         public Builder cidrBlock(String cidrBlock) {
-            this.cidrBlock = Objects.requireNonNull(cidrBlock);
+            if (cidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "cidrBlock");
+            }
+            this.cidrBlock = cidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder cidrBlockSets(List<GetVpcPeeringConnectionCidrBlockSet> cidrBlockSets) {
-            this.cidrBlockSets = Objects.requireNonNull(cidrBlockSets);
+            if (cidrBlockSets == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "cidrBlockSets");
+            }
+            this.cidrBlockSets = cidrBlockSets;
             return this;
         }
         public Builder cidrBlockSets(GetVpcPeeringConnectionCidrBlockSet... cidrBlockSets) {
@@ -193,6 +233,7 @@ public final class GetVpcPeeringConnectionResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetVpcPeeringConnectionFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -201,86 +242,146 @@ public final class GetVpcPeeringConnectionResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
+        public Builder ipv6CidrBlockSets(List<GetVpcPeeringConnectionIpv6CidrBlockSet> ipv6CidrBlockSets) {
+            if (ipv6CidrBlockSets == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "ipv6CidrBlockSets");
+            }
+            this.ipv6CidrBlockSets = ipv6CidrBlockSets;
+            return this;
+        }
+        public Builder ipv6CidrBlockSets(GetVpcPeeringConnectionIpv6CidrBlockSet... ipv6CidrBlockSets) {
+            return ipv6CidrBlockSets(List.of(ipv6CidrBlockSets));
+        }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+            if (ownerId == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "ownerId");
+            }
+            this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder peerCidrBlock(String peerCidrBlock) {
-            this.peerCidrBlock = Objects.requireNonNull(peerCidrBlock);
+            if (peerCidrBlock == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "peerCidrBlock");
+            }
+            this.peerCidrBlock = peerCidrBlock;
             return this;
         }
         @CustomType.Setter
         public Builder peerCidrBlockSets(List<GetVpcPeeringConnectionPeerCidrBlockSet> peerCidrBlockSets) {
-            this.peerCidrBlockSets = Objects.requireNonNull(peerCidrBlockSets);
+            if (peerCidrBlockSets == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "peerCidrBlockSets");
+            }
+            this.peerCidrBlockSets = peerCidrBlockSets;
             return this;
         }
         public Builder peerCidrBlockSets(GetVpcPeeringConnectionPeerCidrBlockSet... peerCidrBlockSets) {
             return peerCidrBlockSets(List.of(peerCidrBlockSets));
         }
         @CustomType.Setter
+        public Builder peerIpv6CidrBlockSets(List<GetVpcPeeringConnectionPeerIpv6CidrBlockSet> peerIpv6CidrBlockSets) {
+            if (peerIpv6CidrBlockSets == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "peerIpv6CidrBlockSets");
+            }
+            this.peerIpv6CidrBlockSets = peerIpv6CidrBlockSets;
+            return this;
+        }
+        public Builder peerIpv6CidrBlockSets(GetVpcPeeringConnectionPeerIpv6CidrBlockSet... peerIpv6CidrBlockSets) {
+            return peerIpv6CidrBlockSets(List.of(peerIpv6CidrBlockSets));
+        }
+        @CustomType.Setter
         public Builder peerOwnerId(String peerOwnerId) {
-            this.peerOwnerId = Objects.requireNonNull(peerOwnerId);
+            if (peerOwnerId == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "peerOwnerId");
+            }
+            this.peerOwnerId = peerOwnerId;
             return this;
         }
         @CustomType.Setter
         public Builder peerRegion(String peerRegion) {
-            this.peerRegion = Objects.requireNonNull(peerRegion);
+            if (peerRegion == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "peerRegion");
+            }
+            this.peerRegion = peerRegion;
             return this;
         }
         @CustomType.Setter
         public Builder peerVpcId(String peerVpcId) {
-            this.peerVpcId = Objects.requireNonNull(peerVpcId);
+            if (peerVpcId == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "peerVpcId");
+            }
+            this.peerVpcId = peerVpcId;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder requester(Map<String,Boolean> requester) {
-            this.requester = Objects.requireNonNull(requester);
+            if (requester == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "requester");
+            }
+            this.requester = requester;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public GetVpcPeeringConnectionResult build() {
-            final var o = new GetVpcPeeringConnectionResult();
-            o.accepter = accepter;
-            o.cidrBlock = cidrBlock;
-            o.cidrBlockSets = cidrBlockSets;
-            o.filters = filters;
-            o.id = id;
-            o.ownerId = ownerId;
-            o.peerCidrBlock = peerCidrBlock;
-            o.peerCidrBlockSets = peerCidrBlockSets;
-            o.peerOwnerId = peerOwnerId;
-            o.peerRegion = peerRegion;
-            o.peerVpcId = peerVpcId;
-            o.region = region;
-            o.requester = requester;
-            o.status = status;
-            o.tags = tags;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new GetVpcPeeringConnectionResult();
+            _resultValue.accepter = accepter;
+            _resultValue.cidrBlock = cidrBlock;
+            _resultValue.cidrBlockSets = cidrBlockSets;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ipv6CidrBlockSets = ipv6CidrBlockSets;
+            _resultValue.ownerId = ownerId;
+            _resultValue.peerCidrBlock = peerCidrBlock;
+            _resultValue.peerCidrBlockSets = peerCidrBlockSets;
+            _resultValue.peerIpv6CidrBlockSets = peerIpv6CidrBlockSets;
+            _resultValue.peerOwnerId = peerOwnerId;
+            _resultValue.peerRegion = peerRegion;
+            _resultValue.peerVpcId = peerVpcId;
+            _resultValue.region = region;
+            _resultValue.requester = requester;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

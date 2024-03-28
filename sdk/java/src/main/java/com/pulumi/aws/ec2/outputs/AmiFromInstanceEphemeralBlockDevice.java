@@ -60,19 +60,21 @@ public final class AmiFromInstanceEphemeralBlockDevice {
 
         @CustomType.Setter
         public Builder deviceName(@Nullable String deviceName) {
+
             this.deviceName = deviceName;
             return this;
         }
         @CustomType.Setter
         public Builder virtualName(@Nullable String virtualName) {
+
             this.virtualName = virtualName;
             return this;
         }
         public AmiFromInstanceEphemeralBlockDevice build() {
-            final var o = new AmiFromInstanceEphemeralBlockDevice();
-            o.deviceName = deviceName;
-            o.virtualName = virtualName;
-            return o;
+            final var _resultValue = new AmiFromInstanceEphemeralBlockDevice();
+            _resultValue.deviceName = deviceName;
+            _resultValue.virtualName = virtualName;
+            return _resultValue;
         }
     }
 }

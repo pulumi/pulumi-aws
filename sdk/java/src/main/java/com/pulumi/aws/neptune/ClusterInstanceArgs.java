@@ -5,6 +5,7 @@ package com.pulumi.aws.neptune;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -263,6 +264,21 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Determines whether a final DB snapshot is created before the DB instance is deleted.
+     * 
+     */
+    @Import(name="skipFinalSnapshot")
+    private @Nullable Output<Boolean> skipFinalSnapshot;
+
+    /**
+     * @return Determines whether a final DB snapshot is created before the DB instance is deleted.
+     * 
+     */
+    public Optional<Output<Boolean>> skipFinalSnapshot() {
+        return Optional.ofNullable(this.skipFinalSnapshot);
+    }
+
+    /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -296,6 +312,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.promotionTier = $.promotionTier;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.tags = $.tags;
     }
 
@@ -658,6 +675,27 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param skipFinalSnapshot Determines whether a final DB snapshot is created before the DB instance is deleted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalSnapshot(@Nullable Output<Boolean> skipFinalSnapshot) {
+            $.skipFinalSnapshot = skipFinalSnapshot;
+            return this;
+        }
+
+        /**
+         * @param skipFinalSnapshot Determines whether a final DB snapshot is created before the DB instance is deleted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalSnapshot(Boolean skipFinalSnapshot) {
+            return skipFinalSnapshot(Output.of(skipFinalSnapshot));
+        }
+
+        /**
          * @param tags A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -679,8 +717,12 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ClusterInstanceArgs build() {
-            $.clusterIdentifier = Objects.requireNonNull($.clusterIdentifier, "expected parameter 'clusterIdentifier' to be non-null");
-            $.instanceClass = Objects.requireNonNull($.instanceClass, "expected parameter 'instanceClass' to be non-null");
+            if ($.clusterIdentifier == null) {
+                throw new MissingRequiredPropertyException("ClusterInstanceArgs", "clusterIdentifier");
+            }
+            if ($.instanceClass == null) {
+                throw new MissingRequiredPropertyException("ClusterInstanceArgs", "instanceClass");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.kms;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public CustomKeyStoreArgs build() {
-            $.cloudHsmClusterId = Objects.requireNonNull($.cloudHsmClusterId, "expected parameter 'cloudHsmClusterId' to be non-null");
-            $.customKeyStoreName = Objects.requireNonNull($.customKeyStoreName, "expected parameter 'customKeyStoreName' to be non-null");
-            $.keyStorePassword = Objects.requireNonNull($.keyStorePassword, "expected parameter 'keyStorePassword' to be non-null");
-            $.trustAnchorCertificate = Objects.requireNonNull($.trustAnchorCertificate, "expected parameter 'trustAnchorCertificate' to be non-null");
+            if ($.cloudHsmClusterId == null) {
+                throw new MissingRequiredPropertyException("CustomKeyStoreArgs", "cloudHsmClusterId");
+            }
+            if ($.customKeyStoreName == null) {
+                throw new MissingRequiredPropertyException("CustomKeyStoreArgs", "customKeyStoreName");
+            }
+            if ($.keyStorePassword == null) {
+                throw new MissingRequiredPropertyException("CustomKeyStoreArgs", "keyStorePassword");
+            }
+            if ($.trustAnchorCertificate == null) {
+                throw new MissingRequiredPropertyException("CustomKeyStoreArgs", "trustAnchorCertificate");
+            }
             return $;
         }
     }

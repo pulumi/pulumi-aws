@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -18,14 +19,14 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
     public static final FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs Empty = new FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs();
 
     /**
-     * Array of processor parameters. More details are given below
+     * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<List<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs>> parameters;
 
     /**
-     * @return Array of processor parameters. More details are given below
+     * @return Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
     public Optional<Output<List<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs>>> parameters() {
@@ -73,7 +74,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
         }
 
         /**
-         * @param parameters Array of processor parameters. More details are given below
+         * @param parameters Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          * 
          * @return builder
          * 
@@ -84,7 +85,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
         }
 
         /**
-         * @param parameters Array of processor parameters. More details are given below
+         * @param parameters Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          * 
          * @return builder
          * 
@@ -94,7 +95,7 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
         }
 
         /**
-         * @param parameters Array of processor parameters. More details are given below
+         * @param parameters Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
          * 
          * @return builder
          * 
@@ -125,7 +126,9 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationProces
         }
 
         public FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs", "type");
+            }
             return $;
         }
     }

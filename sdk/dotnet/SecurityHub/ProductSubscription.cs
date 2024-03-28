@@ -14,6 +14,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,30 +23,25 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
+    ///     var example = new Aws.SecurityHub.Account("example");
     /// 
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var exampleProductSubscription = new Aws.SecurityHub.ProductSubscription("exampleProductSubscription", new()
+    ///     var exampleProductSubscription = new Aws.SecurityHub.ProductSubscription("example", new()
     ///     {
     ///         ProductArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:733251395267:product/alertlogic/althreatmanagement",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
+    /// $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/productSubscription:ProductSubscription")]

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := memorydb.NewSnapshot(ctx, "example", &memorydb.SnapshotArgs{
-//				ClusterName: pulumi.Any(aws_memorydb_cluster.Example.Name),
+//				ClusterName: pulumi.Any(exampleAwsMemorydbCluster.Name),
+//				Name:        pulumi.String("my-snapshot"),
 //			})
 //			if err != nil {
 //				return err
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a snapshot using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
-//
+// $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
 // ```
 type Snapshot struct {
 	pulumi.CustomResourceState
@@ -86,10 +87,6 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Snapshot
 	err := ctx.RegisterResource("aws:memorydb/snapshot:Snapshot", name, args, &resource, opts...)

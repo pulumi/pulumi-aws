@@ -12,19 +12,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.rum.AppMonitor("example", {domain: "localhost"});
+ * const example = new aws.rum.AppMonitor("example", {
+ *     name: "example",
+ *     domain: "localhost",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rum/appMonitor:AppMonitor example example
+ * $ pulumi import aws:rum/appMonitor:AppMonitor example example
  * ```
  */
 export class AppMonitor extends pulumi.CustomResource {
@@ -138,8 +143,6 @@ export class AppMonitor extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(AppMonitor.__pulumiType, name, resourceInputs, opts);
     }
 }

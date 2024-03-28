@@ -323,57 +323,65 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="domain key")
-        example_domain = aws.codeartifact.Domain("exampleDomain",
+        example = aws.kms.Key("example", description="domain key")
+        example_domain = aws.codeartifact.Domain("example",
             domain="example",
-            encryption_key=example_key.arn)
+            encryption_key=example.arn)
         test = aws.codeartifact.Repository("test",
             repository="example",
             domain=example_domain.domain)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Upstream Repository
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         upstream = aws.codeartifact.Repository("upstream",
             repository="upstream",
-            domain=aws_codeartifact_domain["test"]["domain"])
+            domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
             repository="example",
-            domain=aws_codeartifact_domain["example"]["domain"],
+            domain=example["domain"],
             upstreams=[aws.codeartifact.RepositoryUpstreamArgs(
                 repository_name=upstream.repository,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With External Connection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         upstream = aws.codeartifact.Repository("upstream",
             repository="upstream",
-            domain=aws_codeartifact_domain["test"]["domain"])
+            domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
             repository="example",
-            domain=aws_codeartifact_domain["example"]["domain"],
+            domain=example["domain"],
             external_connections=aws.codeartifact.RepositoryExternalConnectionsArgs(
                 external_connection_name="public:npmjs",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For example:
 
         ```sh
-         $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+        $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
         ```
 
         :param str resource_name: The name of the resource.
@@ -397,57 +405,65 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_key = aws.kms.Key("exampleKey", description="domain key")
-        example_domain = aws.codeartifact.Domain("exampleDomain",
+        example = aws.kms.Key("example", description="domain key")
+        example_domain = aws.codeartifact.Domain("example",
             domain="example",
-            encryption_key=example_key.arn)
+            encryption_key=example.arn)
         test = aws.codeartifact.Repository("test",
             repository="example",
             domain=example_domain.domain)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Upstream Repository
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         upstream = aws.codeartifact.Repository("upstream",
             repository="upstream",
-            domain=aws_codeartifact_domain["test"]["domain"])
+            domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
             repository="example",
-            domain=aws_codeartifact_domain["example"]["domain"],
+            domain=example["domain"],
             upstreams=[aws.codeartifact.RepositoryUpstreamArgs(
                 repository_name=upstream.repository,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With External Connection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         upstream = aws.codeartifact.Repository("upstream",
             repository="upstream",
-            domain=aws_codeartifact_domain["test"]["domain"])
+            domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
             repository="example",
-            domain=aws_codeartifact_domain["example"]["domain"],
+            domain=example["domain"],
             external_connections=aws.codeartifact.RepositoryExternalConnectionsArgs(
                 external_connection_name="public:npmjs",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For example:
 
         ```sh
-         $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+        $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
         ```
 
         :param str resource_name: The name of the resource.
@@ -495,8 +511,6 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["administrator_account"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Repository, __self__).__init__(
             'aws:codeartifact/repository:Repository',
             resource_name,

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,14 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
+//			example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 //				AuthenticationType: pulumi.String("API_KEY"),
+//				Name:               pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appsync.NewApiCache(ctx, "exampleApiCache", &appsync.ApiCacheArgs{
-//				ApiId:              exampleGraphQLApi.ID(),
+//			_, err = appsync.NewApiCache(ctx, "example", &appsync.ApiCacheArgs{
+//				ApiId:              example.ID(),
 //				ApiCachingBehavior: pulumi.String("FULL_REQUEST_CACHING"),
 //				Type:               pulumi.String("LARGE"),
 //				Ttl:                pulumi.Int(900),
@@ -48,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
-//
+// $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
 // ```
 type ApiCache struct {
 	pulumi.CustomResourceState

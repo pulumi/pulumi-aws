@@ -4,6 +4,7 @@
 package com.pulumi.aws.inspector.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class GetRulesPackagesResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetRulesPackagesResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -65,14 +69,17 @@ public final class GetRulesPackagesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRulesPackagesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetRulesPackagesResult build() {
-            final var o = new GetRulesPackagesResult();
-            o.arns = arns;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetRulesPackagesResult();
+            _resultValue.arns = arns;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

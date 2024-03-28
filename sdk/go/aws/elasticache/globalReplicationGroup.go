@@ -15,10 +15,12 @@ import (
 // Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
 //
 // ## Example Usage
+//
 // ### Global replication group with one secondary replication group
 //
 // The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,11 +34,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
-//				Description:      pulumi.String("primary replication group"),
-//				Engine:           pulumi.String("redis"),
-//				EngineVersion:    pulumi.String("5.0.6"),
-//				NodeType:         pulumi.String("cache.m5.large"),
-//				NumCacheClusters: pulumi.Int(1),
+//				ReplicationGroupId: pulumi.String("example-primary"),
+//				Description:        pulumi.String("primary replication group"),
+//				Engine:             pulumi.String("redis"),
+//				EngineVersion:      pulumi.String("5.0.6"),
+//				NodeType:           pulumi.String("cache.m5.large"),
+//				NumCacheClusters:   pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -49,10 +52,11 @@ import (
 //				return err
 //			}
 //			_, err = elasticache.NewReplicationGroup(ctx, "secondary", &elasticache.ReplicationGroupArgs{
+//				ReplicationGroupId:       pulumi.String("example-secondary"),
 //				Description:              pulumi.String("secondary replication group"),
 //				GlobalReplicationGroupId: example.GlobalReplicationGroupId,
 //				NumCacheClusters:         pulumi.Int(1),
-//			}, pulumi.Provider(aws.Other_region))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -61,6 +65,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Managing Redis Engine Versions
 //
 // The initial Redis version is determined by the version set on the primary replication group.
@@ -75,6 +81,7 @@ import (
 // and then upgraded to Redis 6.2 once added to the Global Replication Group.
 // The secondary replication group will be created with Redis 6.2.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,11 +95,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
-//				Description:      pulumi.String("primary replication group"),
-//				Engine:           pulumi.String("redis"),
-//				EngineVersion:    pulumi.String("6.0"),
-//				NodeType:         pulumi.String("cache.m5.large"),
-//				NumCacheClusters: pulumi.Int(1),
+//				ReplicationGroupId: pulumi.String("example-primary"),
+//				Description:        pulumi.String("primary replication group"),
+//				Engine:             pulumi.String("redis"),
+//				EngineVersion:      pulumi.String("6.0"),
+//				NodeType:           pulumi.String("cache.m5.large"),
+//				NumCacheClusters:   pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -106,10 +114,11 @@ import (
 //				return err
 //			}
 //			_, err = elasticache.NewReplicationGroup(ctx, "secondary", &elasticache.ReplicationGroupArgs{
+//				ReplicationGroupId:       pulumi.String("example-secondary"),
 //				Description:              pulumi.String("secondary replication group"),
 //				GlobalReplicationGroupId: example.GlobalReplicationGroupId,
 //				NumCacheClusters:         pulumi.Int(1),
-//			}, pulumi.Provider(aws.Other_region))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -118,15 +127,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache Global Replication Groups using the `global_replication_group_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
-//
+// $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
 // ```
 type GlobalReplicationGroup struct {
 	pulumi.CustomResourceState

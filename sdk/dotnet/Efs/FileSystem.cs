@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Efs
     /// Provides an Elastic File System (EFS) File System resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### EFS File System w/ tags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,6 +27,7 @@ namespace Pulumi.Aws.Efs
     /// {
     ///     var foo = new Aws.Efs.FileSystem("foo", new()
     ///     {
+    ///         CreationToken = "my-product",
     ///         Tags = 
     ///         {
     ///             { "Name", "MyProduct" },
@@ -33,8 +36,11 @@ namespace Pulumi.Aws.Efs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using lifecycle policy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,8 +49,9 @@ namespace Pulumi.Aws.Efs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooWithLifecylePolicy = new Aws.Efs.FileSystem("fooWithLifecylePolicy", new()
+    ///     var fooWithLifecylePolicy = new Aws.Efs.FileSystem("foo_with_lifecyle_policy", new()
     ///     {
+    ///         CreationToken = "my-product",
     ///         LifecyclePolicies = new[]
     ///         {
     ///             new Aws.Efs.Inputs.FileSystemLifecyclePolicyArgs
@@ -56,13 +63,14 @@ namespace Pulumi.Aws.Efs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the EFS file systems using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+    /// $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/fileSystem:FileSystem")]
@@ -81,7 +89,7 @@ namespace Pulumi.Aws.Efs
         public Output<string> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
         /// </summary>
         [Output("availabilityZoneName")]
         public Output<string> AvailabilityZoneName { get; private set; } = null!;
@@ -114,7 +122,7 @@ namespace Pulumi.Aws.Efs
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         /// </summary>
         [Output("lifecyclePolicies")]
         public Output<ImmutableArray<Outputs.FileSystemLifecyclePolicy>> LifecyclePolicies { get; private set; } = null!;
@@ -142,6 +150,12 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         [Output("performanceMode")]
         public Output<string> PerformanceMode { get; private set; } = null!;
+
+        /// <summary>
+        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+        /// </summary>
+        [Output("protection")]
+        public Output<Outputs.FileSystemProtection> Protection { get; private set; } = null!;
 
         /// <summary>
         /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
@@ -196,10 +210,6 @@ namespace Pulumi.Aws.Efs
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -224,7 +234,7 @@ namespace Pulumi.Aws.Efs
     public sealed class FileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
         /// </summary>
         [Input("availabilityZoneName")]
         public Input<string>? AvailabilityZoneName { get; set; }
@@ -254,7 +264,7 @@ namespace Pulumi.Aws.Efs
         private InputList<Inputs.FileSystemLifecyclePolicyArgs>? _lifecyclePolicies;
 
         /// <summary>
-        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         /// </summary>
         public InputList<Inputs.FileSystemLifecyclePolicyArgs> LifecyclePolicies
         {
@@ -267,6 +277,12 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         [Input("performanceMode")]
         public Input<string>? PerformanceMode { get; set; }
+
+        /// <summary>
+        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+        /// </summary>
+        [Input("protection")]
+        public Input<Inputs.FileSystemProtectionArgs>? Protection { get; set; }
 
         /// <summary>
         /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
@@ -313,7 +329,7 @@ namespace Pulumi.Aws.Efs
         public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
-        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) for more information.
+        /// the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
         /// </summary>
         [Input("availabilityZoneName")]
         public Input<string>? AvailabilityZoneName { get; set; }
@@ -349,7 +365,7 @@ namespace Pulumi.Aws.Efs
         private InputList<Inputs.FileSystemLifecyclePolicyGetArgs>? _lifecyclePolicies;
 
         /// <summary>
-        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
+        /// A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
         /// </summary>
         public InputList<Inputs.FileSystemLifecyclePolicyGetArgs> LifecyclePolicies
         {
@@ -380,6 +396,12 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         [Input("performanceMode")]
         public Input<string>? PerformanceMode { get; set; }
+
+        /// <summary>
+        /// A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
+        /// </summary>
+        [Input("protection")]
+        public Input<Inputs.FileSystemProtectionGetArgs>? Protection { get; set; }
 
         /// <summary>
         /// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
@@ -421,11 +443,7 @@ namespace Pulumi.Aws.Efs
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

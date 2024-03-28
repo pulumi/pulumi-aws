@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,7 +37,7 @@ import (
 //				User:           pulumi.String("Guest"),
 //				Password:       pulumi.String("ANotGreatPassword"),
 //				AgentArns: pulumi.StringArray{
-//					aws_datasync_agent.Example.Arn,
+//					exampleAwsDatasyncAgent.Arn,
 //				},
 //			})
 //			if err != nil {
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
+// $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 // ```
 type LocationSmb struct {
 	pulumi.CustomResourceState
@@ -112,7 +112,6 @@ func NewLocationSmb(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)

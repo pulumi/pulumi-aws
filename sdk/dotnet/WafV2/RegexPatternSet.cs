@@ -14,6 +14,7 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,9 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var example = new Aws.WafV2.RegexPatternSet("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "Example regex pattern set",
+    ///         Scope = "REGIONAL",
     ///         RegularExpressions = new[]
     ///         {
     ///             new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
@@ -36,7 +39,6 @@ namespace Pulumi.Aws.WafV2
     ///                 RegexString = "two",
     ///             },
     ///         },
-    ///         Scope = "REGIONAL",
     ///         Tags = 
     ///         {
     ///             { "Tag1", "Value1" },
@@ -46,13 +48,14 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+    /// $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafv2/regexPatternSet:RegexPatternSet")]
@@ -126,10 +129,6 @@ namespace Pulumi.Aws.WafV2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -264,11 +263,7 @@ namespace Pulumi.Aws.WafV2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public RegexPatternSetState()

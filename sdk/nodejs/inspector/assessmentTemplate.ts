@@ -12,12 +12,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.inspector.AssessmentTemplate("example", {
- *     targetArn: aws_inspector_assessment_target.example.arn,
+ *     name: "example",
+ *     targetArn: exampleAwsInspectorAssessmentTarget.arn,
  *     duration: 3600,
  *     rulesPackageArns: [
  *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
@@ -27,17 +29,18 @@ import * as utilities from "../utilities";
  *     ],
  *     eventSubscriptions: [{
  *         event: "ASSESSMENT_RUN_COMPLETED",
- *         topicArn: aws_sns_topic.example.arn,
+ *         topicArn: exampleAwsSnsTopic.arn,
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+ * $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
  * ```
  */
 export class AssessmentTemplate extends pulumi.CustomResource {
@@ -145,8 +148,6 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(AssessmentTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }

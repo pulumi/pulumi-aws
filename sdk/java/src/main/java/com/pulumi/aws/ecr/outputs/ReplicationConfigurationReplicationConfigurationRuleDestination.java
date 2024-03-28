@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,19 +57,25 @@ public final class ReplicationConfigurationReplicationConfigurationRuleDestinati
 
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("ReplicationConfigurationReplicationConfigurationRuleDestination", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder registryId(String registryId) {
-            this.registryId = Objects.requireNonNull(registryId);
+            if (registryId == null) {
+              throw new MissingRequiredPropertyException("ReplicationConfigurationReplicationConfigurationRuleDestination", "registryId");
+            }
+            this.registryId = registryId;
             return this;
         }
         public ReplicationConfigurationReplicationConfigurationRuleDestination build() {
-            final var o = new ReplicationConfigurationReplicationConfigurationRuleDestination();
-            o.region = region;
-            o.registryId = registryId;
-            return o;
+            final var _resultValue = new ReplicationConfigurationReplicationConfigurationRuleDestination();
+            _resultValue.region = region;
+            _resultValue.registryId = registryId;
+            return _resultValue;
         }
     }
 }

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Cognito
     /// Provides a Cognito Resource Server.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Create a basic resource server
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,18 +25,25 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
+    ///     var pool = new Aws.Cognito.UserPool("pool", new()
+    ///     {
+    ///         Name = "pool",
+    ///     });
     /// 
     ///     var resource = new Aws.Cognito.ResourceServer("resource", new()
     ///     {
     ///         Identifier = "https://example.com",
+    ///         Name = "example",
     ///         UserPoolId = pool.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create a resource server with sample-scope
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,11 +52,15 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
+    ///     var pool = new Aws.Cognito.UserPool("pool", new()
+    ///     {
+    ///         Name = "pool",
+    ///     });
     /// 
     ///     var resource = new Aws.Cognito.ResourceServer("resource", new()
     ///     {
     ///         Identifier = "https://example.com",
+    ///         Name = "example",
     ///         Scopes = new[]
     ///         {
     ///             new Aws.Cognito.Inputs.ResourceServerScopeArgs
@@ -61,13 +74,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
+    /// $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/resourceServer:ResourceServer")]
@@ -97,6 +111,9 @@ namespace Pulumi.Aws.Cognito
         [Output("scopes")]
         public Output<ImmutableArray<Outputs.ResourceServerScope>> Scopes { get; private set; } = null!;
 
+        /// <summary>
+        /// User pool the client belongs to.
+        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -170,6 +187,9 @@ namespace Pulumi.Aws.Cognito
             set => _scopes = value;
         }
 
+        /// <summary>
+        /// User pool the client belongs to.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
@@ -217,6 +237,9 @@ namespace Pulumi.Aws.Cognito
             set => _scopes = value;
         }
 
+        /// <summary>
+        /// User pool the client belongs to.
+        /// </summary>
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }
 

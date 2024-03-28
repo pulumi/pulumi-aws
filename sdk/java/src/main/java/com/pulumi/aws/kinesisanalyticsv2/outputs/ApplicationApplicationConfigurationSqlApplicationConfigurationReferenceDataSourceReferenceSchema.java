@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesisanalyticsv2.outputs;
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn;
 import com.pulumi.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,7 +80,10 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
         @CustomType.Setter
         public Builder recordColumns(List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> recordColumns) {
-            this.recordColumns = Objects.requireNonNull(recordColumns);
+            if (recordColumns == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema", "recordColumns");
+            }
+            this.recordColumns = recordColumns;
             return this;
         }
         public Builder recordColumns(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn... recordColumns) {
@@ -87,20 +91,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
         @CustomType.Setter
         public Builder recordEncoding(@Nullable String recordEncoding) {
+
             this.recordEncoding = recordEncoding;
             return this;
         }
         @CustomType.Setter
         public Builder recordFormat(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat recordFormat) {
-            this.recordFormat = Objects.requireNonNull(recordFormat);
+            if (recordFormat == null) {
+              throw new MissingRequiredPropertyException("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema", "recordFormat");
+            }
+            this.recordFormat = recordFormat;
             return this;
         }
         public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema build() {
-            final var o = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema();
-            o.recordColumns = recordColumns;
-            o.recordEncoding = recordEncoding;
-            o.recordFormat = recordFormat;
-            return o;
+            final var _resultValue = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema();
+            _resultValue.recordColumns = recordColumns;
+            _resultValue.recordEncoding = recordEncoding;
+            _resultValue.recordFormat = recordFormat;
+            return _resultValue;
         }
     }
 }

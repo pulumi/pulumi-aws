@@ -552,20 +552,25 @@ class Distribution(pulumi.CustomResource):
         Resource for managing an AWS Lightsail Distribution.
 
         ## Example Usage
+
         ### Basic Usage
 
         Below is a basic example with a bucket as an origin.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket = aws.lightsail.Bucket("testBucket", bundle_id="small_1_0")
-        test_distribution = aws.lightsail.Distribution("testDistribution",
+        test = aws.lightsail.Bucket("test",
+            name="test-bucket",
+            bundle_id="small_1_0")
+        test_distribution = aws.lightsail.Distribution("test",
+            name="test-distribution",
             bundle_id="small_1_0",
             origin=aws.lightsail.DistributionOriginArgs(
-                name=test_bucket.name,
-                region_name=test_bucket.region,
+                name=test.name,
+                region_name=test.region,
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
@@ -587,10 +592,13 @@ class Distribution(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### instance origin example
 
         Below is an example of an instance as the origin.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -600,15 +608,17 @@ class Distribution(pulumi.CustomResource):
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
-        test_static_ip = aws.lightsail.StaticIp("testStaticIp")
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_static_ip = aws.lightsail.StaticIp("test", name="test-static-ip")
+        test_instance = aws.lightsail.Instance("test",
+            name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="micro_1_0")
-        test_static_ip_attachment = aws.lightsail.StaticIpAttachment("testStaticIpAttachment",
+        test = aws.lightsail.StaticIpAttachment("test",
             static_ip_name=test_static_ip.name,
             instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("testDistribution",
+        test_distribution = aws.lightsail.Distribution("test",
+            name="test-distribution",
             bundle_id="small_1_0",
             origin=aws.lightsail.DistributionOriginArgs(
                 name=test_instance.name,
@@ -616,13 +626,15 @@ class Distribution(pulumi.CustomResource):
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_static_ip_attachment]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### lb origin example
 
         Below is an example with a load balancer as an origin
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -632,37 +644,40 @@ class Distribution(pulumi.CustomResource):
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
-        test_lb = aws.lightsail.Lb("testLb",
+        test = aws.lightsail.Lb("test",
+            name="test-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_instance = aws.lightsail.Instance("test",
+            name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("testLbAttachment",
-            lb_name=test_lb.name,
+        test_lb_attachment = aws.lightsail.LbAttachment("test",
+            lb_name=test.name,
             instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("testDistribution",
+        test_distribution = aws.lightsail.Distribution("test",
+            name="test-distribution",
             bundle_id="small_1_0",
             origin=aws.lightsail.DistributionOriginArgs(
-                name=test_lb.name,
+                name=test.name,
                 region_name=available.id,
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+        $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -693,20 +708,25 @@ class Distribution(pulumi.CustomResource):
         Resource for managing an AWS Lightsail Distribution.
 
         ## Example Usage
+
         ### Basic Usage
 
         Below is a basic example with a bucket as an origin.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_bucket = aws.lightsail.Bucket("testBucket", bundle_id="small_1_0")
-        test_distribution = aws.lightsail.Distribution("testDistribution",
+        test = aws.lightsail.Bucket("test",
+            name="test-bucket",
+            bundle_id="small_1_0")
+        test_distribution = aws.lightsail.Distribution("test",
+            name="test-distribution",
             bundle_id="small_1_0",
             origin=aws.lightsail.DistributionOriginArgs(
-                name=test_bucket.name,
-                region_name=test_bucket.region,
+                name=test.name,
+                region_name=test.region,
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
@@ -728,10 +748,13 @@ class Distribution(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### instance origin example
 
         Below is an example of an instance as the origin.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -741,15 +764,17 @@ class Distribution(pulumi.CustomResource):
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
-        test_static_ip = aws.lightsail.StaticIp("testStaticIp")
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_static_ip = aws.lightsail.StaticIp("test", name="test-static-ip")
+        test_instance = aws.lightsail.Instance("test",
+            name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="micro_1_0")
-        test_static_ip_attachment = aws.lightsail.StaticIpAttachment("testStaticIpAttachment",
+        test = aws.lightsail.StaticIpAttachment("test",
             static_ip_name=test_static_ip.name,
             instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("testDistribution",
+        test_distribution = aws.lightsail.Distribution("test",
+            name="test-distribution",
             bundle_id="small_1_0",
             origin=aws.lightsail.DistributionOriginArgs(
                 name=test_instance.name,
@@ -757,13 +782,15 @@ class Distribution(pulumi.CustomResource):
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_static_ip_attachment]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### lb origin example
 
         Below is an example with a load balancer as an origin
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -773,37 +800,40 @@ class Distribution(pulumi.CustomResource):
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
-        test_lb = aws.lightsail.Lb("testLb",
+        test = aws.lightsail.Lb("test",
+            name="test-load-balancer",
             health_check_path="/",
             instance_port=80,
             tags={
                 "foo": "bar",
             })
-        test_instance = aws.lightsail.Instance("testInstance",
+        test_instance = aws.lightsail.Instance("test",
+            name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_1_0")
-        test_lb_attachment = aws.lightsail.LbAttachment("testLbAttachment",
-            lb_name=test_lb.name,
+        test_lb_attachment = aws.lightsail.LbAttachment("test",
+            lb_name=test.name,
             instance_name=test_instance.name)
-        test_distribution = aws.lightsail.Distribution("testDistribution",
+        test_distribution = aws.lightsail.Distribution("test",
+            name="test-distribution",
             bundle_id="small_1_0",
             origin=aws.lightsail.DistributionOriginArgs(
-                name=test_lb.name,
+                name=test.name,
                 region_name=available.id,
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+        $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -866,8 +896,6 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["support_code"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Distribution, __self__).__init__(
             'aws:lightsail/distribution:Distribution',
             resource_name,

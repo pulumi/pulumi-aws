@@ -4,15 +4,20 @@
 package com.pulumi.aws.efs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetFileSystemLifecyclePolicy {
+    private String transitionToArchive;
     private String transitionToIa;
     private String transitionToPrimaryStorageClass;
 
     private GetFileSystemLifecyclePolicy() {}
+    public String transitionToArchive() {
+        return this.transitionToArchive;
+    }
     public String transitionToIa() {
         return this.transitionToIa;
     }
@@ -29,30 +34,47 @@ public final class GetFileSystemLifecyclePolicy {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String transitionToArchive;
         private String transitionToIa;
         private String transitionToPrimaryStorageClass;
         public Builder() {}
         public Builder(GetFileSystemLifecyclePolicy defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.transitionToArchive = defaults.transitionToArchive;
     	      this.transitionToIa = defaults.transitionToIa;
     	      this.transitionToPrimaryStorageClass = defaults.transitionToPrimaryStorageClass;
         }
 
         @CustomType.Setter
+        public Builder transitionToArchive(String transitionToArchive) {
+            if (transitionToArchive == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemLifecyclePolicy", "transitionToArchive");
+            }
+            this.transitionToArchive = transitionToArchive;
+            return this;
+        }
+        @CustomType.Setter
         public Builder transitionToIa(String transitionToIa) {
-            this.transitionToIa = Objects.requireNonNull(transitionToIa);
+            if (transitionToIa == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemLifecyclePolicy", "transitionToIa");
+            }
+            this.transitionToIa = transitionToIa;
             return this;
         }
         @CustomType.Setter
         public Builder transitionToPrimaryStorageClass(String transitionToPrimaryStorageClass) {
-            this.transitionToPrimaryStorageClass = Objects.requireNonNull(transitionToPrimaryStorageClass);
+            if (transitionToPrimaryStorageClass == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemLifecyclePolicy", "transitionToPrimaryStorageClass");
+            }
+            this.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
             return this;
         }
         public GetFileSystemLifecyclePolicy build() {
-            final var o = new GetFileSystemLifecyclePolicy();
-            o.transitionToIa = transitionToIa;
-            o.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
-            return o;
+            final var _resultValue = new GetFileSystemLifecyclePolicy();
+            _resultValue.transitionToArchive = transitionToArchive;
+            _resultValue.transitionToIa = transitionToIa;
+            _resultValue.transitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
+            return _resultValue;
         }
     }
 }

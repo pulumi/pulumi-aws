@@ -17,10 +17,9 @@ namespace Pulumi.Aws.CloudFormation
         /// 
         ///  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,14 +36,13 @@ namespace Pulumi.Aws.CloudFormation
         ///     var web = new Aws.Ec2.Instance("web", new()
         ///     {
         ///         Ami = "ami-abb07bcb",
-        ///         InstanceType = "t2.micro",
+        ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
         ///         SubnetId = subnetId.Apply(getExportResult =&gt; getExportResult.Value),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? new GetExportArgs(), options.WithDefaults());
@@ -55,10 +53,9 @@ namespace Pulumi.Aws.CloudFormation
         /// 
         ///  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -75,14 +72,13 @@ namespace Pulumi.Aws.CloudFormation
         ///     var web = new Aws.Ec2.Instance("web", new()
         ///     {
         ///         Ami = "ami-abb07bcb",
-        ///         InstanceType = "t2.micro",
+        ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
         ///         SubnetId = subnetId.Apply(getExportResult =&gt; getExportResult.Value),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());

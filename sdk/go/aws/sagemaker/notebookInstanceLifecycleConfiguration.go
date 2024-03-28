@@ -13,14 +13,57 @@ import (
 
 // Provides a lifecycle configuration for SageMaker Notebook Instances.
 //
+// ## Example Usage
+//
+// Usage:
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: "echo foo",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeBase64encode1, err := std.Base64encode(ctx, &std.Base64encodeArgs{
+//				Input: "echo bar",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sagemaker.NewNotebookInstanceLifecycleConfiguration(ctx, "lc", &sagemaker.NotebookInstanceLifecycleConfigurationArgs{
+//				Name:     pulumi.String("foo"),
+//				OnCreate: invokeBase64encode.Result,
+//				OnStart:  invokeBase64encode1.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import models using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
-//
+// $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
 // ```
 type NotebookInstanceLifecycleConfiguration struct {
 	pulumi.CustomResourceState

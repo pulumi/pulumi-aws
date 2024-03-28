@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The provider will detect changes in the `aws.elasticache.UserGroup` since `aws.elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,7 +54,7 @@ import javax.annotation.Nullable;
  *             .passwords(&#34;password123456789&#34;)
  *             .build());
  * 
- *         var exampleUserGroup = new UserGroup(&#34;exampleUserGroup&#34;, UserGroupArgs.builder()        
+ *         var example = new UserGroup(&#34;example&#34;, UserGroupArgs.builder()        
  *             .engine(&#34;REDIS&#34;)
  *             .userGroupId(&#34;userGroupId&#34;)
  *             .userIds(default_.userId())
@@ -67,20 +69,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUserGroupAssociation = new UserGroupAssociation(&#34;exampleUserGroupAssociation&#34;, UserGroupAssociationArgs.builder()        
- *             .userGroupId(exampleUserGroup.userGroupId())
+ *             .userGroupId(example.userGroupId())
  *             .userId(exampleUser.userId())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
+ * $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
  * ```
  * 
  */

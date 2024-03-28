@@ -11,25 +11,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const exampleSubnet = new aws.ec2.Subnet("exampleSubnet", {
- *     vpcId: exampleVpc.id,
+ * const example = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
+ * const exampleSubnet = new aws.ec2.Subnet("example", {
+ *     vpcId: example.id,
  *     cidrBlock: "10.0.0.0/24",
  *     availabilityZone: "us-west-2a",
  * });
- * const exampleSubnetGroup = new aws.memorydb.SubnetGroup("exampleSubnetGroup", {subnetIds: [exampleSubnet.id]});
+ * const exampleSubnetGroup = new aws.memorydb.SubnetGroup("example", {
+ *     name: "my-subnet-group",
+ *     subnetIds: [exampleSubnet.id],
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a subnet group using its `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
+ * $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
  * ```
  */
 export class SubnetGroup extends pulumi.CustomResource {
@@ -133,8 +138,6 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SubnetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

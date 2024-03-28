@@ -12,16 +12,18 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.gamelift.GameSessionQueue("test", {
+ *     name: "example-session-queue",
  *     destinations: [
- *         aws_gamelift_fleet.us_west_2_fleet.arn,
- *         aws_gamelift_fleet.eu_central_1_fleet.arn,
+ *         usWest2Fleet.arn,
+ *         euCentral1Fleet.arn,
  *     ],
- *     notificationTarget: aws_sns_topic.game_session_queue_notifications.arn,
+ *     notificationTarget: gameSessionQueueNotifications.arn,
  *     playerLatencyPolicies: [
  *         {
  *             maximumIndividualPlayerLatencyMilliseconds: 100,
@@ -34,13 +36,14 @@ import * as utilities from "../utilities";
  *     timeoutInSeconds: 60,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+ * $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
  * ```
  */
 export class GameSessionQueue extends pulumi.CustomResource {
@@ -145,8 +148,6 @@ export class GameSessionQueue extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(GameSessionQueue.__pulumiType, name, resourceInputs, opts);
     }
 }

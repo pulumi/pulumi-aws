@@ -4,6 +4,7 @@
 package com.pulumi.aws.chime.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -101,37 +102,50 @@ public final class VoiceConnectorOrganizationRoute {
 
         @CustomType.Setter
         public Builder host(String host) {
-            this.host = Objects.requireNonNull(host);
+            if (host == null) {
+              throw new MissingRequiredPropertyException("VoiceConnectorOrganizationRoute", "host");
+            }
+            this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("VoiceConnectorOrganizationRoute", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("VoiceConnectorOrganizationRoute", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder weight(Integer weight) {
-            this.weight = Objects.requireNonNull(weight);
+            if (weight == null) {
+              throw new MissingRequiredPropertyException("VoiceConnectorOrganizationRoute", "weight");
+            }
+            this.weight = weight;
             return this;
         }
         public VoiceConnectorOrganizationRoute build() {
-            final var o = new VoiceConnectorOrganizationRoute();
-            o.host = host;
-            o.port = port;
-            o.priority = priority;
-            o.protocol = protocol;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new VoiceConnectorOrganizationRoute();
+            _resultValue.host = host;
+            _resultValue.port = port;
+            _resultValue.priority = priority;
+            _resultValue.protocol = protocol;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

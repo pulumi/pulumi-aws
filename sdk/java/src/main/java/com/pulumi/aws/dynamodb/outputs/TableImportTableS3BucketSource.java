@@ -4,6 +4,7 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,30 @@ public final class TableImportTableS3BucketSource {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("TableImportTableS3BucketSource", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder bucketOwner(@Nullable String bucketOwner) {
+
             this.bucketOwner = bucketOwner;
             return this;
         }
         @CustomType.Setter
         public Builder keyPrefix(@Nullable String keyPrefix) {
+
             this.keyPrefix = keyPrefix;
             return this;
         }
         public TableImportTableS3BucketSource build() {
-            final var o = new TableImportTableS3BucketSource();
-            o.bucket = bucket;
-            o.bucketOwner = bucketOwner;
-            o.keyPrefix = keyPrefix;
-            return o;
+            final var _resultValue = new TableImportTableS3BucketSource();
+            _resultValue.bucket = bucket;
+            _resultValue.bucketOwner = bucketOwner;
+            _resultValue.keyPrefix = keyPrefix;
+            return _resultValue;
         }
     }
 }

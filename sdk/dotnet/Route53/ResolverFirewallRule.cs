@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,8 +23,9 @@ namespace Pulumi.Aws.Route53
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResolverFirewallDomainList = new Aws.Route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList", new()
+    ///     var example = new Aws.Route53.ResolverFirewallDomainList("example", new()
     ///     {
+    ///         Name = "example",
     ///         Domains = new[]
     ///         {
     ///             "example.com",
@@ -31,34 +33,35 @@ namespace Pulumi.Aws.Route53
     ///         Tags = null,
     ///     });
     /// 
-    ///     var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", new()
+    ///     var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Tags = null,
     ///     });
     /// 
-    ///     var exampleResolverFirewallRule = new Aws.Route53.ResolverFirewallRule("exampleResolverFirewallRule", new()
+    ///     var exampleResolverFirewallRule = new Aws.Route53.ResolverFirewallRule("example", new()
     ///     {
+    ///         Name = "example",
     ///         Action = "BLOCK",
     ///         BlockOverrideDnsType = "CNAME",
     ///         BlockOverrideDomain = "example.com",
     ///         BlockOverrideTtl = 1,
     ///         BlockResponse = "OVERRIDE",
-    ///         FirewallDomainListId = exampleResolverFirewallDomainList.Id,
+    ///         FirewallDomainListId = example.Id,
     ///         FirewallRuleGroupId = exampleResolverFirewallRuleGroup.Id,
     ///         Priority = 100,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import
-    /// 
-    /// Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:
+    /// Using `pulumi import`, import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
+    /// $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallRule:ResolverFirewallRule")]

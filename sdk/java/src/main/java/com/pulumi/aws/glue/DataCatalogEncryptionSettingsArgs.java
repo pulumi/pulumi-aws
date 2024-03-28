@@ -6,6 +6,7 @@ package com.pulumi.aws.glue;
 import com.pulumi.aws.glue.inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class DataCatalogEncryptionSettingsArgs extends com.pulumi.resource
         }
 
         public DataCatalogEncryptionSettingsArgs build() {
-            $.dataCatalogEncryptionSettings = Objects.requireNonNull($.dataCatalogEncryptionSettings, "expected parameter 'dataCatalogEncryptionSettings' to be non-null");
+            if ($.dataCatalogEncryptionSettings == null) {
+                throw new MissingRequiredPropertyException("DataCatalogEncryptionSettingsArgs", "dataCatalogEncryptionSettings");
+            }
             return $;
         }
     }

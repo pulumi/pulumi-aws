@@ -37,6 +37,9 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// Instance type of data nodes in the cluster.
         /// </summary>
         public readonly string InstanceType;
+        /// <summary>
+        /// Whether a multi-AZ domain is turned on with a standby AZ.
+        /// </summary>
         public readonly bool MultiAzWithStandbyEnabled;
         /// <summary>
         /// Number of warm nodes in the cluster.

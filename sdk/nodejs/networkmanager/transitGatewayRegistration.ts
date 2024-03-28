@@ -11,24 +11,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {description: "example"});
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
- * const exampleTransitGatewayRegistration = new aws.networkmanager.TransitGatewayRegistration("exampleTransitGatewayRegistration", {
- *     globalNetworkId: exampleGlobalNetwork.id,
+ * const example = new aws.networkmanager.GlobalNetwork("example", {description: "example"});
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("example", {});
+ * const exampleTransitGatewayRegistration = new aws.networkmanager.TransitGatewayRegistration("example", {
+ *     globalNetworkId: example.id,
  *     transitGatewayArn: exampleTransitGateway.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_transit_gateway_registration` using the global network ID and transit gateway ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
+ * $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
  * ```
  */
 export class TransitGatewayRegistration extends pulumi.CustomResource {

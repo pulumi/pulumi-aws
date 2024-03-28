@@ -4,6 +4,7 @@
 package com.pulumi.aws.connect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -115,43 +116,57 @@ public final class RoutingProfileQueueConfig {
 
         @CustomType.Setter
         public Builder channel(String channel) {
-            this.channel = Objects.requireNonNull(channel);
+            if (channel == null) {
+              throw new MissingRequiredPropertyException("RoutingProfileQueueConfig", "channel");
+            }
+            this.channel = channel;
             return this;
         }
         @CustomType.Setter
         public Builder delay(Integer delay) {
-            this.delay = Objects.requireNonNull(delay);
+            if (delay == null) {
+              throw new MissingRequiredPropertyException("RoutingProfileQueueConfig", "delay");
+            }
+            this.delay = delay;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("RoutingProfileQueueConfig", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder queueArn(@Nullable String queueArn) {
+
             this.queueArn = queueArn;
             return this;
         }
         @CustomType.Setter
         public Builder queueId(String queueId) {
-            this.queueId = Objects.requireNonNull(queueId);
+            if (queueId == null) {
+              throw new MissingRequiredPropertyException("RoutingProfileQueueConfig", "queueId");
+            }
+            this.queueId = queueId;
             return this;
         }
         @CustomType.Setter
         public Builder queueName(@Nullable String queueName) {
+
             this.queueName = queueName;
             return this;
         }
         public RoutingProfileQueueConfig build() {
-            final var o = new RoutingProfileQueueConfig();
-            o.channel = channel;
-            o.delay = delay;
-            o.priority = priority;
-            o.queueArn = queueArn;
-            o.queueId = queueId;
-            o.queueName = queueName;
-            return o;
+            final var _resultValue = new RoutingProfileQueueConfig();
+            _resultValue.channel = channel;
+            _resultValue.delay = delay;
+            _resultValue.priority = priority;
+            _resultValue.queueArn = queueArn;
+            _resultValue.queueId = queueId;
+            _resultValue.queueName = queueName;
+            return _resultValue;
         }
     }
 }

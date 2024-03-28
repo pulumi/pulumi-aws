@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,33 +27,34 @@ namespace Pulumi.Aws.Ec2ClientVpn
     ///     var example = new Aws.Ec2ClientVpn.Endpoint("example", new()
     ///     {
     ///         Description = "clientvpn-example",
-    ///         ServerCertificateArn = aws_acm_certificate.Cert.Arn,
+    ///         ServerCertificateArn = cert.Arn,
     ///         ClientCidrBlock = "10.0.0.0/16",
     ///         AuthenticationOptions = new[]
     ///         {
     ///             new Aws.Ec2ClientVpn.Inputs.EndpointAuthenticationOptionArgs
     ///             {
     ///                 Type = "certificate-authentication",
-    ///                 RootCertificateChainArn = aws_acm_certificate.Root_cert.Arn,
+    ///                 RootCertificateChainArn = rootCert.Arn,
     ///             },
     ///         },
     ///         ConnectionLogOptions = new Aws.Ec2ClientVpn.Inputs.EndpointConnectionLogOptionsArgs
     ///         {
     ///             Enabled = true,
-    ///             CloudwatchLogGroup = aws_cloudwatch_log_group.Lg.Name,
-    ///             CloudwatchLogStream = aws_cloudwatch_log_stream.Ls.Name,
+    ///             CloudwatchLogGroup = lg.Name,
+    ///             CloudwatchLogStream = ls.Name,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
+    /// $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2clientvpn/endpoint:Endpoint")]
@@ -201,10 +203,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -486,11 +484,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

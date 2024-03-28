@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.outputs;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttpRouteActionRewrite;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttpRouteActionTarget;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetGatewayRouteSpecHttpRouteAction {
 
         @CustomType.Setter
         public Builder rewrites(List<GetGatewayRouteSpecHttpRouteActionRewrite> rewrites) {
-            this.rewrites = Objects.requireNonNull(rewrites);
+            if (rewrites == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteAction", "rewrites");
+            }
+            this.rewrites = rewrites;
             return this;
         }
         public Builder rewrites(GetGatewayRouteSpecHttpRouteActionRewrite... rewrites) {
@@ -50,17 +54,20 @@ public final class GetGatewayRouteSpecHttpRouteAction {
         }
         @CustomType.Setter
         public Builder targets(List<GetGatewayRouteSpecHttpRouteActionTarget> targets) {
-            this.targets = Objects.requireNonNull(targets);
+            if (targets == null) {
+              throw new MissingRequiredPropertyException("GetGatewayRouteSpecHttpRouteAction", "targets");
+            }
+            this.targets = targets;
             return this;
         }
         public Builder targets(GetGatewayRouteSpecHttpRouteActionTarget... targets) {
             return targets(List.of(targets));
         }
         public GetGatewayRouteSpecHttpRouteAction build() {
-            final var o = new GetGatewayRouteSpecHttpRouteAction();
-            o.rewrites = rewrites;
-            o.targets = targets;
-            return o;
+            final var _resultValue = new GetGatewayRouteSpecHttpRouteAction();
+            _resultValue.rewrites = rewrites;
+            _resultValue.targets = targets;
+            return _resultValue;
         }
     }
 }

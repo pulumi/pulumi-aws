@@ -8,28 +8,31 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer AS2 Agreement resource.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Agreement("example", {
- *     accessRole: aws_iam_role.test.arn,
+ *     accessRole: test.arn,
  *     baseDirectory: "/DOC-EXAMPLE-BUCKET/home/mydirectory",
  *     description: "example",
- *     localProfileId: aws_transfer_profile.local.profile_id,
- *     partnerProfileId: aws_transfer_profile.partner.profile_id,
- *     serverId: aws_transfer_server.test.id,
+ *     localProfileId: local.profileId,
+ *     partnerProfileId: partner.profileId,
+ *     serverId: testAwsTransferServer.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transfer AS2 Agreement using the `server_id/agreement_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
+ * $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
  * ```
  */
 export class Agreement extends pulumi.CustomResource {
@@ -156,8 +159,6 @@ export class Agreement extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Agreement.__pulumiType, name, resourceInputs, opts);
     }
 }

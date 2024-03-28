@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Lex
     /// Resource for managing an AWS Lex V2 Models Bot Locale.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,7 +27,7 @@ namespace Pulumi.Aws.Lex
     /// {
     ///     var example = new Aws.Lex.V2modelsBotLocale("example", new()
     ///     {
-    ///         BotId = aws_lexv2models_bot.Test.Id,
+    ///         BotId = exampleAwsLexv2modelsBot.Id,
     ///         BotVersion = "DRAFT",
     ///         LocaleId = "en_US",
     ///         NLuIntentConfidenceThreshold = 0.7,
@@ -33,13 +35,42 @@ namespace Pulumi.Aws.Lex
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Voice Settings
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lex.V2modelsBotLocale("example", new()
+    ///     {
+    ///         BotId = exampleAwsLexv2modelsBot.Id,
+    ///         BotVersion = "DRAFT",
+    ///         LocaleId = "en_US",
+    ///         NLuIntentConfidenceThreshold = 0.7,
+    ///         VoiceSettings = new Aws.Lex.Inputs.V2modelsBotLocaleVoiceSettingsArgs
+    ///         {
+    ///             VoiceId = "Kendra",
+    ///             Engine = "standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lex V2 Models Bot Locale using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example bot_locale-id-12345678
+    /// $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/v2modelsBotLocale:V2modelsBotLocale")]
@@ -87,7 +118,7 @@ namespace Pulumi.Aws.Lex
         public Output<Outputs.V2modelsBotLocaleTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         /// </summary>
         [Output("voiceSettings")]
         public Output<Outputs.V2modelsBotLocaleVoiceSettings?> VoiceSettings { get; private set; } = null!;
@@ -180,7 +211,7 @@ namespace Pulumi.Aws.Lex
         public Input<Inputs.V2modelsBotLocaleTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         /// </summary>
         [Input("voiceSettings")]
         public Input<Inputs.V2modelsBotLocaleVoiceSettingsArgs>? VoiceSettings { get; set; }
@@ -235,7 +266,7 @@ namespace Pulumi.Aws.Lex
         public Input<Inputs.V2modelsBotLocaleTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
+        /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         /// </summary>
         [Input("voiceSettings")]
         public Input<Inputs.V2modelsBotLocaleVoiceSettingsGetArgs>? VoiceSettings { get; set; }

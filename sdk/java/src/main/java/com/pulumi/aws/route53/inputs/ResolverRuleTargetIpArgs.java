@@ -5,6 +5,7 @@ package com.pulumi.aws.route53.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -46,11 +47,19 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.port);
     }
 
+    @Import(name="protocol")
+    private @Nullable Output<String> protocol;
+
+    public Optional<Output<String>> protocol() {
+        return Optional.ofNullable(this.protocol);
+    }
+
     private ResolverRuleTargetIpArgs() {}
 
     private ResolverRuleTargetIpArgs(ResolverRuleTargetIpArgs $) {
         this.ip = $.ip;
         this.port = $.port;
+        this.protocol = $.protocol;
     }
 
     public static Builder builder() {
@@ -113,8 +122,19 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
             return port(Output.of(port));
         }
 
+        public Builder protocol(@Nullable Output<String> protocol) {
+            $.protocol = protocol;
+            return this;
+        }
+
+        public Builder protocol(String protocol) {
+            return protocol(Output.of(protocol));
+        }
+
         public ResolverRuleTargetIpArgs build() {
-            $.ip = Objects.requireNonNull($.ip, "expected parameter 'ip' to be non-null");
+            if ($.ip == null) {
+                throw new MissingRequiredPropertyException("ResolverRuleTargetIpArgs", "ip");
+            }
             return $;
         }
     }

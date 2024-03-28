@@ -19,8 +19,10 @@ namespace Pulumi.Aws.Batch
     /// otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
     /// 
     /// ## Example Usage
+    /// 
     /// ### EC2 Type
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,20 +57,22 @@ namespace Pulumi.Aws.Batch
     ///         },
     ///     });
     /// 
-    ///     var ecsInstanceRoleRole = new Aws.Iam.Role("ecsInstanceRoleRole", new()
+    ///     var ecsInstanceRole = new Aws.Iam.Role("ecs_instance_role", new()
     ///     {
+    ///         Name = "ecs_instance_role",
     ///         AssumeRolePolicy = ec2AssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var ecsInstanceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment", new()
+    ///     var ecsInstanceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("ecs_instance_role", new()
     ///     {
-    ///         Role = ecsInstanceRoleRole.Name,
+    ///         Role = ecsInstanceRole.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
     ///     });
     /// 
-    ///     var ecsInstanceRoleInstanceProfile = new Aws.Iam.InstanceProfile("ecsInstanceRoleInstanceProfile", new()
+    ///     var ecsInstanceRoleInstanceProfile = new Aws.Iam.InstanceProfile("ecs_instance_role", new()
     ///     {
-    ///         Role = ecsInstanceRoleRole.Name,
+    ///         Name = "ecs_instance_role",
+    ///         Role = ecsInstanceRole.Name,
     ///     });
     /// 
     ///     var batchAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -97,19 +101,21 @@ namespace Pulumi.Aws.Batch
     ///         },
     ///     });
     /// 
-    ///     var awsBatchServiceRoleRole = new Aws.Iam.Role("awsBatchServiceRoleRole", new()
+    ///     var awsBatchServiceRole = new Aws.Iam.Role("aws_batch_service_role", new()
     ///     {
+    ///         Name = "aws_batch_service_role",
     ///         AssumeRolePolicy = batchAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var awsBatchServiceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment", new()
+    ///     var awsBatchServiceRoleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("aws_batch_service_role", new()
     ///     {
-    ///         Role = awsBatchServiceRoleRole.Name,
+    ///         Role = awsBatchServiceRole.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
     ///     });
     /// 
-    ///     var sampleSecurityGroup = new Aws.Ec2.SecurityGroup("sampleSecurityGroup", new()
+    ///     var sample = new Aws.Ec2.SecurityGroup("sample", new()
     ///     {
+    ///         Name = "aws_batch_compute_environment_security_group",
     ///         Egress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
@@ -125,23 +131,24 @@ namespace Pulumi.Aws.Batch
     ///         },
     ///     });
     /// 
-    ///     var sampleVpc = new Aws.Ec2.Vpc("sampleVpc", new()
+    ///     var sampleVpc = new Aws.Ec2.Vpc("sample", new()
     ///     {
     ///         CidrBlock = "10.1.0.0/16",
     ///     });
     /// 
-    ///     var sampleSubnet = new Aws.Ec2.Subnet("sampleSubnet", new()
+    ///     var sampleSubnet = new Aws.Ec2.Subnet("sample", new()
     ///     {
     ///         VpcId = sampleVpc.Id,
     ///         CidrBlock = "10.1.1.0/24",
     ///     });
     /// 
-    ///     var samplePlacementGroup = new Aws.Ec2.PlacementGroup("samplePlacementGroup", new()
+    ///     var samplePlacementGroup = new Aws.Ec2.PlacementGroup("sample", new()
     ///     {
-    ///         Strategy = "cluster",
+    ///         Name = "sample",
+    ///         Strategy = Aws.Ec2.PlacementStrategy.Cluster,
     ///     });
     /// 
-    ///     var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sampleComputeEnvironment", new()
+    ///     var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sample", new()
     ///     {
     ///         ComputeEnvironmentName = "sample",
     ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
@@ -156,7 +163,7 @@ namespace Pulumi.Aws.Batch
     ///             PlacementGroup = samplePlacementGroup.Name,
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 sampleSecurityGroup.Id,
+    ///                 sample.Id,
     ///             },
     ///             Subnets = new[]
     ///             {
@@ -164,20 +171,17 @@ namespace Pulumi.Aws.Batch
     ///             },
     ///             Type = "EC2",
     ///         },
-    ///         ServiceRole = awsBatchServiceRoleRole.Arn,
+    ///         ServiceRole = awsBatchServiceRole.Arn,
     ///         Type = "MANAGED",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             awsBatchServiceRoleRolePolicyAttachment,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Fargate Type
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -194,33 +198,74 @@ namespace Pulumi.Aws.Batch
     ///             MaxVcpus = 16,
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Sample.Id,
+    ///                 sampleAwsSecurityGroup.Id,
     ///             },
     ///             Subnets = new[]
     ///             {
-    ///                 aws_subnet.Sample.Id,
+    ///                 sampleAwsSubnet.Id,
     ///             },
     ///             Type = "FARGATE",
     ///         },
-    ///         ServiceRole = aws_iam_role.Aws_batch_service_role.Arn,
+    ///         ServiceRole = awsBatchServiceRole.Arn,
     ///         Type = "MANAGED",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy_attachment.Aws_batch_service_role,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Setting Update Policy
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sample = new Aws.Batch.ComputeEnvironment("sample", new()
+    ///     {
+    ///         ComputeEnvironmentName = "sample",
+    ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
+    ///         {
+    ///             AllocationStrategy = "BEST_FIT_PROGRESSIVE",
+    ///             InstanceRole = ecsInstance.Arn,
+    ///             InstanceTypes = new[]
+    ///             {
+    ///                 "optimal",
+    ///             },
+    ///             MaxVcpus = 4,
+    ///             MinVcpus = 0,
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 sampleAwsSecurityGroup.Id,
+    ///             },
+    ///             Subnets = new[]
+    ///             {
+    ///                 sampleAwsSubnet.Id,
+    ///             },
+    ///             Type = "EC2",
+    ///         },
+    ///         UpdatePolicy = new Aws.Batch.Inputs.ComputeEnvironmentUpdatePolicyArgs
+    ///         {
+    ///             JobExecutionTimeoutMinutes = 30,
+    ///             TerminateJobsOnUpdate = false,
+    ///         },
+    ///         Type = "MANAGED",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
+    /// $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
     /// ```
     /// </summary>
     [AwsResourceType("aws:batch/computeEnvironment:ComputeEnvironment")]
@@ -304,6 +349,12 @@ namespace Pulumi.Aws.Batch
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the infrastructure update policy for the compute environment. See details below.
+        /// </summary>
+        [Output("updatePolicy")]
+        public Output<Outputs.ComputeEnvironmentUpdatePolicy?> UpdatePolicy { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ComputeEnvironment resource with the given unique name, arguments, and options.
@@ -327,10 +378,6 @@ namespace Pulumi.Aws.Batch
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -407,6 +454,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the infrastructure update policy for the compute environment. See details below.
+        /// </summary>
+        [Input("updatePolicy")]
+        public Input<Inputs.ComputeEnvironmentUpdatePolicyArgs>? UpdatePolicy { get; set; }
 
         public ComputeEnvironmentArgs()
         {
@@ -498,11 +551,7 @@ namespace Pulumi.Aws.Batch
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -510,6 +559,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Specifies the infrastructure update policy for the compute environment. See details below.
+        /// </summary>
+        [Input("updatePolicy")]
+        public Input<Inputs.ComputeEnvironmentUpdatePolicyGetArgs>? UpdatePolicy { get; set; }
 
         public ComputeEnvironmentState()
         {

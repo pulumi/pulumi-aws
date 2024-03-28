@@ -18,8 +18,13 @@ import javax.annotation.Nullable;
 /**
  * Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
+ * 
  * ### Add metrics configuration for entire S3 bucket
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -27,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketMetric;
  * import com.pulumi.aws.s3.BucketMetricArgs;
  * import java.util.List;
@@ -42,16 +48,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var example_entire_bucket = new BucketMetric(&#34;example-entire-bucket&#34;, BucketMetricArgs.builder()        
  *             .bucket(example.id())
+ *             .name(&#34;EntireBucket&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Add metrics configuration with S3 object filter
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,6 +72,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketMetric;
  * import com.pulumi.aws.s3.BucketMetricArgs;
  * import com.pulumi.aws.s3.inputs.BucketMetricFilterArgs;
@@ -75,10 +89,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var example_filtered = new BucketMetric(&#34;example-filtered&#34;, BucketMetricArgs.builder()        
  *             .bucket(example.id())
+ *             .name(&#34;ImportantBlueDocuments&#34;)
  *             .filter(BucketMetricFilterArgs.builder()
  *                 .prefix(&#34;documents/&#34;)
  *                 .tags(Map.ofEntries(
@@ -91,13 +108,69 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Add metrics configuration with S3 object filter for S3 Access Point
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.AccessPoint;
+ * import com.pulumi.aws.s3.AccessPointArgs;
+ * import com.pulumi.aws.s3.BucketMetric;
+ * import com.pulumi.aws.s3.BucketMetricArgs;
+ * import com.pulumi.aws.s3.inputs.BucketMetricFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
+ * 
+ *         var example_access_point = new AccessPoint(&#34;example-access-point&#34;, AccessPointArgs.builder()        
+ *             .bucket(example.id())
+ *             .name(&#34;example-access-point&#34;)
+ *             .build());
+ * 
+ *         var example_filtered = new BucketMetric(&#34;example-filtered&#34;, BucketMetricArgs.builder()        
+ *             .bucket(example.id())
+ *             .name(&#34;ImportantBlueDocuments&#34;)
+ *             .filter(BucketMetricFilterArgs.builder()
+ *                 .accessPoint(example_access_point.arn())
+ *                 .tags(Map.ofEntries(
+ *                     Map.entry(&#34;priority&#34;, &#34;high&#34;),
+ *                     Map.entry(&#34;class&#34;, &#34;blue&#34;)
+ *                 ))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import S3 bucket metric configurations using `bucket:metric`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
+ * $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
  * ```
  * 
  */

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway.outputs;
 
 import com.pulumi.aws.ec2transitgateway.outputs.GetVpnAttachmentFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -79,6 +80,7 @@ public final class GetVpnAttachmentResult {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<GetVpnAttachmentFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -87,32 +89,40 @@ public final class GetVpnAttachmentResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpnAttachmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpnAttachmentResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transitGatewayId(@Nullable String transitGatewayId) {
+
             this.transitGatewayId = transitGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder vpnConnectionId(@Nullable String vpnConnectionId) {
+
             this.vpnConnectionId = vpnConnectionId;
             return this;
         }
         public GetVpnAttachmentResult build() {
-            final var o = new GetVpnAttachmentResult();
-            o.filters = filters;
-            o.id = id;
-            o.tags = tags;
-            o.transitGatewayId = transitGatewayId;
-            o.vpnConnectionId = vpnConnectionId;
-            return o;
+            final var _resultValue = new GetVpnAttachmentResult();
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.tags = tags;
+            _resultValue.transitGatewayId = transitGatewayId;
+            _resultValue.vpnConnectionId = vpnConnectionId;
+            return _resultValue;
         }
     }
 }

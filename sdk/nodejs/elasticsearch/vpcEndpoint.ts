@@ -11,33 +11,36 @@ import * as utilities from "../utilities";
  * Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon elasticsearch Service-managed VPC endpoint.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.elasticsearch.VpcEndpoint("foo", {
- *     domainArn: aws_elasticsearch_domain.domain_1.arn,
+ *     domainArn: domain1.arn,
  *     vpcOptions: {
  *         securityGroupIds: [
- *             aws_security_group.test.id,
- *             aws_security_group.test2.id,
+ *             test.id,
+ *             test2.id,
  *         ],
  *         subnetIds: [
- *             aws_subnet.test.id,
- *             aws_subnet.test2.id,
+ *             testAwsSubnet.id,
+ *             test2AwsSubnet.id,
  *         ],
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import elasticsearch VPC endpoint connections using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id
+ * $ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id
  * ```
  */
 export class VpcEndpoint extends pulumi.CustomResource {

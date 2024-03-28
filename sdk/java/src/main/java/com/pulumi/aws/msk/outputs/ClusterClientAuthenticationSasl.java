@@ -58,19 +58,21 @@ public final class ClusterClientAuthenticationSasl {
 
         @CustomType.Setter
         public Builder iam(@Nullable Boolean iam) {
+
             this.iam = iam;
             return this;
         }
         @CustomType.Setter
         public Builder scram(@Nullable Boolean scram) {
+
             this.scram = scram;
             return this;
         }
         public ClusterClientAuthenticationSasl build() {
-            final var o = new ClusterClientAuthenticationSasl();
-            o.iam = iam;
-            o.scram = scram;
-            return o;
+            final var _resultValue = new ClusterClientAuthenticationSasl();
+            _resultValue.iam = iam;
+            _resultValue.scram = scram;
+            return _resultValue;
         }
     }
 }

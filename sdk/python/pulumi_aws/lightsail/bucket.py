@@ -283,19 +283,23 @@ class Bucket(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Bucket("test", bundle_id="small_1_0")
+        test = aws.lightsail.Bucket("test",
+            name="mytestbucket",
+            bundle_id="small_1_0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+        $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -316,19 +320,23 @@ class Bucket(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.lightsail.Bucket("test", bundle_id="small_1_0")
+        test = aws.lightsail.Bucket("test",
+            name="mytestbucket",
+            bundle_id="small_1_0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+        $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -372,8 +380,6 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["support_code"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["url"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Bucket, __self__).__init__(
             'aws:lightsail/bucket:Bucket',
             resource_name,

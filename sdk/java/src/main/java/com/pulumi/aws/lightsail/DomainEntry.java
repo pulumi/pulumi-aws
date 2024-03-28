@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE on `id`:** In an effort to simplify imports, this resource `id` field has been updated to the standard resource id separator, a comma (`,`). For backward compatibility, the previous separator (underscore `_`) can still be used to read and import existing resources. When state is refreshed, the `id` will be updated to use the new standard separator. The previous separator will be deprecated in a future major release.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,12 +46,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testDomain = new Domain(&#34;testDomain&#34;, DomainArgs.builder()        
+ *         var test = new Domain(&#34;test&#34;, DomainArgs.builder()        
  *             .domainName(&#34;mydomain.com&#34;)
  *             .build());
  * 
  *         var testDomainEntry = new DomainEntry(&#34;testDomainEntry&#34;, DomainEntryArgs.builder()        
- *             .domainName(aws_lightsail_domain.domain_test().domain_name())
+ *             .domainName(domainTest.domainName())
+ *             .name(&#34;www&#34;)
  *             .type(&#34;A&#34;)
  *             .target(&#34;127.0.0.1&#34;)
  *             .build());
@@ -57,13 +60,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
+ * $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
  * ```
  * 
  */

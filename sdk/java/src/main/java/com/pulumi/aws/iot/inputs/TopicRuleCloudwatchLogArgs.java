@@ -5,6 +5,7 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class TopicRuleCloudwatchLogArgs extends com.pulumi.resources.Resou
         }
 
         public TopicRuleCloudwatchLogArgs build() {
-            $.logGroupName = Objects.requireNonNull($.logGroupName, "expected parameter 'logGroupName' to be non-null");
-            $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            if ($.logGroupName == null) {
+                throw new MissingRequiredPropertyException("TopicRuleCloudwatchLogArgs", "logGroupName");
+            }
+            if ($.roleArn == null) {
+                throw new MissingRequiredPropertyException("TopicRuleCloudwatchLogArgs", "roleArn");
+            }
             return $;
         }
     }

@@ -204,8 +204,10 @@ class Instance(pulumi.CustomResource):
         Resource for managing a Verified Access Instance.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,23 +218,25 @@ class Instance(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With `fips_enabled`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Instance("example", fips_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import Verified Access Instances using the
-
-        `id`. For example:
+        Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
 
         ```sh
-         $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
+        $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
         ```
 
         :param str resource_name: The name of the resource.
@@ -251,8 +255,10 @@ class Instance(pulumi.CustomResource):
         Resource for managing a Verified Access Instance.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,23 +269,25 @@ class Instance(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With `fips_enabled`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Instance("example", fips_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import Verified Access Instances using the
-
-        `id`. For example:
+        Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
 
         ```sh
-         $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
+        $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
         ```
 
         :param str resource_name: The name of the resource.
@@ -316,8 +324,6 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["verified_access_trust_providers"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Instance, __self__).__init__(
             'aws:verifiedaccess/instance:Instance',
             resource_name,

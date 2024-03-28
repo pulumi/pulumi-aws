@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cognito.GetUserPoolSigningCertificate(ctx, &cognito.GetUserPoolSigningCertificateArgs{
-//				UserPoolId: aws_cognito_user_pool.My_pool.Id,
+//				UserPoolId: myPool.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetUserPoolSigningCertificate(ctx *pulumi.Context, args *GetUserPoolSigningCertificateArgs, opts ...pulumi.InvokeOption) (*GetUserPoolSigningCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserPoolSigningCertificateResult

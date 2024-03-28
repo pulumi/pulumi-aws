@@ -5,6 +5,7 @@ package com.pulumi.aws.guardduty.outputs;
 
 import com.pulumi.aws.guardduty.outputs.GetDetectorFeatureAdditionalConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +73,10 @@ public final class GetDetectorFeature {
 
         @CustomType.Setter
         public Builder additionalConfigurations(List<GetDetectorFeatureAdditionalConfiguration> additionalConfigurations) {
-            this.additionalConfigurations = Objects.requireNonNull(additionalConfigurations);
+            if (additionalConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetDetectorFeature", "additionalConfigurations");
+            }
+            this.additionalConfigurations = additionalConfigurations;
             return this;
         }
         public Builder additionalConfigurations(GetDetectorFeatureAdditionalConfiguration... additionalConfigurations) {
@@ -80,20 +84,26 @@ public final class GetDetectorFeature {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDetectorFeature", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetDetectorFeature", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetDetectorFeature build() {
-            final var o = new GetDetectorFeature();
-            o.additionalConfigurations = additionalConfigurations;
-            o.name = name;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetDetectorFeature();
+            _resultValue.additionalConfigurations = additionalConfigurations;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

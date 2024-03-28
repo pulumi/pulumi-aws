@@ -58,19 +58,21 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
 
         @CustomType.Setter
         public Builder max(@Nullable Integer max) {
+
             this.max = max;
             return this;
         }
         @CustomType.Setter
         public Builder min(@Nullable Integer min) {
+
             this.min = min;
             return this;
         }
         public SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib build() {
-            final var o = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib();
-            o.max = max;
-            o.min = min;
-            return o;
+            final var _resultValue = new SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib();
+            _resultValue.max = max;
+            _resultValue.min = min;
+            return _resultValue;
         }
     }
 }

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,15 +31,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewQuickConnect(ctx, "test", &connect.QuickConnectArgs{
-//				Description: pulumi.String("quick connect phone number"),
 //				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:        pulumi.String("Example Name"),
+//				Description: pulumi.String("quick connect phone number"),
 //				QuickConnectConfig: &connect.QuickConnectQuickConnectConfigArgs{
+//					QuickConnectType: pulumi.String("PHONE_NUMBER"),
 //					PhoneConfigs: connect.QuickConnectQuickConnectConfigPhoneConfigArray{
 //						&connect.QuickConnectQuickConnectConfigPhoneConfigArgs{
 //							PhoneNumber: pulumi.String("+12345678912"),
 //						},
 //					},
-//					QuickConnectType: pulumi.String("PHONE_NUMBER"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Quick Connect"),
@@ -52,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Connect Quick Connects using the `instance_id` and `quick_connect_id` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
+// $ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 // ```
 type QuickConnect struct {
 	pulumi.CustomResourceState
@@ -98,10 +99,6 @@ func NewQuickConnect(ctx *pulumi.Context,
 	if args.QuickConnectConfig == nil {
 		return nil, errors.New("invalid value for required argument 'QuickConnectConfig'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource QuickConnect
 	err := ctx.RegisterResource("aws:connect/quickConnect:QuickConnect", name, args, &resource, opts...)

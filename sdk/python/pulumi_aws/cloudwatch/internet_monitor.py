@@ -349,19 +349,21 @@ class InternetMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudwatch.InternetMonitor("example", monitor_name="exmple")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
+        $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
         ```
 
         :param str resource_name: The name of the resource.
@@ -388,19 +390,21 @@ class InternetMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudwatch.InternetMonitor("example", monitor_name="exmple")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
+        $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
         ```
 
         :param str resource_name: The name of the resource.
@@ -447,8 +451,6 @@ class InternetMonitor(pulumi.CustomResource):
             __props__.__dict__["traffic_percentage_to_monitor"] = traffic_percentage_to_monitor
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(InternetMonitor, __self__).__init__(
             'aws:cloudwatch/internetMonitor:InternetMonitor',
             resource_name,

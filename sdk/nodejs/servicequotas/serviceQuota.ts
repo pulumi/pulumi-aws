@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,6 +25,7 @@ import * as utilities from "../utilities";
  *     value: 75,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -32,7 +34,7 @@ import * as utilities from "../utilities";
  * ~> __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
  *
  * ```sh
- *  $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
+ * $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
  * ```
  */
 export class ServiceQuota extends pulumi.CustomResource {

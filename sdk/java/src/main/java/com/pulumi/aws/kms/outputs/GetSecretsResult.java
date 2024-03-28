@@ -5,6 +5,7 @@ package com.pulumi.aws.kms.outputs;
 
 import com.pulumi.aws.kms.outputs.GetSecretsSecret;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -65,28 +66,37 @@ public final class GetSecretsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecretsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder plaintext(Map<String,String> plaintext) {
-            this.plaintext = Objects.requireNonNull(plaintext);
+            if (plaintext == null) {
+              throw new MissingRequiredPropertyException("GetSecretsResult", "plaintext");
+            }
+            this.plaintext = plaintext;
             return this;
         }
         @CustomType.Setter
         public Builder secrets(List<GetSecretsSecret> secrets) {
-            this.secrets = Objects.requireNonNull(secrets);
+            if (secrets == null) {
+              throw new MissingRequiredPropertyException("GetSecretsResult", "secrets");
+            }
+            this.secrets = secrets;
             return this;
         }
         public Builder secrets(GetSecretsSecret... secrets) {
             return secrets(List.of(secrets));
         }
         public GetSecretsResult build() {
-            final var o = new GetSecretsResult();
-            o.id = id;
-            o.plaintext = plaintext;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new GetSecretsResult();
+            _resultValue.id = id;
+            _resultValue.plaintext = plaintext;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

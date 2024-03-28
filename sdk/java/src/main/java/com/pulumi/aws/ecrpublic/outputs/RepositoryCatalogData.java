@@ -115,11 +115,13 @@ public final class RepositoryCatalogData {
 
         @CustomType.Setter
         public Builder aboutText(@Nullable String aboutText) {
+
             this.aboutText = aboutText;
             return this;
         }
         @CustomType.Setter
         public Builder architectures(@Nullable List<String> architectures) {
+
             this.architectures = architectures;
             return this;
         }
@@ -128,16 +130,19 @@ public final class RepositoryCatalogData {
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder logoImageBlob(@Nullable String logoImageBlob) {
+
             this.logoImageBlob = logoImageBlob;
             return this;
         }
         @CustomType.Setter
         public Builder operatingSystems(@Nullable List<String> operatingSystems) {
+
             this.operatingSystems = operatingSystems;
             return this;
         }
@@ -146,18 +151,19 @@ public final class RepositoryCatalogData {
         }
         @CustomType.Setter
         public Builder usageText(@Nullable String usageText) {
+
             this.usageText = usageText;
             return this;
         }
         public RepositoryCatalogData build() {
-            final var o = new RepositoryCatalogData();
-            o.aboutText = aboutText;
-            o.architectures = architectures;
-            o.description = description;
-            o.logoImageBlob = logoImageBlob;
-            o.operatingSystems = operatingSystems;
-            o.usageText = usageText;
-            return o;
+            final var _resultValue = new RepositoryCatalogData();
+            _resultValue.aboutText = aboutText;
+            _resultValue.architectures = architectures;
+            _resultValue.description = description;
+            _resultValue.logoImageBlob = logoImageBlob;
+            _resultValue.operatingSystems = operatingSystems;
+            _resultValue.usageText = usageText;
+            return _resultValue;
         }
     }
 }

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * To create a basic traffic mirror filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +22,14 @@ import * as utilities from "../utilities";
  *     networkServices: ["amazon-dns"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import traffic mirror filter using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
+ * $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
  * ```
  */
 export class TrafficMirrorFilter extends pulumi.CustomResource {
@@ -108,8 +110,6 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(TrafficMirrorFilter.__pulumiType, name, resourceInputs, opts);
     }
 }

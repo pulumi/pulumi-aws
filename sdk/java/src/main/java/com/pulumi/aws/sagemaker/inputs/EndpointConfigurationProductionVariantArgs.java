@@ -4,13 +4,16 @@
 package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantCoreDumpConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantRoutingConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantServerlessConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -156,6 +159,21 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
+     * Sets how the endpoint routes incoming traffic. See routing_config below.
+     * 
+     */
+    @Import(name="routingConfigs")
+    private @Nullable Output<List<EndpointConfigurationProductionVariantRoutingConfigArgs>> routingConfigs;
+
+    /**
+     * @return Sets how the endpoint routes incoming traffic. See routing_config below.
+     * 
+     */
+    public Optional<Output<List<EndpointConfigurationProductionVariantRoutingConfigArgs>>> routingConfigs() {
+        return Optional.ofNullable(this.routingConfigs);
+    }
+
+    /**
      * Specifies configuration for how an endpoint performs asynchronous inference.
      * 
      */
@@ -212,6 +230,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         this.instanceType = $.instanceType;
         this.modelDataDownloadTimeoutInSeconds = $.modelDataDownloadTimeoutInSeconds;
         this.modelName = $.modelName;
+        this.routingConfigs = $.routingConfigs;
         this.serverlessConfig = $.serverlessConfig;
         this.variantName = $.variantName;
         this.volumeSizeInGb = $.volumeSizeInGb;
@@ -425,6 +444,37 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
+         * @param routingConfigs Sets how the endpoint routes incoming traffic. See routing_config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingConfigs(@Nullable Output<List<EndpointConfigurationProductionVariantRoutingConfigArgs>> routingConfigs) {
+            $.routingConfigs = routingConfigs;
+            return this;
+        }
+
+        /**
+         * @param routingConfigs Sets how the endpoint routes incoming traffic. See routing_config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingConfigs(List<EndpointConfigurationProductionVariantRoutingConfigArgs> routingConfigs) {
+            return routingConfigs(Output.of(routingConfigs));
+        }
+
+        /**
+         * @param routingConfigs Sets how the endpoint routes incoming traffic. See routing_config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingConfigs(EndpointConfigurationProductionVariantRoutingConfigArgs... routingConfigs) {
+            return routingConfigs(List.of(routingConfigs));
+        }
+
+        /**
          * @param serverlessConfig Specifies configuration for how an endpoint performs asynchronous inference.
          * 
          * @return builder
@@ -488,7 +538,9 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         public EndpointConfigurationProductionVariantArgs build() {
-            $.modelName = Objects.requireNonNull($.modelName, "expected parameter 'modelName' to be non-null");
+            if ($.modelName == null) {
+                throw new MissingRequiredPropertyException("EndpointConfigurationProductionVariantArgs", "modelName");
+            }
             return $;
         }
     }

@@ -38,6 +38,7 @@ class ClusterArgs:
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -57,7 +58,7 @@ class ClusterArgs:
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
                The following log types are supported: `audit`, `profiler`.
-        :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+        :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB cluster is deleted. If omitted, no final snapshot will be
@@ -74,6 +75,7 @@ class ClusterArgs:
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
+        :param pulumi.Input[str] storage_type: The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
@@ -126,6 +128,8 @@ class ClusterArgs:
             pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if storage_encrypted is not None:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vpc_security_group_ids is not None:
@@ -271,7 +275,7 @@ class ClusterArgs:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+        The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         """
         return pulumi.get(self, "engine")
 
@@ -428,6 +432,18 @@ class ClusterArgs:
         pulumi.set(self, "storage_encrypted", value)
 
     @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -485,6 +501,7 @@ class _ClusterState:
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -508,7 +525,7 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
                The following log types are supported: `audit`, `profiler`.
         :param pulumi.Input[str] endpoint: The DNS address of the DocumentDB instance
-        :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+        :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB cluster is deleted. If omitted, no final snapshot will be
@@ -527,6 +544,7 @@ class _ClusterState:
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
+        :param pulumi.Input[str] storage_type: The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate
@@ -590,6 +608,8 @@ class _ClusterState:
             pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if storage_encrypted is not None:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -776,7 +796,7 @@ class _ClusterState:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+        The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         """
         return pulumi.get(self, "engine")
 
@@ -957,6 +977,18 @@ class _ClusterState:
         pulumi.set(self, "storage_encrypted", value)
 
     @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -1026,6 +1058,7 @@ class Cluster(pulumi.CustomResource):
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1043,26 +1076,28 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         docdb = aws.docdb.Cluster("docdb",
-            backup_retention_period=5,
             cluster_identifier="my-docdb-cluster",
             engine="docdb",
-            master_password="mustbeeightchars",
             master_username="foo",
+            master_password="mustbeeightchars",
+            backup_retention_period=5,
             preferred_backup_window="07:00-09:00",
             skip_final_snapshot=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
+        $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -1082,7 +1117,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
                The following log types are supported: `audit`, `profiler`.
-        :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+        :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB cluster is deleted. If omitted, no final snapshot will be
@@ -1099,6 +1134,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
+        :param pulumi.Input[str] storage_type: The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
@@ -1123,26 +1159,28 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         docdb = aws.docdb.Cluster("docdb",
-            backup_retention_period=5,
             cluster_identifier="my-docdb-cluster",
             engine="docdb",
-            master_password="mustbeeightchars",
             master_username="foo",
+            master_password="mustbeeightchars",
+            backup_retention_period=5,
             preferred_backup_window="07:00-09:00",
             skip_final_snapshot=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
+        $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -1184,6 +1222,7 @@ class Cluster(pulumi.CustomResource):
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1219,6 +1258,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["storage_encrypted"] = storage_encrypted
+            __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["arn"] = None
@@ -1227,7 +1267,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["reader_endpoint"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:docdb/cluster:Cluster',
@@ -1268,6 +1308,7 @@ class Cluster(pulumi.CustomResource):
             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
             snapshot_identifier: Optional[pulumi.Input[str]] = None,
             storage_encrypted: Optional[pulumi.Input[bool]] = None,
+            storage_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Cluster':
@@ -1296,7 +1337,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: List of log types to export to cloudwatch. If omitted, no logs will be exported.
                The following log types are supported: `audit`, `profiler`.
         :param pulumi.Input[str] endpoint: The DNS address of the DocumentDB instance
-        :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+        :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         :param pulumi.Input[str] engine_version: The database engine version. Updating this argument results in an outage.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB cluster is deleted. If omitted, no final snapshot will be
@@ -1315,6 +1356,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
+        :param pulumi.Input[str] storage_type: The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate
@@ -1353,6 +1395,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
         __props__.__dict__["snapshot_identifier"] = snapshot_identifier
         __props__.__dict__["storage_encrypted"] = storage_encrypted
+        __props__.__dict__["storage_type"] = storage_type
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
@@ -1478,7 +1521,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
+        The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         """
         return pulumi.get(self, "engine")
 
@@ -1597,6 +1640,14 @@ class Cluster(pulumi.CustomResource):
         Specifies whether the DB cluster is encrypted. The default is `false`.
         """
         return pulumi.get(self, "storage_encrypted")
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
+        """
+        return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter

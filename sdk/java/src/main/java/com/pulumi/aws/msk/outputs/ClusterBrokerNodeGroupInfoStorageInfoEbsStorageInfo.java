@@ -59,19 +59,21 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
 
         @CustomType.Setter
         public Builder provisionedThroughput(@Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput provisionedThroughput) {
+
             this.provisionedThroughput = provisionedThroughput;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
+
             this.volumeSize = volumeSize;
             return this;
         }
         public ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo build() {
-            final var o = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo();
-            o.provisionedThroughput = provisionedThroughput;
-            o.volumeSize = volumeSize;
-            return o;
+            final var _resultValue = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo();
+            _resultValue.provisionedThroughput = provisionedThroughput;
+            _resultValue.volumeSize = volumeSize;
+            return _resultValue;
         }
     }
 }

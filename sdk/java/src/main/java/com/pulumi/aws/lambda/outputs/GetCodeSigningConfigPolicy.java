@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetCodeSigningConfigPolicy {
 
         @CustomType.Setter
         public Builder untrustedArtifactOnDeployment(String untrustedArtifactOnDeployment) {
-            this.untrustedArtifactOnDeployment = Objects.requireNonNull(untrustedArtifactOnDeployment);
+            if (untrustedArtifactOnDeployment == null) {
+              throw new MissingRequiredPropertyException("GetCodeSigningConfigPolicy", "untrustedArtifactOnDeployment");
+            }
+            this.untrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
             return this;
         }
         public GetCodeSigningConfigPolicy build() {
-            final var o = new GetCodeSigningConfigPolicy();
-            o.untrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
-            return o;
+            final var _resultValue = new GetCodeSigningConfigPolicy();
+            _resultValue.untrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
+            return _resultValue;
         }
     }
 }

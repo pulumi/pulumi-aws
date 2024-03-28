@@ -16,6 +16,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,18 +28,19 @@ namespace Pulumi.Aws.AppRunner
     ///     var example = new Aws.AppRunner.CustomDomainAssociation("example", new()
     ///     {
     ///         DomainName = "example.com",
-    ///         ServiceArn = aws_apprunner_service.Example.Arn,
+    ///         ServiceArn = exampleAwsApprunnerService.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Runner Custom Domain Associations using the `domain_name` and `service_arn` separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apprunner/customDomainAssociation:CustomDomainAssociation example example.com,arn:aws:apprunner:us-east-1:123456789012:service/example-app/8fe1e10304f84fd2b0df550fe98a71fa
+    /// $ pulumi import aws:apprunner/customDomainAssociation:CustomDomainAssociation example example.com,arn:aws:apprunner:us-east-1:123456789012:service/example-app/8fe1e10304f84fd2b0df550fe98a71fa
     /// ```
     /// </summary>
     [AwsResourceType("aws:apprunner/customDomainAssociation:CustomDomainAssociation")]

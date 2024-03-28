@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := budgets.NewBudget(ctx, "ec2", &budgets.BudgetArgs{
-//				BudgetType: pulumi.String("COST"),
+//				Name:            pulumi.String("budget-ec2-monthly"),
+//				BudgetType:      pulumi.String("COST"),
+//				LimitAmount:     pulumi.String("1200"),
+//				LimitUnit:       pulumi.String("USD"),
+//				TimePeriodEnd:   pulumi.String("2087-06-15_00:00"),
+//				TimePeriodStart: pulumi.String("2017-07-01_00:00"),
+//				TimeUnit:        pulumi.String("MONTHLY"),
 //				CostFilters: budgets.BudgetCostFilterArray{
 //					&budgets.BudgetCostFilterArgs{
 //						Name: pulumi.String("Service"),
@@ -38,22 +45,17 @@ import (
 //						},
 //					},
 //				},
-//				LimitAmount: pulumi.String("1200"),
-//				LimitUnit:   pulumi.String("USD"),
 //				Notifications: budgets.BudgetNotificationArray{
 //					&budgets.BudgetNotificationArgs{
 //						ComparisonOperator: pulumi.String("GREATER_THAN"),
+//						Threshold:          pulumi.Float64(100),
+//						ThresholdType:      pulumi.String("PERCENTAGE"),
 //						NotificationType:   pulumi.String("FORECASTED"),
 //						SubscriberEmailAddresses: pulumi.StringArray{
 //							pulumi.String("test@example.com"),
 //						},
-//						Threshold:     pulumi.Float64(100),
-//						ThresholdType: pulumi.String("PERCENTAGE"),
 //					},
 //				},
-//				TimePeriodEnd:   pulumi.String("2087-06-15_00:00"),
-//				TimePeriodStart: pulumi.String("2017-07-01_00:00"),
-//				TimeUnit:        pulumi.String("MONTHLY"),
 //			})
 //			if err != nil {
 //				return err
@@ -63,9 +65,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Create a budget for *$100*.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,9 +95,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Create a budget with planned budget limits.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,13 +115,13 @@ import (
 //			_, err := budgets.NewBudget(ctx, "cost", &budgets.BudgetArgs{
 //				PlannedLimits: budgets.BudgetPlannedLimitArray{
 //					&budgets.BudgetPlannedLimitArgs{
-//						Amount:    pulumi.String("100"),
 //						StartTime: pulumi.String("2017-07-01_00:00"),
+//						Amount:    pulumi.String("100"),
 //						Unit:      pulumi.String("USD"),
 //					},
 //					&budgets.BudgetPlannedLimitArgs{
-//						Amount:    pulumi.String("200"),
 //						StartTime: pulumi.String("2017-08-01_00:00"),
+//						Amount:    pulumi.String("200"),
 //						Unit:      pulumi.String("USD"),
 //					},
 //				},
@@ -128,9 +134,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Create a budget for s3 with a limit of *3 GB* of storage.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -156,9 +164,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # Create a Savings Plan Utilization Budget
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -171,8 +181,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := budgets.NewBudget(ctx, "savingsPlanUtilization", &budgets.BudgetArgs{
-//				BudgetType: pulumi.String("SAVINGS_PLANS_UTILIZATION"),
+//			_, err := budgets.NewBudget(ctx, "savings_plan_utilization", &budgets.BudgetArgs{
+//				BudgetType:  pulumi.String("SAVINGS_PLANS_UTILIZATION"),
+//				LimitAmount: pulumi.String("100.0"),
+//				LimitUnit:   pulumi.String("PERCENTAGE"),
 //				CostTypes: &budgets.BudgetCostTypesArgs{
 //					IncludeCredit:            pulumi.Bool(false),
 //					IncludeDiscount:          pulumi.Bool(false),
@@ -185,8 +197,6 @@ import (
 //					IncludeUpfront:           pulumi.Bool(false),
 //					UseBlended:               pulumi.Bool(false),
 //				},
-//				LimitAmount: pulumi.String("100.0"),
-//				LimitUnit:   pulumi.String("PERCENTAGE"),
 //			})
 //			if err != nil {
 //				return err
@@ -196,9 +206,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # Create a RI Utilization Budget
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -211,8 +223,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := budgets.NewBudget(ctx, "riUtilization", &budgets.BudgetArgs{
-//				BudgetType: pulumi.String("RI_UTILIZATION"),
+//			_, err := budgets.NewBudget(ctx, "ri_utilization", &budgets.BudgetArgs{
+//				BudgetType:  pulumi.String("RI_UTILIZATION"),
+//				LimitAmount: pulumi.String("100.0"),
+//				LimitUnit:   pulumi.String("PERCENTAGE"),
+//				CostTypes: &budgets.BudgetCostTypesArgs{
+//					IncludeCredit:            pulumi.Bool(false),
+//					IncludeDiscount:          pulumi.Bool(false),
+//					IncludeOtherSubscription: pulumi.Bool(false),
+//					IncludeRecurring:         pulumi.Bool(false),
+//					IncludeRefund:            pulumi.Bool(false),
+//					IncludeSubscription:      pulumi.Bool(true),
+//					IncludeSupport:           pulumi.Bool(false),
+//					IncludeTax:               pulumi.Bool(false),
+//					IncludeUpfront:           pulumi.Bool(false),
+//					UseBlended:               pulumi.Bool(false),
+//				},
 //				CostFilters: budgets.BudgetCostFilterArray{
 //					&budgets.BudgetCostFilterArgs{
 //						Name: pulumi.String("Service"),
@@ -221,20 +247,6 @@ import (
 //						},
 //					},
 //				},
-//				CostTypes: &budgets.BudgetCostTypesArgs{
-//					IncludeCredit:            pulumi.Bool(false),
-//					IncludeDiscount:          pulumi.Bool(false),
-//					IncludeOtherSubscription: pulumi.Bool(false),
-//					IncludeRecurring:         pulumi.Bool(false),
-//					IncludeRefund:            pulumi.Bool(false),
-//					IncludeSubscription:      pulumi.Bool(true),
-//					IncludeSupport:           pulumi.Bool(false),
-//					IncludeTax:               pulumi.Bool(false),
-//					IncludeUpfront:           pulumi.Bool(false),
-//					UseBlended:               pulumi.Bool(false),
-//				},
-//				LimitAmount: pulumi.String("100.0"),
-//				LimitUnit:   pulumi.String("PERCENTAGE"),
 //			})
 //			if err != nil {
 //				return err
@@ -244,9 +256,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # Create a Cost Filter using Resource Tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -277,13 +291,17 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # Create a costFilter using resource tags, obtaining the tag value from a variable
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
+//
+//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -297,7 +315,7 @@ import (
 //					&budgets.BudgetCostFilterArgs{
 //						Name: pulumi.String("TagKeyValue"),
 //						Values: pulumi.StringArray{
-//							pulumi.String("TagKey${var.TagValue}"),
+//							pulumi.String(fmt.Sprintf("TagKey%v%v", "$", tagValue)),
 //						},
 //					},
 //				},
@@ -310,15 +328,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
-//
+// $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
 // ```
 type Budget struct {
 	pulumi.CustomResourceState

@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,13 +46,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With description
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -73,6 +80,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;example&#34;)
  *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
  *             .build());
@@ -80,7 +88,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With tags
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -103,6 +115,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
  *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
  *             .build());
@@ -110,7 +123,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With target_table
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -134,23 +151,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
  *             .targetTable(DataQualityRulesetTargetTableArgs.builder()
- *                 .databaseName(aws_glue_catalog_database.example().name())
- *                 .tableName(aws_glue_catalog_table.example().name())
+ *                 .databaseName(exampleAwsGlueCatalogDatabase.name())
+ *                 .tableName(exampleAwsGlueCatalogTable.name())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
+ * $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
  * ```
  * 
  */
@@ -333,9 +352,6 @@ public class DataQualityRuleset extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

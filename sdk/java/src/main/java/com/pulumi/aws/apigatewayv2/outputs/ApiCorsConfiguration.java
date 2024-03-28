@@ -117,11 +117,13 @@ public final class ApiCorsConfiguration {
 
         @CustomType.Setter
         public Builder allowCredentials(@Nullable Boolean allowCredentials) {
+
             this.allowCredentials = allowCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder allowHeaders(@Nullable List<String> allowHeaders) {
+
             this.allowHeaders = allowHeaders;
             return this;
         }
@@ -130,6 +132,7 @@ public final class ApiCorsConfiguration {
         }
         @CustomType.Setter
         public Builder allowMethods(@Nullable List<String> allowMethods) {
+
             this.allowMethods = allowMethods;
             return this;
         }
@@ -138,6 +141,7 @@ public final class ApiCorsConfiguration {
         }
         @CustomType.Setter
         public Builder allowOrigins(@Nullable List<String> allowOrigins) {
+
             this.allowOrigins = allowOrigins;
             return this;
         }
@@ -146,6 +150,7 @@ public final class ApiCorsConfiguration {
         }
         @CustomType.Setter
         public Builder exposeHeaders(@Nullable List<String> exposeHeaders) {
+
             this.exposeHeaders = exposeHeaders;
             return this;
         }
@@ -154,18 +159,19 @@ public final class ApiCorsConfiguration {
         }
         @CustomType.Setter
         public Builder maxAge(@Nullable Integer maxAge) {
+
             this.maxAge = maxAge;
             return this;
         }
         public ApiCorsConfiguration build() {
-            final var o = new ApiCorsConfiguration();
-            o.allowCredentials = allowCredentials;
-            o.allowHeaders = allowHeaders;
-            o.allowMethods = allowMethods;
-            o.allowOrigins = allowOrigins;
-            o.exposeHeaders = exposeHeaders;
-            o.maxAge = maxAge;
-            return o;
+            final var _resultValue = new ApiCorsConfiguration();
+            _resultValue.allowCredentials = allowCredentials;
+            _resultValue.allowHeaders = allowHeaders;
+            _resultValue.allowMethods = allowMethods;
+            _resultValue.allowOrigins = allowOrigins;
+            _resultValue.exposeHeaders = exposeHeaders;
+            _resultValue.maxAge = maxAge;
+            return _resultValue;
         }
     }
 }

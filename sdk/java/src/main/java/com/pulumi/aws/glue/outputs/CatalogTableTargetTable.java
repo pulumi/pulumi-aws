@@ -4,8 +4,11 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableTargetTable {
@@ -24,6 +27,11 @@ public final class CatalogTableTargetTable {
      * 
      */
     private String name;
+    /**
+     * @return Region of the target table.
+     * 
+     */
+    private @Nullable String region;
 
     private CatalogTableTargetTable() {}
     /**
@@ -47,6 +55,13 @@ public final class CatalogTableTargetTable {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Region of the target table.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -60,35 +75,53 @@ public final class CatalogTableTargetTable {
         private String catalogId;
         private String databaseName;
         private String name;
+        private @Nullable String region;
         public Builder() {}
         public Builder(CatalogTableTargetTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
     	      this.databaseName = defaults.databaseName;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
         public Builder catalogId(String catalogId) {
-            this.catalogId = Objects.requireNonNull(catalogId);
+            if (catalogId == null) {
+              throw new MissingRequiredPropertyException("CatalogTableTargetTable", "catalogId");
+            }
+            this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("CatalogTableTargetTable", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("CatalogTableTargetTable", "name");
+            }
+            this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(@Nullable String region) {
+
+            this.region = region;
             return this;
         }
         public CatalogTableTargetTable build() {
-            final var o = new CatalogTableTargetTable();
-            o.catalogId = catalogId;
-            o.databaseName = databaseName;
-            o.name = name;
-            return o;
+            final var _resultValue = new CatalogTableTargetTable();
+            _resultValue.catalogId = catalogId;
+            _resultValue.databaseName = databaseName;
+            _resultValue.name = name;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

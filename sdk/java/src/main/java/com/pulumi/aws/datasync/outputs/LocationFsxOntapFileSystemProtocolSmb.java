@@ -5,6 +5,7 @@ package com.pulumi.aws.datasync.outputs;
 
 import com.pulumi.aws.datasync.outputs.LocationFsxOntapFileSystemProtocolSmbMountOptions;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,31 +88,41 @@ public final class LocationFsxOntapFileSystemProtocolSmb {
 
         @CustomType.Setter
         public Builder domain(@Nullable String domain) {
+
             this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder mountOptions(LocationFsxOntapFileSystemProtocolSmbMountOptions mountOptions) {
-            this.mountOptions = Objects.requireNonNull(mountOptions);
+            if (mountOptions == null) {
+              throw new MissingRequiredPropertyException("LocationFsxOntapFileSystemProtocolSmb", "mountOptions");
+            }
+            this.mountOptions = mountOptions;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("LocationFsxOntapFileSystemProtocolSmb", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder user(String user) {
-            this.user = Objects.requireNonNull(user);
+            if (user == null) {
+              throw new MissingRequiredPropertyException("LocationFsxOntapFileSystemProtocolSmb", "user");
+            }
+            this.user = user;
             return this;
         }
         public LocationFsxOntapFileSystemProtocolSmb build() {
-            final var o = new LocationFsxOntapFileSystemProtocolSmb();
-            o.domain = domain;
-            o.mountOptions = mountOptions;
-            o.password = password;
-            o.user = user;
-            return o;
+            final var _resultValue = new LocationFsxOntapFileSystemProtocolSmb();
+            _resultValue.domain = domain;
+            _resultValue.mountOptions = mountOptions;
+            _resultValue.password = password;
+            _resultValue.user = user;
+            return _resultValue;
         }
     }
 }

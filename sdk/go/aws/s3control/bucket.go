@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -32,7 +33,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3control.NewBucket(ctx, "example", &s3control.BucketArgs{
 //				Bucket:    pulumi.String("example"),
-//				OutpostId: pulumi.Any(data.Aws_outposts_outpost.Example.Id),
+//				OutpostId: pulumi.Any(exampleAwsOutpostsOutpost.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
-//
+// $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
 // ```
 type Bucket struct {
 	pulumi.CustomResourceState
@@ -86,10 +86,6 @@ func NewBucket(ctx *pulumi.Context,
 	if args.OutpostId == nil {
 		return nil, errors.New("invalid value for required argument 'OutpostId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Bucket
 	err := ctx.RegisterResource("aws:s3control/bucket:Bucket", name, args, &resource, opts...)

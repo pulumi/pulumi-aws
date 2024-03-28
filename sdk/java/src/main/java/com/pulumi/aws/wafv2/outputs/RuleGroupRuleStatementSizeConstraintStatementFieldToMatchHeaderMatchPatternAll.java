@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHead
         }
 
         public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll();
+            return _resultValue;
         }
     }
 }

@@ -29,13 +29,16 @@ import * as utilities from "../utilities";
  * > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `applyImmediately`.
  *
  * ## Example Usage
+ *
  * ### Memcached Cluster
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.elasticache.Cluster("example", {
+ *     clusterId: "cluster-example",
  *     engine: "memcached",
  *     nodeType: "cache.m4.large",
  *     numCacheNodes: 2,
@@ -43,38 +46,52 @@ import * as utilities from "../utilities";
  *     port: 11211,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Redis Instance
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.elasticache.Cluster("example", {
+ *     clusterId: "cluster-example",
  *     engine: "redis",
- *     engineVersion: "3.2.10",
  *     nodeType: "cache.m4.large",
  *     numCacheNodes: 1,
  *     parameterGroupName: "default.redis3.2",
+ *     engineVersion: "3.2.10",
  *     port: 6379,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Redis Cluster Mode Disabled Read Replica Instance
  *
  * These inherit their settings from the replication group.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const replica = new aws.elasticache.Cluster("replica", {replicationGroupId: aws_elasticache_replication_group.example.id});
+ * const replica = new aws.elasticache.Cluster("replica", {
+ *     clusterId: "cluster-example",
+ *     replicationGroupId: example.id,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Redis Log Delivery configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.elasticache.Cluster("test", {
+ *     clusterId: "mycluster",
  *     engine: "redis",
  *     nodeType: "cache.t3.micro",
  *     numCacheNodes: 1,
@@ -82,13 +99,13 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  *     logDeliveryConfigurations: [
  *         {
- *             destination: aws_cloudwatch_log_group.example.name,
+ *             destination: example.name,
  *             destinationType: "cloudwatch-logs",
  *             logFormat: "text",
  *             logType: "slow-log",
  *         },
  *         {
- *             destination: aws_kinesis_firehose_delivery_stream.example.name,
+ *             destination: exampleAwsKinesisFirehoseDeliveryStream.name,
  *             destinationType: "kinesis-firehose",
  *             logFormat: "json",
  *             logType: "engine-log",
@@ -96,13 +113,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+ * $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {
@@ -376,8 +394,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }

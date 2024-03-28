@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,35 +23,36 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
+    ///     var example = new Aws.Ec2TransitGateway.TransitGateway("example", new()
     ///     {
     ///         MulticastSupport = "enable",
     ///     });
     /// 
-    ///     var exampleVpcAttachment = new Aws.Ec2TransitGateway.VpcAttachment("exampleVpcAttachment", new()
+    ///     var exampleVpcAttachment = new Aws.Ec2TransitGateway.VpcAttachment("example", new()
     ///     {
     ///         SubnetIds = new[]
     ///         {
-    ///             aws_subnet.Example.Id,
+    ///             exampleAwsSubnet.Id,
     ///         },
-    ///         TransitGatewayId = exampleTransitGateway.Id,
-    ///         VpcId = aws_vpc.Example.Id,
+    ///         TransitGatewayId = example.Id,
+    ///         VpcId = exampleAwsVpc.Id,
     ///     });
     /// 
-    ///     var exampleMulticastDomain = new Aws.Ec2TransitGateway.MulticastDomain("exampleMulticastDomain", new()
+    ///     var exampleMulticastDomain = new Aws.Ec2TransitGateway.MulticastDomain("example", new()
     ///     {
-    ///         TransitGatewayId = exampleTransitGateway.Id,
+    ///         TransitGatewayId = example.Id,
     ///     });
     /// 
-    ///     var exampleMulticastDomainAssociation = new Aws.Ec2TransitGateway.MulticastDomainAssociation("exampleMulticastDomainAssociation", new()
+    ///     var exampleMulticastDomainAssociation = new Aws.Ec2TransitGateway.MulticastDomainAssociation("example", new()
     ///     {
-    ///         SubnetId = aws_subnet.Example.Id,
+    ///         SubnetId = exampleAwsSubnet.Id,
     ///         TransitGatewayAttachmentId = exampleVpcAttachment.Id,
     ///         TransitGatewayMulticastDomainId = exampleMulticastDomain.Id,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation")]
     public partial class MulticastDomainAssociation : global::Pulumi.CustomResource

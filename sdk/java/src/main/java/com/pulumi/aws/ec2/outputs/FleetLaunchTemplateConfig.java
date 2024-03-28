@@ -60,11 +60,13 @@ public final class FleetLaunchTemplateConfig {
 
         @CustomType.Setter
         public Builder launchTemplateSpecification(@Nullable FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification) {
+
             this.launchTemplateSpecification = launchTemplateSpecification;
             return this;
         }
         @CustomType.Setter
         public Builder overrides(@Nullable List<FleetLaunchTemplateConfigOverride> overrides) {
+
             this.overrides = overrides;
             return this;
         }
@@ -72,10 +74,10 @@ public final class FleetLaunchTemplateConfig {
             return overrides(List.of(overrides));
         }
         public FleetLaunchTemplateConfig build() {
-            final var o = new FleetLaunchTemplateConfig();
-            o.launchTemplateSpecification = launchTemplateSpecification;
-            o.overrides = overrides;
-            return o;
+            final var _resultValue = new FleetLaunchTemplateConfig();
+            _resultValue.launchTemplateSpecification = launchTemplateSpecification;
+            _resultValue.overrides = overrides;
+            return _resultValue;
         }
     }
 }

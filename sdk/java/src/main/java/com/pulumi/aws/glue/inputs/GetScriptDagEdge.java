@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -119,8 +120,12 @@ public final class GetScriptDagEdge extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetScriptDagEdge build() {
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("GetScriptDagEdge", "source");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("GetScriptDagEdge", "target");
+            }
             return $;
         }
     }

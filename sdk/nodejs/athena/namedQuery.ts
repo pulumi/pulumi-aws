@@ -9,40 +9,46 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hogeBucketV2 = new aws.s3.BucketV2("hogeBucketV2", {});
- * const testKey = new aws.kms.Key("testKey", {
+ * const hoge = new aws.s3.BucketV2("hoge", {bucket: "tf-test"});
+ * const test = new aws.kms.Key("test", {
  *     deletionWindowInDays: 7,
  *     description: "Athena KMS Key",
  * });
- * const testWorkgroup = new aws.athena.Workgroup("testWorkgroup", {configuration: {
- *     resultConfiguration: {
- *         encryptionConfiguration: {
- *             encryptionOption: "SSE_KMS",
- *             kmsKeyArn: testKey.arn,
+ * const testWorkgroup = new aws.athena.Workgroup("test", {
+ *     name: "example",
+ *     configuration: {
+ *         resultConfiguration: {
+ *             encryptionConfiguration: {
+ *                 encryptionOption: "SSE_KMS",
+ *                 kmsKeyArn: test.arn,
+ *             },
  *         },
  *     },
- * }});
- * const hogeDatabase = new aws.athena.Database("hogeDatabase", {
+ * });
+ * const hogeDatabase = new aws.athena.Database("hoge", {
  *     name: "users",
- *     bucket: hogeBucketV2.id,
+ *     bucket: hoge.id,
  * });
  * const foo = new aws.athena.NamedQuery("foo", {
+ *     name: "bar",
  *     workgroup: testWorkgroup.id,
  *     database: hogeDatabase.name,
  *     query: pulumi.interpolate`SELECT * FROM ${hogeDatabase.name} limit 10;`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Athena Named Query using the query ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+ * $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
  * ```
  */
 export class NamedQuery extends pulumi.CustomResource {

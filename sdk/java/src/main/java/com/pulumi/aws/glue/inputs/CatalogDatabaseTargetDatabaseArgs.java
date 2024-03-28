@@ -5,6 +5,7 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class CatalogDatabaseTargetDatabaseArgs extends com.pulumi.resource
         }
 
         public CatalogDatabaseTargetDatabaseArgs build() {
-            $.catalogId = Objects.requireNonNull($.catalogId, "expected parameter 'catalogId' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
+            if ($.catalogId == null) {
+                throw new MissingRequiredPropertyException("CatalogDatabaseTargetDatabaseArgs", "catalogId");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("CatalogDatabaseTargetDatabaseArgs", "databaseName");
+            }
             return $;
         }
     }

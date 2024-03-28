@@ -21,7 +21,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, arn=None, clone_url_http=None, clone_url_ssh=None, id=None, repository_id=None, repository_name=None):
+    def __init__(__self__, arn=None, clone_url_http=None, clone_url_ssh=None, id=None, kms_key_id=None, repository_id=None, repository_name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +34,9 @@ class GetRepositoryResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError("Expected argument 'kms_key_id' to be a str")
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
         if repository_id and not isinstance(repository_id, str):
             raise TypeError("Expected argument 'repository_id' to be a str")
         pulumi.set(__self__, "repository_id", repository_id)
@@ -45,7 +48,7 @@ class GetRepositoryResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        ARN of the repository
+        ARN of the repository.
         """
         return pulumi.get(self, "arn")
 
@@ -74,10 +77,18 @@ class GetRepositoryResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> str:
+        """
+        The ID of the encryption key.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> str:
         """
-        ID of the repository
+        ID of the repository.
         """
         return pulumi.get(self, "repository_id")
 
@@ -97,6 +108,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             clone_url_http=self.clone_url_http,
             clone_url_ssh=self.clone_url_ssh,
             id=self.id,
+            kms_key_id=self.kms_key_id,
             repository_id=self.repository_id,
             repository_name=self.repository_name)
 
@@ -108,12 +120,14 @@ def get_repository(repository_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.codecommit.get_repository(repository_name="MyTestRepository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str repository_name: Name for the repository. This needs to be less than 100 characters.
@@ -128,6 +142,7 @@ def get_repository(repository_name: Optional[str] = None,
         clone_url_http=pulumi.get(__ret__, 'clone_url_http'),
         clone_url_ssh=pulumi.get(__ret__, 'clone_url_ssh'),
         id=pulumi.get(__ret__, 'id'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         repository_id=pulumi.get(__ret__, 'repository_id'),
         repository_name=pulumi.get(__ret__, 'repository_name'))
 
@@ -140,12 +155,14 @@ def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.codecommit.get_repository(repository_name="MyTestRepository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str repository_name: Name for the repository. This needs to be less than 100 characters.

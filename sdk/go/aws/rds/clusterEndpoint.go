@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,7 +50,7 @@ import (
 //				ApplyImmediately:  pulumi.Bool(true),
 //				ClusterIdentifier: _default.ID(),
 //				Identifier:        pulumi.String("test1"),
-//				InstanceClass:     pulumi.String("db.t2.small"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
 //				Engine:            _default.Engine,
 //				EngineVersion:     _default.EngineVersion,
 //			})
@@ -60,7 +61,7 @@ import (
 //				ApplyImmediately:  pulumi.Bool(true),
 //				ClusterIdentifier: _default.ID(),
 //				Identifier:        pulumi.String("test2"),
-//				InstanceClass:     pulumi.String("db.t2.small"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
 //				Engine:            _default.Engine,
 //				EngineVersion:     _default.EngineVersion,
 //			})
@@ -71,7 +72,7 @@ import (
 //				ApplyImmediately:  pulumi.Bool(true),
 //				ClusterIdentifier: _default.ID(),
 //				Identifier:        pulumi.String("test3"),
-//				InstanceClass:     pulumi.String("db.t2.small"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
 //				Engine:            _default.Engine,
 //				EngineVersion:     _default.EngineVersion,
 //			})
@@ -107,15 +108,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import RDS Clusters Endpoint using the `cluster_endpoint_identifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
-//
+// $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
 // ```
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState
@@ -158,10 +158,6 @@ func NewClusterEndpoint(ctx *pulumi.Context,
 	if args.CustomEndpointType == nil {
 		return nil, errors.New("invalid value for required argument 'CustomEndpointType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterEndpoint
 	err := ctx.RegisterResource("aws:rds/clusterEndpoint:ClusterEndpoint", name, args, &resource, opts...)

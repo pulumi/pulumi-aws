@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,16 +34,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleComputeEnvironment, err := batch.NewComputeEnvironment(ctx, "exampleComputeEnvironment", &batch.ComputeEnvironmentArgs{
+//			example, err := batch.NewComputeEnvironment(ctx, "example", &batch.ComputeEnvironmentArgs{
 //				ComputeEnvironmentName: pulumi.String("example"),
-//				ServiceRole:            pulumi.Any(aws_iam_role.Example.Arn),
+//				ServiceRole:            pulumi.Any(exampleAwsIamRole.Arn),
 //				Type:                   pulumi.String("UNMANAGED"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecs.NewTag(ctx, "exampleTag", &ecs.TagArgs{
-//				ResourceArn: exampleComputeEnvironment.EcsClusterArn,
+//			_, err = ecs.NewTag(ctx, "example", &ecs.TagArgs{
+//				ResourceArn: example.EcsClusterArn,
 //				Key:         pulumi.String("Name"),
 //				Value:       pulumi.String("Hello World"),
 //			})
@@ -54,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
-//
+// $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
 // ```
 type Tag struct {
 	pulumi.CustomResourceState

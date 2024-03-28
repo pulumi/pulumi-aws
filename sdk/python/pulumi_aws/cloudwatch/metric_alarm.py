@@ -838,33 +838,40 @@ class MetricAlarm(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
-            alarm_description="This metric monitors ec2 cpu utilization",
+            name="test-foobar5",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods=2,
-            insufficient_data_actions=[],
             metric_name="CPUUtilization",
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80)
+            threshold=80,
+            alarm_description="This metric monitors ec2 cpu utilization",
+            insufficient_data_actions=[])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example in Conjunction with Scaling Policies
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        bat_policy = aws.autoscaling.Policy("batPolicy",
+        bat = aws.autoscaling.Policy("bat",
+            name="foobar3-test",
             scaling_adjustment=4,
             adjustment_type="ChangeInCapacity",
             cooldown=300,
-            autoscaling_group_name=aws_autoscaling_group["bar"]["name"])
-        bat_metric_alarm = aws.cloudwatch.MetricAlarm("batMetricAlarm",
+            autoscaling_group_name=bar["name"])
+        bat_metric_alarm = aws.cloudwatch.MetricAlarm("bat",
+            name="test-foobar5",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods=2,
             metric_name="CPUUtilization",
@@ -873,117 +880,127 @@ class MetricAlarm(pulumi.CustomResource):
             statistic="Average",
             threshold=80,
             dimensions={
-                "AutoScalingGroupName": aws_autoscaling_group["bar"]["name"],
+                "AutoScalingGroupName": bar["name"],
             },
             alarm_description="This metric monitors ec2 cpu utilization",
-            alarm_actions=[bat_policy.arn])
+            alarm_actions=[bat.arn])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example with an Expression
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
-            alarm_description="Request error rate has exceeded 10%",
+            name="test-foobar",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods=2,
+            threshold=10,
+            alarm_description="Request error rate has exceeded 10%",
             insufficient_data_actions=[],
             metric_queries=[
                 aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    expression="m2/m1*100",
                     id="e1",
+                    expression="m2/m1*100",
                     label="Error Rate",
                     return_data=True,
                 ),
                 aws.cloudwatch.MetricAlarmMetricQueryArgs(
                     id="m1",
                     metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        dimensions={
-                            "LoadBalancer": "app/web",
-                        },
                         metric_name="RequestCount",
                         namespace="AWS/ApplicationELB",
                         period=120,
                         stat="Sum",
                         unit="Count",
+                        dimensions={
+                            "LoadBalancer": "app/web",
+                        },
                     ),
                 ),
                 aws.cloudwatch.MetricAlarmMetricQueryArgs(
                     id="m2",
                     metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        dimensions={
-                            "LoadBalancer": "app/web",
-                        },
                         metric_name="HTTPCode_ELB_5XX_Count",
                         namespace="AWS/ApplicationELB",
                         period=120,
                         stat="Sum",
                         unit="Count",
+                        dimensions={
+                            "LoadBalancer": "app/web",
+                        },
                     ),
                 ),
-            ],
-            threshold=10)
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        xx_anomaly_detection = aws.cloudwatch.MetricAlarm("xxAnomalyDetection",
-            alarm_description="This metric monitors ec2 cpu utilization",
+        xx_anomaly_detection = aws.cloudwatch.MetricAlarm("xx_anomaly_detection",
+            name="test-foobar",
             comparison_operator="GreaterThanUpperThreshold",
             evaluation_periods=2,
+            threshold_metric_id="e1",
+            alarm_description="This metric monitors ec2 cpu utilization",
             insufficient_data_actions=[],
             metric_queries=[
                 aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    expression="ANOMALY_DETECTION_BAND(m1)",
                     id="e1",
+                    expression="ANOMALY_DETECTION_BAND(m1)",
                     label="CPUUtilization (Expected)",
                     return_data=True,
                 ),
                 aws.cloudwatch.MetricAlarmMetricQueryArgs(
                     id="m1",
+                    return_data=True,
                     metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        dimensions={
-                            "InstanceId": "i-abc123",
-                        },
                         metric_name="CPUUtilization",
                         namespace="AWS/EC2",
                         period=120,
                         stat="Average",
                         unit="Count",
+                        dimensions={
+                            "InstanceId": "i-abc123",
+                        },
                     ),
-                    return_data=True,
                 ),
-            ],
-            threshold_metric_id="e1")
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        nlb_healthyhosts = aws.cloudwatch.MetricAlarm("nlbHealthyhosts",
+        nlb_healthyhosts = aws.cloudwatch.MetricAlarm("nlb_healthyhosts",
+            name="alarmname",
             comparison_operator="LessThanThreshold",
             evaluation_periods=1,
             metric_name="HealthyHostCount",
             namespace="AWS/NetworkELB",
             period=60,
             statistic="Average",
-            threshold=var["logstash_servers_count"],
+            threshold=logstash_servers_count,
             alarm_description="Number of healthy nodes in Target Group",
             actions_enabled=True,
-            alarm_actions=[aws_sns_topic["sns"]["arn"]],
-            ok_actions=[aws_sns_topic["sns"]["arn"]],
+            alarm_actions=[sns["arn"]],
+            ok_actions=[sns["arn"]],
             dimensions={
-                "TargetGroup": aws_lb_target_group["lb-tg"]["arn_suffix"],
-                "LoadBalancer": aws_lb["lb"]["arn_suffix"],
+                "TargetGroup": lb_tg["arnSuffix"],
+                "LoadBalancer": lb["arnSuffix"],
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
         You must choose one or the other
@@ -993,7 +1010,7 @@ class MetricAlarm(pulumi.CustomResource):
         Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
+        $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -1041,33 +1058,40 @@ class MetricAlarm(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
-            alarm_description="This metric monitors ec2 cpu utilization",
+            name="test-foobar5",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods=2,
-            insufficient_data_actions=[],
             metric_name="CPUUtilization",
             namespace="AWS/EC2",
             period=120,
             statistic="Average",
-            threshold=80)
+            threshold=80,
+            alarm_description="This metric monitors ec2 cpu utilization",
+            insufficient_data_actions=[])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example in Conjunction with Scaling Policies
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        bat_policy = aws.autoscaling.Policy("batPolicy",
+        bat = aws.autoscaling.Policy("bat",
+            name="foobar3-test",
             scaling_adjustment=4,
             adjustment_type="ChangeInCapacity",
             cooldown=300,
-            autoscaling_group_name=aws_autoscaling_group["bar"]["name"])
-        bat_metric_alarm = aws.cloudwatch.MetricAlarm("batMetricAlarm",
+            autoscaling_group_name=bar["name"])
+        bat_metric_alarm = aws.cloudwatch.MetricAlarm("bat",
+            name="test-foobar5",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods=2,
             metric_name="CPUUtilization",
@@ -1076,117 +1100,127 @@ class MetricAlarm(pulumi.CustomResource):
             statistic="Average",
             threshold=80,
             dimensions={
-                "AutoScalingGroupName": aws_autoscaling_group["bar"]["name"],
+                "AutoScalingGroupName": bar["name"],
             },
             alarm_description="This metric monitors ec2 cpu utilization",
-            alarm_actions=[bat_policy.arn])
+            alarm_actions=[bat.arn])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example with an Expression
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foobar = aws.cloudwatch.MetricAlarm("foobar",
-            alarm_description="Request error rate has exceeded 10%",
+            name="test-foobar",
             comparison_operator="GreaterThanOrEqualToThreshold",
             evaluation_periods=2,
+            threshold=10,
+            alarm_description="Request error rate has exceeded 10%",
             insufficient_data_actions=[],
             metric_queries=[
                 aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    expression="m2/m1*100",
                     id="e1",
+                    expression="m2/m1*100",
                     label="Error Rate",
                     return_data=True,
                 ),
                 aws.cloudwatch.MetricAlarmMetricQueryArgs(
                     id="m1",
                     metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        dimensions={
-                            "LoadBalancer": "app/web",
-                        },
                         metric_name="RequestCount",
                         namespace="AWS/ApplicationELB",
                         period=120,
                         stat="Sum",
                         unit="Count",
+                        dimensions={
+                            "LoadBalancer": "app/web",
+                        },
                     ),
                 ),
                 aws.cloudwatch.MetricAlarmMetricQueryArgs(
                     id="m2",
                     metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        dimensions={
-                            "LoadBalancer": "app/web",
-                        },
                         metric_name="HTTPCode_ELB_5XX_Count",
                         namespace="AWS/ApplicationELB",
                         period=120,
                         stat="Sum",
                         unit="Count",
+                        dimensions={
+                            "LoadBalancer": "app/web",
+                        },
                     ),
                 ),
-            ],
-            threshold=10)
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        xx_anomaly_detection = aws.cloudwatch.MetricAlarm("xxAnomalyDetection",
-            alarm_description="This metric monitors ec2 cpu utilization",
+        xx_anomaly_detection = aws.cloudwatch.MetricAlarm("xx_anomaly_detection",
+            name="test-foobar",
             comparison_operator="GreaterThanUpperThreshold",
             evaluation_periods=2,
+            threshold_metric_id="e1",
+            alarm_description="This metric monitors ec2 cpu utilization",
             insufficient_data_actions=[],
             metric_queries=[
                 aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    expression="ANOMALY_DETECTION_BAND(m1)",
                     id="e1",
+                    expression="ANOMALY_DETECTION_BAND(m1)",
                     label="CPUUtilization (Expected)",
                     return_data=True,
                 ),
                 aws.cloudwatch.MetricAlarmMetricQueryArgs(
                     id="m1",
+                    return_data=True,
                     metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        dimensions={
-                            "InstanceId": "i-abc123",
-                        },
                         metric_name="CPUUtilization",
                         namespace="AWS/EC2",
                         period=120,
                         stat="Average",
                         unit="Count",
+                        dimensions={
+                            "InstanceId": "i-abc123",
+                        },
                     ),
-                    return_data=True,
                 ),
-            ],
-            threshold_metric_id="e1")
+            ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        nlb_healthyhosts = aws.cloudwatch.MetricAlarm("nlbHealthyhosts",
+        nlb_healthyhosts = aws.cloudwatch.MetricAlarm("nlb_healthyhosts",
+            name="alarmname",
             comparison_operator="LessThanThreshold",
             evaluation_periods=1,
             metric_name="HealthyHostCount",
             namespace="AWS/NetworkELB",
             period=60,
             statistic="Average",
-            threshold=var["logstash_servers_count"],
+            threshold=logstash_servers_count,
             alarm_description="Number of healthy nodes in Target Group",
             actions_enabled=True,
-            alarm_actions=[aws_sns_topic["sns"]["arn"]],
-            ok_actions=[aws_sns_topic["sns"]["arn"]],
+            alarm_actions=[sns["arn"]],
+            ok_actions=[sns["arn"]],
             dimensions={
-                "TargetGroup": aws_lb_target_group["lb-tg"]["arn_suffix"],
-                "LoadBalancer": aws_lb["lb"]["arn_suffix"],
+                "TargetGroup": lb_tg["arnSuffix"],
+                "LoadBalancer": lb["arnSuffix"],
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
         You must choose one or the other
@@ -1196,7 +1230,7 @@ class MetricAlarm(pulumi.CustomResource):
         Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
+        $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -1273,8 +1307,6 @@ class MetricAlarm(pulumi.CustomResource):
             __props__.__dict__["unit"] = unit
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(MetricAlarm, __self__).__init__(
             'aws:cloudwatch/metricAlarm:MetricAlarm',
             resource_name,

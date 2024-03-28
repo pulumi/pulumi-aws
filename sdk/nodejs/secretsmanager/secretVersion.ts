@@ -10,24 +10,50 @@ import * as utilities from "../utilities";
  * > **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from this provider unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from this provider to fully trigger version deprecation if necessary.
  *
  * ## Example Usage
+ *
  * ### Simple String Value
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.secretsmanager.SecretVersion("example", {
- *     secretId: aws_secretsmanager_secret.example.id,
+ *     secretId: exampleAwsSecretsmanagerSecret.id,
  *     secretString: "example-string-to-protect",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Key-Value Pairs
+ *
+ * Secrets Manager also accepts key-value pairs in JSON.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const example = config.getObject<Record<string, string>>("example") || {
+ *     key1: "value1",
+ *     key2: "value2",
+ * };
+ * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("example", {
+ *     secretId: exampleAwsSecretsmanagerSecret.id,
+ *     secretString: JSON.stringify(example),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * Reading key-value pairs from JSON back into a native map
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
+ * $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
  * ```
  */
 export class SecretVersion extends pulumi.CustomResource {

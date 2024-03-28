@@ -48,25 +48,28 @@ public final class SigningProfileRevocationRecord {
 
         @CustomType.Setter
         public Builder revocationEffectiveFrom(@Nullable String revocationEffectiveFrom) {
+
             this.revocationEffectiveFrom = revocationEffectiveFrom;
             return this;
         }
         @CustomType.Setter
         public Builder revokedAt(@Nullable String revokedAt) {
+
             this.revokedAt = revokedAt;
             return this;
         }
         @CustomType.Setter
         public Builder revokedBy(@Nullable String revokedBy) {
+
             this.revokedBy = revokedBy;
             return this;
         }
         public SigningProfileRevocationRecord build() {
-            final var o = new SigningProfileRevocationRecord();
-            o.revocationEffectiveFrom = revocationEffectiveFrom;
-            o.revokedAt = revokedAt;
-            o.revokedBy = revokedBy;
-            return o;
+            final var _resultValue = new SigningProfileRevocationRecord();
+            _resultValue.revocationEffectiveFrom = revocationEffectiveFrom;
+            _resultValue.revokedAt = revokedAt;
+            _resultValue.revokedBy = revokedBy;
+            return _resultValue;
         }
     }
 }

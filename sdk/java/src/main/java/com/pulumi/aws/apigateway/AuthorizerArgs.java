@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -388,7 +389,9 @@ public final class AuthorizerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AuthorizerArgs build() {
-            $.restApi = Objects.requireNonNull($.restApi, "expected parameter 'restApi' to be non-null");
+            if ($.restApi == null) {
+                throw new MissingRequiredPropertyException("AuthorizerArgs", "restApi");
+            }
             return $;
         }
     }

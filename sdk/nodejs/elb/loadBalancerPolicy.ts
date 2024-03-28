@@ -12,12 +12,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const wu_tang = new aws.elb.LoadBalancer("wu-tang", {
+ *     name: "wu-tang",
  *     availabilityZones: ["us-east-1a"],
  *     listeners: [{
  *         instancePort: 443,
@@ -36,7 +38,9 @@ import * as utilities from "../utilities";
  *     policyTypeName: "PublicKeyPolicyType",
  *     policyAttributes: [{
  *         name: "PublicKey",
- *         value: fs.readFileSync("wu-tang-pubkey"),
+ *         value: std.file({
+ *             input: "wu-tang-pubkey",
+ *         }).then(invoke => invoke.result),
  *     }],
  * });
  * const wu_tang_root_ca_backend_auth_policy = new aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", {
@@ -45,7 +49,7 @@ import * as utilities from "../utilities";
  *     policyTypeName: "BackendServerAuthenticationPolicyType",
  *     policyAttributes: [{
  *         name: "PublicKeyPolicyName",
- *         value: aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"].policy_name,
+ *         value: wu_tang_root_ca_pubkey_policy.policyName,
  *     }],
  * });
  * const wu_tang_ssl = new aws.elb.LoadBalancerPolicy("wu-tang-ssl", {
@@ -83,6 +87,7 @@ import * as utilities from "../utilities";
  *     policyNames: [wu_tang_ssl.policyName],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class LoadBalancerPolicy extends pulumi.CustomResource {
     /**

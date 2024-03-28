@@ -224,85 +224,98 @@ public final class RuleGroupRuleStatement {
 
         @CustomType.Setter
         public Builder andStatement(@Nullable RuleGroupRuleStatementAndStatement andStatement) {
+
             this.andStatement = andStatement;
             return this;
         }
         @CustomType.Setter
         public Builder byteMatchStatement(@Nullable RuleGroupRuleStatementByteMatchStatement byteMatchStatement) {
+
             this.byteMatchStatement = byteMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder geoMatchStatement(@Nullable RuleGroupRuleStatementGeoMatchStatement geoMatchStatement) {
+
             this.geoMatchStatement = geoMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder ipSetReferenceStatement(@Nullable RuleGroupRuleStatementIpSetReferenceStatement ipSetReferenceStatement) {
+
             this.ipSetReferenceStatement = ipSetReferenceStatement;
             return this;
         }
         @CustomType.Setter
         public Builder labelMatchStatement(@Nullable RuleGroupRuleStatementLabelMatchStatement labelMatchStatement) {
+
             this.labelMatchStatement = labelMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder notStatement(@Nullable RuleGroupRuleStatementNotStatement notStatement) {
+
             this.notStatement = notStatement;
             return this;
         }
         @CustomType.Setter
         public Builder orStatement(@Nullable RuleGroupRuleStatementOrStatement orStatement) {
+
             this.orStatement = orStatement;
             return this;
         }
         @CustomType.Setter
         public Builder rateBasedStatement(@Nullable RuleGroupRuleStatementRateBasedStatement rateBasedStatement) {
+
             this.rateBasedStatement = rateBasedStatement;
             return this;
         }
         @CustomType.Setter
         public Builder regexMatchStatement(@Nullable RuleGroupRuleStatementRegexMatchStatement regexMatchStatement) {
+
             this.regexMatchStatement = regexMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder regexPatternSetReferenceStatement(@Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement) {
+
             this.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             return this;
         }
         @CustomType.Setter
         public Builder sizeConstraintStatement(@Nullable RuleGroupRuleStatementSizeConstraintStatement sizeConstraintStatement) {
+
             this.sizeConstraintStatement = sizeConstraintStatement;
             return this;
         }
         @CustomType.Setter
         public Builder sqliMatchStatement(@Nullable RuleGroupRuleStatementSqliMatchStatement sqliMatchStatement) {
+
             this.sqliMatchStatement = sqliMatchStatement;
             return this;
         }
         @CustomType.Setter
         public Builder xssMatchStatement(@Nullable RuleGroupRuleStatementXssMatchStatement xssMatchStatement) {
+
             this.xssMatchStatement = xssMatchStatement;
             return this;
         }
         public RuleGroupRuleStatement build() {
-            final var o = new RuleGroupRuleStatement();
-            o.andStatement = andStatement;
-            o.byteMatchStatement = byteMatchStatement;
-            o.geoMatchStatement = geoMatchStatement;
-            o.ipSetReferenceStatement = ipSetReferenceStatement;
-            o.labelMatchStatement = labelMatchStatement;
-            o.notStatement = notStatement;
-            o.orStatement = orStatement;
-            o.rateBasedStatement = rateBasedStatement;
-            o.regexMatchStatement = regexMatchStatement;
-            o.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
-            o.sizeConstraintStatement = sizeConstraintStatement;
-            o.sqliMatchStatement = sqliMatchStatement;
-            o.xssMatchStatement = xssMatchStatement;
-            return o;
+            final var _resultValue = new RuleGroupRuleStatement();
+            _resultValue.andStatement = andStatement;
+            _resultValue.byteMatchStatement = byteMatchStatement;
+            _resultValue.geoMatchStatement = geoMatchStatement;
+            _resultValue.ipSetReferenceStatement = ipSetReferenceStatement;
+            _resultValue.labelMatchStatement = labelMatchStatement;
+            _resultValue.notStatement = notStatement;
+            _resultValue.orStatement = orStatement;
+            _resultValue.rateBasedStatement = rateBasedStatement;
+            _resultValue.regexMatchStatement = regexMatchStatement;
+            _resultValue.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
+            _resultValue.sizeConstraintStatement = sizeConstraintStatement;
+            _resultValue.sqliMatchStatement = sqliMatchStatement;
+            _resultValue.xssMatchStatement = xssMatchStatement;
+            return _resultValue;
         }
     }
 }

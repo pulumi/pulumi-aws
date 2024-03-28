@@ -338,6 +338,21 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Determines whether a final DB snapshot is created before the DB instance is deleted.
+     * 
+     */
+    @Import(name="skipFinalSnapshot")
+    private @Nullable Output<Boolean> skipFinalSnapshot;
+
+    /**
+     * @return Determines whether a final DB snapshot is created before the DB instance is deleted.
+     * 
+     */
+    public Optional<Output<Boolean>> skipFinalSnapshot() {
+        return Optional.ofNullable(this.skipFinalSnapshot);
+    }
+
+    /**
      * Specifies whether the neptune cluster is encrypted.
      * 
      */
@@ -350,6 +365,21 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<Boolean>> storageEncrypted() {
         return Optional.ofNullable(this.storageEncrypted);
+    }
+
+    /**
+     * Storage type associated with the cluster `standard/iopt1`.
+     * 
+     */
+    @Import(name="storageType")
+    private @Nullable Output<String> storageType;
+
+    /**
+     * @return Storage type associated with the cluster `standard/iopt1`.
+     * 
+     */
+    public Optional<Output<String>> storageType() {
+        return Optional.ofNullable(this.storageType);
     }
 
     /**
@@ -429,7 +459,9 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.promotionTier = $.promotionTier;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.storageEncrypted = $.storageEncrypted;
+        this.storageType = $.storageType;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.writer = $.writer;
@@ -899,6 +931,27 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param skipFinalSnapshot Determines whether a final DB snapshot is created before the DB instance is deleted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalSnapshot(@Nullable Output<Boolean> skipFinalSnapshot) {
+            $.skipFinalSnapshot = skipFinalSnapshot;
+            return this;
+        }
+
+        /**
+         * @param skipFinalSnapshot Determines whether a final DB snapshot is created before the DB instance is deleted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalSnapshot(Boolean skipFinalSnapshot) {
+            return skipFinalSnapshot(Output.of(skipFinalSnapshot));
+        }
+
+        /**
          * @param storageEncrypted Specifies whether the neptune cluster is encrypted.
          * 
          * @return builder
@@ -917,6 +970,27 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
          */
         public Builder storageEncrypted(Boolean storageEncrypted) {
             return storageEncrypted(Output.of(storageEncrypted));
+        }
+
+        /**
+         * @param storageType Storage type associated with the cluster `standard/iopt1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(@Nullable Output<String> storageType) {
+            $.storageType = storageType;
+            return this;
+        }
+
+        /**
+         * @param storageType Storage type associated with the cluster `standard/iopt1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(String storageType) {
+            return storageType(Output.of(storageType));
         }
 
         /**

@@ -12,12 +12,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testSp = new aws.signer.SigningProfile("testSp", {platformId: "AWSLambda-SHA384-ECDSA"});
- * const buildSigningJob = new aws.signer.SigningJob("buildSigningJob", {
+ * const testSp = new aws.signer.SigningProfile("test_sp", {platformId: "AWSLambda-SHA384-ECDSA"});
+ * const buildSigningJob = new aws.signer.SigningJob("build_signing_job", {
  *     profileName: testSp.name,
  *     source: {
  *         s3: {
@@ -35,13 +36,14 @@ import * as utilities from "../utilities";
  *     ignoreSigningJobFailure: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
+ * $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
  * ```
  */
 export class SigningJob extends pulumi.CustomResource {

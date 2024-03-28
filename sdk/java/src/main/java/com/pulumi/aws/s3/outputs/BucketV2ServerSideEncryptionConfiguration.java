@@ -5,6 +5,7 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketV2ServerSideEncryptionConfigurationRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,16 +44,19 @@ public final class BucketV2ServerSideEncryptionConfiguration {
 
         @CustomType.Setter
         public Builder rules(List<BucketV2ServerSideEncryptionConfigurationRule> rules) {
-            this.rules = Objects.requireNonNull(rules);
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("BucketV2ServerSideEncryptionConfiguration", "rules");
+            }
+            this.rules = rules;
             return this;
         }
         public Builder rules(BucketV2ServerSideEncryptionConfigurationRule... rules) {
             return rules(List.of(rules));
         }
         public BucketV2ServerSideEncryptionConfiguration build() {
-            final var o = new BucketV2ServerSideEncryptionConfiguration();
-            o.rules = rules;
-            return o;
+            final var _resultValue = new BucketV2ServerSideEncryptionConfiguration();
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

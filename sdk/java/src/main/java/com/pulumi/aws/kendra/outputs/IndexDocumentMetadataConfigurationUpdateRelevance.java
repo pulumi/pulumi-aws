@@ -103,37 +103,42 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevance {
 
         @CustomType.Setter
         public Builder duration(@Nullable String duration) {
+
             this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder freshness(@Nullable Boolean freshness) {
+
             this.freshness = freshness;
             return this;
         }
         @CustomType.Setter
         public Builder importance(@Nullable Integer importance) {
+
             this.importance = importance;
             return this;
         }
         @CustomType.Setter
         public Builder rankOrder(@Nullable String rankOrder) {
+
             this.rankOrder = rankOrder;
             return this;
         }
         @CustomType.Setter
         public Builder valuesImportanceMap(@Nullable Map<String,Integer> valuesImportanceMap) {
+
             this.valuesImportanceMap = valuesImportanceMap;
             return this;
         }
         public IndexDocumentMetadataConfigurationUpdateRelevance build() {
-            final var o = new IndexDocumentMetadataConfigurationUpdateRelevance();
-            o.duration = duration;
-            o.freshness = freshness;
-            o.importance = importance;
-            o.rankOrder = rankOrder;
-            o.valuesImportanceMap = valuesImportanceMap;
-            return o;
+            final var _resultValue = new IndexDocumentMetadataConfigurationUpdateRelevance();
+            _resultValue.duration = duration;
+            _resultValue.freshness = freshness;
+            _resultValue.importance = importance;
+            _resultValue.rankOrder = rankOrder;
+            _resultValue.valuesImportanceMap = valuesImportanceMap;
+            return _resultValue;
         }
     }
 }

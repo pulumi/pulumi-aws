@@ -5,6 +5,7 @@ package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.aws.ecs.outputs.CapacityProviderAutoScalingGroupProviderManagedScaling;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,6 +18,11 @@ public final class CapacityProviderAutoScalingGroupProvider {
      * 
      */
     private String autoScalingGroupArn;
+    /**
+     * @return Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+     * 
+     */
+    private @Nullable String managedDraining;
     /**
      * @return Configuration block defining the parameters of the auto scaling. Detailed below.
      * 
@@ -35,6 +41,13 @@ public final class CapacityProviderAutoScalingGroupProvider {
      */
     public String autoScalingGroupArn() {
         return this.autoScalingGroupArn;
+    }
+    /**
+     * @return Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
+     * 
+     */
+    public Optional<String> managedDraining() {
+        return Optional.ofNullable(this.managedDraining);
     }
     /**
      * @return Configuration block defining the parameters of the auto scaling. Detailed below.
@@ -61,37 +74,51 @@ public final class CapacityProviderAutoScalingGroupProvider {
     @CustomType.Builder
     public static final class Builder {
         private String autoScalingGroupArn;
+        private @Nullable String managedDraining;
         private @Nullable CapacityProviderAutoScalingGroupProviderManagedScaling managedScaling;
         private @Nullable String managedTerminationProtection;
         public Builder() {}
         public Builder(CapacityProviderAutoScalingGroupProvider defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoScalingGroupArn = defaults.autoScalingGroupArn;
+    	      this.managedDraining = defaults.managedDraining;
     	      this.managedScaling = defaults.managedScaling;
     	      this.managedTerminationProtection = defaults.managedTerminationProtection;
         }
 
         @CustomType.Setter
         public Builder autoScalingGroupArn(String autoScalingGroupArn) {
-            this.autoScalingGroupArn = Objects.requireNonNull(autoScalingGroupArn);
+            if (autoScalingGroupArn == null) {
+              throw new MissingRequiredPropertyException("CapacityProviderAutoScalingGroupProvider", "autoScalingGroupArn");
+            }
+            this.autoScalingGroupArn = autoScalingGroupArn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder managedDraining(@Nullable String managedDraining) {
+
+            this.managedDraining = managedDraining;
             return this;
         }
         @CustomType.Setter
         public Builder managedScaling(@Nullable CapacityProviderAutoScalingGroupProviderManagedScaling managedScaling) {
+
             this.managedScaling = managedScaling;
             return this;
         }
         @CustomType.Setter
         public Builder managedTerminationProtection(@Nullable String managedTerminationProtection) {
+
             this.managedTerminationProtection = managedTerminationProtection;
             return this;
         }
         public CapacityProviderAutoScalingGroupProvider build() {
-            final var o = new CapacityProviderAutoScalingGroupProvider();
-            o.autoScalingGroupArn = autoScalingGroupArn;
-            o.managedScaling = managedScaling;
-            o.managedTerminationProtection = managedTerminationProtection;
-            return o;
+            final var _resultValue = new CapacityProviderAutoScalingGroupProvider();
+            _resultValue.autoScalingGroupArn = autoScalingGroupArn;
+            _resultValue.managedDraining = managedDraining;
+            _resultValue.managedScaling = managedScaling;
+            _resultValue.managedTerminationProtection = managedTerminationProtection;
+            return _resultValue;
         }
     }
 }

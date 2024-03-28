@@ -5,6 +5,7 @@ package com.pulumi.aws.account;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,10 +262,18 @@ public final class AlternativeContactArgs extends com.pulumi.resources.ResourceA
         }
 
         public AlternativeContactArgs build() {
-            $.alternateContactType = Objects.requireNonNull($.alternateContactType, "expected parameter 'alternateContactType' to be non-null");
-            $.emailAddress = Objects.requireNonNull($.emailAddress, "expected parameter 'emailAddress' to be non-null");
-            $.phoneNumber = Objects.requireNonNull($.phoneNumber, "expected parameter 'phoneNumber' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
+            if ($.alternateContactType == null) {
+                throw new MissingRequiredPropertyException("AlternativeContactArgs", "alternateContactType");
+            }
+            if ($.emailAddress == null) {
+                throw new MissingRequiredPropertyException("AlternativeContactArgs", "emailAddress");
+            }
+            if ($.phoneNumber == null) {
+                throw new MissingRequiredPropertyException("AlternativeContactArgs", "phoneNumber");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("AlternativeContactArgs", "title");
+            }
             return $;
         }
     }

@@ -88,21 +88,25 @@ public final class OrganizationRoot {
 
         @CustomType.Setter
         public Builder arn(@Nullable String arn) {
+
             this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder policyTypes(@Nullable List<OrganizationRootPolicyType> policyTypes) {
+
             this.policyTypes = policyTypes;
             return this;
         }
@@ -110,12 +114,12 @@ public final class OrganizationRoot {
             return policyTypes(List.of(policyTypes));
         }
         public OrganizationRoot build() {
-            final var o = new OrganizationRoot();
-            o.arn = arn;
-            o.id = id;
-            o.name = name;
-            o.policyTypes = policyTypes;
-            return o;
+            final var _resultValue = new OrganizationRoot();
+            _resultValue.arn = arn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.policyTypes = policyTypes;
+            return _resultValue;
         }
     }
 }

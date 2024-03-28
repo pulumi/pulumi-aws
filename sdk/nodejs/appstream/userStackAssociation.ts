@@ -9,28 +9,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testStack = new aws.appstream.Stack("testStack", {});
- * const testUser = new aws.appstream.User("testUser", {
+ * const test = new aws.appstream.Stack("test", {name: "STACK NAME"});
+ * const testUser = new aws.appstream.User("test", {
  *     authenticationType: "USERPOOL",
  *     userName: "EMAIL",
  * });
- * const testUserStackAssociation = new aws.appstream.UserStackAssociation("testUserStackAssociation", {
+ * const testUserStackAssociation = new aws.appstream.UserStackAssociation("test", {
  *     authenticationType: testUser.authenticationType,
- *     stackName: testStack.name,
+ *     stackName: test.name,
  *     userName: testUser.userName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
+ * $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
  * ```
  */
 export class UserStackAssociation extends pulumi.CustomResource {

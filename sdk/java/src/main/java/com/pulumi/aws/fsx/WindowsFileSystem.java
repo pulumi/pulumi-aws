@@ -27,9 +27,12 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Either the `active_directory_id` argument or `self_managed_active_directory` configuration block must be specified.
  * 
  * ## Example Usage
+ * 
  * ### Using AWS Directory Service
  * 
  * Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,19 +55,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WindowsFileSystem(&#34;example&#34;, WindowsFileSystemArgs.builder()        
- *             .activeDirectoryId(aws_directory_service_directory.example().id())
- *             .kmsKeyId(aws_kms_key.example().arn())
+ *             .activeDirectoryId(exampleAwsDirectoryServiceDirectory.id())
+ *             .kmsKeyId(exampleAwsKmsKey.arn())
  *             .storageCapacity(300)
- *             .subnetIds(aws_subnet.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .throughputCapacity(1024)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using a Self-Managed Microsoft Active Directory
  * 
  * Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -88,9 +95,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WindowsFileSystem(&#34;example&#34;, WindowsFileSystemArgs.builder()        
- *             .kmsKeyId(aws_kms_key.example().arn())
+ *             .kmsKeyId(exampleAwsKmsKey.arn())
  *             .storageCapacity(300)
- *             .subnetIds(aws_subnet.example().id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .throughputCapacity(1024)
  *             .selfManagedActiveDirectory(WindowsFileSystemSelfManagedActiveDirectoryArgs.builder()
  *                 .dnsIps(                
@@ -105,15 +112,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import FSx File Systems using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
+ * $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
  * ```
- *  Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
  * 
  */
 @ResourceType(type="aws:fsx/windowsFileSystem:WindowsFileSystem")
@@ -551,9 +559,6 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

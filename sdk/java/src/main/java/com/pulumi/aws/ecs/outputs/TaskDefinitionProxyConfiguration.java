@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -73,25 +74,30 @@ public final class TaskDefinitionProxyConfiguration {
 
         @CustomType.Setter
         public Builder containerName(String containerName) {
-            this.containerName = Objects.requireNonNull(containerName);
+            if (containerName == null) {
+              throw new MissingRequiredPropertyException("TaskDefinitionProxyConfiguration", "containerName");
+            }
+            this.containerName = containerName;
             return this;
         }
         @CustomType.Setter
         public Builder properties(@Nullable Map<String,String> properties) {
+
             this.properties = properties;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public TaskDefinitionProxyConfiguration build() {
-            final var o = new TaskDefinitionProxyConfiguration();
-            o.containerName = containerName;
-            o.properties = properties;
-            o.type = type;
-            return o;
+            final var _resultValue = new TaskDefinitionProxyConfiguration();
+            _resultValue.containerName = containerName;
+            _resultValue.properties = properties;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

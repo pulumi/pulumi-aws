@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storagegateway.GetLocalDisk(ctx, &storagegateway.GetLocalDiskArgs{
-//				DiskPath:   pulumi.StringRef(aws_volume_attachment.Test.Device_name),
-//				GatewayArn: aws_storagegateway_gateway.Test.Arn,
+//				DiskPath:   pulumi.StringRef(testAwsVolumeAttachment.DeviceName),
+//				GatewayArn: testAwsStoragegatewayGateway.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetLocalDisk(ctx *pulumi.Context, args *GetLocalDiskArgs, opts ...pulumi.InvokeOption) (*GetLocalDiskResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalDiskResult

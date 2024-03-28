@@ -15,8 +15,10 @@ import (
 // Resource for managing a Verified Access Group.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := verifiedaccess.NewGroup(ctx, "example", &verifiedaccess.GroupArgs{
-//				VerifiedaccessInstanceId: pulumi.Any(aws_verifiedaccess_instance.Example.Id),
+//				VerifiedaccessInstanceId: pulumi.Any(exampleAwsVerifiedaccessInstance.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -40,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type Group struct {
 	pulumi.CustomResourceState
 
@@ -52,8 +55,11 @@ type Group struct {
 	// Timestamp when the access group was last updated.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// AWS account number owning this resource.
-	Owner          pulumi.StringOutput    `pulumi:"owner"`
+	Owner pulumi.StringOutput `pulumi:"owner"`
+	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
+	// Configuration block to use KMS keys for server-side encryption.
+	SseConfiguration GroupSseConfigurationOutput `pulumi:"sseConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -78,10 +84,6 @@ func NewGroup(ctx *pulumi.Context,
 	if args.VerifiedaccessInstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'VerifiedaccessInstanceId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:verifiedaccess/group:Group", name, args, &resource, opts...)
@@ -114,8 +116,11 @@ type groupState struct {
 	// Timestamp when the access group was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// AWS account number owning this resource.
-	Owner          *string `pulumi:"owner"`
+	Owner *string `pulumi:"owner"`
+	// The policy document that is associated with this resource.
 	PolicyDocument *string `pulumi:"policyDocument"`
+	// Configuration block to use KMS keys for server-side encryption.
+	SseConfiguration *GroupSseConfiguration `pulumi:"sseConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
@@ -140,8 +145,11 @@ type GroupState struct {
 	// Timestamp when the access group was last updated.
 	LastUpdatedTime pulumi.StringPtrInput
 	// AWS account number owning this resource.
-	Owner          pulumi.StringPtrInput
+	Owner pulumi.StringPtrInput
+	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
+	// Configuration block to use KMS keys for server-side encryption.
+	SseConfiguration GroupSseConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Deprecated: Please use `tags` instead.
@@ -162,8 +170,11 @@ func (GroupState) ElementType() reflect.Type {
 
 type groupArgs struct {
 	// Description of the verified access group.
-	Description    *string `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The policy document that is associated with this resource.
 	PolicyDocument *string `pulumi:"policyDocument"`
+	// Configuration block to use KMS keys for server-side encryption.
+	SseConfiguration *GroupSseConfiguration `pulumi:"sseConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The id of the verified access instance this group is associated with.
@@ -175,8 +186,11 @@ type groupArgs struct {
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
 	// Description of the verified access group.
-	Description    pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
+	// Configuration block to use KMS keys for server-side encryption.
+	SseConfiguration GroupSseConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The id of the verified access instance this group is associated with.
@@ -297,8 +311,14 @@ func (o GroupOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
+// The policy document that is associated with this resource.
 func (o GroupOutput) PolicyDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.PolicyDocument }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block to use KMS keys for server-side encryption.
+func (o GroupOutput) SseConfiguration() GroupSseConfigurationOutput {
+	return o.ApplyT(func(v *Group) GroupSseConfigurationOutput { return v.SseConfiguration }).(GroupSseConfigurationOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

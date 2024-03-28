@@ -312,27 +312,30 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CustomRoutingAccelerator("example",
+            name="Example",
+            ip_address_type="IPV4",
+            ip_addresses=["1.2.3.4"],
+            enabled=True,
             attributes=aws.globalaccelerator.CustomRoutingAcceleratorAttributesArgs(
                 flow_logs_enabled=True,
                 flow_logs_s3_bucket="example-bucket",
                 flow_logs_s3_prefix="flow-logs/",
-            ),
-            enabled=True,
-            ip_address_type="IPV4",
-            ip_addresses=["1.2.3.4"])
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -355,27 +358,30 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CustomRoutingAccelerator("example",
+            name="Example",
+            ip_address_type="IPV4",
+            ip_addresses=["1.2.3.4"],
+            enabled=True,
             attributes=aws.globalaccelerator.CustomRoutingAcceleratorAttributesArgs(
                 flow_logs_enabled=True,
                 flow_logs_s3_bucket="example-bucket",
                 flow_logs_s3_prefix="flow-logs/",
-            ),
-            enabled=True,
-            ip_address_type="IPV4",
-            ip_addresses=["1.2.3.4"])
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -418,8 +424,6 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["ip_sets"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CustomRoutingAccelerator, __self__).__init__(
             'aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator',
             resource_name,

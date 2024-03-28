@@ -104,37 +104,42 @@ public final class InstanceLoggingConfigurationAccessLogs {
 
         @CustomType.Setter
         public Builder cloudwatchLogs(@Nullable InstanceLoggingConfigurationAccessLogsCloudwatchLogs cloudwatchLogs) {
+
             this.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
         @CustomType.Setter
         public Builder includeTrustContext(@Nullable Boolean includeTrustContext) {
+
             this.includeTrustContext = includeTrustContext;
             return this;
         }
         @CustomType.Setter
         public Builder kinesisDataFirehose(@Nullable InstanceLoggingConfigurationAccessLogsKinesisDataFirehose kinesisDataFirehose) {
+
             this.kinesisDataFirehose = kinesisDataFirehose;
             return this;
         }
         @CustomType.Setter
         public Builder logVersion(@Nullable String logVersion) {
+
             this.logVersion = logVersion;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable InstanceLoggingConfigurationAccessLogsS3 s3) {
+
             this.s3 = s3;
             return this;
         }
         public InstanceLoggingConfigurationAccessLogs build() {
-            final var o = new InstanceLoggingConfigurationAccessLogs();
-            o.cloudwatchLogs = cloudwatchLogs;
-            o.includeTrustContext = includeTrustContext;
-            o.kinesisDataFirehose = kinesisDataFirehose;
-            o.logVersion = logVersion;
-            o.s3 = s3;
-            return o;
+            final var _resultValue = new InstanceLoggingConfigurationAccessLogs();
+            _resultValue.cloudwatchLogs = cloudwatchLogs;
+            _resultValue.includeTrustContext = includeTrustContext;
+            _resultValue.kinesisDataFirehose = kinesisDataFirehose;
+            _resultValue.logVersion = logVersion;
+            _resultValue.s3 = s3;
+            return _resultValue;
         }
     }
 }

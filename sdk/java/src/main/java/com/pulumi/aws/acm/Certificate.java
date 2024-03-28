@@ -61,7 +61,10 @@ import javax.annotation.Nullable;
  * To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
  * 
  * ## Example Usage
+ * 
  * ### Create Certificate
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -85,14 +88,18 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
  *             .domainName(&#34;example.com&#34;)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
  *             .validationMethod(&#34;DNS&#34;)
+ *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Custom Domain Validation Options
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -127,7 +134,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Existing Certificate Body Import
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -154,13 +165,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplePrivateKey = new PrivateKey(&#34;examplePrivateKey&#34;, PrivateKeyArgs.builder()        
+ *         var example = new PrivateKey(&#34;example&#34;, PrivateKeyArgs.builder()        
  *             .algorithm(&#34;RSA&#34;)
  *             .build());
  * 
  *         var exampleSelfSignedCert = new SelfSignedCert(&#34;exampleSelfSignedCert&#34;, SelfSignedCertArgs.builder()        
  *             .keyAlgorithm(&#34;RSA&#34;)
- *             .privateKeyPem(examplePrivateKey.privateKeyPem())
+ *             .privateKeyPem(example.privateKeyPem())
  *             .subject(SelfSignedCertSubjectArgs.builder()
  *                 .commonName(&#34;example.com&#34;)
  *                 .organization(&#34;ACME Examples, Inc&#34;)
@@ -173,20 +184,28 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
- *             .privateKey(examplePrivateKey.privateKeyPem())
+ *             .privateKey(example.privateKeyPem())
  *             .certificateBody(exampleSelfSignedCert.certPem())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Referencing domain_validation_options With for_each Based Resources
+ * 
+ * See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import certificates using their ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+ * $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
  * ```
  * 
  */
@@ -570,8 +589,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "privateKey",
-                "tagsAll"
+                "privateKey"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

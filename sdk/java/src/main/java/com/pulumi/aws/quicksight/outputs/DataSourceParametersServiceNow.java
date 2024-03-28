@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class DataSourceParametersServiceNow {
 
         @CustomType.Setter
         public Builder siteBaseUrl(String siteBaseUrl) {
-            this.siteBaseUrl = Objects.requireNonNull(siteBaseUrl);
+            if (siteBaseUrl == null) {
+              throw new MissingRequiredPropertyException("DataSourceParametersServiceNow", "siteBaseUrl");
+            }
+            this.siteBaseUrl = siteBaseUrl;
             return this;
         }
         public DataSourceParametersServiceNow build() {
-            final var o = new DataSourceParametersServiceNow();
-            o.siteBaseUrl = siteBaseUrl;
-            return o;
+            final var _resultValue = new DataSourceParametersServiceNow();
+            _resultValue.siteBaseUrl = siteBaseUrl;
+            return _resultValue;
         }
     }
 }

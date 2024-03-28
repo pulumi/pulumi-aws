@@ -74,6 +74,7 @@ public final class ExperienceConfigurationContentSourceConfiguration {
 
         @CustomType.Setter
         public Builder dataSourceIds(@Nullable List<String> dataSourceIds) {
+
             this.dataSourceIds = dataSourceIds;
             return this;
         }
@@ -82,11 +83,13 @@ public final class ExperienceConfigurationContentSourceConfiguration {
         }
         @CustomType.Setter
         public Builder directPutContent(@Nullable Boolean directPutContent) {
+
             this.directPutContent = directPutContent;
             return this;
         }
         @CustomType.Setter
         public Builder faqIds(@Nullable List<String> faqIds) {
+
             this.faqIds = faqIds;
             return this;
         }
@@ -94,11 +97,11 @@ public final class ExperienceConfigurationContentSourceConfiguration {
             return faqIds(List.of(faqIds));
         }
         public ExperienceConfigurationContentSourceConfiguration build() {
-            final var o = new ExperienceConfigurationContentSourceConfiguration();
-            o.dataSourceIds = dataSourceIds;
-            o.directPutContent = directPutContent;
-            o.faqIds = faqIds;
-            return o;
+            final var _resultValue = new ExperienceConfigurationContentSourceConfiguration();
+            _resultValue.dataSourceIds = dataSourceIds;
+            _resultValue.directPutContent = directPutContent;
+            _resultValue.faqIds = faqIds;
+            return _resultValue;
         }
     }
 }

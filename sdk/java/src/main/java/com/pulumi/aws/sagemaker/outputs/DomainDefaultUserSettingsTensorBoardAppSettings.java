@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsTensorBoardAppSettings {
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec;
 
     private DomainDefaultUserSettingsTensorBoardAppSettings() {}
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec> defaultResourceSpec() {
@@ -44,13 +44,14 @@ public final class DomainDefaultUserSettingsTensorBoardAppSettings {
 
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         public DomainDefaultUserSettingsTensorBoardAppSettings build() {
-            final var o = new DomainDefaultUserSettingsTensorBoardAppSettings();
-            o.defaultResourceSpec = defaultResourceSpec;
-            return o;
+            final var _resultValue = new DomainDefaultUserSettingsTensorBoardAppSettings();
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            return _resultValue;
         }
     }
 }

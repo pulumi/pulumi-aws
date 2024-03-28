@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages a Neptune Cluster Parameter Group
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,8 +46,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ClusterParameterGroup(&#34;example&#34;, ClusterParameterGroupArgs.builder()        
- *             .description(&#34;neptune cluster parameter group&#34;)
  *             .family(&#34;neptune1&#34;)
+ *             .name(&#34;example&#34;)
+ *             .description(&#34;neptune cluster parameter group&#34;)
  *             .parameters(ClusterParameterGroupParameterArgs.builder()
  *                 .name(&#34;neptune_enable_audit_log&#34;)
  *                 .value(1)
@@ -55,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Neptune Cluster Parameter Groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+ * $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
  * ```
  * 
  */
@@ -216,9 +220,6 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

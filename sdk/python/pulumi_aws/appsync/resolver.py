@@ -482,12 +482,14 @@ class Resolver(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_graph_ql_api = aws.appsync.GraphQLApi("testGraphQLApi",
+        test = aws.appsync.GraphQLApi("test",
             authentication_type="API_KEY",
+            name="tf-example",
             schema=\"\"\"type Mutation {
         	putPost(id: ID!, title: String!): Post
         }
@@ -506,16 +508,16 @@ class Resolver(pulumi.CustomResource):
         	mutation: Mutation
         }
         \"\"\")
-        test_data_source = aws.appsync.DataSource("testDataSource",
-            api_id=test_graph_ql_api.id,
+        test_data_source = aws.appsync.DataSource("test",
+            api_id=test.id,
             name="my_example",
             type="HTTP",
             http_config=aws.appsync.DataSourceHttpConfigArgs(
                 endpoint="http://example.com",
             ))
         # UNIT type resolver (default)
-        test_resolver = aws.appsync.Resolver("testResolver",
-            api_id=test_graph_ql_api.id,
+        test_resolver = aws.appsync.Resolver("test",
+            api_id=test.id,
             field="singlePost",
             type="Query",
             data_source=test_data_source.name,
@@ -542,48 +544,53 @@ class Resolver(pulumi.CustomResource):
                 ttl=60,
             ))
         # PIPELINE type resolver
-        mutation_pipeline_test = aws.appsync.Resolver("mutationPipelineTest",
+        mutation_pipeline_test = aws.appsync.Resolver("Mutation_pipelineTest",
             type="Mutation",
-            api_id=test_graph_ql_api.id,
+            api_id=test.id,
             field="pipelineTest",
             request_template="{}",
             response_template="$util.toJson($ctx.result)",
             kind="PIPELINE",
             pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
                 functions=[
-                    aws_appsync_function["test1"]["function_id"],
-                    aws_appsync_function["test2"]["function_id"],
-                    aws_appsync_function["test3"]["function_id"],
+                    test1["functionId"],
+                    test2["functionId"],
+                    test3["functionId"],
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### JS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.appsync.Resolver("example",
             type="Query",
-            api_id=aws_appsync_graphql_api["test"]["id"],
+            api_id=test_aws_appsync_graphql_api["id"],
             field="pipelineTest",
             kind="PIPELINE",
-            code=(lambda path: open(path).read())("some-code-dir"),
+            code=std.file(input="some-code-dir").result,
             runtime=aws.appsync.ResolverRuntimeArgs(
                 name="APPSYNC_JS",
                 runtime_version="1.0.0",
             ),
             pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
-                functions=[aws_appsync_function["test"]["function_id"]],
+                functions=[test["functionId"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+        $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
         ```
 
         :param str resource_name: The name of the resource.
@@ -613,12 +620,14 @@ class Resolver(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_graph_ql_api = aws.appsync.GraphQLApi("testGraphQLApi",
+        test = aws.appsync.GraphQLApi("test",
             authentication_type="API_KEY",
+            name="tf-example",
             schema=\"\"\"type Mutation {
         	putPost(id: ID!, title: String!): Post
         }
@@ -637,16 +646,16 @@ class Resolver(pulumi.CustomResource):
         	mutation: Mutation
         }
         \"\"\")
-        test_data_source = aws.appsync.DataSource("testDataSource",
-            api_id=test_graph_ql_api.id,
+        test_data_source = aws.appsync.DataSource("test",
+            api_id=test.id,
             name="my_example",
             type="HTTP",
             http_config=aws.appsync.DataSourceHttpConfigArgs(
                 endpoint="http://example.com",
             ))
         # UNIT type resolver (default)
-        test_resolver = aws.appsync.Resolver("testResolver",
-            api_id=test_graph_ql_api.id,
+        test_resolver = aws.appsync.Resolver("test",
+            api_id=test.id,
             field="singlePost",
             type="Query",
             data_source=test_data_source.name,
@@ -673,48 +682,53 @@ class Resolver(pulumi.CustomResource):
                 ttl=60,
             ))
         # PIPELINE type resolver
-        mutation_pipeline_test = aws.appsync.Resolver("mutationPipelineTest",
+        mutation_pipeline_test = aws.appsync.Resolver("Mutation_pipelineTest",
             type="Mutation",
-            api_id=test_graph_ql_api.id,
+            api_id=test.id,
             field="pipelineTest",
             request_template="{}",
             response_template="$util.toJson($ctx.result)",
             kind="PIPELINE",
             pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
                 functions=[
-                    aws_appsync_function["test1"]["function_id"],
-                    aws_appsync_function["test2"]["function_id"],
-                    aws_appsync_function["test3"]["function_id"],
+                    test1["functionId"],
+                    test2["functionId"],
+                    test3["functionId"],
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### JS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         example = aws.appsync.Resolver("example",
             type="Query",
-            api_id=aws_appsync_graphql_api["test"]["id"],
+            api_id=test_aws_appsync_graphql_api["id"],
             field="pipelineTest",
             kind="PIPELINE",
-            code=(lambda path: open(path).read())("some-code-dir"),
+            code=std.file(input="some-code-dir").result,
             runtime=aws.appsync.ResolverRuntimeArgs(
                 name="APPSYNC_JS",
                 runtime_version="1.0.0",
             ),
             pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
-                functions=[aws_appsync_function["test"]["function_id"]],
+                functions=[test["functionId"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+        $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
         ```
 
         :param str resource_name: The name of the resource.

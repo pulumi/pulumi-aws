@@ -88,31 +88,35 @@ public final class MLTransformParametersFindMatchesParameters {
 
         @CustomType.Setter
         public Builder accuracyCostTradeOff(@Nullable Double accuracyCostTradeOff) {
+
             this.accuracyCostTradeOff = accuracyCostTradeOff;
             return this;
         }
         @CustomType.Setter
         public Builder enforceProvidedLabels(@Nullable Boolean enforceProvidedLabels) {
+
             this.enforceProvidedLabels = enforceProvidedLabels;
             return this;
         }
         @CustomType.Setter
         public Builder precisionRecallTradeOff(@Nullable Double precisionRecallTradeOff) {
+
             this.precisionRecallTradeOff = precisionRecallTradeOff;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKeyColumnName(@Nullable String primaryKeyColumnName) {
+
             this.primaryKeyColumnName = primaryKeyColumnName;
             return this;
         }
         public MLTransformParametersFindMatchesParameters build() {
-            final var o = new MLTransformParametersFindMatchesParameters();
-            o.accuracyCostTradeOff = accuracyCostTradeOff;
-            o.enforceProvidedLabels = enforceProvidedLabels;
-            o.precisionRecallTradeOff = precisionRecallTradeOff;
-            o.primaryKeyColumnName = primaryKeyColumnName;
-            return o;
+            final var _resultValue = new MLTransformParametersFindMatchesParameters();
+            _resultValue.accuracyCostTradeOff = accuracyCostTradeOff;
+            _resultValue.enforceProvidedLabels = enforceProvidedLabels;
+            _resultValue.precisionRecallTradeOff = precisionRecallTradeOff;
+            _resultValue.primaryKeyColumnName = primaryKeyColumnName;
+            return _resultValue;
         }
     }
 }

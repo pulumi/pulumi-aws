@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
  * 
  * ## Example Usage
+ * 
  * ### Grant all collection and index permissions
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,30 +49,35 @@ import javax.annotation.Nullable;
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
  *         var example = new ServerlessAccessPolicy(&#34;example&#34;, ServerlessAccessPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;data&#34;)
  *             .description(&#34;read and write permissions&#34;)
  *             .policy(serializeJson(
  *                 jsonArray(jsonObject(
- *                     jsonProperty(&#34;Rules&#34;, jsonArray(
+ *                     jsonProperty(&#34;rules&#34;, jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;index&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;index/example-collection/*&#34;)),
- *                             jsonProperty(&#34;Permission&#34;, jsonArray(&#34;aoss:*&#34;))
+ *                             jsonProperty(&#34;resourceType&#34;, &#34;index&#34;),
+ *                             jsonProperty(&#34;resource&#34;, jsonArray(&#34;index/example-collection/*&#34;)),
+ *                             jsonProperty(&#34;permission&#34;, jsonArray(&#34;aoss:*&#34;))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;)),
- *                             jsonProperty(&#34;Permission&#34;, jsonArray(&#34;aoss:*&#34;))
+ *                             jsonProperty(&#34;resourceType&#34;, &#34;collection&#34;),
+ *                             jsonProperty(&#34;resource&#34;, jsonArray(&#34;collection/example-collection&#34;)),
+ *                             jsonProperty(&#34;permission&#34;, jsonArray(&#34;aoss:*&#34;))
  *                         )
  *                     )),
- *                     jsonProperty(&#34;Principal&#34;, jsonArray(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn())))
+ *                     jsonProperty(&#34;principal&#34;, jsonArray(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn())))
  *                 ))))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Grant read-only collection and index permissions
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -97,33 +105,38 @@ import javax.annotation.Nullable;
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
  *         var example = new ServerlessAccessPolicy(&#34;example&#34;, ServerlessAccessPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;data&#34;)
  *             .description(&#34;read-only permissions&#34;)
  *             .policy(serializeJson(
  *                 jsonArray(jsonObject(
- *                     jsonProperty(&#34;Rules&#34;, jsonArray(
+ *                     jsonProperty(&#34;rules&#34;, jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;index&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;index/example-collection/*&#34;)),
- *                             jsonProperty(&#34;Permission&#34;, jsonArray(
+ *                             jsonProperty(&#34;resourceType&#34;, &#34;index&#34;),
+ *                             jsonProperty(&#34;resource&#34;, jsonArray(&#34;index/example-collection/*&#34;)),
+ *                             jsonProperty(&#34;permission&#34;, jsonArray(
  *                                 &#34;aoss:DescribeIndex&#34;, 
  *                                 &#34;aoss:ReadDocument&#34;
  *                             ))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;)),
- *                             jsonProperty(&#34;Permission&#34;, jsonArray(&#34;aoss:DescribeCollectionItems&#34;))
+ *                             jsonProperty(&#34;resourceType&#34;, &#34;collection&#34;),
+ *                             jsonProperty(&#34;resource&#34;, jsonArray(&#34;collection/example-collection&#34;)),
+ *                             jsonProperty(&#34;permission&#34;, jsonArray(&#34;aoss:DescribeCollectionItems&#34;))
  *                         )
  *                     )),
- *                     jsonProperty(&#34;Principal&#34;, jsonArray(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn())))
+ *                     jsonProperty(&#34;principal&#34;, jsonArray(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn())))
  *                 ))))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Grant SAML identity permissions
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -147,23 +160,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessAccessPolicy(&#34;example&#34;, ServerlessAccessPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .type(&#34;data&#34;)
  *             .description(&#34;saml permissions&#34;)
  *             .policy(serializeJson(
  *                 jsonArray(jsonObject(
- *                     jsonProperty(&#34;Rules&#34;, jsonArray(
+ *                     jsonProperty(&#34;rules&#34;, jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;index&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;index/example-collection/*&#34;)),
- *                             jsonProperty(&#34;Permission&#34;, jsonArray(&#34;aoss:*&#34;))
+ *                             jsonProperty(&#34;resourceType&#34;, &#34;index&#34;),
+ *                             jsonProperty(&#34;resource&#34;, jsonArray(&#34;index/example-collection/*&#34;)),
+ *                             jsonProperty(&#34;permission&#34;, jsonArray(&#34;aoss:*&#34;))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;)),
- *                             jsonProperty(&#34;Permission&#34;, jsonArray(&#34;aoss:*&#34;))
+ *                             jsonProperty(&#34;resourceType&#34;, &#34;collection&#34;),
+ *                             jsonProperty(&#34;resource&#34;, jsonArray(&#34;collection/example-collection&#34;)),
+ *                             jsonProperty(&#34;permission&#34;, jsonArray(&#34;aoss:*&#34;))
  *                         )
  *                     )),
- *                     jsonProperty(&#34;Principal&#34;, jsonArray(
+ *                     jsonProperty(&#34;principal&#34;, jsonArray(
  *                         &#34;saml/123456789012/myprovider/user/Annie&#34;, 
  *                         &#34;saml/123456789012/anotherprovider/group/Accounting&#34;
  *                     ))
@@ -173,13 +187,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
+ * $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
  * ```
  * 
  */

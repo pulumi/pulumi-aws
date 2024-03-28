@@ -4,6 +4,7 @@
 package com.pulumi.aws.lakeformation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -120,11 +121,13 @@ public final class ResourceLfTagsTableWithColumns {
 
         @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
+
             this.catalogId = catalogId;
             return this;
         }
         @CustomType.Setter
         public Builder columnNames(@Nullable List<String> columnNames) {
+
             this.columnNames = columnNames;
             return this;
         }
@@ -133,11 +136,15 @@ public final class ResourceLfTagsTableWithColumns {
         }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("ResourceLfTagsTableWithColumns", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder excludedColumnNames(@Nullable List<String> excludedColumnNames) {
+
             this.excludedColumnNames = excludedColumnNames;
             return this;
         }
@@ -146,23 +153,27 @@ public final class ResourceLfTagsTableWithColumns {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ResourceLfTagsTableWithColumns", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder wildcard(@Nullable Boolean wildcard) {
+
             this.wildcard = wildcard;
             return this;
         }
         public ResourceLfTagsTableWithColumns build() {
-            final var o = new ResourceLfTagsTableWithColumns();
-            o.catalogId = catalogId;
-            o.columnNames = columnNames;
-            o.databaseName = databaseName;
-            o.excludedColumnNames = excludedColumnNames;
-            o.name = name;
-            o.wildcard = wildcard;
-            return o;
+            final var _resultValue = new ResourceLfTagsTableWithColumns();
+            _resultValue.catalogId = catalogId;
+            _resultValue.columnNames = columnNames;
+            _resultValue.databaseName = databaseName;
+            _resultValue.excludedColumnNames = excludedColumnNames;
+            _resultValue.name = name;
+            _resultValue.wildcard = wildcard;
+            return _resultValue;
         }
     }
 }

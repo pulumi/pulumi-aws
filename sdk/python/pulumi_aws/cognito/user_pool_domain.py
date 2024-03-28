@@ -230,46 +230,52 @@ class UserPoolDomain(pulumi.CustomResource):
         Provides a Cognito User Pool Domain resource.
 
         ## Example Usage
+
         ### Amazon Cognito domain
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example")
+        example = aws.cognito.UserPool("example", name="example-pool")
         main = aws.cognito.UserPoolDomain("main",
             domain="example-domain",
             user_pool_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Cognito domain
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
+        example_user_pool = aws.cognito.UserPool("example", name="example-pool")
         main = aws.cognito.UserPoolDomain("main",
             domain="example-domain",
-            certificate_arn=aws_acm_certificate["cert"]["arn"],
+            certificate_arn=cert["arn"],
             user_pool_id=example_user_pool.id)
-        example_zone = aws.route53.get_zone(name="example.com")
+        example = aws.route53.get_zone(name="example.com")
         auth_cognito__a = aws.route53.Record("auth-cognito-A",
             name=main.domain,
-            type="A",
-            zone_id=example_zone.zone_id,
+            type=aws.route53.RecordType.A,
+            zone_id=example.zone_id,
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=False,
                 name=main.cloudfront_distribution,
                 zone_id=main.cloudfront_distribution_zone_id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
+        $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
         ```
 
         :param str resource_name: The name of the resource.
@@ -288,46 +294,52 @@ class UserPoolDomain(pulumi.CustomResource):
         Provides a Cognito User Pool Domain resource.
 
         ## Example Usage
+
         ### Amazon Cognito domain
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example")
+        example = aws.cognito.UserPool("example", name="example-pool")
         main = aws.cognito.UserPoolDomain("main",
             domain="example-domain",
             user_pool_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Cognito domain
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
+        example_user_pool = aws.cognito.UserPool("example", name="example-pool")
         main = aws.cognito.UserPoolDomain("main",
             domain="example-domain",
-            certificate_arn=aws_acm_certificate["cert"]["arn"],
+            certificate_arn=cert["arn"],
             user_pool_id=example_user_pool.id)
-        example_zone = aws.route53.get_zone(name="example.com")
+        example = aws.route53.get_zone(name="example.com")
         auth_cognito__a = aws.route53.Record("auth-cognito-A",
             name=main.domain,
-            type="A",
-            zone_id=example_zone.zone_id,
+            type=aws.route53.RecordType.A,
+            zone_id=example.zone_id,
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=False,
                 name=main.cloudfront_distribution,
                 zone_id=main.cloudfront_distribution_zone_id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
+        $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
         ```
 
         :param str resource_name: The name of the resource.

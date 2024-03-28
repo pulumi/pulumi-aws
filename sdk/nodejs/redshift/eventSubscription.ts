@@ -9,20 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultCluster = new aws.redshift.Cluster("defaultCluster", {
+ * const _default = new aws.redshift.Cluster("default", {
  *     clusterIdentifier: "default",
  *     databaseName: "default",
  * });
- * // ...
- * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
- * const defaultEventSubscription = new aws.redshift.EventSubscription("defaultEventSubscription", {
+ * const defaultTopic = new aws.sns.Topic("default", {name: "redshift-events"});
+ * const defaultEventSubscription = new aws.redshift.EventSubscription("default", {
+ *     name: "redshift-event-sub",
  *     snsTopicArn: defaultTopic.arn,
  *     sourceType: "cluster",
- *     sourceIds: [defaultCluster.id],
+ *     sourceIds: [_default.id],
  *     severity: "INFO",
  *     eventCategories: [
  *         "configuration",
@@ -35,13 +36,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
+ * $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
  * ```
  */
 export class EventSubscription extends pulumi.CustomResource {
@@ -164,8 +166,6 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EventSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }

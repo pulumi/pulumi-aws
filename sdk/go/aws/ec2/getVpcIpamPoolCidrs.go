@@ -14,6 +14,57 @@ import (
 // `ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
 //
 // This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
+//
+// ## Example Usage
+//
+// Basic usage:
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			p, err := ec2.LookupVpcIpamPool(ctx, &ec2.LookupVpcIpamPoolArgs{
+//				Filters: []ec2.GetVpcIpamPoolFilter{
+//					{
+//						Name: "description",
+//						Values: []string{
+//							"*mypool*",
+//						},
+//					},
+//					{
+//						Name: "address-family",
+//						Values: []string{
+//							"ipv4",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.GetVpcIpamPoolCidrs(ctx, &ec2.GetVpcIpamPoolCidrsArgs{
+//				IpamPoolId: p.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// Filtering:
 func GetVpcIpamPoolCidrs(ctx *pulumi.Context, args *GetVpcIpamPoolCidrsArgs, opts ...pulumi.InvokeOption) (*GetVpcIpamPoolCidrsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIpamPoolCidrsResult

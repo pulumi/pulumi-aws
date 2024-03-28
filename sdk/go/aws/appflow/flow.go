@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,11 +31,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSourceBucketV2, err := s3.NewBucketV2(ctx, "exampleSourceBucketV2", nil)
+//			exampleSourceBucketV2, err := s3.NewBucketV2(ctx, "example_source", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example-source"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSourcePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			exampleSource, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("AllowAppFlowSourceActions"),
@@ -61,14 +64,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSourceBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleSourceBucketPolicy", &s3.BucketPolicyArgs{
+//			exampleSourceBucketPolicy, err := s3.NewBucketPolicy(ctx, "example_source", &s3.BucketPolicyArgs{
 //				Bucket: exampleSourceBucketV2.ID(),
-//				Policy: *pulumi.String(exampleSourcePolicyDocument.Json),
+//				Policy: pulumi.String(exampleSource.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
 //				Bucket: exampleSourceBucketV2.ID(),
 //				Key:    pulumi.String("example_source.csv"),
 //				Source: pulumi.NewFileAsset("example_source.csv"),
@@ -76,11 +79,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDestinationBucketV2, err := s3.NewBucketV2(ctx, "exampleDestinationBucketV2", nil)
+//			exampleDestinationBucketV2, err := s3.NewBucketV2(ctx, "example_destination", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example-destination"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDestinationPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			exampleDestination, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Sid:    pulumi.StringRef("AllowAppFlowDestinationActions"),
@@ -111,14 +116,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDestinationBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleDestinationBucketPolicy", &s3.BucketPolicyArgs{
+//			exampleDestinationBucketPolicy, err := s3.NewBucketPolicy(ctx, "example_destination", &s3.BucketPolicyArgs{
 //				Bucket: exampleDestinationBucketV2.ID(),
-//				Policy: *pulumi.String(exampleDestinationPolicyDocument.Json),
+//				Policy: pulumi.String(exampleDestination.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appflow.NewFlow(ctx, "exampleFlow", &appflow.FlowArgs{
+//			_, err = appflow.NewFlow(ctx, "example", &appflow.FlowArgs{
+//				Name: pulumi.String("example"),
 //				SourceFlowConfig: &appflow.FlowSourceFlowConfigArgs{
 //					ConnectorType: pulumi.String("S3"),
 //					SourceConnectorProperties: &appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs{
@@ -169,15 +175,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AppFlow flows using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
-//
+// $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
 // ```
 type Flow struct {
 	pulumi.CustomResourceState
@@ -188,6 +193,8 @@ type Flow struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayOutput `pulumi:"destinationFlowConfigs"`
+	// The current status of the flow.
+	FlowStatus pulumi.StringOutput `pulumi:"flowStatus"`
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringOutput `pulumi:"kmsArn"`
 	// Name of the flow.
@@ -225,10 +232,6 @@ func NewFlow(ctx *pulumi.Context,
 	if args.TriggerConfig == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerConfig'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Flow
 	err := ctx.RegisterResource("aws:appflow/flow:Flow", name, args, &resource, opts...)
@@ -258,6 +261,8 @@ type flowState struct {
 	Description *string `pulumi:"description"`
 	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigs []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigs"`
+	// The current status of the flow.
+	FlowStatus *string `pulumi:"flowStatus"`
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
 	// Name of the flow.
@@ -283,6 +288,8 @@ type FlowState struct {
 	Description pulumi.StringPtrInput
 	// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayInput
+	// The current status of the flow.
+	FlowStatus pulumi.StringPtrInput
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringPtrInput
 	// Name of the flow.
@@ -444,6 +451,11 @@ func (o FlowOutput) Description() pulumi.StringPtrOutput {
 // A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
 func (o FlowOutput) DestinationFlowConfigs() FlowDestinationFlowConfigArrayOutput {
 	return o.ApplyT(func(v *Flow) FlowDestinationFlowConfigArrayOutput { return v.DestinationFlowConfigs }).(FlowDestinationFlowConfigArrayOutput)
+}
+
+// The current status of the flow.
+func (o FlowOutput) FlowStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowStatus }).(pulumi.StringOutput)
 }
 
 // ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.

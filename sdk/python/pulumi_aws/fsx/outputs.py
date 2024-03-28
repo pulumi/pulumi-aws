@@ -1769,7 +1769,7 @@ class OpenZfsVolumeNfsExports(dict):
     def __init__(__self__, *,
                  client_configurations: Sequence['outputs.OpenZfsVolumeNfsExportsClientConfiguration']):
         """
-        :param Sequence['OpenZfsVolumeNfsExportsClientConfigurationArgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        :param Sequence['OpenZfsVolumeNfsExportsClientConfigurationArgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block below for details.
         """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
@@ -1777,7 +1777,7 @@ class OpenZfsVolumeNfsExports(dict):
     @pulumi.getter(name="clientConfigurations")
     def client_configurations(self) -> Sequence['outputs.OpenZfsVolumeNfsExportsClientConfiguration']:
         """
-        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block below for details.
         """
         return pulumi.get(self, "client_configurations")
 
@@ -1835,17 +1835,27 @@ class OpenZfsVolumeOriginSnapshot(dict):
     def __init__(__self__, *,
                  copy_strategy: str,
                  snapshot_arn: str):
+        """
+        :param str copy_strategy: Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+        :param str snapshot_arn: The Amazon Resource Name (ARN) of the origin snapshot.
+        """
         pulumi.set(__self__, "copy_strategy", copy_strategy)
         pulumi.set(__self__, "snapshot_arn", snapshot_arn)
 
     @property
     @pulumi.getter(name="copyStrategy")
     def copy_strategy(self) -> str:
+        """
+        Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+        """
         return pulumi.get(self, "copy_strategy")
 
     @property
     @pulumi.getter(name="snapshotArn")
     def snapshot_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the origin snapshot.
+        """
         return pulumi.get(self, "snapshot_arn")
 
 

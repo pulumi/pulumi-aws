@@ -5,6 +5,7 @@ package com.pulumi.aws.appconfig.outputs;
 
 import com.pulumi.aws.appconfig.outputs.ExtensionActionPointAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class ExtensionActionPoint {
 
         @CustomType.Setter
         public Builder actions(List<ExtensionActionPointAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("ExtensionActionPoint", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(ExtensionActionPointAction... actions) {
@@ -66,14 +70,17 @@ public final class ExtensionActionPoint {
         }
         @CustomType.Setter
         public Builder point(String point) {
-            this.point = Objects.requireNonNull(point);
+            if (point == null) {
+              throw new MissingRequiredPropertyException("ExtensionActionPoint", "point");
+            }
+            this.point = point;
             return this;
         }
         public ExtensionActionPoint build() {
-            final var o = new ExtensionActionPoint();
-            o.actions = actions;
-            o.point = point;
-            return o;
+            final var _resultValue = new ExtensionActionPoint();
+            _resultValue.actions = actions;
+            _resultValue.point = point;
+            return _resultValue;
         }
     }
 }

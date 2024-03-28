@@ -16,8 +16,10 @@ namespace Pulumi.Aws.Connect
     /// &gt; **NOTE:** The User Hierarchy Structure must be created before creating a User Hierarchy Group.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,6 +31,7 @@ namespace Pulumi.Aws.Connect
     ///     var example = new Aws.Connect.UserHierarchyGroup("example", new()
     ///     {
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "example",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example User Hierarchy Group" },
@@ -37,8 +40,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With a parent group
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,6 +56,7 @@ namespace Pulumi.Aws.Connect
     ///     var parent = new Aws.Connect.UserHierarchyGroup("parent", new()
     ///     {
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "parent",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example User Hierarchy Group Parent" },
@@ -59,6 +66,7 @@ namespace Pulumi.Aws.Connect
     ///     var child = new Aws.Connect.UserHierarchyGroup("child", new()
     ///     {
     ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "child",
     ///         ParentGroupId = parent.HierarchyGroupId,
     ///         Tags = 
     ///         {
@@ -68,13 +76,14 @@ namespace Pulumi.Aws.Connect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect User Hierarchy Groups using the `instance_id` and `hierarchy_group_id` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+    /// $ pulumi import aws:connect/userHierarchyGroup:UserHierarchyGroup example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
     /// ```
     /// </summary>
     [AwsResourceType("aws:connect/userHierarchyGroup:UserHierarchyGroup")]
@@ -158,10 +167,6 @@ namespace Pulumi.Aws.Connect
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -295,11 +300,7 @@ namespace Pulumi.Aws.Connect
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public UserHierarchyGroupState()

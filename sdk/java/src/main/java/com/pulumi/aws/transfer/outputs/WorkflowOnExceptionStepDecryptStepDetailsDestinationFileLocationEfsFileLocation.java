@@ -58,19 +58,21 @@ public final class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocat
 
         @CustomType.Setter
         public Builder fileSystemId(@Nullable String fileSystemId) {
+
             this.fileSystemId = fileSystemId;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         public WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation build() {
-            final var o = new WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation();
-            o.fileSystemId = fileSystemId;
-            o.path = path;
-            return o;
+            final var _resultValue = new WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation();
+            _resultValue.fileSystemId = fileSystemId;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

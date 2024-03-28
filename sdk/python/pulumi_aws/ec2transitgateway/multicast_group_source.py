@@ -135,15 +135,17 @@ class MulticastGroupSource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.MulticastGroupSource("example",
             group_ip_address="224.0.0.1",
-            network_interface_id=aws_network_interface["example"]["id"],
-            transit_gateway_multicast_domain_id=aws_ec2_transit_gateway_multicast_domain["example"]["id"])
+            network_interface_id=example_aws_network_interface["id"],
+            transit_gateway_multicast_domain_id=example_aws_ec2_transit_gateway_multicast_domain["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,15 +165,17 @@ class MulticastGroupSource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.MulticastGroupSource("example",
             group_ip_address="224.0.0.1",
-            network_interface_id=aws_network_interface["example"]["id"],
-            transit_gateway_multicast_domain_id=aws_ec2_transit_gateway_multicast_domain["example"]["id"])
+            network_interface_id=example_aws_network_interface["id"],
+            transit_gateway_multicast_domain_id=example_aws_ec2_transit_gateway_multicast_domain["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param MulticastGroupSourceArgs args: The arguments to use to populate this resource's properties.

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,22 +25,22 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var production = new Aws.Ssm.MaintenanceWindow("production", new()
     ///     {
-    ///         Cutoff = 1,
-    ///         Duration = 3,
+    ///         Name = "maintenance-window-application",
     ///         Schedule = "cron(0 16 ? * TUE *)",
+    ///         Duration = 3,
+    ///         Cutoff = 1,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SSM
-    /// 
-    /// Maintenance Windows using the maintenance window `id`. For example:
+    /// Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+    /// $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/maintenanceWindow:MaintenanceWindow")]
@@ -146,10 +147,6 @@ namespace Pulumi.Aws.Ssm
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -347,11 +344,7 @@ namespace Pulumi.Aws.Ssm
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public MaintenanceWindowState()

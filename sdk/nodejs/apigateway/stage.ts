@@ -14,43 +14,49 @@ import {Deployment, RestApi} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
+ * import * as std from "@pulumi/std";
  *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
- *     openapi: "3.0.1",
- *     info: {
- *         title: "example",
- *         version: "1.0",
- *     },
- *     paths: {
- *         "/path1": {
- *             get: {
- *                 "x-amazon-apigateway-integration": {
- *                     httpMethod: "GET",
- *                     payloadFormatVersion: "1.0",
- *                     type: "HTTP_PROXY",
- *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ * const example = new aws.apigateway.RestApi("example", {
+ *     body: JSON.stringify({
+ *         openapi: "3.0.1",
+ *         info: {
+ *             title: "example",
+ *             version: "1.0",
+ *         },
+ *         paths: {
+ *             "/path1": {
+ *                 get: {
+ *                     "x-amazon-apigateway-integration": {
+ *                         httpMethod: "GET",
+ *                         payloadFormatVersion: "1.0",
+ *                         type: "HTTP_PROXY",
+ *                         uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                     },
  *                 },
  *             },
  *         },
- *     },
- * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: exampleRestApi.id,
+ *     }),
+ *     name: "example",
+ * });
+ * const exampleDeployment = new aws.apigateway.Deployment("example", {
+ *     restApi: example.id,
  *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *         redeployment: std.sha1Output({
+ *             input: pulumi.jsonStringify(example.body),
+ *         }).apply(invoke => invoke.result),
  *     },
  * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ * const exampleStage = new aws.apigateway.Stage("example", {
  *     deployment: exampleDeployment.id,
- *     restApi: exampleRestApi.id,
+ *     restApi: example.id,
  *     stageName: "example",
  * });
- * const exampleMethodSettings = new aws.apigateway.MethodSettings("exampleMethodSettings", {
- *     restApi: exampleRestApi.id,
+ * const exampleMethodSettings = new aws.apigateway.MethodSettings("example", {
+ *     restApi: example.id,
  *     stageName: exampleStage.stageName,
  *     methodPath: "*&#47;*",
  *     settings: {
@@ -59,32 +65,34 @@ import {Deployment, RestApi} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Managing the API Logging CloudWatch Log Group
  *
  * API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `aws.cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
  * const stageName = config.get("stageName") || "example";
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
- * // ... other configuration ...
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 7});
- * // ... potentially other configuration ...
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {stageName: stageName}, {
- *     dependsOn: [exampleLogGroup],
+ * const example = new aws.apigateway.RestApi("example", {});
+ * const exampleStage = new aws.apigateway.Stage("example", {stageName: stageName});
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
+ *     name: pulumi.interpolate`API-Gateway-Execution-Logs_${example.id}/${stageName}`,
+ *     retentionInDays: 7,
  * });
- * // ... other configuration ...
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
+ * $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
  * ```
  */
 export class Stage extends pulumi.CustomResource {
@@ -255,8 +263,6 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["webAclArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Stage.__pulumiType, name, resourceInputs, opts);
     }
 }

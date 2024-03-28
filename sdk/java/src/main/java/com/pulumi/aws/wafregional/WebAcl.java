@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
  * 
  * ## Example Usage
+ * 
  * ### Regular Rule
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,6 +58,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
+ *             .name(&#34;tfIPSet&#34;)
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
  *                 .type(&#34;IPV4&#34;)
  *                 .value(&#34;192.0.7.0/24&#34;)
@@ -62,6 +66,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var wafrule = new Rule(&#34;wafrule&#34;, RuleArgs.builder()        
+ *             .name(&#34;tfWAFRule&#34;)
  *             .metricName(&#34;tfWAFRule&#34;)
  *             .predicates(RulePredicateArgs.builder()
  *                 .dataId(ipset.id())
@@ -71,6 +76,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var wafacl = new WebAcl(&#34;wafacl&#34;, WebAclArgs.builder()        
+ *             .name(&#34;tfWebACL&#34;)
  *             .metricName(&#34;tfWebACL&#34;)
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .type(&#34;ALLOW&#34;)
@@ -88,7 +94,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Group Rule
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -114,13 +124,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAcl(&#34;example&#34;, WebAclArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .metricName(&#34;example&#34;)
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .type(&#34;ALLOW&#34;)
  *                 .build())
  *             .rules(WebAclRuleArgs.builder()
  *                 .priority(1)
- *                 .ruleId(aws_wafregional_rule_group.example().id())
+ *                 .ruleId(exampleAwsWafregionalRuleGroup.id())
  *                 .type(&#34;GROUP&#34;)
  *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
  *                     .type(&#34;NONE&#34;)
@@ -131,9 +142,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Logging
  * 
  * &gt; *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -159,7 +174,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new WebAcl(&#34;example&#34;, WebAclArgs.builder()        
  *             .loggingConfiguration(WebAclLoggingConfigurationArgs.builder()
- *                 .logDestination(aws_kinesis_firehose_delivery_stream.example().arn())
+ *                 .logDestination(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                 .redactedFields(WebAclLoggingConfigurationRedactedFieldsArgs.builder()
  *                     .fieldToMatches(                    
  *                         WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.builder()
@@ -176,13 +191,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WAF Regional Web ACL using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * $ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * ```
  * 
  */
@@ -337,9 +353,6 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

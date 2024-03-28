@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides an Amazon Inspector Classic Resource Group.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -41,14 +43,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
  *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Env&#34;, &#34;bar&#34;),
- *                 Map.entry(&#34;Name&#34;, &#34;foo&#34;)
+ *                 Map.entry(&#34;Name&#34;, &#34;foo&#34;),
+ *                 Map.entry(&#34;Env&#34;, &#34;bar&#34;)
  *             ))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:inspector/resourceGroup:ResourceGroup")

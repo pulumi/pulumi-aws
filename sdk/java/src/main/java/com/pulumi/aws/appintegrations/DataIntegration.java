@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an Amazon AppIntegrations Data Integration resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,8 +45,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataIntegration(&#34;example&#34;, DataIntegrationArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;example&#34;)
- *             .kmsKey(aws_kms_key.test().arn())
+ *             .kmsKey(test.arn())
  *             .sourceUri(&#34;Salesforce://AppFlow/example&#34;)
  *             .scheduleConfig(DataIntegrationScheduleConfigArgs.builder()
  *                 .firstExecutionFrom(&#34;1439788442681&#34;)
@@ -58,13 +60,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
+ * $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
  * ```
  * 
  */
@@ -219,9 +222,6 @@ public class DataIntegration extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

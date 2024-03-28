@@ -14,9 +14,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; **NOTE:** S3 Buckets only support a single replication configuration. Declaring multiple `aws.s3.BucketReplicationConfig` resources to the same S3 Bucket will cause a perpetual difference in configuration.
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
+    /// 
     /// ### Using replication configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,11 +29,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var central = new Aws.Provider("central", new()
-    ///     {
-    ///         Region = "eu-central-1",
-    ///     });
-    /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
@@ -56,21 +55,23 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var replicationRole = new Aws.Iam.Role("replicationRole", new()
+    ///     var replicationRole = new Aws.Iam.Role("replication", new()
     ///     {
+    ///         Name = "tf-iam-role-replication-12345",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var destinationBucketV2 = new Aws.S3.BucketV2("destinationBucketV2");
-    /// 
-    ///     var sourceBucketV2 = new Aws.S3.BucketV2("sourceBucketV2", new()
+    ///     var destination = new Aws.S3.BucketV2("destination", new()
     ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Central,
+    ///         Bucket = "tf-test-bucket-destination-12345",
     ///     });
     /// 
-    ///     var replicationPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var source = new Aws.S3.BucketV2("source", new()
+    ///     {
+    ///         Bucket = "tf-test-bucket-source-12345",
+    ///     });
+    /// 
+    ///     var replication = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -84,7 +85,7 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     sourceBucketV2.Arn,
+    ///                     source.Arn,
     ///                 },
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
@@ -98,7 +99,7 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"{sourceBucketV2.Arn}/*",
+    ///                     $"{source.Arn}/*",
     ///                 },
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
@@ -112,57 +113,52 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"{destinationBucketV2.Arn}/*",
+    ///                     $"{destination.Arn}/*",
     ///                 },
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var replicationPolicy = new Aws.Iam.Policy("replicationPolicy", new()
+    ///     var replicationPolicy = new Aws.Iam.Policy("replication", new()
     ///     {
-    ///         PolicyDocument = replicationPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Name = "tf-iam-role-policy-replication-12345",
+    ///         PolicyDocument = replication.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var replicationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("replicationRolePolicyAttachment", new()
+    ///     var replicationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("replication", new()
     ///     {
     ///         Role = replicationRole.Name,
     ///         PolicyArn = replicationPolicy.Arn,
     ///     });
     /// 
-    ///     var destinationBucketVersioningV2 = new Aws.S3.BucketVersioningV2("destinationBucketVersioningV2", new()
+    ///     var destinationBucketVersioningV2 = new Aws.S3.BucketVersioningV2("destination", new()
     ///     {
-    ///         Bucket = destinationBucketV2.Id,
+    ///         Bucket = destination.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
     ///     });
     /// 
-    ///     var sourceBucketAcl = new Aws.S3.BucketAclV2("sourceBucketAcl", new()
+    ///     var sourceBucketAcl = new Aws.S3.BucketAclV2("source_bucket_acl", new()
     ///     {
-    ///         Bucket = sourceBucketV2.Id,
+    ///         Bucket = source.Id,
     ///         Acl = "private",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Central,
     ///     });
     /// 
-    ///     var sourceBucketVersioningV2 = new Aws.S3.BucketVersioningV2("sourceBucketVersioningV2", new()
+    ///     var sourceBucketVersioningV2 = new Aws.S3.BucketVersioningV2("source", new()
     ///     {
-    ///         Bucket = sourceBucketV2.Id,
+    ///         Bucket = source.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Central,
     ///     });
     /// 
-    ///     var replicationBucketReplicationConfig = new Aws.S3.BucketReplicationConfig("replicationBucketReplicationConfig", new()
+    ///     var replicationBucketReplicationConfig = new Aws.S3.BucketReplicationConfig("replication", new()
     ///     {
     ///         Role = replicationRole.Arn,
-    ///         Bucket = sourceBucketV2.Id,
+    ///         Bucket = source.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketReplicationConfigRuleArgs
@@ -175,24 +171,20 @@ namespace Pulumi.Aws.S3
     ///                 Status = "Enabled",
     ///                 Destination = new Aws.S3.Inputs.BucketReplicationConfigRuleDestinationArgs
     ///                 {
-    ///                     Bucket = destinationBucketV2.Arn,
+    ///                     Bucket = destination.Arn,
     ///                     StorageClass = "STANDARD",
     ///                 },
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Central,
-    ///         DependsOn = new[]
-    ///         {
-    ///             sourceBucketVersioningV2,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Bi-Directional Replication
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -202,40 +194,38 @@ namespace Pulumi.Aws.S3
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // ... other configuration ...
-    ///     var eastBucketV2 = new Aws.S3.BucketV2("eastBucketV2");
-    /// 
-    ///     var eastBucketVersioningV2 = new Aws.S3.BucketVersioningV2("eastBucketVersioningV2", new()
+    ///     var east = new Aws.S3.BucketV2("east", new()
     ///     {
-    ///         Bucket = eastBucketV2.Id,
+    ///         Bucket = "tf-test-bucket-east-12345",
+    ///     });
+    /// 
+    ///     var eastBucketVersioningV2 = new Aws.S3.BucketVersioningV2("east", new()
+    ///     {
+    ///         Bucket = east.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
     ///     });
     /// 
-    ///     var westBucketV2 = new Aws.S3.BucketV2("westBucketV2", new()
+    ///     var west = new Aws.S3.BucketV2("west", new()
     ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.West,
+    ///         Bucket = "tf-test-bucket-west-12345",
     ///     });
     /// 
-    ///     var westBucketVersioningV2 = new Aws.S3.BucketVersioningV2("westBucketVersioningV2", new()
+    ///     var westBucketVersioningV2 = new Aws.S3.BucketVersioningV2("west", new()
     ///     {
-    ///         Bucket = westBucketV2.Id,
+    ///         Bucket = west.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.West,
     ///     });
     /// 
-    ///     var eastToWest = new Aws.S3.BucketReplicationConfig("eastToWest", new()
+    ///     var eastToWest = new Aws.S3.BucketReplicationConfig("east_to_west", new()
     ///     {
-    ///         Role = aws_iam_role.East_replication.Arn,
-    ///         Bucket = eastBucketV2.Id,
+    ///         Role = eastReplication.Arn,
+    ///         Bucket = east.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketReplicationConfigRuleArgs
@@ -248,23 +238,17 @@ namespace Pulumi.Aws.S3
     ///                 Status = "Enabled",
     ///                 Destination = new Aws.S3.Inputs.BucketReplicationConfigRuleDestinationArgs
     ///                 {
-    ///                     Bucket = westBucketV2.Arn,
+    ///                     Bucket = west.Arn,
     ///                     StorageClass = "STANDARD",
     ///                 },
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             eastBucketVersioningV2,
-    ///         },
     ///     });
     /// 
-    ///     var westToEast = new Aws.S3.BucketReplicationConfig("westToEast", new()
+    ///     var westToEast = new Aws.S3.BucketReplicationConfig("west_to_east", new()
     ///     {
-    ///         Role = aws_iam_role.West_replication.Arn,
-    ///         Bucket = westBucketV2.Id,
+    ///         Role = westReplication.Arn,
+    ///         Bucket = west.Id,
     ///         Rules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketReplicationConfigRuleArgs
@@ -277,29 +261,23 @@ namespace Pulumi.Aws.S3
     ///                 Status = "Enabled",
     ///                 Destination = new Aws.S3.Inputs.BucketReplicationConfigRuleDestinationArgs
     ///                 {
-    ///                     Bucket = eastBucketV2.Arn,
+    ///                     Bucket = east.Arn,
     ///                     StorageClass = "STANDARD",
     ///                 },
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.West,
-    ///         DependsOn = new[]
-    ///         {
-    ///             westBucketVersioningV2,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
+    /// $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketReplicationConfig:BucketReplicationConfig")]

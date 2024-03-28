@@ -4,6 +4,7 @@
 package com.pulumi.aws.gamelift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -64,19 +65,23 @@ public final class GameServerGroupInstanceDefinition {
 
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("GameServerGroupInstanceDefinition", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder weightedCapacity(@Nullable String weightedCapacity) {
+
             this.weightedCapacity = weightedCapacity;
             return this;
         }
         public GameServerGroupInstanceDefinition build() {
-            final var o = new GameServerGroupInstanceDefinition();
-            o.instanceType = instanceType;
-            o.weightedCapacity = weightedCapacity;
-            return o;
+            final var _resultValue = new GameServerGroupInstanceDefinition();
+            _resultValue.instanceType = instanceType;
+            _resultValue.weightedCapacity = weightedCapacity;
+            return _resultValue;
         }
     }
 }

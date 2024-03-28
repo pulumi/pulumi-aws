@@ -17,8 +17,10 @@ namespace Pulumi.Aws.Iam
     /// &gt; **NOTE:** If you use this resource's `managed_policy_arns` argument or `inline_policy` configuration blocks, this resource will take over exclusive management of the role's respective policy types (e.g., both policy types if both arguments are used). These arguments are incompatible with other ways of managing a role's policies, such as `aws.iam.PolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.RolePolicy`. If you attempt to manage a role's policies by multiple means, you will get resource cycling and/or errors.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,21 +30,22 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
+    ///     var testRole = new Aws.Iam.Role("test_role", new()
     ///     {
+    ///         Name = "test_role",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "ec2.amazonaws.com",
+    ///                         ["service"] = "ec2.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
@@ -55,8 +58,11 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example of Using Data Source for Assume Role Policy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,16 +98,20 @@ namespace Pulumi.Aws.Iam
     /// 
     ///     var instance = new Aws.Iam.Role("instance", new()
     ///     {
+    ///         Name = "instance_role",
     ///         Path = "/system/",
     ///         AssumeRolePolicy = instanceAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example of Exclusive Inline Policies
     /// 
     /// This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -131,7 +141,8 @@ namespace Pulumi.Aws.Iam
     /// 
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
+    ///         Name = "yak_role",
+    ///         AssumeRolePolicy = instanceAssumeRolePolicy.Json,
     ///         InlinePolicies = new[]
     ///         {
     ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
@@ -139,17 +150,17 @@ namespace Pulumi.Aws.Iam
     ///                 Name = "my_inline_policy",
     ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Version"] = "2012-10-17",
-    ///                     ["Statement"] = new[]
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
     ///                     {
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["Action"] = new[]
+    ///                             ["action"] = new[]
     ///                             {
     ///                                 "ec2:Describe*",
     ///                             },
-    ///                             ["Effect"] = "Allow",
-    ///                             ["Resource"] = "*",
+    ///                             ["effect"] = "Allow",
+    ///                             ["resource"] = "*",
     ///                         },
     ///                     },
     ///                 }),
@@ -164,10 +175,13 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example of Removing Inline Policies
     /// 
     /// This example creates an IAM role with what appears to be empty IAM `inline_policy` argument instead of using `inline_policy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -178,19 +192,23 @@ namespace Pulumi.Aws.Iam
     /// {
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
     ///         InlinePolicies = new[]
     ///         {
     ///             null,
     ///         },
+    ///         Name = "yak_role",
+    ///         AssumeRolePolicy = instanceAssumeRolePolicy.Json,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example of Exclusive Managed Policies
     /// 
     /// This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -200,43 +218,45 @@ namespace Pulumi.Aws.Iam
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var policyOne = new Aws.Iam.Policy("policyOne", new()
+    ///     var policyOne = new Aws.Iam.Policy("policy_one", new()
     ///     {
+    ///         Name = "policy-618033",
     ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "ec2:Describe*",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = "*",
     ///                 },
     ///             },
     ///         }),
     ///     });
     /// 
-    ///     var policyTwo = new Aws.Iam.Policy("policyTwo", new()
+    ///     var policyTwo = new Aws.Iam.Policy("policy_two", new()
     ///     {
+    ///         Name = "policy-381966",
     ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "s3:ListAllMyBuckets",
     ///                         "s3:ListBucket",
     ///                         "s3:HeadBucket",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = "*",
     ///                 },
     ///             },
     ///         }),
@@ -244,7 +264,8 @@ namespace Pulumi.Aws.Iam
     /// 
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
+    ///         Name = "yak_role",
+    ///         AssumeRolePolicy = instanceAssumeRolePolicy.Json,
     ///         ManagedPolicyArns = new[]
     ///         {
     ///             policyOne.Arn,
@@ -254,10 +275,13 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example of Removing Managed Policies
     /// 
     /// This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -268,19 +292,21 @@ namespace Pulumi.Aws.Iam
     /// {
     ///     var example = new Aws.Iam.Role("example", new()
     ///     {
-    ///         AssumeRolePolicy = data.Aws_iam_policy_document.Instance_assume_role_policy.Json,
+    ///         Name = "yak_role",
+    ///         AssumeRolePolicy = instanceAssumeRolePolicy.Json,
     ///         ManagedPolicyArns = new[] {},
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM Roles using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/role:Role developer developer_name
+    /// $ pulumi import aws:iam/role:Role developer developer_name
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/role:Role")]
@@ -400,10 +426,6 @@ namespace Pulumi.Aws.Iam
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -625,11 +647,7 @@ namespace Pulumi.Aws.Iam
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

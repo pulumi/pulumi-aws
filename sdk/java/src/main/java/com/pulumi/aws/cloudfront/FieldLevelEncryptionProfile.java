@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a CloudFront Field-level Encryption Profile resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,11 +47,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new PublicKey(&#34;example&#34;, PublicKeyArgs.builder()        
  *             .comment(&#34;test public key&#34;)
- *             .encodedKey(Files.readString(Paths.get(&#34;public_key.pem&#34;)))
+ *             .encodedKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;public_key.pem&#34;)
+ *                 .build()).result())
+ *             .name(&#34;test_key&#34;)
  *             .build());
  * 
  *         var test = new FieldLevelEncryptionProfile(&#34;test&#34;, FieldLevelEncryptionProfileArgs.builder()        
  *             .comment(&#34;test comment&#34;)
+ *             .name(&#34;test profile&#34;)
  *             .encryptionEntities(FieldLevelEncryptionProfileEncryptionEntitiesArgs.builder()
  *                 .items(FieldLevelEncryptionProfileEncryptionEntitiesItemArgs.builder()
  *                     .publicKeyId(example.id())
@@ -64,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
+ * $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
  * ```
  * 
  */

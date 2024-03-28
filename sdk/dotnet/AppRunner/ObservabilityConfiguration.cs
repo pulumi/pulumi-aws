@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,25 +26,26 @@ namespace Pulumi.Aws.AppRunner
     ///     var example = new Aws.AppRunner.ObservabilityConfiguration("example", new()
     ///     {
     ///         ObservabilityConfigurationName = "example",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-apprunner-observability-configuration" },
-    ///         },
     ///         TraceConfiguration = new Aws.AppRunner.Inputs.ObservabilityConfigurationTraceConfigurationArgs
     ///         {
     ///             Vendor = "AWSXRAY",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example-apprunner-observability-configuration" },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+    /// $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
     /// ```
     /// </summary>
     [AwsResourceType("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration")]
@@ -120,10 +122,6 @@ namespace Pulumi.Aws.AppRunner
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -231,11 +229,7 @@ namespace Pulumi.Aws.AppRunner
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

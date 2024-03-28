@@ -8,6 +8,7 @@ import com.pulumi.aws.fsx.outputs.GetOntapStorageVirtualMachineEndpointManagemen
 import com.pulumi.aws.fsx.outputs.GetOntapStorageVirtualMachineEndpointNf;
 import com.pulumi.aws.fsx.outputs.GetOntapStorageVirtualMachineEndpointSmb;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -80,7 +81,10 @@ public final class GetOntapStorageVirtualMachineEndpoint {
 
         @CustomType.Setter
         public Builder iscsis(List<GetOntapStorageVirtualMachineEndpointIscsi> iscsis) {
-            this.iscsis = Objects.requireNonNull(iscsis);
+            if (iscsis == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineEndpoint", "iscsis");
+            }
+            this.iscsis = iscsis;
             return this;
         }
         public Builder iscsis(GetOntapStorageVirtualMachineEndpointIscsi... iscsis) {
@@ -88,7 +92,10 @@ public final class GetOntapStorageVirtualMachineEndpoint {
         }
         @CustomType.Setter
         public Builder managements(List<GetOntapStorageVirtualMachineEndpointManagement> managements) {
-            this.managements = Objects.requireNonNull(managements);
+            if (managements == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineEndpoint", "managements");
+            }
+            this.managements = managements;
             return this;
         }
         public Builder managements(GetOntapStorageVirtualMachineEndpointManagement... managements) {
@@ -96,7 +103,10 @@ public final class GetOntapStorageVirtualMachineEndpoint {
         }
         @CustomType.Setter
         public Builder nfs(List<GetOntapStorageVirtualMachineEndpointNf> nfs) {
-            this.nfs = Objects.requireNonNull(nfs);
+            if (nfs == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineEndpoint", "nfs");
+            }
+            this.nfs = nfs;
             return this;
         }
         public Builder nfs(GetOntapStorageVirtualMachineEndpointNf... nfs) {
@@ -104,19 +114,22 @@ public final class GetOntapStorageVirtualMachineEndpoint {
         }
         @CustomType.Setter
         public Builder smbs(List<GetOntapStorageVirtualMachineEndpointSmb> smbs) {
-            this.smbs = Objects.requireNonNull(smbs);
+            if (smbs == null) {
+              throw new MissingRequiredPropertyException("GetOntapStorageVirtualMachineEndpoint", "smbs");
+            }
+            this.smbs = smbs;
             return this;
         }
         public Builder smbs(GetOntapStorageVirtualMachineEndpointSmb... smbs) {
             return smbs(List.of(smbs));
         }
         public GetOntapStorageVirtualMachineEndpoint build() {
-            final var o = new GetOntapStorageVirtualMachineEndpoint();
-            o.iscsis = iscsis;
-            o.managements = managements;
-            o.nfs = nfs;
-            o.smbs = smbs;
-            return o;
+            final var _resultValue = new GetOntapStorageVirtualMachineEndpoint();
+            _resultValue.iscsis = iscsis;
+            _resultValue.managements = managements;
+            _resultValue.nfs = nfs;
+            _resultValue.smbs = smbs;
+            return _resultValue;
         }
     }
 }

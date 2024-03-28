@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,8 +51,9 @@ namespace Pulumi.Aws.ApiGateway
     ///         },
     ///     });
     /// 
-    ///     var cloudwatchRole = new Aws.Iam.Role("cloudwatchRole", new()
+    ///     var cloudwatchRole = new Aws.Iam.Role("cloudwatch", new()
     ///     {
+    ///         Name = "api_gateway_cloudwatch_global",
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
@@ -60,7 +62,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         CloudwatchRoleArn = cloudwatchRole.Arn,
     ///     });
     /// 
-    ///     var cloudwatchPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var cloudwatch = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -85,21 +87,23 @@ namespace Pulumi.Aws.ApiGateway
     ///         },
     ///     });
     /// 
-    ///     var cloudwatchRolePolicy = new Aws.Iam.RolePolicy("cloudwatchRolePolicy", new()
+    ///     var cloudwatchRolePolicy = new Aws.Iam.RolePolicy("cloudwatch", new()
     ///     {
+    ///         Name = "default",
     ///         Role = cloudwatchRole.Id,
-    ///         Policy = cloudwatchPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = cloudwatch.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+    /// $ pulumi import aws:apigateway/account:Account demo api-gateway-account
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/account:Account")]

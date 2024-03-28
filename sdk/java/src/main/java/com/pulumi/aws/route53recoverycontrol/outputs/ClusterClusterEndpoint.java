@@ -58,19 +58,21 @@ public final class ClusterClusterEndpoint {
 
         @CustomType.Setter
         public Builder endpoint(@Nullable String endpoint) {
+
             this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder region(@Nullable String region) {
+
             this.region = region;
             return this;
         }
         public ClusterClusterEndpoint build() {
-            final var o = new ClusterClusterEndpoint();
-            o.endpoint = endpoint;
-            o.region = region;
-            return o;
+            final var _resultValue = new ClusterClusterEndpoint();
+            _resultValue.endpoint = endpoint;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

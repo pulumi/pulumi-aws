@@ -4,6 +4,7 @@
 package com.pulumi.aws.glue.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -87,31 +88,37 @@ public final class CatalogTableStorageDescriptorColumn {
 
         @CustomType.Setter
         public Builder comment(@Nullable String comment) {
+
             this.comment = comment;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("CatalogTableStorageDescriptorColumn", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public CatalogTableStorageDescriptorColumn build() {
-            final var o = new CatalogTableStorageDescriptorColumn();
-            o.comment = comment;
-            o.name = name;
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new CatalogTableStorageDescriptorColumn();
+            _resultValue.comment = comment;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

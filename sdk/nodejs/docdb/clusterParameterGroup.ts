@@ -12,26 +12,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.docdb.ClusterParameterGroup("example", {
- *     description: "docdb cluster parameter group",
  *     family: "docdb3.6",
+ *     name: "example",
+ *     description: "docdb cluster parameter group",
  *     parameters: [{
  *         name: "tls",
  *         value: "enabled",
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DocumentDB Cluster Parameter Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:docdb/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+ * $ pulumi import aws:docdb/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
  * ```
  */
 export class ClusterParameterGroup extends pulumi.CustomResource {
@@ -133,8 +136,6 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ClusterParameterGroup.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -270,9 +271,15 @@ public final class BgpPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BgpPeerArgs build() {
-            $.addressFamily = Objects.requireNonNull($.addressFamily, "expected parameter 'addressFamily' to be non-null");
-            $.bgpAsn = Objects.requireNonNull($.bgpAsn, "expected parameter 'bgpAsn' to be non-null");
-            $.virtualInterfaceId = Objects.requireNonNull($.virtualInterfaceId, "expected parameter 'virtualInterfaceId' to be non-null");
+            if ($.addressFamily == null) {
+                throw new MissingRequiredPropertyException("BgpPeerArgs", "addressFamily");
+            }
+            if ($.bgpAsn == null) {
+                throw new MissingRequiredPropertyException("BgpPeerArgs", "bgpAsn");
+            }
+            if ($.virtualInterfaceId == null) {
+                throw new MissingRequiredPropertyException("BgpPeerArgs", "virtualInterfaceId");
+            }
             return $;
         }
     }

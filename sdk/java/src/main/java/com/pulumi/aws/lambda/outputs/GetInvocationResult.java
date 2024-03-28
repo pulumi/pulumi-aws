@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,37 +77,50 @@ public final class GetInvocationResult {
 
         @CustomType.Setter
         public Builder functionName(String functionName) {
-            this.functionName = Objects.requireNonNull(functionName);
+            if (functionName == null) {
+              throw new MissingRequiredPropertyException("GetInvocationResult", "functionName");
+            }
+            this.functionName = functionName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInvocationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder input(String input) {
-            this.input = Objects.requireNonNull(input);
+            if (input == null) {
+              throw new MissingRequiredPropertyException("GetInvocationResult", "input");
+            }
+            this.input = input;
             return this;
         }
         @CustomType.Setter
         public Builder qualifier(@Nullable String qualifier) {
+
             this.qualifier = qualifier;
             return this;
         }
         @CustomType.Setter
         public Builder result(String result) {
-            this.result = Objects.requireNonNull(result);
+            if (result == null) {
+              throw new MissingRequiredPropertyException("GetInvocationResult", "result");
+            }
+            this.result = result;
             return this;
         }
         public GetInvocationResult build() {
-            final var o = new GetInvocationResult();
-            o.functionName = functionName;
-            o.id = id;
-            o.input = input;
-            o.qualifier = qualifier;
-            o.result = result;
-            return o;
+            final var _resultValue = new GetInvocationResult();
+            _resultValue.functionName = functionName;
+            _resultValue.id = id;
+            _resultValue.input = input;
+            _resultValue.qualifier = qualifier;
+            _resultValue.result = result;
+            return _resultValue;
         }
     }
 }

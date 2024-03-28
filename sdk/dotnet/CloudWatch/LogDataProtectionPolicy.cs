@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,35 +26,41 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
-    /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", new()
+    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
-    ///         LogGroupName = exampleLogGroup.Name,
-    ///         PolicyDocument = exampleBucketV2.Bucket.Apply(bucket =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         Bucket = "example",
+    ///     });
+    /// 
+    ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("example", new()
+    ///     {
+    ///         LogGroupName = example.Name,
+    ///         PolicyDocument = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Name"] = "Example",
-    ///             ["Version"] = "2021-06-01",
-    ///             ["Statement"] = new[]
+    ///             ["name"] = "Example",
+    ///             ["version"] = "2021-06-01",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Sid"] = "Audit",
-    ///                     ["DataIdentifier"] = new[]
+    ///                     ["sid"] = "Audit",
+    ///                     ["dataIdentifier"] = new[]
     ///                     {
     ///                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
     ///                     },
-    ///                     ["Operation"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["operation"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Audit"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["audit"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["FindingsDestination"] = new Dictionary&lt;string, object?&gt;
+    ///                             ["findingsDestination"] = new Dictionary&lt;string, object?&gt;
     ///                             {
     ///                                 ["S3"] = new Dictionary&lt;string, object?&gt;
     ///                                 {
-    ///                                     ["Bucket"] = bucket,
+    ///                                     ["bucket"] = exampleBucketV2.Bucket,
     ///                                 },
     ///                             },
     ///                         },
@@ -61,16 +68,16 @@ namespace Pulumi.Aws.CloudWatch
     ///                 },
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Sid"] = "Redact",
-    ///                     ["DataIdentifier"] = new[]
+    ///                     ["sid"] = "Redact",
+    ///                     ["dataIdentifier"] = new[]
     ///                     {
     ///                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
     ///                     },
-    ///                     ["Operation"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["operation"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Deidentify"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["deidentify"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["MaskConfig"] = new Dictionary&lt;string, object?&gt;
+    ///                             ["maskConfig"] = new Dictionary&lt;string, object?&gt;
     ///                             {
     ///                             },
     ///                         },
@@ -82,13 +89,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import this resource using the `log_group_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
+    /// $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy")]

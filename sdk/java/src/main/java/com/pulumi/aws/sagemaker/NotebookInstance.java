@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Notebook Instance resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,7 +48,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ni = new NotebookInstance(&#34;ni&#34;, NotebookInstanceArgs.builder()        
- *             .roleArn(aws_iam_role.role().arn())
+ *             .name(&#34;my-notebook-instance&#34;)
+ *             .roleArn(role.arn())
  *             .instanceType(&#34;ml.t2.medium&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;foo&#34;))
  *             .build());
@@ -53,7 +57,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Code repository usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -86,7 +94,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ni = new NotebookInstance(&#34;ni&#34;, NotebookInstanceArgs.builder()        
- *             .roleArn(aws_iam_role.role().arn())
+ *             .name(&#34;my-notebook-instance&#34;)
+ *             .roleArn(role.arn())
  *             .instanceType(&#34;ml.t2.medium&#34;)
  *             .defaultCodeRepository(example.codeRepositoryName())
  *             .tags(Map.of(&#34;Name&#34;, &#34;foo&#34;))
@@ -95,13 +104,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
+ * $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
  * ```
  * 
  */
@@ -426,9 +436,6 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

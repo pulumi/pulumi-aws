@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewUsageLimit(ctx, "example", &redshift.UsageLimitArgs{
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Id),
+//				ClusterIdentifier: pulumi.Any(exampleAwsRedshiftCluster.Id),
 //				FeatureType:       pulumi.String("concurrency-scaling"),
 //				LimitType:         pulumi.String("time"),
 //				Amount:            pulumi.Int(60),
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift usage limits using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
-//
+// $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
 // ```
 type UsageLimit struct {
 	pulumi.CustomResourceState
@@ -96,10 +96,6 @@ func NewUsageLimit(ctx *pulumi.Context,
 	if args.LimitType == nil {
 		return nil, errors.New("invalid value for required argument 'LimitType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UsageLimit
 	err := ctx.RegisterResource("aws:redshift/usageLimit:UsageLimit", name, args, &resource, opts...)

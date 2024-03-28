@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -37,6 +36,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Creating multiple `aws.ec2.VpcPeeringConnection` resources with the same `peer_vpc_id` and `vpc_id` will not produce an error. Instead, AWS will return the connection `id` that already exists, resulting in multiple `aws.ec2.VpcPeeringConnection` resources with the same `id`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,16 +60,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new VpcPeeringConnection(&#34;foo&#34;, VpcPeeringConnectionArgs.builder()        
- *             .peerOwnerId(var_.peer_owner_id())
- *             .peerVpcId(aws_vpc.bar().id())
- *             .vpcId(aws_vpc.foo().id())
+ *             .peerOwnerId(peerOwnerId)
+ *             .peerVpcId(bar.id())
+ *             .vpcId(fooAwsVpc.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Basic usage with connection options:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -93,9 +97,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new VpcPeeringConnection(&#34;foo&#34;, VpcPeeringConnectionArgs.builder()        
- *             .peerOwnerId(var_.peer_owner_id())
- *             .peerVpcId(aws_vpc.bar().id())
- *             .vpcId(aws_vpc.foo().id())
+ *             .peerOwnerId(peerOwnerId)
+ *             .peerVpcId(bar.id())
+ *             .vpcId(fooAwsVpc.id())
  *             .accepter(VpcPeeringConnectionAccepterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
  *                 .build())
@@ -107,8 +111,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Basic usage with tags:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -140,8 +147,8 @@ import javax.annotation.Nullable;
  *             .cidrBlock(&#34;10.2.0.0/16&#34;)
  *             .build());
  * 
- *         var fooVpcPeeringConnection = new VpcPeeringConnection(&#34;fooVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
- *             .peerOwnerId(var_.peer_owner_id())
+ *         var foo = new VpcPeeringConnection(&#34;foo&#34;, VpcPeeringConnectionArgs.builder()        
+ *             .peerOwnerId(peerOwnerId)
  *             .peerVpcId(bar.id())
  *             .vpcId(fooVpc.id())
  *             .autoAccept(true)
@@ -151,8 +158,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Basic usage with region:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -163,7 +173,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.ec2.VpcPeeringConnection;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -179,18 +188,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var fooVpc = new Vpc(&#34;fooVpc&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.1.0.0/16&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us-west-2())
- *                 .build());
+ *             .build());
  * 
  *         var bar = new Vpc(&#34;bar&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.2.0.0/16&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us-east-1())
- *                 .build());
+ *             .build());
  * 
- *         var fooVpcPeeringConnection = new VpcPeeringConnection(&#34;fooVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
- *             .peerOwnerId(var_.peer_owner_id())
+ *         var foo = new VpcPeeringConnection(&#34;foo&#34;, VpcPeeringConnectionArgs.builder()        
+ *             .peerOwnerId(peerOwnerId)
  *             .peerVpcId(bar.id())
  *             .vpcId(fooVpc.id())
  *             .peerRegion(&#34;us-east-1&#34;)
@@ -199,6 +204,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Notes
  * 
  * If both VPCs are not in the same AWS account and region do not enable the `auto_accept` attribute.
@@ -210,7 +217,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
+ * $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
  * ```
  * 
  */
@@ -261,16 +268,16 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoAccept);
     }
     /**
-     * The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the AWS provider is currently connected to.
+     * The AWS account ID of the target peer VPC.
+     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
      * 
      */
     @Export(name="peerOwnerId", refs={String.class}, tree="[0]")
     private Output<String> peerOwnerId;
 
     /**
-     * @return The AWS account ID of the owner of the peer VPC.
-     * Defaults to the account ID the AWS provider is currently connected to.
+     * @return The AWS account ID of the target peer VPC.
+     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
      * 
      */
     public Output<String> peerOwnerId() {
@@ -293,14 +300,14 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
         return this.peerRegion;
     }
     /**
-     * The ID of the VPC with which you are creating the VPC Peering Connection.
+     * The ID of the target VPC with which you are creating the VPC Peering Connection.
      * 
      */
     @Export(name="peerVpcId", refs={String.class}, tree="[0]")
     private Output<String> peerVpcId;
 
     /**
-     * @return The ID of the VPC with which you are creating the VPC Peering Connection.
+     * @return The ID of the target VPC with which you are creating the VPC Peering Connection.
      * 
      */
     public Output<String> peerVpcId() {
@@ -401,9 +408,6 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

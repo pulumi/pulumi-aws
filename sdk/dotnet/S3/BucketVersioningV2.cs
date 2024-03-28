@@ -18,9 +18,13 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
     /// 
+    /// &gt; This resource cannot be used with S3 directory buckets.
+    /// 
     /// ## Example Usage
+    /// 
     /// ### With Versioning Enabled
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,17 +33,20 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "example-bucket",
+    ///     });
+    /// 
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var versioningExample = new Aws.S3.BucketVersioningV2("versioningExample", new()
+    ///     var versioningExample = new Aws.S3.BucketVersioningV2("versioning_example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = example.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
@@ -48,8 +55,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Versioning Disabled
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,17 +68,20 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "example-bucket",
+    ///     });
+    /// 
+    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var versioningExample = new Aws.S3.BucketVersioningV2("versioningExample", new()
+    ///     var versioningExample = new Aws.S3.BucketVersioningV2("versioning_example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = example.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
     ///         {
     ///             Status = "Disabled",
@@ -77,6 +90,8 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Object Dependency On Versioning
     /// 
     /// When you create an object whose `version_id` you need and an `aws.s3.BucketVersioningV2` resource in the same configuration, you are more likely to have success by ensuring the `s3_object` depends either implicitly (see below) or explicitly (i.e., using `depends_on = [aws_s3_bucket_versioning.example]`) on the `aws.s3.BucketVersioningV2` resource.
@@ -85,6 +100,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,18 +109,21 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("exampleBucketVersioningV2", new()
+    ///     var example = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = "yotto",
+    ///     });
+    /// 
+    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("example", new()
+    ///     {
+    ///         Bucket = example.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
+    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
     ///     {
     ///         Bucket = exampleBucketVersioningV2.Id,
     ///         Key = "droeloe",
@@ -113,6 +132,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -123,12 +143,12 @@ namespace Pulumi.Aws.S3
     /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
+    /// $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
     /// ```
-    ///  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
+    /// $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketVersioningV2:BucketVersioningV2")]

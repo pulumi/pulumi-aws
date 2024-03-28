@@ -9,6 +9,7 @@ import com.pulumi.aws.synthetics.inputs.CanaryScheduleArgs;
 import com.pulumi.aws.synthetics.inputs.CanaryVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -720,11 +721,21 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CanaryArgs build() {
-            $.artifactS3Location = Objects.requireNonNull($.artifactS3Location, "expected parameter 'artifactS3Location' to be non-null");
-            $.executionRoleArn = Objects.requireNonNull($.executionRoleArn, "expected parameter 'executionRoleArn' to be non-null");
-            $.handler = Objects.requireNonNull($.handler, "expected parameter 'handler' to be non-null");
-            $.runtimeVersion = Objects.requireNonNull($.runtimeVersion, "expected parameter 'runtimeVersion' to be non-null");
-            $.schedule = Objects.requireNonNull($.schedule, "expected parameter 'schedule' to be non-null");
+            if ($.artifactS3Location == null) {
+                throw new MissingRequiredPropertyException("CanaryArgs", "artifactS3Location");
+            }
+            if ($.executionRoleArn == null) {
+                throw new MissingRequiredPropertyException("CanaryArgs", "executionRoleArn");
+            }
+            if ($.handler == null) {
+                throw new MissingRequiredPropertyException("CanaryArgs", "handler");
+            }
+            if ($.runtimeVersion == null) {
+                throw new MissingRequiredPropertyException("CanaryArgs", "runtimeVersion");
+            }
+            if ($.schedule == null) {
+                throw new MissingRequiredPropertyException("CanaryArgs", "schedule");
+            }
             return $;
         }
     }

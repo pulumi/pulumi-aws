@@ -107,37 +107,42 @@ public final class StageDefaultRouteSettings {
 
         @CustomType.Setter
         public Builder dataTraceEnabled(@Nullable Boolean dataTraceEnabled) {
+
             this.dataTraceEnabled = dataTraceEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder detailedMetricsEnabled(@Nullable Boolean detailedMetricsEnabled) {
+
             this.detailedMetricsEnabled = detailedMetricsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder loggingLevel(@Nullable String loggingLevel) {
+
             this.loggingLevel = loggingLevel;
             return this;
         }
         @CustomType.Setter
         public Builder throttlingBurstLimit(@Nullable Integer throttlingBurstLimit) {
+
             this.throttlingBurstLimit = throttlingBurstLimit;
             return this;
         }
         @CustomType.Setter
         public Builder throttlingRateLimit(@Nullable Double throttlingRateLimit) {
+
             this.throttlingRateLimit = throttlingRateLimit;
             return this;
         }
         public StageDefaultRouteSettings build() {
-            final var o = new StageDefaultRouteSettings();
-            o.dataTraceEnabled = dataTraceEnabled;
-            o.detailedMetricsEnabled = detailedMetricsEnabled;
-            o.loggingLevel = loggingLevel;
-            o.throttlingBurstLimit = throttlingBurstLimit;
-            o.throttlingRateLimit = throttlingRateLimit;
-            return o;
+            final var _resultValue = new StageDefaultRouteSettings();
+            _resultValue.dataTraceEnabled = dataTraceEnabled;
+            _resultValue.detailedMetricsEnabled = detailedMetricsEnabled;
+            _resultValue.loggingLevel = loggingLevel;
+            _resultValue.throttlingBurstLimit = throttlingBurstLimit;
+            _resultValue.throttlingRateLimit = throttlingRateLimit;
+            return _resultValue;
         }
     }
 }

@@ -10,21 +10,19 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an S3 Multi-Region Access Point associated with specified buckets.
  *
+ * > This resource cannot be used with S3 directory buckets.
+ *
  * ## Example Usage
+ *
  * ### Multiple AWS Buckets in Different Regions
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const primaryRegion = new aws.Provider("primaryRegion", {region: "us-east-1"});
- * const secondaryRegion = new aws.Provider("secondaryRegion", {region: "us-west-2"});
- * const fooBucket = new aws.s3.BucketV2("fooBucket", {}, {
- *     provider: aws.primary_region,
- * });
- * const barBucket = new aws.s3.BucketV2("barBucket", {}, {
- *     provider: aws.secondary_region,
- * });
+ * const fooBucket = new aws.s3.BucketV2("foo_bucket", {bucket: "example-bucket-foo"});
+ * const barBucket = new aws.s3.BucketV2("bar_bucket", {bucket: "example-bucket-bar"});
  * const example = new aws.s3control.MultiRegionAccessPoint("example", {details: {
  *     name: "example",
  *     regions: [
@@ -37,13 +35,14 @@ import * as utilities from "../utilities";
  *     ],
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Multi-Region Access Points using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
+ * $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
  * ```
  */
 export class MultiRegionAccessPoint extends pulumi.CustomResource {

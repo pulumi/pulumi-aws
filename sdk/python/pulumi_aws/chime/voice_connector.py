@@ -231,21 +231,24 @@ class VoiceConnector(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.chime.VoiceConnector("test",
-            aws_region="us-east-1",
-            require_encryption=True)
+            name="connector-test-1",
+            require_encryption=True,
+            aws_region="us-east-1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Recorder using the name. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
+        $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
         ```
 
         :param str resource_name: The name of the resource.
@@ -268,21 +271,24 @@ class VoiceConnector(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.chime.VoiceConnector("test",
-            aws_region="us-east-1",
-            require_encryption=True)
+            name="connector-test-1",
+            require_encryption=True,
+            aws_region="us-east-1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Recorder using the name. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
+        $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
         ```
 
         :param str resource_name: The name of the resource.
@@ -322,8 +328,6 @@ class VoiceConnector(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["outbound_host_name"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VoiceConnector, __self__).__init__(
             'aws:chime/voiceConnector:VoiceConnector',
             resource_name,

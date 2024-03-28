@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// Use this data source to get a list of cognito user pools.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -26,27 +25,27 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var selectedRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
+        ///     var selected = Aws.ApiGateway.GetRestApi.Invoke(new()
         ///     {
-        ///         Name = @var.Api_gateway_name,
+        ///         Name = apiGatewayName,
         ///     });
         /// 
-        ///     var selectedUserPools = Aws.Cognito.GetUserPools.Invoke(new()
+        ///     var selectedGetUserPools = Aws.Cognito.GetUserPools.Invoke(new()
         ///     {
-        ///         Name = @var.Cognito_user_pool_name,
+        ///         Name = cognitoUserPoolName,
         ///     });
         /// 
         ///     var cognito = new Aws.ApiGateway.Authorizer("cognito", new()
         ///     {
+        ///         Name = "cognito",
         ///         Type = "COGNITO_USER_POOLS",
-        ///         RestApi = selectedRestApi.Apply(getRestApiResult =&gt; getRestApiResult.Id),
-        ///         ProviderArns = selectedUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
+        ///         RestApi = selected.Apply(getRestApiResult =&gt; getRestApiResult.Id),
+        ///         ProviderArns = selectedGetUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetUserPoolsResult> InvokeAsync(GetUserPoolsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args ?? new GetUserPoolsArgs(), options.WithDefaults());
@@ -54,10 +53,9 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// Use this data source to get a list of cognito user pools.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,27 +64,27 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var selectedRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
+        ///     var selected = Aws.ApiGateway.GetRestApi.Invoke(new()
         ///     {
-        ///         Name = @var.Api_gateway_name,
+        ///         Name = apiGatewayName,
         ///     });
         /// 
-        ///     var selectedUserPools = Aws.Cognito.GetUserPools.Invoke(new()
+        ///     var selectedGetUserPools = Aws.Cognito.GetUserPools.Invoke(new()
         ///     {
-        ///         Name = @var.Cognito_user_pool_name,
+        ///         Name = cognitoUserPoolName,
         ///     });
         /// 
         ///     var cognito = new Aws.ApiGateway.Authorizer("cognito", new()
         ///     {
+        ///         Name = "cognito",
         ///         Type = "COGNITO_USER_POOLS",
-        ///         RestApi = selectedRestApi.Apply(getRestApiResult =&gt; getRestApiResult.Id),
-        ///         ProviderArns = selectedUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
+        ///         RestApi = selected.Apply(getRestApiResult =&gt; getRestApiResult.Id),
+        ///         ProviderArns = selectedGetUserPools.Apply(getUserPoolsResult =&gt; getUserPoolsResult.Arns),
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetUserPoolsResult> Invoke(GetUserPoolsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolsResult>("aws:cognito/getUserPools:getUserPools", args ?? new GetUserPoolsInvokeArgs(), options.WithDefaults());

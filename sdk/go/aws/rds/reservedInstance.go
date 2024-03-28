@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = rds.NewReservedInstance(ctx, "example", &rds.ReservedInstanceArgs{
-//				OfferingId:    *pulumi.String(test.OfferingId),
+//				OfferingId:    pulumi.String(test.OfferingId),
 //				ReservationId: pulumi.String("optionalCustomReservationID"),
 //				InstanceCount: pulumi.Int(3),
 //			})
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
-//
+// $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
 // ```
 type ReservedInstance struct {
 	pulumi.CustomResourceState
@@ -120,10 +120,6 @@ func NewReservedInstance(ctx *pulumi.Context,
 	if args.OfferingId == nil {
 		return nil, errors.New("invalid value for required argument 'OfferingId'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReservedInstance
 	err := ctx.RegisterResource("aws:rds/reservedInstance:ReservedInstance", name, args, &resource, opts...)

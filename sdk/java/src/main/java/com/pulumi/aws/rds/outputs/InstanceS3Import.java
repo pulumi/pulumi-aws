@@ -4,6 +4,7 @@
 package com.pulumi.aws.rds.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -104,37 +105,50 @@ public final class InstanceS3Import {
 
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("InstanceS3Import", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder bucketPrefix(@Nullable String bucketPrefix) {
+
             this.bucketPrefix = bucketPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder ingestionRole(String ingestionRole) {
-            this.ingestionRole = Objects.requireNonNull(ingestionRole);
+            if (ingestionRole == null) {
+              throw new MissingRequiredPropertyException("InstanceS3Import", "ingestionRole");
+            }
+            this.ingestionRole = ingestionRole;
             return this;
         }
         @CustomType.Setter
         public Builder sourceEngine(String sourceEngine) {
-            this.sourceEngine = Objects.requireNonNull(sourceEngine);
+            if (sourceEngine == null) {
+              throw new MissingRequiredPropertyException("InstanceS3Import", "sourceEngine");
+            }
+            this.sourceEngine = sourceEngine;
             return this;
         }
         @CustomType.Setter
         public Builder sourceEngineVersion(String sourceEngineVersion) {
-            this.sourceEngineVersion = Objects.requireNonNull(sourceEngineVersion);
+            if (sourceEngineVersion == null) {
+              throw new MissingRequiredPropertyException("InstanceS3Import", "sourceEngineVersion");
+            }
+            this.sourceEngineVersion = sourceEngineVersion;
             return this;
         }
         public InstanceS3Import build() {
-            final var o = new InstanceS3Import();
-            o.bucketName = bucketName;
-            o.bucketPrefix = bucketPrefix;
-            o.ingestionRole = ingestionRole;
-            o.sourceEngine = sourceEngine;
-            o.sourceEngineVersion = sourceEngineVersion;
-            return o;
+            final var _resultValue = new InstanceS3Import();
+            _resultValue.bucketName = bucketName;
+            _resultValue.bucketPrefix = bucketPrefix;
+            _resultValue.ingestionRole = ingestionRole;
+            _resultValue.sourceEngine = sourceEngine;
+            _resultValue.sourceEngineVersion = sourceEngineVersion;
+            return _resultValue;
         }
     }
 }

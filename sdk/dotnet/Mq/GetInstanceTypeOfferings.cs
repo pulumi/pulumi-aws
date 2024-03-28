@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Mq
         /// <summary>
         /// Provides information about a MQ Broker Instance Offerings.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -45,15 +44,14 @@ namespace Pulumi.Aws.Mq
         /// 
         ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
-        ///         EngineType = "ACTIVEMQ",
         ///         HostInstanceType = "mq.m5.large",
         ///         StorageType = "EBS",
+        ///         EngineType = "ACTIVEMQ",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetInstanceTypeOfferingsResult> InvokeAsync(GetInstanceTypeOfferingsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceTypeOfferingsResult>("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args ?? new GetInstanceTypeOfferingsArgs(), options.WithDefaults());
@@ -61,10 +59,9 @@ namespace Pulumi.Aws.Mq
         /// <summary>
         /// Provides information about a MQ Broker Instance Offerings.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -92,15 +89,14 @@ namespace Pulumi.Aws.Mq
         /// 
         ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
         ///     {
-        ///         EngineType = "ACTIVEMQ",
         ///         HostInstanceType = "mq.m5.large",
         ///         StorageType = "EBS",
+        ///         EngineType = "ACTIVEMQ",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetInstanceTypeOfferingsResult> Invoke(GetInstanceTypeOfferingsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceTypeOfferingsResult>("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args ?? new GetInstanceTypeOfferingsInvokeArgs(), options.WithDefaults());

@@ -459,13 +459,16 @@ class Connector(pulumi.CustomResource):
         Provides an Amazon MSK Connect Connector resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.mskconnect.Connector("example",
+            name="example",
             kafkaconnect_version="2.7.1",
             capacity=aws.mskconnect.ConnectorCapacityArgs(
                 autoscaling=aws.mskconnect.ConnectorCapacityAutoscalingArgs(
@@ -487,13 +490,13 @@ class Connector(pulumi.CustomResource):
             },
             kafka_cluster=aws.mskconnect.ConnectorKafkaClusterArgs(
                 apache_kafka_cluster=aws.mskconnect.ConnectorKafkaClusterApacheKafkaClusterArgs(
-                    bootstrap_servers=aws_msk_cluster["example"]["bootstrap_brokers_tls"],
+                    bootstrap_servers=example_aws_msk_cluster["bootstrapBrokersTls"],
                     vpc=aws.mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpcArgs(
-                        security_groups=[aws_security_group["example"]["id"]],
+                        security_groups=[example_aws_security_group["id"]],
                         subnets=[
-                            aws_subnet["example1"]["id"],
-                            aws_subnet["example2"]["id"],
-                            aws_subnet["example3"]["id"],
+                            example1["id"],
+                            example2["id"],
+                            example3["id"],
                         ],
                     ),
                 ),
@@ -506,19 +509,20 @@ class Connector(pulumi.CustomResource):
             ),
             plugins=[aws.mskconnect.ConnectorPluginArgs(
                 custom_plugin=aws.mskconnect.ConnectorPluginCustomPluginArgs(
-                    arn=aws_mskconnect_custom_plugin["example"]["arn"],
-                    revision=aws_mskconnect_custom_plugin["example"]["latest_revision"],
+                    arn=example_aws_mskconnect_custom_plugin["arn"],
+                    revision=example_aws_mskconnect_custom_plugin["latestRevision"],
                 ),
             )],
-            service_execution_role_arn=aws_iam_role["example"]["arn"])
+            service_execution_role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For example:
 
         ```sh
-         $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
+        $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
         ```
 
         :param str resource_name: The name of the resource.
@@ -546,13 +550,16 @@ class Connector(pulumi.CustomResource):
         Provides an Amazon MSK Connect Connector resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.mskconnect.Connector("example",
+            name="example",
             kafkaconnect_version="2.7.1",
             capacity=aws.mskconnect.ConnectorCapacityArgs(
                 autoscaling=aws.mskconnect.ConnectorCapacityAutoscalingArgs(
@@ -574,13 +581,13 @@ class Connector(pulumi.CustomResource):
             },
             kafka_cluster=aws.mskconnect.ConnectorKafkaClusterArgs(
                 apache_kafka_cluster=aws.mskconnect.ConnectorKafkaClusterApacheKafkaClusterArgs(
-                    bootstrap_servers=aws_msk_cluster["example"]["bootstrap_brokers_tls"],
+                    bootstrap_servers=example_aws_msk_cluster["bootstrapBrokersTls"],
                     vpc=aws.mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpcArgs(
-                        security_groups=[aws_security_group["example"]["id"]],
+                        security_groups=[example_aws_security_group["id"]],
                         subnets=[
-                            aws_subnet["example1"]["id"],
-                            aws_subnet["example2"]["id"],
-                            aws_subnet["example3"]["id"],
+                            example1["id"],
+                            example2["id"],
+                            example3["id"],
                         ],
                     ),
                 ),
@@ -593,19 +600,20 @@ class Connector(pulumi.CustomResource):
             ),
             plugins=[aws.mskconnect.ConnectorPluginArgs(
                 custom_plugin=aws.mskconnect.ConnectorPluginCustomPluginArgs(
-                    arn=aws_mskconnect_custom_plugin["example"]["arn"],
-                    revision=aws_mskconnect_custom_plugin["example"]["latest_revision"],
+                    arn=example_aws_mskconnect_custom_plugin["arn"],
+                    revision=example_aws_mskconnect_custom_plugin["latestRevision"],
                 ),
             )],
-            service_execution_role_arn=aws_iam_role["example"]["arn"])
+            service_execution_role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For example:
 
         ```sh
-         $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
+        $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
         ```
 
         :param str resource_name: The name of the resource.

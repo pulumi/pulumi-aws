@@ -13,7 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages a single EBS volume.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,6 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
  * 
@@ -60,7 +62,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import EBS Volumes using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
+ * $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
  * ```
  * 
  */
@@ -303,9 +305,6 @@ public class Volume extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

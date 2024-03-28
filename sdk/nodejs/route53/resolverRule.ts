@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a Route53 Resolver rule.
  *
  * ## Example Usage
+ *
  * ### System rule
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,16 +24,20 @@ import * as utilities from "../utilities";
  *     ruleType: "SYSTEM",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Forward rule
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const fwd = new aws.route53.ResolverRule("fwd", {
  *     domainName: "example.com",
+ *     name: "example",
  *     ruleType: "FORWARD",
- *     resolverEndpointId: aws_route53_resolver_endpoint.foo.id,
+ *     resolverEndpointId: foo.id,
  *     targetIps: [{
  *         ip: "123.45.67.89",
  *     }],
@@ -40,13 +46,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
+ * $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
  * ```
  */
 export class ResolverRule extends pulumi.CustomResource {
@@ -166,8 +173,6 @@ export class ResolverRule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ResolverRule.__pulumiType, name, resourceInputs, opts);
     }
 }

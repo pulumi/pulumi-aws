@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +32,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesis.LookupStreamConsumer(ctx, &kinesis.LookupStreamConsumerArgs{
 //				Name:      pulumi.StringRef("example-consumer"),
-//				StreamArn: aws_kinesis_stream.Example.Arn,
+//				StreamArn: exampleAwsKinesisStream.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupStreamConsumer(ctx *pulumi.Context, args *LookupStreamConsumerArgs, opts ...pulumi.InvokeOption) (*LookupStreamConsumerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStreamConsumerResult

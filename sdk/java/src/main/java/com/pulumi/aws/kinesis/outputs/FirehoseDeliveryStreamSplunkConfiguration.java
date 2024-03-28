@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationC
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -16,7 +17,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamSplunkConfiguration {
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+     * 
+     */
+    private @Nullable Integer bufferingInterval;
+    /**
+     * @return Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+     * 
+     */
+    private @Nullable Integer bufferingSize;
+    /**
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -41,7 +52,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      */
     private String hecToken;
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration;
@@ -56,14 +67,28 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration;
 
     private FirehoseDeliveryStreamSplunkConfiguration() {}
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below.
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
+     * 
+     */
+    public Optional<Integer> bufferingInterval() {
+        return Optional.ofNullable(this.bufferingInterval);
+    }
+    /**
+     * @return Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
+     * 
+     */
+    public Optional<Integer> bufferingSize() {
+        return Optional.ofNullable(this.bufferingSize);
+    }
+    /**
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -98,7 +123,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         return this.hecToken;
     }
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration> processingConfiguration() {
@@ -119,7 +144,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration() {
@@ -135,6 +160,8 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer bufferingInterval;
+        private @Nullable Integer bufferingSize;
         private @Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
         private @Nullable Integer hecAcknowledgmentTimeout;
         private String hecEndpoint;
@@ -147,6 +174,8 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         public Builder() {}
         public Builder(FirehoseDeliveryStreamSplunkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.bufferingInterval = defaults.bufferingInterval;
+    	      this.bufferingSize = defaults.bufferingSize;
     	      this.cloudwatchLoggingOptions = defaults.cloudwatchLoggingOptions;
     	      this.hecAcknowledgmentTimeout = defaults.hecAcknowledgmentTimeout;
     	      this.hecEndpoint = defaults.hecEndpoint;
@@ -159,62 +188,91 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         }
 
         @CustomType.Setter
+        public Builder bufferingInterval(@Nullable Integer bufferingInterval) {
+
+            this.bufferingInterval = bufferingInterval;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bufferingSize(@Nullable Integer bufferingSize) {
+
+            this.bufferingSize = bufferingSize;
+            return this;
+        }
+        @CustomType.Setter
         public Builder cloudwatchLoggingOptions(@Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions) {
+
             this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
         @CustomType.Setter
         public Builder hecAcknowledgmentTimeout(@Nullable Integer hecAcknowledgmentTimeout) {
+
             this.hecAcknowledgmentTimeout = hecAcknowledgmentTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder hecEndpoint(String hecEndpoint) {
-            this.hecEndpoint = Objects.requireNonNull(hecEndpoint);
+            if (hecEndpoint == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfiguration", "hecEndpoint");
+            }
+            this.hecEndpoint = hecEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder hecEndpointType(@Nullable String hecEndpointType) {
+
             this.hecEndpointType = hecEndpointType;
             return this;
         }
         @CustomType.Setter
         public Builder hecToken(String hecToken) {
-            this.hecToken = Objects.requireNonNull(hecToken);
+            if (hecToken == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfiguration", "hecToken");
+            }
+            this.hecToken = hecToken;
             return this;
         }
         @CustomType.Setter
         public Builder processingConfiguration(@Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration) {
+
             this.processingConfiguration = processingConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder retryDuration(@Nullable Integer retryDuration) {
+
             this.retryDuration = retryDuration;
             return this;
         }
         @CustomType.Setter
         public Builder s3BackupMode(@Nullable String s3BackupMode) {
+
             this.s3BackupMode = s3BackupMode;
             return this;
         }
         @CustomType.Setter
         public Builder s3Configuration(FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration) {
-            this.s3Configuration = Objects.requireNonNull(s3Configuration);
+            if (s3Configuration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfiguration", "s3Configuration");
+            }
+            this.s3Configuration = s3Configuration;
             return this;
         }
         public FirehoseDeliveryStreamSplunkConfiguration build() {
-            final var o = new FirehoseDeliveryStreamSplunkConfiguration();
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.hecAcknowledgmentTimeout = hecAcknowledgmentTimeout;
-            o.hecEndpoint = hecEndpoint;
-            o.hecEndpointType = hecEndpointType;
-            o.hecToken = hecToken;
-            o.processingConfiguration = processingConfiguration;
-            o.retryDuration = retryDuration;
-            o.s3BackupMode = s3BackupMode;
-            o.s3Configuration = s3Configuration;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamSplunkConfiguration();
+            _resultValue.bufferingInterval = bufferingInterval;
+            _resultValue.bufferingSize = bufferingSize;
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.hecAcknowledgmentTimeout = hecAcknowledgmentTimeout;
+            _resultValue.hecEndpoint = hecEndpoint;
+            _resultValue.hecEndpointType = hecEndpointType;
+            _resultValue.hecToken = hecToken;
+            _resultValue.processingConfiguration = processingConfiguration;
+            _resultValue.retryDuration = retryDuration;
+            _resultValue.s3BackupMode = s3BackupMode;
+            _resultValue.s3Configuration = s3Configuration;
+            return _resultValue;
         }
     }
 }

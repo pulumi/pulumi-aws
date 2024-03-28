@@ -305,25 +305,28 @@ class App(pulumi.CustomResource):
         Provides a SageMaker App resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.App("example",
-            domain_id=aws_sagemaker_domain["example"]["id"],
-            user_profile_name=aws_sagemaker_user_profile["example"]["user_profile_name"],
+            domain_id=example_aws_sagemaker_domain["id"],
+            user_profile_name=example_aws_sagemaker_user_profile["userProfileName"],
             app_name="example",
             app_type="JupyterServer")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Apps using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
+        $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -346,25 +349,28 @@ class App(pulumi.CustomResource):
         Provides a SageMaker App resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.App("example",
-            domain_id=aws_sagemaker_domain["example"]["id"],
-            user_profile_name=aws_sagemaker_user_profile["example"]["user_profile_name"],
+            domain_id=example_aws_sagemaker_domain["id"],
+            user_profile_name=example_aws_sagemaker_user_profile["userProfileName"],
             app_name="example",
             app_type="JupyterServer")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Apps using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
+        $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -413,8 +419,6 @@ class App(pulumi.CustomResource):
             __props__.__dict__["user_profile_name"] = user_profile_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(App, __self__).__init__(
             'aws:sagemaker/app:App',
             resource_name,

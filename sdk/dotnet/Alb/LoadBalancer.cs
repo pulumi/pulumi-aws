@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Alb
     /// &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Application Load Balancer
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,11 +29,12 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var test = new Aws.LB.LoadBalancer("test", new()
     ///     {
+    ///         Name = "test-lb-tf",
     ///         Internal = false,
     ///         LoadBalancerType = "application",
     ///         SecurityGroups = new[]
     ///         {
-    ///             aws_security_group.Lb_sg.Id,
+    ///             lbSg.Id,
     ///         },
     ///         Subnets = .Select(subnet =&gt; 
     ///         {
@@ -40,7 +43,7 @@ namespace Pulumi.Aws.Alb
     ///         EnableDeletionProtection = true,
     ///         AccessLogs = new Aws.LB.Inputs.LoadBalancerAccessLogsArgs
     ///         {
-    ///             Bucket = aws_s3_bucket.Lb_logs.Id,
+    ///             Bucket = lbLogs.Id,
     ///             Prefix = "test-lb",
     ///             Enabled = true,
     ///         },
@@ -52,8 +55,11 @@ namespace Pulumi.Aws.Alb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Network Load Balancer
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,6 +70,7 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var test = new Aws.LB.LoadBalancer("test", new()
     ///     {
+    ///         Name = "test-lb-tf",
     ///         Internal = false,
     ///         LoadBalancerType = "network",
     ///         Subnets = .Select(subnet =&gt; 
@@ -79,8 +86,11 @@ namespace Pulumi.Aws.Alb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Specifying Elastic IPs
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -91,26 +101,30 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var example = new Aws.LB.LoadBalancer("example", new()
     ///     {
+    ///         Name = "example",
     ///         LoadBalancerType = "network",
     ///         SubnetMappings = new[]
     ///         {
     ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Example1.Id,
-    ///                 AllocationId = aws_eip.Example1.Id,
+    ///                 SubnetId = example1AwsSubnet.Id,
+    ///                 AllocationId = example1.Id,
     ///             },
     ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Example2.Id,
-    ///                 AllocationId = aws_eip.Example2.Id,
+    ///                 SubnetId = example2AwsSubnet.Id,
+    ///                 AllocationId = example2.Id,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Specifying private IP addresses for an internal-facing load balancer
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,17 +135,18 @@ namespace Pulumi.Aws.Alb
     /// {
     ///     var example = new Aws.LB.LoadBalancer("example", new()
     ///     {
+    ///         Name = "example",
     ///         LoadBalancerType = "network",
     ///         SubnetMappings = new[]
     ///         {
     ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Example1.Id,
+    ///                 SubnetId = example1.Id,
     ///                 PrivateIpv4Address = "10.0.1.15",
     ///             },
     ///             new Aws.LB.Inputs.LoadBalancerSubnetMappingArgs
     ///             {
-    ///                 SubnetId = aws_subnet.Example2.Id,
+    ///                 SubnetId = example2.Id,
     ///                 PrivateIpv4Address = "10.0.2.15",
     ///             },
     ///         },
@@ -139,13 +154,14 @@ namespace Pulumi.Aws.Alb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import LBs using their ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
+    /// $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
     /// ```
     /// </summary>
     [AwsResourceType("aws:alb/loadBalancer:LoadBalancer")]
@@ -168,6 +184,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Output("arnSuffix")]
         public Output<string> ArnSuffix { get; private set; } = null!;
+
+        /// <summary>
+        /// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+        /// </summary>
+        [Output("connectionLogs")]
+        public Output<Outputs.LoadBalancerConnectionLogs?> ConnectionLogs { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the customer owned ipv4 pool to use for this load balancer.
@@ -236,6 +258,12 @@ namespace Pulumi.Aws.Alb
         public Output<bool?> EnableXffClientPort { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        /// </summary>
+        [Output("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
+        public Output<string> EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; private set; } = null!;
+
+        /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         /// </summary>
         [Output("idleTimeout")]
@@ -286,15 +314,13 @@ namespace Pulumi.Aws.Alb
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
         /// <summary>
-        /// A subnet mapping block as documented below.
+        /// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
         /// </summary>
         [Output("subnetMappings")]
         public Output<ImmutableArray<Outputs.LoadBalancerSubnetMapping>> SubnetMappings { get; private set; } = null!;
 
         /// <summary>
-        /// A list of subnet IDs to attach to the LB. Subnets
-        /// cannot be updated for Load Balancers of type `network`. Changing this value
-        /// for load balancers of type `network` will force a recreation of the resource.
+        /// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
@@ -351,11 +377,7 @@ namespace Pulumi.Aws.Alb
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "aws:applicationloadbalancing/loadBalancer:LoadBalancer"},
-                },
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
+                    new global::Pulumi.Alias { Type = "aws:applicationloadbalancing/loadBalancer:LoadBalancer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -385,6 +407,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("accessLogs")]
         public Input<Inputs.LoadBalancerAccessLogsArgs>? AccessLogs { get; set; }
+
+        /// <summary>
+        /// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+        /// </summary>
+        [Input("connectionLogs")]
+        public Input<Inputs.LoadBalancerConnectionLogsArgs>? ConnectionLogs { get; set; }
 
         /// <summary>
         /// The ID of the customer owned ipv4 pool to use for this load balancer.
@@ -447,6 +475,12 @@ namespace Pulumi.Aws.Alb
         public Input<bool>? EnableXffClientPort { get; set; }
 
         /// <summary>
+        /// Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        /// </summary>
+        [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
+        public Input<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
+
+        /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         /// </summary>
         [Input("idleTimeout")]
@@ -506,7 +540,7 @@ namespace Pulumi.Aws.Alb
         private InputList<Inputs.LoadBalancerSubnetMappingArgs>? _subnetMappings;
 
         /// <summary>
-        /// A subnet mapping block as documented below.
+        /// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
         /// </summary>
         public InputList<Inputs.LoadBalancerSubnetMappingArgs> SubnetMappings
         {
@@ -518,9 +552,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// A list of subnet IDs to attach to the LB. Subnets
-        /// cannot be updated for Load Balancers of type `network`. Changing this value
-        /// for load balancers of type `network` will force a recreation of the resource.
+        /// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
         /// </summary>
         public InputList<string> Subnets
         {
@@ -571,6 +603,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("arnSuffix")]
         public Input<string>? ArnSuffix { get; set; }
+
+        /// <summary>
+        /// A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+        /// </summary>
+        [Input("connectionLogs")]
+        public Input<Inputs.LoadBalancerConnectionLogsGetArgs>? ConnectionLogs { get; set; }
 
         /// <summary>
         /// The ID of the customer owned ipv4 pool to use for this load balancer.
@@ -639,6 +677,12 @@ namespace Pulumi.Aws.Alb
         public Input<bool>? EnableXffClientPort { get; set; }
 
         /// <summary>
+        /// Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+        /// </summary>
+        [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
+        public Input<string>? EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic { get; set; }
+
+        /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         /// </summary>
         [Input("idleTimeout")]
@@ -698,7 +742,7 @@ namespace Pulumi.Aws.Alb
         private InputList<Inputs.LoadBalancerSubnetMappingGetArgs>? _subnetMappings;
 
         /// <summary>
-        /// A subnet mapping block as documented below.
+        /// A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
         /// </summary>
         public InputList<Inputs.LoadBalancerSubnetMappingGetArgs> SubnetMappings
         {
@@ -710,9 +754,7 @@ namespace Pulumi.Aws.Alb
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// A list of subnet IDs to attach to the LB. Subnets
-        /// cannot be updated for Load Balancers of type `network`. Changing this value
-        /// for load balancers of type `network` will force a recreation of the resource.
+        /// A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
         /// </summary>
         public InputList<string> Subnets
         {
@@ -742,11 +784,7 @@ namespace Pulumi.Aws.Alb
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("vpcId")]

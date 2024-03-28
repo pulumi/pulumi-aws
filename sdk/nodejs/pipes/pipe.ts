@@ -17,77 +17,109 @@ import * as utilities from "../utilities";
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.getCallerIdentity({});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: main.then(main => JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: {
- *         Effect: "Allow",
- *         Action: "sts:AssumeRole",
- *         Principal: {
- *             Service: "pipes.amazonaws.com",
+ * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
+ *     version: "2012-10-17",
+ *     statement: {
+ *         effect: "Allow",
+ *         action: "sts:AssumeRole",
+ *         principal: {
+ *             service: "pipes.amazonaws.com",
  *         },
- *         Condition: {
- *             StringEquals: {
- *                 "aws:SourceAccount": main.accountId,
+ *         condition: {
+ *             stringEquals: {
+ *                 "aws:SourceAccount": main.then(main => main.accountId),
  *             },
  *         },
  *     },
- * }))});
- * const sourceQueue = new aws.sqs.Queue("sourceQueue", {});
- * const sourceRolePolicy = new aws.iam.RolePolicy("sourceRolePolicy", {
- *     role: exampleRole.id,
- *     policy: sourceQueue.arn.apply(arn => JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: [
+ * })});
+ * const sourceQueue = new aws.sqs.Queue("source", {});
+ * const source = new aws.iam.RolePolicy("source", {
+ *     role: example.id,
+ *     policy: pulumi.jsonStringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             action: [
  *                 "sqs:DeleteMessage",
  *                 "sqs:GetQueueAttributes",
  *                 "sqs:ReceiveMessage",
  *             ],
- *             Resource: [arn],
+ *             resource: [sourceQueue.arn],
  *         }],
- *     })),
+ *     }),
  * });
- * const targetQueue = new aws.sqs.Queue("targetQueue", {});
- * const targetRolePolicy = new aws.iam.RolePolicy("targetRolePolicy", {
- *     role: exampleRole.id,
- *     policy: targetQueue.arn.apply(arn => JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: ["sqs:SendMessage"],
- *             Resource: [arn],
+ * const targetQueue = new aws.sqs.Queue("target", {});
+ * const target = new aws.iam.RolePolicy("target", {
+ *     role: example.id,
+ *     policy: pulumi.jsonStringify({
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             action: ["sqs:SendMessage"],
+ *             resource: [targetQueue.arn],
  *         }],
- *     })),
+ *     }),
  * });
- * const examplePipe = new aws.pipes.Pipe("examplePipe", {
- *     roleArn: exampleRole.arn,
+ * const examplePipe = new aws.pipes.Pipe("example", {
+ *     name: "example-pipe",
+ *     roleArn: example.arn,
  *     source: sourceQueue.arn,
  *     target: targetQueue.arn,
- * }, {
- *     dependsOn: [
- *         sourceRolePolicy,
- *         targetRolePolicy,
- *     ],
  * });
  * ```
- * ### Filter Usage
+ * <!--End PulumiCodeChooser -->
  *
+ * ### Enrichment Usage
+ *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.pipes.Pipe("example", {
- *     roleArn: aws_iam_role.example.arn,
- *     source: aws_sqs_queue.source.arn,
- *     target: aws_sqs_queue.target.arn,
+ *     name: "example-pipe",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     source: source.arn,
+ *     target: target.arn,
+ *     enrichment: exampleAwsCloudwatchEventApiDestination.arn,
+ *     enrichmentParameters: {
+ *         httpParameters: {
+ *             pathParameterValues: "example-path-param",
+ *             headerParameters: {
+ *                 "example-header": "example-value",
+ *                 "second-example-header": "second-example-value",
+ *             },
+ *             queryStringParameters: {
+ *                 "example-query-string": "example-value",
+ *                 "second-example-query-string": "second-example-value",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Filter Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.pipes.Pipe("example", {
+ *     name: "example-pipe",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     source: source.arn,
+ *     target: target.arn,
  *     sourceParameters: {
  *         filterCriteria: {
  *             filters: [{
@@ -99,13 +131,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import pipes using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:pipes/pipe:Pipe example my-pipe
+ * $ pulumi import aws:pipes/pipe:Pipe example my-pipe
  * ```
  */
 export class Pipe extends pulumi.CustomResource {
@@ -251,8 +284,6 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Pipe.__pulumiType, name, resourceInputs, opts);
     }
 }

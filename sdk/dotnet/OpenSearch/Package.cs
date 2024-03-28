@@ -14,12 +14,55 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myOpensearchPackages = new Aws.S3.BucketV2("my_opensearch_packages", new()
+    ///     {
+    ///         Bucket = "my-opensearch-packages",
+    ///     });
+    /// 
+    ///     var example = new Aws.S3.BucketObjectv2("example", new()
+    ///     {
+    ///         Bucket = myOpensearchPackages.Bucket,
+    ///         Key = "example.txt",
+    ///         Source = new FileAsset("./example.txt"),
+    ///         Etag = Std.Filemd5.Invoke(new()
+    ///         {
+    ///             Input = "./example.txt",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    ///     var examplePackage = new Aws.OpenSearch.Package("example", new()
+    ///     {
+    ///         PackageName = "example-txt",
+    ///         PackageSource = new Aws.OpenSearch.Inputs.PackagePackageSourceArgs
+    ///         {
+    ///             S3BucketName = myOpensearchPackages.Bucket,
+    ///             S3Key = example.Key,
+    ///         },
+    ///         PackageType = "TXT-DICTIONARY",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opensearch/package:Package example package-id
+    /// $ pulumi import aws:opensearch/package:Package example package-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/package:Package")]

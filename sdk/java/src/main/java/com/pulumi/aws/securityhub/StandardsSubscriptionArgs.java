@@ -5,6 +5,7 @@ package com.pulumi.aws.securityhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -114,7 +115,9 @@ public final class StandardsSubscriptionArgs extends com.pulumi.resources.Resour
         }
 
         public StandardsSubscriptionArgs build() {
-            $.standardsArn = Objects.requireNonNull($.standardsArn, "expected parameter 'standardsArn' to be non-null");
+            if ($.standardsArn == null) {
+                throw new MissingRequiredPropertyException("StandardsSubscriptionArgs", "standardsArn");
+            }
             return $;
         }
     }

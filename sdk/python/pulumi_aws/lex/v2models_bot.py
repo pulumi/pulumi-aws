@@ -36,7 +36,9 @@ class V2modelsBotArgs:
         :param pulumi.Input[str] description: Description of the bot. It appears in lists to help you identify a particular bot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]] members: List of bot members in a network to be created. See `bot_members`.
         :param pulumi.Input[str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: List of tags to add to the bot. You can only add tags when you create a bot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] test_bot_alias_tags: List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
+        :param pulumi.Input[str] type: Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         """
         pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -134,6 +136,9 @@ class V2modelsBotArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        List of tags to add to the bot. You can only add tags when you create a bot.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -164,6 +169,9 @@ class V2modelsBotArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -196,7 +204,9 @@ class _V2modelsBotState:
         :param pulumi.Input[str] role_arn: ARN of an IAM role that has permission to access the bot.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: List of tags to add to the bot. You can only add tags when you create a bot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] test_bot_alias_tags: List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
+        :param pulumi.Input[str] type: Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -312,6 +322,9 @@ class _V2modelsBotState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        List of tags to add to the bot. You can only add tags when you create a bot.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -354,6 +367,9 @@ class _V2modelsBotState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -381,26 +397,33 @@ class V2modelsBot(pulumi.CustomResource):
         Resource for managing an AWS Lex V2 Models Bot.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsBot("example",
+            name="example",
             data_privacies=[aws.lex.V2modelsBotDataPrivacyArgs(
                 child_directed="boolean",
             )],
             idle_session_ttl_in_seconds=10,
-            role_arn="bot_example_arn")
+            role_arn="bot_example_arn",
+            tags={
+                "foo": "bar",
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import Lex V2 Models Bot using the `example_id_arg`. For example:
+        Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
+        $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -413,7 +436,9 @@ class V2modelsBot(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: ARN of an IAM role that has permission to access the bot.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: List of tags to add to the bot. You can only add tags when you create a bot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] test_bot_alias_tags: List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
+        :param pulumi.Input[str] type: Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         """
         ...
     @overload
@@ -425,26 +450,33 @@ class V2modelsBot(pulumi.CustomResource):
         Resource for managing an AWS Lex V2 Models Bot.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsBot("example",
+            name="example",
             data_privacies=[aws.lex.V2modelsBotDataPrivacyArgs(
                 child_directed="boolean",
             )],
             idle_session_ttl_in_seconds=10,
-            role_arn="bot_example_arn")
+            role_arn="bot_example_arn",
+            tags={
+                "foo": "bar",
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import Lex V2 Models Bot using the `example_id_arg`. For example:
+        Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
+        $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -497,8 +529,6 @@ class V2modelsBot(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(V2modelsBot, __self__).__init__(
             'aws:lex/v2modelsBot:V2modelsBot',
             resource_name,
@@ -536,7 +566,9 @@ class V2modelsBot(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: ARN of an IAM role that has permission to access the bot.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: List of tags to add to the bot. You can only add tags when you create a bot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] test_bot_alias_tags: List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
+        :param pulumi.Input[str] type: Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -614,6 +646,9 @@ class V2modelsBot(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        List of tags to add to the bot. You can only add tags when you create a bot.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -640,5 +675,8 @@ class V2modelsBot(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+        """
         return pulumi.get(self, "type")
 

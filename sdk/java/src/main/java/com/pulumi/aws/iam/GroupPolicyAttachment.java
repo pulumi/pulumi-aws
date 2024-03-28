@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.Group;
+ * import com.pulumi.aws.iam.GroupArgs;
  * import com.pulumi.aws.iam.Policy;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.iam.GroupPolicyAttachment;
@@ -43,9 +46,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var group = new Group(&#34;group&#34;);
+ *         var group = new Group(&#34;group&#34;, GroupArgs.builder()        
+ *             .name(&#34;test-group&#34;)
+ *             .build());
  * 
  *         var policy = new Policy(&#34;policy&#34;, PolicyArgs.builder()        
+ *             .name(&#34;test-policy&#34;)
  *             .description(&#34;A test policy&#34;)
  *             .policy(&#34;{ ... policy JSON ... }&#34;)
  *             .build());
@@ -58,13 +64,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
  * ```
  * 
  */

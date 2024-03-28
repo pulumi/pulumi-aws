@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,7 +29,9 @@ namespace Pulumi.Aws.Athena
     /// {
     ///     var example = new Aws.Athena.DataCatalog("example", new()
     ///     {
+    ///         Name = "athena-data-catalog",
     ///         Description = "Example Athena data catalog",
+    ///         Type = "LAMBDA",
     ///         Parameters = 
     ///         {
     ///             { "function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function" },
@@ -37,13 +40,15 @@ namespace Pulumi.Aws.Athena
     ///         {
     ///             { "Name", "example-athena-data-catalog" },
     ///         },
-    ///         Type = "LAMBDA",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Hive based Data Catalog
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,18 +59,22 @@ namespace Pulumi.Aws.Athena
     /// {
     ///     var example = new Aws.Athena.DataCatalog("example", new()
     ///     {
+    ///         Name = "hive-data-catalog",
     ///         Description = "Hive based Data Catalog",
+    ///         Type = "HIVE",
     ///         Parameters = 
     ///         {
     ///             { "metadata-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function" },
     ///         },
-    ///         Type = "HIVE",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Glue based Data Catalog
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,18 +85,22 @@ namespace Pulumi.Aws.Athena
     /// {
     ///     var example = new Aws.Athena.DataCatalog("example", new()
     ///     {
+    ///         Name = "glue-data-catalog",
     ///         Description = "Glue based Data Catalog",
+    ///         Type = "GLUE",
     ///         Parameters = 
     ///         {
     ///             { "catalog-id", "123456789012" },
     ///         },
-    ///         Type = "GLUE",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Lambda based Data Catalog
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -98,24 +111,26 @@ namespace Pulumi.Aws.Athena
     /// {
     ///     var example = new Aws.Athena.DataCatalog("example", new()
     ///     {
+    ///         Name = "lambda-data-catalog",
     ///         Description = "Lambda based Data Catalog",
+    ///         Type = "LAMBDA",
     ///         Parameters = 
     ///         {
     ///             { "metadata-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1" },
     ///             { "record-function", "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2" },
     ///         },
-    ///         Type = "LAMBDA",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import data catalogs using their `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
+    /// $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
     /// ```
     /// </summary>
     [AwsResourceType("aws:athena/dataCatalog:DataCatalog")]
@@ -186,10 +201,6 @@ namespace Pulumi.Aws.Athena
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -315,11 +326,7 @@ namespace Pulumi.Aws.Athena
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -273,15 +273,19 @@ class RateBasedRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
+        ipset = aws.waf.IpSet("ipset",
+            name="tfIPSet",
+            ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            )])
         wafrule = aws.waf.RateBasedRule("wafrule",
+            name="tfWAFRule",
             metric_name="tfWAFRule",
             rate_key="IP",
             rate_limit=100,
@@ -289,16 +293,16 @@ class RateBasedRule(pulumi.CustomResource):
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Rated Based Rule using the id. For example:
 
         ```sh
-         $ pulumi import aws:waf/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:waf/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -321,15 +325,19 @@ class RateBasedRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
+        ipset = aws.waf.IpSet("ipset",
+            name="tfIPSet",
+            ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
+                type="IPV4",
+                value="192.0.7.0/24",
+            )])
         wafrule = aws.waf.RateBasedRule("wafrule",
+            name="tfWAFRule",
             metric_name="tfWAFRule",
             rate_key="IP",
             rate_limit=100,
@@ -337,16 +345,16 @@ class RateBasedRule(pulumi.CustomResource):
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Rated Based Rule using the id. For example:
 
         ```sh
-         $ pulumi import aws:waf/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:waf/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -393,8 +401,6 @@ class RateBasedRule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RateBasedRule, __self__).__init__(
             'aws:waf/rateBasedRule:RateBasedRule',
             resource_name,

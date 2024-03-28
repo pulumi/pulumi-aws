@@ -11,16 +11,21 @@ import * as utilities from "../utilities";
  * Data source for managing AWS Bedrock Foundation Models.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.bedrockfoundation.getModels({});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Filter by Inference Type
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,6 +34,7 @@ import * as utilities from "../utilities";
  *     byInferenceType: "ON_DEMAND",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getModels(args?: GetModelsArgs, opts?: pulumi.InvokeOptions): Promise<GetModelsResult> {
     args = args || {};
@@ -39,7 +45,6 @@ export function getModels(args?: GetModelsArgs, opts?: pulumi.InvokeOptions): Pr
         "byInferenceType": args.byInferenceType,
         "byOutputModality": args.byOutputModality,
         "byProvider": args.byProvider,
-        "modelSummaries": args.modelSummaries,
     }, opts);
 }
 
@@ -63,10 +68,6 @@ export interface GetModelsArgs {
      * Model provider to filter on.
      */
     byProvider?: string;
-    /**
-     * List of model summary objects. See `modelSummaries`.
-     */
-    modelSummaries?: inputs.bedrockfoundation.GetModelsModelSummary[];
 }
 
 /**
@@ -84,22 +85,27 @@ export interface GetModelsResult {
     /**
      * List of model summary objects. See `modelSummaries`.
      */
-    readonly modelSummaries?: outputs.bedrockfoundation.GetModelsModelSummary[];
+    readonly modelSummaries: outputs.bedrockfoundation.GetModelsModelSummary[];
 }
 /**
  * Data source for managing AWS Bedrock Foundation Models.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.bedrockfoundation.getModels({});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Filter by Inference Type
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -108,6 +114,7 @@ export interface GetModelsResult {
  *     byInferenceType: "ON_DEMAND",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getModelsOutput(args?: GetModelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelsResult> {
     return pulumi.output(args).apply((a: any) => getModels(a, opts))
@@ -133,8 +140,4 @@ export interface GetModelsOutputArgs {
      * Model provider to filter on.
      */
     byProvider?: pulumi.Input<string>;
-    /**
-     * List of model summary objects. See `modelSummaries`.
-     */
-    modelSummaries?: pulumi.Input<pulumi.Input<inputs.bedrockfoundation.GetModelsModelSummaryArgs>[]>;
 }

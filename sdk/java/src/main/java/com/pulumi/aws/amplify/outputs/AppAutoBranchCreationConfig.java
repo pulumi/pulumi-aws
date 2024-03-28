@@ -172,67 +172,77 @@ public final class AppAutoBranchCreationConfig {
 
         @CustomType.Setter
         public Builder basicAuthCredentials(@Nullable String basicAuthCredentials) {
+
             this.basicAuthCredentials = basicAuthCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder buildSpec(@Nullable String buildSpec) {
+
             this.buildSpec = buildSpec;
             return this;
         }
         @CustomType.Setter
         public Builder enableAutoBuild(@Nullable Boolean enableAutoBuild) {
+
             this.enableAutoBuild = enableAutoBuild;
             return this;
         }
         @CustomType.Setter
         public Builder enableBasicAuth(@Nullable Boolean enableBasicAuth) {
+
             this.enableBasicAuth = enableBasicAuth;
             return this;
         }
         @CustomType.Setter
         public Builder enablePerformanceMode(@Nullable Boolean enablePerformanceMode) {
+
             this.enablePerformanceMode = enablePerformanceMode;
             return this;
         }
         @CustomType.Setter
         public Builder enablePullRequestPreview(@Nullable Boolean enablePullRequestPreview) {
+
             this.enablePullRequestPreview = enablePullRequestPreview;
             return this;
         }
         @CustomType.Setter
         public Builder environmentVariables(@Nullable Map<String,String> environmentVariables) {
+
             this.environmentVariables = environmentVariables;
             return this;
         }
         @CustomType.Setter
         public Builder framework(@Nullable String framework) {
+
             this.framework = framework;
             return this;
         }
         @CustomType.Setter
         public Builder pullRequestEnvironmentName(@Nullable String pullRequestEnvironmentName) {
+
             this.pullRequestEnvironmentName = pullRequestEnvironmentName;
             return this;
         }
         @CustomType.Setter
         public Builder stage(@Nullable String stage) {
+
             this.stage = stage;
             return this;
         }
         public AppAutoBranchCreationConfig build() {
-            final var o = new AppAutoBranchCreationConfig();
-            o.basicAuthCredentials = basicAuthCredentials;
-            o.buildSpec = buildSpec;
-            o.enableAutoBuild = enableAutoBuild;
-            o.enableBasicAuth = enableBasicAuth;
-            o.enablePerformanceMode = enablePerformanceMode;
-            o.enablePullRequestPreview = enablePullRequestPreview;
-            o.environmentVariables = environmentVariables;
-            o.framework = framework;
-            o.pullRequestEnvironmentName = pullRequestEnvironmentName;
-            o.stage = stage;
-            return o;
+            final var _resultValue = new AppAutoBranchCreationConfig();
+            _resultValue.basicAuthCredentials = basicAuthCredentials;
+            _resultValue.buildSpec = buildSpec;
+            _resultValue.enableAutoBuild = enableAutoBuild;
+            _resultValue.enableBasicAuth = enableBasicAuth;
+            _resultValue.enablePerformanceMode = enablePerformanceMode;
+            _resultValue.enablePullRequestPreview = enablePullRequestPreview;
+            _resultValue.environmentVariables = environmentVariables;
+            _resultValue.framework = framework;
+            _resultValue.pullRequestEnvironmentName = pullRequestEnvironmentName;
+            _resultValue.stage = stage;
+            return _resultValue;
         }
     }
 }

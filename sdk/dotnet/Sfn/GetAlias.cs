@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Sfn
         /// <summary>
         /// Data source for managing an AWS SFN (Step Functions) State Machine Alias.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,13 +30,12 @@ namespace Pulumi.Aws.Sfn
         ///     var example = Aws.Sfn.GetAlias.Invoke(new()
         ///     {
         ///         Name = "my_sfn_alias",
-        ///         StatemachineArn = aws_sfn_state_machine.Sfn_test.Arn,
+        ///         StatemachineArn = sfnTest.Arn,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:sfn/getAlias:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
@@ -44,11 +43,11 @@ namespace Pulumi.Aws.Sfn
         /// <summary>
         /// Data source for managing an AWS SFN (Step Functions) State Machine Alias.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,13 +59,12 @@ namespace Pulumi.Aws.Sfn
         ///     var example = Aws.Sfn.GetAlias.Invoke(new()
         ///     {
         ///         Name = "my_sfn_alias",
-        ///         StatemachineArn = aws_sfn_state_machine.Sfn_test.Arn,
+        ///         StatemachineArn = sfnTest.Arn,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:sfn/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());

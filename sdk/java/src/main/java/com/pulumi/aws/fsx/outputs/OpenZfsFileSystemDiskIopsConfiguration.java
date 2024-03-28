@@ -59,19 +59,21 @@ public final class OpenZfsFileSystemDiskIopsConfiguration {
 
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         public OpenZfsFileSystemDiskIopsConfiguration build() {
-            final var o = new OpenZfsFileSystemDiskIopsConfiguration();
-            o.iops = iops;
-            o.mode = mode;
-            return o;
+            final var _resultValue = new OpenZfsFileSystemDiskIopsConfiguration();
+            _resultValue.iops = iops;
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

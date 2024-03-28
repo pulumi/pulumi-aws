@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an IAM policy attached to a group.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,18 +44,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDevelopers = new Group(&#34;myDevelopers&#34;, GroupArgs.builder()        
+ *             .name(&#34;developers&#34;)
  *             .path(&#34;/users/&#34;)
  *             .build());
  * 
  *         var myDeveloperPolicy = new GroupPolicy(&#34;myDeveloperPolicy&#34;, GroupPolicyArgs.builder()        
+ *             .name(&#34;my_developer_policy&#34;)
  *             .group(myDevelopers.name())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;resource&#34;, &#34;*&#34;)
  *                     )))
  *                 )))
  *             .build());
@@ -61,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
+ * $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
  * ```
  * 
  */

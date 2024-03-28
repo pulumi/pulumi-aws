@@ -106,11 +106,19 @@ class IndexingConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iot.IndexingConfiguration("example", thing_indexing_configuration=aws.iot.IndexingConfigurationThingIndexingConfigurationArgs(
+            thing_indexing_mode="REGISTRY_AND_SHADOW",
+            thing_connectivity_indexing_mode="STATUS",
+            device_defender_indexing_mode="VIOLATIONS",
+            named_shadow_indexing_mode="ON",
+            filter=aws.iot.IndexingConfigurationThingIndexingConfigurationFilterArgs(
+                named_shadow_names=["thing1shadow"],
+            ),
             custom_fields=[
                 aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
                     name="shadow.desired.power",
@@ -129,15 +137,9 @@ class IndexingConfiguration(pulumi.CustomResource):
                     type="Number",
                 ),
             ],
-            device_defender_indexing_mode="VIOLATIONS",
-            filter=aws.iot.IndexingConfigurationThingIndexingConfigurationFilterArgs(
-                named_shadow_names=["thing1shadow"],
-            ),
-            named_shadow_indexing_mode="ON",
-            thing_connectivity_indexing_mode="STATUS",
-            thing_indexing_mode="REGISTRY_AND_SHADOW",
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,11 +157,19 @@ class IndexingConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iot.IndexingConfiguration("example", thing_indexing_configuration=aws.iot.IndexingConfigurationThingIndexingConfigurationArgs(
+            thing_indexing_mode="REGISTRY_AND_SHADOW",
+            thing_connectivity_indexing_mode="STATUS",
+            device_defender_indexing_mode="VIOLATIONS",
+            named_shadow_indexing_mode="ON",
+            filter=aws.iot.IndexingConfigurationThingIndexingConfigurationFilterArgs(
+                named_shadow_names=["thing1shadow"],
+            ),
             custom_fields=[
                 aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
                     name="shadow.desired.power",
@@ -178,15 +188,9 @@ class IndexingConfiguration(pulumi.CustomResource):
                     type="Number",
                 ),
             ],
-            device_defender_indexing_mode="VIOLATIONS",
-            filter=aws.iot.IndexingConfigurationThingIndexingConfigurationFilterArgs(
-                named_shadow_names=["thing1shadow"],
-            ),
-            named_shadow_indexing_mode="ON",
-            thing_connectivity_indexing_mode="STATUS",
-            thing_indexing_mode="REGISTRY_AND_SHADOW",
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param IndexingConfigurationArgs args: The arguments to use to populate this resource's properties.

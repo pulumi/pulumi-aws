@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class Disk_attachmentArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public Disk_attachmentArgs build() {
-            $.diskName = Objects.requireNonNull($.diskName, "expected parameter 'diskName' to be non-null");
-            $.diskPath = Objects.requireNonNull($.diskPath, "expected parameter 'diskPath' to be non-null");
-            $.instanceName = Objects.requireNonNull($.instanceName, "expected parameter 'instanceName' to be non-null");
+            if ($.diskName == null) {
+                throw new MissingRequiredPropertyException("Disk_attachmentArgs", "diskName");
+            }
+            if ($.diskPath == null) {
+                throw new MissingRequiredPropertyException("Disk_attachmentArgs", "diskPath");
+            }
+            if ($.instanceName == null) {
+                throw new MissingRequiredPropertyException("Disk_attachmentArgs", "instanceName");
+            }
             return $;
         }
     }

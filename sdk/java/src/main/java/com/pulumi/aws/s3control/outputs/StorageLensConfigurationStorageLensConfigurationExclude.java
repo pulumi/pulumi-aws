@@ -58,6 +58,7 @@ public final class StorageLensConfigurationStorageLensConfigurationExclude {
 
         @CustomType.Setter
         public Builder buckets(@Nullable List<String> buckets) {
+
             this.buckets = buckets;
             return this;
         }
@@ -66,6 +67,7 @@ public final class StorageLensConfigurationStorageLensConfigurationExclude {
         }
         @CustomType.Setter
         public Builder regions(@Nullable List<String> regions) {
+
             this.regions = regions;
             return this;
         }
@@ -73,10 +75,10 @@ public final class StorageLensConfigurationStorageLensConfigurationExclude {
             return regions(List.of(regions));
         }
         public StorageLensConfigurationStorageLensConfigurationExclude build() {
-            final var o = new StorageLensConfigurationStorageLensConfigurationExclude();
-            o.buckets = buckets;
-            o.regions = regions;
-            return o;
+            final var _resultValue = new StorageLensConfigurationStorageLensConfigurationExclude();
+            _resultValue.buckets = buckets;
+            _resultValue.regions = regions;
+            return _resultValue;
         }
     }
 }

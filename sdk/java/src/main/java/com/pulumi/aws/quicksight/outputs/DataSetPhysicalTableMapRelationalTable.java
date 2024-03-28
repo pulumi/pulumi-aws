@@ -5,6 +5,7 @@ package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.aws.quicksight.outputs.DataSetPhysicalTableMapRelationalTableInputColumn;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -102,17 +103,24 @@ public final class DataSetPhysicalTableMapRelationalTable {
 
         @CustomType.Setter
         public Builder catalog(@Nullable String catalog) {
+
             this.catalog = catalog;
             return this;
         }
         @CustomType.Setter
         public Builder dataSourceArn(String dataSourceArn) {
-            this.dataSourceArn = Objects.requireNonNull(dataSourceArn);
+            if (dataSourceArn == null) {
+              throw new MissingRequiredPropertyException("DataSetPhysicalTableMapRelationalTable", "dataSourceArn");
+            }
+            this.dataSourceArn = dataSourceArn;
             return this;
         }
         @CustomType.Setter
         public Builder inputColumns(List<DataSetPhysicalTableMapRelationalTableInputColumn> inputColumns) {
-            this.inputColumns = Objects.requireNonNull(inputColumns);
+            if (inputColumns == null) {
+              throw new MissingRequiredPropertyException("DataSetPhysicalTableMapRelationalTable", "inputColumns");
+            }
+            this.inputColumns = inputColumns;
             return this;
         }
         public Builder inputColumns(DataSetPhysicalTableMapRelationalTableInputColumn... inputColumns) {
@@ -120,22 +128,26 @@ public final class DataSetPhysicalTableMapRelationalTable {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DataSetPhysicalTableMapRelationalTable", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder schema(@Nullable String schema) {
+
             this.schema = schema;
             return this;
         }
         public DataSetPhysicalTableMapRelationalTable build() {
-            final var o = new DataSetPhysicalTableMapRelationalTable();
-            o.catalog = catalog;
-            o.dataSourceArn = dataSourceArn;
-            o.inputColumns = inputColumns;
-            o.name = name;
-            o.schema = schema;
-            return o;
+            final var _resultValue = new DataSetPhysicalTableMapRelationalTable();
+            _resultValue.catalog = catalog;
+            _resultValue.dataSourceArn = dataSourceArn;
+            _resultValue.inputColumns = inputColumns;
+            _resultValue.name = name;
+            _resultValue.schema = schema;
+            return _resultValue;
         }
     }
 }

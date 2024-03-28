@@ -15,8 +15,10 @@ import (
 // Provides a CloudWatch Evidently Launch resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,10 +32,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project: pulumi.Any(aws_evidently_project.Example.Name),
+//				Name:    pulumi.String("example"),
+//				Project: pulumi.Any(exampleAwsEvidentlyProject.Name),
 //				Groups: evidently.LaunchGroupArray{
 //					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
+//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
 //						Name:      pulumi.String("Variation1"),
 //						Variation: pulumi.String("Variation1"),
 //					},
@@ -57,8 +60,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With description
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,11 +78,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project:     pulumi.Any(aws_evidently_project.Example.Name),
+//				Name:        pulumi.String("example"),
+//				Project:     pulumi.Any(exampleAwsEvidentlyProject.Name),
 //				Description: pulumi.String("example description"),
 //				Groups: evidently.LaunchGroupArray{
 //					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
+//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
 //						Name:      pulumi.String("Variation1"),
 //						Variation: pulumi.String("Variation1"),
 //					},
@@ -100,8 +107,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With multiple groups
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -115,16 +125,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project: pulumi.Any(aws_evidently_project.Example.Name),
+//				Name:    pulumi.String("example"),
+//				Project: pulumi.Any(exampleAwsEvidentlyProject.Name),
 //				Groups: evidently.LaunchGroupArray{
 //					&evidently.LaunchGroupArgs{
-//						Feature:     pulumi.Any(aws_evidently_feature.Example.Name),
+//						Feature:     pulumi.Any(exampleAwsEvidentlyFeature.Name),
 //						Name:        pulumi.String("Variation1"),
 //						Variation:   pulumi.String("Variation1"),
 //						Description: pulumi.String("first-group"),
 //					},
 //					&evidently.LaunchGroupArgs{
-//						Feature:     pulumi.Any(aws_evidently_feature.Example.Name),
+//						Feature:     pulumi.Any(exampleAwsEvidentlyFeature.Name),
 //						Name:        pulumi.String("Variation2"),
 //						Variation:   pulumi.String("Variation2"),
 //						Description: pulumi.String("second-group"),
@@ -150,8 +161,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With metricMonitors
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -165,10 +179,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project: pulumi.Any(aws_evidently_project.Example.Name),
+//				Name:    pulumi.String("example"),
+//				Project: pulumi.Any(exampleAwsEvidentlyProject.Name),
 //				Groups: evidently.LaunchGroupArray{
 //					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
+//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
 //						Name:      pulumi.String("Variation1"),
 //						Variation: pulumi.String("Variation1"),
 //					},
@@ -212,8 +227,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With randomizationSalt
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -227,11 +245,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project:           pulumi.Any(aws_evidently_project.Example.Name),
+//				Name:              pulumi.String("example"),
+//				Project:           pulumi.Any(exampleAwsEvidentlyProject.Name),
 //				RandomizationSalt: pulumi.String("example randomization salt"),
 //				Groups: evidently.LaunchGroupArray{
 //					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
+//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
 //						Name:      pulumi.String("Variation1"),
 //						Variation: pulumi.String("Variation1"),
 //					},
@@ -255,8 +274,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With multiple steps
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -270,15 +292,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project: pulumi.Any(aws_evidently_project.Example.Name),
+//				Name:    pulumi.String("example"),
+//				Project: pulumi.Any(exampleAwsEvidentlyProject.Name),
 //				Groups: evidently.LaunchGroupArray{
 //					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
+//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
 //						Name:      pulumi.String("Variation1"),
 //						Variation: pulumi.String("Variation1"),
 //					},
 //					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
+//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
 //						Name:      pulumi.String("Variation2"),
 //						Variation: pulumi.String("Variation2"),
 //					},
@@ -310,8 +333,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With segment overrides
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -325,15 +351,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewLaunch(ctx, "example", &evidently.LaunchArgs{
-//				Project: pulumi.Any(aws_evidently_project.Example.Name),
+//				Name:    pulumi.String("example"),
+//				Project: pulumi.Any(exampleAwsEvidentlyProject.Name),
 //				Groups: evidently.LaunchGroupArray{
 //					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
+//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
 //						Name:      pulumi.String("Variation1"),
 //						Variation: pulumi.String("Variation1"),
 //					},
 //					&evidently.LaunchGroupArgs{
-//						Feature:   pulumi.Any(aws_evidently_feature.Example.Name),
+//						Feature:   pulumi.Any(exampleAwsEvidentlyFeature.Name),
 //						Name:      pulumi.String("Variation2"),
 //						Variation: pulumi.String("Variation2"),
 //					},
@@ -348,14 +375,14 @@ import (
 //							SegmentOverrides: evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArray{
 //								&evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs{
 //									EvaluationOrder: pulumi.Int(1),
-//									Segment:         pulumi.Any(aws_evidently_segment.Example.Name),
+//									Segment:         pulumi.Any(exampleAwsEvidentlySegment.Name),
 //									Weights: pulumi.IntMap{
 //										"Variation2": pulumi.Int(10000),
 //									},
 //								},
 //								&evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs{
 //									EvaluationOrder: pulumi.Int(2),
-//									Segment:         pulumi.Any(aws_evidently_segment.Example.Name),
+//									Segment:         pulumi.Any(exampleAwsEvidentlySegment.Name),
 //									Weights: pulumi.IntMap{
 //										"Variation1": pulumi.Int(40000),
 //										"Variation2": pulumi.Int(30000),
@@ -375,6 +402,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -385,17 +413,12 @@ import (
 // Import using the `name` of the launch and `name` of the project separated by a `:`:
 //
 // ```sh
-//
-//	$ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
-//
+// $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
 // ```
-//
-//	Import using the `name` of the launch and `arn` of the project separated by a `:`:
+// Import using the `name` of the launch and `arn` of the project separated by a `:`:
 //
 // ```sh
-//
-//	$ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
-//
+// $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
 // ```
 type Launch struct {
 	pulumi.CustomResourceState
@@ -449,10 +472,6 @@ func NewLaunch(ctx *pulumi.Context,
 	if args.Project == nil {
 		return nil, errors.New("invalid value for required argument 'Project'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Launch
 	err := ctx.RegisterResource("aws:evidently/launch:Launch", name, args, &resource, opts...)

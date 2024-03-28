@@ -142,17 +142,17 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
+        accepter = aws.get_caller_identity()
         # Creator's side of the VIF
         creator = aws.directconnect.HostedPublicVirtualInterface("creator",
             connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
+            owner_account_id=accepter.account_id,
+            name="vif-foo",
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352,
@@ -163,20 +163,20 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
                 "175.45.176.0/22",
             ])
         # Accepter's side of the VIF.
-        accepter_hosted_public_virtual_interface_accepter = aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter",
+        accepter_hosted_public_virtual_interface_accepter = aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepter",
             virtual_interface_id=creator.id,
             tags={
                 "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
+        $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -196,17 +196,17 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
+        accepter = aws.get_caller_identity()
         # Creator's side of the VIF
         creator = aws.directconnect.HostedPublicVirtualInterface("creator",
             connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
+            owner_account_id=accepter.account_id,
+            name="vif-foo",
             vlan=4094,
             address_family="ipv4",
             bgp_asn=65352,
@@ -217,20 +217,20 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
                 "175.45.176.0/22",
             ])
         # Accepter's side of the VIF.
-        accepter_hosted_public_virtual_interface_accepter = aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter",
+        accepter_hosted_public_virtual_interface_accepter = aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepter",
             virtual_interface_id=creator.id,
             tags={
                 "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
+            })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
+        $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -265,8 +265,6 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
             __props__.__dict__["virtual_interface_id"] = virtual_interface_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(HostedPublicVirtualInterfaceAccepter, __self__).__init__(
             'aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter',
             resource_name,

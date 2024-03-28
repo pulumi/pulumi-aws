@@ -100,37 +100,42 @@ public final class PresetAudio {
 
         @CustomType.Setter
         public Builder audioPackingMode(@Nullable String audioPackingMode) {
+
             this.audioPackingMode = audioPackingMode;
             return this;
         }
         @CustomType.Setter
         public Builder bitRate(@Nullable String bitRate) {
+
             this.bitRate = bitRate;
             return this;
         }
         @CustomType.Setter
         public Builder channels(@Nullable String channels) {
+
             this.channels = channels;
             return this;
         }
         @CustomType.Setter
         public Builder codec(@Nullable String codec) {
+
             this.codec = codec;
             return this;
         }
         @CustomType.Setter
         public Builder sampleRate(@Nullable String sampleRate) {
+
             this.sampleRate = sampleRate;
             return this;
         }
         public PresetAudio build() {
-            final var o = new PresetAudio();
-            o.audioPackingMode = audioPackingMode;
-            o.bitRate = bitRate;
-            o.channels = channels;
-            o.codec = codec;
-            o.sampleRate = sampleRate;
-            return o;
+            final var _resultValue = new PresetAudio();
+            _resultValue.audioPackingMode = audioPackingMode;
+            _resultValue.bitRate = bitRate;
+            _resultValue.channels = channels;
+            _resultValue.codec = codec;
+            _resultValue.sampleRate = sampleRate;
+            return _resultValue;
         }
     }
 }

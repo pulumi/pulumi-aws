@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ebs.LookupSnapshot(ctx, &ebs.LookupSnapshotArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Owners: []string{
+//					"self",
+//				},
 //				Filters: []ebs.GetSnapshotFilter{
 //					{
 //						Name: "volume-size",
@@ -42,10 +47,6 @@ import (
 //						},
 //					},
 //				},
-//				MostRecent: pulumi.BoolRef(true),
-//				Owners: []string{
-//					"self",
-//				},
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -55,6 +56,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSnapshotResult

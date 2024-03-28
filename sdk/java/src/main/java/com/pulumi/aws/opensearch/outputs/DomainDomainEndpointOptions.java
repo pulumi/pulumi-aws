@@ -33,7 +33,7 @@ public final class DomainDomainEndpointOptions {
      */
     private @Nullable Boolean enforceHttps;
     /**
-     * @return Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+     * @return Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
     private @Nullable String tlsSecurityPolicy;
@@ -68,7 +68,7 @@ public final class DomainDomainEndpointOptions {
         return Optional.ofNullable(this.enforceHttps);
     }
     /**
-     * @return Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+     * @return Name of the TLS security policy that needs to be applied to the HTTPS endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DomainEndpointOptions.html#opensearchservice-Type-DomainEndpointOptions-TLSSecurityPolicy). Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
     public Optional<String> tlsSecurityPolicy() {
@@ -101,37 +101,42 @@ public final class DomainDomainEndpointOptions {
 
         @CustomType.Setter
         public Builder customEndpoint(@Nullable String customEndpoint) {
+
             this.customEndpoint = customEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder customEndpointCertificateArn(@Nullable String customEndpointCertificateArn) {
+
             this.customEndpointCertificateArn = customEndpointCertificateArn;
             return this;
         }
         @CustomType.Setter
         public Builder customEndpointEnabled(@Nullable Boolean customEndpointEnabled) {
+
             this.customEndpointEnabled = customEndpointEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder enforceHttps(@Nullable Boolean enforceHttps) {
+
             this.enforceHttps = enforceHttps;
             return this;
         }
         @CustomType.Setter
         public Builder tlsSecurityPolicy(@Nullable String tlsSecurityPolicy) {
+
             this.tlsSecurityPolicy = tlsSecurityPolicy;
             return this;
         }
         public DomainDomainEndpointOptions build() {
-            final var o = new DomainDomainEndpointOptions();
-            o.customEndpoint = customEndpoint;
-            o.customEndpointCertificateArn = customEndpointCertificateArn;
-            o.customEndpointEnabled = customEndpointEnabled;
-            o.enforceHttps = enforceHttps;
-            o.tlsSecurityPolicy = tlsSecurityPolicy;
-            return o;
+            final var _resultValue = new DomainDomainEndpointOptions();
+            _resultValue.customEndpoint = customEndpoint;
+            _resultValue.customEndpointCertificateArn = customEndpointCertificateArn;
+            _resultValue.customEndpointEnabled = customEndpointEnabled;
+            _resultValue.enforceHttps = enforceHttps;
+            _resultValue.tlsSecurityPolicy = tlsSecurityPolicy;
+            return _resultValue;
         }
     }
 }

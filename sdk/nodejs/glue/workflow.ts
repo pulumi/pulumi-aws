@@ -11,12 +11,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.Workflow("example", {});
+ * const example = new aws.glue.Workflow("example", {name: "example"});
  * const example_start = new aws.glue.Trigger("example-start", {
+ *     name: "trigger-start",
  *     type: "ON_DEMAND",
  *     workflowName: example.name,
  *     actions: [{
@@ -24,6 +26,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const example_inner = new aws.glue.Trigger("example-inner", {
+ *     name: "trigger-inner",
  *     type: "CONDITIONAL",
  *     workflowName: example.name,
  *     predicate: {
@@ -37,13 +40,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Workflows using `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+ * $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
  * ```
  */
 export class Workflow extends pulumi.CustomResource {
@@ -136,8 +140,6 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Workflow.__pulumiType, name, resourceInputs, opts);
     }
 }

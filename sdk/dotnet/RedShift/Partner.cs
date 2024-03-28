@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,21 +25,22 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.RedShift.Partner("example", new()
     ///     {
-    ///         ClusterIdentifier = aws_redshift_cluster.Example.Id,
+    ///         ClusterIdentifier = exampleAwsRedshiftCluster.Id,
     ///         AccountId = "1234567910",
-    ///         DatabaseName = aws_redshift_cluster.Example.Database_name,
+    ///         DatabaseName = exampleAwsRedshiftCluster.DatabaseName,
     ///         PartnerName = "example",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift usage limits using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
+    /// $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/partner:Partner")]

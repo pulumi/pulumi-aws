@@ -307,29 +307,31 @@ class Vocabulary(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.Vocabulary("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
             content=\"\"\"Phrase	IPA	SoundsLike	DisplayAs
         Los-Angeles			Los Angeles
         F.B.I.	ɛ f b i aɪ		FBI
-        Etienne		eh-tee-en	
-        \"\"\",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        Etienne		eh-tee-en	\"\"\",
             language_code="en-US",
             tags={
                 "Key1": "Value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Vocabularies using the `instance_id` and `vocabulary_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -353,29 +355,31 @@ class Vocabulary(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.connect.Vocabulary("example",
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+            name="example",
             content=\"\"\"Phrase	IPA	SoundsLike	DisplayAs
         Los-Angeles			Los Angeles
         F.B.I.	ɛ f b i aɪ		FBI
-        Etienne		eh-tee-en	
-        \"\"\",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        Etienne		eh-tee-en	\"\"\",
             language_code="en-US",
             tags={
                 "Key1": "Value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Vocabularies using the `instance_id` and `vocabulary_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -424,8 +428,6 @@ class Vocabulary(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vocabulary_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Vocabulary, __self__).__init__(
             'aws:connect/vocabulary:Vocabulary',
             resource_name,

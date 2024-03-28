@@ -7,6 +7,7 @@ import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyGrantArgs;
 import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -33,14 +34,14 @@ public final class BucketAclV2AccessControlPolicyArgs extends com.pulumi.resourc
     }
 
     /**
-     * Configuration block of the bucket owner&#39;s display name and ID. See below.
+     * Configuration block for the bucket owner&#39;s display name and ID. See below.
      * 
      */
     @Import(name="owner", required=true)
     private Output<BucketAclV2AccessControlPolicyOwnerArgs> owner;
 
     /**
-     * @return Configuration block of the bucket owner&#39;s display name and ID. See below.
+     * @return Configuration block for the bucket owner&#39;s display name and ID. See below.
      * 
      */
     public Output<BucketAclV2AccessControlPolicyOwnerArgs> owner() {
@@ -104,7 +105,7 @@ public final class BucketAclV2AccessControlPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param owner Configuration block of the bucket owner&#39;s display name and ID. See below.
+         * @param owner Configuration block for the bucket owner&#39;s display name and ID. See below.
          * 
          * @return builder
          * 
@@ -115,7 +116,7 @@ public final class BucketAclV2AccessControlPolicyArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param owner Configuration block of the bucket owner&#39;s display name and ID. See below.
+         * @param owner Configuration block for the bucket owner&#39;s display name and ID. See below.
          * 
          * @return builder
          * 
@@ -125,7 +126,9 @@ public final class BucketAclV2AccessControlPolicyArgs extends com.pulumi.resourc
         }
 
         public BucketAclV2AccessControlPolicyArgs build() {
-            $.owner = Objects.requireNonNull($.owner, "expected parameter 'owner' to be non-null");
+            if ($.owner == null) {
+                throw new MissingRequiredPropertyException("BucketAclV2AccessControlPolicyArgs", "owner");
+            }
             return $;
         }
     }

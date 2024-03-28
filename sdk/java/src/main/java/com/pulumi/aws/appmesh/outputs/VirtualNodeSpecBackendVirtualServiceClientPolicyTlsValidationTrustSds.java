@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
 
         @CustomType.Setter
         public Builder secretName(String secretName) {
-            this.secretName = Objects.requireNonNull(secretName);
+            if (secretName == null) {
+              throw new MissingRequiredPropertyException("VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds", "secretName");
+            }
+            this.secretName = secretName;
             return this;
         }
         public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds build() {
-            final var o = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds();
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds();
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

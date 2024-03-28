@@ -16,6 +16,42 @@ import (
 // > **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
 //
 // ## Example Usage
+//
+// ### Basic Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ecs.GetTaskExecution(ctx, &ecs.GetTaskExecutionArgs{
+// Cluster: exampleAwsEcsCluster.Id,
+// TaskDefinition: exampleAwsEcsTaskDefinition.Arn,
+// DesiredCount: pulumi.IntRef(1),
+// LaunchType: pulumi.StringRef("FARGATE"),
+// NetworkConfiguration: ecs.GetTaskExecutionNetworkConfiguration{
+// Subnets: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,22-44),
+// SecurityGroups: interface{}{
+// exampleAwsSecurityGroup.Id,
+// },
+// AssignPublicIp: pulumi.BoolRef(false),
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// <!--End PulumiCodeChooser -->
 func GetTaskExecution(ctx *pulumi.Context, args *GetTaskExecutionArgs, opts ...pulumi.InvokeOption) (*GetTaskExecutionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTaskExecutionResult
@@ -30,6 +66,8 @@ func GetTaskExecution(ctx *pulumi.Context, args *GetTaskExecutionArgs, opts ...p
 type GetTaskExecutionArgs struct {
 	// Set of capacity provider strategies to use for the cluster. See below.
 	CapacityProviderStrategies []GetTaskExecutionCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
+	// An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+	ClientToken *string `pulumi:"clientToken"`
 	// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
 	Cluster string `pulumi:"cluster"`
 	// Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
@@ -69,6 +107,7 @@ type GetTaskExecutionArgs struct {
 // A collection of values returned by getTaskExecution.
 type GetTaskExecutionResult struct {
 	CapacityProviderStrategies []GetTaskExecutionCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
+	ClientToken                *string                                    `pulumi:"clientToken"`
 	Cluster                    string                                     `pulumi:"cluster"`
 	DesiredCount               *int                                       `pulumi:"desiredCount"`
 	EnableEcsManagedTags       *bool                                      `pulumi:"enableEcsManagedTags"`
@@ -108,6 +147,8 @@ func GetTaskExecutionOutput(ctx *pulumi.Context, args GetTaskExecutionOutputArgs
 type GetTaskExecutionOutputArgs struct {
 	// Set of capacity provider strategies to use for the cluster. See below.
 	CapacityProviderStrategies GetTaskExecutionCapacityProviderStrategyArrayInput `pulumi:"capacityProviderStrategies"`
+	// An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+	ClientToken pulumi.StringPtrInput `pulumi:"clientToken"`
 	// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
 	Cluster pulumi.StringInput `pulumi:"cluster"`
 	// Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
@@ -167,6 +208,10 @@ func (o GetTaskExecutionResultOutput) CapacityProviderStrategies() GetTaskExecut
 	return o.ApplyT(func(v GetTaskExecutionResult) []GetTaskExecutionCapacityProviderStrategy {
 		return v.CapacityProviderStrategies
 	}).(GetTaskExecutionCapacityProviderStrategyArrayOutput)
+}
+
+func (o GetTaskExecutionResultOutput) ClientToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTaskExecutionResult) *string { return v.ClientToken }).(pulumi.StringPtrOutput)
 }
 
 func (o GetTaskExecutionResultOutput) Cluster() pulumi.StringOutput {

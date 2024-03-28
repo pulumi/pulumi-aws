@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,12 +20,49 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.StudioLifecycleConfig;
+ * import com.pulumi.aws.sagemaker.StudioLifecycleConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new StudioLifecycleConfig(&#34;example&#34;, StudioLifecycleConfigArgs.builder()        
+ *             .studioLifecycleConfigName(&#34;example&#34;)
+ *             .studioLifecycleConfigAppType(&#34;JupyterServer&#34;)
+ *             .studioLifecycleConfigContent(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                 .input(&#34;echo Hello&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+ * $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
  * ```
  * 
  */
@@ -47,14 +83,14 @@ public class StudioLifecycleConfig extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      * 
      */
     @Export(name="studioLifecycleConfigAppType", refs={String.class}, tree="[0]")
     private Output<String> studioLifecycleConfigAppType;
 
     /**
-     * @return The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer` and `KernelGateway`.
+     * @return The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      * 
      */
     public Output<String> studioLifecycleConfigAppType() {
@@ -153,9 +189,6 @@ public class StudioLifecycleConfig extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

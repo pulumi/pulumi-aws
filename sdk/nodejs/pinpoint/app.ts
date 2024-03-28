@@ -12,27 +12,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.pinpoint.App("example", {
+ *     name: "test-app",
  *     limits: {
  *         maximumDuration: 600,
  *     },
  *     quietTime: {
- *         end: "06:00",
  *         start: "00:00",
+ *         end: "06:00",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Pinpoint App using the `application-id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:pinpoint/app:App name application-id
+ * $ pulumi import aws:pinpoint/app:App name application-id
  * ```
  */
 export class App extends pulumi.CustomResource {
@@ -137,8 +140,6 @@ export class App extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(App.__pulumiType, name, resourceInputs, opts);
     }
 }

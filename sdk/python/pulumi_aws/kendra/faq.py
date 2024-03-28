@@ -426,60 +426,72 @@ class Faq(pulumi.CustomResource):
         Resource for managing an AWS Kendra FAQ.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=aws_kendra_index["example"]["id"],
-            role_arn=aws_iam_role["example"]["arn"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ),
             tags={
                 "Name": "Example Kendra Faq",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With File Format
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
             file_format="CSV",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Language Code
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
             language_code="en",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
+        $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -505,60 +517,72 @@ class Faq(pulumi.CustomResource):
         Resource for managing an AWS Kendra FAQ.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=aws_kendra_index["example"]["id"],
-            role_arn=aws_iam_role["example"]["arn"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ),
             tags={
                 "Name": "Example Kendra Faq",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With File Format
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
             file_format="CSV",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Language Code
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=aws_kendra_index["example"]["id"],
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
             language_code="en",
-            role_arn=aws_iam_role["example"]["arn"],
+            role_arn=example_aws_iam_role["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=example_aws_s3_bucket["id"],
+                key=example_aws_s3_object["key"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
+        $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -614,8 +638,6 @@ class Faq(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["updated_at"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Faq, __self__).__init__(
             'aws:kendra/faq:Faq',
             resource_name,

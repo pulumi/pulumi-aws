@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -13,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDomainSettingsRStudioServerProDomainSettings {
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
      * 
      */
     private @Nullable DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec defaultResourceSpec;
@@ -35,7 +36,7 @@ public final class DomainDomainSettingsRStudioServerProDomainSettings {
 
     private DomainDomainSettingsRStudioServerProDomainSettings() {}
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
      * 
      */
     public Optional<DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec> defaultResourceSpec() {
@@ -87,31 +88,37 @@ public final class DomainDomainSettingsRStudioServerProDomainSettings {
 
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec defaultResourceSpec) {
+
             this.defaultResourceSpec = defaultResourceSpec;
             return this;
         }
         @CustomType.Setter
         public Builder domainExecutionRoleArn(String domainExecutionRoleArn) {
-            this.domainExecutionRoleArn = Objects.requireNonNull(domainExecutionRoleArn);
+            if (domainExecutionRoleArn == null) {
+              throw new MissingRequiredPropertyException("DomainDomainSettingsRStudioServerProDomainSettings", "domainExecutionRoleArn");
+            }
+            this.domainExecutionRoleArn = domainExecutionRoleArn;
             return this;
         }
         @CustomType.Setter
         public Builder rStudioConnectUrl(@Nullable String rStudioConnectUrl) {
+
             this.rStudioConnectUrl = rStudioConnectUrl;
             return this;
         }
         @CustomType.Setter
         public Builder rStudioPackageManagerUrl(@Nullable String rStudioPackageManagerUrl) {
+
             this.rStudioPackageManagerUrl = rStudioPackageManagerUrl;
             return this;
         }
         public DomainDomainSettingsRStudioServerProDomainSettings build() {
-            final var o = new DomainDomainSettingsRStudioServerProDomainSettings();
-            o.defaultResourceSpec = defaultResourceSpec;
-            o.domainExecutionRoleArn = domainExecutionRoleArn;
-            o.rStudioConnectUrl = rStudioConnectUrl;
-            o.rStudioPackageManagerUrl = rStudioPackageManagerUrl;
-            return o;
+            final var _resultValue = new DomainDomainSettingsRStudioServerProDomainSettings();
+            _resultValue.defaultResourceSpec = defaultResourceSpec;
+            _resultValue.domainExecutionRoleArn = domainExecutionRoleArn;
+            _resultValue.rStudioConnectUrl = rStudioConnectUrl;
+            _resultValue.rStudioPackageManagerUrl = rStudioPackageManagerUrl;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,11 +59,15 @@ public final class RestApiEndpointConfiguration {
 
         @CustomType.Setter
         public Builder types(String types) {
-            this.types = Objects.requireNonNull(types);
+            if (types == null) {
+              throw new MissingRequiredPropertyException("RestApiEndpointConfiguration", "types");
+            }
+            this.types = types;
             return this;
         }
         @CustomType.Setter
         public Builder vpcEndpointIds(@Nullable List<String> vpcEndpointIds) {
+
             this.vpcEndpointIds = vpcEndpointIds;
             return this;
         }
@@ -70,10 +75,10 @@ public final class RestApiEndpointConfiguration {
             return vpcEndpointIds(List.of(vpcEndpointIds));
         }
         public RestApiEndpointConfiguration build() {
-            final var o = new RestApiEndpointConfiguration();
-            o.types = types;
-            o.vpcEndpointIds = vpcEndpointIds;
-            return o;
+            final var _resultValue = new RestApiEndpointConfiguration();
+            _resultValue.types = types;
+            _resultValue.vpcEndpointIds = vpcEndpointIds;
+            return _resultValue;
         }
     }
 }

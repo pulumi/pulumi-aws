@@ -59,19 +59,21 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd {
 
         @CustomType.Setter
         public Builder simpleCriterion(@Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion simpleCriterion) {
+
             this.simpleCriterion = simpleCriterion;
             return this;
         }
         @CustomType.Setter
         public Builder tagCriterion(@Nullable ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion tagCriterion) {
+
             this.tagCriterion = tagCriterion;
             return this;
         }
         public ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd build() {
-            final var o = new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd();
-            o.simpleCriterion = simpleCriterion;
-            o.tagCriterion = tagCriterion;
-            return o;
+            final var _resultValue = new ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd();
+            _resultValue.simpleCriterion = simpleCriterion;
+            _resultValue.tagCriterion = tagCriterion;
+            return _resultValue;
         }
     }
 }

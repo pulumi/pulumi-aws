@@ -44,13 +44,14 @@ public final class CertificateOptions {
 
         @CustomType.Setter
         public Builder certificateTransparencyLoggingPreference(@Nullable String certificateTransparencyLoggingPreference) {
+
             this.certificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
             return this;
         }
         public CertificateOptions build() {
-            final var o = new CertificateOptions();
-            o.certificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
-            return o;
+            final var _resultValue = new CertificateOptions();
+            _resultValue.certificateTransparencyLoggingPreference = certificateTransparencyLoggingPreference;
+            return _resultValue;
         }
     }
 }

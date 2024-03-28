@@ -29,7 +29,7 @@ class IamPolicyAssignmentArgs:
                
                The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
-        :param pulumi.Input['IamPolicyAssignmentIdentitiesArgs'] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+        :param pulumi.Input['IamPolicyAssignmentIdentitiesArgs'] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         """
@@ -86,7 +86,7 @@ class IamPolicyAssignmentArgs:
     @pulumi.getter
     def identities(self) -> Optional[pulumi.Input['IamPolicyAssignmentIdentitiesArgs']]:
         """
-        Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+        Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         """
         return pulumi.get(self, "identities")
 
@@ -137,7 +137,7 @@ class _IamPolicyAssignmentState:
                
                The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
-        :param pulumi.Input['IamPolicyAssignmentIdentitiesArgs'] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+        :param pulumi.Input['IamPolicyAssignmentIdentitiesArgs'] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         """
@@ -210,7 +210,7 @@ class _IamPolicyAssignmentState:
     @pulumi.getter
     def identities(self) -> Optional[pulumi.Input['IamPolicyAssignmentIdentitiesArgs']]:
         """
-        Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+        Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         """
         return pulumi.get(self, "identities")
 
@@ -259,8 +259,10 @@ class IamPolicyAssignment(pulumi.CustomResource):
         Resource for managing an AWS QuickSight IAM Policy Assignment.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,18 +270,19 @@ class IamPolicyAssignment(pulumi.CustomResource):
         example = aws.quicksight.IamPolicyAssignment("example",
             assignment_name="example",
             assignment_status="ENABLED",
-            policy_arn=aws_iam_policy["example"]["arn"],
+            policy_arn=example_aws_iam_policy["arn"],
             identities=aws.quicksight.IamPolicyAssignmentIdentitiesArgs(
-                users=[aws_quicksight_user["example"]["user_name"]],
+                users=[example_aws_quicksight_user["userName"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
+        $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
         ```
 
         :param str resource_name: The name of the resource.
@@ -289,7 +292,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
-        :param pulumi.Input[pulumi.InputType['IamPolicyAssignmentIdentitiesArgs']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+        :param pulumi.Input[pulumi.InputType['IamPolicyAssignmentIdentitiesArgs']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         """
@@ -303,8 +306,10 @@ class IamPolicyAssignment(pulumi.CustomResource):
         Resource for managing an AWS QuickSight IAM Policy Assignment.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -312,18 +317,19 @@ class IamPolicyAssignment(pulumi.CustomResource):
         example = aws.quicksight.IamPolicyAssignment("example",
             assignment_name="example",
             assignment_status="ENABLED",
-            policy_arn=aws_iam_policy["example"]["arn"],
+            policy_arn=example_aws_iam_policy["arn"],
             identities=aws.quicksight.IamPolicyAssignmentIdentitiesArgs(
-                users=[aws_quicksight_user["example"]["user_name"]],
+                users=[example_aws_quicksight_user["userName"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
+        $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
         ```
 
         :param str resource_name: The name of the resource.
@@ -397,7 +403,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
-        :param pulumi.Input[pulumi.InputType['IamPolicyAssignmentIdentitiesArgs']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+        :param pulumi.Input[pulumi.InputType['IamPolicyAssignmentIdentitiesArgs']] identities: Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         :param pulumi.Input[str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         """
@@ -452,7 +458,7 @@ class IamPolicyAssignment(pulumi.CustomResource):
     @pulumi.getter
     def identities(self) -> pulumi.Output[Optional['outputs.IamPolicyAssignmentIdentities']]:
         """
-        Amazon QuickSight users, groups, or both to assign the policy to. See `identities`.
+        Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         """
         return pulumi.get(self, "identities")
 

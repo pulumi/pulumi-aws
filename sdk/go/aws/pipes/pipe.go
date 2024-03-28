@@ -21,8 +21,10 @@ import (
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +47,15 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": map[string]interface{}{
-//					"Effect": "Allow",
-//					"Action": "sts:AssumeRole",
-//					"Principal": map[string]interface{}{
-//						"Service": "pipes.amazonaws.com",
+//				"version": "2012-10-17",
+//				"statement": map[string]interface{}{
+//					"effect": "Allow",
+//					"action": "sts:AssumeRole",
+//					"principal": map[string]interface{}{
+//						"service": "pipes.amazonaws.com",
 //					},
-//					"Condition": map[string]interface{}{
-//						"StringEquals": map[string]interface{}{
+//					"condition": map[string]interface{}{
+//						"stringEquals": map[string]interface{}{
 //							"aws:SourceAccount": main.AccountId,
 //						},
 //					},
@@ -63,31 +65,31 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			sourceQueue, err := sqs.NewQueue(ctx, "sourceQueue", nil)
+//			sourceQueue, err := sqs.NewQueue(ctx, "source", nil)
 //			if err != nil {
 //				return err
 //			}
-//			sourceRolePolicy, err := iam.NewRolePolicy(ctx, "sourceRolePolicy", &iam.RolePolicyArgs{
-//				Role: exampleRole.ID(),
+//			_, err = iam.NewRolePolicy(ctx, "source", &iam.RolePolicyArgs{
+//				Role: example.ID(),
 //				Policy: sourceQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
+//						"version": "2012-10-17",
+//						"statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": []string{
+//								"effect": "Allow",
+//								"action": []string{
 //									"sqs:DeleteMessage",
 //									"sqs:GetQueueAttributes",
 //									"sqs:ReceiveMessage",
 //								},
-//								"Resource": []string{
+//								"resource": []string{
 //									arn,
 //								},
 //							},
@@ -103,23 +105,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			targetQueue, err := sqs.NewQueue(ctx, "targetQueue", nil)
+//			targetQueue, err := sqs.NewQueue(ctx, "target", nil)
 //			if err != nil {
 //				return err
 //			}
-//			targetRolePolicy, err := iam.NewRolePolicy(ctx, "targetRolePolicy", &iam.RolePolicyArgs{
-//				Role: exampleRole.ID(),
+//			_, err = iam.NewRolePolicy(ctx, "target", &iam.RolePolicyArgs{
+//				Role: example.ID(),
 //				Policy: targetQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON2, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
+//						"version": "2012-10-17",
+//						"statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": []string{
+//								"effect": "Allow",
+//								"action": []string{
 //									"sqs:SendMessage",
 //								},
-//								"Resource": []string{
+//								"resource": []string{
 //									arn,
 //								},
 //							},
@@ -135,14 +137,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pipes.NewPipe(ctx, "examplePipe", &pipes.PipeArgs{
-//				RoleArn: exampleRole.Arn,
+//			_, err = pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
+//				Name:    pulumi.String("example-pipe"),
+//				RoleArn: example.Arn,
 //				Source:  sourceQueue.Arn,
 //				Target:  targetQueue.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				sourceRolePolicy,
-//				targetRolePolicy,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -151,8 +151,56 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Enrichment Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pipes"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
+//				Name:       pulumi.String("example-pipe"),
+//				RoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
+//				Source:     pulumi.Any(source.Arn),
+//				Target:     pulumi.Any(target.Arn),
+//				Enrichment: pulumi.Any(exampleAwsCloudwatchEventApiDestination.Arn),
+//				EnrichmentParameters: &pipes.PipeEnrichmentParametersArgs{
+//					HttpParameters: &pipes.PipeEnrichmentParametersHttpParametersArgs{
+//						PathParameterValues: pulumi.String("example-path-param"),
+//						HeaderParameters: pulumi.StringMap{
+//							"example-header":        pulumi.String("example-value"),
+//							"second-example-header": pulumi.String("second-example-value"),
+//						},
+//						QueryStringParameters: pulumi.StringMap{
+//							"example-query-string":        pulumi.String("example-value"),
+//							"second-example-query-string": pulumi.String("second-example-value"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -177,9 +225,10 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				Source:  pulumi.Any(aws_sqs_queue.Source.Arn),
-//				Target:  pulumi.Any(aws_sqs_queue.Target.Arn),
+//				Name:    pulumi.String("example-pipe"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Source:  pulumi.Any(source.Arn),
+//				Target:  pulumi.Any(target.Arn),
 //				SourceParameters: &pipes.PipeSourceParametersArgs{
 //					FilterCriteria: &pipes.PipeSourceParametersFilterCriteriaArgs{
 //						Filters: pipes.PipeSourceParametersFilterCriteriaFilterArray{
@@ -198,15 +247,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import pipes using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pipes/pipe:Pipe example my-pipe
-//
+// $ pulumi import aws:pipes/pipe:Pipe example my-pipe
 // ```
 type Pipe struct {
 	pulumi.CustomResourceState
@@ -261,10 +309,6 @@ func NewPipe(ctx *pulumi.Context,
 	if args.Target == nil {
 		return nil, errors.New("invalid value for required argument 'Target'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipe
 	err := ctx.RegisterResource("aws:pipes/pipe:Pipe", name, args, &resource, opts...)

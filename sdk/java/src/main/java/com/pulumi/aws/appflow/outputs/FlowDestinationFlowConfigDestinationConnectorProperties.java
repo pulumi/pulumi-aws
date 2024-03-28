@@ -216,85 +216,98 @@ public final class FlowDestinationFlowConfigDestinationConnectorProperties {
 
         @CustomType.Setter
         public Builder customConnector(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector customConnector) {
+
             this.customConnector = customConnector;
             return this;
         }
         @CustomType.Setter
         public Builder customerProfiles(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles customerProfiles) {
+
             this.customerProfiles = customerProfiles;
             return this;
         }
         @CustomType.Setter
         public Builder eventBridge(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge eventBridge) {
+
             this.eventBridge = eventBridge;
             return this;
         }
         @CustomType.Setter
         public Builder honeycode(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode honeycode) {
+
             this.honeycode = honeycode;
             return this;
         }
         @CustomType.Setter
         public Builder lookoutMetrics(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics lookoutMetrics) {
+
             this.lookoutMetrics = lookoutMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder marketo(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo marketo) {
+
             this.marketo = marketo;
             return this;
         }
         @CustomType.Setter
         public Builder redshift(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift redshift) {
+
             this.redshift = redshift;
             return this;
         }
         @CustomType.Setter
         public Builder s3(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3 s3) {
+
             this.s3 = s3;
             return this;
         }
         @CustomType.Setter
         public Builder salesforce(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce salesforce) {
+
             this.salesforce = salesforce;
             return this;
         }
         @CustomType.Setter
         public Builder sapoData(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData sapoData) {
+
             this.sapoData = sapoData;
             return this;
         }
         @CustomType.Setter
         public Builder snowflake(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake snowflake) {
+
             this.snowflake = snowflake;
             return this;
         }
         @CustomType.Setter
         public Builder upsolver(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver upsolver) {
+
             this.upsolver = upsolver;
             return this;
         }
         @CustomType.Setter
         public Builder zendesk(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk zendesk) {
+
             this.zendesk = zendesk;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorProperties build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorProperties();
-            o.customConnector = customConnector;
-            o.customerProfiles = customerProfiles;
-            o.eventBridge = eventBridge;
-            o.honeycode = honeycode;
-            o.lookoutMetrics = lookoutMetrics;
-            o.marketo = marketo;
-            o.redshift = redshift;
-            o.s3 = s3;
-            o.salesforce = salesforce;
-            o.sapoData = sapoData;
-            o.snowflake = snowflake;
-            o.upsolver = upsolver;
-            o.zendesk = zendesk;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorProperties();
+            _resultValue.customConnector = customConnector;
+            _resultValue.customerProfiles = customerProfiles;
+            _resultValue.eventBridge = eventBridge;
+            _resultValue.honeycode = honeycode;
+            _resultValue.lookoutMetrics = lookoutMetrics;
+            _resultValue.marketo = marketo;
+            _resultValue.redshift = redshift;
+            _resultValue.s3 = s3;
+            _resultValue.salesforce = salesforce;
+            _resultValue.sapoData = sapoData;
+            _resultValue.snowflake = snowflake;
+            _resultValue.upsolver = upsolver;
+            _resultValue.zendesk = zendesk;
+            return _resultValue;
         }
     }
 }

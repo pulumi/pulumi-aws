@@ -208,23 +208,25 @@ class VpnGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        vpn_gw = aws.ec2.VpnGateway("vpnGw",
-            vpc_id=aws_vpc["main"]["id"],
+        vpn_gw = aws.ec2.VpnGateway("vpn_gw",
+            vpc_id=main["id"],
             tags={
                 "Name": "main",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
+        $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
         ```
 
         :param str resource_name: The name of the resource.
@@ -245,23 +247,25 @@ class VpnGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        vpn_gw = aws.ec2.VpnGateway("vpnGw",
-            vpc_id=aws_vpc["main"]["id"],
+        vpn_gw = aws.ec2.VpnGateway("vpn_gw",
+            vpc_id=main["id"],
             tags={
                 "Name": "main",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
+        $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
         ```
 
         :param str resource_name: The name of the resource.
@@ -298,8 +302,6 @@ class VpnGateway(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpnGateway, __self__).__init__(
             'aws:ec2/vpnGateway:VpnGateway',
             resource_name,

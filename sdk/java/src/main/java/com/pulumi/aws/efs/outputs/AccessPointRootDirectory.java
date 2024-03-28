@@ -59,19 +59,21 @@ public final class AccessPointRootDirectory {
 
         @CustomType.Setter
         public Builder creationInfo(@Nullable AccessPointRootDirectoryCreationInfo creationInfo) {
+
             this.creationInfo = creationInfo;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         public AccessPointRootDirectory build() {
-            final var o = new AccessPointRootDirectory();
-            o.creationInfo = creationInfo;
-            o.path = path;
-            return o;
+            final var _resultValue = new AccessPointRootDirectory();
+            _resultValue.creationInfo = creationInfo;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

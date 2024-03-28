@@ -394,28 +394,32 @@ class Template(pulumi.CustomResource):
         Resource for managing a QuickSight Template.
 
         ## Example Usage
+
         ### From Source Template
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Template("example",
             template_id="example-id",
+            name="example-name",
             version_description="version",
             source_entity=aws.quicksight.TemplateSourceEntityArgs(
                 source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=source["arn"],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
+        $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -440,28 +444,32 @@ class Template(pulumi.CustomResource):
         Resource for managing a QuickSight Template.
 
         ## Example Usage
+
         ### From Source Template
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Template("example",
             template_id="example-id",
+            name="example-name",
             version_description="version",
             source_entity=aws.quicksight.TemplateSourceEntityArgs(
                 source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=source["arn"],
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
+        $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -513,8 +521,6 @@ class Template(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_number"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Template, __self__).__init__(
             'aws:quicksight/template:Template',
             resource_name,

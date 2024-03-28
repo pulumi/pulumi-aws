@@ -14,12 +14,13 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const awsSnsTopic = new aws.sns.Topic("awsSnsTopic", {});
- * const myArchivePolicyDocument = aws.iam.getPolicyDocument({
+ * const awsSnsTopic = new aws.sns.Topic("aws_sns_topic", {name: "glacier-sns-topic"});
+ * const myArchive = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "add-read-only-perm",
  *         effect: "Allow",
@@ -34,7 +35,8 @@ import * as utilities from "../utilities";
  *         resources: ["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
  *     }],
  * });
- * const myArchiveVault = new aws.glacier.Vault("myArchiveVault", {
+ * const myArchiveVault = new aws.glacier.Vault("my_archive", {
+ *     name: "MyArchive",
  *     notification: {
  *         snsTopic: awsSnsTopic.arn,
  *         events: [
@@ -42,19 +44,20 @@ import * as utilities from "../utilities";
  *             "InventoryRetrievalCompleted",
  *         ],
  *     },
- *     accessPolicy: myArchivePolicyDocument.then(myArchivePolicyDocument => myArchivePolicyDocument.json),
+ *     accessPolicy: myArchive.then(myArchive => myArchive.json),
  *     tags: {
  *         Test: "MyArchive",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glacier Vaults using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glacier/vault:Vault archive my_archive
+ * $ pulumi import aws:glacier/vault:Vault archive my_archive
  * ```
  */
 export class Vault extends pulumi.CustomResource {
@@ -148,8 +151,6 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Vault.__pulumiType, name, resourceInputs, opts);
     }
 }

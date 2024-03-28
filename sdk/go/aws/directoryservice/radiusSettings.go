@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := directoryservice.NewRadiusSettings(ctx, "example", &directoryservice.RadiusSettingsArgs{
-//				DirectoryId:            pulumi.Any(aws_directory_service_directory.Example.Id),
+//				DirectoryId:            pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
 //				AuthenticationProtocol: pulumi.String("PAP"),
 //				DisplayLabel:           pulumi.String("example"),
 //				RadiusPort:             pulumi.Int(1812),
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import RADIUS settings using the directory ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
-//
+// $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
 // ```
 type RadiusSettings struct {
 	pulumi.CustomResourceState

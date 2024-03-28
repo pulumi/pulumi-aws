@@ -5,6 +5,7 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetRouteSpecHttpRouteMatchHeaderMatchRange;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -60,17 +61,26 @@ public final class GetRouteSpecHttpRouteMatchHeaderMatch {
 
         @CustomType.Setter
         public Builder exact(String exact) {
-            this.exact = Objects.requireNonNull(exact);
+            if (exact == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteMatchHeaderMatch", "exact");
+            }
+            this.exact = exact;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+            if (prefix == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteMatchHeaderMatch", "prefix");
+            }
+            this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder ranges(List<GetRouteSpecHttpRouteMatchHeaderMatchRange> ranges) {
-            this.ranges = Objects.requireNonNull(ranges);
+            if (ranges == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteMatchHeaderMatch", "ranges");
+            }
+            this.ranges = ranges;
             return this;
         }
         public Builder ranges(GetRouteSpecHttpRouteMatchHeaderMatchRange... ranges) {
@@ -78,22 +88,28 @@ public final class GetRouteSpecHttpRouteMatchHeaderMatch {
         }
         @CustomType.Setter
         public Builder regex(String regex) {
-            this.regex = Objects.requireNonNull(regex);
+            if (regex == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteMatchHeaderMatch", "regex");
+            }
+            this.regex = regex;
             return this;
         }
         @CustomType.Setter
         public Builder suffix(String suffix) {
-            this.suffix = Objects.requireNonNull(suffix);
+            if (suffix == null) {
+              throw new MissingRequiredPropertyException("GetRouteSpecHttpRouteMatchHeaderMatch", "suffix");
+            }
+            this.suffix = suffix;
             return this;
         }
         public GetRouteSpecHttpRouteMatchHeaderMatch build() {
-            final var o = new GetRouteSpecHttpRouteMatchHeaderMatch();
-            o.exact = exact;
-            o.prefix = prefix;
-            o.ranges = ranges;
-            o.regex = regex;
-            o.suffix = suffix;
-            return o;
+            final var _resultValue = new GetRouteSpecHttpRouteMatchHeaderMatch();
+            _resultValue.exact = exact;
+            _resultValue.prefix = prefix;
+            _resultValue.ranges = ranges;
+            _resultValue.regex = regex;
+            _resultValue.suffix = suffix;
+            return _resultValue;
         }
     }
 }

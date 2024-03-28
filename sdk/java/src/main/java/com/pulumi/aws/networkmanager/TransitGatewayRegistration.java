@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * You cannot register a transit gateway in more than one global network.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,27 +45,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGlobalNetwork = new GlobalNetwork(&#34;exampleGlobalNetwork&#34;, GlobalNetworkArgs.builder()        
+ *         var example = new GlobalNetwork(&#34;example&#34;, GlobalNetworkArgs.builder()        
  *             .description(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;);
  * 
  *         var exampleTransitGatewayRegistration = new TransitGatewayRegistration(&#34;exampleTransitGatewayRegistration&#34;, TransitGatewayRegistrationArgs.builder()        
- *             .globalNetworkId(exampleGlobalNetwork.id())
+ *             .globalNetworkId(example.id())
  *             .transitGatewayArn(exampleTransitGateway.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_networkmanager_transit_gateway_registration` using the global network ID and transit gateway ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
+ * $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
  * ```
  * 
  */

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,12 +23,18 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates");
+    ///     var userUpdates = new Aws.Sns.Topic("user_updates", new()
+    ///     {
+    ///         Name = "user-updates-topic",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Example with Delivery Policy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,8 +43,9 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates", new()
+    ///     var userUpdates = new Aws.Sns.Topic("user_updates", new()
     ///     {
+    ///         Name = "user-updates-topic",
     ///         DeliveryPolicy = @"{
     ///   ""http"": {
     ///     ""defaultHealthyRetryPolicy"": {
@@ -55,15 +63,16 @@ namespace Pulumi.Aws.Sns
     ///     }
     ///   }
     /// }
-    /// 
     /// ",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Example with Server-side encryption (SSE)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -72,16 +81,19 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates", new()
+    ///     var userUpdates = new Aws.Sns.Topic("user_updates", new()
     ///     {
+    ///         Name = "user-updates-topic",
     ///         KmsMasterKeyId = "alias/aws/sns",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Example with First-In-First-Out (FIFO)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,14 +102,16 @@ namespace Pulumi.Aws.Sns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var userUpdates = new Aws.Sns.Topic("userUpdates", new()
+    ///     var userUpdates = new Aws.Sns.Topic("user_updates", new()
     ///     {
-    ///         ContentBasedDeduplication = true,
+    ///         Name = "user-updates-topic.fifo",
     ///         FifoTopic = true,
+    ///         ContentBasedDeduplication = true,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Message Delivery Status Arguments
     /// 
@@ -108,7 +122,7 @@ namespace Pulumi.Aws.Sns
     /// Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+    /// $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
     /// ```
     /// </summary>
     [AwsResourceType("aws:sns/topic:Topic")]
@@ -323,10 +337,6 @@ namespace Pulumi.Aws.Sns
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -716,11 +726,7 @@ namespace Pulumi.Aws.Sns
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

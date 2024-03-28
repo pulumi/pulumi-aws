@@ -12,12 +12,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const app = new aws.opsworks.RailsAppLayer("app", {stackId: aws_opsworks_stack.main.id});
+ * const app = new aws.opsworks.RailsAppLayer("app", {stackId: main.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class RailsAppLayer extends pulumi.CustomResource {
     /**
@@ -239,8 +241,6 @@ export class RailsAppLayer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(RailsAppLayer.__pulumiType, name, resourceInputs, opts);
     }
 }

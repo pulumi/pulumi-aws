@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,25 +73,32 @@ public final class PipelinePipelineDefinitionS3Location {
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
-            this.bucket = Objects.requireNonNull(bucket);
+            if (bucket == null) {
+              throw new MissingRequiredPropertyException("PipelinePipelineDefinitionS3Location", "bucket");
+            }
+            this.bucket = bucket;
             return this;
         }
         @CustomType.Setter
         public Builder objectKey(String objectKey) {
-            this.objectKey = Objects.requireNonNull(objectKey);
+            if (objectKey == null) {
+              throw new MissingRequiredPropertyException("PipelinePipelineDefinitionS3Location", "objectKey");
+            }
+            this.objectKey = objectKey;
             return this;
         }
         @CustomType.Setter
         public Builder versionId(@Nullable String versionId) {
+
             this.versionId = versionId;
             return this;
         }
         public PipelinePipelineDefinitionS3Location build() {
-            final var o = new PipelinePipelineDefinitionS3Location();
-            o.bucket = bucket;
-            o.objectKey = objectKey;
-            o.versionId = versionId;
-            return o;
+            final var _resultValue = new PipelinePipelineDefinitionS3Location();
+            _resultValue.bucket = bucket;
+            _resultValue.objectKey = objectKey;
+            _resultValue.versionId = versionId;
+            return _resultValue;
         }
     }
 }

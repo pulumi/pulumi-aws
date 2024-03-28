@@ -24,7 +24,7 @@ namespace Pulumi.Aws.AutoScalingPlans
     /// Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
+    /// $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscalingplans/scalingPlan:ScalingPlan")]

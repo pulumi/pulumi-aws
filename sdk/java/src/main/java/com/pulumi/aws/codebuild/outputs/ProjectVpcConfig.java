@@ -4,6 +4,7 @@
 package com.pulumi.aws.codebuild.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class ProjectVpcConfig {
 
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
-            this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
+            if (securityGroupIds == null) {
+              throw new MissingRequiredPropertyException("ProjectVpcConfig", "securityGroupIds");
+            }
+            this.securityGroupIds = securityGroupIds;
             return this;
         }
         public Builder securityGroupIds(String... securityGroupIds) {
@@ -79,7 +83,10 @@ public final class ProjectVpcConfig {
         }
         @CustomType.Setter
         public Builder subnets(List<String> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+            if (subnets == null) {
+              throw new MissingRequiredPropertyException("ProjectVpcConfig", "subnets");
+            }
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(String... subnets) {
@@ -87,15 +94,18 @@ public final class ProjectVpcConfig {
         }
         @CustomType.Setter
         public Builder vpcId(String vpcId) {
-            this.vpcId = Objects.requireNonNull(vpcId);
+            if (vpcId == null) {
+              throw new MissingRequiredPropertyException("ProjectVpcConfig", "vpcId");
+            }
+            this.vpcId = vpcId;
             return this;
         }
         public ProjectVpcConfig build() {
-            final var o = new ProjectVpcConfig();
-            o.securityGroupIds = securityGroupIds;
-            o.subnets = subnets;
-            o.vpcId = vpcId;
-            return o;
+            final var _resultValue = new ProjectVpcConfig();
+            _resultValue.securityGroupIds = securityGroupIds;
+            _resultValue.subnets = subnets;
+            _resultValue.vpcId = vpcId;
+            return _resultValue;
         }
     }
 }

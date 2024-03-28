@@ -59,6 +59,7 @@ __all__ = [
     'FieldLevelEncryptionProfileEncryptionEntities',
     'FieldLevelEncryptionProfileEncryptionEntitiesItem',
     'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns',
+    'KeyValueStoreTimeouts',
     'MonitoringSubscriptionMonitoringSubscription',
     'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig',
     'OriginRequestPolicyCookiesConfig',
@@ -2564,7 +2565,7 @@ class DistributionViewerCertificate(dict):
         :param bool cloudfront_default_certificate: `true` if you want viewers to use HTTPS to request your objects and you're using the CloudFront domain name for your distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
         :param str iam_certificate_id: IAM certificate identifier of the custom viewer certificate for this distribution if you are using a custom domain. Specify this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
         :param str minimum_protocol_version: Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfront_default_certificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under "Security policy." Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acm_certificate_arn` or `iam_certificate_id`), and have specified `sni-only` in `ssl_support_method`, `TLSv1` or later must be specified. If you have specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfront_default_certificate`, `TLSv1` must be specified.
-        :param str ssl_support_method: How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+        :param str ssl_support_method: How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
         """
         if acm_certificate_arn is not None:
             pulumi.set(__self__, "acm_certificate_arn", acm_certificate_arn)
@@ -2613,7 +2614,7 @@ class DistributionViewerCertificate(dict):
     @pulumi.getter(name="sslSupportMethod")
     def ssl_support_method(self) -> Optional[str]:
         """
-        How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+        How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
         """
         return pulumi.get(self, "ssl_support_method")
 
@@ -2933,6 +2934,25 @@ class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns(dict):
     @pulumi.getter
     def items(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class KeyValueStoreTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
 
 
 @pulumi.output_type

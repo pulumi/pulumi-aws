@@ -5,6 +5,7 @@ package com.pulumi.aws.datapipeline.outputs;
 
 import com.pulumi.aws.datapipeline.outputs.GetPipelineDefinitionPipelineObjectField;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,6 +74,7 @@ public final class GetPipelineDefinitionPipelineObject {
 
         @CustomType.Setter
         public Builder fields(@Nullable List<GetPipelineDefinitionPipelineObjectField> fields) {
+
             this.fields = fields;
             return this;
         }
@@ -81,20 +83,26 @@ public final class GetPipelineDefinitionPipelineObject {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPipelineDefinitionPipelineObject", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPipelineDefinitionPipelineObject", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetPipelineDefinitionPipelineObject build() {
-            final var o = new GetPipelineDefinitionPipelineObject();
-            o.fields = fields;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetPipelineDefinitionPipelineObject();
+            _resultValue.fields = fields;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

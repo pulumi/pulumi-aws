@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * but take care to not duplicate those hooks with this resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,8 +58,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var foobarGroup = new Group(&#34;foobarGroup&#34;, GroupArgs.builder()        
+ *         var foobar = new Group(&#34;foobar&#34;, GroupArgs.builder()        
  *             .availabilityZones(&#34;us-west-2a&#34;)
+ *             .name(&#34;test-foobar5&#34;)
  *             .healthCheckType(&#34;EC2&#34;)
  *             .terminationPolicies(&#34;OldestInstance&#34;)
  *             .tags(GroupTagArgs.builder()
@@ -68,7 +71,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var foobarLifecycleHook = new LifecycleHook(&#34;foobarLifecycleHook&#34;, LifecycleHookArgs.builder()        
- *             .autoscalingGroupName(foobarGroup.name())
+ *             .name(&#34;foobar&#34;)
+ *             .autoscalingGroupName(foobar.name())
  *             .defaultResult(&#34;CONTINUE&#34;)
  *             .heartbeatTimeout(2000)
  *             .lifecycleTransition(&#34;autoscaling:EC2_INSTANCE_LAUNCHING&#34;)
@@ -83,13 +87,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role autoscaling_group_name and name separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
+ * $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
  * ```
  * 
  */

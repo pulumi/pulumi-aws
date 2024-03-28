@@ -13,22 +13,20 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securityhub.Account("example", {});
- * const cisAwsFoundationsBenchmark = new aws.securityhub.StandardsSubscription("cisAwsFoundationsBenchmark", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"}, {
- *     dependsOn: [example],
- * });
- * const ensureIamPasswordPolicyPreventsPasswordReuse = new aws.securityhub.StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", {
+ * const cisAwsFoundationsBenchmark = new aws.securityhub.StandardsSubscription("cis_aws_foundations_benchmark", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"});
+ * const ensureIamPasswordPolicyPreventsPasswordReuse = new aws.securityhub.StandardsControl("ensure_iam_password_policy_prevents_password_reuse", {
  *     standardsControlArn: "arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
  *     controlStatus: "DISABLED",
  *     disabledReason: "We handle password policies within Okta",
- * }, {
- *     dependsOn: [cisAwsFoundationsBenchmark],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class StandardsControl extends pulumi.CustomResource {
     /**

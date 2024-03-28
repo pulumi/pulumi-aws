@@ -5,6 +5,7 @@ package com.pulumi.aws.emrcontainers.outputs;
 
 import com.pulumi.aws.emrcontainers.outputs.VirtualClusterContainerProviderInfo;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,25 +72,34 @@ public final class VirtualClusterContainerProvider {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("VirtualClusterContainerProvider", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder info(VirtualClusterContainerProviderInfo info) {
-            this.info = Objects.requireNonNull(info);
+            if (info == null) {
+              throw new MissingRequiredPropertyException("VirtualClusterContainerProvider", "info");
+            }
+            this.info = info;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("VirtualClusterContainerProvider", "type");
+            }
+            this.type = type;
             return this;
         }
         public VirtualClusterContainerProvider build() {
-            final var o = new VirtualClusterContainerProvider();
-            o.id = id;
-            o.info = info;
-            o.type = type;
-            return o;
+            final var _resultValue = new VirtualClusterContainerProvider();
+            _resultValue.id = id;
+            _resultValue.info = info;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

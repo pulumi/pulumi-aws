@@ -7,6 +7,7 @@ import com.pulumi.aws.lightsail.inputs.ContainerServicePrivateRegistryAccessArgs
 import com.pulumi.aws.lightsail.inputs.ContainerServicePublicDomainNamesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -347,8 +348,12 @@ public final class ContainerServiceArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ContainerServiceArgs build() {
-            $.power = Objects.requireNonNull($.power, "expected parameter 'power' to be non-null");
-            $.scale = Objects.requireNonNull($.scale, "expected parameter 'scale' to be non-null");
+            if ($.power == null) {
+                throw new MissingRequiredPropertyException("ContainerServiceArgs", "power");
+            }
+            if ($.scale == null) {
+                throw new MissingRequiredPropertyException("ContainerServiceArgs", "scale");
+            }
             return $;
         }
     }

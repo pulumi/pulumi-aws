@@ -773,11 +773,13 @@ class AmiCopy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.AmiCopy("example",
+            name="example",
             description="A copy of ami-xxxxxxxx",
             source_ami_id="ami-xxxxxxxx",
             source_ami_region="us-west-1",
@@ -785,6 +787,7 @@ class AmiCopy(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -826,11 +829,13 @@ class AmiCopy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2.AmiCopy("example",
+            name="example",
             description="A copy of ami-xxxxxxxx",
             source_ami_id="ami-xxxxxxxx",
             source_ami_region="us-west-1",
@@ -838,6 +843,7 @@ class AmiCopy(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param AmiCopyArgs args: The arguments to use to populate this resource's properties.
@@ -912,8 +918,6 @@ class AmiCopy(pulumi.CustomResource):
             __props__.__dict__["tpm_support"] = None
             __props__.__dict__["usage_operation"] = None
             __props__.__dict__["virtualization_type"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AmiCopy, __self__).__init__(
             'aws:ec2/amiCopy:AmiCopy',
             resource_name,

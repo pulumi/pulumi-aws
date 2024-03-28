@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Resource for managing a Roles Anywhere Profile.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,40 +48,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
+ *         var test = new Role(&#34;test&#34;, RoleArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .path(&#34;/&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, jsonArray(
  *                             &#34;sts:AssumeRole&#34;, 
  *                             &#34;sts:TagSession&#34;, 
  *                             &#34;sts:SetSourceIdentity&#34;
  *                         )),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;rolesanywhere.amazonaws.com&#34;)
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;rolesanywhere.amazonaws.com&#34;)
  *                         )),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;)
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;sid&#34;, &#34;&#34;)
  *                     )))
  *                 )))
  *             .build());
  * 
  *         var testProfile = new Profile(&#34;testProfile&#34;, ProfileArgs.builder()        
- *             .roleArns(testRole.arn())
+ *             .name(&#34;example&#34;)
+ *             .roleArns(test.arn())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
+ * $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
  * ```
  * 
  */
@@ -262,9 +267,6 @@ public class Profile extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

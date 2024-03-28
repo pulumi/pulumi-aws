@@ -14,8 +14,10 @@ import (
 // Provides a CloudWatch Evidently Project resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewProject(ctx, "example", &evidently.ProjectArgs{
+//				Name:        pulumi.String("Example"),
 //				Description: pulumi.String("Example Description"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("example Project"),
@@ -42,8 +45,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Store evaluation events in a CloudWatch Log Group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,12 +63,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewProject(ctx, "example", &evidently.ProjectArgs{
+//				Name:        pulumi.String("Example"),
+//				Description: pulumi.String("Example Description"),
 //				DataDelivery: &evidently.ProjectDataDeliveryArgs{
 //					CloudwatchLogs: &evidently.ProjectDataDeliveryCloudwatchLogsArgs{
 //						LogGroup: pulumi.String("example-log-group-name"),
 //					},
 //				},
-//				Description: pulumi.String("Example Description"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("example Project"),
 //				},
@@ -75,8 +82,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Store evaluation events in an S3 bucket
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,13 +100,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := evidently.NewProject(ctx, "example", &evidently.ProjectArgs{
+//				Name:        pulumi.String("Example"),
+//				Description: pulumi.String("Example Description"),
 //				DataDelivery: &evidently.ProjectDataDeliveryArgs{
 //					S3Destination: &evidently.ProjectDataDeliveryS3DestinationArgs{
 //						Bucket: pulumi.String("example-bucket-name"),
 //						Prefix: pulumi.String("example"),
 //					},
 //				},
-//				Description: pulumi.String("Example Description"),
 //				Tags: pulumi.StringMap{
 //					"Key1": pulumi.String("example Project"),
 //				},
@@ -109,15 +120,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
-//
+// $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
 // ```
 type Project struct {
 	pulumi.CustomResourceState
@@ -161,10 +171,6 @@ func NewProject(ctx *pulumi.Context,
 		args = &ProjectArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Project
 	err := ctx.RegisterResource("aws:evidently/project:Project", name, args, &resource, opts...)

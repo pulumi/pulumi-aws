@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a CloudFront real-time log configuration resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -36,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.RealtimeLogConfigArgs;
  * import com.pulumi.aws.cloudfront.inputs.RealtimeLogConfigEndpointArgs;
  * import com.pulumi.aws.cloudfront.inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,10 +63,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;cloudfront-realtime-log-config-example&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(                
@@ -73,16 +75,18 @@ import javax.annotation.Nullable;
  *                     &#34;kinesis:DescribeStream&#34;,
  *                     &#34;kinesis:PutRecord&#34;,
  *                     &#34;kinesis:PutRecords&#34;)
- *                 .resources(aws_kinesis_stream.example().arn())
+ *                 .resources(exampleAwsKinesisStream.arn())
  *                 .build())
  *             .build());
  * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
+ *             .name(&#34;cloudfront-realtime-log-config-example&#34;)
  *             .role(exampleRole.id())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var exampleRealtimeLogConfig = new RealtimeLogConfig(&#34;exampleRealtimeLogConfig&#34;, RealtimeLogConfigArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .samplingRate(75)
  *             .fields(            
  *                 &#34;timestamp&#34;,
@@ -91,23 +95,22 @@ import javax.annotation.Nullable;
  *                 .streamType(&#34;Kinesis&#34;)
  *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
  *                     .roleArn(exampleRole.arn())
- *                     .streamArn(aws_kinesis_stream.example().arn())
+ *                     .streamArn(exampleAwsKinesisStream.arn())
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleRolePolicy)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
+ * $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
  * ```
  * 
  */

@@ -299,14 +299,16 @@ class UserDefinedFunction(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="my_database")
-        example_user_defined_function = aws.glue.UserDefinedFunction("exampleUserDefinedFunction",
-            catalog_id=example_catalog_database.catalog_id,
-            database_name=example_catalog_database.name,
+        example = aws.glue.CatalogDatabase("example", name="my_database")
+        example_user_defined_function = aws.glue.UserDefinedFunction("example",
+            name="my_func",
+            catalog_id=example.catalog_id,
+            database_name=example.name,
             class_name="class",
             owner_name="owner",
             owner_type="GROUP",
@@ -315,13 +317,14 @@ class UserDefinedFunction(pulumi.CustomResource):
                 uri="uri",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
 
         ```sh
-         $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
+        $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
         ```
 
         :param str resource_name: The name of the resource.
@@ -345,14 +348,16 @@ class UserDefinedFunction(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="my_database")
-        example_user_defined_function = aws.glue.UserDefinedFunction("exampleUserDefinedFunction",
-            catalog_id=example_catalog_database.catalog_id,
-            database_name=example_catalog_database.name,
+        example = aws.glue.CatalogDatabase("example", name="my_database")
+        example_user_defined_function = aws.glue.UserDefinedFunction("example",
+            name="my_func",
+            catalog_id=example.catalog_id,
+            database_name=example.name,
             class_name="class",
             owner_name="owner",
             owner_type="GROUP",
@@ -361,13 +366,14 @@ class UserDefinedFunction(pulumi.CustomResource):
                 uri="uri",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
 
         ```sh
-         $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
+        $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
         ```
 
         :param str resource_name: The name of the resource.

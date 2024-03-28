@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := gamelift.NewAlias(ctx, "example", &gamelift.AliasArgs{
+//				Name:        pulumi.String("example-alias"),
 //				Description: pulumi.String("Example Description"),
 //				RoutingStrategy: &gamelift.AliasRoutingStrategyArgs{
 //					Message: pulumi.String("Example Message"),
@@ -43,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GameLift Aliases using the ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:gamelift/alias:Alias example <alias-id>
-//
+// $ pulumi import aws:gamelift/alias:Alias example <alias-id>
 // ```
 type Alias struct {
 	pulumi.CustomResourceState
@@ -82,10 +83,6 @@ func NewAlias(ctx *pulumi.Context,
 	if args.RoutingStrategy == nil {
 		return nil, errors.New("invalid value for required argument 'RoutingStrategy'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alias
 	err := ctx.RegisterResource("aws:gamelift/alias:Alias", name, args, &resource, opts...)

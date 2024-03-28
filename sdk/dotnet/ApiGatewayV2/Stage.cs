@@ -14,8 +14,10 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,20 +28,22 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// {
     ///     var example = new Aws.ApiGatewayV2.Stage("example", new()
     ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
+    ///         Name = "example-stage",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
+    /// $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
     /// ```
-    ///  -&gt; __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+    /// -&gt; __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/stage:Stage")]
     public partial class Stage : global::Pulumi.CustomResource
@@ -164,10 +168,6 @@ namespace Pulumi.Aws.ApiGatewayV2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -406,11 +406,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public StageState()

@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'FastSnapshotRestoreTimeouts',
     'SnapshotImportClientData',
     'SnapshotImportDiskContainer',
     'SnapshotImportDiskContainerUserBucket',
@@ -19,6 +20,37 @@ __all__ = [
     'GetSnapshotIdsFilterResult',
     'GetVolumeFilterResult',
 ]
+
+@pulumi.output_type
+class FastSnapshotRestoreTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
 
 @pulumi.output_type
 class SnapshotImportClientData(dict):
@@ -225,6 +257,7 @@ class GetEbsVolumesFilterResult(dict):
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
                For example, if matching against the `size` filter, use:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -237,6 +270,7 @@ class GetEbsVolumesFilterResult(dict):
                    ],
                )])
                ```
+               <!--End PulumiCodeChooser -->
         :param Sequence[str] values: Set of values that are accepted for the given field.
                EBS Volume IDs will be selected if any one of the given values match.
         """
@@ -251,6 +285,7 @@ class GetEbsVolumesFilterResult(dict):
         [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
         For example, if matching against the `size` filter, use:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,6 +298,7 @@ class GetEbsVolumesFilterResult(dict):
             ],
         )])
         ```
+        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "name")
 

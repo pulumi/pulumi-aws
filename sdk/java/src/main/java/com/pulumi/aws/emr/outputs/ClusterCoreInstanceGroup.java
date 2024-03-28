@@ -5,6 +5,7 @@ package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.aws.emr.outputs.ClusterCoreInstanceGroupEbsConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -131,16 +132,19 @@ public final class ClusterCoreInstanceGroup {
 
         @CustomType.Setter
         public Builder autoscalingPolicy(@Nullable String autoscalingPolicy) {
+
             this.autoscalingPolicy = autoscalingPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder bidPrice(@Nullable String bidPrice) {
+
             this.bidPrice = bidPrice;
             return this;
         }
         @CustomType.Setter
         public Builder ebsConfigs(@Nullable List<ClusterCoreInstanceGroupEbsConfig> ebsConfigs) {
+
             this.ebsConfigs = ebsConfigs;
             return this;
         }
@@ -149,34 +153,40 @@ public final class ClusterCoreInstanceGroup {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instanceCount(@Nullable Integer instanceCount) {
+
             this.instanceCount = instanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+            if (instanceType == null) {
+              throw new MissingRequiredPropertyException("ClusterCoreInstanceGroup", "instanceType");
+            }
+            this.instanceType = instanceType;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         public ClusterCoreInstanceGroup build() {
-            final var o = new ClusterCoreInstanceGroup();
-            o.autoscalingPolicy = autoscalingPolicy;
-            o.bidPrice = bidPrice;
-            o.ebsConfigs = ebsConfigs;
-            o.id = id;
-            o.instanceCount = instanceCount;
-            o.instanceType = instanceType;
-            o.name = name;
-            return o;
+            final var _resultValue = new ClusterCoreInstanceGroup();
+            _resultValue.autoscalingPolicy = autoscalingPolicy;
+            _resultValue.bidPrice = bidPrice;
+            _resultValue.ebsConfigs = ebsConfigs;
+            _resultValue.id = id;
+            _resultValue.instanceCount = instanceCount;
+            _resultValue.instanceType = instanceType;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -15,10 +15,9 @@ namespace Pulumi.Aws.Ec2
         /// The VPC Endpoint data source provides details about
         /// a specific VPC endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -27,22 +26,22 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var s3 = Aws.Ec2.GetVpcEndpoint.Invoke(new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///         ServiceName = "com.amazonaws.us-west-2.s3",
         ///     });
         /// 
-        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("privateS3", new()
+        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("private_s3", new()
         ///     {
         ///         VpcEndpointId = s3.Apply(getVpcEndpointResult =&gt; getVpcEndpointResult.Id),
-        ///         RouteTableId = aws_route_table.Private.Id,
+        ///         RouteTableId = @private.Id,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcEndpointResult> InvokeAsync(GetVpcEndpointArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointResult>("aws:ec2/getVpcEndpoint:getVpcEndpoint", args ?? new GetVpcEndpointArgs(), options.WithDefaults());
@@ -51,10 +50,9 @@ namespace Pulumi.Aws.Ec2
         /// The VPC Endpoint data source provides details about
         /// a specific VPC endpoint.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,22 +61,22 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
+        ///     // Declare the data source
         ///     var s3 = Aws.Ec2.GetVpcEndpoint.Invoke(new()
         ///     {
-        ///         VpcId = aws_vpc.Foo.Id,
+        ///         VpcId = foo.Id,
         ///         ServiceName = "com.amazonaws.us-west-2.s3",
         ///     });
         /// 
-        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("privateS3", new()
+        ///     var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("private_s3", new()
         ///     {
         ///         VpcEndpointId = s3.Apply(getVpcEndpointResult =&gt; getVpcEndpointResult.Id),
-        ///         RouteTableId = aws_route_table.Private.Id,
+        ///         RouteTableId = @private.Id,
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcEndpointResult> Invoke(GetVpcEndpointInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcEndpointResult>("aws:ec2/getVpcEndpoint:getVpcEndpoint", args ?? new GetVpcEndpointInvokeArgs(), options.WithDefaults());

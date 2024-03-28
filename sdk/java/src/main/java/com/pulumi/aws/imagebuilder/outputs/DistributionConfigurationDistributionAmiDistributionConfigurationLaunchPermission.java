@@ -86,6 +86,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
 
         @CustomType.Setter
         public Builder organizationArns(@Nullable List<String> organizationArns) {
+
             this.organizationArns = organizationArns;
             return this;
         }
@@ -94,6 +95,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         }
         @CustomType.Setter
         public Builder organizationalUnitArns(@Nullable List<String> organizationalUnitArns) {
+
             this.organizationalUnitArns = organizationalUnitArns;
             return this;
         }
@@ -102,6 +104,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         }
         @CustomType.Setter
         public Builder userGroups(@Nullable List<String> userGroups) {
+
             this.userGroups = userGroups;
             return this;
         }
@@ -110,6 +113,7 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
         }
         @CustomType.Setter
         public Builder userIds(@Nullable List<String> userIds) {
+
             this.userIds = userIds;
             return this;
         }
@@ -117,12 +121,12 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
             return userIds(List.of(userIds));
         }
         public DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission build() {
-            final var o = new DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission();
-            o.organizationArns = organizationArns;
-            o.organizationalUnitArns = organizationalUnitArns;
-            o.userGroups = userGroups;
-            o.userIds = userIds;
-            return o;
+            final var _resultValue = new DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission();
+            _resultValue.organizationArns = organizationArns;
+            _resultValue.organizationalUnitArns = organizationalUnitArns;
+            _resultValue.userGroups = userGroups;
+            _resultValue.userIds = userIds;
+            return _resultValue;
         }
     }
 }

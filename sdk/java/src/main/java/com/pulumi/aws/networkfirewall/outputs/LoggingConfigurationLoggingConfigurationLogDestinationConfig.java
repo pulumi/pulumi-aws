@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -77,25 +78,34 @@ public final class LoggingConfigurationLoggingConfigurationLogDestinationConfig 
 
         @CustomType.Setter
         public Builder logDestination(Map<String,String> logDestination) {
-            this.logDestination = Objects.requireNonNull(logDestination);
+            if (logDestination == null) {
+              throw new MissingRequiredPropertyException("LoggingConfigurationLoggingConfigurationLogDestinationConfig", "logDestination");
+            }
+            this.logDestination = logDestination;
             return this;
         }
         @CustomType.Setter
         public Builder logDestinationType(String logDestinationType) {
-            this.logDestinationType = Objects.requireNonNull(logDestinationType);
+            if (logDestinationType == null) {
+              throw new MissingRequiredPropertyException("LoggingConfigurationLoggingConfigurationLogDestinationConfig", "logDestinationType");
+            }
+            this.logDestinationType = logDestinationType;
             return this;
         }
         @CustomType.Setter
         public Builder logType(String logType) {
-            this.logType = Objects.requireNonNull(logType);
+            if (logType == null) {
+              throw new MissingRequiredPropertyException("LoggingConfigurationLoggingConfigurationLogDestinationConfig", "logType");
+            }
+            this.logType = logType;
             return this;
         }
         public LoggingConfigurationLoggingConfigurationLogDestinationConfig build() {
-            final var o = new LoggingConfigurationLoggingConfigurationLogDestinationConfig();
-            o.logDestination = logDestination;
-            o.logDestinationType = logDestinationType;
-            o.logType = logType;
-            return o;
+            final var _resultValue = new LoggingConfigurationLoggingConfigurationLogDestinationConfig();
+            _resultValue.logDestination = logDestination;
+            _resultValue.logDestinationType = logDestinationType;
+            _resultValue.logType = logType;
+            return _resultValue;
         }
     }
 }

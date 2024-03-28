@@ -25,8 +25,8 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriP
         }
 
         public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath build() {
-            final var o = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath();
-            return o;
+            final var _resultValue = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath();
+            return _resultValue;
         }
     }
 }

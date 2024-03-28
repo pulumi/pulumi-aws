@@ -14,8 +14,10 @@ import (
 // Resource for managing an AWS VPC Lattice Service Network.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewServiceNetwork(ctx, "example", &vpclattice.ServiceNetworkArgs{
+//				Name:     pulumi.String("example"),
 //				AuthType: pulumi.String("AWS_IAM"),
 //			})
 //			if err != nil {
@@ -39,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
-//
+// $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
 // ```
 type ServiceNetwork struct {
 	pulumi.CustomResourceState
@@ -75,10 +77,6 @@ func NewServiceNetwork(ctx *pulumi.Context,
 		args = &ServiceNetworkArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceNetwork
 	err := ctx.RegisterResource("aws:vpclattice/serviceNetwork:ServiceNetwork", name, args, &resource, opts...)

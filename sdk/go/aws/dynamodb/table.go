@@ -27,10 +27,12 @@ import (
 // The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table's range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
 //
 // ## Example Usage
+//
 // ### Basic Example
 //
 // The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,6 +46,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dynamodb.NewTable(ctx, "basic-dynamodb-table", &dynamodb.TableArgs{
+//				Name:          pulumi.String("GameScores"),
+//				BillingMode:   pulumi.String("PROVISIONED"),
+//				ReadCapacity:  pulumi.Int(20),
+//				WriteCapacity: pulumi.Int(20),
+//				HashKey:       pulumi.String("UserId"),
+//				RangeKey:      pulumi.String("GameTitle"),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("UserId"),
@@ -58,32 +66,27 @@ import (
 //						Type: pulumi.String("N"),
 //					},
 //				},
-//				BillingMode: pulumi.String("PROVISIONED"),
-//				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
-//					&dynamodb.TableGlobalSecondaryIndexArgs{
-//						HashKey: pulumi.String("GameTitle"),
-//						Name:    pulumi.String("GameTitleIndex"),
-//						NonKeyAttributes: pulumi.StringArray{
-//							pulumi.String("UserId"),
-//						},
-//						ProjectionType: pulumi.String("INCLUDE"),
-//						RangeKey:       pulumi.String("TopScore"),
-//						ReadCapacity:   pulumi.Int(10),
-//						WriteCapacity:  pulumi.Int(10),
-//					},
-//				},
-//				HashKey:      pulumi.String("UserId"),
-//				RangeKey:     pulumi.String("GameTitle"),
-//				ReadCapacity: pulumi.Int(20),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//					"Name":        pulumi.String("dynamodb-table-1"),
-//				},
 //				Ttl: &dynamodb.TableTtlArgs{
 //					AttributeName: pulumi.String("TimeToExist"),
 //					Enabled:       pulumi.Bool(false),
 //				},
-//				WriteCapacity: pulumi.Int(20),
+//				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
+//					&dynamodb.TableGlobalSecondaryIndexArgs{
+//						Name:           pulumi.String("GameTitleIndex"),
+//						HashKey:        pulumi.String("GameTitle"),
+//						RangeKey:       pulumi.String("TopScore"),
+//						WriteCapacity:  pulumi.Int(10),
+//						ReadCapacity:   pulumi.Int(10),
+//						ProjectionType: pulumi.String("INCLUDE"),
+//						NonKeyAttributes: pulumi.StringArray{
+//							pulumi.String("UserId"),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name":        pulumi.String("dynamodb-table-1"),
+//					"Environment": pulumi.String("production"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -93,12 +96,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Global Tables
 //
 // This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `dynamodb.GlobalTable` resource.
 //
 // > **Note:** dynamodb.TableReplica is an alternate way of configuring Global Tables. Do not use `replica` configuration blocks of `dynamodb.Table` together with aws_dynamodb_table_replica.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,14 +118,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
+//				Name:           pulumi.String("example"),
+//				HashKey:        pulumi.String("TestTableHashKey"),
+//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("TestTableHashKey"),
 //						Type: pulumi.String("S"),
 //					},
 //				},
-//				BillingMode: pulumi.String("PAY_PER_REQUEST"),
-//				HashKey:     pulumi.String("TestTableHashKey"),
 //				Replicas: dynamodb.TableReplicaTypeArray{
 //					&dynamodb.TableReplicaTypeArgs{
 //						RegionName: pulumi.String("us-east-2"),
@@ -128,8 +137,6 @@ import (
 //						RegionName: pulumi.String("us-west-2"),
 //					},
 //				},
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
 //			})
 //			if err != nil {
 //				return err
@@ -139,15 +146,97 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Replica Tagging
+//
+// You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `dynamodb.Tag` resource for the other.
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			alternate, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			third, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
+//				BillingMode:    pulumi.String("PAY_PER_REQUEST"),
+//				HashKey:        pulumi.String("TestTableHashKey"),
+//				Name:           pulumi.String("example-13281"),
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
+//				Attributes: dynamodb.TableAttributeArray{
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("TestTableHashKey"),
+//						Type: pulumi.String("S"),
+//					},
+//				},
+//				Replicas: dynamodb.TableReplicaTypeArray{
+//					&dynamodb.TableReplicaTypeArgs{
+//						RegionName: pulumi.String(alternate.Name),
+//					},
+//					&dynamodb.TableReplicaTypeArgs{
+//						RegionName:    pulumi.String(third.Name),
+//						PropagateTags: pulumi.Bool(true),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Architect": pulumi.String("Eleanor"),
+//					"Zone":      pulumi.String("SW"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dynamodb.NewTag(ctx, "example", &dynamodb.TagArgs{
+//				ResourceArn: example.Arn.ApplyT(func(arn string) (std.ReplaceResult, error) {
+//					return std.ReplaceOutput(ctx, std.ReplaceOutputArgs{
+//						Text:    arn,
+//						Search:  current.Name,
+//						Replace: alternate.Name,
+//					}, nil), nil
+//				}).(std.ReplaceResultOutput).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
+//					return invoke.Result, nil
+//				}).(pulumi.StringPtrOutput),
+//				Key:   pulumi.String("Architect"),
+//				Value: pulumi.String("Gigi"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DynamoDB tables using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
-//
+// $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
 // ```
 type Table struct {
 	pulumi.CustomResourceState
@@ -219,10 +308,6 @@ func NewTable(ctx *pulumi.Context,
 		args = &TableArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Table
 	err := ctx.RegisterResource("aws:dynamodb/table:Table", name, args, &resource, opts...)

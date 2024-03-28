@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,9 +23,19 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("example", new()
+    ///     {
+    ///         Name = "example_api",
+    ///     });
     /// 
-    ///     var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("exampleDocumentationPart", new()
+    ///     var example = new Aws.ApiGateway.DocumentationVersion("example", new()
+    ///     {
+    ///         Version = "example_version",
+    ///         RestApiId = exampleRestApi.Id,
+    ///         Description = "Example description",
+    ///     });
+    /// 
+    ///     var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("example", new()
     ///     {
     ///         Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
     ///         {
@@ -34,28 +45,16 @@ namespace Pulumi.Aws.ApiGateway
     ///         RestApiId = exampleRestApi.Id,
     ///     });
     /// 
-    ///     var exampleDocumentationVersion = new Aws.ApiGateway.DocumentationVersion("exampleDocumentationVersion", new()
-    ///     {
-    ///         Version = "example_version",
-    ///         RestApiId = exampleRestApi.Id,
-    ///         Description = "Example description",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleDocumentationPart,
-    ///         },
-    ///     });
-    /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+    /// $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/documentationVersion:DocumentationVersion")]

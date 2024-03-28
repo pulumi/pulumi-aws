@@ -62,19 +62,21 @@ public final class DeploymentGroupDeploymentStyle {
 
         @CustomType.Setter
         public Builder deploymentOption(@Nullable String deploymentOption) {
+
             this.deploymentOption = deploymentOption;
             return this;
         }
         @CustomType.Setter
         public Builder deploymentType(@Nullable String deploymentType) {
+
             this.deploymentType = deploymentType;
             return this;
         }
         public DeploymentGroupDeploymentStyle build() {
-            final var o = new DeploymentGroupDeploymentStyle();
-            o.deploymentOption = deploymentOption;
-            o.deploymentType = deploymentType;
-            return o;
+            final var _resultValue = new DeploymentGroupDeploymentStyle();
+            _resultValue.deploymentOption = deploymentOption;
+            _resultValue.deploymentType = deploymentType;
+            return _resultValue;
         }
     }
 }

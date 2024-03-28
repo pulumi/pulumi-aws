@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,19 +41,25 @@ public final class GetManagedPrefixListEntry {
 
         @CustomType.Setter
         public Builder cidr(String cidr) {
-            this.cidr = Objects.requireNonNull(cidr);
+            if (cidr == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListEntry", "cidr");
+            }
+            this.cidr = cidr;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetManagedPrefixListEntry", "description");
+            }
+            this.description = description;
             return this;
         }
         public GetManagedPrefixListEntry build() {
-            final var o = new GetManagedPrefixListEntry();
-            o.cidr = cidr;
-            o.description = description;
-            return o;
+            final var _resultValue = new GetManagedPrefixListEntry();
+            _resultValue.cidr = cidr;
+            _resultValue.description = description;
+            return _resultValue;
         }
     }
 }

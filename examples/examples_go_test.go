@@ -14,7 +14,6 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws/session"
 	appconfigsdk "github.com/aws/aws-sdk-go/service/appconfig"
-	ec2sdk "github.com/aws/aws-sdk-go/service/ec2"
 	s3sdk "github.com/aws/aws-sdk-go/service/s3"
 	"github.com/stretchr/testify/require"
 
@@ -185,11 +184,10 @@ func (st tagsState) validateStateResult(phase int) func(
 	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 		legacyBucketTags := fetchBucketTags(t, stack.Outputs["legacy-bucket-name"].(string))
 		actualBucketTags := fetchBucketTags(t, stack.Outputs["bucket-name"].(string))
-		actualVpcTags := fetchVpcTags(t, stack.Outputs["vpc-id"].(string))
 		appTags := fetchAppConfigTags(t, stack.Outputs["appconfig-app-arn"].(string))
 		for k, v := range stack.Outputs {
 			switch k {
-			case "bucket-name", "legacy-bucket-name", "vpc-id", "appconfig-app-arn":
+			case "bucket-name", "legacy-bucket-name", "appconfig-app-arn":
 				continue
 			}
 
@@ -207,9 +205,6 @@ func (st tagsState) validateStateResult(phase int) func(
 			}
 			if k == "legacy-bucket" {
 				require.Equalf(t, st.expectedTags(), legacyBucketTags, "bad legacy bucket tags")
-			}
-			if k == "vpc" {
-				require.Equalf(t, st.expectedTags(), actualVpcTags, "bad vpc tags")
 			}
 			if k == "appconfig-app" {
 				require.Equalf(t, st.expectedTags(), appTags, "bad appconfig app tags")
@@ -241,43 +236,6 @@ func fetchBucketTags(t *testing.T, awsBucket string) map[string]string {
 	}
 
 	return tags
-}
-
-func fetchVpcTags(t *testing.T, vpc string) map[string]string {
-	ptr := func(x string) *string {
-		return &x
-	}
-
-	sess := session.Must(session.NewSessionWithOptions(session.Options{
-		SharedConfigState: session.SharedConfigEnable,
-	}))
-
-	client := ec2sdk.New(sess)
-
-	tagsOut, err := client.DescribeTags(&ec2sdk.DescribeTagsInput{
-		Filters: []*ec2sdk.Filter{
-			{
-				Name: ptr("resource-type"),
-				Values: []*string{
-					ptr("vpc"),
-				},
-			},
-			{
-				Name: ptr("resource-id"),
-				Values: []*string{
-					ptr(vpc),
-				},
-			},
-		},
-	})
-	require.NoError(t, err)
-
-	res := map[string]string{}
-	for _, tag := range tagsOut.Tags {
-		res[*tag.Key] = *tag.Value
-	}
-
-	return res
 }
 
 func fetchAppConfigTags(t *testing.T, arn string) map[string]string {

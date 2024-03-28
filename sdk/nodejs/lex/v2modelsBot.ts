@@ -11,27 +11,34 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Lex V2 Models Bot.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lex.V2modelsBot("example", {
+ *     name: "example",
  *     dataPrivacies: [{
  *         childDirected: "boolean",
  *     }],
  *     idleSessionTtlInSeconds: 10,
  *     roleArn: "bot_example_arn",
+ *     tags: {
+ *         foo: "bar",
+ *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import Lex V2 Models Bot using the `example_id_arg`. For example:
+ * Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
+ * $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
  * ```
  */
 export class V2modelsBot extends pulumi.CustomResource {
@@ -89,6 +96,9 @@ export class V2modelsBot extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * List of tags to add to the bot. You can only add tags when you create a bot.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Please use `tags` instead.
@@ -99,6 +109,9 @@ export class V2modelsBot extends pulumi.CustomResource {
      */
     public readonly testBotAliasTags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotTimeouts | undefined>;
+    /**
+     * Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -148,8 +161,6 @@ export class V2modelsBot extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(V2modelsBot.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -185,6 +196,9 @@ export interface V2modelsBotState {
      * The following arguments are optional:
      */
     roleArn?: pulumi.Input<string>;
+    /**
+     * List of tags to add to the bot. You can only add tags when you create a bot.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated Please use `tags` instead.
@@ -195,6 +209,9 @@ export interface V2modelsBotState {
      */
     testBotAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotTimeouts>;
+    /**
+     * Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -228,11 +245,17 @@ export interface V2modelsBotArgs {
      * The following arguments are optional:
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * List of tags to add to the bot. You can only add tags when you create a bot.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
      */
     testBotAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotTimeouts>;
+    /**
+     * Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
+     */
     type?: pulumi.Input<string>;
 }

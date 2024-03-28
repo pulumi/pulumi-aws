@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -115,43 +116,51 @@ public final class EventTargetRedshiftTarget {
 
         @CustomType.Setter
         public Builder database(String database) {
-            this.database = Objects.requireNonNull(database);
+            if (database == null) {
+              throw new MissingRequiredPropertyException("EventTargetRedshiftTarget", "database");
+            }
+            this.database = database;
             return this;
         }
         @CustomType.Setter
         public Builder dbUser(@Nullable String dbUser) {
+
             this.dbUser = dbUser;
             return this;
         }
         @CustomType.Setter
         public Builder secretsManagerArn(@Nullable String secretsManagerArn) {
+
             this.secretsManagerArn = secretsManagerArn;
             return this;
         }
         @CustomType.Setter
         public Builder sql(@Nullable String sql) {
+
             this.sql = sql;
             return this;
         }
         @CustomType.Setter
         public Builder statementName(@Nullable String statementName) {
+
             this.statementName = statementName;
             return this;
         }
         @CustomType.Setter
         public Builder withEvent(@Nullable Boolean withEvent) {
+
             this.withEvent = withEvent;
             return this;
         }
         public EventTargetRedshiftTarget build() {
-            final var o = new EventTargetRedshiftTarget();
-            o.database = database;
-            o.dbUser = dbUser;
-            o.secretsManagerArn = secretsManagerArn;
-            o.sql = sql;
-            o.statementName = statementName;
-            o.withEvent = withEvent;
-            return o;
+            final var _resultValue = new EventTargetRedshiftTarget();
+            _resultValue.database = database;
+            _resultValue.dbUser = dbUser;
+            _resultValue.secretsManagerArn = secretsManagerArn;
+            _resultValue.sql = sql;
+            _resultValue.statementName = statementName;
+            _resultValue.withEvent = withEvent;
+            return _resultValue;
         }
     }
 }

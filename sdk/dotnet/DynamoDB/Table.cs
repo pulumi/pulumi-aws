@@ -26,10 +26,12 @@ namespace Pulumi.Aws.DynamoDB
     /// The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table's range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Example
     /// 
     /// The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,6 +42,12 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var basic_dynamodb_table = new Aws.DynamoDB.Table("basic-dynamodb-table", new()
     ///     {
+    ///         Name = "GameScores",
+    ///         BillingMode = "PROVISIONED",
+    ///         ReadCapacity = 20,
+    ///         WriteCapacity = 20,
+    ///         HashKey = "UserId",
+    ///         RangeKey = "GameTitle",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -58,47 +66,45 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "N",
     ///             },
     ///         },
-    ///         BillingMode = "PROVISIONED",
-    ///         GlobalSecondaryIndexes = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
-    ///             {
-    ///                 HashKey = "GameTitle",
-    ///                 Name = "GameTitleIndex",
-    ///                 NonKeyAttributes = new[]
-    ///                 {
-    ///                     "UserId",
-    ///                 },
-    ///                 ProjectionType = "INCLUDE",
-    ///                 RangeKey = "TopScore",
-    ///                 ReadCapacity = 10,
-    ///                 WriteCapacity = 10,
-    ///             },
-    ///         },
-    ///         HashKey = "UserId",
-    ///         RangeKey = "GameTitle",
-    ///         ReadCapacity = 20,
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///             { "Name", "dynamodb-table-1" },
-    ///         },
     ///         Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
     ///         {
     ///             AttributeName = "TimeToExist",
     ///             Enabled = false,
     ///         },
-    ///         WriteCapacity = 20,
+    ///         GlobalSecondaryIndexes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
+    ///             {
+    ///                 Name = "GameTitleIndex",
+    ///                 HashKey = "GameTitle",
+    ///                 RangeKey = "TopScore",
+    ///                 WriteCapacity = 10,
+    ///                 ReadCapacity = 10,
+    ///                 ProjectionType = "INCLUDE",
+    ///                 NonKeyAttributes = new[]
+    ///                 {
+    ///                     "UserId",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "dynamodb-table-1" },
+    ///             { "Environment", "production" },
+    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Global Tables
     /// 
     /// This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `aws.dynamodb.GlobalTable` resource.
     /// 
     /// &gt; **Note:** aws.dynamodb.TableReplica is an alternate way of configuring Global Tables. Do not use `replica` configuration blocks of `aws.dynamodb.Table` together with aws_dynamodb_table_replica.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -109,6 +115,11 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var example = new Aws.DynamoDB.Table("example", new()
     ///     {
+    ///         Name = "example",
+    ///         HashKey = "TestTableHashKey",
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -117,8 +128,6 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "S",
     ///             },
     ///         },
-    ///         BillingMode = "PAY_PER_REQUEST",
-    ///         HashKey = "TestTableHashKey",
     ///         Replicas = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
@@ -130,19 +139,94 @@ namespace Pulumi.Aws.DynamoDB
     ///                 RegionName = "us-west-2",
     ///             },
     ///         },
-    ///         StreamEnabled = true,
-    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Replica Tagging
+    /// 
+    /// You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `aws.dynamodb.Tag` resource for the other.
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var alternate = Aws.GetRegion.Invoke();
+    /// 
+    ///     var third = Aws.GetRegion.Invoke();
+    /// 
+    ///     var example = new Aws.DynamoDB.Table("example", new()
+    ///     {
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         HashKey = "TestTableHashKey",
+    ///         Name = "example-13281",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
+    ///         Attributes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "TestTableHashKey",
+    ///                 Type = "S",
+    ///             },
+    ///         },
+    ///         Replicas = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             {
+    ///                 RegionName = alternate.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             {
+    ///                 RegionName = third.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 PropagateTags = true,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Architect", "Eleanor" },
+    ///             { "Zone", "SW" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTag = new Aws.DynamoDB.Tag("example", new()
+    ///     {
+    ///         ResourceArn = Output.Tuple(example.Arn, current, alternate).Apply(values =&gt;
+    ///         {
+    ///             var arn = values.Item1;
+    ///             var current = values.Item2;
+    ///             var alternate = values.Item3;
+    ///             return Std.Replace.Invoke(new()
+    ///             {
+    ///                 Text = arn,
+    ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 Replace = alternate.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             });
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Key = "Architect",
+    ///         Value = "Gigi",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DynamoDB tables using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
+    /// $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
     /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/table:Table")]
@@ -331,10 +415,6 @@ namespace Pulumi.Aws.DynamoDB
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -714,11 +794,7 @@ namespace Pulumi.Aws.DynamoDB
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

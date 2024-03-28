@@ -9,22 +9,24 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appsync.DomainName("example", {
  *     domainName: "api.example.com",
- *     certificateArn: aws_acm_certificate.example.arn,
+ *     certificateArn: exampleAwsAcmCertificate.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For example:
  *
  * ```sh
- *  $ pulumi import aws:appsync/domainName:DomainName example example.com
+ * $ pulumi import aws:appsync/domainName:DomainName example example.com
  * ```
  */
 export class DomainName extends pulumi.CustomResource {

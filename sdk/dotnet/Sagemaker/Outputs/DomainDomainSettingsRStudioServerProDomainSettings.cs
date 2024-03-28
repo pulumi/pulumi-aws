@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDomainSettingsRStudioServerProDomainSettings
     {
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block above.
         /// </summary>
         public readonly Outputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec? DefaultResourceSpec;
         /// <summary>

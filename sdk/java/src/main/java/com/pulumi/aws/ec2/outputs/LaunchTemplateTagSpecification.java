@@ -59,19 +59,21 @@ public final class LaunchTemplateTagSpecification {
 
         @CustomType.Setter
         public Builder resourceType(@Nullable String resourceType) {
+
             this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         public LaunchTemplateTagSpecification build() {
-            final var o = new LaunchTemplateTagSpecification();
-            o.resourceType = resourceType;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new LaunchTemplateTagSpecification();
+            _resultValue.resourceType = resourceType;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

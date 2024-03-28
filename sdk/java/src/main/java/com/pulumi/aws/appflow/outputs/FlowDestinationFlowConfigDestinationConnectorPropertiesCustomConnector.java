@@ -5,6 +5,7 @@ package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -103,21 +104,27 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
 
         @CustomType.Setter
         public Builder customProperties(@Nullable Map<String,String> customProperties) {
+
             this.customProperties = customProperties;
             return this;
         }
         @CustomType.Setter
         public Builder entityName(String entityName) {
-            this.entityName = Objects.requireNonNull(entityName);
+            if (entityName == null) {
+              throw new MissingRequiredPropertyException("FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector", "entityName");
+            }
+            this.entityName = entityName;
             return this;
         }
         @CustomType.Setter
         public Builder errorHandlingConfig(@Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig errorHandlingConfig) {
+
             this.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
         @CustomType.Setter
         public Builder idFieldNames(@Nullable List<String> idFieldNames) {
+
             this.idFieldNames = idFieldNames;
             return this;
         }
@@ -126,17 +133,18 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         }
         @CustomType.Setter
         public Builder writeOperationType(@Nullable String writeOperationType) {
+
             this.writeOperationType = writeOperationType;
             return this;
         }
         public FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector build() {
-            final var o = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector();
-            o.customProperties = customProperties;
-            o.entityName = entityName;
-            o.errorHandlingConfig = errorHandlingConfig;
-            o.idFieldNames = idFieldNames;
-            o.writeOperationType = writeOperationType;
-            return o;
+            final var _resultValue = new FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector();
+            _resultValue.customProperties = customProperties;
+            _resultValue.entityName = entityName;
+            _resultValue.errorHandlingConfig = errorHandlingConfig;
+            _resultValue.idFieldNames = idFieldNames;
+            _resultValue.writeOperationType = writeOperationType;
+            return _resultValue;
         }
     }
 }

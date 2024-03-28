@@ -24,6 +24,7 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +35,8 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb = new Aws.AppMesh.VirtualRouter("serviceb", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
+    ///         Name = "serviceB",
+    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualRouterSpecArgs
     ///         {
     ///             Listeners = new[]
@@ -53,13 +55,14 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+    /// $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
     /// ```
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualRouter:VirtualRouter")]
@@ -148,10 +151,6 @@ namespace Pulumi.Aws.AppMesh
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -289,11 +288,7 @@ namespace Pulumi.Aws.AppMesh
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public VirtualRouterState()

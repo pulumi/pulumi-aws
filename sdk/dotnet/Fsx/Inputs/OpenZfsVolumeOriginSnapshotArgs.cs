@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class OpenZfsVolumeOriginSnapshotArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+        /// </summary>
         [Input("copyStrategy", required: true)]
         public Input<string> CopyStrategy { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the origin snapshot.
+        /// </summary>
         [Input("snapshotArn", required: true)]
         public Input<string> SnapshotArn { get; set; } = null!;
 

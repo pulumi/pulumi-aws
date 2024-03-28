@@ -273,11 +273,13 @@ class ReportPlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.backup.ReportPlan("example",
+            name="example_name",
             description="example description",
             report_delivery_channel=aws.backup.ReportPlanReportDeliveryChannelArgs(
                 formats=[
@@ -293,13 +295,14 @@ class ReportPlan(pulumi.CustomResource):
                 "Name": "Example Report Plan",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:
 
         ```sh
-         $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
+        $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -321,11 +324,13 @@ class ReportPlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.backup.ReportPlan("example",
+            name="example_name",
             description="example description",
             report_delivery_channel=aws.backup.ReportPlanReportDeliveryChannelArgs(
                 formats=[
@@ -341,13 +346,14 @@ class ReportPlan(pulumi.CustomResource):
                 "Name": "Example Report Plan",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:
 
         ```sh
-         $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
+        $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -392,8 +398,6 @@ class ReportPlan(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["deployment_status"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReportPlan, __self__).__init__(
             'aws:backup/reportPlan:ReportPlan',
             resource_name,

@@ -26,10 +26,10 @@ public final class BucketV2ObjectLockConfiguration {
      * @return Object Lock rule in place for this bucket (documented below).
      * 
      * @deprecated
-     * Use the aws_s3_bucket_object_lock_configuration resource instead
+     * Use the aws.s3.BucketObjectLockConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_object_lock_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketObjectLockConfigurationV2 resource instead */
     private @Nullable List<BucketV2ObjectLockConfigurationRule> rules;
 
     private BucketV2ObjectLockConfiguration() {}
@@ -48,10 +48,10 @@ public final class BucketV2ObjectLockConfiguration {
      * @return Object Lock rule in place for this bucket (documented below).
      * 
      * @deprecated
-     * Use the aws_s3_bucket_object_lock_configuration resource instead
+     * Use the aws.s3.BucketObjectLockConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_object_lock_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketObjectLockConfigurationV2 resource instead */
     public List<BucketV2ObjectLockConfigurationRule> rules() {
         return this.rules == null ? List.of() : this.rules;
     }
@@ -76,11 +76,13 @@ public final class BucketV2ObjectLockConfiguration {
 
         @CustomType.Setter
         public Builder objectLockEnabled(@Nullable String objectLockEnabled) {
+
             this.objectLockEnabled = objectLockEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder rules(@Nullable List<BucketV2ObjectLockConfigurationRule> rules) {
+
             this.rules = rules;
             return this;
         }
@@ -88,10 +90,10 @@ public final class BucketV2ObjectLockConfiguration {
             return rules(List.of(rules));
         }
         public BucketV2ObjectLockConfiguration build() {
-            final var o = new BucketV2ObjectLockConfiguration();
-            o.objectLockEnabled = objectLockEnabled;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new BucketV2ObjectLockConfiguration();
+            _resultValue.objectLockEnabled = objectLockEnabled;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

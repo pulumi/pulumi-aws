@@ -102,6 +102,7 @@ class _PeeringAttachmentState:
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None):
@@ -120,6 +121,8 @@ class _PeeringAttachmentState:
             pulumi.set(__self__, "peer_region", peer_region)
         if peer_transit_gateway_id is not None:
             pulumi.set(__self__, "peer_transit_gateway_id", peer_transit_gateway_id)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -165,6 +168,15 @@ class _PeeringAttachmentState:
     @peer_transit_gateway_id.setter
     def peer_transit_gateway_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "peer_transit_gateway_id", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
 
     @property
     @pulumi.getter
@@ -223,37 +235,35 @@ class PeeringAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        local = aws.Provider("local", region="us-east-1")
-        peer = aws.Provider("peer", region="us-west-2")
-        peer_region = aws.get_region()
-        local_transit_gateway = aws.ec2transitgateway.TransitGateway("localTransitGateway", tags={
+        peer = aws.get_region()
+        local = aws.ec2transitgateway.TransitGateway("local", tags={
             "Name": "Local TGW",
-        },
-        opts=pulumi.ResourceOptions(provider=aws["local"]))
-        peer_transit_gateway = aws.ec2transitgateway.TransitGateway("peerTransitGateway", tags={
+        })
+        peer_transit_gateway = aws.ec2transitgateway.TransitGateway("peer", tags={
             "Name": "Peer TGW",
-        },
-        opts=pulumi.ResourceOptions(provider=aws["peer"]))
+        })
         example = aws.ec2transitgateway.PeeringAttachment("example",
             peer_account_id=peer_transit_gateway.owner_id,
-            peer_region=peer_region.name,
+            peer_region=peer.name,
             peer_transit_gateway_id=peer_transit_gateway.id,
-            transit_gateway_id=local_transit_gateway.id,
+            transit_gateway_id=local.id,
             tags={
                 "Name": "TGW Peering Requestor",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
+        $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -276,37 +286,35 @@ class PeeringAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        local = aws.Provider("local", region="us-east-1")
-        peer = aws.Provider("peer", region="us-west-2")
-        peer_region = aws.get_region()
-        local_transit_gateway = aws.ec2transitgateway.TransitGateway("localTransitGateway", tags={
+        peer = aws.get_region()
+        local = aws.ec2transitgateway.TransitGateway("local", tags={
             "Name": "Local TGW",
-        },
-        opts=pulumi.ResourceOptions(provider=aws["local"]))
-        peer_transit_gateway = aws.ec2transitgateway.TransitGateway("peerTransitGateway", tags={
+        })
+        peer_transit_gateway = aws.ec2transitgateway.TransitGateway("peer", tags={
             "Name": "Peer TGW",
-        },
-        opts=pulumi.ResourceOptions(provider=aws["peer"]))
+        })
         example = aws.ec2transitgateway.PeeringAttachment("example",
             peer_account_id=peer_transit_gateway.owner_id,
-            peer_region=peer_region.name,
+            peer_region=peer.name,
             peer_transit_gateway_id=peer_transit_gateway.id,
-            transit_gateway_id=local_transit_gateway.id,
+            transit_gateway_id=local.id,
             tags={
                 "Name": "TGW Peering Requestor",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
+        $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -349,9 +357,8 @@ class PeeringAttachment(pulumi.CustomResource):
             if transit_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_id'")
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
+            __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PeeringAttachment, __self__).__init__(
             'aws:ec2transitgateway/peeringAttachment:PeeringAttachment',
             resource_name,
@@ -365,6 +372,7 @@ class PeeringAttachment(pulumi.CustomResource):
             peer_account_id: Optional[pulumi.Input[str]] = None,
             peer_region: Optional[pulumi.Input[str]] = None,
             peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
+            state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             transit_gateway_id: Optional[pulumi.Input[str]] = None) -> 'PeeringAttachment':
@@ -389,6 +397,7 @@ class PeeringAttachment(pulumi.CustomResource):
         __props__.__dict__["peer_account_id"] = peer_account_id
         __props__.__dict__["peer_region"] = peer_region
         __props__.__dict__["peer_transit_gateway_id"] = peer_transit_gateway_id
+        __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["transit_gateway_id"] = transit_gateway_id
@@ -417,6 +426,11 @@ class PeeringAttachment(pulumi.CustomResource):
         Identifier of EC2 Transit Gateway to peer with.
         """
         return pulumi.get(self, "peer_transit_gateway_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter

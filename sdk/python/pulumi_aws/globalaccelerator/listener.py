@@ -169,11 +169,13 @@ class Listener(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_accelerator = aws.globalaccelerator.Accelerator("exampleAccelerator",
+        example = aws.globalaccelerator.Accelerator("example",
+            name="Example",
             ip_address_type="IPV4",
             enabled=True,
             attributes=aws.globalaccelerator.AcceleratorAttributesArgs(
@@ -181,8 +183,8 @@ class Listener(pulumi.CustomResource):
                 flow_logs_s3_bucket="example-bucket",
                 flow_logs_s3_prefix="flow-logs/",
             ))
-        example_listener = aws.globalaccelerator.Listener("exampleListener",
-            accelerator_arn=example_accelerator.id,
+        example_listener = aws.globalaccelerator.Listener("example",
+            accelerator_arn=example.id,
             client_affinity="SOURCE_IP",
             protocol="TCP",
             port_ranges=[aws.globalaccelerator.ListenerPortRangeArgs(
@@ -190,13 +192,14 @@ class Listener(pulumi.CustomResource):
                 to_port=80,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+        $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -217,11 +220,13 @@ class Listener(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_accelerator = aws.globalaccelerator.Accelerator("exampleAccelerator",
+        example = aws.globalaccelerator.Accelerator("example",
+            name="Example",
             ip_address_type="IPV4",
             enabled=True,
             attributes=aws.globalaccelerator.AcceleratorAttributesArgs(
@@ -229,8 +234,8 @@ class Listener(pulumi.CustomResource):
                 flow_logs_s3_bucket="example-bucket",
                 flow_logs_s3_prefix="flow-logs/",
             ))
-        example_listener = aws.globalaccelerator.Listener("exampleListener",
-            accelerator_arn=example_accelerator.id,
+        example_listener = aws.globalaccelerator.Listener("example",
+            accelerator_arn=example.id,
             client_affinity="SOURCE_IP",
             protocol="TCP",
             port_ranges=[aws.globalaccelerator.ListenerPortRangeArgs(
@@ -238,13 +243,14 @@ class Listener(pulumi.CustomResource):
                 to_port=80,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+        $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.

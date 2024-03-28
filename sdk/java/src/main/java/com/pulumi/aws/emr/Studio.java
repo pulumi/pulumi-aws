@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic MapReduce Studio.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -43,25 +45,27 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Studio(&#34;example&#34;, StudioArgs.builder()        
  *             .authMode(&#34;SSO&#34;)
- *             .defaultS3Location(String.format(&#34;s3://%s/test&#34;, aws_s3_bucket.test().bucket()))
- *             .engineSecurityGroupId(aws_security_group.test().id())
- *             .serviceRole(aws_iam_role.test().arn())
- *             .subnetIds(aws_subnet.test().id())
- *             .userRole(aws_iam_role.test().arn())
- *             .vpcId(aws_vpc.test().id())
- *             .workspaceSecurityGroupId(aws_security_group.test().id())
+ *             .defaultS3Location(String.format(&#34;s3://%s/test&#34;, test.bucket()))
+ *             .engineSecurityGroupId(testAwsSecurityGroup.id())
+ *             .name(&#34;example&#34;)
+ *             .serviceRole(testAwsIamRole.arn())
+ *             .subnetIds(testAwsSubnet.id())
+ *             .userRole(testAwsIamRole.arn())
+ *             .vpcId(testAwsVpc.id())
+ *             .workspaceSecurityGroupId(testAwsSecurityGroup.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EMR studios using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+ * $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
  * ```
  * 
  */
@@ -326,9 +330,6 @@ public class Studio extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

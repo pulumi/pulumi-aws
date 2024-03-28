@@ -68,43 +68,49 @@ public final class LaunchConfigurationRootBlockDevice {
 
         @CustomType.Setter
         public Builder deleteOnTermination(@Nullable Boolean deleteOnTermination) {
+
             this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
+
             this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
+
             this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(@Nullable Integer volumeSize) {
+
             this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder volumeType(@Nullable String volumeType) {
+
             this.volumeType = volumeType;
             return this;
         }
         public LaunchConfigurationRootBlockDevice build() {
-            final var o = new LaunchConfigurationRootBlockDevice();
-            o.deleteOnTermination = deleteOnTermination;
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.throughput = throughput;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new LaunchConfigurationRootBlockDevice();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

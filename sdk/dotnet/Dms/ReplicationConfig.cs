@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,16 +30,16 @@ namespace Pulumi.Aws.Dms
     ///         ReplicationConfigIdentifier = "test-dms-serverless-replication-tf",
     ///         ResourceIdentifier = "test-dms-serverless-replication-tf",
     ///         ReplicationType = "cdc",
-    ///         SourceEndpointArn = aws_dms_endpoint.Source.Endpoint_arn,
-    ///         TargetEndpointArn = aws_dms_endpoint.Target.Endpoint_arn,
+    ///         SourceEndpointArn = source.EndpointArn,
+    ///         TargetEndpointArn = target.EndpointArn,
     ///         TableMappings = @"  {
-    ///     ""rules"":[{""rule-type"":""selection"",""rule-id"":""1"",""rule-name"":""1"",""object-locator"":{""schema-name"":""%%"",""table-name"":""%%"", ""rule-action"":""include""}]
+    ///     ""rules"":[{""rule-type"":""selection"",""rule-id"":""1"",""rule-name"":""1"",""rule-action"":""include"",""object-locator"":{""schema-name"":""%%"",""table-name"":""%%""}}]
     ///   }
     /// ",
     ///         StartReplication = true,
     ///         ComputeConfig = new Aws.Dms.Inputs.ReplicationConfigComputeConfigArgs
     ///         {
-    ///             ReplicationSubnetGroupId = aws_dms_replication_subnet_group.Default.Replication_subnet_group_id,
+    ///             ReplicationSubnetGroupId = @default.ReplicationSubnetGroupId,
     ///             MaxCapacityUnits = 64,
     ///             MinCapacityUnits = 2,
     ///             PreferredMaintenanceWindow = "sun:23:45-mon:00:30",
@@ -47,13 +48,14 @@ namespace Pulumi.Aws.Dms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a replication config using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
+    /// $ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/replicationConfig:ReplicationConfig")]
@@ -160,10 +162,6 @@ namespace Pulumi.Aws.Dms
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -349,11 +347,7 @@ namespace Pulumi.Aws.Dms
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

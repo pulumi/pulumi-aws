@@ -4,6 +4,7 @@
 package com.pulumi.aws.mq.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -41,19 +42,25 @@ public final class GetBrokerConfiguration {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBrokerConfiguration", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder revision(Integer revision) {
-            this.revision = Objects.requireNonNull(revision);
+            if (revision == null) {
+              throw new MissingRequiredPropertyException("GetBrokerConfiguration", "revision");
+            }
+            this.revision = revision;
             return this;
         }
         public GetBrokerConfiguration build() {
-            final var o = new GetBrokerConfiguration();
-            o.id = id;
-            o.revision = revision;
-            return o;
+            final var _resultValue = new GetBrokerConfiguration();
+            _resultValue.id = id;
+            _resultValue.revision = revision;
+            return _resultValue;
         }
     }
 }

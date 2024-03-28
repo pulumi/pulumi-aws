@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic File System (EFS) File System Policy resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -26,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.efs.FileSystem;
+ * import com.pulumi.aws.efs.FileSystemArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.efs.FileSystemPolicy;
@@ -43,9 +46,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fs = new FileSystem(&#34;fs&#34;);
+ *         var fs = new FileSystem(&#34;fs&#34;, FileSystemArgs.builder()        
+ *             .creationToken(&#34;my-product&#34;)
+ *             .build());
  * 
- *         final var policyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;ExampleStatement01&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -67,19 +72,20 @@ import javax.annotation.Nullable;
  * 
  *         var policyFileSystemPolicy = new FileSystemPolicy(&#34;policyFileSystemPolicy&#34;, FileSystemPolicyArgs.builder()        
  *             .fileSystemId(fs.id())
- *             .policy(policyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(policyPolicyDocument -&gt; policyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(policy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(policy -&gt; policy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the EFS file system policies using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+ * $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
  * ```
  * 
  */

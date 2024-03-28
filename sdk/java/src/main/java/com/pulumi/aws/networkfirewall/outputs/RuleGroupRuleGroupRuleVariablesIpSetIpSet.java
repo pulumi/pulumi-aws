@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,16 +44,19 @@ public final class RuleGroupRuleGroupRuleVariablesIpSetIpSet {
 
         @CustomType.Setter
         public Builder definitions(List<String> definitions) {
-            this.definitions = Objects.requireNonNull(definitions);
+            if (definitions == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupRuleVariablesIpSetIpSet", "definitions");
+            }
+            this.definitions = definitions;
             return this;
         }
         public Builder definitions(String... definitions) {
             return definitions(List.of(definitions));
         }
         public RuleGroupRuleGroupRuleVariablesIpSetIpSet build() {
-            final var o = new RuleGroupRuleGroupRuleVariablesIpSetIpSet();
-            o.definitions = definitions;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupRuleVariablesIpSetIpSet();
+            _resultValue.definitions = definitions;
+            return _resultValue;
         }
     }
 }

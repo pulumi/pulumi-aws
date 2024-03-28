@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS VPC Lattice Service Network Service Association.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -44,20 +47,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServiceNetworkServiceAssociation(&#34;example&#34;, ServiceNetworkServiceAssociationArgs.builder()        
- *             .serviceIdentifier(aws_vpclattice_service.example().id())
- *             .serviceNetworkIdentifier(aws_vpclattice_service_network.example().id())
+ *             .serviceIdentifier(exampleAwsVpclatticeService.id())
+ *             .serviceNetworkIdentifier(exampleAwsVpclatticeServiceNetwork.id())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Lattice Service Network Service Association using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba
+ * $ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba
  * ```
  * 
  */
@@ -228,9 +232,6 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

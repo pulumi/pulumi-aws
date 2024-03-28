@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.FeatureGroupOfflineStoreConfigDataCatalog
 import com.pulumi.aws.sagemaker.inputs.FeatureGroupOfflineStoreConfigS3StorageConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -190,7 +191,9 @@ public final class FeatureGroupOfflineStoreConfigArgs extends com.pulumi.resourc
         }
 
         public FeatureGroupOfflineStoreConfigArgs build() {
-            $.s3StorageConfig = Objects.requireNonNull($.s3StorageConfig, "expected parameter 's3StorageConfig' to be non-null");
+            if ($.s3StorageConfig == null) {
+                throw new MissingRequiredPropertyException("FeatureGroupOfflineStoreConfigArgs", "s3StorageConfig");
+            }
             return $;
         }
     }

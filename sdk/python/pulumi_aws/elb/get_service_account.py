@@ -75,16 +75,17 @@ def get_service_account(region: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     main = aws.elb.get_service_account()
-    elb_logs = aws.s3.BucketV2("elbLogs")
-    elb_logs_acl = aws.s3.BucketAclV2("elbLogsAcl",
+    elb_logs = aws.s3.BucketV2("elb_logs", bucket="my-elb-tf-test-bucket")
+    elb_logs_acl = aws.s3.BucketAclV2("elb_logs_acl",
         bucket=elb_logs.id,
         acl="private")
-    allow_elb_logging_policy_document = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
         effect="Allow",
         principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
             type="AWS",
@@ -93,10 +94,11 @@ def get_service_account(region: Optional[str] = None,
         actions=["s3:PutObject"],
         resources=[f"{arn}/AWSLogs/*"],
     )]))
-    allow_elb_logging_bucket_policy = aws.s3.BucketPolicy("allowElbLoggingBucketPolicy",
+    allow_elb_logging_bucket_policy = aws.s3.BucketPolicy("allow_elb_logging",
         bucket=elb_logs.id,
-        policy=allow_elb_logging_policy_document.json)
+        policy=allow_elb_logging.json)
     bar = aws.elb.LoadBalancer("bar",
+        name="my-foobar-elb",
         availability_zones=["us-west-2a"],
         access_logs=aws.elb.LoadBalancerAccessLogsArgs(
             bucket=elb_logs.id,
@@ -109,6 +111,7 @@ def get_service_account(region: Optional[str] = None,
             lb_protocol="http",
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str region: Name of the region whose AWS ELB account ID is desired.
@@ -136,16 +139,17 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     main = aws.elb.get_service_account()
-    elb_logs = aws.s3.BucketV2("elbLogs")
-    elb_logs_acl = aws.s3.BucketAclV2("elbLogsAcl",
+    elb_logs = aws.s3.BucketV2("elb_logs", bucket="my-elb-tf-test-bucket")
+    elb_logs_acl = aws.s3.BucketAclV2("elb_logs_acl",
         bucket=elb_logs.id,
         acl="private")
-    allow_elb_logging_policy_document = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
         effect="Allow",
         principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
             type="AWS",
@@ -154,10 +158,11 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
         actions=["s3:PutObject"],
         resources=[f"{arn}/AWSLogs/*"],
     )]))
-    allow_elb_logging_bucket_policy = aws.s3.BucketPolicy("allowElbLoggingBucketPolicy",
+    allow_elb_logging_bucket_policy = aws.s3.BucketPolicy("allow_elb_logging",
         bucket=elb_logs.id,
-        policy=allow_elb_logging_policy_document.json)
+        policy=allow_elb_logging.json)
     bar = aws.elb.LoadBalancer("bar",
+        name="my-foobar-elb",
         availability_zones=["us-west-2a"],
         access_logs=aws.elb.LoadBalancerAccessLogsArgs(
             bucket=elb_logs.id,
@@ -170,6 +175,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
             lb_protocol="http",
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str region: Name of the region whose AWS ELB account ID is desired.

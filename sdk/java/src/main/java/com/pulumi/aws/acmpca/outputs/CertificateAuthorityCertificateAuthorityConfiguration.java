@@ -5,6 +5,7 @@ package com.pulumi.aws.acmpca.outputs;
 
 import com.pulumi.aws.acmpca.outputs.CertificateAuthorityCertificateAuthorityConfigurationSubject;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,25 +72,34 @@ public final class CertificateAuthorityCertificateAuthorityConfiguration {
 
         @CustomType.Setter
         public Builder keyAlgorithm(String keyAlgorithm) {
-            this.keyAlgorithm = Objects.requireNonNull(keyAlgorithm);
+            if (keyAlgorithm == null) {
+              throw new MissingRequiredPropertyException("CertificateAuthorityCertificateAuthorityConfiguration", "keyAlgorithm");
+            }
+            this.keyAlgorithm = keyAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder signingAlgorithm(String signingAlgorithm) {
-            this.signingAlgorithm = Objects.requireNonNull(signingAlgorithm);
+            if (signingAlgorithm == null) {
+              throw new MissingRequiredPropertyException("CertificateAuthorityCertificateAuthorityConfiguration", "signingAlgorithm");
+            }
+            this.signingAlgorithm = signingAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder subject(CertificateAuthorityCertificateAuthorityConfigurationSubject subject) {
-            this.subject = Objects.requireNonNull(subject);
+            if (subject == null) {
+              throw new MissingRequiredPropertyException("CertificateAuthorityCertificateAuthorityConfiguration", "subject");
+            }
+            this.subject = subject;
             return this;
         }
         public CertificateAuthorityCertificateAuthorityConfiguration build() {
-            final var o = new CertificateAuthorityCertificateAuthorityConfiguration();
-            o.keyAlgorithm = keyAlgorithm;
-            o.signingAlgorithm = signingAlgorithm;
-            o.subject = subject;
-            return o;
+            final var _resultValue = new CertificateAuthorityCertificateAuthorityConfiguration();
+            _resultValue.keyAlgorithm = keyAlgorithm;
+            _resultValue.signingAlgorithm = signingAlgorithm;
+            _resultValue.subject = subject;
+            return _resultValue;
         }
     }
 }

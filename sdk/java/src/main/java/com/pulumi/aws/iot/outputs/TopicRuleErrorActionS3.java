@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,31 +87,41 @@ public final class TopicRuleErrorActionS3 {
 
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionS3", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder cannedAcl(@Nullable String cannedAcl) {
+
             this.cannedAcl = cannedAcl;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionS3", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("TopicRuleErrorActionS3", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         public TopicRuleErrorActionS3 build() {
-            final var o = new TopicRuleErrorActionS3();
-            o.bucketName = bucketName;
-            o.cannedAcl = cannedAcl;
-            o.key = key;
-            o.roleArn = roleArn;
-            return o;
+            final var _resultValue = new TopicRuleErrorActionS3();
+            _resultValue.bucketName = bucketName;
+            _resultValue.cannedAcl = cannedAcl;
+            _resultValue.key = key;
+            _resultValue.roleArn = roleArn;
+            return _resultValue;
         }
     }
 }

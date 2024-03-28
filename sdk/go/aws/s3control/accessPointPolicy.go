@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,12 +35,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//				Bucket: pulumi.String("example"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "exampleAccessPoint", &s3.AccessPointArgs{
-//				Bucket: exampleBucketV2.ID(),
+//			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
+//				Bucket: example.ID(),
+//				Name:   pulumi.String("example"),
 //				PublicAccessBlockConfiguration: &s3.AccessPointPublicAccessBlockConfigurationArgs{
 //					BlockPublicAcls:       pulumi.Bool(true),
 //					BlockPublicPolicy:     pulumi.Bool(false),
@@ -50,20 +54,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3control.NewAccessPointPolicy(ctx, "exampleAccessPointPolicy", &s3control.AccessPointPolicyArgs{
+//			_, err = s3control.NewAccessPointPolicy(ctx, "example", &s3control.AccessPointPolicyArgs{
 //				AccessPointArn: exampleAccessPoint.Arn,
 //				Policy: exampleAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2008-10-17",
-//						"Statement": []map[string]interface{}{
+//						"version": "2008-10-17",
+//						"statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"Effect": "Allow",
-//								"Action": "s3:GetObjectTagging",
-//								"Principal": map[string]interface{}{
+//								"effect": "Allow",
+//								"action": "s3:GetObjectTagging",
+//								"principal": map[string]interface{}{
 //									"AWS": "*",
 //								},
-//								"Resource": fmt.Sprintf("%v/object/*", arn),
+//								"resource": fmt.Sprintf("%v/object/*", arn),
 //							},
 //						},
 //					})
@@ -82,15 +86,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
-//
+// $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
 // ```
 type AccessPointPolicy struct {
 	pulumi.CustomResourceState

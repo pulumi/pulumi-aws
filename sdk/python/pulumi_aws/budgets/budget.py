@@ -516,32 +516,36 @@ class Budget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         ec2 = aws.budgets.Budget("ec2",
+            name="budget-ec2-monthly",
             budget_type="COST",
+            limit_amount="1200",
+            limit_unit="USD",
+            time_period_end="2087-06-15_00:00",
+            time_period_start="2017-07-01_00:00",
+            time_unit="MONTHLY",
             cost_filters=[aws.budgets.BudgetCostFilterArgs(
                 name="Service",
                 values=["Amazon Elastic Compute Cloud - Compute"],
             )],
-            limit_amount="1200",
-            limit_unit="USD",
             notifications=[aws.budgets.BudgetNotificationArgs(
                 comparison_operator="GREATER_THAN",
-                notification_type="FORECASTED",
-                subscriber_email_addresses=["test@example.com"],
                 threshold=100,
                 threshold_type="PERCENTAGE",
-            )],
-            time_period_end="2087-06-15_00:00",
-            time_period_start="2017-07-01_00:00",
-            time_unit="MONTHLY")
+                notification_type="FORECASTED",
+                subscriber_email_addresses=["test@example.com"],
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a budget for *$100*.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -551,29 +555,33 @@ class Budget(pulumi.CustomResource):
             limit_amount="100",
             limit_unit="USD")
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a budget with planned budget limits.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         cost = aws.budgets.Budget("cost", planned_limits=[
             aws.budgets.BudgetPlannedLimitArgs(
-                amount="100",
                 start_time="2017-07-01_00:00",
+                amount="100",
                 unit="USD",
             ),
             aws.budgets.BudgetPlannedLimitArgs(
-                amount="200",
                 start_time="2017-08-01_00:00",
+                amount="200",
                 unit="USD",
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a budget for s3 with a limit of *3 GB* of storage.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -583,15 +591,19 @@ class Budget(pulumi.CustomResource):
             limit_amount="3",
             limit_unit="GB")
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a Savings Plan Utilization Budget
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        savings_plan_utilization = aws.budgets.Budget("savingsPlanUtilization",
+        savings_plan_utilization = aws.budgets.Budget("savings_plan_utilization",
             budget_type="SAVINGS_PLANS_UTILIZATION",
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE",
             cost_types=aws.budgets.BudgetCostTypesArgs(
                 include_credit=False,
                 include_discount=False,
@@ -603,23 +615,21 @@ class Budget(pulumi.CustomResource):
                 include_tax=False,
                 include_upfront=False,
                 use_blended=False,
-            ),
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a RI Utilization Budget
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ri_utilization = aws.budgets.Budget("riUtilization",
+        ri_utilization = aws.budgets.Budget("ri_utilization",
             budget_type="RI_UTILIZATION",
-            cost_filters=[aws.budgets.BudgetCostFilterArgs(
-                name="Service",
-                values=["Amazon Relational Database Service"],
-            )],
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE",
             cost_types=aws.budgets.BudgetCostTypesArgs(
                 include_credit=False,
                 include_discount=False,
@@ -632,12 +642,16 @@ class Budget(pulumi.CustomResource):
                 include_upfront=False,
                 use_blended=False,
             ),
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE")
+            cost_filters=[aws.budgets.BudgetCostFilterArgs(
+                name="Service",
+                values=["Amazon Relational Database Service"],
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a Cost Filter using Resource Tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -647,25 +661,28 @@ class Budget(pulumi.CustomResource):
             values=["TagKey$TagValue"],
         )])
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a cost_filter using resource tags, obtaining the tag value from a variable
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         cost = aws.budgets.Budget("cost", cost_filters=[aws.budgets.BudgetCostFilterArgs(
             name="TagKeyValue",
-            values=["TagKey${var.TagValue}"],
+            values=[f"TagKey{'$'}{tag_value}"],
         )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
 
         ```sh
-         $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
+        $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
         ```
 
         :param str resource_name: The name of the resource.
@@ -696,32 +713,36 @@ class Budget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         ec2 = aws.budgets.Budget("ec2",
+            name="budget-ec2-monthly",
             budget_type="COST",
+            limit_amount="1200",
+            limit_unit="USD",
+            time_period_end="2087-06-15_00:00",
+            time_period_start="2017-07-01_00:00",
+            time_unit="MONTHLY",
             cost_filters=[aws.budgets.BudgetCostFilterArgs(
                 name="Service",
                 values=["Amazon Elastic Compute Cloud - Compute"],
             )],
-            limit_amount="1200",
-            limit_unit="USD",
             notifications=[aws.budgets.BudgetNotificationArgs(
                 comparison_operator="GREATER_THAN",
-                notification_type="FORECASTED",
-                subscriber_email_addresses=["test@example.com"],
                 threshold=100,
                 threshold_type="PERCENTAGE",
-            )],
-            time_period_end="2087-06-15_00:00",
-            time_period_start="2017-07-01_00:00",
-            time_unit="MONTHLY")
+                notification_type="FORECASTED",
+                subscriber_email_addresses=["test@example.com"],
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a budget for *$100*.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -731,29 +752,33 @@ class Budget(pulumi.CustomResource):
             limit_amount="100",
             limit_unit="USD")
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a budget with planned budget limits.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         cost = aws.budgets.Budget("cost", planned_limits=[
             aws.budgets.BudgetPlannedLimitArgs(
-                amount="100",
                 start_time="2017-07-01_00:00",
+                amount="100",
                 unit="USD",
             ),
             aws.budgets.BudgetPlannedLimitArgs(
-                amount="200",
                 start_time="2017-08-01_00:00",
+                amount="200",
                 unit="USD",
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a budget for s3 with a limit of *3 GB* of storage.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -763,15 +788,19 @@ class Budget(pulumi.CustomResource):
             limit_amount="3",
             limit_unit="GB")
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a Savings Plan Utilization Budget
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        savings_plan_utilization = aws.budgets.Budget("savingsPlanUtilization",
+        savings_plan_utilization = aws.budgets.Budget("savings_plan_utilization",
             budget_type="SAVINGS_PLANS_UTILIZATION",
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE",
             cost_types=aws.budgets.BudgetCostTypesArgs(
                 include_credit=False,
                 include_discount=False,
@@ -783,23 +812,21 @@ class Budget(pulumi.CustomResource):
                 include_tax=False,
                 include_upfront=False,
                 use_blended=False,
-            ),
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE")
+            ))
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a RI Utilization Budget
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        ri_utilization = aws.budgets.Budget("riUtilization",
+        ri_utilization = aws.budgets.Budget("ri_utilization",
             budget_type="RI_UTILIZATION",
-            cost_filters=[aws.budgets.BudgetCostFilterArgs(
-                name="Service",
-                values=["Amazon Relational Database Service"],
-            )],
+            limit_amount="100.0",
+            limit_unit="PERCENTAGE",
             cost_types=aws.budgets.BudgetCostTypesArgs(
                 include_credit=False,
                 include_discount=False,
@@ -812,12 +839,16 @@ class Budget(pulumi.CustomResource):
                 include_upfront=False,
                 use_blended=False,
             ),
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE")
+            cost_filters=[aws.budgets.BudgetCostFilterArgs(
+                name="Service",
+                values=["Amazon Relational Database Service"],
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a Cost Filter using Resource Tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -827,25 +858,28 @@ class Budget(pulumi.CustomResource):
             values=["TagKey$TagValue"],
         )])
         ```
+        <!--End PulumiCodeChooser -->
 
         Create a cost_filter using resource tags, obtaining the tag value from a variable
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         cost = aws.budgets.Budget("cost", cost_filters=[aws.budgets.BudgetCostFilterArgs(
             name="TagKeyValue",
-            values=["TagKey${var.TagValue}"],
+            values=[f"TagKey{'$'}{tag_value}"],
         )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
 
         ```sh
-         $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
+        $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
         ```
 
         :param str resource_name: The name of the resource.

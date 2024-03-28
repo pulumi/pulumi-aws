@@ -4,6 +4,7 @@
 package com.pulumi.aws.elasticsearch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class DomainSnapshotOptions {
 
         @CustomType.Setter
         public Builder automatedSnapshotStartHour(Integer automatedSnapshotStartHour) {
-            this.automatedSnapshotStartHour = Objects.requireNonNull(automatedSnapshotStartHour);
+            if (automatedSnapshotStartHour == null) {
+              throw new MissingRequiredPropertyException("DomainSnapshotOptions", "automatedSnapshotStartHour");
+            }
+            this.automatedSnapshotStartHour = automatedSnapshotStartHour;
             return this;
         }
         public DomainSnapshotOptions build() {
-            final var o = new DomainSnapshotOptions();
-            o.automatedSnapshotStartHour = automatedSnapshotStartHour;
-            return o;
+            final var _resultValue = new DomainSnapshotOptions();
+            _resultValue.automatedSnapshotStartHour = automatedSnapshotStartHour;
+            return _resultValue;
         }
     }
 }

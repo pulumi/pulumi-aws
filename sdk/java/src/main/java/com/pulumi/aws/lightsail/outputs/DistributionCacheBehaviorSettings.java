@@ -146,55 +146,63 @@ public final class DistributionCacheBehaviorSettings {
 
         @CustomType.Setter
         public Builder allowedHttpMethods(@Nullable String allowedHttpMethods) {
+
             this.allowedHttpMethods = allowedHttpMethods;
             return this;
         }
         @CustomType.Setter
         public Builder cachedHttpMethods(@Nullable String cachedHttpMethods) {
+
             this.cachedHttpMethods = cachedHttpMethods;
             return this;
         }
         @CustomType.Setter
         public Builder defaultTtl(@Nullable Integer defaultTtl) {
+
             this.defaultTtl = defaultTtl;
             return this;
         }
         @CustomType.Setter
         public Builder forwardedCookies(@Nullable DistributionCacheBehaviorSettingsForwardedCookies forwardedCookies) {
+
             this.forwardedCookies = forwardedCookies;
             return this;
         }
         @CustomType.Setter
         public Builder forwardedHeaders(@Nullable DistributionCacheBehaviorSettingsForwardedHeaders forwardedHeaders) {
+
             this.forwardedHeaders = forwardedHeaders;
             return this;
         }
         @CustomType.Setter
         public Builder forwardedQueryStrings(@Nullable DistributionCacheBehaviorSettingsForwardedQueryStrings forwardedQueryStrings) {
+
             this.forwardedQueryStrings = forwardedQueryStrings;
             return this;
         }
         @CustomType.Setter
         public Builder maximumTtl(@Nullable Integer maximumTtl) {
+
             this.maximumTtl = maximumTtl;
             return this;
         }
         @CustomType.Setter
         public Builder minimumTtl(@Nullable Integer minimumTtl) {
+
             this.minimumTtl = minimumTtl;
             return this;
         }
         public DistributionCacheBehaviorSettings build() {
-            final var o = new DistributionCacheBehaviorSettings();
-            o.allowedHttpMethods = allowedHttpMethods;
-            o.cachedHttpMethods = cachedHttpMethods;
-            o.defaultTtl = defaultTtl;
-            o.forwardedCookies = forwardedCookies;
-            o.forwardedHeaders = forwardedHeaders;
-            o.forwardedQueryStrings = forwardedQueryStrings;
-            o.maximumTtl = maximumTtl;
-            o.minimumTtl = minimumTtl;
-            return o;
+            final var _resultValue = new DistributionCacheBehaviorSettings();
+            _resultValue.allowedHttpMethods = allowedHttpMethods;
+            _resultValue.cachedHttpMethods = cachedHttpMethods;
+            _resultValue.defaultTtl = defaultTtl;
+            _resultValue.forwardedCookies = forwardedCookies;
+            _resultValue.forwardedHeaders = forwardedHeaders;
+            _resultValue.forwardedQueryStrings = forwardedQueryStrings;
+            _resultValue.maximumTtl = maximumTtl;
+            _resultValue.minimumTtl = minimumTtl;
+            return _resultValue;
         }
     }
 }

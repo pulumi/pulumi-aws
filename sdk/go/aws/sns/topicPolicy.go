@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,7 +31,9 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// test, err := sns.NewTopic(ctx, "test", nil)
+// test, err := sns.NewTopic(ctx, "test", &sns.TopicArgs{
+// Name: pulumi.String("my-topic-with-policy"),
+// })
 // if err != nil {
 // return err
 // }
@@ -55,7 +58,7 @@ import (
 // Test: "StringEquals",
 // Variable: "AWS:SourceOwner",
 // Values: interface{}{
-// _var.AccountId,
+// account_id,
 // },
 // },
 // },
@@ -89,15 +92,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
-//
+// $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
 // ```
 type TopicPolicy struct {
 	pulumi.CustomResourceState

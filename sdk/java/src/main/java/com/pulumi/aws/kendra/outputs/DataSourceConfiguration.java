@@ -59,19 +59,21 @@ public final class DataSourceConfiguration {
 
         @CustomType.Setter
         public Builder s3Configuration(@Nullable DataSourceConfigurationS3Configuration s3Configuration) {
+
             this.s3Configuration = s3Configuration;
             return this;
         }
         @CustomType.Setter
         public Builder webCrawlerConfiguration(@Nullable DataSourceConfigurationWebCrawlerConfiguration webCrawlerConfiguration) {
+
             this.webCrawlerConfiguration = webCrawlerConfiguration;
             return this;
         }
         public DataSourceConfiguration build() {
-            final var o = new DataSourceConfiguration();
-            o.s3Configuration = s3Configuration;
-            o.webCrawlerConfiguration = webCrawlerConfiguration;
-            return o;
+            final var _resultValue = new DataSourceConfiguration();
+            _resultValue.s3Configuration = s3Configuration;
+            _resultValue.webCrawlerConfiguration = webCrawlerConfiguration;
+            return _resultValue;
         }
     }
 }

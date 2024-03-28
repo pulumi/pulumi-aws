@@ -8,6 +8,7 @@ import com.pulumi.aws.s3.outputs.BucketLifecycleRuleNoncurrentVersionExpiration;
 import com.pulumi.aws.s3.outputs.BucketLifecycleRuleNoncurrentVersionTransition;
 import com.pulumi.aws.s3.outputs.BucketLifecycleRuleTransition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -168,31 +169,39 @@ public final class BucketLifecycleRule {
 
         @CustomType.Setter
         public Builder abortIncompleteMultipartUploadDays(@Nullable Integer abortIncompleteMultipartUploadDays) {
+
             this.abortIncompleteMultipartUploadDays = abortIncompleteMultipartUploadDays;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("BucketLifecycleRule", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder expiration(@Nullable BucketLifecycleRuleExpiration expiration) {
+
             this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder noncurrentVersionExpiration(@Nullable BucketLifecycleRuleNoncurrentVersionExpiration noncurrentVersionExpiration) {
+
             this.noncurrentVersionExpiration = noncurrentVersionExpiration;
             return this;
         }
         @CustomType.Setter
         public Builder noncurrentVersionTransitions(@Nullable List<BucketLifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions) {
+
             this.noncurrentVersionTransitions = noncurrentVersionTransitions;
             return this;
         }
@@ -201,16 +210,19 @@ public final class BucketLifecycleRule {
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder transitions(@Nullable List<BucketLifecycleRuleTransition> transitions) {
+
             this.transitions = transitions;
             return this;
         }
@@ -218,17 +230,17 @@ public final class BucketLifecycleRule {
             return transitions(List.of(transitions));
         }
         public BucketLifecycleRule build() {
-            final var o = new BucketLifecycleRule();
-            o.abortIncompleteMultipartUploadDays = abortIncompleteMultipartUploadDays;
-            o.enabled = enabled;
-            o.expiration = expiration;
-            o.id = id;
-            o.noncurrentVersionExpiration = noncurrentVersionExpiration;
-            o.noncurrentVersionTransitions = noncurrentVersionTransitions;
-            o.prefix = prefix;
-            o.tags = tags;
-            o.transitions = transitions;
-            return o;
+            final var _resultValue = new BucketLifecycleRule();
+            _resultValue.abortIncompleteMultipartUploadDays = abortIncompleteMultipartUploadDays;
+            _resultValue.enabled = enabled;
+            _resultValue.expiration = expiration;
+            _resultValue.id = id;
+            _resultValue.noncurrentVersionExpiration = noncurrentVersionExpiration;
+            _resultValue.noncurrentVersionTransitions = noncurrentVersionTransitions;
+            _resultValue.prefix = prefix;
+            _resultValue.tags = tags;
+            _resultValue.transitions = transitions;
+            return _resultValue;
         }
     }
 }

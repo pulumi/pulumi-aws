@@ -13,8 +13,10 @@ namespace Pulumi.Aws.OpenSearch
     /// Manages an [AWS Opensearch VPC Endpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon OpenSearch Service-managed VPC endpoint.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,31 +27,32 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var foo = new Aws.OpenSearch.VpcEndpoint("foo", new()
     ///     {
-    ///         DomainArn = aws_opensearch_domain.Domain_1.Arn,
+    ///         DomainArn = domain1.Arn,
     ///         VpcOptions = new Aws.OpenSearch.Inputs.VpcEndpointVpcOptionsArgs
     ///         {
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 aws_security_group.Test.Id,
-    ///                 aws_security_group.Test2.Id,
+    ///                 test.Id,
+    ///                 test2.Id,
     ///             },
     ///             SubnetIds = new[]
     ///             {
-    ///                 aws_subnet.Test.Id,
-    ///                 aws_subnet.Test2.Id,
+    ///                 testAwsSubnet.Id,
+    ///                 test2AwsSubnet.Id,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
+    /// $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/vpcEndpoint:VpcEndpoint")]

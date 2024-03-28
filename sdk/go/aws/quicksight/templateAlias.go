@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS QuickSight Template Alias.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,8 +33,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewTemplateAlias(ctx, "example", &quicksight.TemplateAliasArgs{
 //				AliasName:             pulumi.String("example-alias"),
-//				TemplateId:            pulumi.Any(aws_quicksight_template.Test.Template_id),
-//				TemplateVersionNumber: pulumi.Any(aws_quicksight_template.Test.Version_number),
+//				TemplateId:            pulumi.Any(test.TemplateId),
+//				TemplateVersionNumber: pulumi.Any(test.VersionNumber),
 //			})
 //			if err != nil {
 //				return err
@@ -42,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
-//
+// $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
 // ```
 type TemplateAlias struct {
 	pulumi.CustomResourceState

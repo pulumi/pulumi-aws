@@ -257,12 +257,13 @@ class ReportGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="Enable IAM User Permissions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -272,12 +273,13 @@ class ReportGroup(pulumi.CustomResource):
             actions=["kms:*"],
             resources=["*"],
         )])
-        example_key = aws.kms.Key("exampleKey",
+        example_key = aws.kms.Key("example",
             description="my test kms key",
             deletion_window_in_days=7,
-            policy=example_policy_document.json)
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
+            policy=example.json)
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="my-test")
+        example_report_group = aws.codebuild.ReportGroup("example",
+            name="my test report group",
             type="TEST",
             export_config=aws.codebuild.ReportGroupExportConfigArgs(
                 type="S3",
@@ -290,13 +292,14 @@ class ReportGroup(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
 
         ```sh
-         $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+        $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -318,12 +321,13 @@ class ReportGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="Enable IAM User Permissions",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -333,12 +337,13 @@ class ReportGroup(pulumi.CustomResource):
             actions=["kms:*"],
             resources=["*"],
         )])
-        example_key = aws.kms.Key("exampleKey",
+        example_key = aws.kms.Key("example",
             description="my test kms key",
             deletion_window_in_days=7,
-            policy=example_policy_document.json)
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
+            policy=example.json)
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="my-test")
+        example_report_group = aws.codebuild.ReportGroup("example",
+            name="my test report group",
             type="TEST",
             export_config=aws.codebuild.ReportGroupExportConfigArgs(
                 type="S3",
@@ -351,13 +356,14 @@ class ReportGroup(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
 
         ```sh
-         $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+        $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -401,8 +407,6 @@ class ReportGroup(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["created"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ReportGroup, __self__).__init__(
             'aws:codebuild/reportGroup:ReportGroup',
             resource_name,

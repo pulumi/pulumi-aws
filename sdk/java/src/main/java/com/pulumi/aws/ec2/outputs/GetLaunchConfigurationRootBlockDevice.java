@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -114,43 +115,61 @@ public final class GetLaunchConfigurationRootBlockDevice {
 
         @CustomType.Setter
         public Builder deleteOnTermination(Boolean deleteOnTermination) {
-            this.deleteOnTermination = Objects.requireNonNull(deleteOnTermination);
+            if (deleteOnTermination == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationRootBlockDevice", "deleteOnTermination");
+            }
+            this.deleteOnTermination = deleteOnTermination;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
-            this.encrypted = Objects.requireNonNull(encrypted);
+            if (encrypted == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationRootBlockDevice", "encrypted");
+            }
+            this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+            if (iops == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationRootBlockDevice", "iops");
+            }
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder throughput(Integer throughput) {
-            this.throughput = Objects.requireNonNull(throughput);
+            if (throughput == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationRootBlockDevice", "throughput");
+            }
+            this.throughput = throughput;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSize(Integer volumeSize) {
-            this.volumeSize = Objects.requireNonNull(volumeSize);
+            if (volumeSize == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationRootBlockDevice", "volumeSize");
+            }
+            this.volumeSize = volumeSize;
             return this;
         }
         @CustomType.Setter
         public Builder volumeType(String volumeType) {
-            this.volumeType = Objects.requireNonNull(volumeType);
+            if (volumeType == null) {
+              throw new MissingRequiredPropertyException("GetLaunchConfigurationRootBlockDevice", "volumeType");
+            }
+            this.volumeType = volumeType;
             return this;
         }
         public GetLaunchConfigurationRootBlockDevice build() {
-            final var o = new GetLaunchConfigurationRootBlockDevice();
-            o.deleteOnTermination = deleteOnTermination;
-            o.encrypted = encrypted;
-            o.iops = iops;
-            o.throughput = throughput;
-            o.volumeSize = volumeSize;
-            o.volumeType = volumeType;
-            return o;
+            final var _resultValue = new GetLaunchConfigurationRootBlockDevice();
+            _resultValue.deleteOnTermination = deleteOnTermination;
+            _resultValue.encrypted = encrypted;
+            _resultValue.iops = iops;
+            _resultValue.throughput = throughput;
+            _resultValue.volumeSize = volumeSize;
+            _resultValue.volumeType = volumeType;
+            return _resultValue;
         }
     }
 }

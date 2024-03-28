@@ -272,14 +272,14 @@ class IPSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         primary = aws.guardduty.Detector("primary", enable=True)
         bucket = aws.s3.BucketV2("bucket")
-        # ... other configuration
-        my_ip_set = aws.s3.BucketObjectv2("myIPSet",
+        my_ip_set = aws.s3.BucketObjectv2("MyIPSet",
             content="10.0.0.0/8\\n",
             bucket=bucket.id,
             key="MyIPSet")
@@ -287,18 +287,20 @@ class IPSet(pulumi.CustomResource):
             activate=True,
             detector_id=primary.id,
             format="TXT",
-            location=pulumi.Output.all(my_ip_set.bucket, my_ip_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+            location=pulumi.Output.all(my_ip_set.bucket, my_ip_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"),
+            name="MyIPSet")
+        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+        $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -323,14 +325,14 @@ class IPSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         primary = aws.guardduty.Detector("primary", enable=True)
         bucket = aws.s3.BucketV2("bucket")
-        # ... other configuration
-        my_ip_set = aws.s3.BucketObjectv2("myIPSet",
+        my_ip_set = aws.s3.BucketObjectv2("MyIPSet",
             content="10.0.0.0/8\\n",
             bucket=bucket.id,
             key="MyIPSet")
@@ -338,18 +340,20 @@ class IPSet(pulumi.CustomResource):
             activate=True,
             detector_id=primary.id,
             format="TXT",
-            location=pulumi.Output.all(my_ip_set.bucket, my_ip_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
+            location=pulumi.Output.all(my_ip_set.bucket, my_ip_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"),
+            name="MyIPSet")
+        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+        $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -398,8 +402,6 @@ class IPSet(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(IPSet, __self__).__init__(
             'aws:guardduty/iPSet:IPSet',
             resource_name,

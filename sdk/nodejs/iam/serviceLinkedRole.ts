@@ -9,19 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const elasticbeanstalk = new aws.iam.ServiceLinkedRole("elasticbeanstalk", {awsServiceName: "elasticbeanstalk.amazonaws.com"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM service-linked roles using role ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
+ * $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
  * ```
  */
 export class ServiceLinkedRole extends pulumi.CustomResource {
@@ -135,8 +137,6 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceLinkedRole.__pulumiType, name, resourceInputs, opts);
     }
 }

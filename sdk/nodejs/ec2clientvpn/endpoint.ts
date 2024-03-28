@@ -13,32 +13,34 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2clientvpn.Endpoint("example", {
  *     description: "clientvpn-example",
- *     serverCertificateArn: aws_acm_certificate.cert.arn,
+ *     serverCertificateArn: cert.arn,
  *     clientCidrBlock: "10.0.0.0/16",
  *     authenticationOptions: [{
  *         type: "certificate-authentication",
- *         rootCertificateChainArn: aws_acm_certificate.root_cert.arn,
+ *         rootCertificateChainArn: rootCert.arn,
  *     }],
  *     connectionLogOptions: {
  *         enabled: true,
- *         cloudwatchLogGroup: aws_cloudwatch_log_group.lg.name,
- *         cloudwatchLogStream: aws_cloudwatch_log_stream.ls.name,
+ *         cloudwatchLogGroup: lg.name,
+ *         cloudwatchLogStream: ls.name,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
+ * $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
  * ```
  */
 export class Endpoint extends pulumi.CustomResource {
@@ -221,8 +223,6 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }

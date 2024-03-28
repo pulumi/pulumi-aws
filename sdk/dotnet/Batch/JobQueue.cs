@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Batch
     /// Provides a Batch Job Queue resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Job Queue
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -23,21 +25,33 @@ namespace Pulumi.Aws.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testQueue = new Aws.Batch.JobQueue("testQueue", new()
+    ///     var testQueue = new Aws.Batch.JobQueue("test_queue", new()
     ///     {
+    ///         Name = "tf-test-batch-job-queue",
     ///         State = "ENABLED",
     ///         Priority = 1,
-    ///         ComputeEnvironments = new[]
+    ///         ComputeEnvironmentOrders = new[]
     ///         {
-    ///             aws_batch_compute_environment.Test_environment_1.Arn,
-    ///             aws_batch_compute_environment.Test_environment_2.Arn,
+    ///             new Aws.Batch.Inputs.JobQueueComputeEnvironmentOrderArgs
+    ///             {
+    ///                 Order = 1,
+    ///                 ComputeEnvironment = testEnvironment1.Arn,
+    ///             },
+    ///             new Aws.Batch.Inputs.JobQueueComputeEnvironmentOrderArgs
+    ///             {
+    ///                 Order = 2,
+    ///                 ComputeEnvironment = testEnvironment2.Arn,
+    ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Job Queue with a fair share scheduling policy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,8 +60,9 @@ namespace Pulumi.Aws.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSchedulingPolicy = new Aws.Batch.SchedulingPolicy("exampleSchedulingPolicy", new()
+    ///     var example = new Aws.Batch.SchedulingPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
     ///         {
     ///             ComputeReservation = 1,
@@ -63,27 +78,37 @@ namespace Pulumi.Aws.Batch
     ///         },
     ///     });
     /// 
-    ///     var exampleJobQueue = new Aws.Batch.JobQueue("exampleJobQueue", new()
+    ///     var exampleJobQueue = new Aws.Batch.JobQueue("example", new()
     ///     {
-    ///         SchedulingPolicyArn = exampleSchedulingPolicy.Arn,
+    ///         Name = "tf-test-batch-job-queue",
+    ///         SchedulingPolicyArn = example.Arn,
     ///         State = "ENABLED",
     ///         Priority = 1,
-    ///         ComputeEnvironments = new[]
+    ///         ComputeEnvironmentOrders = new[]
     ///         {
-    ///             aws_batch_compute_environment.Test_environment_1.Arn,
-    ///             aws_batch_compute_environment.Test_environment_2.Arn,
+    ///             new Aws.Batch.Inputs.JobQueueComputeEnvironmentOrderArgs
+    ///             {
+    ///                 Order = 1,
+    ///                 ComputeEnvironment = testEnvironment1.Arn,
+    ///             },
+    ///             new Aws.Batch.Inputs.JobQueueComputeEnvironmentOrderArgs
+    ///             {
+    ///                 Order = 2,
+    ///                 ComputeEnvironment = testEnvironment2.Arn,
+    ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
+    /// $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
     /// ```
     /// </summary>
     [AwsResourceType("aws:batch/jobQueue:JobQueue")]
@@ -96,8 +121,13 @@ namespace Pulumi.Aws.Batch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// List of compute environment ARNs mapped to a job queue.
-        /// The position of the compute environments in the list will dictate the order.
+        /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        /// </summary>
+        [Output("computeEnvironmentOrders")]
+        public Output<ImmutableArray<Outputs.JobQueueComputeEnvironmentOrder>> ComputeEnvironmentOrders { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         /// </summary>
         [Output("computeEnvironments")]
         public Output<ImmutableArray<string>> ComputeEnvironments { get; private set; } = null!;
@@ -165,10 +195,6 @@ namespace Pulumi.Aws.Batch
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -192,13 +218,25 @@ namespace Pulumi.Aws.Batch
 
     public sealed class JobQueueArgs : global::Pulumi.ResourceArgs
     {
-        [Input("computeEnvironments", required: true)]
+        [Input("computeEnvironmentOrders")]
+        private InputList<Inputs.JobQueueComputeEnvironmentOrderArgs>? _computeEnvironmentOrders;
+
+        /// <summary>
+        /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        /// </summary>
+        public InputList<Inputs.JobQueueComputeEnvironmentOrderArgs> ComputeEnvironmentOrders
+        {
+            get => _computeEnvironmentOrders ?? (_computeEnvironmentOrders = new InputList<Inputs.JobQueueComputeEnvironmentOrderArgs>());
+            set => _computeEnvironmentOrders = value;
+        }
+
+        [Input("computeEnvironments")]
         private InputList<string>? _computeEnvironments;
 
         /// <summary>
-        /// List of compute environment ARNs mapped to a job queue.
-        /// The position of the compute environments in the list will dictate the order.
+        /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         /// </summary>
+        [Obsolete(@"This parameter will be replaced by `compute_environments_order`.")]
         public InputList<string> ComputeEnvironments
         {
             get => _computeEnvironments ?? (_computeEnvironments = new InputList<string>());
@@ -259,13 +297,25 @@ namespace Pulumi.Aws.Batch
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        [Input("computeEnvironmentOrders")]
+        private InputList<Inputs.JobQueueComputeEnvironmentOrderGetArgs>? _computeEnvironmentOrders;
+
+        /// <summary>
+        /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        /// </summary>
+        public InputList<Inputs.JobQueueComputeEnvironmentOrderGetArgs> ComputeEnvironmentOrders
+        {
+            get => _computeEnvironmentOrders ?? (_computeEnvironmentOrders = new InputList<Inputs.JobQueueComputeEnvironmentOrderGetArgs>());
+            set => _computeEnvironmentOrders = value;
+        }
+
         [Input("computeEnvironments")]
         private InputList<string>? _computeEnvironments;
 
         /// <summary>
-        /// List of compute environment ARNs mapped to a job queue.
-        /// The position of the compute environments in the list will dictate the order.
+        /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         /// </summary>
+        [Obsolete(@"This parameter will be replaced by `compute_environments_order`.")]
         public InputList<string> ComputeEnvironments
         {
             get => _computeEnvironments ?? (_computeEnvironments = new InputList<string>());
@@ -319,11 +369,7 @@ namespace Pulumi.Aws.Batch
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("timeouts")]

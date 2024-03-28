@@ -204,12 +204,33 @@ class VpcLink(pulumi.CustomResource):
         > **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
         To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lb.LoadBalancer("example",
+            name="example",
+            internal=True,
+            load_balancer_type="network",
+            subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
+                subnet_id="12345",
+            )])
+        example_vpc_link = aws.apigateway.VpcLink("example",
+            name="example",
+            description="example description",
+            target_arn=example.arn)
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
+        $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
         ```
 
         :param str resource_name: The name of the resource.
@@ -231,12 +252,33 @@ class VpcLink(pulumi.CustomResource):
         > **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
         To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lb.LoadBalancer("example",
+            name="example",
+            internal=True,
+            load_balancer_type="network",
+            subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
+                subnet_id="12345",
+            )])
+        example_vpc_link = aws.apigateway.VpcLink("example",
+            name="example",
+            description="example description",
+            target_arn=example.arn)
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
+        $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
         ```
 
         :param str resource_name: The name of the resource.
@@ -275,8 +317,6 @@ class VpcLink(pulumi.CustomResource):
             __props__.__dict__["target_arn"] = target_arn
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcLink, __self__).__init__(
             'aws:apigateway/vpcLink:VpcLink',
             resource_name,

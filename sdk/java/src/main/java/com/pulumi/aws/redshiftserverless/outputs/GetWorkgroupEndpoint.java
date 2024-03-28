@@ -5,6 +5,7 @@ package com.pulumi.aws.redshiftserverless.outputs;
 
 import com.pulumi.aws.redshiftserverless.outputs.GetWorkgroupEndpointVpcEndpoint;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -73,28 +74,37 @@ public final class GetWorkgroupEndpoint {
 
         @CustomType.Setter
         public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupEndpoint", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupEndpoint", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder vpcEndpoints(List<GetWorkgroupEndpointVpcEndpoint> vpcEndpoints) {
-            this.vpcEndpoints = Objects.requireNonNull(vpcEndpoints);
+            if (vpcEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetWorkgroupEndpoint", "vpcEndpoints");
+            }
+            this.vpcEndpoints = vpcEndpoints;
             return this;
         }
         public Builder vpcEndpoints(GetWorkgroupEndpointVpcEndpoint... vpcEndpoints) {
             return vpcEndpoints(List.of(vpcEndpoints));
         }
         public GetWorkgroupEndpoint build() {
-            final var o = new GetWorkgroupEndpoint();
-            o.address = address;
-            o.port = port;
-            o.vpcEndpoints = vpcEndpoints;
-            return o;
+            final var _resultValue = new GetWorkgroupEndpoint();
+            _resultValue.address = address;
+            _resultValue.port = port;
+            _resultValue.vpcEndpoints = vpcEndpoints;
+            return _resultValue;
         }
     }
 }

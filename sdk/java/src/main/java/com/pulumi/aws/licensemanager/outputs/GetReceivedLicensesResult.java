@@ -5,6 +5,7 @@ package com.pulumi.aws.licensemanager.outputs;
 
 import com.pulumi.aws.licensemanager.outputs.GetReceivedLicensesFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -65,7 +66,10 @@ public final class GetReceivedLicensesResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicensesResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -73,6 +77,7 @@ public final class GetReceivedLicensesResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetReceivedLicensesFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -81,15 +86,18 @@ public final class GetReceivedLicensesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicensesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetReceivedLicensesResult build() {
-            final var o = new GetReceivedLicensesResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetReceivedLicensesResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

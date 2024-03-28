@@ -44,13 +44,14 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
 
         @CustomType.Setter
         public Builder line(@Nullable Boolean line) {
+
             this.line = line;
             return this;
         }
         public DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson build() {
-            final var o = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson();
-            o.line = line;
-            return o;
+            final var _resultValue = new DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson();
+            _resultValue.line = line;
+            return _resultValue;
         }
     }
 }

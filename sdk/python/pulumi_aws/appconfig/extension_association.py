@@ -167,20 +167,24 @@ class ExtensionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_topic = aws.sns.Topic("test", name="test")
+        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
                 identifiers=["appconfig.amazonaws.com"],
             )],
         )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
-        test_extension = aws.appconfig.Extension("testExtension",
+        test_role = aws.iam.Role("test",
+            name="test",
+            assume_role_policy=test.json)
+        test_extension = aws.appconfig.Extension("test",
+            name="test",
             description="test description",
             action_points=[aws.appconfig.ExtensionActionPointArgs(
                 point="ON_DEPLOYMENT_COMPLETE",
@@ -193,18 +197,19 @@ class ExtensionAssociation(pulumi.CustomResource):
             tags={
                 "Type": "AppConfig Extension",
             })
-        test_application = aws.appconfig.Application("testApplication")
-        test_extension_association = aws.appconfig.ExtensionAssociation("testExtensionAssociation",
+        test_application = aws.appconfig.Application("test", name="test")
+        test_extension_association = aws.appconfig.ExtensionAssociation("test",
             extension_arn=test_extension.arn,
             resource_arn=test_application.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+        $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
         ```
 
         :param str resource_name: The name of the resource.
@@ -224,20 +229,24 @@ class ExtensionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_topic = aws.sns.Topic("test", name="test")
+        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                 type="Service",
                 identifiers=["appconfig.amazonaws.com"],
             )],
         )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
-        test_extension = aws.appconfig.Extension("testExtension",
+        test_role = aws.iam.Role("test",
+            name="test",
+            assume_role_policy=test.json)
+        test_extension = aws.appconfig.Extension("test",
+            name="test",
             description="test description",
             action_points=[aws.appconfig.ExtensionActionPointArgs(
                 point="ON_DEPLOYMENT_COMPLETE",
@@ -250,18 +259,19 @@ class ExtensionAssociation(pulumi.CustomResource):
             tags={
                 "Type": "AppConfig Extension",
             })
-        test_application = aws.appconfig.Application("testApplication")
-        test_extension_association = aws.appconfig.ExtensionAssociation("testExtensionAssociation",
+        test_application = aws.appconfig.Application("test", name="test")
+        test_extension_association = aws.appconfig.ExtensionAssociation("test",
             extension_arn=test_extension.arn,
             resource_arn=test_application.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+        $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
         ```
 
         :param str resource_name: The name of the resource.

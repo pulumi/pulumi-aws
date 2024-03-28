@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,6 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := licensemanager.NewLicenseConfiguration(ctx, "example", &licensemanager.LicenseConfigurationArgs{
+//				Name:                  pulumi.String("Example"),
 //				Description:           pulumi.String("Example"),
 //				LicenseCount:          pulumi.Int(10),
 //				LicenseCountHardLimit: pulumi.Bool(true),
@@ -50,6 +52,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Rules
 //
 // License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
@@ -67,9 +71,7 @@ import (
 // Using `pulumi import`, import license configurations using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-//
+// $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 // ```
 type LicenseConfiguration struct {
 	pulumi.CustomResourceState
@@ -108,10 +110,6 @@ func NewLicenseConfiguration(ctx *pulumi.Context,
 	if args.LicenseCountingType == nil {
 		return nil, errors.New("invalid value for required argument 'LicenseCountingType'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LicenseConfiguration
 	err := ctx.RegisterResource("aws:licensemanager/licenseConfiguration:LicenseConfiguration", name, args, &resource, opts...)

@@ -25,7 +25,6 @@ func TestAccBucketPy(t *testing.T) {
 func TestAccWebserverPy(t *testing.T) {
 	for _, dir := range []string{"webserver-py", "webserver-py-old"} {
 		t.Run(dir, func(t *testing.T) {
-
 			test := getPythonBaseOptions(t).
 				With(integration.ProgramTestOptions{
 					Dir: filepath.Join(getCwd(t), dir),
@@ -42,7 +41,7 @@ func TestAccCodeBuildProjectPy(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "codebuild-project-py"),
 			RunUpdateTest: false,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -59,17 +58,25 @@ func TestAccFifoSqsQueuePy(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestSecretManagerPy(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "secretmanager"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
-	base := getBaseOptions()
-	pythonBase := base.With(integration.ProgramTestOptions{
+	pythonBase := integration.ProgramTestOptions{
 		Config: map[string]string{
 			"aws:region": envRegion,
 		},
 		Dependencies: []string{
 			filepath.Join("..", "sdk", "python", "bin"),
 		},
-	})
+	}
 
 	return pythonBase
 }

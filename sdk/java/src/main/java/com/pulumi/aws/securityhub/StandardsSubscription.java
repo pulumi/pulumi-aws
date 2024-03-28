@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Subscribes to a Security Hub standard.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -28,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.securityhub.StandardsSubscription;
  * import com.pulumi.aws.securityhub.StandardsSubscriptionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,26 +49,23 @@ import javax.annotation.Nullable;
  * 
  *         var cis = new StandardsSubscription(&#34;cis&#34;, StandardsSubscriptionArgs.builder()        
  *             .standardsArn(&#34;arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
  * 
  *         var pci321 = new StandardsSubscription(&#34;pci321&#34;, StandardsSubscriptionArgs.builder()        
  *             .standardsArn(String.format(&#34;arn:aws:securityhub:%s::standards/pci-dss/v/3.2.1&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
+ * $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
  * ```
  * ```sh
  * $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1

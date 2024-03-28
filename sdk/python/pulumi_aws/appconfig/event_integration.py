@@ -241,27 +241,30 @@ class EventIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appconfig.EventIntegration("example",
+            name="example-name",
             description="Example Description",
+            eventbridge_bus="default",
             event_filter=aws.appconfig.EventIntegrationEventFilterArgs(
                 source="aws.partner/examplepartner.com",
             ),
-            eventbridge_bus="default",
             tags={
                 "Name": "Example Event Integration",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+        $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -283,27 +286,30 @@ class EventIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.appconfig.EventIntegration("example",
+            name="example-name",
             description="Example Description",
+            eventbridge_bus="default",
             event_filter=aws.appconfig.EventIntegrationEventFilterArgs(
                 source="aws.partner/examplepartner.com",
             ),
-            eventbridge_bus="default",
             tags={
                 "Name": "Example Event Integration",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+        $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -346,8 +352,6 @@ class EventIntegration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EventIntegration, __self__).__init__(
             'aws:appconfig/eventIntegration:EventIntegration',
             resource_name,

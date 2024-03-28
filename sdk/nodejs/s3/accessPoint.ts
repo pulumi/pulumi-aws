@@ -14,31 +14,43 @@ import * as utilities from "../utilities";
  *
  * > Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
  *
- * ## Example Usage
- * ### AWS Partition Bucket
+ * > This resource cannot be used with S3 directory buckets.
  *
+ * ## Example Usage
+ *
+ * ### AWS Partition General Purpose Bucket
+ *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucketV2.id});
+ * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleAccessPoint = new aws.s3.AccessPoint("example", {
+ *     bucket: example.id,
+ *     name: "example",
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### S3 on Outposts Bucket
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucket = new aws.s3control.Bucket("exampleBucket", {bucket: "example"});
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {
- *     bucket: exampleBucket.arn,
+ * const example = new aws.s3control.Bucket("example", {bucket: "example"});
+ * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
+ * const exampleAccessPoint = new aws.s3.AccessPoint("example", {
+ *     bucket: example.arn,
+ *     name: "example",
  *     vpcConfiguration: {
  *         vpcId: exampleVpc.id,
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -49,12 +61,12 @@ import * as utilities from "../utilities";
  * Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
  *
  * ```sh
- *  $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
+ * $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
  * ```
- *  Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
+ * Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
  *
  * ```sh
- *  $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
+ * $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
  * ```
  */
 export class AccessPoint extends pulumi.CustomResource {
@@ -98,7 +110,7 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -208,7 +220,7 @@ export interface AccessPointState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -261,7 +273,7 @@ export interface AccessPointArgs {
      */
     accountId?: pulumi.Input<string>;
     /**
-     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      */
     bucket: pulumi.Input<string>;
     /**

@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,29 +27,30 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("exampleComputeEnvironment", new()
+    ///     var example = new Aws.Batch.ComputeEnvironment("example", new()
     ///     {
     ///         ComputeEnvironmentName = "example",
-    ///         ServiceRole = aws_iam_role.Example.Arn,
+    ///         ServiceRole = exampleAwsIamRole.Arn,
     ///         Type = "UNMANAGED",
     ///     });
     /// 
-    ///     var exampleTag = new Aws.Ecs.Tag("exampleTag", new()
+    ///     var exampleTag = new Aws.Ecs.Tag("example", new()
     ///     {
-    ///         ResourceArn = exampleComputeEnvironment.EcsClusterArn,
+    ///         ResourceArn = example.EcsClusterArn,
     ///         Key = "Name",
     ///         Value = "Hello World",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+    /// $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/tag:Tag")]

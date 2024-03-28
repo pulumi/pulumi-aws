@@ -9,23 +9,25 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ec2.NetworkInsightsPath("test", {
- *     source: aws_network_interface.source.id,
- *     destination: aws_network_interface.destination.id,
+ *     source: source.id,
+ *     destination: destination.id,
  *     protocol: "tcp",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Network Insights Paths using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
+ * $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
  * ```
  */
 export class NetworkInsightsPath extends pulumi.CustomResource {
@@ -153,8 +155,6 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(NetworkInsightsPath.__pulumiType, name, resourceInputs, opts);
     }
 }

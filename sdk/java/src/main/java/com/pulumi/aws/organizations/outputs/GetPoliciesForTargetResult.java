@@ -4,6 +4,7 @@
 package com.pulumi.aws.organizations.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -69,17 +70,26 @@ public final class GetPoliciesForTargetResult {
 
         @CustomType.Setter
         public Builder filter(String filter) {
-            this.filter = Objects.requireNonNull(filter);
+            if (filter == null) {
+              throw new MissingRequiredPropertyException("GetPoliciesForTargetResult", "filter");
+            }
+            this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPoliciesForTargetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetPoliciesForTargetResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -87,16 +97,19 @@ public final class GetPoliciesForTargetResult {
         }
         @CustomType.Setter
         public Builder targetId(String targetId) {
-            this.targetId = Objects.requireNonNull(targetId);
+            if (targetId == null) {
+              throw new MissingRequiredPropertyException("GetPoliciesForTargetResult", "targetId");
+            }
+            this.targetId = targetId;
             return this;
         }
         public GetPoliciesForTargetResult build() {
-            final var o = new GetPoliciesForTargetResult();
-            o.filter = filter;
-            o.id = id;
-            o.ids = ids;
-            o.targetId = targetId;
-            return o;
+            final var _resultValue = new GetPoliciesForTargetResult();
+            _resultValue.filter = filter;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.targetId = targetId;
+            return _resultValue;
         }
     }
 }

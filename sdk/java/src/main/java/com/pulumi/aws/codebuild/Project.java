@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * Provides a CodeBuild Project resource. See also the `aws.codebuild.Webhook` resource, which manages the webhook to the source (e.g., the &#34;rebuild every time a code change is pushed&#34; option in the CodeBuild web console).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -40,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -72,7 +75,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
  *             .bucket(exampleBucketV2.id())
@@ -91,10 +96,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect(&#34;Allow&#34;)
@@ -125,8 +131,8 @@ import javax.annotation.Nullable;
  *                             .test(&#34;StringEquals&#34;)
  *                             .variable(&#34;ec2:Subnet&#34;)
  *                             .values(                            
- *                                 aws_subnet.example1().arn(),
- *                                 aws_subnet.example2().arn())
+ *                                 example1.arn(),
+ *                                 example2.arn())
  *                             .build(),
  *                         GetPolicyDocumentStatementConditionArgs.builder()
  *                             .test(&#34;StringEquals&#34;)
@@ -145,10 +151,11 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(exampleRole.name())
- *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *             .name(&#34;test-project&#34;)
  *             .description(&#34;test_codebuild_project&#34;)
  *             .buildTimeout(5)
  *             .serviceRole(exampleRole.arn())
@@ -195,18 +202,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .sourceVersion(&#34;master&#34;)
  *             .vpcConfig(ProjectVpcConfigArgs.builder()
- *                 .vpcId(aws_vpc.example().id())
+ *                 .vpcId(exampleAwsVpc.id())
  *                 .subnets(                
- *                     aws_subnet.example1().id(),
- *                     aws_subnet.example2().id())
+ *                     example1.id(),
+ *                     example2.id())
  *                 .securityGroupIds(                
- *                     aws_security_group.example1().id(),
- *                     aws_security_group.example2().id())
+ *                     example1AwsSecurityGroup.id(),
+ *                     example2AwsSecurityGroup.id())
  *                 .build())
  *             .tags(Map.of(&#34;Environment&#34;, &#34;Test&#34;))
  *             .build());
  * 
  *         var project_with_cache = new Project(&#34;project-with-cache&#34;, ProjectArgs.builder()        
+ *             .name(&#34;test-project-cache&#34;)
  *             .description(&#34;test_codebuild_project_cache&#34;)
  *             .buildTimeout(5)
  *             .queuedTimeout(5)
@@ -241,13 +249,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeBuild Project using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codebuild/project:Project name project-name
+ * $ pulumi import aws:codebuild/project:Project name project-name
  * ```
  * 
  */
@@ -324,14 +333,14 @@ public class Project extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.buildBatchConfig);
     }
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     @Export(name="buildTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> buildTimeout;
 
     /**
-     * @return Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
+     * @return Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     public Output<Optional<Integer>> buildTimeout() {
@@ -478,28 +487,28 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.publicProjectAlias;
     }
     /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     @Export(name="queuedTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> queuedTimeout;
 
     /**
-     * @return Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
+     * @return Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     public Output<Optional<Integer>> queuedTimeout() {
         return Codegen.optional(this.queuedTimeout);
     }
     /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
+     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
      * 
      */
     @Export(name="resourceAccessRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceAccessRole;
 
     /**
-     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
+     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
      * 
      */
     public Output<Optional<String>> resourceAccessRole() {
@@ -672,9 +681,6 @@ public class Project extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

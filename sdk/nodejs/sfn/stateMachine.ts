@@ -11,22 +11,25 @@ import * as utilities from "../utilities";
  * Provides a Step Function State Machine resource
  *
  * ## Example Usage
+ *
  * ### Basic (Standard Workflow)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
- *     roleArn: aws_iam_role.iam_for_sfn.arn,
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
+ *     name: "my-state-machine",
+ *     roleArn: iamForSfn.arn,
  *     definition: `{
  *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
  *   "StartAt": "HelloWorld",
  *   "States": {
  *     "HelloWorld": {
  *       "Type": "Task",
- *       "Resource": "${aws_lambda_function.lambda.arn}",
+ *       "Resource": "${lambda.arn}",
  *       "End": true
  *     }
  *   }
@@ -34,15 +37,19 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Basic (Express Workflow)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
- *     roleArn: aws_iam_role.iam_for_sfn.arn,
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
+ *     name: "my-state-machine",
+ *     roleArn: iamForSfn.arn,
  *     type: "EXPRESS",
  *     definition: `{
  *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
@@ -50,7 +57,7 @@ import * as utilities from "../utilities";
  *   "States": {
  *     "HelloWorld": {
  *       "Type": "Task",
- *       "Resource": "${aws_lambda_function.lambda.arn}",
+ *       "Resource": "${lambda.arn}",
  *       "End": true
  *     }
  *   }
@@ -58,15 +65,19 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Publish (Publish SFN version)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
- *     roleArn: aws_iam_role.iam_for_sfn.arn,
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
+ *     name: "my-state-machine",
+ *     roleArn: iamForSfn.arn,
  *     publish: true,
  *     type: "EXPRESS",
  *     definition: `{
@@ -75,7 +86,7 @@ import * as utilities from "../utilities";
  *   "States": {
  *     "HelloWorld": {
  *       "Type": "Task",
- *       "Resource": "${aws_lambda_function.lambda.arn}",
+ *       "Resource": "${lambda.arn}",
  *       "End": true
  *     }
  *   }
@@ -83,43 +94,48 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Logging
  *
  * > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * // ...
- * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
- *     roleArn: aws_iam_role.iam_for_sfn.arn,
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
+ *     name: "my-state-machine",
+ *     roleArn: iamForSfn.arn,
  *     definition: `{
  *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
  *   "StartAt": "HelloWorld",
  *   "States": {
  *     "HelloWorld": {
  *       "Type": "Task",
- *       "Resource": "${aws_lambda_function.lambda.arn}",
+ *       "Resource": "${lambda.arn}",
  *       "End": true
  *     }
  *   }
  * }
  * `,
  *     loggingConfiguration: {
- *         logDestination: `${aws_cloudwatch_log_group.log_group_for_sfn.arn}:*`,
+ *         logDestination: `${logGroupForSfn.arn}:*`,
  *         includeExecutionData: true,
  *         level: "ERROR",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import State Machines using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+ * $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
  * ```
  */
 export class StateMachine extends pulumi.CustomResource {
@@ -184,6 +200,9 @@ export class StateMachine extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The ARN of the state machine version.
+     */
     public /*out*/ readonly stateMachineVersionArn!: pulumi.Output<string>;
     /**
      * The current status of the state machine. Either `ACTIVE` or `DELETING`.
@@ -266,8 +285,6 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["versionDescription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(StateMachine.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -310,6 +327,9 @@ export interface StateMachineState {
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
     roleArn?: pulumi.Input<string>;
+    /**
+     * The ARN of the state machine version.
+     */
     stateMachineVersionArn?: pulumi.Input<string>;
     /**
      * The current status of the state machine. Either `ACTIVE` or `DELETING`.

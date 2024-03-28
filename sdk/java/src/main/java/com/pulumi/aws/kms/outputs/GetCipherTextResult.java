@@ -4,6 +4,7 @@
 package com.pulumi.aws.kms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -76,37 +77,50 @@ public final class GetCipherTextResult {
 
         @CustomType.Setter
         public Builder ciphertextBlob(String ciphertextBlob) {
-            this.ciphertextBlob = Objects.requireNonNull(ciphertextBlob);
+            if (ciphertextBlob == null) {
+              throw new MissingRequiredPropertyException("GetCipherTextResult", "ciphertextBlob");
+            }
+            this.ciphertextBlob = ciphertextBlob;
             return this;
         }
         @CustomType.Setter
         public Builder context(@Nullable Map<String,String> context) {
+
             this.context = context;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCipherTextResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyId(String keyId) {
-            this.keyId = Objects.requireNonNull(keyId);
+            if (keyId == null) {
+              throw new MissingRequiredPropertyException("GetCipherTextResult", "keyId");
+            }
+            this.keyId = keyId;
             return this;
         }
         @CustomType.Setter
         public Builder plaintext(String plaintext) {
-            this.plaintext = Objects.requireNonNull(plaintext);
+            if (plaintext == null) {
+              throw new MissingRequiredPropertyException("GetCipherTextResult", "plaintext");
+            }
+            this.plaintext = plaintext;
             return this;
         }
         public GetCipherTextResult build() {
-            final var o = new GetCipherTextResult();
-            o.ciphertextBlob = ciphertextBlob;
-            o.context = context;
-            o.id = id;
-            o.keyId = keyId;
-            o.plaintext = plaintext;
-            return o;
+            final var _resultValue = new GetCipherTextResult();
+            _resultValue.ciphertextBlob = ciphertextBlob;
+            _resultValue.context = context;
+            _resultValue.id = id;
+            _resultValue.keyId = keyId;
+            _resultValue.plaintext = plaintext;
+            return _resultValue;
         }
     }
 }

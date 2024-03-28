@@ -536,8 +536,10 @@ class Directory(pulumi.CustomResource):
         Provides a Simple or Managed Microsoft directory in AWS Directory Service.
 
         ## Example Usage
+
         ### SimpleAD
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -547,11 +549,11 @@ class Directory(pulumi.CustomResource):
             vpc_id=main.id,
             availability_zone="us-west-2a",
             cidr_block="10.0.1.0/24")
-        bar_subnet = aws.ec2.Subnet("barSubnet",
+        bar_subnet = aws.ec2.Subnet("bar",
             vpc_id=main.id,
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
-        bar_directory = aws.directoryservice.Directory("barDirectory",
+        bar = aws.directoryservice.Directory("bar",
             name="corp.notexample.com",
             password="SuperSecretPassw0rd",
             size="Small",
@@ -566,8 +568,11 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Microsoft Active Directory (MicrosoftAD)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -577,11 +582,11 @@ class Directory(pulumi.CustomResource):
             vpc_id=main.id,
             availability_zone="us-west-2a",
             cidr_block="10.0.1.0/24")
-        bar_subnet = aws.ec2.Subnet("barSubnet",
+        bar_subnet = aws.ec2.Subnet("bar",
             vpc_id=main.id,
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
-        bar_directory = aws.directoryservice.Directory("barDirectory",
+        bar = aws.directoryservice.Directory("bar",
             name="corp.notexample.com",
             password="SuperSecretPassw0rd",
             edition="Standard",
@@ -597,8 +602,11 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Microsoft Active Directory Connector (ADConnector)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -627,13 +635,14 @@ class Directory(pulumi.CustomResource):
                 vpc_id=main.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+        $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
         ```
 
         :param str resource_name: The name of the resource.
@@ -662,8 +671,10 @@ class Directory(pulumi.CustomResource):
         Provides a Simple or Managed Microsoft directory in AWS Directory Service.
 
         ## Example Usage
+
         ### SimpleAD
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -673,11 +684,11 @@ class Directory(pulumi.CustomResource):
             vpc_id=main.id,
             availability_zone="us-west-2a",
             cidr_block="10.0.1.0/24")
-        bar_subnet = aws.ec2.Subnet("barSubnet",
+        bar_subnet = aws.ec2.Subnet("bar",
             vpc_id=main.id,
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
-        bar_directory = aws.directoryservice.Directory("barDirectory",
+        bar = aws.directoryservice.Directory("bar",
             name="corp.notexample.com",
             password="SuperSecretPassw0rd",
             size="Small",
@@ -692,8 +703,11 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Microsoft Active Directory (MicrosoftAD)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -703,11 +717,11 @@ class Directory(pulumi.CustomResource):
             vpc_id=main.id,
             availability_zone="us-west-2a",
             cidr_block="10.0.1.0/24")
-        bar_subnet = aws.ec2.Subnet("barSubnet",
+        bar_subnet = aws.ec2.Subnet("bar",
             vpc_id=main.id,
             availability_zone="us-west-2b",
             cidr_block="10.0.2.0/24")
-        bar_directory = aws.directoryservice.Directory("barDirectory",
+        bar = aws.directoryservice.Directory("bar",
             name="corp.notexample.com",
             password="SuperSecretPassw0rd",
             edition="Standard",
@@ -723,8 +737,11 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Microsoft Active Directory Connector (ADConnector)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -753,13 +770,14 @@ class Directory(pulumi.CustomResource):
                 vpc_id=main.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+        $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
         ```
 
         :param str resource_name: The name of the resource.
@@ -820,7 +838,7 @@ class Directory(pulumi.CustomResource):
             __props__.__dict__["dns_ip_addresses"] = None
             __props__.__dict__["security_group_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Directory, __self__).__init__(
             'aws:directoryservice/directory:Directory',

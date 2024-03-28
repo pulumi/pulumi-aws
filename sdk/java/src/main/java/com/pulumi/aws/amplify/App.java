@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** When you create/update an Amplify App from the provider, you may end up with the error &#34;BadRequestException: You should at least provide one valid token&#34; because of authentication issues. See the section &#34;Repository with Tokens&#34; below.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,24 +51,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .repository(&#34;https://github.com/example/app&#34;)
  *             .buildSpec(&#34;&#34;&#34;
- *   version: 0.1
- *   frontend:
- *     phases:
- *       preBuild:
- *         commands:
- *           - yarn install
- *       build:
- *         commands:
- *           - yarn run build
- *     artifacts:
- *       baseDirectory: build
- *       files:
- *         - &#39;**{@literal /}*&#39;
- *     cache:
- *       paths:
- *         - node_modules/**{@literal /}*
- * 
+ * version: 0.1
+ * frontend:
+ *   phases:
+ *     preBuild:
+ *       commands:
+ *         - yarn install
+ *     build:
+ *       commands:
+ *         - yarn run build
+ *   artifacts:
+ *     baseDirectory: build
+ *     files:
+ *       - &#39;**{@literal /}*&#39;
+ *   cache:
+ *     paths:
+ *       - node_modules/**{@literal /}*
  *             &#34;&#34;&#34;)
  *             .customRules(AppCustomRuleArgs.builder()
  *                 .source(&#34;/&lt;*&gt;&#34;)
@@ -74,15 +77,18 @@ import javax.annotation.Nullable;
  *                 .target(&#34;/index.html&#34;)
  *                 .build())
  *             .environmentVariables(Map.of(&#34;ENV&#34;, &#34;test&#34;))
- *             .repository(&#34;https://github.com/example/app&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Repository with Tokens
  * 
  * If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -105,16 +111,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .accessToken(&#34;...&#34;)
+ *             .name(&#34;example&#34;)
  *             .repository(&#34;https://github.com/example/app&#34;)
+ *             .accessToken(&#34;...&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
+ * 
  * ### Auto Branch Creation
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -138,19 +149,61 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .autoBranchCreationConfig(AppAutoBranchCreationConfigArgs.builder()
- *                 .enableAutoBuild(true)
- *                 .build())
+ *             .name(&#34;example&#34;)
+ *             .enableAutoBranchCreation(true)
  *             .autoBranchCreationPatterns(            
  *                 &#34;*&#34;,
  *                 &#34;*{@literal /}**&#34;)
- *             .enableAutoBranchCreation(true)
+ *             .autoBranchCreationConfig(AppAutoBranchCreationConfigArgs.builder()
+ *                 .enableAutoBuild(true)
+ *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Basic Authorization
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amplify.App;
+ * import com.pulumi.aws.amplify.AppArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .enableBasicAuth(true)
+ *             .basicAuthCredentials(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                 .input(&#34;username1:password1&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Rewrites and Redirects
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -174,6 +227,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .customRules(            
  *                 AppCustomRuleArgs.builder()
  *                     .source(&#34;/api/&lt;*&gt;&#34;)
@@ -190,7 +244,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Custom Image
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -213,13 +271,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .environmentVariables(Map.of(&#34;_CUSTOM_IMAGE&#34;, &#34;node:16&#34;))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Custom Headers
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -242,36 +305,37 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .customHeaders(&#34;&#34;&#34;
- *   customHeaders:
- *     - pattern: &#39;**&#39;
- *       headers:
- *         - key: &#39;Strict-Transport-Security&#39;
- *           value: &#39;max-age=31536000; includeSubDomains&#39;
- *         - key: &#39;X-Frame-Options&#39;
- *           value: &#39;SAMEORIGIN&#39;
- *         - key: &#39;X-XSS-Protection&#39;
- *           value: &#39;1; mode=block&#39;
- *         - key: &#39;X-Content-Type-Options&#39;
- *           value: &#39;nosniff&#39;
- *         - key: &#39;Content-Security-Policy&#39;
- *           value: &#34;default-src &#39;self&#39;&#34;
- * 
+ * customHeaders:
+ *   - pattern: &#39;**&#39;
+ *     headers:
+ *       - key: &#39;Strict-Transport-Security&#39;
+ *         value: &#39;max-age=31536000; includeSubDomains&#39;
+ *       - key: &#39;X-Frame-Options&#39;
+ *         value: &#39;SAMEORIGIN&#39;
+ *       - key: &#39;X-XSS-Protection&#39;
+ *         value: &#39;1; mode=block&#39;
+ *       - key: &#39;X-Content-Type-Options&#39;
+ *         value: &#39;nosniff&#39;
+ *       - key: &#39;Content-Security-Policy&#39;
+ *         value: &#34;default-src &#39;self&#39;&#34;
  *             &#34;&#34;&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
  * 
  * ```sh
- *  $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
+ * $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
  * ```
- *  App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
+ * App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
  * 
  */
 @ResourceType(type="aws:amplify/app:App")
@@ -638,8 +702,7 @@ public class App extends com.pulumi.resources.CustomResource {
             .additionalSecretOutputs(List.of(
                 "accessToken",
                 "basicAuthCredentials",
-                "oauthToken",
-                "tagsAll"
+                "oauthToken"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

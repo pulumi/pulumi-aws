@@ -21,8 +21,10 @@ import (
 // otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
 //
 // ## Example Usage
+//
 // ### EC2 Type
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,21 +60,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ecsInstanceRoleRole, err := iam.NewRole(ctx, "ecsInstanceRoleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(ec2AssumeRole.Json),
+//			ecsInstanceRole, err := iam.NewRole(ctx, "ecs_instance_role", &iam.RoleArgs{
+//				Name:             pulumi.String("ecs_instance_role"),
+//				AssumeRolePolicy: pulumi.String(ec2AssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "ecsInstanceRoleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      ecsInstanceRoleRole.Name,
+//			_, err = iam.NewRolePolicyAttachment(ctx, "ecs_instance_role", &iam.RolePolicyAttachmentArgs{
+//				Role:      ecsInstanceRole.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			ecsInstanceRoleInstanceProfile, err := iam.NewInstanceProfile(ctx, "ecsInstanceRoleInstanceProfile", &iam.InstanceProfileArgs{
-//				Role: ecsInstanceRoleRole.Name,
+//			ecsInstanceRoleInstanceProfile, err := iam.NewInstanceProfile(ctx, "ecs_instance_role", &iam.InstanceProfileArgs{
+//				Name: pulumi.String("ecs_instance_role"),
+//				Role: ecsInstanceRole.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -98,20 +102,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			awsBatchServiceRoleRole, err := iam.NewRole(ctx, "awsBatchServiceRoleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(batchAssumeRole.Json),
+//			awsBatchServiceRole, err := iam.NewRole(ctx, "aws_batch_service_role", &iam.RoleArgs{
+//				Name:             pulumi.String("aws_batch_service_role"),
+//				AssumeRolePolicy: pulumi.String(batchAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			awsBatchServiceRoleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "awsBatchServiceRoleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				Role:      awsBatchServiceRoleRole.Name,
+//			_, err = iam.NewRolePolicyAttachment(ctx, "aws_batch_service_role", &iam.RolePolicyAttachmentArgs{
+//				Role:      awsBatchServiceRole.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			sampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "sampleSecurityGroup", &ec2.SecurityGroupArgs{
+//			sample, err := ec2.NewSecurityGroup(ctx, "sample", &ec2.SecurityGroupArgs{
+//				Name: pulumi.String("aws_batch_compute_environment_security_group"),
 //				Egress: ec2.SecurityGroupEgressArray{
 //					&ec2.SecurityGroupEgressArgs{
 //						FromPort: pulumi.Int(0),
@@ -126,26 +132,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			sampleVpc, err := ec2.NewVpc(ctx, "sampleVpc", &ec2.VpcArgs{
+//			sampleVpc, err := ec2.NewVpc(ctx, "sample", &ec2.VpcArgs{
 //				CidrBlock: pulumi.String("10.1.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			sampleSubnet, err := ec2.NewSubnet(ctx, "sampleSubnet", &ec2.SubnetArgs{
+//			sampleSubnet, err := ec2.NewSubnet(ctx, "sample", &ec2.SubnetArgs{
 //				VpcId:     sampleVpc.ID(),
 //				CidrBlock: pulumi.String("10.1.1.0/24"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			samplePlacementGroup, err := ec2.NewPlacementGroup(ctx, "samplePlacementGroup", &ec2.PlacementGroupArgs{
-//				Strategy: pulumi.String("cluster"),
+//			samplePlacementGroup, err := ec2.NewPlacementGroup(ctx, "sample", &ec2.PlacementGroupArgs{
+//				Name:     pulumi.String("sample"),
+//				Strategy: pulumi.String(ec2.PlacementStrategyCluster),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = batch.NewComputeEnvironment(ctx, "sampleComputeEnvironment", &batch.ComputeEnvironmentArgs{
+//			_, err = batch.NewComputeEnvironment(ctx, "sample", &batch.ComputeEnvironmentArgs{
 //				ComputeEnvironmentName: pulumi.String("sample"),
 //				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
 //					InstanceRole: ecsInstanceRoleInstanceProfile.Arn,
@@ -156,18 +163,16 @@ import (
 //					MinVcpus:       pulumi.Int(0),
 //					PlacementGroup: samplePlacementGroup.Name,
 //					SecurityGroupIds: pulumi.StringArray{
-//						sampleSecurityGroup.ID(),
+//						sample.ID(),
 //					},
 //					Subnets: pulumi.StringArray{
 //						sampleSubnet.ID(),
 //					},
 //					Type: pulumi.String("EC2"),
 //				},
-//				ServiceRole: awsBatchServiceRoleRole.Arn,
+//				ServiceRole: awsBatchServiceRole.Arn,
 //				Type:        pulumi.String("MANAGED"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				awsBatchServiceRoleRolePolicyAttachment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -176,8 +181,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Fargate Type
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -195,18 +203,16 @@ import (
 //				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
 //					MaxVcpus: pulumi.Int(16),
 //					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.Sample.Id,
+//						sampleAwsSecurityGroup.Id,
 //					},
 //					Subnets: pulumi.StringArray{
-//						aws_subnet.Sample.Id,
+//						sampleAwsSubnet.Id,
 //					},
 //					Type: pulumi.String("FARGATE"),
 //				},
-//				ServiceRole: pulumi.Any(aws_iam_role.Aws_batch_service_role.Arn),
+//				ServiceRole: pulumi.Any(awsBatchServiceRole.Arn),
 //				Type:        pulumi.String("MANAGED"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy_attachment.Aws_batch_service_role,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -215,15 +221,63 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Setting Update Policy
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := batch.NewComputeEnvironment(ctx, "sample", &batch.ComputeEnvironmentArgs{
+//				ComputeEnvironmentName: pulumi.String("sample"),
+//				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
+//					AllocationStrategy: pulumi.String("BEST_FIT_PROGRESSIVE"),
+//					InstanceRole:       pulumi.Any(ecsInstance.Arn),
+//					InstanceTypes: pulumi.StringArray{
+//						pulumi.String("optimal"),
+//					},
+//					MaxVcpus: pulumi.Int(4),
+//					MinVcpus: pulumi.Int(0),
+//					SecurityGroupIds: pulumi.StringArray{
+//						sampleAwsSecurityGroup.Id,
+//					},
+//					Subnets: pulumi.StringArray{
+//						sampleAwsSubnet.Id,
+//					},
+//					Type: pulumi.String("EC2"),
+//				},
+//				UpdatePolicy: &batch.ComputeEnvironmentUpdatePolicyArgs{
+//					JobExecutionTimeoutMinutes: pulumi.Int(30),
+//					TerminateJobsOnUpdate:      pulumi.Bool(false),
+//				},
+//				Type: pulumi.String("MANAGED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
-//
+// $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
 // ```
 type ComputeEnvironment struct {
 	pulumi.CustomResourceState
@@ -256,6 +310,8 @@ type ComputeEnvironment struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Specifies the infrastructure update policy for the compute environment. See details below.
+	UpdatePolicy ComputeEnvironmentUpdatePolicyPtrOutput `pulumi:"updatePolicy"`
 }
 
 // NewComputeEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -268,10 +324,6 @@ func NewComputeEnvironment(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ComputeEnvironment
 	err := ctx.RegisterResource("aws:batch/computeEnvironment:ComputeEnvironment", name, args, &resource, opts...)
@@ -323,6 +375,8 @@ type computeEnvironmentState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type *string `pulumi:"type"`
+	// Specifies the infrastructure update policy for the compute environment. See details below.
+	UpdatePolicy *ComputeEnvironmentUpdatePolicy `pulumi:"updatePolicy"`
 }
 
 type ComputeEnvironmentState struct {
@@ -354,6 +408,8 @@ type ComputeEnvironmentState struct {
 	TagsAll pulumi.StringMapInput
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type pulumi.StringPtrInput
+	// Specifies the infrastructure update policy for the compute environment. See details below.
+	UpdatePolicy ComputeEnvironmentUpdatePolicyPtrInput
 }
 
 func (ComputeEnvironmentState) ElementType() reflect.Type {
@@ -377,6 +433,8 @@ type computeEnvironmentArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type string `pulumi:"type"`
+	// Specifies the infrastructure update policy for the compute environment. See details below.
+	UpdatePolicy *ComputeEnvironmentUpdatePolicy `pulumi:"updatePolicy"`
 }
 
 // The set of arguments for constructing a ComputeEnvironment resource.
@@ -397,6 +455,8 @@ type ComputeEnvironmentArgs struct {
 	Tags pulumi.StringMapInput
 	// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 	Type pulumi.StringInput
+	// Specifies the infrastructure update policy for the compute environment. See details below.
+	UpdatePolicy ComputeEnvironmentUpdatePolicyPtrInput
 }
 
 func (ComputeEnvironmentArgs) ElementType() reflect.Type {
@@ -551,6 +611,11 @@ func (o ComputeEnvironmentOutput) TagsAll() pulumi.StringMapOutput {
 // The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
 func (o ComputeEnvironmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the infrastructure update policy for the compute environment. See details below.
+func (o ComputeEnvironmentOutput) UpdatePolicy() ComputeEnvironmentUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentUpdatePolicyPtrOutput { return v.UpdatePolicy }).(ComputeEnvironmentUpdatePolicyPtrOutput)
 }
 
 type ComputeEnvironmentArrayOutput struct{ *pulumi.OutputState }

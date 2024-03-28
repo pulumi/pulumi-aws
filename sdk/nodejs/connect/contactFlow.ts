@@ -15,37 +15,40 @@ import * as utilities from "../utilities";
  * See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.ContactFlow("test", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Test",
  *     description: "Test Contact Flow Description",
  *     type: "CONTACT_FLOW",
  *     content: JSON.stringify({
- *         Version: "2019-10-30",
- *         StartAction: "12345678-1234-1234-1234-123456789012",
- *         Actions: [
+ *         version: "2019-10-30",
+ *         startAction: "12345678-1234-1234-1234-123456789012",
+ *         actions: [
  *             {
- *                 Identifier: "12345678-1234-1234-1234-123456789012",
- *                 Type: "MessageParticipant",
- *                 Transitions: {
- *                     NextAction: "abcdef-abcd-abcd-abcd-abcdefghijkl",
- *                     Errors: [],
- *                     Conditions: [],
+ *                 identifier: "12345678-1234-1234-1234-123456789012",
+ *                 type: "MessageParticipant",
+ *                 transitions: {
+ *                     nextAction: "abcdef-abcd-abcd-abcd-abcdefghijkl",
+ *                     errors: [],
+ *                     conditions: [],
  *                 },
- *                 Parameters: {
- *                     Text: "Thanks for calling the sample flow!",
+ *                 parameters: {
+ *                     text: "Thanks for calling the sample flow!",
  *                 },
  *             },
  *             {
- *                 Identifier: "abcdef-abcd-abcd-abcd-abcdefghijkl",
- *                 Type: "DisconnectParticipant",
- *                 Transitions: {},
- *                 Parameters: {},
+ *                 identifier: "abcdef-abcd-abcd-abcd-abcdefghijkl",
+ *                 type: "DisconnectParticipant",
+ *                 transitions: {},
+ *                 parameters: {},
  *             },
  *         ],
  *     }),
@@ -56,13 +59,44 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### With External Content
+ *
+ * Use the AWS CLI to extract Contact Flow Content:
+ *
+ * Use the generated file as input:
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const test = new aws.connect.ContactFlow("test", {
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Test",
+ *     description: "Test Contact Flow Description",
+ *     type: "CONTACT_FLOW",
+ *     filename: "contact_flow.json",
+ *     contentHash: std.filebase64sha256({
+ *         input: "contact_flow.json",
+ *     }).then(invoke => invoke.result),
+ *     tags: {
+ *         Name: "Test Contact Flow",
+ *         Application: "Example",
+ *         Method: "Create",
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Contact Flows using the `instance_id` and `contact_flow_id` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  */
 export class ContactFlow extends pulumi.CustomResource {
@@ -182,8 +216,6 @@ export class ContactFlow extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ContactFlow.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,26 +45,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleEmailIdentity = new EmailIdentity(&#34;exampleEmailIdentity&#34;, EmailIdentityArgs.builder()        
+ *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
  *             .emailIdentity(&#34;example.com&#34;)
  *             .build());
  * 
  *         var exampleEmailIdentityMailFromAttributes = new EmailIdentityMailFromAttributes(&#34;exampleEmailIdentityMailFromAttributes&#34;, EmailIdentityMailFromAttributesArgs.builder()        
- *             .emailIdentity(exampleEmailIdentity.emailIdentity())
+ *             .emailIdentity(example.emailIdentity())
  *             .behaviorOnMxFailure(&#34;REJECT_MESSAGE&#34;)
- *             .mailFromDomain(exampleEmailIdentity.emailIdentity().applyValue(emailIdentity -&gt; String.format(&#34;subdomain.%s&#34;, emailIdentity)))
+ *             .mailFromDomain(example.emailIdentity().applyValue(emailIdentity -&gt; String.format(&#34;subdomain.%s&#34;, emailIdentity)))
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Mail From Attributes using the `email_identity`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
+ * $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
  * ```
  * 
  */

@@ -25,8 +25,13 @@ import javax.annotation.Nullable;
  * 
  * &gt; Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
  * 
+ * &gt; This resource cannot be used with S3 directory buckets.
+ * 
  * ## Example Usage
- * ### AWS Partition Bucket
+ * 
+ * ### AWS Partition General Purpose Bucket
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -34,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.AccessPoint;
  * import com.pulumi.aws.s3.AccessPointArgs;
  * import java.util.List;
@@ -49,16 +55,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint(&#34;exampleAccessPoint&#34;, AccessPointArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### S3 on Outposts Bucket
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -85,7 +98,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucket = new Bucket(&#34;exampleBucket&#34;, BucketArgs.builder()        
+ *         var example = new Bucket(&#34;example&#34;, BucketArgs.builder()        
  *             .bucket(&#34;example&#34;)
  *             .build());
  * 
@@ -94,7 +107,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint(&#34;exampleAccessPoint&#34;, AccessPointArgs.builder()        
- *             .bucket(exampleBucket.arn())
+ *             .bucket(example.arn())
+ *             .name(&#34;example&#34;)
  *             .vpcConfiguration(AccessPointVpcConfigurationArgs.builder()
  *                 .vpcId(exampleVpc.id())
  *                 .build())
@@ -103,6 +117,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -113,12 +128,12 @@ import javax.annotation.Nullable;
  * Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
  * 
  * ```sh
- *  $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
+ * $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
  * ```
- *  Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
+ * Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
  * 
  * ```sh
- *  $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
+ * $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
  * ```
  * 
  */
@@ -167,14 +182,14 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+     * Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
-     * @return Name of an AWS Partition S3 Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
+     * @return Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      * 
      */
     public Output<String> bucket() {

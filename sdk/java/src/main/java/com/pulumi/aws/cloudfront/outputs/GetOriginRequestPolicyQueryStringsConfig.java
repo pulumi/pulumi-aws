@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.GetOriginRequestPolicyQueryStringsConfigQueryString;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -42,22 +43,28 @@ public final class GetOriginRequestPolicyQueryStringsConfig {
 
         @CustomType.Setter
         public Builder queryStringBehavior(String queryStringBehavior) {
-            this.queryStringBehavior = Objects.requireNonNull(queryStringBehavior);
+            if (queryStringBehavior == null) {
+              throw new MissingRequiredPropertyException("GetOriginRequestPolicyQueryStringsConfig", "queryStringBehavior");
+            }
+            this.queryStringBehavior = queryStringBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder queryStrings(List<GetOriginRequestPolicyQueryStringsConfigQueryString> queryStrings) {
-            this.queryStrings = Objects.requireNonNull(queryStrings);
+            if (queryStrings == null) {
+              throw new MissingRequiredPropertyException("GetOriginRequestPolicyQueryStringsConfig", "queryStrings");
+            }
+            this.queryStrings = queryStrings;
             return this;
         }
         public Builder queryStrings(GetOriginRequestPolicyQueryStringsConfigQueryString... queryStrings) {
             return queryStrings(List.of(queryStrings));
         }
         public GetOriginRequestPolicyQueryStringsConfig build() {
-            final var o = new GetOriginRequestPolicyQueryStringsConfig();
-            o.queryStringBehavior = queryStringBehavior;
-            o.queryStrings = queryStrings;
-            return o;
+            final var _resultValue = new GetOriginRequestPolicyQueryStringsConfig();
+            _resultValue.queryStringBehavior = queryStringBehavior;
+            _resultValue.queryStrings = queryStrings;
+            return _resultValue;
         }
     }
 }

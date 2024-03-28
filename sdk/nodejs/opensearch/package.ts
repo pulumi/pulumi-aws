@@ -12,12 +12,40 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const myOpensearchPackages = new aws.s3.BucketV2("my_opensearch_packages", {bucket: "my-opensearch-packages"});
+ * const example = new aws.s3.BucketObjectv2("example", {
+ *     bucket: myOpensearchPackages.bucket,
+ *     key: "example.txt",
+ *     source: new pulumi.asset.FileAsset("./example.txt"),
+ *     etag: std.filemd5({
+ *         input: "./example.txt",
+ *     }).then(invoke => invoke.result),
+ * });
+ * const examplePackage = new aws.opensearch.Package("example", {
+ *     packageName: "example-txt",
+ *     packageSource: {
+ *         s3BucketName: myOpensearchPackages.bucket,
+ *         s3Key: example.key,
+ *     },
+ *     packageType: "TXT-DICTIONARY",
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:opensearch/package:Package example package-id
+ * $ pulumi import aws:opensearch/package:Package example package-id
  * ```
  */
 export class Package extends pulumi.CustomResource {

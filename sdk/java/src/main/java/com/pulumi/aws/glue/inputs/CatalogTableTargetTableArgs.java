@@ -5,8 +5,11 @@ package com.pulumi.aws.glue.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CatalogTableTargetTableArgs extends com.pulumi.resources.ResourceArgs {
@@ -58,12 +61,28 @@ public final class CatalogTableTargetTableArgs extends com.pulumi.resources.Reso
         return this.name;
     }
 
+    /**
+     * Region of the target table.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region of the target table.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private CatalogTableTargetTableArgs() {}
 
     private CatalogTableTargetTableArgs(CatalogTableTargetTableArgs $) {
         this.catalogId = $.catalogId;
         this.databaseName = $.databaseName;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -147,10 +166,37 @@ public final class CatalogTableTargetTableArgs extends com.pulumi.resources.Reso
             return name(Output.of(name));
         }
 
+        /**
+         * @param region Region of the target table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region of the target table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         public CatalogTableTargetTableArgs build() {
-            $.catalogId = Objects.requireNonNull($.catalogId, "expected parameter 'catalogId' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.catalogId == null) {
+                throw new MissingRequiredPropertyException("CatalogTableTargetTableArgs", "catalogId");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("CatalogTableTargetTableArgs", "databaseName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("CatalogTableTargetTableArgs", "name");
+            }
             return $;
         }
     }

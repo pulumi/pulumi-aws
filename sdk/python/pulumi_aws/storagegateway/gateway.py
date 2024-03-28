@@ -718,24 +718,29 @@ class Gateway(pulumi.CustomResource):
         > **NOTE:** The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
 
         ## Example Usage
+
         ### Local Cache
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_volume_attachment = aws.ec2.VolumeAttachment("testVolumeAttachment",
+        test_volume_attachment = aws.ec2.VolumeAttachment("test",
             device_name="/dev/xvdb",
-            volume_id=aws_ebs_volume["test"]["id"],
-            instance_id=aws_instance["test"]["id"])
-        test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk_output(disk_node=device_name,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"]))
-        test_cache = aws.storagegateway.Cache("testCache",
-            disk_id=test_local_disk.disk_id,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+            volume_id=test_aws_ebs_volume["id"],
+            instance_id=test_aws_instance["id"])
+        test = aws.storagegateway.get_local_disk(disk_node=test_aws_volume_attachment["deviceName"],
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
+        test_cache = aws.storagegateway.Cache("test",
+            disk_id=test.disk_id,
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### FSx File Gateway
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -751,8 +756,11 @@ class Gateway(pulumi.CustomResource):
                 username="Admin",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 File Gateway
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -763,8 +771,11 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="FILE_S3")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Tape Gateway
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -777,8 +788,11 @@ class Gateway(pulumi.CustomResource):
             medium_changer_type="AWS-Gateway-VTL",
             tape_drive_type="IBM-ULT3580-TD5")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Volume Gateway (Cached)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -789,8 +803,11 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="CACHED")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Volume Gateway (Stored)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -801,15 +818,16 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="STORED")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
+        $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
         ```
-         Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -843,24 +861,29 @@ class Gateway(pulumi.CustomResource):
         > **NOTE:** The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
 
         ## Example Usage
+
         ### Local Cache
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_volume_attachment = aws.ec2.VolumeAttachment("testVolumeAttachment",
+        test_volume_attachment = aws.ec2.VolumeAttachment("test",
             device_name="/dev/xvdb",
-            volume_id=aws_ebs_volume["test"]["id"],
-            instance_id=aws_instance["test"]["id"])
-        test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk_output(disk_node=device_name,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"]))
-        test_cache = aws.storagegateway.Cache("testCache",
-            disk_id=test_local_disk.disk_id,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
+            volume_id=test_aws_ebs_volume["id"],
+            instance_id=test_aws_instance["id"])
+        test = aws.storagegateway.get_local_disk(disk_node=test_aws_volume_attachment["deviceName"],
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
+        test_cache = aws.storagegateway.Cache("test",
+            disk_id=test.disk_id,
+            gateway_arn=test_aws_storagegateway_gateway["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### FSx File Gateway
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -876,8 +899,11 @@ class Gateway(pulumi.CustomResource):
                 username="Admin",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 File Gateway
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -888,8 +914,11 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="FILE_S3")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Tape Gateway
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -902,8 +931,11 @@ class Gateway(pulumi.CustomResource):
             medium_changer_type="AWS-Gateway-VTL",
             tape_drive_type="IBM-ULT3580-TD5")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Volume Gateway (Cached)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -914,8 +946,11 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="CACHED")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Volume Gateway (Stored)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -926,15 +961,16 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="STORED")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
+        $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
         ```
-         Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
@@ -1005,7 +1041,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["gateway_network_interfaces"] = None
             __props__.__dict__["host_environment"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["smbGuestPassword", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["smbGuestPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Gateway, __self__).__init__(
             'aws:storagegateway/gateway:Gateway',

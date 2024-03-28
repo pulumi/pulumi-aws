@@ -4,13 +4,14 @@
 package com.pulumi.aws.guardduty.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class DetectorFeatureAdditionalConfiguration {
     /**
-     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
      * 
      */
     private String name;
@@ -22,7 +23,7 @@ public final class DetectorFeatureAdditionalConfiguration {
 
     private DetectorFeatureAdditionalConfiguration() {}
     /**
-     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
      * 
      */
     public String name() {
@@ -56,19 +57,25 @@ public final class DetectorFeatureAdditionalConfiguration {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DetectorFeatureAdditionalConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("DetectorFeatureAdditionalConfiguration", "status");
+            }
+            this.status = status;
             return this;
         }
         public DetectorFeatureAdditionalConfiguration build() {
-            final var o = new DetectorFeatureAdditionalConfiguration();
-            o.name = name;
-            o.status = status;
-            return o;
+            final var _resultValue = new DetectorFeatureAdditionalConfiguration();
+            _resultValue.name = name;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

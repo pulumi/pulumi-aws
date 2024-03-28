@@ -16,17 +16,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testInstance = new aws.lightsail.Instance("testInstance", {
- *     availabilityZone: data.aws_availability_zones.available.names[0],
+ * const test = new aws.lightsail.Instance("test", {
+ *     name: "yak_sail",
+ *     availabilityZone: available.names[0],
  *     blueprintId: "amazon_linux_2",
  *     bundleId: "nano_1_0",
  * });
- * const testInstancePublicPorts = new aws.lightsail.InstancePublicPorts("testInstancePublicPorts", {
- *     instanceName: testInstance.name,
+ * const testInstancePublicPorts = new aws.lightsail.InstancePublicPorts("test", {
+ *     instanceName: test.name,
  *     portInfos: [{
  *         protocol: "tcp",
  *         fromPort: 80,
@@ -34,6 +36,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class InstancePublicPorts extends pulumi.CustomResource {
     /**

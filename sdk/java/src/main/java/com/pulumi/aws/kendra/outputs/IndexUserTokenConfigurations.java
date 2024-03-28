@@ -59,19 +59,21 @@ public final class IndexUserTokenConfigurations {
 
         @CustomType.Setter
         public Builder jsonTokenTypeConfiguration(@Nullable IndexUserTokenConfigurationsJsonTokenTypeConfiguration jsonTokenTypeConfiguration) {
+
             this.jsonTokenTypeConfiguration = jsonTokenTypeConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder jwtTokenTypeConfiguration(@Nullable IndexUserTokenConfigurationsJwtTokenTypeConfiguration jwtTokenTypeConfiguration) {
+
             this.jwtTokenTypeConfiguration = jwtTokenTypeConfiguration;
             return this;
         }
         public IndexUserTokenConfigurations build() {
-            final var o = new IndexUserTokenConfigurations();
-            o.jsonTokenTypeConfiguration = jsonTokenTypeConfiguration;
-            o.jwtTokenTypeConfiguration = jwtTokenTypeConfiguration;
-            return o;
+            final var _resultValue = new IndexUserTokenConfigurations();
+            _resultValue.jsonTokenTypeConfiguration = jsonTokenTypeConfiguration;
+            _resultValue.jwtTokenTypeConfiguration = jwtTokenTypeConfiguration;
+            return _resultValue;
         }
     }
 }

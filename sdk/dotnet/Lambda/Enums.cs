@@ -20,37 +20,52 @@ namespace Pulumi.Aws.Lambda
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        [Obsolete(@"This runtime is now deprecated")]
-        public static Runtime DotnetCore2d1 { get; } = new Runtime("dotnetcore2.1");
-        public static Runtime DotnetCore3d1 { get; } = new Runtime("dotnetcore3.1");
-        public static Runtime Dotnet5d0 { get; } = new Runtime("dotnet5.0");
         public static Runtime Dotnet6 { get; } = new Runtime("dotnet6");
-        public static Runtime Go1dx { get; } = new Runtime("go1.x");
-        public static Runtime Java8 { get; } = new Runtime("java8");
-        public static Runtime Java8AL2 { get; } = new Runtime("java8.al2");
+        public static Runtime Dotnet7 { get; } = new Runtime("dotnet7");
+        public static Runtime Dotnet8 { get; } = new Runtime("dotnet8");
         public static Runtime Java11 { get; } = new Runtime("java11");
         public static Runtime Java17 { get; } = new Runtime("java17");
-        [Obsolete(@"This runtime is now deprecated")]
-        public static Runtime Ruby2d5 { get; } = new Runtime("ruby2.5");
-        public static Runtime Ruby2d7 { get; } = new Runtime("ruby2.7");
-        public static Runtime Ruby3d2 { get; } = new Runtime("ruby3.2");
-        [Obsolete(@"This runtime is now deprecated")]
-        public static Runtime NodeJS10dX { get; } = new Runtime("nodejs10.x");
-        public static Runtime NodeJS12dX { get; } = new Runtime("nodejs12.x");
-        public static Runtime NodeJS14dX { get; } = new Runtime("nodejs14.x");
+        public static Runtime Java21 { get; } = new Runtime("java21");
+        public static Runtime Java8AL2 { get; } = new Runtime("java8.al2");
         public static Runtime NodeJS16dX { get; } = new Runtime("nodejs16.x");
         public static Runtime NodeJS18dX { get; } = new Runtime("nodejs18.x");
+        public static Runtime NodeJS20dX { get; } = new Runtime("nodejs20.x");
+        public static Runtime CustomAL2 { get; } = new Runtime("provided.al2");
+        public static Runtime CustomAL2023 { get; } = new Runtime("provided.al2023");
+        public static Runtime Python3d10 { get; } = new Runtime("python3.10");
+        public static Runtime Python3d11 { get; } = new Runtime("python3.11");
+        public static Runtime Python3d12 { get; } = new Runtime("python3.12");
+        public static Runtime Python3d8 { get; } = new Runtime("python3.8");
+        public static Runtime Python3d9 { get; } = new Runtime("python3.9");
+        public static Runtime Ruby3d2 { get; } = new Runtime("ruby3.2");
+        [Obsolete(@"This runtime is now deprecated")]
+        public static Runtime Dotnet5d0 { get; } = new Runtime("dotnet5.0");
+        [Obsolete(@"This runtime is now deprecated")]
+        public static Runtime DotnetCore2d1 { get; } = new Runtime("dotnetcore2.1");
+        [Obsolete(@"This runtime is now deprecated")]
+        public static Runtime DotnetCore3d1 { get; } = new Runtime("dotnetcore3.1");
+        [Obsolete(@"This runtime is now deprecated")]
+        public static Runtime Go1dx { get; } = new Runtime("go1.x");
+        [Obsolete(@"This runtime is now deprecated")]
+        public static Runtime Java8 { get; } = new Runtime("java8");
+        [Obsolete(@"This runtime is now deprecated")]
+        public static Runtime NodeJS10dX { get; } = new Runtime("nodejs10.x");
+        [Obsolete(@"This runtime is now deprecated")]
+        public static Runtime NodeJS12dX { get; } = new Runtime("nodejs12.x");
+        [Obsolete(@"This runtime is now deprecated")]
+        public static Runtime NodeJS14dX { get; } = new Runtime("nodejs14.x");
+        [Obsolete(@"This runtime is now deprecated")]
+        public static Runtime Custom { get; } = new Runtime("provided");
         [Obsolete(@"This runtime is now deprecated")]
         public static Runtime Python2d7 { get; } = new Runtime("python2.7");
         [Obsolete(@"This runtime is now deprecated")]
         public static Runtime Python3d6 { get; } = new Runtime("python3.6");
+        [Obsolete(@"This runtime is now deprecated")]
         public static Runtime Python3d7 { get; } = new Runtime("python3.7");
-        public static Runtime Python3d8 { get; } = new Runtime("python3.8");
-        public static Runtime Python3d9 { get; } = new Runtime("python3.9");
-        public static Runtime Python3d10 { get; } = new Runtime("python3.10");
-        public static Runtime Python3d11 { get; } = new Runtime("python3.11");
-        public static Runtime Custom { get; } = new Runtime("provided");
-        public static Runtime CustomAL2 { get; } = new Runtime("provided.al2");
+        [Obsolete(@"This runtime is now deprecated")]
+        public static Runtime Ruby2d5 { get; } = new Runtime("ruby2.5");
+        [Obsolete(@"This runtime is now deprecated")]
+        public static Runtime Ruby2d7 { get; } = new Runtime("ruby2.7");
 
         public static bool operator ==(Runtime left, Runtime right) => left.Equals(right);
         public static bool operator !=(Runtime left, Runtime right) => !left.Equals(right);

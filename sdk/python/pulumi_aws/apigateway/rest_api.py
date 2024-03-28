@@ -562,52 +562,179 @@ class RestApi(pulumi.CustomResource):
         !> **WARN:** When importing Open API Specifications with the `body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `put_rest_api_mode` attribute and set it to `merge`.
 
         ## Example Usage
-        ### Resources
 
+        ### OpenAPI Specification
+
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
-        import hashlib
         import json
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_resource = aws.apigateway.Resource("exampleResource",
-            parent_id=example_rest_api.root_resource_id,
-            path_part="example",
-            rest_api=example_rest_api.id)
-        example_method = aws.apigateway.Method("exampleMethod",
-            authorization="NONE",
-            http_method="GET",
-            resource_id=example_resource.id,
-            rest_api=example_rest_api.id)
-        example_integration = aws.apigateway.Integration("exampleIntegration",
-            http_method=example_method.http_method,
-            resource_id=example_resource.id,
-            rest_api=example_rest_api.id,
-            type="MOCK")
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+        example = aws.apigateway.RestApi("example",
+            body=json.dumps({
+                "openapi": "3.0.1",
+                "info": {
+                    "title": "example",
+                    "version": "1.0",
+                },
+                "paths": {
+                    "/path1": {
+                        "get": {
+                            "x-amazon-apigateway-integration": {
+                                "httpMethod": "GET",
+                                "payloadFormatVersion": "1.0",
+                                "type": "HTTP_PROXY",
+                                "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                            },
+                        },
+                    },
+                },
+            }),
+            name="example",
+            endpoint_configuration=aws.apigateway.RestApiEndpointConfigurationArgs(
+                types="REGIONAL",
+            ))
+        example_deployment = aws.apigateway.Deployment("example",
+            rest_api=example.id,
+            triggers={
+                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps(example.body)).apply(lambda invoke: invoke.result),
+            })
+        example_stage = aws.apigateway.Stage("example",
+            deployment=example_deployment.id,
+            rest_api=example.id,
+            stage_name="example")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### OpenAPI Specification with Private Endpoints
+
+        Using `put_rest_api_mode` = `merge` when importing the OpenAPI Specification, the AWS control plane will not delete all existing literal properties that are not explicitly set in the OpenAPI definition. Impacted API Gateway properties: ApiKeySourceType, BinaryMediaTypes, Description, EndpointConfiguration, MinimumCompressionSize, Name, Policy).
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        available = aws.get_availability_zones(state="available",
+            filters=[aws.GetAvailabilityZonesFilterArgs(
+                name="opt-in-status",
+                values=["opt-in-not-required"],
+            )])
+        current = aws.get_region()
+        example = aws.ec2.Vpc("example",
+            cidr_block="10.0.0.0/16",
+            enable_dns_support=True,
+            enable_dns_hostnames=True)
+        example_default_security_group = aws.ec2.DefaultSecurityGroup("example", vpc_id=example.id)
+        example_subnet = aws.ec2.Subnet("example",
+            availability_zone=available.names[0],
+            cidr_block=example.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                newbits=8,
+                netnum=0)).apply(lambda invoke: invoke.result),
+            vpc_id=example.id)
+        example_vpc_endpoint = []
+        for range in [{"value": i} for i in range(0, 3)]:
+            example_vpc_endpoint.append(aws.ec2.VpcEndpoint(f"example-{range['value']}",
+                private_dns_enabled=False,
+                security_group_ids=[example_default_security_group.id],
+                service_name=f"com.amazonaws.{current.name}.execute-api",
+                subnet_ids=[example_subnet.id],
+                vpc_endpoint_type="Interface",
+                vpc_id=example.id))
+        example_rest_api = aws.apigateway.RestApi("example",
+            body=json.dumps({
+                "openapi": "3.0.1",
+                "info": {
+                    "title": "example",
+                    "version": "1.0",
+                },
+                "paths": {
+                    "/path1": {
+                        "get": {
+                            "x-amazon-apigateway-integration": {
+                                "httpMethod": "GET",
+                                "payloadFormatVersion": "1.0",
+                                "type": "HTTP_PROXY",
+                                "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                            },
+                        },
+                    },
+                },
+            }),
+            name="example",
+            put_rest_api_mode="merge",
+            endpoint_configuration=aws.apigateway.RestApiEndpointConfigurationArgs(
+                types="PRIVATE",
+                vpc_endpoint_ids=[
+                    example_vpc_endpoint[0].id,
+                    example_vpc_endpoint[1].id,
+                    example_vpc_endpoint[2].id,
+                ],
+            ))
+        example_deployment = aws.apigateway.Deployment("example",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": pulumi.Output.all(example_resource.id, example_method.id, example_integration.id).apply(lambda exampleResourceId, exampleMethodId, exampleIntegrationId: json.dumps([
-                    example_resource_id,
-                    example_method_id,
-                    example_integration_id,
-                ])).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps(example_rest_api.body)).apply(lambda invoke: invoke.result),
             })
-        example_stage = aws.apigateway.Stage("exampleStage",
+        example_stage = aws.apigateway.Stage("example",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
             stage_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Resources
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.apigateway.RestApi("example", name="example")
+        example_resource = aws.apigateway.Resource("example",
+            parent_id=example.root_resource_id,
+            path_part="example",
+            rest_api=example.id)
+        example_method = aws.apigateway.Method("example",
+            authorization="NONE",
+            http_method="GET",
+            resource_id=example_resource.id,
+            rest_api=example.id)
+        example_integration = aws.apigateway.Integration("example",
+            http_method=example_method.http_method,
+            resource_id=example_resource.id,
+            rest_api=example.id,
+            type="MOCK")
+        example_deployment = aws.apigateway.Deployment("example",
+            rest_api=example.id,
+            triggers={
+                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps([
+                    example_resource.id,
+                    example_method.id,
+                    example_integration.id,
+                ])).apply(lambda invoke: invoke.result),
+            })
+        example_stage = aws.apigateway.Stage("example",
+            deployment=example_deployment.id,
+            rest_api=example.id,
+            stage_name="example")
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
+        $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
         ```
-         ~> __NOTE:__ Resource import does not currently support the `body` attribute.
+        ~> __NOTE:__ Resource import does not currently support the `body` attribute.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -639,52 +766,179 @@ class RestApi(pulumi.CustomResource):
         !> **WARN:** When importing Open API Specifications with the `body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `put_rest_api_mode` attribute and set it to `merge`.
 
         ## Example Usage
-        ### Resources
 
+        ### OpenAPI Specification
+
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
-        import hashlib
         import json
         import pulumi_aws as aws
+        import pulumi_std as std
 
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_resource = aws.apigateway.Resource("exampleResource",
-            parent_id=example_rest_api.root_resource_id,
-            path_part="example",
-            rest_api=example_rest_api.id)
-        example_method = aws.apigateway.Method("exampleMethod",
-            authorization="NONE",
-            http_method="GET",
-            resource_id=example_resource.id,
-            rest_api=example_rest_api.id)
-        example_integration = aws.apigateway.Integration("exampleIntegration",
-            http_method=example_method.http_method,
-            resource_id=example_resource.id,
-            rest_api=example_rest_api.id,
-            type="MOCK")
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+        example = aws.apigateway.RestApi("example",
+            body=json.dumps({
+                "openapi": "3.0.1",
+                "info": {
+                    "title": "example",
+                    "version": "1.0",
+                },
+                "paths": {
+                    "/path1": {
+                        "get": {
+                            "x-amazon-apigateway-integration": {
+                                "httpMethod": "GET",
+                                "payloadFormatVersion": "1.0",
+                                "type": "HTTP_PROXY",
+                                "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                            },
+                        },
+                    },
+                },
+            }),
+            name="example",
+            endpoint_configuration=aws.apigateway.RestApiEndpointConfigurationArgs(
+                types="REGIONAL",
+            ))
+        example_deployment = aws.apigateway.Deployment("example",
+            rest_api=example.id,
+            triggers={
+                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps(example.body)).apply(lambda invoke: invoke.result),
+            })
+        example_stage = aws.apigateway.Stage("example",
+            deployment=example_deployment.id,
+            rest_api=example.id,
+            stage_name="example")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### OpenAPI Specification with Private Endpoints
+
+        Using `put_rest_api_mode` = `merge` when importing the OpenAPI Specification, the AWS control plane will not delete all existing literal properties that are not explicitly set in the OpenAPI definition. Impacted API Gateway properties: ApiKeySourceType, BinaryMediaTypes, Description, EndpointConfiguration, MinimumCompressionSize, Name, Policy).
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        available = aws.get_availability_zones(state="available",
+            filters=[aws.GetAvailabilityZonesFilterArgs(
+                name="opt-in-status",
+                values=["opt-in-not-required"],
+            )])
+        current = aws.get_region()
+        example = aws.ec2.Vpc("example",
+            cidr_block="10.0.0.0/16",
+            enable_dns_support=True,
+            enable_dns_hostnames=True)
+        example_default_security_group = aws.ec2.DefaultSecurityGroup("example", vpc_id=example.id)
+        example_subnet = aws.ec2.Subnet("example",
+            availability_zone=available.names[0],
+            cidr_block=example.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                newbits=8,
+                netnum=0)).apply(lambda invoke: invoke.result),
+            vpc_id=example.id)
+        example_vpc_endpoint = []
+        for range in [{"value": i} for i in range(0, 3)]:
+            example_vpc_endpoint.append(aws.ec2.VpcEndpoint(f"example-{range['value']}",
+                private_dns_enabled=False,
+                security_group_ids=[example_default_security_group.id],
+                service_name=f"com.amazonaws.{current.name}.execute-api",
+                subnet_ids=[example_subnet.id],
+                vpc_endpoint_type="Interface",
+                vpc_id=example.id))
+        example_rest_api = aws.apigateway.RestApi("example",
+            body=json.dumps({
+                "openapi": "3.0.1",
+                "info": {
+                    "title": "example",
+                    "version": "1.0",
+                },
+                "paths": {
+                    "/path1": {
+                        "get": {
+                            "x-amazon-apigateway-integration": {
+                                "httpMethod": "GET",
+                                "payloadFormatVersion": "1.0",
+                                "type": "HTTP_PROXY",
+                                "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                            },
+                        },
+                    },
+                },
+            }),
+            name="example",
+            put_rest_api_mode="merge",
+            endpoint_configuration=aws.apigateway.RestApiEndpointConfigurationArgs(
+                types="PRIVATE",
+                vpc_endpoint_ids=[
+                    example_vpc_endpoint[0].id,
+                    example_vpc_endpoint[1].id,
+                    example_vpc_endpoint[2].id,
+                ],
+            ))
+        example_deployment = aws.apigateway.Deployment("example",
             rest_api=example_rest_api.id,
             triggers={
-                "redeployment": pulumi.Output.all(example_resource.id, example_method.id, example_integration.id).apply(lambda exampleResourceId, exampleMethodId, exampleIntegrationId: json.dumps([
-                    example_resource_id,
-                    example_method_id,
-                    example_integration_id,
-                ])).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps(example_rest_api.body)).apply(lambda invoke: invoke.result),
             })
-        example_stage = aws.apigateway.Stage("exampleStage",
+        example_stage = aws.apigateway.Stage("example",
             deployment=example_deployment.id,
             rest_api=example_rest_api.id,
             stage_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Resources
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.apigateway.RestApi("example", name="example")
+        example_resource = aws.apigateway.Resource("example",
+            parent_id=example.root_resource_id,
+            path_part="example",
+            rest_api=example.id)
+        example_method = aws.apigateway.Method("example",
+            authorization="NONE",
+            http_method="GET",
+            resource_id=example_resource.id,
+            rest_api=example.id)
+        example_integration = aws.apigateway.Integration("example",
+            http_method=example_method.http_method,
+            resource_id=example_resource.id,
+            rest_api=example.id,
+            type="MOCK")
+        example_deployment = aws.apigateway.Deployment("example",
+            rest_api=example.id,
+            triggers={
+                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps([
+                    example_resource.id,
+                    example_method.id,
+                    example_integration.id,
+                ])).apply(lambda invoke: invoke.result),
+            })
+        example_stage = aws.apigateway.Stage("example",
+            deployment=example_deployment.id,
+            rest_api=example.id,
+            stage_name="example")
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
+        $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
         ```
-         ~> __NOTE:__ Resource import does not currently support the `body` attribute.
+        ~> __NOTE:__ Resource import does not currently support the `body` attribute.
 
         :param str resource_name: The name of the resource.
         :param RestApiArgs args: The arguments to use to populate this resource's properties.
@@ -741,8 +995,6 @@ class RestApi(pulumi.CustomResource):
             __props__.__dict__["execution_arn"] = None
             __props__.__dict__["root_resource_id"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RestApi, __self__).__init__(
             'aws:apigateway/restApi:RestApi',
             resource_name,

@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS CloudWatch Observability Access Manager Link.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -34,7 +36,7 @@ import (
 //				ResourceTypes: pulumi.StringArray{
 //					pulumi.String("AWS::CloudWatch::Metric"),
 //				},
-//				SinkIdentifier: pulumi.Any(aws_oam_sink.Test.Id),
+//				SinkIdentifier: pulumi.Any(test.Id),
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("prod"),
 //				},
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
-//
+// $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
 // ```
 type Link struct {
 	pulumi.CustomResourceState
@@ -98,10 +99,6 @@ func NewLink(ctx *pulumi.Context,
 	if args.SinkIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'SinkIdentifier'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Link
 	err := ctx.RegisterResource("aws:oam/link:Link", name, args, &resource, opts...)

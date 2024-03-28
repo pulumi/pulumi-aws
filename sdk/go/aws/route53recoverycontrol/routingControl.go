@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -29,6 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53recoverycontrol.NewRoutingControl(ctx, "example", &route53recoverycontrol.RoutingControlArgs{
+//				Name:       pulumi.String("tinlicker"),
 //				ClusterArn: pulumi.String("arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393"),
 //			})
 //			if err != nil {
@@ -39,7 +41,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,6 +57,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53recoverycontrol.NewRoutingControl(ctx, "example", &route53recoverycontrol.RoutingControlArgs{
+//				Name:            pulumi.String("thomasoliver"),
 //				ClusterArn:      pulumi.String("arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393"),
 //				ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
 //			})
@@ -64,15 +69,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
-//
+// $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
 // ```
 type RoutingControl struct {
 	pulumi.CustomResourceState

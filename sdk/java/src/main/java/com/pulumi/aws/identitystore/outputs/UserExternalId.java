@@ -58,19 +58,21 @@ public final class UserExternalId {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
+
             this.issuer = issuer;
             return this;
         }
         public UserExternalId build() {
-            final var o = new UserExternalId();
-            o.id = id;
-            o.issuer = issuer;
-            return o;
+            final var _resultValue = new UserExternalId();
+            _resultValue.id = id;
+            _resultValue.issuer = issuer;
+            return _resultValue;
         }
     }
 }

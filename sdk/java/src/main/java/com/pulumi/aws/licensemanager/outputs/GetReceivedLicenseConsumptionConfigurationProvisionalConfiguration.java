@@ -4,6 +4,7 @@
 package com.pulumi.aws.licensemanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class GetReceivedLicenseConsumptionConfigurationProvisionalConfigur
 
         @CustomType.Setter
         public Builder maxTimeToLiveInMinutes(Integer maxTimeToLiveInMinutes) {
-            this.maxTimeToLiveInMinutes = Objects.requireNonNull(maxTimeToLiveInMinutes);
+            if (maxTimeToLiveInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration", "maxTimeToLiveInMinutes");
+            }
+            this.maxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
             return this;
         }
         public GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration build() {
-            final var o = new GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration();
-            o.maxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
-            return o;
+            final var _resultValue = new GetReceivedLicenseConsumptionConfigurationProvisionalConfiguration();
+            _resultValue.maxTimeToLiveInMinutes = maxTimeToLiveInMinutes;
+            return _resultValue;
         }
     }
 }

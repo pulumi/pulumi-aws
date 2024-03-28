@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,21 +20,23 @@ import * as utilities from "../utilities";
  *         "creation",
  *         "failure",
  *     ],
- *     snsTopicArn: aws_sns_topic.example.arn,
- *     sourceIds: [aws_dms_replication_task.example.replication_task_id],
+ *     name: "my-favorite-event-subscription",
+ *     snsTopicArn: exampleAwsSnsTopic.arn,
+ *     sourceIds: [exampleAwsDmsReplicationTask.replicationTaskId],
  *     sourceType: "replication-task",
  *     tags: {
  *         Name: "example",
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import event subscriptions using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
+ * $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
  * ```
  */
 export class EventSubscription extends pulumi.CustomResource {
@@ -85,13 +88,13 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly snsTopicArn!: pulumi.Output<string>;
     /**
-     * Ids of sources to listen to.
+     * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
      */
     public readonly sourceIds!: pulumi.Output<string[] | undefined>;
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      */
-    public readonly sourceType!: pulumi.Output<string | undefined>;
+    public readonly sourceType!: pulumi.Output<string>;
     /**
      * Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -133,6 +136,9 @@ export class EventSubscription extends pulumi.CustomResource {
             if ((!args || args.snsTopicArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snsTopicArn'");
             }
+            if ((!args || args.sourceType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sourceType'");
+            }
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["eventCategories"] = args ? args.eventCategories : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -144,8 +150,6 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(EventSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -175,7 +179,7 @@ export interface EventSubscriptionState {
      */
     snsTopicArn?: pulumi.Input<string>;
     /**
-     * Ids of sources to listen to.
+     * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -215,13 +219,13 @@ export interface EventSubscriptionArgs {
      */
     snsTopicArn: pulumi.Input<string>;
     /**
-     * Ids of sources to listen to.
+     * Ids of sources to listen to. If you don't specify a value, notifications are provided for all sources.
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      */
-    sourceType?: pulumi.Input<string>;
+    sourceType: pulumi.Input<string>;
     /**
      * Map of resource tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

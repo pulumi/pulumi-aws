@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ParameterType string
@@ -138,10 +137,12 @@ func (o ParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ParameterTypeInput is an input type that accepts ParameterTypeArgs and ParameterTypeOutput values.
-// You can construct a concrete instance of `ParameterTypeInput` via:
+// ParameterTypeInput is an input type that accepts values of the ParameterType enum
+// A concrete instance of `ParameterTypeInput` can be one of the following:
 //
-//	ParameterTypeArgs{...}
+//	ParameterTypeString
+//	ParameterTypeStringList
+//	ParameterTypeSecureString
 type ParameterTypeInput interface {
 	pulumi.Input
 
@@ -174,12 +175,6 @@ func (in *parameterTypePtr) ToParameterTypePtrOutput() ParameterTypePtrOutput {
 
 func (in *parameterTypePtr) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ParameterTypePtrOutput)
-}
-
-func (in *parameterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ParameterType] {
-	return pulumix.Output[*ParameterType]{
-		OutputState: in.ToParameterTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

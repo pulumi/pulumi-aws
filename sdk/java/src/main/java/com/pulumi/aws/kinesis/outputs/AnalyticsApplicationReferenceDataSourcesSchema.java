@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.outputs;
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn;
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -79,7 +80,10 @@ public final class AnalyticsApplicationReferenceDataSourcesSchema {
 
         @CustomType.Setter
         public Builder recordColumns(List<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn> recordColumns) {
-            this.recordColumns = Objects.requireNonNull(recordColumns);
+            if (recordColumns == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesSchema", "recordColumns");
+            }
+            this.recordColumns = recordColumns;
             return this;
         }
         public Builder recordColumns(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn... recordColumns) {
@@ -87,20 +91,24 @@ public final class AnalyticsApplicationReferenceDataSourcesSchema {
         }
         @CustomType.Setter
         public Builder recordEncoding(@Nullable String recordEncoding) {
+
             this.recordEncoding = recordEncoding;
             return this;
         }
         @CustomType.Setter
         public Builder recordFormat(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat recordFormat) {
-            this.recordFormat = Objects.requireNonNull(recordFormat);
+            if (recordFormat == null) {
+              throw new MissingRequiredPropertyException("AnalyticsApplicationReferenceDataSourcesSchema", "recordFormat");
+            }
+            this.recordFormat = recordFormat;
             return this;
         }
         public AnalyticsApplicationReferenceDataSourcesSchema build() {
-            final var o = new AnalyticsApplicationReferenceDataSourcesSchema();
-            o.recordColumns = recordColumns;
-            o.recordEncoding = recordEncoding;
-            o.recordFormat = recordFormat;
-            return o;
+            final var _resultValue = new AnalyticsApplicationReferenceDataSourcesSchema();
+            _resultValue.recordColumns = recordColumns;
+            _resultValue.recordEncoding = recordEncoding;
+            _resultValue.recordFormat = recordFormat;
+            return _resultValue;
         }
     }
 }

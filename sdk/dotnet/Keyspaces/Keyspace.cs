@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,17 +25,21 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Keyspaces.Keyspace("example");
+    ///     var example = new Aws.Keyspaces.Keyspace("example", new()
+    ///     {
+    ///         Name = "my_keyspace",
+    ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a keyspace using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
+    /// $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
     /// ```
     /// </summary>
     [AwsResourceType("aws:keyspaces/keyspace:Keyspace")]
@@ -89,10 +94,6 @@ namespace Pulumi.Aws.Keyspaces
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -180,11 +181,7 @@ namespace Pulumi.Aws.Keyspaces
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public KeyspaceState()

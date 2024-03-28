@@ -5,6 +5,7 @@ package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.aws.batch.outputs.GetSchedulingPolicyFairSharePolicyShareDistribution;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -64,28 +65,37 @@ public final class GetSchedulingPolicyFairSharePolicy {
 
         @CustomType.Setter
         public Builder computeReservation(Integer computeReservation) {
-            this.computeReservation = Objects.requireNonNull(computeReservation);
+            if (computeReservation == null) {
+              throw new MissingRequiredPropertyException("GetSchedulingPolicyFairSharePolicy", "computeReservation");
+            }
+            this.computeReservation = computeReservation;
             return this;
         }
         @CustomType.Setter
         public Builder shareDecaySeconds(Integer shareDecaySeconds) {
-            this.shareDecaySeconds = Objects.requireNonNull(shareDecaySeconds);
+            if (shareDecaySeconds == null) {
+              throw new MissingRequiredPropertyException("GetSchedulingPolicyFairSharePolicy", "shareDecaySeconds");
+            }
+            this.shareDecaySeconds = shareDecaySeconds;
             return this;
         }
         @CustomType.Setter
         public Builder shareDistributions(List<GetSchedulingPolicyFairSharePolicyShareDistribution> shareDistributions) {
-            this.shareDistributions = Objects.requireNonNull(shareDistributions);
+            if (shareDistributions == null) {
+              throw new MissingRequiredPropertyException("GetSchedulingPolicyFairSharePolicy", "shareDistributions");
+            }
+            this.shareDistributions = shareDistributions;
             return this;
         }
         public Builder shareDistributions(GetSchedulingPolicyFairSharePolicyShareDistribution... shareDistributions) {
             return shareDistributions(List.of(shareDistributions));
         }
         public GetSchedulingPolicyFairSharePolicy build() {
-            final var o = new GetSchedulingPolicyFairSharePolicy();
-            o.computeReservation = computeReservation;
-            o.shareDecaySeconds = shareDecaySeconds;
-            o.shareDistributions = shareDistributions;
-            return o;
+            final var _resultValue = new GetSchedulingPolicyFairSharePolicy();
+            _resultValue.computeReservation = computeReservation;
+            _resultValue.shareDecaySeconds = shareDecaySeconds;
+            _resultValue.shareDistributions = shareDistributions;
+            return _resultValue;
         }
     }
 }

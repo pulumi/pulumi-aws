@@ -13,8 +13,10 @@ import (
 )
 
 // ## Example Usage
+//
 // ### Pause Cluster Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,13 +51,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("redshift_scheduled_action"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Effect: pulumi.StringRef("Allow"),
@@ -73,20 +76,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
-//				Policy: *pulumi.String(examplePolicyDocument.Json),
+//			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
+//				Name:   pulumi.String("redshift_scheduled_action"),
+//				Policy: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
 //				PolicyArn: examplePolicy.Arn,
 //				Role:      exampleRole.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redshift.NewScheduledAction(ctx, "exampleScheduledAction", &redshift.ScheduledActionArgs{
+//			_, err = redshift.NewScheduledAction(ctx, "example", &redshift.ScheduledActionArgs{
+//				Name:     pulumi.String("tf-redshift-scheduled-action"),
 //				Schedule: pulumi.String("cron(00 23 * * ? *)"),
 //				IamRole:  exampleRole.Arn,
 //				TargetAction: &redshift.ScheduledActionTargetActionArgs{
@@ -103,8 +108,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Resize Cluster Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -118,8 +126,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewScheduledAction(ctx, "example", &redshift.ScheduledActionArgs{
+//				Name:     pulumi.String("tf-redshift-scheduled-action"),
 //				Schedule: pulumi.String("cron(00 23 * * ? *)"),
-//				IamRole:  pulumi.Any(aws_iam_role.Example.Arn),
+//				IamRole:  pulumi.Any(exampleAwsIamRole.Arn),
 //				TargetAction: &redshift.ScheduledActionTargetActionArgs{
 //					ResizeCluster: &redshift.ScheduledActionTargetActionResizeClusterArgs{
 //						ClusterIdentifier: pulumi.String("tf-redshift001"),
@@ -137,15 +146,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
-//
+// $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
 // ```
 type ScheduledAction struct {
 	pulumi.CustomResourceState

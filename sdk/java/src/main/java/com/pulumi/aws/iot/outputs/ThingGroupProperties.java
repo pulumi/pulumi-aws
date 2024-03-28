@@ -59,19 +59,21 @@ public final class ThingGroupProperties {
 
         @CustomType.Setter
         public Builder attributePayload(@Nullable ThingGroupPropertiesAttributePayload attributePayload) {
+
             this.attributePayload = attributePayload;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         public ThingGroupProperties build() {
-            final var o = new ThingGroupProperties();
-            o.attributePayload = attributePayload;
-            o.description = description;
-            return o;
+            final var _resultValue = new ThingGroupProperties();
+            _resultValue.attributePayload = attributePayload;
+            _resultValue.description = description;
+            return _resultValue;
         }
     }
 }

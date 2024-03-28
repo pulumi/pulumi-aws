@@ -7,6 +7,7 @@ import com.pulumi.aws.quicksight.outputs.DataSetPhysicalTableMapCustomSql;
 import com.pulumi.aws.quicksight.outputs.DataSetPhysicalTableMapRelationalTable;
 import com.pulumi.aws.quicksight.outputs.DataSetPhysicalTableMapS3Source;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -89,31 +90,37 @@ public final class DataSetPhysicalTableMap {
 
         @CustomType.Setter
         public Builder customSql(@Nullable DataSetPhysicalTableMapCustomSql customSql) {
+
             this.customSql = customSql;
             return this;
         }
         @CustomType.Setter
         public Builder physicalTableMapId(String physicalTableMapId) {
-            this.physicalTableMapId = Objects.requireNonNull(physicalTableMapId);
+            if (physicalTableMapId == null) {
+              throw new MissingRequiredPropertyException("DataSetPhysicalTableMap", "physicalTableMapId");
+            }
+            this.physicalTableMapId = physicalTableMapId;
             return this;
         }
         @CustomType.Setter
         public Builder relationalTable(@Nullable DataSetPhysicalTableMapRelationalTable relationalTable) {
+
             this.relationalTable = relationalTable;
             return this;
         }
         @CustomType.Setter
         public Builder s3Source(@Nullable DataSetPhysicalTableMapS3Source s3Source) {
+
             this.s3Source = s3Source;
             return this;
         }
         public DataSetPhysicalTableMap build() {
-            final var o = new DataSetPhysicalTableMap();
-            o.customSql = customSql;
-            o.physicalTableMapId = physicalTableMapId;
-            o.relationalTable = relationalTable;
-            o.s3Source = s3Source;
-            return o;
+            final var _resultValue = new DataSetPhysicalTableMap();
+            _resultValue.customSql = customSql;
+            _resultValue.physicalTableMapId = physicalTableMapId;
+            _resultValue.relationalTable = relationalTable;
+            _resultValue.s3Source = s3Source;
+            return _resultValue;
         }
     }
 }

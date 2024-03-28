@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := resourcegroups.NewGroup(ctx, "test", &resourcegroups.GroupArgs{
+//				Name: pulumi.String("test-group"),
 //				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
 //					Query: pulumi.String(`{
 //	  "ResourceTypeFilters": [
@@ -53,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import resource groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:resourcegroups/group:Group foo resource-group-name
-//
+// $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
 // ```
 type Group struct {
 	pulumi.CustomResourceState
@@ -91,10 +92,6 @@ func NewGroup(ctx *pulumi.Context,
 		args = &GroupArgs{}
 	}
 
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:resourcegroups/group:Group", name, args, &resource, opts...)

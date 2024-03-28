@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SsmContacts
     /// Resource for managing an AWS SSM Contact.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,18 +29,15 @@ namespace Pulumi.Aws.SsmContacts
     ///     {
     ///         Alias = "alias",
     ///         Type = "PERSONAL",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Usage With All Fields
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,23 +55,18 @@ namespace Pulumi.Aws.SsmContacts
     ///         {
     ///             { "key", "value" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM Contact using the `ARN`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
+    /// $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssmcontacts/contact:Contact")]
@@ -140,10 +134,6 @@ namespace Pulumi.Aws.SsmContacts
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -248,11 +238,7 @@ namespace Pulumi.Aws.SsmContacts
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

@@ -19,6 +19,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,16 +32,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testIpamPreviewNextCidr, err := ec2.GetIpamPreviewNextCidr(ctx, &ec2.GetIpamPreviewNextCidrArgs{
-//				IpamPoolId:    aws_vpc_ipam_pool.Test.Id,
+//			test, err := ec2.GetIpamPreviewNextCidr(ctx, &ec2.GetIpamPreviewNextCidrArgs{
+//				IpamPoolId:    testAwsVpcIpamPool.Id,
 //				NetmaskLength: pulumi.IntRef(28),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "testVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
-//				IpamPoolId: pulumi.Any(aws_vpc_ipam_pool.Test.Id),
-//				Cidr:       *pulumi.String(testIpamPreviewNextCidr.Cidr),
+//			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "test", &ec2.VpcIpamPoolCidrAllocationArgs{
+//				IpamPoolId: pulumi.Any(testAwsVpcIpamPool.Id),
+//				Cidr:       pulumi.String(test.Cidr),
 //			})
 //			if err != nil {
 //				return err
@@ -50,6 +51,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetIpamPreviewNextCidr(ctx *pulumi.Context, args *GetIpamPreviewNextCidrArgs, opts ...pulumi.InvokeOption) (*GetIpamPreviewNextCidrResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpamPreviewNextCidrResult

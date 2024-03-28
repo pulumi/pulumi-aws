@@ -11,23 +11,26 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleProject = new aws.devicefarm.Project("exampleProject", {});
- * const exampleUpload = new aws.devicefarm.Upload("exampleUpload", {
- *     projectArn: exampleProject.arn,
+ * const example = new aws.devicefarm.Project("example", {name: "example"});
+ * const exampleUpload = new aws.devicefarm.Upload("example", {
+ *     name: "example",
+ *     projectArn: example.arn,
  *     type: "APPIUM_JAVA_TESTNG_TEST_SPEC",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
  * ```
  */
 export class Upload extends pulumi.CustomResource {

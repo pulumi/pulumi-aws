@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Xray
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,8 +32,11 @@ namespace Pulumi.Aws.Xray
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With KMS Key
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +47,7 @@ namespace Pulumi.Aws.Xray
     /// {
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -74,14 +78,14 @@ namespace Pulumi.Aws.Xray
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "Some Key",
     ///         DeletionWindowInDays = 7,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleEncryptionConfig = new Aws.Xray.EncryptionConfig("exampleEncryptionConfig", new()
+    ///     var exampleEncryptionConfig = new Aws.Xray.EncryptionConfig("example", new()
     ///     {
     ///         Type = "KMS",
     ///         KeyId = exampleKey.Arn,
@@ -89,13 +93,14 @@ namespace Pulumi.Aws.Xray
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import XRay Encryption Config using the region name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+    /// $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
     /// ```
     /// </summary>
     [AwsResourceType("aws:xray/encryptionConfig:EncryptionConfig")]

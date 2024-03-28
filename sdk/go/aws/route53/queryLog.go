@@ -22,12 +22,14 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
@@ -37,19 +39,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "us-east-1", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
+//			// Example Route53 zone with query logging
+//			exampleCom, err := route53.NewZone(ctx, "example_com", &route53.ZoneArgs{
+//				Name: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			awsRoute53ExampleCom, err := cloudwatch.NewLogGroup(ctx, "awsRoute53ExampleCom", &cloudwatch.LogGroupArgs{
+//			awsRoute53ExampleCom, err := cloudwatch.NewLogGroup(ctx, "aws_route53_example_com", &cloudwatch.LogGroupArgs{
+//				Name: exampleCom.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("/aws/route53/%v", name), nil
+//				}).(pulumi.StringOutput),
 //				RetentionInDays: pulumi.Int(30),
-//			}, pulumi.Provider(aws.UsEast1))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			route53_query_logging_policyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//			// Example CloudWatch log resource policy to allow Route53 to write logs
+//			// to any log group under /aws/route53/*
+//			route53_query_logging_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
 //						Actions: []string{
@@ -73,23 +81,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: *pulumi.String(route53_query_logging_policyPolicyDocument.Json),
+//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "route53-query-logging-policy", &cloudwatch.LogResourcePolicyArgs{
+//				PolicyDocument: pulumi.String(route53_query_logging_policy.Json),
 //				PolicyName:     pulumi.String("route53-query-logging-policy"),
-//			}, pulumi.Provider(aws.UsEast1))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleComZone, err := route53.NewZone(ctx, "exampleComZone", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewQueryLog(ctx, "exampleComQueryLog", &route53.QueryLogArgs{
+//			_, err = route53.NewQueryLog(ctx, "example_com", &route53.QueryLogArgs{
 //				CloudwatchLogGroupArn: awsRoute53ExampleCom.Arn,
-//				ZoneId:                exampleComZone.ZoneId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				route53_query_logging_policyLogResourcePolicy,
-//			}))
+//				ZoneId:                exampleCom.ZoneId,
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -98,15 +100,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route53 query logging configurations using their ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-//
+// $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 // ```
 type QueryLog struct {
 	pulumi.CustomResourceState

@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class RuleGroupRuleGroupStatefulRuleOptions {
 
         @CustomType.Setter
         public Builder ruleOrder(String ruleOrder) {
-            this.ruleOrder = Objects.requireNonNull(ruleOrder);
+            if (ruleOrder == null) {
+              throw new MissingRequiredPropertyException("RuleGroupRuleGroupStatefulRuleOptions", "ruleOrder");
+            }
+            this.ruleOrder = ruleOrder;
             return this;
         }
         public RuleGroupRuleGroupStatefulRuleOptions build() {
-            final var o = new RuleGroupRuleGroupStatefulRuleOptions();
-            o.ruleOrder = ruleOrder;
-            return o;
+            final var _resultValue = new RuleGroupRuleGroupStatefulRuleOptions();
+            _resultValue.ruleOrder = ruleOrder;
+            return _resultValue;
         }
     }
 }

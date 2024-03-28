@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -26,6 +25,8 @@ import javax.annotation.Nullable;
  * `default`, and no application versions
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,9 +50,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tftest = new Application(&#34;tftest&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;tf-test-name&#34;)
  *             .description(&#34;tf-test-desc&#34;)
  *             .appversionLifecycle(ApplicationAppversionLifecycleArgs.builder()
- *                 .serviceRole(aws_iam_role.beanstalk_service().arn())
+ *                 .serviceRole(beanstalkService.arn())
  *                 .maxCount(128)
  *                 .deleteSourceFromS3(true)
  *                 .build())
@@ -60,13 +62,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+ * $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
  * ```
  * 
  */
@@ -185,9 +188,6 @@ public class Application extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

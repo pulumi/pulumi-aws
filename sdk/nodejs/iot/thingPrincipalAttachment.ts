@@ -11,14 +11,17 @@ import {ARN} from "..";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const example = new aws.iot.Thing("example", {});
+ * const example = new aws.iot.Thing("example", {name: "example"});
  * const cert = new aws.iot.Certificate("cert", {
- *     csr: fs.readFileSync("csr.pem"),
+ *     csr: std.file({
+ *         input: "csr.pem",
+ *     }).then(invoke => invoke.result),
  *     active: true,
  * });
  * const att = new aws.iot.ThingPrincipalAttachment("att", {
@@ -26,6 +29,7 @@ import {ARN} from "..";
  *     thing: example.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class ThingPrincipalAttachment extends pulumi.CustomResource {
     /**

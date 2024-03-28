@@ -165,25 +165,29 @@ class CustomKeyStore(pulumi.CustomResource):
         Resource for managing an AWS KMS (Key Management) Custom Key Store.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         test = aws.kms.CustomKeyStore("test",
-            cloud_hsm_cluster_id=var["cloud_hsm_cluster_id"],
+            cloud_hsm_cluster_id=cloud_hsm_cluster_id,
             custom_key_store_name="kms-custom-key-store-test",
             key_store_password="noplaintextpasswords1",
-            trust_anchor_certificate=(lambda path: open(path).read())("anchor-certificate.crt"))
+            trust_anchor_certificate=std.file(input="anchor-certificate.crt").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
+        $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
         ```
 
         :param str resource_name: The name of the resource.
@@ -203,25 +207,29 @@ class CustomKeyStore(pulumi.CustomResource):
         Resource for managing an AWS KMS (Key Management) Custom Key Store.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
 
         test = aws.kms.CustomKeyStore("test",
-            cloud_hsm_cluster_id=var["cloud_hsm_cluster_id"],
+            cloud_hsm_cluster_id=cloud_hsm_cluster_id,
             custom_key_store_name="kms-custom-key-store-test",
             key_store_password="noplaintextpasswords1",
-            trust_anchor_certificate=(lambda path: open(path).read())("anchor-certificate.crt"))
+            trust_anchor_certificate=std.file(input="anchor-certificate.crt").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
+        $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
         ```
 
         :param str resource_name: The name of the resource.

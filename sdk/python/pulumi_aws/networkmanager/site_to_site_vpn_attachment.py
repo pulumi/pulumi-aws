@@ -305,26 +305,29 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  vpn_connection_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS NetworkManager SiteToSiteAttachment.
+        Resource for managing an AWS Network Manager SiteToSiteAttachment.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.SiteToSiteVpnAttachment("example",
-            core_network_id=awscc_networkmanager_core_network["example"]["id"],
-            vpn_connection_arn=aws_vpn_connection["example"]["arn"])
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpn_connection_arn=example_aws_vpn_connection["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
+        $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
         ```
 
         :param str resource_name: The name of the resource.
@@ -342,26 +345,29 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  args: SiteToSiteVpnAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS NetworkManager SiteToSiteAttachment.
+        Resource for managing an AWS Network Manager SiteToSiteAttachment.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.SiteToSiteVpnAttachment("example",
-            core_network_id=awscc_networkmanager_core_network["example"]["id"],
-            vpn_connection_arn=aws_vpn_connection["example"]["arn"])
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpn_connection_arn=example_aws_vpn_connection["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
+        $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
         ```
 
         :param str resource_name: The name of the resource.
@@ -408,8 +414,6 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SiteToSiteVpnAttachment, __self__).__init__(
             'aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment',
             resource_name,

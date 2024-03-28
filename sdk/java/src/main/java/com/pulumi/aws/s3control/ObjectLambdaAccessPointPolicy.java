@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage an S3 Object Lambda Access Point resource policy.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -25,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.AccessPoint;
  * import com.pulumi.aws.s3.AccessPointArgs;
  * import com.pulumi.aws.s3control.ObjectLambdaAccessPoint;
@@ -46,20 +49,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;example&#34;)
+ *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint(&#34;exampleAccessPoint&#34;, AccessPointArgs.builder()        
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(example.id())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleObjectLambdaAccessPoint = new ObjectLambdaAccessPoint(&#34;exampleObjectLambdaAccessPoint&#34;, ObjectLambdaAccessPointArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .configuration(ObjectLambdaAccessPointConfigurationArgs.builder()
  *                 .supportingAccessPoint(exampleAccessPoint.arn())
  *                 .transformationConfigurations(ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.builder()
  *                     .actions(&#34;GetObject&#34;)
  *                     .contentTransformation(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs.builder()
  *                         .awsLambda(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.builder()
- *                             .functionArn(aws_lambda_function.example().arn())
+ *                             .functionArn(exampleAwsLambdaFunction.arn())
  *                             .build())
  *                         .build())
  *                     .build())
@@ -67,16 +74,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleObjectLambdaAccessPointPolicy = new ObjectLambdaAccessPointPolicy(&#34;exampleObjectLambdaAccessPointPolicy&#34;, ObjectLambdaAccessPointPolicyArgs.builder()        
+ *             .name(exampleObjectLambdaAccessPoint.name())
  *             .policy(exampleObjectLambdaAccessPoint.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2008-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, &#34;s3-object-lambda:GetObject&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;AWS&#34;, data.aws_caller_identity().current().account_id())
+ *                     jsonProperty(&#34;version&#34;, &#34;2008-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;action&#34;, &#34;s3-object-lambda:GetObject&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;AWS&#34;, current.accountId())
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, arn)
+ *                         jsonProperty(&#34;resource&#34;, arn)
  *                     )))
  *                 ))))
  *             .build());
@@ -84,13 +92,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
+ * $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
  * ```
  * 
  */

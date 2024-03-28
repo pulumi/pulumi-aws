@@ -11,6 +11,7 @@ import {Role} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,18 +27,23 @@ import {Role} from "./index";
  *     }],
  * });
  * const role = new aws.iam.Role("role", {
+ *     name: "test_role",
  *     path: "/",
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const testProfile = new aws.iam.InstanceProfile("testProfile", {role: role.name});
+ * const testProfile = new aws.iam.InstanceProfile("test_profile", {
+ *     name: "test_profile",
+ *     role: role.name,
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Instance Profiles using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+ * $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
  * ```
  */
 export class InstanceProfile extends pulumi.CustomResource {
@@ -142,8 +148,6 @@ export class InstanceProfile extends pulumi.CustomResource {
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(InstanceProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

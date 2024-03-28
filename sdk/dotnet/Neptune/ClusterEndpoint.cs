@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,20 +25,21 @@ namespace Pulumi.Aws.Neptune
     /// {
     ///     var example = new Aws.Neptune.ClusterEndpoint("example", new()
     ///     {
-    ///         ClusterIdentifier = aws_neptune_cluster.Test.Cluster_identifier,
+    ///         ClusterIdentifier = test.ClusterIdentifier,
     ///         ClusterEndpointIdentifier = "example",
     ///         EndpointType = "READER",
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
+    /// $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/clusterEndpoint:ClusterEndpoint")]
@@ -120,10 +122,6 @@ namespace Pulumi.Aws.Neptune
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -285,11 +283,7 @@ namespace Pulumi.Aws.Neptune
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         public ClusterEndpointState()

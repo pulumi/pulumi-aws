@@ -4,6 +4,7 @@
 package com.pulumi.aws.opsworks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,43 +115,53 @@ public final class StackCustomCookbooksSource {
 
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder revision(@Nullable String revision) {
+
             this.revision = revision;
             return this;
         }
         @CustomType.Setter
         public Builder sshKey(@Nullable String sshKey) {
+
             this.sshKey = sshKey;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("StackCustomCookbooksSource", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("StackCustomCookbooksSource", "url");
+            }
+            this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }
         public StackCustomCookbooksSource build() {
-            final var o = new StackCustomCookbooksSource();
-            o.password = password;
-            o.revision = revision;
-            o.sshKey = sshKey;
-            o.type = type;
-            o.url = url;
-            o.username = username;
-            return o;
+            final var _resultValue = new StackCustomCookbooksSource();
+            _resultValue.password = password;
+            _resultValue.revision = revision;
+            _resultValue.sshKey = sshKey;
+            _resultValue.type = type;
+            _resultValue.url = url;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.AppMesh
     /// Provides an AWS App Mesh route resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### HTTP Routing
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,8 +27,9 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
+    ///         Name = "serviceB-route",
+    ///         MeshName = simple.Id,
+    ///         VirtualRouterName = servicebAwsAppmeshVirtualRouter.Name,
     ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
     ///         {
     ///             HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
@@ -41,12 +44,12 @@ namespace Pulumi.Aws.AppMesh
     ///                     {
     ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
     ///                         {
-    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb1.Name,
+    ///                             VirtualNode = serviceb1.Name,
     ///                             Weight = 90,
     ///                         },
     ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
     ///                         {
-    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb2.Name,
+    ///                             VirtualNode = serviceb2.Name,
     ///                             Weight = 10,
     ///                         },
     ///                     },
@@ -57,8 +60,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### HTTP Header Routing
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,8 +75,9 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
+    ///         Name = "serviceB-route",
+    ///         MeshName = simple.Id,
+    ///         VirtualRouterName = servicebAwsAppmeshVirtualRouter.Name,
     ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
     ///         {
     ///             HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
@@ -98,7 +105,7 @@ namespace Pulumi.Aws.AppMesh
     ///                     {
     ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
     ///                         {
-    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb.Name,
+    ///                             VirtualNode = servicebAwsAppmeshVirtualNode.Name,
     ///                             Weight = 100,
     ///                         },
     ///                     },
@@ -109,8 +116,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Retry Policy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,8 +131,9 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
+    ///         Name = "serviceB-route",
+    ///         MeshName = simple.Id,
+    ///         VirtualRouterName = servicebAwsAppmeshVirtualRouter.Name,
     ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
     ///         {
     ///             HttpRoute = new Aws.AppMesh.Inputs.RouteSpecHttpRouteArgs
@@ -150,7 +161,7 @@ namespace Pulumi.Aws.AppMesh
     ///                     {
     ///                         new Aws.AppMesh.Inputs.RouteSpecHttpRouteActionWeightedTargetArgs
     ///                         {
-    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb.Name,
+    ///                             VirtualNode = servicebAwsAppmeshVirtualNode.Name,
     ///                             Weight = 100,
     ///                         },
     ///                     },
@@ -161,8 +172,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### TCP Routing
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -173,8 +187,9 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb = new Aws.AppMesh.Route("serviceb", new()
     ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
+    ///         Name = "serviceB-route",
+    ///         MeshName = simple.Id,
+    ///         VirtualRouterName = servicebAwsAppmeshVirtualRouter.Name,
     ///         Spec = new Aws.AppMesh.Inputs.RouteSpecArgs
     ///         {
     ///             TcpRoute = new Aws.AppMesh.Inputs.RouteSpecTcpRouteArgs
@@ -185,7 +200,7 @@ namespace Pulumi.Aws.AppMesh
     ///                     {
     ///                         new Aws.AppMesh.Inputs.RouteSpecTcpRouteActionWeightedTargetArgs
     ///                         {
-    ///                             VirtualNode = aws_appmesh_virtual_node.Serviceb1.Name,
+    ///                             VirtualNode = serviceb1.Name,
     ///                             Weight = 100,
     ///                         },
     ///                     },
@@ -196,13 +211,14 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route's `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
+    /// $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
     /// ```
     /// </summary>
     [AwsResourceType("aws:appmesh/route:Route")]
@@ -297,10 +313,6 @@ namespace Pulumi.Aws.AppMesh
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -444,11 +456,7 @@ namespace Pulumi.Aws.AppMesh
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         /// <summary>

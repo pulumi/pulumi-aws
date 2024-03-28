@@ -238,13 +238,15 @@ class Alias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_lambda_alias = aws.lambda_.Alias("testLambdaAlias",
+        test_lambda_alias = aws.lambda_.Alias("test_lambda_alias",
+            name="my_alias",
             description="a sample description",
-            function_name=aws_lambda_function["lambda_function_test"]["arn"],
+            function_name=lambda_function_test["arn"],
             function_version="1",
             routing_config=aws.lambda_.AliasRoutingConfigArgs(
                 additional_version_weights={
@@ -252,13 +254,14 @@ class Alias(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
 
         ```sh
-         $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+        $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
         ```
 
         :param str resource_name: The name of the resource.
@@ -283,13 +286,15 @@ class Alias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_lambda_alias = aws.lambda_.Alias("testLambdaAlias",
+        test_lambda_alias = aws.lambda_.Alias("test_lambda_alias",
+            name="my_alias",
             description="a sample description",
-            function_name=aws_lambda_function["lambda_function_test"]["arn"],
+            function_name=lambda_function_test["arn"],
             function_version="1",
             routing_config=aws.lambda_.AliasRoutingConfigArgs(
                 additional_version_weights={
@@ -297,13 +302,14 @@ class Alias(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
 
         ```sh
-         $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+        $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
         ```
 
         :param str resource_name: The name of the resource.

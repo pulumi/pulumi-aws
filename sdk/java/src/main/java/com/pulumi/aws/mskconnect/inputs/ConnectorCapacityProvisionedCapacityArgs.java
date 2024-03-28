@@ -5,6 +5,7 @@ package com.pulumi.aws.mskconnect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class ConnectorCapacityProvisionedCapacityArgs extends com.pulumi.r
         }
 
         public ConnectorCapacityProvisionedCapacityArgs build() {
-            $.workerCount = Objects.requireNonNull($.workerCount, "expected parameter 'workerCount' to be non-null");
+            if ($.workerCount == null) {
+                throw new MissingRequiredPropertyException("ConnectorCapacityProvisionedCapacityArgs", "workerCount");
+            }
             return $;
         }
     }

@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,6 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OptionGroup(&#34;example&#34;, OptionGroupArgs.builder()        
+ *             .name(&#34;option-group-test&#34;)
  *             .optionGroupDescription(&#34;Option Group&#34;)
  *             .engineName(&#34;sqlserver-ee&#34;)
  *             .majorEngineVersion(&#34;11.00&#34;)
@@ -64,7 +67,7 @@ import javax.annotation.Nullable;
  *                     .optionName(&#34;SQLSERVER_BACKUP_RESTORE&#34;)
  *                     .optionSettings(OptionGroupOptionOptionSettingArgs.builder()
  *                         .name(&#34;IAM_ROLE_ARN&#34;)
- *                         .value(aws_iam_role.example().arn())
+ *                         .value(exampleAwsIamRole.arn())
  *                         .build())
  *                     .build(),
  *                 OptionGroupOptionArgs.builder()
@@ -75,6 +78,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** Any modifications to the `aws.rds.OptionGroup` are set to happen immediately as we default to applying immediately.
  * 
@@ -91,7 +95,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import DB option groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
+ * $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
  * ```
  * 
  */
@@ -182,14 +186,14 @@ public class OptionGroup extends com.pulumi.resources.CustomResource {
         return this.optionGroupDescription;
     }
     /**
-     * List of options to apply.
+     * The options to apply. See `option` Block below for more details.
      * 
      */
     @Export(name="options", refs={List.class,OptionGroupOption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OptionGroupOption>> options;
 
     /**
-     * @return List of options to apply.
+     * @return The options to apply. See `option` Block below for more details.
      * 
      */
     public Output<Optional<List<OptionGroupOption>>> options() {
@@ -260,9 +264,6 @@ public class OptionGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

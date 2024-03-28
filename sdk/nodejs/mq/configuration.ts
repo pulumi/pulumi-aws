@@ -10,13 +10,19 @@ import * as utilities from "../utilities";
  * For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
  *
  * ## Example Usage
+ *
  * ### ActiveMQ
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mq.Configuration("example", {
+ *     description: "Example Configuration",
+ *     name: "example",
+ *     engineType: "ActiveMQ",
+ *     engineVersion: "5.17.6",
  *     data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
  * <broker xmlns="http://activemq.apache.org/schema/core">
  *   <plugins>
@@ -25,36 +31,36 @@ import * as utilities from "../utilities";
  *     <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
  *   </plugins>
  * </broker>
- *
  * `,
- *     description: "Example Configuration",
- *     engineType: "ActiveMQ",
- *     engineVersion: "5.17.6",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### RabbitMQ
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mq.Configuration("example", {
- *     data: `# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
- * consumer_timeout = 1800000
- *
- * `,
  *     description: "Example Configuration",
+ *     name: "example",
  *     engineType: "RabbitMQ",
  *     engineVersion: "3.11.20",
+ *     data: `# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
+ * consumer_timeout = 1800000
+ * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+ * $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
  * ```
  */
 export class Configuration extends pulumi.CustomResource {
@@ -176,8 +182,6 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Configuration.__pulumiType, name, resourceInputs, opts);
     }
 }

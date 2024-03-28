@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,8 +34,9 @@ namespace Pulumi.Aws.Msk
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleCluster = new Aws.Msk.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Aws.Msk.Cluster("example", new()
     ///     {
+    ///         ClusterName = "example",
     ///         ClientAuthentication = new Aws.Msk.Inputs.ClusterClientAuthenticationArgs
     ///         {
     ///             Sasl = new Aws.Msk.Inputs.ClusterClientAuthenticationSaslArgs
@@ -44,17 +46,27 @@ namespace Pulumi.Aws.Msk
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     var exampleKey = new Aws.Kms.Key("example", new()
     ///     {
     ///         Description = "Example Key for MSK Cluster Scram Secret Association",
     ///     });
     /// 
-    ///     var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret", new()
+    ///     var exampleSecret = new Aws.SecretsManager.Secret("example", new()
     ///     {
+    ///         Name = "AmazonMSK_example",
     ///         KmsKeyId = exampleKey.KeyId,
     ///     });
     /// 
-    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new()
+    ///     var exampleScramSecretAssociation = new Aws.Msk.ScramSecretAssociation("example", new()
+    ///     {
+    ///         ClusterArn = exampleCluster.Arn,
+    ///         SecretArnLists = new[]
+    ///         {
+    ///             exampleSecret.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
     ///     {
     ///         SecretId = exampleSecret.Id,
     ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -64,22 +76,7 @@ namespace Pulumi.Aws.Msk
     ///         }),
     ///     });
     /// 
-    ///     var exampleScramSecretAssociation = new Aws.Msk.ScramSecretAssociation("exampleScramSecretAssociation", new()
-    ///     {
-    ///         ClusterArn = exampleCluster.Arn,
-    ///         SecretArnLists = new[]
-    ///         {
-    ///             exampleSecret.Arn,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleSecretVersion,
-    ///         },
-    ///     });
-    /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -110,21 +107,22 @@ namespace Pulumi.Aws.Msk
     ///         },
     ///     });
     /// 
-    ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("exampleSecretPolicy", new()
+    ///     var exampleSecretPolicy = new Aws.SecretsManager.SecretPolicy("example", new()
     ///     {
     ///         SecretArn = exampleSecret.Arn,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+    /// $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
     /// ```
     /// </summary>
     [AwsResourceType("aws:msk/scramSecretAssociation:ScramSecretAssociation")]

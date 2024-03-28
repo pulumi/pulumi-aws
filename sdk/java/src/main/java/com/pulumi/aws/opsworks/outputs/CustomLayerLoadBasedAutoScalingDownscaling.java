@@ -131,6 +131,7 @@ public final class CustomLayerLoadBasedAutoScalingDownscaling {
 
         @CustomType.Setter
         public Builder alarms(@Nullable List<String> alarms) {
+
             this.alarms = alarms;
             return this;
         }
@@ -139,44 +140,50 @@ public final class CustomLayerLoadBasedAutoScalingDownscaling {
         }
         @CustomType.Setter
         public Builder cpuThreshold(@Nullable Double cpuThreshold) {
+
             this.cpuThreshold = cpuThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreMetricsTime(@Nullable Integer ignoreMetricsTime) {
+
             this.ignoreMetricsTime = ignoreMetricsTime;
             return this;
         }
         @CustomType.Setter
         public Builder instanceCount(@Nullable Integer instanceCount) {
+
             this.instanceCount = instanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder loadThreshold(@Nullable Double loadThreshold) {
+
             this.loadThreshold = loadThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder memoryThreshold(@Nullable Double memoryThreshold) {
+
             this.memoryThreshold = memoryThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdsWaitTime(@Nullable Integer thresholdsWaitTime) {
+
             this.thresholdsWaitTime = thresholdsWaitTime;
             return this;
         }
         public CustomLayerLoadBasedAutoScalingDownscaling build() {
-            final var o = new CustomLayerLoadBasedAutoScalingDownscaling();
-            o.alarms = alarms;
-            o.cpuThreshold = cpuThreshold;
-            o.ignoreMetricsTime = ignoreMetricsTime;
-            o.instanceCount = instanceCount;
-            o.loadThreshold = loadThreshold;
-            o.memoryThreshold = memoryThreshold;
-            o.thresholdsWaitTime = thresholdsWaitTime;
-            return o;
+            final var _resultValue = new CustomLayerLoadBasedAutoScalingDownscaling();
+            _resultValue.alarms = alarms;
+            _resultValue.cpuThreshold = cpuThreshold;
+            _resultValue.ignoreMetricsTime = ignoreMetricsTime;
+            _resultValue.instanceCount = instanceCount;
+            _resultValue.loadThreshold = loadThreshold;
+            _resultValue.memoryThreshold = memoryThreshold;
+            _resultValue.thresholdsWaitTime = thresholdsWaitTime;
+            return _resultValue;
         }
     }
 }

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * The following example below creates a CloudFront origin request policy.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,6 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OriginRequestPolicy(&#34;example&#34;, OriginRequestPolicyArgs.builder()        
+ *             .name(&#34;example-policy&#34;)
  *             .comment(&#34;example comment&#34;)
  *             .cookiesConfig(OriginRequestPolicyCookiesConfigArgs.builder()
  *                 .cookieBehavior(&#34;whitelist&#34;)
@@ -73,13 +76,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+ * $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
  * ```
  * 
  */

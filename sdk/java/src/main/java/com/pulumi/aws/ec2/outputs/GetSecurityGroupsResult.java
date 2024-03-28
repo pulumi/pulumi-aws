@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetSecurityGroupsFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -100,7 +101,10 @@ public final class GetSecurityGroupsResult {
 
         @CustomType.Setter
         public Builder arns(List<String> arns) {
-            this.arns = Objects.requireNonNull(arns);
+            if (arns == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupsResult", "arns");
+            }
+            this.arns = arns;
             return this;
         }
         public Builder arns(String... arns) {
@@ -108,6 +112,7 @@ public final class GetSecurityGroupsResult {
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<GetSecurityGroupsFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -116,12 +121,18 @@ public final class GetSecurityGroupsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupsResult", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -129,26 +140,32 @@ public final class GetSecurityGroupsResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupsResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vpcIds(List<String> vpcIds) {
-            this.vpcIds = Objects.requireNonNull(vpcIds);
+            if (vpcIds == null) {
+              throw new MissingRequiredPropertyException("GetSecurityGroupsResult", "vpcIds");
+            }
+            this.vpcIds = vpcIds;
             return this;
         }
         public Builder vpcIds(String... vpcIds) {
             return vpcIds(List.of(vpcIds));
         }
         public GetSecurityGroupsResult build() {
-            final var o = new GetSecurityGroupsResult();
-            o.arns = arns;
-            o.filters = filters;
-            o.id = id;
-            o.ids = ids;
-            o.tags = tags;
-            o.vpcIds = vpcIds;
-            return o;
+            final var _resultValue = new GetSecurityGroupsResult();
+            _resultValue.arns = arns;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.ids = ids;
+            _resultValue.tags = tags;
+            _resultValue.vpcIds = vpcIds;
+            return _resultValue;
         }
     }
 }

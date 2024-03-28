@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -35,7 +36,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			alphaSubnet, err := ec2.NewSubnet(ctx, "alphaSubnet", &ec2.SubnetArgs{
+//			alphaSubnet, err := ec2.NewSubnet(ctx, "alpha", &ec2.SubnetArgs{
 //				VpcId:            foo.ID(),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				CidrBlock:        pulumi.String("10.0.1.0/24"),
@@ -43,8 +44,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = efs.NewMountTarget(ctx, "alphaMountTarget", &efs.MountTargetArgs{
-//				FileSystemId: pulumi.Any(aws_efs_file_system.Foo.Id),
+//			_, err = efs.NewMountTarget(ctx, "alpha", &efs.MountTargetArgs{
+//				FileSystemId: pulumi.Any(fooAwsEfsFileSystem.Id),
 //				SubnetId:     alphaSubnet.ID(),
 //			})
 //			if err != nil {
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the EFS mount targets using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
-//
+// $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
 // ```
 type MountTarget struct {
 	pulumi.CustomResourceState

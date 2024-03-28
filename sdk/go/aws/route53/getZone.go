@@ -19,6 +19,7 @@ import (
 //
 // The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,9 +42,9 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
-//				ZoneId: *pulumi.String(selected.ZoneId),
+//				ZoneId: pulumi.String(selected.ZoneId),
 //				Name:   pulumi.String(fmt.Sprintf("www.%v", selected.Name)),
-//				Type:   pulumi.String("A"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //				Ttl:    pulumi.Int(300),
 //				Records: pulumi.StringArray{
 //					pulumi.String("10.0.0.1"),
@@ -57,6 +58,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.InvokeOption) (*LookupZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupZoneResult

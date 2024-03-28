@@ -15,8 +15,10 @@ import (
 // Provides the ability to register a target with an AWS VPC Lattice Target Group.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewTargetGroupAttachment(ctx, "example", &vpclattice.TargetGroupAttachmentArgs{
-//				TargetGroupIdentifier: pulumi.Any(aws_vpclattice_target_group.Example.Id),
+//				TargetGroupIdentifier: pulumi.Any(exampleAwsVpclatticeTargetGroup.Id),
 //				Target: &vpclattice.TargetGroupAttachmentTargetArgs{
-//					Id:   pulumi.Any(aws_lb.Example.Arn),
+//					Id:   pulumi.Any(exampleAwsLb.Arn),
 //					Port: pulumi.Int(80),
 //				},
 //			})
@@ -44,6 +46,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 

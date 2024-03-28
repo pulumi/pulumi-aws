@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an AppSync API Association.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -39,20 +41,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DomainNameApiAssociation(&#34;example&#34;, DomainNameApiAssociationArgs.builder()        
- *             .apiId(aws_appsync_graphql_api.example().id())
- *             .domainName(aws_appsync_domain_name.example().domain_name())
+ *             .apiId(exampleAwsAppsyncGraphqlApi.id())
+ *             .domainName(exampleAwsAppsyncDomainName.domainName())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
+ * $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
  * ```
  * 
  */

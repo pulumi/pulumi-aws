@@ -18,8 +18,10 @@ import (
 // > **NOTE:** Use the `transfer.Tag` resource to manage the system tags used for [custom hostnames](https://docs.aws.amazon.com/transfer/latest/userguide/requirements-dns.html#tag-custom-hostname-cdk).
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,8 +47,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Security Policy Name
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,8 +75,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### VPC Endpoint
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,12 +96,12 @@ import (
 //				EndpointType: pulumi.String("VPC"),
 //				EndpointDetails: &transfer.ServerEndpointDetailsArgs{
 //					AddressAllocationIds: pulumi.StringArray{
-//						aws_eip.Example.Id,
+//						exampleAwsEip.Id,
 //					},
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example.Id,
+//						exampleAwsSubnet.Id,
 //					},
-//					VpcId: pulumi.Any(aws_vpc.Example.Id),
+//					VpcId: pulumi.Any(exampleAwsVpc.Id),
 //				},
 //			})
 //			if err != nil {
@@ -104,8 +112,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### AWS Directory authentication
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -120,7 +131,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
 //				IdentityProviderType: pulumi.String("AWS_DIRECTORY_SERVICE"),
-//				DirectoryId:          pulumi.Any(aws_directory_service_directory.Example.Id),
+//				DirectoryId:          pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -130,8 +141,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### AWS Lambda authentication
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -146,7 +160,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
 //				IdentityProviderType: pulumi.String("AWS_LAMBDA"),
-//				Function:             pulumi.Any(aws_lambda_identity_provider.Example.Arn),
+//				Function:             pulumi.Any(exampleAwsLambdaIdentityProvider.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -156,8 +170,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Protocols
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -176,17 +193,17 @@ import (
 //				EndpointType: pulumi.String("VPC"),
 //				EndpointDetails: &transfer.ServerEndpointDetailsArgs{
 //					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Example.Id,
+//						exampleAwsSubnet.Id,
 //					},
-//					VpcId: pulumi.Any(aws_vpc.Example.Id),
+//					VpcId: pulumi.Any(exampleAwsVpc.Id),
 //				},
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("FTP"),
 //					pulumi.String("FTPS"),
 //				},
-//				Certificate:          pulumi.Any(aws_acm_certificate.Example.Arn),
+//				Certificate:          pulumi.Any(exampleAwsAcmCertificate.Arn),
 //				IdentityProviderType: pulumi.String("API_GATEWAY"),
-//				Url:                  pulumi.String(fmt.Sprintf("%v%v", aws_api_gateway_deployment.Example.Invoke_url, aws_api_gateway_resource.Example.Path)),
+//				Url:                  pulumi.String(fmt.Sprintf("%v%v", exampleAwsApiGatewayDeployment.InvokeUrl, exampleAwsApiGatewayResource.Path)),
 //			})
 //			if err != nil {
 //				return err
@@ -196,8 +213,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using Structured Logging Destinations
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -214,7 +234,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			transferLogGroup, err := cloudwatch.NewLogGroup(ctx, "transferLogGroup", &cloudwatch.LogGroupArgs{
+//			transfer, err := cloudwatch.NewLogGroup(ctx, "transfer", &cloudwatch.LogGroupArgs{
 //				NamePrefix: pulumi.String("transfer_test_"),
 //			})
 //			if err != nil {
@@ -241,9 +261,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			iamForTransfer, err := iam.NewRole(ctx, "iamForTransfer", &iam.RoleArgs{
+//			iamForTransfer, err := iam.NewRole(ctx, "iam_for_transfer", &iam.RoleArgs{
 //				NamePrefix:       pulumi.String("iam_for_transfer_"),
-//				AssumeRolePolicy: *pulumi.String(transferAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(transferAssumeRole.Json),
 //				ManagedPolicyArns: pulumi.StringArray{
 //					pulumi.String("arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess"),
 //				},
@@ -251,14 +271,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = transfer.NewServer(ctx, "transferServer", &transfer.ServerArgs{
+//			_, err = transfer.NewServer(ctx, "transfer", &transfer.ServerArgs{
 //				EndpointType: pulumi.String("PUBLIC"),
 //				LoggingRole:  iamForTransfer.Arn,
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("SFTP"),
 //				},
 //				StructuredLogDestinations: pulumi.StringArray{
-//					transferLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+//					transfer.Arn.ApplyT(func(arn string) (string, error) {
 //						return fmt.Sprintf("%v:*", arn), nil
 //					}).(pulumi.StringOutput),
 //				},
@@ -271,18 +291,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Transfer Servers using the server `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transfer/server:Server example s-12345678
-//
+// $ pulumi import aws:transfer/server:Server example s-12345678
 // ```
-//
-//	Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+// Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
 type Server struct {
 	pulumi.CustomResourceState
 
@@ -322,7 +340,17 @@ type Server struct {
 	ProtocolDetails ServerProtocolDetailsOutput `pulumi:"protocolDetails"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
-	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+	// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+	// * `TransferSecurityPolicy-2024-01`
+	// * `TransferSecurityPolicy-2023-05`
+	// * `TransferSecurityPolicy-2022-03`
+	// * `TransferSecurityPolicy-2020-06`
+	// * `TransferSecurityPolicy-2018-11`
+	// * `TransferSecurityPolicy-FIPS-2024-01`
+	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-FIPS-2020-06`
+	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
 	SecurityPolicyName pulumi.StringPtrOutput `pulumi:"securityPolicyName"`
 	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations pulumi.StringArrayOutput `pulumi:"structuredLogDestinations"`
@@ -358,7 +386,6 @@ func NewServer(ctx *pulumi.Context,
 		"hostKey",
 		"postAuthenticationLoginBanner",
 		"preAuthenticationLoginBanner",
-		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -420,7 +447,17 @@ type serverState struct {
 	ProtocolDetails *ServerProtocolDetails `pulumi:"protocolDetails"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	Protocols []string `pulumi:"protocols"`
-	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+	// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+	// * `TransferSecurityPolicy-2024-01`
+	// * `TransferSecurityPolicy-2023-05`
+	// * `TransferSecurityPolicy-2022-03`
+	// * `TransferSecurityPolicy-2020-06`
+	// * `TransferSecurityPolicy-2018-11`
+	// * `TransferSecurityPolicy-FIPS-2024-01`
+	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-FIPS-2020-06`
+	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
 	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
@@ -473,7 +510,17 @@ type ServerState struct {
 	ProtocolDetails ServerProtocolDetailsPtrInput
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	Protocols pulumi.StringArrayInput
-	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+	// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+	// * `TransferSecurityPolicy-2024-01`
+	// * `TransferSecurityPolicy-2023-05`
+	// * `TransferSecurityPolicy-2022-03`
+	// * `TransferSecurityPolicy-2020-06`
+	// * `TransferSecurityPolicy-2018-11`
+	// * `TransferSecurityPolicy-FIPS-2024-01`
+	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-FIPS-2020-06`
+	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
 	SecurityPolicyName pulumi.StringPtrInput
 	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations pulumi.StringArrayInput
@@ -524,7 +571,17 @@ type serverArgs struct {
 	ProtocolDetails *ServerProtocolDetails `pulumi:"protocolDetails"`
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	Protocols []string `pulumi:"protocols"`
-	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+	// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+	// * `TransferSecurityPolicy-2024-01`
+	// * `TransferSecurityPolicy-2023-05`
+	// * `TransferSecurityPolicy-2022-03`
+	// * `TransferSecurityPolicy-2020-06`
+	// * `TransferSecurityPolicy-2018-11`
+	// * `TransferSecurityPolicy-FIPS-2024-01`
+	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-FIPS-2020-06`
+	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
 	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
@@ -568,7 +625,17 @@ type ServerArgs struct {
 	ProtocolDetails ServerProtocolDetailsPtrInput
 	// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
 	Protocols pulumi.StringArrayInput
-	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+	// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+	// * `TransferSecurityPolicy-2024-01`
+	// * `TransferSecurityPolicy-2023-05`
+	// * `TransferSecurityPolicy-2022-03`
+	// * `TransferSecurityPolicy-2020-06`
+	// * `TransferSecurityPolicy-2018-11`
+	// * `TransferSecurityPolicy-FIPS-2024-01`
+	// * `TransferSecurityPolicy-FIPS-2023-05`
+	// * `TransferSecurityPolicy-FIPS-2020-06`
+	// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+	// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
 	SecurityPolicyName pulumi.StringPtrInput
 	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations pulumi.StringArrayInput
@@ -757,7 +824,17 @@ func (o ServerOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
+// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
+// * `TransferSecurityPolicy-2024-01`
+// * `TransferSecurityPolicy-2023-05`
+// * `TransferSecurityPolicy-2022-03`
+// * `TransferSecurityPolicy-2020-06`
+// * `TransferSecurityPolicy-2018-11`
+// * `TransferSecurityPolicy-FIPS-2024-01`
+// * `TransferSecurityPolicy-FIPS-2023-05`
+// * `TransferSecurityPolicy-FIPS-2020-06`
+// * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
+// * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
 func (o ServerOutput) SecurityPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SecurityPolicyName }).(pulumi.StringPtrOutput)
 }

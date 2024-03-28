@@ -234,12 +234,14 @@ class ThingGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        parent = aws.iot.ThingGroup("parent")
+        parent = aws.iot.ThingGroup("parent", name="parent")
         example = aws.iot.ThingGroup("example",
+            name="example",
             parent_group_name=parent.name,
             properties=aws.iot.ThingGroupPropertiesArgs(
                 attribute_payload=aws.iot.ThingGroupPropertiesAttributePayloadArgs(
@@ -254,13 +256,14 @@ class ThingGroup(pulumi.CustomResource):
                 "managed": "true",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Things Groups using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/thingGroup:ThingGroup example example
+        $ pulumi import aws:iot/thingGroup:ThingGroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -281,12 +284,14 @@ class ThingGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        parent = aws.iot.ThingGroup("parent")
+        parent = aws.iot.ThingGroup("parent", name="parent")
         example = aws.iot.ThingGroup("example",
+            name="example",
             parent_group_name=parent.name,
             properties=aws.iot.ThingGroupPropertiesArgs(
                 attribute_payload=aws.iot.ThingGroupPropertiesAttributePayloadArgs(
@@ -301,13 +306,14 @@ class ThingGroup(pulumi.CustomResource):
                 "managed": "true",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Things Groups using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/thingGroup:ThingGroup example example
+        $ pulumi import aws:iot/thingGroup:ThingGroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -346,8 +352,6 @@ class ThingGroup(pulumi.CustomResource):
             __props__.__dict__["metadatas"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ThingGroup, __self__).__init__(
             'aws:iot/thingGroup:ThingGroup',
             resource_name,

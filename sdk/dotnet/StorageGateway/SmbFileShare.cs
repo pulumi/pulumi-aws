@@ -13,10 +13,12 @@ namespace Pulumi.Aws.StorageGateway
     /// Manages an AWS Storage Gateway SMB File Share.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Active Directory Authentication
     /// 
     /// &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_active_directory_settings` in the `aws.storagegateway.Gateway` resource.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,17 +30,20 @@ namespace Pulumi.Aws.StorageGateway
     ///     var example = new Aws.StorageGateway.SmbFileShare("example", new()
     ///     {
     ///         Authentication = "ActiveDirectory",
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///         LocationArn = aws_s3_bucket.Example.Arn,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         GatewayArn = exampleAwsStoragegatewayGateway.Arn,
+    ///         LocationArn = exampleAwsS3Bucket.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Guest Authentication
     /// 
     /// &gt; **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_guest_password` in the `aws.storagegateway.Gateway` resource.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,20 +55,21 @@ namespace Pulumi.Aws.StorageGateway
     ///     var example = new Aws.StorageGateway.SmbFileShare("example", new()
     ///     {
     ///         Authentication = "GuestAccess",
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///         LocationArn = aws_s3_bucket.Example.Arn,
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         GatewayArn = exampleAwsStoragegatewayGateway.Arn,
+    ///         LocationArn = exampleAwsS3Bucket.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_storagegateway_smb_file_share` using the SMB File Share Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+    /// $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/smbFileShare:SmbFileShare")]
@@ -266,10 +272,6 @@ namespace Pulumi.Aws.StorageGateway
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                AdditionalSecretOutputs =
-                {
-                    "tagsAll",
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -659,11 +661,7 @@ namespace Pulumi.Aws.StorageGateway
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set
-            {
-                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
-                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
-            }
+            set => _tagsAll = value;
         }
 
         [Input("validUserLists")]

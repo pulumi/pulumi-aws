@@ -8,17 +8,20 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS OpenSearch Serverless Access Policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.opensearch.getServerlessAccessPolicy({
- *     name: aws_opensearchserverless_access_policy.example.name,
- *     type: aws_opensearchserverless_access_policy.example.type,
+ *     name: exampleAwsOpensearchserverlessAccessPolicy.name,
+ *     type: exampleAwsOpensearchserverlessAccessPolicy.type,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerlessAccessPolicy(args: GetServerlessAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessAccessPolicyResult> {
 
@@ -67,17 +70,20 @@ export interface GetServerlessAccessPolicyResult {
  * Data source for managing an AWS OpenSearch Serverless Access Policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.opensearch.getServerlessAccessPolicy({
- *     name: aws_opensearchserverless_access_policy.example.name,
- *     type: aws_opensearchserverless_access_policy.example.type,
+ *     name: exampleAwsOpensearchserverlessAccessPolicy.name,
+ *     type: exampleAwsOpensearchserverlessAccessPolicy.type,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerlessAccessPolicyOutput(args: GetServerlessAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServerlessAccessPolicy(a, opts))

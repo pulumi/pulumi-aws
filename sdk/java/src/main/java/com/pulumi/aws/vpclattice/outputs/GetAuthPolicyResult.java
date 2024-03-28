@@ -4,6 +4,7 @@
 package com.pulumi.aws.vpclattice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -78,31 +79,39 @@ public final class GetAuthPolicyResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAuthPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder policy(@Nullable String policy) {
+
             this.policy = policy;
             return this;
         }
         @CustomType.Setter
         public Builder resourceIdentifier(String resourceIdentifier) {
-            this.resourceIdentifier = Objects.requireNonNull(resourceIdentifier);
+            if (resourceIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetAuthPolicyResult", "resourceIdentifier");
+            }
+            this.resourceIdentifier = resourceIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }
         public GetAuthPolicyResult build() {
-            final var o = new GetAuthPolicyResult();
-            o.id = id;
-            o.policy = policy;
-            o.resourceIdentifier = resourceIdentifier;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetAuthPolicyResult();
+            _resultValue.id = id;
+            _resultValue.policy = policy;
+            _resultValue.resourceIdentifier = resourceIdentifier;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

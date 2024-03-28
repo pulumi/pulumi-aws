@@ -4,6 +4,7 @@
 package com.pulumi.aws.servicecatalog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -127,55 +128,77 @@ public final class GetPortfolioResult {
 
         @CustomType.Setter
         public Builder acceptLanguage(@Nullable String acceptLanguage) {
+
             this.acceptLanguage = acceptLanguage;
             return this;
         }
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder createdTime(String createdTime) {
-            this.createdTime = Objects.requireNonNull(createdTime);
+            if (createdTime == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioResult", "createdTime");
+            }
+            this.createdTime = createdTime;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+            if (providerName == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioResult", "providerName");
+            }
+            this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetPortfolioResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetPortfolioResult build() {
-            final var o = new GetPortfolioResult();
-            o.acceptLanguage = acceptLanguage;
-            o.arn = arn;
-            o.createdTime = createdTime;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.providerName = providerName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetPortfolioResult();
+            _resultValue.acceptLanguage = acceptLanguage;
+            _resultValue.arn = arn;
+            _resultValue.createdTime = createdTime;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.providerName = providerName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

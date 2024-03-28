@@ -118,26 +118,30 @@ class SizeConstraintSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        size_constraint_set = aws.wafregional.SizeConstraintSet("sizeConstraintSet", size_constraints=[aws.wafregional.SizeConstraintSetSizeConstraintArgs(
-            comparison_operator="EQ",
-            field_to_match=aws.wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs(
-                type="BODY",
-            ),
-            size=4096,
-            text_transformation="NONE",
-        )])
+        size_constraint_set = aws.wafregional.SizeConstraintSet("size_constraint_set",
+            name="tfsize_constraints",
+            size_constraints=[aws.wafregional.SizeConstraintSetSizeConstraintArgs(
+                text_transformation="NONE",
+                comparison_operator="EQ",
+                size=4096,
+                field_to_match=aws.wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs(
+                    type="BODY",
+                ),
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Size Constraint Set using the id. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -156,26 +160,30 @@ class SizeConstraintSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        size_constraint_set = aws.wafregional.SizeConstraintSet("sizeConstraintSet", size_constraints=[aws.wafregional.SizeConstraintSetSizeConstraintArgs(
-            comparison_operator="EQ",
-            field_to_match=aws.wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs(
-                type="BODY",
-            ),
-            size=4096,
-            text_transformation="NONE",
-        )])
+        size_constraint_set = aws.wafregional.SizeConstraintSet("size_constraint_set",
+            name="tfsize_constraints",
+            size_constraints=[aws.wafregional.SizeConstraintSetSizeConstraintArgs(
+                text_transformation="NONE",
+                comparison_operator="EQ",
+                size=4096,
+                field_to_match=aws.wafregional.SizeConstraintSetSizeConstraintFieldToMatchArgs(
+                    type="BODY",
+                ),
+            )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Size Constraint Set using the id. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.

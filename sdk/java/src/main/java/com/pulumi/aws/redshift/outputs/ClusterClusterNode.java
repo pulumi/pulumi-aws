@@ -72,25 +72,28 @@ public final class ClusterClusterNode {
 
         @CustomType.Setter
         public Builder nodeRole(@Nullable String nodeRole) {
+
             this.nodeRole = nodeRole;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
+
             this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddress(@Nullable String publicIpAddress) {
+
             this.publicIpAddress = publicIpAddress;
             return this;
         }
         public ClusterClusterNode build() {
-            final var o = new ClusterClusterNode();
-            o.nodeRole = nodeRole;
-            o.privateIpAddress = privateIpAddress;
-            o.publicIpAddress = publicIpAddress;
-            return o;
+            final var _resultValue = new ClusterClusterNode();
+            _resultValue.nodeRole = nodeRole;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.publicIpAddress = publicIpAddress;
+            return _resultValue;
         }
     }
 }

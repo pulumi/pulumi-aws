@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -28,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.LookupGatewayRoute(ctx, &appmesh.LookupGatewayRouteArgs{
-//				MeshName:           "test-mesh",
 //				Name:               "test-route",
+//				MeshName:           "test-mesh",
 //				VirtualGatewayName: "test-gateway",
 //			}, nil)
 //			if err != nil {
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupGatewayRoute(ctx *pulumi.Context, args *LookupGatewayRouteArgs, opts ...pulumi.InvokeOption) (*LookupGatewayRouteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGatewayRouteResult

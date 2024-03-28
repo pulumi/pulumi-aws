@@ -16,6 +16,7 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,7 +25,7 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAmi = Aws.Ec2.GetAmi.Invoke(new()
+    ///     var example = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
     ///         MostRecent = true,
     ///         Owners = new[]
@@ -44,18 +45,19 @@ namespace Pulumi.Aws.LicenseManager
     ///         },
     ///     });
     /// 
-    ///     var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
-    ///         Ami = exampleAmi.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t2.micro",
+    ///         Ami = example.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///     });
     /// 
-    ///     var exampleLicenseConfiguration = new Aws.LicenseManager.LicenseConfiguration("exampleLicenseConfiguration", new()
+    ///     var exampleLicenseConfiguration = new Aws.LicenseManager.LicenseConfiguration("example", new()
     ///     {
+    ///         Name = "Example",
     ///         LicenseCountingType = "Instance",
     ///     });
     /// 
-    ///     var exampleAssociation = new Aws.LicenseManager.Association("exampleAssociation", new()
+    ///     var exampleAssociation = new Aws.LicenseManager.Association("example", new()
     ///     {
     ///         LicenseConfigurationArn = exampleLicenseConfiguration.Arn,
     ///         ResourceArn = exampleInstance.Arn,
@@ -63,13 +65,14 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+    /// $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
     /// ```
     /// </summary>
     [AwsResourceType("aws:licensemanager/association:Association")]

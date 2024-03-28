@@ -104,37 +104,42 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
         @CustomType.Setter
         public Builder allow(@Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow allow) {
+
             this.allow = allow;
             return this;
         }
         @CustomType.Setter
         public Builder block(@Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock block) {
+
             this.block = block;
             return this;
         }
         @CustomType.Setter
         public Builder captcha(@Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha captcha) {
+
             this.captcha = captcha;
             return this;
         }
         @CustomType.Setter
         public Builder challenge(@Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge challenge) {
+
             this.challenge = challenge;
             return this;
         }
         @CustomType.Setter
         public Builder count(@Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount count) {
+
             this.count = count;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse();
-            o.allow = allow;
-            o.block = block;
-            o.captcha = captcha;
-            o.challenge = challenge;
-            o.count = count;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse();
+            _resultValue.allow = allow;
+            _resultValue.block = block;
+            _resultValue.captcha = captcha;
+            _resultValue.challenge = challenge;
+            _resultValue.count = count;
+            return _resultValue;
         }
     }
 }

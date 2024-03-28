@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.lb.ListenerArgs;
 import com.pulumi.aws.lb.inputs.ListenerState;
 import com.pulumi.aws.lb.outputs.ListenerDefaultAction;
+import com.pulumi.aws.lb.outputs.ListenerMutualAuthentication;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -25,7 +26,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
  * 
  * ## Example Usage
+ * 
  * ### Forward Action
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,12 +54,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEndLoadBalancer = new LoadBalancer(&#34;frontEndLoadBalancer&#34;);
+ *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
  * 
  *         var frontEndTargetGroup = new TargetGroup(&#34;frontEndTargetGroup&#34;);
  * 
  *         var frontEndListener = new Listener(&#34;frontEndListener&#34;, ListenerArgs.builder()        
- *             .loadBalancerArn(frontEndLoadBalancer.arn())
+ *             .loadBalancerArn(frontEnd.arn())
  *             .port(&#34;443&#34;)
  *             .protocol(&#34;HTTPS&#34;)
  *             .sslPolicy(&#34;ELBSecurityPolicy-2016-08&#34;)
@@ -69,8 +73,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * To a NLB:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -94,21 +101,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var frontEnd = new Listener(&#34;frontEnd&#34;, ListenerArgs.builder()        
- *             .loadBalancerArn(aws_lb.front_end().arn())
+ *             .loadBalancerArn(frontEndAwsLb.arn())
  *             .port(&#34;443&#34;)
  *             .protocol(&#34;TLS&#34;)
  *             .certificateArn(&#34;arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4&#34;)
  *             .alpnPolicy(&#34;HTTP2Preferred&#34;)
  *             .defaultActions(ListenerDefaultActionArgs.builder()
  *                 .type(&#34;forward&#34;)
- *                 .targetGroupArn(aws_lb_target_group.front_end().arn())
+ *                 .targetGroupArn(frontEndAwsLbTargetGroup.arn())
  *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Redirect Action
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -133,10 +144,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEndLoadBalancer = new LoadBalancer(&#34;frontEndLoadBalancer&#34;);
+ *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
  * 
  *         var frontEndListener = new Listener(&#34;frontEndListener&#34;, ListenerArgs.builder()        
- *             .loadBalancerArn(frontEndLoadBalancer.arn())
+ *             .loadBalancerArn(frontEnd.arn())
  *             .port(&#34;80&#34;)
  *             .protocol(&#34;HTTP&#34;)
  *             .defaultActions(ListenerDefaultActionArgs.builder()
@@ -152,7 +163,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Fixed-response Action
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -177,10 +192,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEndLoadBalancer = new LoadBalancer(&#34;frontEndLoadBalancer&#34;);
+ *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
  * 
  *         var frontEndListener = new Listener(&#34;frontEndListener&#34;, ListenerArgs.builder()        
- *             .loadBalancerArn(frontEndLoadBalancer.arn())
+ *             .loadBalancerArn(frontEnd.arn())
  *             .port(&#34;80&#34;)
  *             .protocol(&#34;HTTP&#34;)
  *             .defaultActions(ListenerDefaultActionArgs.builder()
@@ -196,7 +211,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Authenticate-cognito Action
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -225,7 +244,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEndLoadBalancer = new LoadBalancer(&#34;frontEndLoadBalancer&#34;);
+ *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
  * 
  *         var frontEndTargetGroup = new TargetGroup(&#34;frontEndTargetGroup&#34;);
  * 
@@ -236,7 +255,7 @@ import javax.annotation.Nullable;
  *         var domain = new UserPoolDomain(&#34;domain&#34;);
  * 
  *         var frontEndListener = new Listener(&#34;frontEndListener&#34;, ListenerArgs.builder()        
- *             .loadBalancerArn(frontEndLoadBalancer.arn())
+ *             .loadBalancerArn(frontEnd.arn())
  *             .port(&#34;80&#34;)
  *             .protocol(&#34;HTTP&#34;)
  *             .defaultActions(            
@@ -257,7 +276,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Authenticate-OIDC Action
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -283,12 +306,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var frontEndLoadBalancer = new LoadBalancer(&#34;frontEndLoadBalancer&#34;);
+ *         var frontEnd = new LoadBalancer(&#34;frontEnd&#34;);
  * 
  *         var frontEndTargetGroup = new TargetGroup(&#34;frontEndTargetGroup&#34;);
  * 
  *         var frontEndListener = new Listener(&#34;frontEndListener&#34;, ListenerArgs.builder()        
- *             .loadBalancerArn(frontEndLoadBalancer.arn())
+ *             .loadBalancerArn(frontEnd.arn())
  *             .port(&#34;80&#34;)
  *             .protocol(&#34;HTTP&#34;)
  *             .defaultActions(            
@@ -312,7 +335,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Gateway Load Balancer Listener
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -341,17 +368,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
+ *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
  *             .loadBalancerType(&#34;gateway&#34;)
+ *             .name(&#34;example&#34;)
  *             .subnetMappings(LoadBalancerSubnetMappingArgs.builder()
- *                 .subnetId(aws_subnet.example().id())
+ *                 .subnetId(exampleAwsSubnet.id())
  *                 .build())
  *             .build());
  * 
  *         var exampleTargetGroup = new TargetGroup(&#34;exampleTargetGroup&#34;, TargetGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .port(6081)
  *             .protocol(&#34;GENEVE&#34;)
- *             .vpcId(aws_vpc.example().id())
+ *             .vpcId(exampleAwsVpc.id())
  *             .healthCheck(TargetGroupHealthCheckArgs.builder()
  *                 .port(80)
  *                 .protocol(&#34;HTTP&#34;)
@@ -359,7 +388,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
- *             .loadBalancerArn(exampleLoadBalancer.id())
+ *             .loadBalancerArn(example.id())
  *             .defaultActions(ListenerDefaultActionArgs.builder()
  *                 .targetGroupArn(exampleTargetGroup.id())
  *                 .type(&#34;forward&#34;)
@@ -369,13 +398,66 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Mutual TLS Authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lb.LoadBalancer;
+ * import com.pulumi.aws.lb.LoadBalancerArgs;
+ * import com.pulumi.aws.lb.TargetGroup;
+ * import com.pulumi.aws.lb.Listener;
+ * import com.pulumi.aws.lb.ListenerArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerMutualAuthenticationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
+ *             .loadBalancerType(&#34;application&#34;)
+ *             .build());
+ * 
+ *         var exampleTargetGroup = new TargetGroup(&#34;exampleTargetGroup&#34;);
+ * 
+ *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *             .loadBalancerArn(example.id())
+ *             .defaultActions(ListenerDefaultActionArgs.builder()
+ *                 .targetGroupArn(exampleTargetGroup.id())
+ *                 .type(&#34;forward&#34;)
+ *                 .build())
+ *             .mutualAuthentication(ListenerMutualAuthenticationArgs.builder()
+ *                 .mode(&#34;verify&#34;)
+ *                 .trustStoreArn(&#34;...&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import listeners using their ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
+ * $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
  * ```
  * 
  */
@@ -458,6 +540,20 @@ public class Listener extends com.pulumi.resources.CustomResource {
      */
     public Output<String> loadBalancerArn() {
         return this.loadBalancerArn;
+    }
+    /**
+     * The mutual authentication configuration information. Detailed below.
+     * 
+     */
+    @Export(name="mutualAuthentication", refs={ListenerMutualAuthentication.class}, tree="[0]")
+    private Output<ListenerMutualAuthentication> mutualAuthentication;
+
+    /**
+     * @return The mutual authentication configuration information. Detailed below.
+     * 
+     */
+    public Output<ListenerMutualAuthentication> mutualAuthentication() {
+        return this.mutualAuthentication;
     }
     /**
      * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
@@ -572,9 +668,6 @@ public class Listener extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .aliases(List.of(
                 Output.of(Alias.builder().type("aws:elasticloadbalancingv2/listener:Listener").build())
-            ))
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

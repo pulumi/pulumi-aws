@@ -14,6 +14,7 @@ namespace Pulumi.Aws.MediaStore
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,13 +23,16 @@ namespace Pulumi.Aws.MediaStore
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentRegion = Aws.GetRegion.Invoke();
+    ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var exampleContainer = new Aws.MediaStore.Container("exampleContainer");
+    ///     var exampleContainer = new Aws.MediaStore.Container("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
     /// 
-    ///     var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -43,7 +47,7 @@ namespace Pulumi.Aws.MediaStore
     ///                         Type = "AWS",
     ///                         Identifiers = new[]
     ///                         {
-    ///                             $"arn:aws:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+    ///                             $"arn:aws:iam::{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
     ///                         },
     ///                     },
     ///                 },
@@ -53,7 +57,7 @@ namespace Pulumi.Aws.MediaStore
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:mediastore:{currentRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:container/{exampleContainer.Name}/*",
+    ///                     $"arn:aws:mediastore:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:container/{exampleContainer.Name}/*",
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -71,21 +75,22 @@ namespace Pulumi.Aws.MediaStore
     ///         },
     ///     });
     /// 
-    ///     var exampleContainerPolicy = new Aws.MediaStore.ContainerPolicy("exampleContainerPolicy", new()
+    ///     var exampleContainerPolicy = new Aws.MediaStore.ContainerPolicy("example", new()
     ///     {
     ///         ContainerName = exampleContainer.Name,
-    ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+    /// $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:mediastore/containerPolicy:ContainerPolicy")]

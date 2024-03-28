@@ -73,25 +73,28 @@ public final class ServiceHealthCheckConfig {
 
         @CustomType.Setter
         public Builder failureThreshold(@Nullable Integer failureThreshold) {
+
             this.failureThreshold = failureThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder resourcePath(@Nullable String resourcePath) {
+
             this.resourcePath = resourcePath;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         public ServiceHealthCheckConfig build() {
-            final var o = new ServiceHealthCheckConfig();
-            o.failureThreshold = failureThreshold;
-            o.resourcePath = resourcePath;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceHealthCheckConfig();
+            _resultValue.failureThreshold = failureThreshold;
+            _resultValue.resourcePath = resourcePath;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

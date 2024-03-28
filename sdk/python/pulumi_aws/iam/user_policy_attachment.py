@@ -104,25 +104,28 @@ class UserPolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        user = aws.iam.User("user")
+        user = aws.iam.User("user", name="test-user")
         policy = aws.iam.Policy("policy",
+            name="test-policy",
             description="A test policy",
             policy="{ ... policy JSON ... }")
         test_attach = aws.iam.UserPolicyAttachment("test-attach",
             user=user.name,
             policy_arn=policy.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
 
         :param str resource_name: The name of the resource.
@@ -143,25 +146,28 @@ class UserPolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        user = aws.iam.User("user")
+        user = aws.iam.User("user", name="test-user")
         policy = aws.iam.Policy("policy",
+            name="test-policy",
             description="A test policy",
             policy="{ ... policy JSON ... }")
         test_attach = aws.iam.UserPolicyAttachment("test-attach",
             user=user.name,
             policy_arn=policy.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
 
         :param str resource_name: The name of the resource.

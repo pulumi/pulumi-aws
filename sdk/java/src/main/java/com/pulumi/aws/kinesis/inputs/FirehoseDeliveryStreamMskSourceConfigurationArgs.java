@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -15,14 +16,14 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
     public static final FirehoseDeliveryStreamMskSourceConfigurationArgs Empty = new FirehoseDeliveryStreamMskSourceConfigurationArgs();
 
     /**
-     * The authentication configuration of the Amazon MSK cluster. More details are given below.
+     * The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
      * 
      */
     @Import(name="authenticationConfiguration", required=true)
     private Output<FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs> authenticationConfiguration;
 
     /**
-     * @return The authentication configuration of the Amazon MSK cluster. More details are given below.
+     * @return The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
      * 
      */
     public Output<FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs> authenticationConfiguration() {
@@ -86,7 +87,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
         }
 
         /**
-         * @param authenticationConfiguration The authentication configuration of the Amazon MSK cluster. More details are given below.
+         * @param authenticationConfiguration The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -97,7 +98,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
         }
 
         /**
-         * @param authenticationConfiguration The authentication configuration of the Amazon MSK cluster. More details are given below.
+         * @param authenticationConfiguration The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
          * 
          * @return builder
          * 
@@ -149,9 +150,15 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationArgs extends com.
         }
 
         public FirehoseDeliveryStreamMskSourceConfigurationArgs build() {
-            $.authenticationConfiguration = Objects.requireNonNull($.authenticationConfiguration, "expected parameter 'authenticationConfiguration' to be non-null");
-            $.mskClusterArn = Objects.requireNonNull($.mskClusterArn, "expected parameter 'mskClusterArn' to be non-null");
-            $.topicName = Objects.requireNonNull($.topicName, "expected parameter 'topicName' to be non-null");
+            if ($.authenticationConfiguration == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamMskSourceConfigurationArgs", "authenticationConfiguration");
+            }
+            if ($.mskClusterArn == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamMskSourceConfigurationArgs", "mskClusterArn");
+            }
+            if ($.topicName == null) {
+                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamMskSourceConfigurationArgs", "topicName");
+            }
             return $;
         }
     }

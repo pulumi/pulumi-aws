@@ -4,6 +4,7 @@
 package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,13 +35,16 @@ public final class ConfigurationSetEventDestinationEventDestinationPinpointDesti
 
         @CustomType.Setter
         public Builder applicationArn(String applicationArn) {
-            this.applicationArn = Objects.requireNonNull(applicationArn);
+            if (applicationArn == null) {
+              throw new MissingRequiredPropertyException("ConfigurationSetEventDestinationEventDestinationPinpointDestination", "applicationArn");
+            }
+            this.applicationArn = applicationArn;
             return this;
         }
         public ConfigurationSetEventDestinationEventDestinationPinpointDestination build() {
-            final var o = new ConfigurationSetEventDestinationEventDestinationPinpointDestination();
-            o.applicationArn = applicationArn;
-            return o;
+            final var _resultValue = new ConfigurationSetEventDestinationEventDestinationPinpointDestination();
+            _resultValue.applicationArn = applicationArn;
+            return _resultValue;
         }
     }
 }

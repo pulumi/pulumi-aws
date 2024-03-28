@@ -4,6 +4,7 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -153,67 +154,97 @@ public final class GetConnectionResult {
 
         @CustomType.Setter
         public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
         public Builder connectedDeviceId(String connectedDeviceId) {
-            this.connectedDeviceId = Objects.requireNonNull(connectedDeviceId);
+            if (connectedDeviceId == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "connectedDeviceId");
+            }
+            this.connectedDeviceId = connectedDeviceId;
             return this;
         }
         @CustomType.Setter
         public Builder connectedLinkId(String connectedLinkId) {
-            this.connectedLinkId = Objects.requireNonNull(connectedLinkId);
+            if (connectedLinkId == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "connectedLinkId");
+            }
+            this.connectedLinkId = connectedLinkId;
             return this;
         }
         @CustomType.Setter
         public Builder connectionId(String connectionId) {
-            this.connectionId = Objects.requireNonNull(connectionId);
+            if (connectionId == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "connectionId");
+            }
+            this.connectionId = connectionId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder deviceId(String deviceId) {
-            this.deviceId = Objects.requireNonNull(deviceId);
+            if (deviceId == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "deviceId");
+            }
+            this.deviceId = deviceId;
             return this;
         }
         @CustomType.Setter
         public Builder globalNetworkId(String globalNetworkId) {
-            this.globalNetworkId = Objects.requireNonNull(globalNetworkId);
+            if (globalNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "globalNetworkId");
+            }
+            this.globalNetworkId = globalNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder linkId(String linkId) {
-            this.linkId = Objects.requireNonNull(linkId);
+            if (linkId == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "linkId");
+            }
+            this.linkId = linkId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetConnectionResult build() {
-            final var o = new GetConnectionResult();
-            o.arn = arn;
-            o.connectedDeviceId = connectedDeviceId;
-            o.connectedLinkId = connectedLinkId;
-            o.connectionId = connectionId;
-            o.description = description;
-            o.deviceId = deviceId;
-            o.globalNetworkId = globalNetworkId;
-            o.id = id;
-            o.linkId = linkId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetConnectionResult();
+            _resultValue.arn = arn;
+            _resultValue.connectedDeviceId = connectedDeviceId;
+            _resultValue.connectedLinkId = connectedLinkId;
+            _resultValue.connectionId = connectionId;
+            _resultValue.description = description;
+            _resultValue.deviceId = deviceId;
+            _resultValue.globalNetworkId = globalNetworkId;
+            _resultValue.id = id;
+            _resultValue.linkId = linkId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

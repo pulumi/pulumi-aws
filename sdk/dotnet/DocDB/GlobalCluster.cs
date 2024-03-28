@@ -15,8 +15,10 @@ namespace Pulumi.Aws.DocDB
     /// More information about DocumentDB Global Clusters can be found in the [DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/global-clusters.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### New DocumentDB Global Cluster
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -25,16 +27,6 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary = new Aws.Provider("primary", new()
-    ///     {
-    ///         Region = "us-east-2",
-    ///     });
-    /// 
-    ///     var secondary = new Aws.Provider("secondary", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
     ///     var example = new Aws.DocDB.GlobalCluster("example", new()
     ///     {
     ///         GlobalClusterIdentifier = "global-test",
@@ -42,7 +34,7 @@ namespace Pulumi.Aws.DocDB
     ///         EngineVersion = "4.0.0",
     ///     });
     /// 
-    ///     var primaryCluster = new Aws.DocDB.Cluster("primaryCluster", new()
+    ///     var primary = new Aws.DocDB.Cluster("primary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
@@ -51,57 +43,40 @@ namespace Pulumi.Aws.DocDB
     ///         MasterPassword = "somepass123",
     ///         GlobalClusterIdentifier = example.Id,
     ///         DbSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var primaryClusterInstance = new Aws.DocDB.ClusterInstance("primaryClusterInstance", new()
+    ///     var primaryClusterInstance = new Aws.DocDB.ClusterInstance("primary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         Identifier = "test-primary-cluster-instance",
-    ///         ClusterIdentifier = primaryCluster.Id,
+    ///         ClusterIdentifier = primary.Id,
     ///         InstanceClass = "db.r5.large",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
     ///     });
     /// 
-    ///     var secondaryCluster = new Aws.DocDB.Cluster("secondaryCluster", new()
+    ///     var secondary = new Aws.DocDB.Cluster("secondary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         EngineVersion = example.EngineVersion,
     ///         ClusterIdentifier = "test-secondary-cluster",
     ///         GlobalClusterIdentifier = example.Id,
     ///         DbSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Secondary,
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryCluster,
-    ///         },
     ///     });
     /// 
-    ///     var secondaryClusterInstance = new Aws.DocDB.ClusterInstance("secondaryClusterInstance", new()
+    ///     var secondaryClusterInstance = new Aws.DocDB.ClusterInstance("secondary", new()
     ///     {
     ///         Engine = example.Engine,
     ///         Identifier = "test-secondary-cluster-instance",
-    ///         ClusterIdentifier = secondaryCluster.Id,
+    ///         ClusterIdentifier = secondary.Id,
     ///         InstanceClass = "db.r5.large",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Secondary,
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryClusterInstance,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### New Global Cluster From Existing DB Cluster
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,26 +85,26 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // ... other configuration ...
-    ///     var exampleCluster = new Aws.DocDB.Cluster("exampleCluster");
+    ///     var example = new Aws.DocDB.Cluster("example");
     /// 
-    ///     var exampleGlobalCluster = new Aws.DocDB.GlobalCluster("exampleGlobalCluster", new()
+    ///     var exampleGlobalCluster = new Aws.DocDB.GlobalCluster("example", new()
     ///     {
     ///         GlobalClusterIdentifier = "example",
-    ///         SourceDbClusterIdentifier = exampleCluster.Arn,
+    ///         SourceDbClusterIdentifier = example.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
+    /// $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
     /// ```
-    ///  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:docdb/globalCluster:GlobalCluster")]
     public partial class GlobalCluster : global::Pulumi.CustomResource

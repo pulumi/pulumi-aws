@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,15 +23,16 @@ namespace Pulumi.Aws.Chime
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
+    ///     var @default = new Aws.Chime.VoiceConnector("default", new()
     ///     {
+    ///         Name = "test",
     ///         RequireEncryption = true,
     ///     });
     /// 
-    ///     var defaultVoiceConnectorOrganization = new Aws.Chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization", new()
+    ///     var defaultVoiceConnectorOrganization = new Aws.Chime.VoiceConnectorOrganization("default", new()
     ///     {
     ///         Disabled = false,
-    ///         VoiceConnectorId = defaultVoiceConnector.Id,
+    ///         VoiceConnectorId = @default.Id,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Chime.Inputs.VoiceConnectorOrganizationRouteArgs
@@ -54,13 +56,14 @@ namespace Pulumi.Aws.Chime
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
+    /// $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization")]

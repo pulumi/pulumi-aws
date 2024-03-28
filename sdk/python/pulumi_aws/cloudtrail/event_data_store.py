@@ -345,29 +345,34 @@ class EventDataStore(pulumi.CustomResource):
         > **Tip:** For an organization event data store you must create this resource in the management account.
 
         ## Example Usage
+
         ### Basic
 
         The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudtrail.EventDataStore("example")
+        example = aws.cloudtrail.EventDataStore("example", name="example-event-data-store")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Data Event Logging
 
         CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
 
         - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
+
         ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         table = aws.dynamodb.get_table(name="not-important-dynamodb-table")
-        # ... other configuration ...
         example = aws.cloudtrail.EventDataStore("example", advanced_event_selectors=[aws.cloudtrail.EventDataStoreAdvancedEventSelectorArgs(
             name="Log all DynamoDB PutEvent actions for a specific DynamoDB table",
             field_selectors=[
@@ -390,13 +395,14 @@ class EventDataStore(pulumi.CustomResource):
             ],
         )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import event data stores using their `arn`. For example:
 
         ```sh
-         $ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
+        $ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
         ```
 
         :param str resource_name: The name of the resource.
@@ -424,29 +430,34 @@ class EventDataStore(pulumi.CustomResource):
         > **Tip:** For an organization event data store you must create this resource in the management account.
 
         ## Example Usage
+
         ### Basic
 
         The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudtrail.EventDataStore("example")
+        example = aws.cloudtrail.EventDataStore("example", name="example-event-data-store")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Data Event Logging
 
         CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
 
         - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
+
         ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         table = aws.dynamodb.get_table(name="not-important-dynamodb-table")
-        # ... other configuration ...
         example = aws.cloudtrail.EventDataStore("example", advanced_event_selectors=[aws.cloudtrail.EventDataStoreAdvancedEventSelectorArgs(
             name="Log all DynamoDB PutEvent actions for a specific DynamoDB table",
             field_selectors=[
@@ -469,13 +480,14 @@ class EventDataStore(pulumi.CustomResource):
             ],
         )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import event data stores using their `arn`. For example:
 
         ```sh
-         $ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
+        $ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
         ```
 
         :param str resource_name: The name of the resource.
@@ -520,8 +532,6 @@ class EventDataStore(pulumi.CustomResource):
             __props__.__dict__["termination_protection_enabled"] = termination_protection_enabled
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
-        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EventDataStore, __self__).__init__(
             'aws:cloudtrail/eventDataStore:EventDataStore',
             resource_name,

@@ -15,13 +15,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testStream = new aws.kinesis.Stream("testStream", {
- *     retentionPeriod: 48,
+ * const testStream = new aws.kinesis.Stream("test_stream", {
+ *     name: "kinesis-test",
  *     shardCount: 1,
+ *     retentionPeriod: 48,
  *     shardLevelMetrics: [
  *         "IncomingBytes",
  *         "OutgoingBytes",
@@ -34,13 +36,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Kinesis Streams using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
+ * $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
  * ```
  */
 export class Stream extends pulumi.CustomResource {
@@ -158,8 +161,6 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Stream.__pulumiType, name, resourceInputs, opts);
     }
 }

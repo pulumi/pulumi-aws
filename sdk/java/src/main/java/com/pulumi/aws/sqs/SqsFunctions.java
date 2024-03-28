@@ -23,6 +23,8 @@ public final class SqsFunctions {
      * the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -51,6 +53,7 @@ public final class SqsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args) {
@@ -62,6 +65,8 @@ public final class SqsFunctions {
      * the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -90,6 +95,7 @@ public final class SqsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args) {
@@ -101,6 +107,8 @@ public final class SqsFunctions {
      * the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class SqsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOptions options) {
@@ -140,6 +149,8 @@ public final class SqsFunctions {
      * the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -168,6 +179,7 @@ public final class SqsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args, InvokeOptions options) {
@@ -177,7 +189,10 @@ public final class SqsFunctions {
      * Data source for managing an AWS SQS (Simple Queue) Queues.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -206,6 +221,7 @@ public final class SqsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueuesResult> getQueues() {
@@ -215,7 +231,10 @@ public final class SqsFunctions {
      * Data source for managing an AWS SQS (Simple Queue) Queues.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -244,6 +263,7 @@ public final class SqsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueuesResult> getQueuesPlain() {
@@ -253,7 +273,10 @@ public final class SqsFunctions {
      * Data source for managing an AWS SQS (Simple Queue) Queues.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -282,6 +305,7 @@ public final class SqsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueuesResult> getQueues(GetQueuesArgs args) {
@@ -291,7 +315,10 @@ public final class SqsFunctions {
      * Data source for managing an AWS SQS (Simple Queue) Queues.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -320,6 +347,7 @@ public final class SqsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueuesResult> getQueuesPlain(GetQueuesPlainArgs args) {
@@ -329,7 +357,10 @@ public final class SqsFunctions {
      * Data source for managing an AWS SQS (Simple Queue) Queues.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -358,6 +389,7 @@ public final class SqsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueuesResult> getQueues(GetQueuesArgs args, InvokeOptions options) {
@@ -367,7 +399,10 @@ public final class SqsFunctions {
      * Data source for managing an AWS SQS (Simple Queue) Queues.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -396,6 +431,7 @@ public final class SqsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueuesResult> getQueuesPlain(GetQueuesPlainArgs args, InvokeOptions options) {

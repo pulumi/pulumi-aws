@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +33,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         Ami = "ami-21f78e11",
     ///         AvailabilityZone = "us-west-2a",
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         Tags = 
     ///         {
     ///             { "Name", "HelloWorld" },
@@ -44,7 +45,7 @@ namespace Pulumi.Aws.Ec2
     ///         Domain = "vpc",
     ///     });
     /// 
-    ///     var eipAssoc = new Aws.Ec2.EipAssociation("eipAssoc", new()
+    ///     var eipAssoc = new Aws.Ec2.EipAssociation("eip_assoc", new()
     ///     {
     ///         InstanceId = web.Id,
     ///         AllocationId = example.Id,
@@ -52,13 +53,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EIP Assocations using their association IDs. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+    /// $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/eipAssociation:EipAssociation")]

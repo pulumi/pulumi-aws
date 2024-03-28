@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,25 +72,34 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
         @CustomType.Setter
         public Builder matchPattern(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern matchPattern) {
-            this.matchPattern = Objects.requireNonNull(matchPattern);
+            if (matchPattern == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader", "matchPattern");
+            }
+            this.matchPattern = matchPattern;
             return this;
         }
         @CustomType.Setter
         public Builder matchScope(String matchScope) {
-            this.matchScope = Objects.requireNonNull(matchScope);
+            if (matchScope == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader", "matchScope");
+            }
+            this.matchScope = matchScope;
             return this;
         }
         @CustomType.Setter
         public Builder oversizeHandling(String oversizeHandling) {
-            this.oversizeHandling = Objects.requireNonNull(oversizeHandling);
+            if (oversizeHandling == null) {
+              throw new MissingRequiredPropertyException("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader", "oversizeHandling");
+            }
+            this.oversizeHandling = oversizeHandling;
             return this;
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader build() {
-            final var o = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader();
-            o.matchPattern = matchPattern;
-            o.matchScope = matchScope;
-            o.oversizeHandling = oversizeHandling;
-            return o;
+            final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader();
+            _resultValue.matchPattern = matchPattern;
+            _resultValue.matchScope = matchScope;
+            _resultValue.oversizeHandling = oversizeHandling;
+            return _resultValue;
         }
     }
 }

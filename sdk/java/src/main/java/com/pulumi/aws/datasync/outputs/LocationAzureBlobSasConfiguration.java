@@ -4,6 +4,7 @@
 package com.pulumi.aws.datasync.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class LocationAzureBlobSasConfiguration {
 
         @CustomType.Setter
         public Builder token(String token) {
-            this.token = Objects.requireNonNull(token);
+            if (token == null) {
+              throw new MissingRequiredPropertyException("LocationAzureBlobSasConfiguration", "token");
+            }
+            this.token = token;
             return this;
         }
         public LocationAzureBlobSasConfiguration build() {
-            final var o = new LocationAzureBlobSasConfiguration();
-            o.token = token;
-            return o;
+            final var _resultValue = new LocationAzureBlobSasConfiguration();
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

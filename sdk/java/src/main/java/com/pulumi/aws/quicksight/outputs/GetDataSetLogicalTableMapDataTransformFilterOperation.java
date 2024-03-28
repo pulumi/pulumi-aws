@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,13 +35,16 @@ public final class GetDataSetLogicalTableMapDataTransformFilterOperation {
 
         @CustomType.Setter
         public Builder conditionExpression(String conditionExpression) {
-            this.conditionExpression = Objects.requireNonNull(conditionExpression);
+            if (conditionExpression == null) {
+              throw new MissingRequiredPropertyException("GetDataSetLogicalTableMapDataTransformFilterOperation", "conditionExpression");
+            }
+            this.conditionExpression = conditionExpression;
             return this;
         }
         public GetDataSetLogicalTableMapDataTransformFilterOperation build() {
-            final var o = new GetDataSetLogicalTableMapDataTransformFilterOperation();
-            o.conditionExpression = conditionExpression;
-            return o;
+            final var _resultValue = new GetDataSetLogicalTableMapDataTransformFilterOperation();
+            _resultValue.conditionExpression = conditionExpression;
+            return _resultValue;
         }
     }
 }

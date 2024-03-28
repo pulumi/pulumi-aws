@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,23 +27,20 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var route = new Aws.Ec2.Route("route", new()
+    ///     var r = new Aws.Ec2.Route("r", new()
     ///     {
-    ///         RouteTableId = "rtb-4fbb3ac4",
+    ///         RouteTableId = testing.Id,
     ///         DestinationCidrBlock = "10.0.1.0/22",
     ///         VpcPeeringConnectionId = "pcx-45ff3dc1",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_route_table.Testing,
-    ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Example IPv6 Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,7 +60,7 @@ namespace Pulumi.Aws.Ec2
     ///         VpcId = vpc.Id,
     ///     });
     /// 
-    ///     var route = new Aws.Ec2.Route("route", new()
+    ///     var r = new Aws.Ec2.Route("r", new()
     ///     {
     ///         RouteTableId = "rtb-4fbb3ac4",
     ///         DestinationIpv6CidrBlock = "::/0",
@@ -71,6 +69,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -83,17 +82,17 @@ namespace Pulumi.Aws.Ec2
     /// Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
+    /// $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
     /// ```
-    ///  Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
+    /// Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
+    /// $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
     /// ```
-    ///  Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
+    /// Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+    /// $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/route:Route")]

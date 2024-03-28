@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -31,7 +32,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			messenger, err := cloudwatch.NewEventBus(ctx, "messenger", nil)
+//			messenger, err := cloudwatch.NewEventBus(ctx, "messenger", &cloudwatch.EventBusArgs{
+//				Name: pulumi.String("chat-messages"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -47,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:schemas/discoverer:Discoverer test 123
-//
+// $ pulumi import aws:schemas/discoverer:Discoverer test 123
 // ```
 type Discoverer struct {
 	pulumi.CustomResourceState
@@ -84,10 +86,6 @@ func NewDiscoverer(ctx *pulumi.Context,
 	if args.SourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'SourceArn'")
 	}
-	secrets := pulumi.AdditionalSecretOutputs([]string{
-		"tagsAll",
-	})
-	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Discoverer
 	err := ctx.RegisterResource("aws:schemas/discoverer:Discoverer", name, args, &resource, opts...)

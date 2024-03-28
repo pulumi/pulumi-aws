@@ -8,6 +8,7 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfiguratio
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -17,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirehoseDeliveryStreamRedshiftConfiguration {
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
@@ -47,7 +48,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      */
     private String password;
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration processingConfiguration;
@@ -72,7 +73,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See s3_configuration below for details.
      * 
      */
     private FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration;
@@ -84,7 +85,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
 
     private FirehoseDeliveryStreamRedshiftConfiguration() {}
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
@@ -126,7 +127,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         return this.password;
     }
     /**
-     * @return The data processing configuration.  More details are given below.
+     * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration> processingConfiguration() {
@@ -161,7 +162,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See s3_configuration for more details.
+     * @return The S3 Configuration. See s3_configuration below for details.
      * 
      */
     public FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration() {
@@ -217,85 +218,110 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
 
         @CustomType.Setter
         public Builder cloudwatchLoggingOptions(@Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions) {
+
             this.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
         @CustomType.Setter
         public Builder clusterJdbcurl(String clusterJdbcurl) {
-            this.clusterJdbcurl = Objects.requireNonNull(clusterJdbcurl);
+            if (clusterJdbcurl == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "clusterJdbcurl");
+            }
+            this.clusterJdbcurl = clusterJdbcurl;
             return this;
         }
         @CustomType.Setter
         public Builder copyOptions(@Nullable String copyOptions) {
+
             this.copyOptions = copyOptions;
             return this;
         }
         @CustomType.Setter
         public Builder dataTableColumns(@Nullable String dataTableColumns) {
+
             this.dataTableColumns = dataTableColumns;
             return this;
         }
         @CustomType.Setter
         public Builder dataTableName(String dataTableName) {
-            this.dataTableName = Objects.requireNonNull(dataTableName);
+            if (dataTableName == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "dataTableName");
+            }
+            this.dataTableName = dataTableName;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder processingConfiguration(@Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration processingConfiguration) {
+
             this.processingConfiguration = processingConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder retryDuration(@Nullable Integer retryDuration) {
+
             this.retryDuration = retryDuration;
             return this;
         }
         @CustomType.Setter
         public Builder roleArn(String roleArn) {
-            this.roleArn = Objects.requireNonNull(roleArn);
+            if (roleArn == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "roleArn");
+            }
+            this.roleArn = roleArn;
             return this;
         }
         @CustomType.Setter
         public Builder s3BackupConfiguration(@Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration) {
+
             this.s3BackupConfiguration = s3BackupConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder s3BackupMode(@Nullable String s3BackupMode) {
+
             this.s3BackupMode = s3BackupMode;
             return this;
         }
         @CustomType.Setter
         public Builder s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration) {
-            this.s3Configuration = Objects.requireNonNull(s3Configuration);
+            if (s3Configuration == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "s3Configuration");
+            }
+            this.s3Configuration = s3Configuration;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfiguration", "username");
+            }
+            this.username = username;
             return this;
         }
         public FirehoseDeliveryStreamRedshiftConfiguration build() {
-            final var o = new FirehoseDeliveryStreamRedshiftConfiguration();
-            o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
-            o.clusterJdbcurl = clusterJdbcurl;
-            o.copyOptions = copyOptions;
-            o.dataTableColumns = dataTableColumns;
-            o.dataTableName = dataTableName;
-            o.password = password;
-            o.processingConfiguration = processingConfiguration;
-            o.retryDuration = retryDuration;
-            o.roleArn = roleArn;
-            o.s3BackupConfiguration = s3BackupConfiguration;
-            o.s3BackupMode = s3BackupMode;
-            o.s3Configuration = s3Configuration;
-            o.username = username;
-            return o;
+            final var _resultValue = new FirehoseDeliveryStreamRedshiftConfiguration();
+            _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
+            _resultValue.clusterJdbcurl = clusterJdbcurl;
+            _resultValue.copyOptions = copyOptions;
+            _resultValue.dataTableColumns = dataTableColumns;
+            _resultValue.dataTableName = dataTableName;
+            _resultValue.password = password;
+            _resultValue.processingConfiguration = processingConfiguration;
+            _resultValue.retryDuration = retryDuration;
+            _resultValue.roleArn = roleArn;
+            _resultValue.s3BackupConfiguration = s3BackupConfiguration;
+            _resultValue.s3BackupMode = s3BackupMode;
+            _resultValue.s3Configuration = s3Configuration;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

@@ -194,25 +194,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
         Basic usage:
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        ```
-
-        Provision Public IPv6 Pool CIDRs:
-
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,7 +203,28 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        ipv6_test_public_vpc_ipam_pool = aws.ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool",
+        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
+            address_family="ipv4",
+            ipam_scope_id=example.private_default_scope_id,
+            locale=current.name)
+        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
+            ipam_pool_id=example_vpc_ipam_pool.id,
+            cidr="172.20.0.0/16")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        Provision Public IPv6 Pool CIDRs:
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+            region_name=current.name,
+        )])
+        ipv6_test_public = aws.ec2.VpcIpamPool("ipv6_test_public",
             address_family="ipv6",
             ipam_scope_id=example.public_default_scope_id,
             locale="us-east-1",
@@ -229,10 +232,11 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
             publicly_advertisable=False,
             public_ip_source="amazon",
             aws_service="ec2")
-        ipv6_test_public_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr",
-            ipam_pool_id=ipv6_test_public_vpc_ipam_pool.id,
+        ipv6_test_public_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("ipv6_test_public",
+            ipam_pool_id=ipv6_test_public.id,
             netmask_length=52)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -241,7 +245,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
+        $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
         ```
 
         :param str resource_name: The name of the resource.
@@ -269,25 +273,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
         Basic usage:
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        ```
-
-        Provision Public IPv6 Pool CIDRs:
-
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,7 +282,28 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
             region_name=current.name,
         )])
-        ipv6_test_public_vpc_ipam_pool = aws.ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool",
+        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
+            address_family="ipv4",
+            ipam_scope_id=example.private_default_scope_id,
+            locale=current.name)
+        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
+            ipam_pool_id=example_vpc_ipam_pool.id,
+            cidr="172.20.0.0/16")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        Provision Public IPv6 Pool CIDRs:
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+            region_name=current.name,
+        )])
+        ipv6_test_public = aws.ec2.VpcIpamPool("ipv6_test_public",
             address_family="ipv6",
             ipam_scope_id=example.public_default_scope_id,
             locale="us-east-1",
@@ -304,10 +311,11 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
             publicly_advertisable=False,
             public_ip_source="amazon",
             aws_service="ec2")
-        ipv6_test_public_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr",
-            ipam_pool_id=ipv6_test_public_vpc_ipam_pool.id,
+        ipv6_test_public_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("ipv6_test_public",
+            ipam_pool_id=ipv6_test_public.id,
             netmask_length=52)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -316,7 +324,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
+        $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
         ```
 
         :param str resource_name: The name of the resource.

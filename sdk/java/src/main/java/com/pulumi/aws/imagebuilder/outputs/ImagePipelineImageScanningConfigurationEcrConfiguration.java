@@ -51,6 +51,7 @@ public final class ImagePipelineImageScanningConfigurationEcrConfiguration {
 
         @CustomType.Setter
         public Builder containerTags(@Nullable List<String> containerTags) {
+
             this.containerTags = containerTags;
             return this;
         }
@@ -59,14 +60,15 @@ public final class ImagePipelineImageScanningConfigurationEcrConfiguration {
         }
         @CustomType.Setter
         public Builder repositoryName(@Nullable String repositoryName) {
+
             this.repositoryName = repositoryName;
             return this;
         }
         public ImagePipelineImageScanningConfigurationEcrConfiguration build() {
-            final var o = new ImagePipelineImageScanningConfigurationEcrConfiguration();
-            o.containerTags = containerTags;
-            o.repositoryName = repositoryName;
-            return o;
+            final var _resultValue = new ImagePipelineImageScanningConfigurationEcrConfiguration();
+            _resultValue.containerTags = containerTags;
+            _resultValue.repositoryName = repositoryName;
+            return _resultValue;
         }
     }
 }

@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Information about most recent Spot Price for a given EC2 instance.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -28,6 +27,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetSpotPrice.Invoke(new()
         ///     {
+        ///         InstanceType = "t3.medium",
         ///         AvailabilityZone = "us-west-2a",
         ///         Filters = new[]
         ///         {
@@ -40,13 +40,11 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         InstanceType = "t3.medium",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSpotPriceResult> InvokeAsync(GetSpotPriceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpotPriceResult>("aws:ec2/getSpotPrice:getSpotPrice", args ?? new GetSpotPriceArgs(), options.WithDefaults());
@@ -54,10 +52,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Information about most recent Spot Price for a given EC2 instance.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,6 +65,7 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetSpotPrice.Invoke(new()
         ///     {
+        ///         InstanceType = "t3.medium",
         ///         AvailabilityZone = "us-west-2a",
         ///         Filters = new[]
         ///         {
@@ -80,13 +78,11 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
-        ///         InstanceType = "t3.medium",
         ///     });
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSpotPriceResult> Invoke(GetSpotPriceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpotPriceResult>("aws:ec2/getSpotPrice:getSpotPrice", args ?? new GetSpotPriceInvokeArgs(), options.WithDefaults());

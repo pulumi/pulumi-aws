@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -29,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventBus;
+ * import com.pulumi.aws.cloudwatch.EventBusArgs;
  * import com.pulumi.aws.schemas.Discoverer;
  * import com.pulumi.aws.schemas.DiscovererArgs;
  * import java.util.List;
@@ -44,7 +46,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var messenger = new EventBus(&#34;messenger&#34;);
+ *         var messenger = new EventBus(&#34;messenger&#34;, EventBusArgs.builder()        
+ *             .name(&#34;chat-messages&#34;)
+ *             .build());
  * 
  *         var test = new Discoverer(&#34;test&#34;, DiscovererArgs.builder()        
  *             .sourceArn(messenger.arn())
@@ -54,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:schemas/discoverer:Discoverer test 123
+ * $ pulumi import aws:schemas/discoverer:Discoverer test 123
  * ```
  * 
  */
@@ -173,9 +178,6 @@ public class Discoverer extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

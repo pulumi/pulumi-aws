@@ -5,6 +5,7 @@ package com.pulumi.aws.vpclattice.outputs;
 
 import com.pulumi.aws.vpclattice.outputs.ListenerRuleActionForwardTargetGroup;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ public final class ListenerRuleActionForward {
     /**
      * @return The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
      * 
-     * The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
+     * The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100%!o(MISSING)f traffic will go to that target group.
      * 
      */
     private List<ListenerRuleActionForwardTargetGroup> targetGroups;
@@ -22,7 +23,7 @@ public final class ListenerRuleActionForward {
     /**
      * @return The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
      * 
-     * The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
+     * The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100%!o(MISSING)f traffic will go to that target group.
      * 
      */
     public List<ListenerRuleActionForwardTargetGroup> targetGroups() {
@@ -47,16 +48,19 @@ public final class ListenerRuleActionForward {
 
         @CustomType.Setter
         public Builder targetGroups(List<ListenerRuleActionForwardTargetGroup> targetGroups) {
-            this.targetGroups = Objects.requireNonNull(targetGroups);
+            if (targetGroups == null) {
+              throw new MissingRequiredPropertyException("ListenerRuleActionForward", "targetGroups");
+            }
+            this.targetGroups = targetGroups;
             return this;
         }
         public Builder targetGroups(ListenerRuleActionForwardTargetGroup... targetGroups) {
             return targetGroups(List.of(targetGroups));
         }
         public ListenerRuleActionForward build() {
-            final var o = new ListenerRuleActionForward();
-            o.targetGroups = targetGroups;
-            return o;
+            final var _resultValue = new ListenerRuleActionForward();
+            _resultValue.targetGroups = targetGroups;
+            return _resultValue;
         }
     }
 }

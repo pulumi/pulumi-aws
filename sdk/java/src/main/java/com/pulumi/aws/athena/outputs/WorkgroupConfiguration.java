@@ -132,49 +132,56 @@ public final class WorkgroupConfiguration {
 
         @CustomType.Setter
         public Builder bytesScannedCutoffPerQuery(@Nullable Integer bytesScannedCutoffPerQuery) {
+
             this.bytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
             return this;
         }
         @CustomType.Setter
         public Builder enforceWorkgroupConfiguration(@Nullable Boolean enforceWorkgroupConfiguration) {
+
             this.enforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder engineVersion(@Nullable WorkgroupConfigurationEngineVersion engineVersion) {
+
             this.engineVersion = engineVersion;
             return this;
         }
         @CustomType.Setter
         public Builder executionRole(@Nullable String executionRole) {
+
             this.executionRole = executionRole;
             return this;
         }
         @CustomType.Setter
         public Builder publishCloudwatchMetricsEnabled(@Nullable Boolean publishCloudwatchMetricsEnabled) {
+
             this.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder requesterPaysEnabled(@Nullable Boolean requesterPaysEnabled) {
+
             this.requesterPaysEnabled = requesterPaysEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resultConfiguration(@Nullable WorkgroupConfigurationResultConfiguration resultConfiguration) {
+
             this.resultConfiguration = resultConfiguration;
             return this;
         }
         public WorkgroupConfiguration build() {
-            final var o = new WorkgroupConfiguration();
-            o.bytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
-            o.enforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
-            o.engineVersion = engineVersion;
-            o.executionRole = executionRole;
-            o.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
-            o.requesterPaysEnabled = requesterPaysEnabled;
-            o.resultConfiguration = resultConfiguration;
-            return o;
+            final var _resultValue = new WorkgroupConfiguration();
+            _resultValue.bytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
+            _resultValue.enforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
+            _resultValue.engineVersion = engineVersion;
+            _resultValue.executionRole = executionRole;
+            _resultValue.publishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
+            _resultValue.requesterPaysEnabled = requesterPaysEnabled;
+            _resultValue.resultConfiguration = resultConfiguration;
+            return _resultValue;
         }
     }
 }

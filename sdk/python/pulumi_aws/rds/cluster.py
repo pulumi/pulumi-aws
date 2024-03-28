@@ -36,8 +36,11 @@ class ClusterArgs:
                  db_system_id: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
+                 enable_local_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine_mode: Optional[pulumi.Input[Union[str, 'EngineMode']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -94,10 +97,13 @@ class ClusterArgs:
         :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
                The database can't be deleted when this value is set to `true`.
                The default is `false`.
-        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the cluster in.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        :param pulumi.Input[bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
-        :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_cluster_identifier: Global cluster identifier specified on `rds.GlobalCluster`.
@@ -121,7 +127,7 @@ class ClusterArgs:
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        :param pulumi.Input[str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
@@ -162,10 +168,16 @@ class ClusterArgs:
             pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if domain_iam_role_name is not None:
+            pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
         if enable_global_write_forwarding is not None:
             pulumi.set(__self__, "enable_global_write_forwarding", enable_global_write_forwarding)
         if enable_http_endpoint is not None:
             pulumi.set(__self__, "enable_http_endpoint", enable_http_endpoint)
+        if enable_local_write_forwarding is not None:
+            pulumi.set(__self__, "enable_local_write_forwarding", enable_local_write_forwarding)
         if enabled_cloudwatch_logs_exports is not None:
             pulumi.set(__self__, "enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
         if engine_mode is not None:
@@ -460,10 +472,34 @@ class ClusterArgs:
         pulumi.set(self, "deletion_protection", value)
 
     @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Directory Service Active Directory domain to create the cluster in.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="domainIamRoleName")
+    def domain_iam_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IAM role to be used when making API calls to the Directory Service.
+        """
+        return pulumi.get(self, "domain_iam_role_name")
+
+    @domain_iam_role_name.setter
+    def domain_iam_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_iam_role_name", value)
+
+    @property
     @pulumi.getter(name="enableGlobalWriteForwarding")
     def enable_global_write_forwarding(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         """
         return pulumi.get(self, "enable_global_write_forwarding")
 
@@ -484,6 +520,18 @@ class ClusterArgs:
         pulumi.set(self, "enable_http_endpoint", value)
 
     @property
+    @pulumi.getter(name="enableLocalWriteForwarding")
+    def enable_local_write_forwarding(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+        """
+        return pulumi.get(self, "enable_local_write_forwarding")
+
+    @enable_local_write_forwarding.setter
+    def enable_local_write_forwarding(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_local_write_forwarding", value)
+
+    @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -499,7 +547,7 @@ class ClusterArgs:
     @pulumi.getter(name="engineMode")
     def engine_mode(self) -> Optional[pulumi.Input[Union[str, 'EngineMode']]]:
         """
-        Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         """
         return pulumi.get(self, "engine_mode")
 
@@ -796,7 +844,7 @@ class ClusterArgs:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
         """
-        (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         """
         return pulumi.get(self, "storage_type")
 
@@ -852,8 +900,11 @@ class _ClusterState:
                  db_system_id: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
+                 enable_local_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
@@ -918,12 +969,15 @@ class _ClusterState:
         :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
                The database can't be deleted when this value is set to `true`.
                The default is `false`.
-        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the cluster in.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        :param pulumi.Input[bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[str] endpoint: DNS address of the RDS instance
         :param pulumi.Input[Union[str, 'EngineType']] engine: Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
-        :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: Running version of the database.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
@@ -952,7 +1006,7 @@ class _ClusterState:
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        :param pulumi.Input[str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
@@ -997,10 +1051,16 @@ class _ClusterState:
             pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if domain_iam_role_name is not None:
+            pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
         if enable_global_write_forwarding is not None:
             pulumi.set(__self__, "enable_global_write_forwarding", enable_global_write_forwarding)
         if enable_http_endpoint is not None:
             pulumi.set(__self__, "enable_http_endpoint", enable_http_endpoint)
+        if enable_local_write_forwarding is not None:
+            pulumi.set(__self__, "enable_local_write_forwarding", enable_local_write_forwarding)
         if enabled_cloudwatch_logs_exports is not None:
             pulumi.set(__self__, "enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
         if endpoint is not None:
@@ -1324,10 +1384,34 @@ class _ClusterState:
         pulumi.set(self, "deletion_protection", value)
 
     @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Directory Service Active Directory domain to create the cluster in.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="domainIamRoleName")
+    def domain_iam_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IAM role to be used when making API calls to the Directory Service.
+        """
+        return pulumi.get(self, "domain_iam_role_name")
+
+    @domain_iam_role_name.setter
+    def domain_iam_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_iam_role_name", value)
+
+    @property
     @pulumi.getter(name="enableGlobalWriteForwarding")
     def enable_global_write_forwarding(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         """
         return pulumi.get(self, "enable_global_write_forwarding")
 
@@ -1346,6 +1430,18 @@ class _ClusterState:
     @enable_http_endpoint.setter
     def enable_http_endpoint(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_http_endpoint", value)
+
+    @property
+    @pulumi.getter(name="enableLocalWriteForwarding")
+    def enable_local_write_forwarding(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+        """
+        return pulumi.get(self, "enable_local_write_forwarding")
+
+    @enable_local_write_forwarding.setter
+    def enable_local_write_forwarding(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_local_write_forwarding", value)
 
     @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
@@ -1387,7 +1483,7 @@ class _ClusterState:
     @pulumi.getter(name="engineMode")
     def engine_mode(self) -> Optional[pulumi.Input[Union[str, 'EngineMode']]]:
         """
-        Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         """
         return pulumi.get(self, "engine_mode")
 
@@ -1733,7 +1829,7 @@ class _ClusterState:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
         """
-        (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         """
         return pulumi.get(self, "storage_type")
 
@@ -1804,8 +1900,11 @@ class Cluster(pulumi.CustomResource):
                  db_system_id: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
+                 enable_local_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
                  engine_mode: Optional[pulumi.Input[Union[str, 'EngineMode']]] = None,
@@ -1856,141 +1955,146 @@ class Cluster(pulumi.CustomResource):
         for more information.
 
         ## Example Usage
+
         ### Aurora MySQL 2.x (MySQL 5.7)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.rds.Cluster("default",
+            cluster_identifier="aurora-cluster-demo",
+            engine=aws.rds.EngineType.AURORA_MYSQL,
+            engine_version="5.7.mysql_aurora.2.03.2",
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
                 "us-west-2c",
             ],
-            backup_retention_period=5,
-            cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
-            engine="aurora-mysql",
-            engine_version="5.7.mysql_aurora.2.03.2",
-            master_password="bar",
             master_username="foo",
+            master_password="bar",
+            backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aurora MySQL 1.x (MySQL 5.6)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.rds.Cluster("default",
+            cluster_identifier="aurora-cluster-demo",
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
                 "us-west-2c",
             ],
-            backup_retention_period=5,
-            cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
-            master_password="bar",
             master_username="foo",
+            master_password="bar",
+            backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aurora with PostgreSQL engine
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         postgresql = aws.rds.Cluster("postgresql",
+            cluster_identifier="aurora-cluster-demo",
+            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
                 "us-west-2c",
             ],
-            backup_retention_period=5,
-            cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
-            engine="aurora-postgresql",
-            master_password="bar",
             master_username="foo",
+            master_password="bar",
+            backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
-        ### Aurora Multi-Master Cluster
+        <!--End PulumiCodeChooser -->
 
-        > More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.Cluster("example",
-            cluster_identifier="example",
-            db_subnet_group_name=aws_db_subnet_group["example"]["name"],
-            engine_mode="multimaster",
-            master_password="barbarbarbar",
-            master_username="foo",
-            skip_final_snapshot=True)
-        ```
         ### RDS Multi-AZ Cluster
 
         > More information about RDS Multi-AZ Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html).
 
         To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storage_type`, `allocated_storage`, `iops` and `db_cluster_instance_class` attributes.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.Cluster("example",
-            allocated_storage=100,
+            cluster_identifier="example",
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
                 "us-west-2c",
             ],
-            cluster_identifier="example",
-            db_cluster_instance_class="db.r6gd.xlarge",
             engine="mysql",
+            db_cluster_instance_class="db.r6gd.xlarge",
+            storage_type="io1",
+            allocated_storage=100,
             iops=1000,
-            master_password="mustbeeightcharaters",
             master_username="test",
-            storage_type="io1")
+            master_password="mustbeeightcharaters")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Serverless v2 Cluster
 
         > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
 
+        > **Note:** Unlike Serverless v1, in Serverless v2 the `storage_encrypted` value is set to `false` by default.
+        This is because Serverless v1 uses the `serverless` `engine_mode`, but Serverless v2 uses the `provisioned` `engine_mode`.
+
         To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.rds.Cluster("exampleCluster",
+        example = aws.rds.Cluster("example",
             cluster_identifier="example",
-            engine="aurora-postgresql",
-            engine_mode="provisioned",
+            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
+            engine_mode=aws.rds.EngineMode.PROVISIONED,
             engine_version="13.6",
             database_name="test",
             master_username="test",
             master_password="must_be_eight_characters",
+            storage_encrypted=True,
             serverlessv2_scaling_configuration=aws.rds.ClusterServerlessv2ScalingConfigurationArgs(
                 max_capacity=1,
                 min_capacity=0.5,
             ))
-        example_cluster_instance = aws.rds.ClusterInstance("exampleClusterInstance",
-            cluster_identifier=example_cluster.id,
+        example_cluster_instance = aws.rds.ClusterInstance("example",
+            cluster_identifier=example.id,
             instance_class="db.serverless",
-            engine=example_cluster.engine,
-            engine_version=example_cluster.engine_version)
+            engine=example.engine,
+            engine_version=example.engine_version)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `master_password` attribute (removal is required).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2001,12 +2105,15 @@ class Cluster(pulumi.CustomResource):
             manage_master_user_password=True,
             master_username="test")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2019,31 +2126,35 @@ class Cluster(pulumi.CustomResource):
             master_username="test",
             master_user_secret_kms_key_id=example.key_id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Global Cluster Restored From Snapshot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster_snapshot = aws.rds.get_cluster_snapshot(db_cluster_identifier="example-original-cluster",
+        example = aws.rds.get_cluster_snapshot(db_cluster_identifier="example-original-cluster",
             most_recent=True)
-        example_cluster = aws.rds.Cluster("exampleCluster",
-            engine="aurora",
+        example_cluster = aws.rds.Cluster("example",
+            engine=aws.rds.EngineType.AURORA,
             engine_version="5.6.mysql_aurora.1.22.4",
             cluster_identifier="example",
-            snapshot_identifier=example_cluster_snapshot.id)
-        example_global_cluster = aws.rds.GlobalCluster("exampleGlobalCluster",
+            snapshot_identifier=example.id)
+        example_global_cluster = aws.rds.GlobalCluster("example",
             global_cluster_identifier="example",
             source_db_cluster_identifier=example_cluster.arn,
             force_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+        $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -2072,11 +2183,14 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
                The database can't be deleted when this value is set to `true`.
                The default is `false`.
-        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the cluster in.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        :param pulumi.Input[bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[Union[str, 'EngineType']] engine: Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
-        :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_cluster_identifier: Global cluster identifier specified on `rds.GlobalCluster`.
@@ -2100,7 +2214,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        :param pulumi.Input[str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
@@ -2129,141 +2243,146 @@ class Cluster(pulumi.CustomResource):
         for more information.
 
         ## Example Usage
+
         ### Aurora MySQL 2.x (MySQL 5.7)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.rds.Cluster("default",
+            cluster_identifier="aurora-cluster-demo",
+            engine=aws.rds.EngineType.AURORA_MYSQL,
+            engine_version="5.7.mysql_aurora.2.03.2",
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
                 "us-west-2c",
             ],
-            backup_retention_period=5,
-            cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
-            engine="aurora-mysql",
-            engine_version="5.7.mysql_aurora.2.03.2",
-            master_password="bar",
             master_username="foo",
+            master_password="bar",
+            backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aurora MySQL 1.x (MySQL 5.6)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.rds.Cluster("default",
+            cluster_identifier="aurora-cluster-demo",
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
                 "us-west-2c",
             ],
-            backup_retention_period=5,
-            cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
-            master_password="bar",
             master_username="foo",
+            master_password="bar",
+            backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aurora with PostgreSQL engine
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         postgresql = aws.rds.Cluster("postgresql",
+            cluster_identifier="aurora-cluster-demo",
+            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
                 "us-west-2c",
             ],
-            backup_retention_period=5,
-            cluster_identifier="aurora-cluster-demo",
             database_name="mydb",
-            engine="aurora-postgresql",
-            master_password="bar",
             master_username="foo",
+            master_password="bar",
+            backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
-        ### Aurora Multi-Master Cluster
+        <!--End PulumiCodeChooser -->
 
-        > More information about Aurora Multi-Master Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.Cluster("example",
-            cluster_identifier="example",
-            db_subnet_group_name=aws_db_subnet_group["example"]["name"],
-            engine_mode="multimaster",
-            master_password="barbarbarbar",
-            master_username="foo",
-            skip_final_snapshot=True)
-        ```
         ### RDS Multi-AZ Cluster
 
         > More information about RDS Multi-AZ Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html).
 
         To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storage_type`, `allocated_storage`, `iops` and `db_cluster_instance_class` attributes.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.rds.Cluster("example",
-            allocated_storage=100,
+            cluster_identifier="example",
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
                 "us-west-2c",
             ],
-            cluster_identifier="example",
-            db_cluster_instance_class="db.r6gd.xlarge",
             engine="mysql",
+            db_cluster_instance_class="db.r6gd.xlarge",
+            storage_type="io1",
+            allocated_storage=100,
             iops=1000,
-            master_password="mustbeeightcharaters",
             master_username="test",
-            storage_type="io1")
+            master_password="mustbeeightcharaters")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Serverless v2 Cluster
 
         > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
 
+        > **Note:** Unlike Serverless v1, in Serverless v2 the `storage_encrypted` value is set to `false` by default.
+        This is because Serverless v1 uses the `serverless` `engine_mode`, but Serverless v2 uses the `provisioned` `engine_mode`.
+
         To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster = aws.rds.Cluster("exampleCluster",
+        example = aws.rds.Cluster("example",
             cluster_identifier="example",
-            engine="aurora-postgresql",
-            engine_mode="provisioned",
+            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
+            engine_mode=aws.rds.EngineMode.PROVISIONED,
             engine_version="13.6",
             database_name="test",
             master_username="test",
             master_password="must_be_eight_characters",
+            storage_encrypted=True,
             serverlessv2_scaling_configuration=aws.rds.ClusterServerlessv2ScalingConfigurationArgs(
                 max_capacity=1,
                 min_capacity=0.5,
             ))
-        example_cluster_instance = aws.rds.ClusterInstance("exampleClusterInstance",
-            cluster_identifier=example_cluster.id,
+        example_cluster_instance = aws.rds.ClusterInstance("example",
+            cluster_identifier=example.id,
             instance_class="db.serverless",
-            engine=example_cluster.engine,
-            engine_version=example_cluster.engine_version)
+            engine=example.engine,
+            engine_version=example.engine_version)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `master_password` attribute (removal is required).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2274,12 +2393,15 @@ class Cluster(pulumi.CustomResource):
             manage_master_user_password=True,
             master_username="test")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2292,31 +2414,35 @@ class Cluster(pulumi.CustomResource):
             master_username="test",
             master_user_secret_kms_key_id=example.key_id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Global Cluster Restored From Snapshot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example_cluster_snapshot = aws.rds.get_cluster_snapshot(db_cluster_identifier="example-original-cluster",
+        example = aws.rds.get_cluster_snapshot(db_cluster_identifier="example-original-cluster",
             most_recent=True)
-        example_cluster = aws.rds.Cluster("exampleCluster",
-            engine="aurora",
+        example_cluster = aws.rds.Cluster("example",
+            engine=aws.rds.EngineType.AURORA,
             engine_version="5.6.mysql_aurora.1.22.4",
             cluster_identifier="example",
-            snapshot_identifier=example_cluster_snapshot.id)
-        example_global_cluster = aws.rds.GlobalCluster("exampleGlobalCluster",
+            snapshot_identifier=example.id)
+        example_global_cluster = aws.rds.GlobalCluster("example",
             global_cluster_identifier="example",
             source_db_cluster_identifier=example_cluster.arn,
             force_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+        $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -2352,8 +2478,11 @@ class Cluster(pulumi.CustomResource):
                  db_system_id: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
+                 enable_local_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
                  engine_mode: Optional[pulumi.Input[Union[str, 'EngineMode']]] = None,
@@ -2411,8 +2540,11 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["db_system_id"] = db_system_id
             __props__.__dict__["delete_automated_backups"] = delete_automated_backups
             __props__.__dict__["deletion_protection"] = deletion_protection
+            __props__.__dict__["domain"] = domain
+            __props__.__dict__["domain_iam_role_name"] = domain_iam_role_name
             __props__.__dict__["enable_global_write_forwarding"] = enable_global_write_forwarding
             __props__.__dict__["enable_http_endpoint"] = enable_http_endpoint
+            __props__.__dict__["enable_local_write_forwarding"] = enable_local_write_forwarding
             __props__.__dict__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
             if engine is None and not opts.urn:
                 raise TypeError("Missing required property 'engine'")
@@ -2453,7 +2585,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["master_user_secrets"] = None
             __props__.__dict__["reader_endpoint"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword", "tagsAll"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Cluster, __self__).__init__(
             'aws:rds/cluster:Cluster',
@@ -2485,8 +2617,11 @@ class Cluster(pulumi.CustomResource):
             db_system_id: Optional[pulumi.Input[str]] = None,
             delete_automated_backups: Optional[pulumi.Input[bool]] = None,
             deletion_protection: Optional[pulumi.Input[bool]] = None,
+            domain: Optional[pulumi.Input[str]] = None,
+            domain_iam_role_name: Optional[pulumi.Input[str]] = None,
             enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
             enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
+            enable_local_write_forwarding: Optional[pulumi.Input[bool]] = None,
             enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
@@ -2556,12 +2691,15 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
                The database can't be deleted when this value is set to `true`.
                The default is `false`.
-        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the cluster in.
+        :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
+        :param pulumi.Input[bool] enable_local_write_forwarding: Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[str] endpoint: DNS address of the RDS instance
         :param pulumi.Input[Union[str, 'EngineType']] engine: Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
-        :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        :param pulumi.Input[Union[str, 'EngineMode']] engine_mode: Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         :param pulumi.Input[str] engine_version: Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: Running version of the database.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
@@ -2590,7 +2728,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        :param pulumi.Input[str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
@@ -2619,8 +2757,11 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["db_system_id"] = db_system_id
         __props__.__dict__["delete_automated_backups"] = delete_automated_backups
         __props__.__dict__["deletion_protection"] = deletion_protection
+        __props__.__dict__["domain"] = domain
+        __props__.__dict__["domain_iam_role_name"] = domain_iam_role_name
         __props__.__dict__["enable_global_write_forwarding"] = enable_global_write_forwarding
         __props__.__dict__["enable_http_endpoint"] = enable_http_endpoint
+        __props__.__dict__["enable_local_write_forwarding"] = enable_local_write_forwarding
         __props__.__dict__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["engine"] = engine
@@ -2826,10 +2967,26 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "deletion_protection")
 
     @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Directory Service Active Directory domain to create the cluster in.
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="domainIamRoleName")
+    def domain_iam_role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the IAM role to be used when making API calls to the Directory Service.
+        """
+        return pulumi.get(self, "domain_iam_role_name")
+
+    @property
     @pulumi.getter(name="enableGlobalWriteForwarding")
     def enable_global_write_forwarding(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         """
         return pulumi.get(self, "enable_global_write_forwarding")
 
@@ -2840,6 +2997,14 @@ class Cluster(pulumi.CustomResource):
         Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         """
         return pulumi.get(self, "enable_http_endpoint")
+
+    @property
+    @pulumi.getter(name="enableLocalWriteForwarding")
+    def enable_local_write_forwarding(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+        """
+        return pulumi.get(self, "enable_local_write_forwarding")
 
     @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
@@ -2869,7 +3034,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="engineMode")
     def engine_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+        Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
         """
         return pulumi.get(self, "engine_mode")
 
@@ -3099,7 +3264,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[str]:
         """
-        (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         """
         return pulumi.get(self, "storage_type")
 

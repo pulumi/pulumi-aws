@@ -44,13 +44,14 @@ public final class PipeTargetParametersBatchJobParametersRetryStrategy {
 
         @CustomType.Setter
         public Builder attempts(@Nullable Integer attempts) {
+
             this.attempts = attempts;
             return this;
         }
         public PipeTargetParametersBatchJobParametersRetryStrategy build() {
-            final var o = new PipeTargetParametersBatchJobParametersRetryStrategy();
-            o.attempts = attempts;
-            return o;
+            final var _resultValue = new PipeTargetParametersBatchJobParametersRetryStrategy();
+            _resultValue.attempts = attempts;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.mq.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,25 +47,34 @@ public final class GetBrokerMaintenanceWindowStartTime {
 
         @CustomType.Setter
         public Builder dayOfWeek(String dayOfWeek) {
-            this.dayOfWeek = Objects.requireNonNull(dayOfWeek);
+            if (dayOfWeek == null) {
+              throw new MissingRequiredPropertyException("GetBrokerMaintenanceWindowStartTime", "dayOfWeek");
+            }
+            this.dayOfWeek = dayOfWeek;
             return this;
         }
         @CustomType.Setter
         public Builder timeOfDay(String timeOfDay) {
-            this.timeOfDay = Objects.requireNonNull(timeOfDay);
+            if (timeOfDay == null) {
+              throw new MissingRequiredPropertyException("GetBrokerMaintenanceWindowStartTime", "timeOfDay");
+            }
+            this.timeOfDay = timeOfDay;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(String timeZone) {
-            this.timeZone = Objects.requireNonNull(timeZone);
+            if (timeZone == null) {
+              throw new MissingRequiredPropertyException("GetBrokerMaintenanceWindowStartTime", "timeZone");
+            }
+            this.timeZone = timeZone;
             return this;
         }
         public GetBrokerMaintenanceWindowStartTime build() {
-            final var o = new GetBrokerMaintenanceWindowStartTime();
-            o.dayOfWeek = dayOfWeek;
-            o.timeOfDay = timeOfDay;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new GetBrokerMaintenanceWindowStartTime();
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.timeOfDay = timeOfDay;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,13 +43,16 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModi
 
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications", "status");
+            }
+            this.status = status;
             return this;
         }
         public BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications build() {
-            final var o = new BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications();
-            o.status = status;
-            return o;
+            final var _resultValue = new BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications();
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

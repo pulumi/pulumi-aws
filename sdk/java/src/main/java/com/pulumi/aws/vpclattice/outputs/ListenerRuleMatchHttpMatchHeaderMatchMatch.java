@@ -72,25 +72,28 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatch {
 
         @CustomType.Setter
         public Builder contains(@Nullable String contains) {
+
             this.contains = contains;
             return this;
         }
         @CustomType.Setter
         public Builder exact(@Nullable String exact) {
+
             this.exact = exact;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(@Nullable String prefix) {
+
             this.prefix = prefix;
             return this;
         }
         public ListenerRuleMatchHttpMatchHeaderMatchMatch build() {
-            final var o = new ListenerRuleMatchHttpMatchHeaderMatchMatch();
-            o.contains = contains;
-            o.exact = exact;
-            o.prefix = prefix;
-            return o;
+            final var _resultValue = new ListenerRuleMatchHttpMatchHeaderMatchMatch();
+            _resultValue.contains = contains;
+            _resultValue.exact = exact;
+            _resultValue.prefix = prefix;
+            return _resultValue;
         }
     }
 }

@@ -16,14 +16,68 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myOpensearchPackages, err := s3.NewBucketV2(ctx, "my_opensearch_packages", &s3.BucketV2Args{
+//				Bucket: pulumi.String("my-opensearch-packages"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFilemd5, err := std.Filemd5(ctx, &std.Filemd5Args{
+//				Input: "./example.txt",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
+//				Bucket: myOpensearchPackages.Bucket,
+//				Key:    pulumi.String("example.txt"),
+//				Source: pulumi.NewFileAsset("./example.txt"),
+//				Etag:   invokeFilemd5.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = opensearch.NewPackage(ctx, "example", &opensearch.PackageArgs{
+//				PackageName: pulumi.String("example-txt"),
+//				PackageSource: &opensearch.PackagePackageSourceArgs{
+//					S3BucketName: myOpensearchPackages.Bucket,
+//					S3Key:        example.Key,
+//				},
+//				PackageType: pulumi.String("TXT-DICTIONARY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/package:Package example package-id
-//
+// $ pulumi import aws:opensearch/package:Package example package-id
 // ```
 type Package struct {
 	pulumi.CustomResourceState

@@ -31,6 +31,19 @@ import javax.annotation.Nullable;
  * For more information about default security groups, see the AWS documentation on [Default Security Groups][aws-default-security-groups]. To manage normal security groups, see the `aws.ec2.SecurityGroup` resource.
  * 
  * ## Example Usage
+ * 
+ * The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Example Config To Deny All Egress Traffic, Allowing Ingress
+ * 
+ * The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Removing `aws.ec2.DefaultSecurityGroup` From Your Configuration
  * 
  * Removing this resource from your configuration will remove it from your statefile and management, but will not destroy the Security Group. All ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.
@@ -40,7 +53,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Security Groups using the security group `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
+ * $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
  * ```
  * 
  */
@@ -221,9 +234,6 @@ public class DefaultSecurityGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

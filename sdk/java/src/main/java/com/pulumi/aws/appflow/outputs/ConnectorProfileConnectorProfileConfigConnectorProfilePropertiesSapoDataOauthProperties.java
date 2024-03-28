@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,12 +72,18 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
         @CustomType.Setter
         public Builder authCodeUrl(String authCodeUrl) {
-            this.authCodeUrl = Objects.requireNonNull(authCodeUrl);
+            if (authCodeUrl == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties", "authCodeUrl");
+            }
+            this.authCodeUrl = authCodeUrl;
             return this;
         }
         @CustomType.Setter
         public Builder oauthScopes(List<String> oauthScopes) {
-            this.oauthScopes = Objects.requireNonNull(oauthScopes);
+            if (oauthScopes == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties", "oauthScopes");
+            }
+            this.oauthScopes = oauthScopes;
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {
@@ -84,15 +91,18 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
         @CustomType.Setter
         public Builder tokenUrl(String tokenUrl) {
-            this.tokenUrl = Objects.requireNonNull(tokenUrl);
+            if (tokenUrl == null) {
+              throw new MissingRequiredPropertyException("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties", "tokenUrl");
+            }
+            this.tokenUrl = tokenUrl;
             return this;
         }
         public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties build() {
-            final var o = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties();
-            o.authCodeUrl = authCodeUrl;
-            o.oauthScopes = oauthScopes;
-            o.tokenUrl = tokenUrl;
-            return o;
+            final var _resultValue = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties();
+            _resultValue.authCodeUrl = authCodeUrl;
+            _resultValue.oauthScopes = oauthScopes;
+            _resultValue.tokenUrl = tokenUrl;
+            return _resultValue;
         }
     }
 }

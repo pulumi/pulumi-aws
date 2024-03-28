@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A Region represents any valid Amazon region that may be targeted with deployments.
@@ -27,6 +26,7 @@ const (
 	RegionAPSoutheast3 = Region("ap-southeast-3")
 	RegionAPSoutheast4 = Region("ap-southeast-4")
 	RegionCACentral    = Region("ca-central-1")
+	RegionCAWest1      = Region("ca-west-1")
 	RegionCNNorth1     = Region("cn-north-1")
 	RegionCNNorthwest1 = Region("cn-northwest-1")
 	RegionEUCentral1   = Region("eu-central-1")
@@ -167,10 +167,41 @@ func (o RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// RegionInput is an input type that accepts RegionArgs and RegionOutput values.
-// You can construct a concrete instance of `RegionInput` via:
+// RegionInput is an input type that accepts values of the Region enum
+// A concrete instance of `RegionInput` can be one of the following:
 //
-//	RegionArgs{...}
+//	RegionAFSouth1
+//	RegionAPEast1
+//	RegionAPNortheast1
+//	RegionAPNortheast2
+//	RegionAPNortheast3
+//	RegionAPSouth1
+//	RegionAPSouth2
+//	RegionAPSoutheast1
+//	RegionAPSoutheast2
+//	RegionAPSoutheast3
+//	RegionAPSoutheast4
+//	RegionCACentral
+//	RegionCAWest1
+//	RegionCNNorth1
+//	RegionCNNorthwest1
+//	RegionEUCentral1
+//	RegionEUCentral2
+//	RegionEUNorth1
+//	RegionEUSouth1
+//	RegionEUSouth2
+//	RegionEUWest1
+//	RegionEUWest2
+//	RegionEUWest3
+//	RegionMECentral1
+//	RegionMESouth1
+//	RegionSAEast1
+//	RegionUSGovEast1
+//	RegionUSGovWest1
+//	RegionUSEast1
+//	RegionUSEast2
+//	RegionUSWest1
+//	RegionUSWest2
 type RegionInput interface {
 	pulumi.Input
 
@@ -203,12 +234,6 @@ func (in *regionPtr) ToRegionPtrOutput() RegionPtrOutput {
 
 func (in *regionPtr) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RegionPtrOutput)
-}
-
-func (in *regionPtr) ToOutput(ctx context.Context) pulumix.Output[*Region] {
-	return pulumix.Output[*Region]{
-		OutputState: in.ToRegionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

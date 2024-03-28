@@ -87,6 +87,7 @@ public final class ServerProtocolDetails {
 
         @CustomType.Setter
         public Builder as2Transports(@Nullable List<String> as2Transports) {
+
             this.as2Transports = as2Transports;
             return this;
         }
@@ -95,26 +96,29 @@ public final class ServerProtocolDetails {
         }
         @CustomType.Setter
         public Builder passiveIp(@Nullable String passiveIp) {
+
             this.passiveIp = passiveIp;
             return this;
         }
         @CustomType.Setter
         public Builder setStatOption(@Nullable String setStatOption) {
+
             this.setStatOption = setStatOption;
             return this;
         }
         @CustomType.Setter
         public Builder tlsSessionResumptionMode(@Nullable String tlsSessionResumptionMode) {
+
             this.tlsSessionResumptionMode = tlsSessionResumptionMode;
             return this;
         }
         public ServerProtocolDetails build() {
-            final var o = new ServerProtocolDetails();
-            o.as2Transports = as2Transports;
-            o.passiveIp = passiveIp;
-            o.setStatOption = setStatOption;
-            o.tlsSessionResumptionMode = tlsSessionResumptionMode;
-            return o;
+            final var _resultValue = new ServerProtocolDetails();
+            _resultValue.as2Transports = as2Transports;
+            _resultValue.passiveIp = passiveIp;
+            _resultValue.setStatOption = setStatOption;
+            _resultValue.tlsSessionResumptionMode = tlsSessionResumptionMode;
+            return _resultValue;
         }
     }
 }

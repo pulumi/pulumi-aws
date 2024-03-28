@@ -15,8 +15,10 @@ import (
 // Provides an Elastic Container Registry Scanning Configuration. Can't be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
 //
 // ## Example Usage
+//
 // ### Basic example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -30,18 +32,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecr.NewRegistryScanningConfiguration(ctx, "configuration", &ecr.RegistryScanningConfigurationArgs{
+//				ScanType: pulumi.String("ENHANCED"),
 //				Rules: ecr.RegistryScanningConfigurationRuleArray{
 //					&ecr.RegistryScanningConfigurationRuleArgs{
+//						ScanFrequency: pulumi.String("CONTINUOUS_SCAN"),
 //						RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
 //							&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
 //								Filter:     pulumi.String("example"),
 //								FilterType: pulumi.String("WILDCARD"),
 //							},
 //						},
-//						ScanFrequency: pulumi.String("CONTINUOUS_SCAN"),
 //					},
 //				},
-//				ScanType: pulumi.String("ENHANCED"),
 //			})
 //			if err != nil {
 //				return err
@@ -51,8 +53,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Multiple rules
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,27 +71,27 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecr.NewRegistryScanningConfiguration(ctx, "test", &ecr.RegistryScanningConfigurationArgs{
+//				ScanType: pulumi.String("ENHANCED"),
 //				Rules: ecr.RegistryScanningConfigurationRuleArray{
 //					&ecr.RegistryScanningConfigurationRuleArgs{
+//						ScanFrequency: pulumi.String("SCAN_ON_PUSH"),
 //						RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
 //							&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
 //								Filter:     pulumi.String("*"),
 //								FilterType: pulumi.String("WILDCARD"),
 //							},
 //						},
-//						ScanFrequency: pulumi.String("SCAN_ON_PUSH"),
 //					},
 //					&ecr.RegistryScanningConfigurationRuleArgs{
+//						ScanFrequency: pulumi.String("CONTINUOUS_SCAN"),
 //						RepositoryFilters: ecr.RegistryScanningConfigurationRuleRepositoryFilterArray{
 //							&ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs{
 //								Filter:     pulumi.String("example"),
 //								FilterType: pulumi.String("WILDCARD"),
 //							},
 //						},
-//						ScanFrequency: pulumi.String("CONTINUOUS_SCAN"),
 //					},
 //				},
-//				ScanType: pulumi.String("ENHANCED"),
 //			})
 //			if err != nil {
 //				return err
@@ -96,15 +101,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
-//
+// $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
 // ```
 type RegistryScanningConfiguration struct {
 	pulumi.CustomResourceState

@@ -181,11 +181,11 @@ class SourceCredential(pulumi.CustomResource):
         """
         Provides a CodeBuild Source Credentials Resource.
 
-        > **NOTE:**
-        [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html). Therefore, when you define `codebuild.SourceCredential`, `codebuild.Project` resource defined in the same module will use it.
+        > **NOTE:** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html). Therefore, when you define `codebuild.SourceCredential`, `codebuild.Project` resource defined in the same module will use it.
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,8 +195,11 @@ class SourceCredential(pulumi.CustomResource):
             server_type="GITHUB",
             token="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Bitbucket Server Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,13 +210,14 @@ class SourceCredential(pulumi.CustomResource):
             token="example",
             user_name="test-user")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
 
         ```sh
-         $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+        $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
         ```
 
         :param str resource_name: The name of the resource.
@@ -232,11 +236,11 @@ class SourceCredential(pulumi.CustomResource):
         """
         Provides a CodeBuild Source Credentials Resource.
 
-        > **NOTE:**
-        [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html). Therefore, when you define `codebuild.SourceCredential`, `codebuild.Project` resource defined in the same module will use it.
+        > **NOTE:** [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html). Therefore, when you define `codebuild.SourceCredential`, `codebuild.Project` resource defined in the same module will use it.
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,8 +250,11 @@ class SourceCredential(pulumi.CustomResource):
             server_type="GITHUB",
             token="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Bitbucket Server Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,13 +265,14 @@ class SourceCredential(pulumi.CustomResource):
             token="example",
             user_name="test-user")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
 
         ```sh
-         $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+        $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
         ```
 
         :param str resource_name: The name of the resource.

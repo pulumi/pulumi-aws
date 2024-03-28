@@ -19,8 +19,10 @@ import (
 // > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
 //
 // ## Example Usage
+//
 // ### Account Access
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -33,7 +35,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventPermission(ctx, "devAccountAccess", &cloudwatch.EventPermissionArgs{
+//			_, err := cloudwatch.NewEventPermission(ctx, "DevAccountAccess", &cloudwatch.EventPermissionArgs{
 //				Principal:   pulumi.String("123456789012"),
 //				StatementId: pulumi.String("DevAccountAccess"),
 //			})
@@ -45,8 +47,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Organization Access
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,13 +64,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventPermission(ctx, "organizationAccess", &cloudwatch.EventPermissionArgs{
+//			_, err := cloudwatch.NewEventPermission(ctx, "OrganizationAccess", &cloudwatch.EventPermissionArgs{
 //				Principal:   pulumi.String("*"),
 //				StatementId: pulumi.String("OrganizationAccess"),
 //				Condition: &cloudwatch.EventPermissionConditionArgs{
 //					Key:   pulumi.String("aws:PrincipalOrgID"),
 //					Type:  pulumi.String("StringEquals"),
-//					Value: pulumi.Any(aws_organizations_organization.Example.Id),
+//					Value: pulumi.Any(example.Id),
 //				},
 //			})
 //			if err != nil {
@@ -76,15 +81,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
-//
+// $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
 // ```
 type EventPermission struct {
 	pulumi.CustomResourceState

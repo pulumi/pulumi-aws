@@ -6,6 +6,7 @@ package com.pulumi.aws.datasync.outputs;
 import com.pulumi.aws.datasync.outputs.TaskTaskReportConfigReportOverrides;
 import com.pulumi.aws.datasync.outputs.TaskTaskReportConfigS3Destination;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -102,37 +103,44 @@ public final class TaskTaskReportConfig {
 
         @CustomType.Setter
         public Builder outputType(@Nullable String outputType) {
+
             this.outputType = outputType;
             return this;
         }
         @CustomType.Setter
         public Builder reportLevel(@Nullable String reportLevel) {
+
             this.reportLevel = reportLevel;
             return this;
         }
         @CustomType.Setter
         public Builder reportOverrides(@Nullable TaskTaskReportConfigReportOverrides reportOverrides) {
+
             this.reportOverrides = reportOverrides;
             return this;
         }
         @CustomType.Setter
         public Builder s3Destination(TaskTaskReportConfigS3Destination s3Destination) {
-            this.s3Destination = Objects.requireNonNull(s3Destination);
+            if (s3Destination == null) {
+              throw new MissingRequiredPropertyException("TaskTaskReportConfig", "s3Destination");
+            }
+            this.s3Destination = s3Destination;
             return this;
         }
         @CustomType.Setter
         public Builder s3ObjectVersioning(@Nullable String s3ObjectVersioning) {
+
             this.s3ObjectVersioning = s3ObjectVersioning;
             return this;
         }
         public TaskTaskReportConfig build() {
-            final var o = new TaskTaskReportConfig();
-            o.outputType = outputType;
-            o.reportLevel = reportLevel;
-            o.reportOverrides = reportOverrides;
-            o.s3Destination = s3Destination;
-            o.s3ObjectVersioning = s3ObjectVersioning;
-            return o;
+            final var _resultValue = new TaskTaskReportConfig();
+            _resultValue.outputType = outputType;
+            _resultValue.reportLevel = reportLevel;
+            _resultValue.reportOverrides = reportOverrides;
+            _resultValue.s3Destination = s3Destination;
+            _resultValue.s3ObjectVersioning = s3ObjectVersioning;
+            return _resultValue;
         }
     }
 }

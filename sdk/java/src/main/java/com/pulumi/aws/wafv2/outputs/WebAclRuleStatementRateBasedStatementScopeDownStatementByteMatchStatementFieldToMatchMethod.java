@@ -25,8 +25,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         }
 
         public WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod build() {
-            final var o = new WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod();
-            return o;
+            final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod();
+            return _resultValue;
         }
     }
 }

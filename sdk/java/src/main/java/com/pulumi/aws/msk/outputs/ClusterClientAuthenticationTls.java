@@ -44,6 +44,7 @@ public final class ClusterClientAuthenticationTls {
 
         @CustomType.Setter
         public Builder certificateAuthorityArns(@Nullable List<String> certificateAuthorityArns) {
+
             this.certificateAuthorityArns = certificateAuthorityArns;
             return this;
         }
@@ -51,9 +52,9 @@ public final class ClusterClientAuthenticationTls {
             return certificateAuthorityArns(List.of(certificateAuthorityArns));
         }
         public ClusterClientAuthenticationTls build() {
-            final var o = new ClusterClientAuthenticationTls();
-            o.certificateAuthorityArns = certificateAuthorityArns;
-            return o;
+            final var _resultValue = new ClusterClientAuthenticationTls();
+            _resultValue.certificateAuthorityArns = certificateAuthorityArns;
+            return _resultValue;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,14 +23,15 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
+    ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
     ///         AuthenticationType = "API_KEY",
+    ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleApiCache = new Aws.AppSync.ApiCache("exampleApiCache", new()
+    ///     var exampleApiCache = new Aws.AppSync.ApiCache("example", new()
     ///     {
-    ///         ApiId = exampleGraphQLApi.Id,
+    ///         ApiId = example.Id,
     ///         ApiCachingBehavior = "FULL_REQUEST_CACHING",
     ///         Type = "LARGE",
     ///         Ttl = 900,
@@ -37,13 +39,14 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
+    /// $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/apiCache:ApiCache")]

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages a Neptune Parameter Group
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,6 +47,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ParameterGroup(&#34;example&#34;, ParameterGroupArgs.builder()        
  *             .family(&#34;neptune1&#34;)
+ *             .name(&#34;example&#34;)
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .name(&#34;neptune_query_timeout&#34;)
  *                 .value(&#34;25&#34;)
@@ -54,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
+ * $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
  * ```
  * 
  */
@@ -121,6 +125,20 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
+    private Output<String> namePrefix;
+
+    /**
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * 
+     */
+    public Output<String> namePrefix() {
+        return this.namePrefix;
     }
     /**
      * A list of Neptune parameters to apply.
@@ -201,9 +219,6 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
-            .additionalSecretOutputs(List.of(
-                "tagsAll"
-            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

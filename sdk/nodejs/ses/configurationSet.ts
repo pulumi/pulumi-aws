@@ -12,29 +12,55 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Example
+ *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ses.ConfigurationSet("test", {});
+ * const test = new aws.ses.ConfigurationSet("test", {name: "some-configuration-set-test"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Require TLS Connections
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ses.ConfigurationSet("test", {deliveryOptions: {
- *     tlsPolicy: "Require",
- * }});
+ * const test = new aws.ses.ConfigurationSet("test", {
+ *     name: "some-configuration-set-test",
+ *     deliveryOptions: {
+ *         tlsPolicy: "Require",
+ *     },
+ * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Tracking Options
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.ses.ConfigurationSet("test", {
+ *     name: "some-configuration-set-test",
+ *     trackingOptions: {
+ *         customRedirectDomain: "sub.example.com",
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+ * $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
  * ```
  */
 export class ConfigurationSet extends pulumi.CustomResource {
