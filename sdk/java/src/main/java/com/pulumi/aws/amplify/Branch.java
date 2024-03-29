@@ -159,6 +159,7 @@ import javax.annotation.Nullable;
  *             .enableNotification(true)
  *             .build());
  * 
+ *         // EventBridge Rule for Amplify notifications
  *         var amplifyAppMasterEventRule = new EventRule(&#34;amplifyAppMasterEventRule&#34;, EventRuleArgs.builder()        
  *             .name(master.branchName().applyValue(branchName -&gt; String.format(&#34;amplify-%s-%s-branch-notification&#34;, app.id(),branchName)))
  *             .description(master.branchName().applyValue(branchName -&gt; String.format(&#34;AWS Amplify build notifications for :  App: %s Branch: %s&#34;, app.id(),branchName)))
@@ -182,6 +183,7 @@ import javax.annotation.Nullable;
  *             }))
  *             .build());
  * 
+ *         // SNS Topic for Amplify notifications
  *         var amplifyAppMasterTopic = new Topic(&#34;amplifyAppMasterTopic&#34;, TopicArgs.builder()        
  *             .name(master.branchName().applyValue(branchName -&gt; String.format(&#34;amplify-%s_%s&#34;, app.id(),branchName)))
  *             .build());

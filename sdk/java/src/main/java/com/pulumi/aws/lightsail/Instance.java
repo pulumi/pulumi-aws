@@ -53,6 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new GitLab Lightsail Instance
  *         var gitlabTest = new Instance(&#34;gitlabTest&#34;, InstanceArgs.builder()        
  *             .name(&#34;custom_gitlab&#34;)
  *             .availabilityZone(&#34;us-east-1b&#34;)

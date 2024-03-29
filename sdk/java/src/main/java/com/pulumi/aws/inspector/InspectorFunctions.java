@@ -47,8 +47,10 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
+     *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
      *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
      *             .build());
@@ -108,8 +110,10 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
+     *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
      *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
      *             .build());
@@ -169,8 +173,10 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
+     *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
      *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
      *             .build());
@@ -230,8 +236,10 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
+     *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
      *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
      *             .build());
@@ -291,8 +299,10 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
+     *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
      *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
      *             .build());
@@ -352,8 +362,10 @@ public final class InspectorFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var rules = InspectorFunctions.getRulesPackages();
      * 
+     *         // e.g., Use in aws_inspector_assessment_template
      *         var group = new ResourceGroup(&#34;group&#34;, ResourceGroupArgs.builder()        
      *             .tags(Map.of(&#34;test&#34;, &#34;test&#34;))
      *             .build());

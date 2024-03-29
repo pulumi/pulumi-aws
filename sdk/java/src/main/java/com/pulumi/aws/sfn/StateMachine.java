@@ -47,6 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // ...
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
  *             .name(&#34;my-state-machine&#34;)
  *             .roleArn(iamForSfn.arn())
@@ -94,6 +95,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // ...
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
  *             .name(&#34;my-state-machine&#34;)
  *             .roleArn(iamForSfn.arn())
@@ -142,6 +144,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // ...
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
  *             .name(&#34;my-state-machine&#34;)
  *             .roleArn(iamForSfn.arn())
@@ -194,6 +197,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // ...
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
  *             .name(&#34;my-state-machine&#34;)
  *             .roleArn(iamForSfn.arn())

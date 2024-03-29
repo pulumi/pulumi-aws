@@ -53,6 +53,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Database Migration Service requires the below IAM Roles to be created before
+ *         // replication instances can be created. See the DMS Documentation for
+ *         // additional information: https://docs.aws.amazon.com/dms/latest/userguide/security-iam.html#CHAP_Security.APIRole
+ *         //  * dms-vpc-role
+ *         //  * dms-cloudwatch-logs-role
+ *         //  * dms-access-for-endpoint
  *         final var dmsAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
@@ -93,6 +99,7 @@ import javax.annotation.Nullable;
  *             .role(dms_vpc_role.name())
  *             .build());
  * 
+ *         // Create a new replication instance
  *         var test = new ReplicationInstance(&#34;test&#34;, ReplicationInstanceArgs.builder()        
  *             .allocatedStorage(20)
  *             .applyImmediately(true)

@@ -102,6 +102,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // ...
  *         var myEndpoint = new VpcEndpoint(&#34;myEndpoint&#34;);
  * 
  *         var allowAll = new SecurityGroupRule(&#34;allowAll&#34;, SecurityGroupRuleArgs.builder()        

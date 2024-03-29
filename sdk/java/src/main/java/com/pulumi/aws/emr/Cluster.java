@@ -379,6 +379,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // This configuration is for illustrative purposes and highlights
+ *         // only relevant configurations for working with this functionality.
+ *         // Map public IP on launch must be enabled for public (Internet accessible) subnets
  *         var example = new Subnet(&#34;example&#34;, SubnetArgs.builder()        
  *             .mapPublicIpOnLaunch(true)
  *             .build());

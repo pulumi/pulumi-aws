@@ -132,6 +132,7 @@ import javax.annotation.Nullable;
  * 
  *         final var peer = AwsFunctions.getCallerIdentity();
  * 
+ *         // Requester&#39;s side of the connection.
  *         var peerVpcPeeringConnection = new VpcPeeringConnection(&#34;peerVpcPeeringConnection&#34;, VpcPeeringConnectionArgs.builder()        
  *             .vpcId(main.id())
  *             .peerVpcId(peerVpc.id())
@@ -140,6 +141,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of(&#34;Side&#34;, &#34;Requester&#34;))
  *             .build());
  * 
+ *         // Accepter&#39;s side of the connection.
  *         var peerVpcPeeringConnectionAccepter = new VpcPeeringConnectionAccepter(&#34;peerVpcPeeringConnectionAccepter&#34;, VpcPeeringConnectionAccepterArgs.builder()        
  *             .vpcPeeringConnectionId(peerVpcPeeringConnection.id())
  *             .autoAccept(true)

@@ -47,6 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new replication subnet group
  *         var example = new ReplicationSubnetGroup(&#34;example&#34;, ReplicationSubnetGroupArgs.builder()        
  *             .replicationSubnetGroupDescription(&#34;Example replication subnet group&#34;)
  *             .replicationSubnetGroupId(&#34;example-dms-replication-subnet-group-tf&#34;)

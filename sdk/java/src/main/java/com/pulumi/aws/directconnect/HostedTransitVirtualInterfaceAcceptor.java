@@ -53,6 +53,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
+ *         // Creator&#39;s side of the VIF
  *         var creator = new HostedTransitVirtualInterface(&#34;creator&#34;, HostedTransitVirtualInterfaceArgs.builder()        
  *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
  *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
@@ -62,6 +63,7 @@ import javax.annotation.Nullable;
  *             .bgpAsn(65352)
  *             .build());
  * 
+ *         // Accepter&#39;s side of the VIF.
  *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
  *             .name(&#34;tf-dxg-example&#34;)
  *             .amazonSideAsn(64512)

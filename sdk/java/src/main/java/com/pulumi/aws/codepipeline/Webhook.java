@@ -113,6 +113,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Wire the CodePipeline webhook into a GitHub repository.
  *         var barRepositoryWebhook = new RepositoryWebhook(&#34;barRepositoryWebhook&#34;, RepositoryWebhookArgs.builder()        
  *             .repository(repo.name())
  *             .name(&#34;web&#34;)

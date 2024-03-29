@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
+ *         // Creator&#39;s side of the VIF
  *         var creator = new HostedPrivateVirtualInterface(&#34;creator&#34;, HostedPrivateVirtualInterfaceArgs.builder()        
  *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
  *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
@@ -59,6 +60,7 @@ import javax.annotation.Nullable;
  *             .bgpAsn(65352)
  *             .build());
  * 
+ *         // Accepter&#39;s side of the VIF.
  *         var vpnGw = new VpnGateway(&#34;vpnGw&#34;);
  * 
  *         var accepterHostedPrivateVirtualInterfaceAccepter = new HostedPrivateVirtualInterfaceAccepter(&#34;accepterHostedPrivateVirtualInterfaceAccepter&#34;, HostedPrivateVirtualInterfaceAccepterArgs.builder()        

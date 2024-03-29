@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Example Route53 zone with query logging
  *         var exampleCom = new Zone(&#34;exampleCom&#34;, ZoneArgs.builder()        
  *             .name(&#34;example.com&#34;)
  *             .build());
@@ -63,6 +64,8 @@ import javax.annotation.Nullable;
  *             .retentionInDays(30)
  *             .build());
  * 
+ *         // Example CloudWatch log resource policy to allow Route53 to write logs
+ *         // to any log group under /aws/route53/*
  *         final var route53-query-logging-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                

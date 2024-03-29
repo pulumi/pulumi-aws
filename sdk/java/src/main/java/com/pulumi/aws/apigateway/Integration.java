@@ -132,6 +132,7 @@ import javax.annotation.Nullable;
  *         final var config = ctx.config();
  *         final var myregion = config.get(&#34;myregion&#34;);
  *         final var accountId = config.get(&#34;accountId&#34;);
+ *         // API Gateway
  *         var api = new RestApi(&#34;api&#34;, RestApiArgs.builder()        
  *             .name(&#34;myapi&#34;)
  *             .build());
@@ -149,6 +150,7 @@ import javax.annotation.Nullable;
  *             .authorization(&#34;NONE&#34;)
  *             .build());
  * 
+ *         // IAM
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
@@ -185,6 +187,7 @@ import javax.annotation.Nullable;
  *             .uri(lambda.invokeArn())
  *             .build());
  * 
+ *         // Lambda
  *         var apigwLambda = new Permission(&#34;apigwLambda&#34;, PermissionArgs.builder()        
  *             .statementId(&#34;AllowExecutionFromAPIGateway&#34;)
  *             .action(&#34;lambda:InvokeFunction&#34;)

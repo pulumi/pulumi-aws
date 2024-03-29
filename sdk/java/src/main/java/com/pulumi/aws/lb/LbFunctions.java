@@ -637,6 +637,7 @@ public final class LbFunctions {
      *             .arn(listenerArn)
      *             .build());
      * 
+     *         // get listener from load_balancer_arn and port
      *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(&#34;default-public&#34;)
      *             .build());
@@ -693,6 +694,7 @@ public final class LbFunctions {
      *             .arn(listenerArn)
      *             .build());
      * 
+     *         // get listener from load_balancer_arn and port
      *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(&#34;default-public&#34;)
      *             .build());
@@ -749,6 +751,7 @@ public final class LbFunctions {
      *             .arn(listenerArn)
      *             .build());
      * 
+     *         // get listener from load_balancer_arn and port
      *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(&#34;default-public&#34;)
      *             .build());
@@ -805,6 +808,7 @@ public final class LbFunctions {
      *             .arn(listenerArn)
      *             .build());
      * 
+     *         // get listener from load_balancer_arn and port
      *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(&#34;default-public&#34;)
      *             .build());
@@ -861,6 +865,7 @@ public final class LbFunctions {
      *             .arn(listenerArn)
      *             .build());
      * 
+     *         // get listener from load_balancer_arn and port
      *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(&#34;default-public&#34;)
      *             .build());
@@ -917,6 +922,7 @@ public final class LbFunctions {
      *             .arn(listenerArn)
      *             .build());
      * 
+     *         // get listener from load_balancer_arn and port
      *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(&#34;default-public&#34;)
      *             .build());
