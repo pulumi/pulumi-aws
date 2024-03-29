@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Wed, 15 Nov 2023 11:53:09 -0500
-Subject: [PATCH 29/46] aws_eks_cluster: implement default_addons_to_remove
+Subject: [PATCH 29/47] aws_eks_cluster: implement default_addons_to_remove
 
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
