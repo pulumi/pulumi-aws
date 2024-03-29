@@ -580,6 +580,7 @@ public final class EcsFunctions {
      *             &#34;&#34;&#34;)
      *             .build());
      * 
+     *         // Simply specify the family to find the latest ACTIVE revision in that family.
      *         final var mongo = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
      *             .taskDefinition(mongoTaskDefinition.family())
      *             .build());
@@ -658,6 +659,7 @@ public final class EcsFunctions {
      *             &#34;&#34;&#34;)
      *             .build());
      * 
+     *         // Simply specify the family to find the latest ACTIVE revision in that family.
      *         final var mongo = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
      *             .taskDefinition(mongoTaskDefinition.family())
      *             .build());
@@ -736,6 +738,7 @@ public final class EcsFunctions {
      *             &#34;&#34;&#34;)
      *             .build());
      * 
+     *         // Simply specify the family to find the latest ACTIVE revision in that family.
      *         final var mongo = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
      *             .taskDefinition(mongoTaskDefinition.family())
      *             .build());
@@ -814,6 +817,7 @@ public final class EcsFunctions {
      *             &#34;&#34;&#34;)
      *             .build());
      * 
+     *         // Simply specify the family to find the latest ACTIVE revision in that family.
      *         final var mongo = EcsFunctions.getTaskDefinition(GetTaskDefinitionArgs.builder()
      *             .taskDefinition(mongoTaskDefinition.family())
      *             .build());

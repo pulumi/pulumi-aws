@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Example SES Domain Identity
  *         var exampleDomainIdentity = new DomainIdentity(&#34;exampleDomainIdentity&#34;, DomainIdentityArgs.builder()        
  *             .domain(&#34;example.com&#34;)
  *             .build());
@@ -58,6 +59,7 @@ import javax.annotation.Nullable;
  *             .mailFromDomain(exampleDomainIdentity.domain().applyValue(domain -&gt; String.format(&#34;bounce.%s&#34;, domain)))
  *             .build());
  * 
+ *         // Example Route53 MX record
  *         var exampleSesDomainMailFromMx = new Record(&#34;exampleSesDomainMailFromMx&#34;, RecordArgs.builder()        
  *             .zoneId(exampleAwsRoute53Zone.id())
  *             .name(example.mailFromDomain())
@@ -66,6 +68,7 @@ import javax.annotation.Nullable;
  *             .records(&#34;10 feedback-smtp.us-east-1.amazonses.com&#34;)
  *             .build());
  * 
+ *         // Example Route53 TXT record for SPF
  *         var exampleSesDomainMailFromTxt = new Record(&#34;exampleSesDomainMailFromTxt&#34;, RecordArgs.builder()        
  *             .zoneId(exampleAwsRoute53Zone.id())
  *             .name(example.mailFromDomain())
@@ -105,6 +108,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Example SES Email Identity
  *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
  *             .email(&#34;user@example.com&#34;)
  *             .build());

@@ -200,6 +200,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // ... other configuration ...
  *         var east = new BucketV2(&#34;east&#34;, BucketV2Args.builder()        
  *             .bucket(&#34;tf-test-bucket-east-12345&#34;)
  *             .build());

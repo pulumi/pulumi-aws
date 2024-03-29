@@ -80,6 +80,8 @@ import javax.annotation.Nullable;
  *             .domainName(&#34;api.example.com&#34;)
  *             .build());
  * 
+ *         // Example DNS record using Route53.
+ *         // Route53 is not specifically required; any DNS host can be used.
  *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
  *             .name(example.domainName())
  *             .type(&#34;A&#34;)
@@ -132,6 +134,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Example DNS record using Route53.
+ *         // Route53 is not specifically required; any DNS host can be used.
  *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
  *             .name(example.domainName())
  *             .type(&#34;A&#34;)

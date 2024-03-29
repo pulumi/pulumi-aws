@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new Lightsail Key Pair
  *         var lgKeyPair = new KeyPair(&#34;lgKeyPair&#34;, KeyPairArgs.builder()        
  *             .name(&#34;lg_key_pair&#34;)
  *             .build());

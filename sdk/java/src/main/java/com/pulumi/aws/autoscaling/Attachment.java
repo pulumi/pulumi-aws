@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new load balancer attachment
  *         var example = new Attachment(&#34;example&#34;, AttachmentArgs.builder()        
  *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
  *             .elb(exampleAwsElb.id())
@@ -75,6 +76,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new ALB Target Group attachment
  *         var example = new Attachment(&#34;example&#34;, AttachmentArgs.builder()        
  *             .autoscalingGroupName(exampleAwsAutoscalingGroup.id())
  *             .lbTargetGroupArn(exampleAwsLbTargetGroup.arn())

@@ -251,10 +251,13 @@ public final class AwsFunctions {
      *         final var config = ctx.config();
      *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
      *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         // Retrieve the AZ where we want to create network resources
+     *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
      *             .name(&#34;eu-central-1a&#34;)
      *             .build());
      * 
+     *         // Create a VPC for the region associated with the AZ
      *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(&#34;10.0.0.0/8&#34;)
@@ -263,6 +266,7 @@ public final class AwsFunctions {
      *                 .build()).result())
      *             .build());
      * 
+     *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
      *             .vpcId(exampleVpc.id())
      *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
@@ -324,10 +328,13 @@ public final class AwsFunctions {
      *         final var config = ctx.config();
      *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
      *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         // Retrieve the AZ where we want to create network resources
+     *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
      *             .name(&#34;eu-central-1a&#34;)
      *             .build());
      * 
+     *         // Create a VPC for the region associated with the AZ
      *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(&#34;10.0.0.0/8&#34;)
@@ -336,6 +343,7 @@ public final class AwsFunctions {
      *                 .build()).result())
      *             .build());
      * 
+     *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
      *             .vpcId(exampleVpc.id())
      *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
@@ -397,10 +405,13 @@ public final class AwsFunctions {
      *         final var config = ctx.config();
      *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
      *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         // Retrieve the AZ where we want to create network resources
+     *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
      *             .name(&#34;eu-central-1a&#34;)
      *             .build());
      * 
+     *         // Create a VPC for the region associated with the AZ
      *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(&#34;10.0.0.0/8&#34;)
@@ -409,6 +420,7 @@ public final class AwsFunctions {
      *                 .build()).result())
      *             .build());
      * 
+     *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
      *             .vpcId(exampleVpc.id())
      *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
@@ -470,10 +482,13 @@ public final class AwsFunctions {
      *         final var config = ctx.config();
      *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
      *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         // Retrieve the AZ where we want to create network resources
+     *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
      *             .name(&#34;eu-central-1a&#34;)
      *             .build());
      * 
+     *         // Create a VPC for the region associated with the AZ
      *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(&#34;10.0.0.0/8&#34;)
@@ -482,6 +497,7 @@ public final class AwsFunctions {
      *                 .build()).result())
      *             .build());
      * 
+     *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
      *             .vpcId(exampleVpc.id())
      *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
@@ -543,10 +559,13 @@ public final class AwsFunctions {
      *         final var config = ctx.config();
      *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
      *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         // Retrieve the AZ where we want to create network resources
+     *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
      *             .name(&#34;eu-central-1a&#34;)
      *             .build());
      * 
+     *         // Create a VPC for the region associated with the AZ
      *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(&#34;10.0.0.0/8&#34;)
@@ -555,6 +574,7 @@ public final class AwsFunctions {
      *                 .build()).result())
      *             .build());
      * 
+     *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
      *             .vpcId(exampleVpc.id())
      *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
@@ -616,10 +636,13 @@ public final class AwsFunctions {
      *         final var config = ctx.config();
      *         final var regionNumber = config.get(&#34;regionNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
      *         final var azNumber = config.get(&#34;azNumber&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+     *         // Retrieve the AZ where we want to create network resources
+     *         // This must be in the region selected on the AWS provider.
      *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
      *             .name(&#34;eu-central-1a&#34;)
      *             .build());
      * 
+     *         // Create a VPC for the region associated with the AZ
      *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
      *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
      *                 .input(&#34;10.0.0.0/8&#34;)
@@ -628,6 +651,7 @@ public final class AwsFunctions {
      *                 .build()).result())
      *             .build());
      * 
+     *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
      *             .vpcId(exampleVpc.id())
      *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
@@ -680,10 +704,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state(&#34;available&#34;)
      *             .build());
      * 
+     *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
      *             .build());
@@ -816,10 +842,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state(&#34;available&#34;)
      *             .build());
      * 
+     *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
      *             .build());
@@ -952,10 +980,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state(&#34;available&#34;)
      *             .build());
      * 
+     *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
      *             .build());
@@ -1088,10 +1118,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state(&#34;available&#34;)
      *             .build());
      * 
+     *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
      *             .build());
@@ -1224,10 +1256,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state(&#34;available&#34;)
      *             .build());
      * 
+     *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
      *             .build());
@@ -1360,10 +1394,12 @@ public final class AwsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
      *             .state(&#34;available&#34;)
      *             .build());
      * 
+     *         // e.g., Create subnets in the first two available availability zones
      *         var primary = new Subnet(&#34;primary&#34;, SubnetArgs.builder()        
      *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
      *             .build());

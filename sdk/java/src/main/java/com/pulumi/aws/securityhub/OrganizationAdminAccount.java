@@ -56,6 +56,7 @@ import javax.annotation.Nullable;
  *             .adminAccountId(&#34;123456789012&#34;)
  *             .build());
  * 
+ *         // Auto enable security hub in organization member accounts
  *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
  *             .autoEnable(true)
  *             .build());

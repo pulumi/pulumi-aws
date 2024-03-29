@@ -11735,6 +11735,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Returns all public IPv4 pools.
      *         final var example = Ec2Functions.getPublicIpv4Pools();
      * 
      *     }
@@ -11811,6 +11812,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Returns all public IPv4 pools.
      *         final var example = Ec2Functions.getPublicIpv4Pools();
      * 
      *     }
@@ -11887,6 +11889,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Returns all public IPv4 pools.
      *         final var example = Ec2Functions.getPublicIpv4Pools();
      * 
      *     }
@@ -11963,6 +11966,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Returns all public IPv4 pools.
      *         final var example = Ec2Functions.getPublicIpv4Pools();
      * 
      *     }
@@ -12039,6 +12043,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Returns all public IPv4 pools.
      *         final var example = Ec2Functions.getPublicIpv4Pools();
      * 
      *     }
@@ -12115,6 +12120,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Returns all public IPv4 pools.
      *         final var example = Ec2Functions.getPublicIpv4Pools();
      * 
      *     }
@@ -15846,6 +15852,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
@@ -15895,6 +15902,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
@@ -15944,6 +15952,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
@@ -15993,6 +16002,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
@@ -16042,6 +16052,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
@@ -16091,6 +16102,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(foo.id())
      *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
@@ -16144,15 +16156,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service(&#34;s3&#34;)
      *             .serviceType(&#34;Gateway&#34;)
      *             .build());
      * 
+     *         // Create a VPC
      *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
      *             .cidrBlock(&#34;10.0.0.0/16&#34;)
      *             .build());
      * 
+     *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
      *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
@@ -16270,15 +16285,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service(&#34;s3&#34;)
      *             .serviceType(&#34;Gateway&#34;)
      *             .build());
      * 
+     *         // Create a VPC
      *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
      *             .cidrBlock(&#34;10.0.0.0/16&#34;)
      *             .build());
      * 
+     *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
      *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
@@ -16396,15 +16414,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service(&#34;s3&#34;)
      *             .serviceType(&#34;Gateway&#34;)
      *             .build());
      * 
+     *         // Create a VPC
      *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
      *             .cidrBlock(&#34;10.0.0.0/16&#34;)
      *             .build());
      * 
+     *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
      *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
@@ -16522,15 +16543,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service(&#34;s3&#34;)
      *             .serviceType(&#34;Gateway&#34;)
      *             .build());
      * 
+     *         // Create a VPC
      *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
      *             .cidrBlock(&#34;10.0.0.0/16&#34;)
      *             .build());
      * 
+     *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
      *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
@@ -16648,15 +16672,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service(&#34;s3&#34;)
      *             .serviceType(&#34;Gateway&#34;)
      *             .build());
      * 
+     *         // Create a VPC
      *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
      *             .cidrBlock(&#34;10.0.0.0/16&#34;)
      *             .build());
      * 
+     *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
      *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
@@ -16774,15 +16801,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service(&#34;s3&#34;)
      *             .serviceType(&#34;Gateway&#34;)
      *             .build());
      * 
+     *         // Create a VPC
      *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
      *             .cidrBlock(&#34;10.0.0.0/16&#34;)
      *             .build());
      * 
+     *         // Create a VPC endpoint
      *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
      *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
@@ -18838,15 +18868,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(foo.id())
      *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
      *             .build());
      * 
+     *         // Create a route table
      *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
+     *         // Create a route
      *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
      *             .routeTableId(rt.id())
      *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
@@ -18894,15 +18927,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(foo.id())
      *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
      *             .build());
      * 
+     *         // Create a route table
      *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
+     *         // Create a route
      *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
      *             .routeTableId(rt.id())
      *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
@@ -18950,15 +18986,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(foo.id())
      *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
      *             .build());
      * 
+     *         // Create a route table
      *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
+     *         // Create a route
      *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
      *             .routeTableId(rt.id())
      *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
@@ -19006,15 +19045,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(foo.id())
      *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
      *             .build());
      * 
+     *         // Create a route table
      *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
+     *         // Create a route
      *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
      *             .routeTableId(rt.id())
      *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
@@ -19062,15 +19104,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(foo.id())
      *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
      *             .build());
      * 
+     *         // Create a route table
      *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
+     *         // Create a route
      *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
      *             .routeTableId(rt.id())
      *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
@@ -19118,15 +19163,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         // Declare the data source
      *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(foo.id())
      *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
      *             .build());
      * 
+     *         // Create a route table
      *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
      *             .vpcId(foo.id())
      *             .build());
      * 
+     *         // Create a route
      *         var r = new Route(&#34;r&#34;, RouteArgs.builder()        
      *             .routeTableId(rt.id())
      *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
