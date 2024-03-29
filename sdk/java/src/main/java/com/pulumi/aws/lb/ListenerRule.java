@@ -89,6 +89,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
+ *         // Forward action
  *         var hostBasedWeightedRouting = new ListenerRule(&#34;hostBasedWeightedRouting&#34;, ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .priority(99)
@@ -103,6 +104,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Weighted Forward action
  *         var hostBasedRouting = new ListenerRule(&#34;hostBasedRouting&#34;, ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .priority(99)
@@ -131,6 +133,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Redirect action
  *         var redirectHttpToHttps = new ListenerRule(&#34;redirectHttpToHttps&#34;, ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .actions(ListenerRuleActionArgs.builder()
@@ -149,6 +152,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Fixed-response action
  *         var healthCheck = new ListenerRule(&#34;healthCheck&#34;, ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .actions(ListenerRuleActionArgs.builder()
@@ -171,6 +175,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Authenticate-cognito Action
  *         var pool = new UserPool(&#34;pool&#34;);
  * 
  *         var client = new UserPoolClient(&#34;client&#34;);
@@ -194,6 +199,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
+ *         // Authenticate-oidc Action
  *         var oidc = new ListenerRule(&#34;oidc&#34;, ListenerRuleArgs.builder()        
  *             .listenerArn(frontEndListener.arn())
  *             .actions(            

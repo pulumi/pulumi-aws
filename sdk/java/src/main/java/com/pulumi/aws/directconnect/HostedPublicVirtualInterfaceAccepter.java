@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
+ *         // Creator&#39;s side of the VIF
  *         var creator = new HostedPublicVirtualInterface(&#34;creator&#34;, HostedPublicVirtualInterfaceArgs.builder()        
  *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
  *             .ownerAccountId(accepter.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
@@ -63,6 +64,7 @@ import javax.annotation.Nullable;
  *                 &#34;175.45.176.0/22&#34;)
  *             .build());
  * 
+ *         // Accepter&#39;s side of the VIF.
  *         var accepterHostedPublicVirtualInterfaceAccepter = new HostedPublicVirtualInterfaceAccepter(&#34;accepterHostedPublicVirtualInterfaceAccepter&#34;, HostedPublicVirtualInterfaceAccepterArgs.builder()        
  *             .virtualInterfaceId(creator.id())
  *             .tags(Map.of(&#34;Side&#34;, &#34;Accepter&#34;))

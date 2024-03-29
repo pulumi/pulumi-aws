@@ -86,6 +86,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // UNIT type resolver (default)
  *         var testResolver = new Resolver(&#34;testResolver&#34;, ResolverArgs.builder()        
  *             .apiId(test.id())
  *             .field(&#34;singlePost&#34;)
@@ -116,6 +117,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // PIPELINE type resolver
  *         var mutationPipelineTest = new Resolver(&#34;mutationPipelineTest&#34;, ResolverArgs.builder()        
  *             .type(&#34;Mutation&#34;)
  *             .apiId(test.id())

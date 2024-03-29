@@ -132,6 +132,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Lookup the available instance classes for the custom engine for the region being operated in
  *         final var custom-oracle = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
  *             .engine(&#34;custom-oracle-ee&#34;)
  *             .engineVersion(&#34;19.c.ee.002&#34;)
@@ -143,6 +144,7 @@ import javax.annotation.Nullable;
  *                 &#34;db.r5.4xlarge&#34;)
  *             .build());
  * 
+ *         // The RDS instance resource requires an ARN. Look up the ARN of the KMS key associated with the CEV.
  *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
  *             .keyId(&#34;example-ef278353ceba4a5a97de6784565b9f78&#34;)
  *             .build());
@@ -212,6 +214,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Lookup the available instance classes for the custom engine for the region being operated in
  *         final var custom-sqlserver = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
  *             .engine(&#34;custom-sqlserver-se&#34;)
  *             .engineVersion(&#34;15.00.4249.2.v1&#34;)
@@ -222,6 +225,7 @@ import javax.annotation.Nullable;
  *                 &#34;db.r5.4xlarge&#34;)
  *             .build());
  * 
+ *         // The RDS instance resource requires an ARN. Look up the ARN of the KMS key.
  *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
  *             .keyId(&#34;example-ef278353ceba4a5a97de6784565b9f78&#34;)
  *             .build());
@@ -278,10 +282,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
  *         final var default = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
  *             .engine(&#34;db2-se&#34;)
  *             .build());
  * 
+ *         // Lookup the available instance classes for the engine in the region being operated in
  *         final var example = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
  *             .engine(default_.engine())
  *             .engineVersion(default_.version())
@@ -293,6 +299,7 @@ import javax.annotation.Nullable;
  *                 &#34;db.m6i.large&#34;)
  *             .build());
  * 
+ *         // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
  *         var exampleParameterGroup = new ParameterGroup(&#34;exampleParameterGroup&#34;, ParameterGroupArgs.builder()        
  *             .name(&#34;db-db2-params&#34;)
  *             .family(default_.parameterGroupFamily())
@@ -309,6 +316,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
+ *         // Create the RDS Db2 instance, use the data sources defined to set attributes
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
  *             .allocatedStorage(100)
  *             .backupRetentionPeriod(7)

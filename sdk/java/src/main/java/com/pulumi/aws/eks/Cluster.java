@@ -119,6 +119,8 @@ import javax.annotation.Nullable;
  *             .role(example.name())
  *             .build());
  * 
+ *         // Optionally, enable Security Groups for Pods
+ *         // Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
  *         var example_AmazonEKSVPCResourceController = new RolePolicyAttachment(&#34;example-AmazonEKSVPCResourceController&#34;, RolePolicyAttachmentArgs.builder()        
  *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonEKSVPCResourceController&#34;)
  *             .role(example.name())

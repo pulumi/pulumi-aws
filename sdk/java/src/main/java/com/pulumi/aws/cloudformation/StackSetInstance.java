@@ -108,6 +108,8 @@ import javax.annotation.Nullable;
  *             .name(&#34;AWSCloudFormationStackSetExecutionRole&#34;)
  *             .build());
  * 
+ *         // Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
+ *         // Additional IAM permissions necessary depend on the resources defined in the StackSet template
  *         final var aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                

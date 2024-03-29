@@ -492,6 +492,8 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
+     *         // Use the last snapshot of the dev database before it was destroyed to create
+     *         // a new dev database.
      *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
@@ -552,6 +554,8 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
+     *         // Use the last snapshot of the dev database before it was destroyed to create
+     *         // a new dev database.
      *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
@@ -612,6 +616,8 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
+     *         // Use the last snapshot of the dev database before it was destroyed to create
+     *         // a new dev database.
      *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
@@ -672,6 +678,8 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
+     *         // Use the last snapshot of the dev database before it was destroyed to create
+     *         // a new dev database.
      *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
@@ -732,6 +740,8 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
+     *         // Use the last snapshot of the dev database before it was destroyed to create
+     *         // a new dev database.
      *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
@@ -792,6 +802,8 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
+     *         // Use the last snapshot of the dev database before it was destroyed to create
+     *         // a new dev database.
      *         var aurora = new Cluster(&#34;aurora&#34;, ClusterArgs.builder()        
      *             .clusterIdentifier(&#34;development_cluster&#34;)
      *             .snapshotIdentifier(developmentFinalSnapshot.applyValue(getClusterSnapshotResult -&gt; getClusterSnapshotResult.id()))
@@ -3466,6 +3478,7 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
+     *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
      *             .dbName(&#34;mydbdev&#34;)
@@ -3530,6 +3543,7 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
+     *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
      *             .dbName(&#34;mydbdev&#34;)
@@ -3594,6 +3608,7 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
+     *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
      *             .dbName(&#34;mydbdev&#34;)
@@ -3658,6 +3673,7 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
+     *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
      *             .dbName(&#34;mydbdev&#34;)
@@ -3722,6 +3738,7 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
+     *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
      *             .dbName(&#34;mydbdev&#34;)
@@ -3786,6 +3803,7 @@ public final class RdsFunctions {
      *             .mostRecent(true)
      *             .build());
      * 
+     *         // Use the latest production snapshot to create a dev instance.
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
      *             .dbName(&#34;mydbdev&#34;)

@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Request a Spot fleet
  *         var cheapCompute = new SpotFleetRequest(&#34;cheapCompute&#34;, SpotFleetRequestArgs.builder()        
  *             .iamFleetRole(&#34;arn:aws:iam::12345678:role/spot-fleet&#34;)
  *             .spotPrice(&#34;0.03&#34;)

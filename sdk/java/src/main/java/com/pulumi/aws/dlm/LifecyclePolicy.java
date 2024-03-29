@@ -153,6 +153,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // ...other configuration...
  *         final var current = AwsFunctions.getCallerIdentity();
  * 
  *         final var key = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()

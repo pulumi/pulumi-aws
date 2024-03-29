@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // Create a new replication task
  *         var test = new ReplicationTask(&#34;test&#34;, ReplicationTaskArgs.builder()        
  *             .cdcStartTime(&#34;1993-05-21T05:50:00Z&#34;)
  *             .migrationType(&#34;full-load&#34;)

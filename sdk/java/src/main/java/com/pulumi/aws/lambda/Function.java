@@ -249,10 +249,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // EFS file system
  *         var efsForLambda = new FileSystem(&#34;efsForLambda&#34;, FileSystemArgs.builder()        
  *             .tags(Map.of(&#34;Name&#34;, &#34;efs_for_lambda&#34;))
  *             .build());
  * 
+ *         // EFS access point used by lambda file system
  *         var accessPointForLambda = new AccessPoint(&#34;accessPointForLambda&#34;, AccessPointArgs.builder()        
  *             .fileSystemId(efsForLambda.id())
  *             .rootDirectory(AccessPointRootDirectoryArgs.builder()
@@ -269,6 +271,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // A lambda function connected to an EFS file system
  *         var example = new Function(&#34;example&#34;, FunctionArgs.builder()        
  *             .fileSystemConfig(FunctionFileSystemConfigArgs.builder()
  *                 .arn(accessPointForLambda.arn())
@@ -280,6 +283,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Mount target connects the file system to the subnet
  *         var alpha = new MountTarget(&#34;alpha&#34;, MountTargetArgs.builder()        
  *             .fileSystemId(efsForLambda.id())
  *             .subnetId(subnetForLambda.id())
@@ -339,11 +343,14 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
+ *         // If skipping this resource configuration, also add &#34;logs:CreateLogGroup&#34; to the IAM policy below.
  *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
  *             .name(String.format(&#34;/aws/lambda/%s&#34;, lambdaFunctionName))
  *             .retentionInDays(14)
  *             .build());
  * 
+ *         // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
  *         final var lambdaLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)

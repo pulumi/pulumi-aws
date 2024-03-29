@@ -147,6 +147,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // CEV creation requires an AMI owned by the operator
  *         var test = new CustomDbEngineVersion(&#34;test&#34;, CustomDbEngineVersionArgs.builder()        
  *             .engine(&#34;custom-sqlserver-se&#34;)
  *             .engineVersion(&#34;15.00.4249.2.cev-1&#34;)
@@ -191,6 +192,7 @@ import javax.annotation.Nullable;
  *             .sourceAmiRegion(&#34;us-east-1&#34;)
  *             .build());
  * 
+ *         // CEV creation requires an AMI owned by the operator
  *         var test = new CustomDbEngineVersion(&#34;test&#34;, CustomDbEngineVersionArgs.builder()        
  *             .engine(&#34;custom-sqlserver-se&#34;)
  *             .engineVersion(&#34;15.00.4249.2.cev-1&#34;)
