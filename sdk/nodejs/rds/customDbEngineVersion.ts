@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     engineVersion: "19.cdb_cev1",
  *     kmsKeyId: example.arn,
  *     manifest: `  {
- * 	"databaseInstallationFileNames":["V982063-01.zip"]
+ * \x09"databaseInstallationFileNames":["V982063-01.zip"]
  *   }
  * `,
  *     tags: {
