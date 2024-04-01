@@ -11,13 +11,15 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 
+	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	appconfigsdk "github.com/aws/aws-sdk-go/service/appconfig"
 	s3sdk "github.com/aws/aws-sdk-go/service/s3"
-	"github.com/stretchr/testify/require"
-
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestAccWebserverGo(t *testing.T) {
@@ -56,6 +58,11 @@ func TestTagsCombinationsGo(t *testing.T) {
 			tagsState{ResourceTags: map[string]string{"x": ""}},
 		},
 		{
+			"remove an empty default tag",
+			tagsState{DefaultTags: map[string]string{"x": "", "y": ""}},
+			tagsState{DefaultTags: map[string]string{"x": ""}},
+		},
+		{
 			"replace tags with empty",
 			tagsState{
 				DefaultTags:  map[string]string{"x": "s"},
@@ -77,12 +84,23 @@ func TestTagsCombinationsGo(t *testing.T) {
 				ResourceTags: map[string]string{"x": "s", "y": "s"},
 			},
 		},
+		{
+			"regress 1",
+			tagsState{DefaultTags: map[string]string{"x": "s"}, ResourceTags: map[string]string{"x": "", "y": ""}},
+			tagsState{DefaultTags: map[string]string{"x": "s"}, ResourceTags: map[string]string{"x": "", "y": ""}},
+		},
+		{
+			"regress 2",
+			tagsState{DefaultTags: map[string]string{}, ResourceTags: map[string]string{"x": "s", "y": ""}},
+			tagsState{DefaultTags: map[string]string{"x": ""}, ResourceTags: map[string]string{}},
+		},
 	}
 
-	for _, tc := range testCases {
+	for i, tc := range testCases {
 		tc := tc
+		i := i
 		t.Run(tc.name, func(t *testing.T) {
-			tc.s1.validateTransitionTo(t, tc.s2)
+			tc.s1.validateTransitionTo(t, i, tc.s2)
 		})
 	}
 }
@@ -125,11 +143,12 @@ func TestRandomTagsCombinationsGo(t *testing.T) {
 	t.Logf("random-sampling 100 state transitions")
 
 	for i := 0; i < 100; i++ {
+		i := i
 		t.Run(fmt.Sprintf("test-%d", i), func(t *testing.T) {
 			i := rand.Intn(len(states))
 			j := rand.Intn(len(states))
 			state1, state2 := states[i], states[j]
-			state1.validateTransitionTo(t, state2)
+			state1.validateTransitionTo(t, i, state2)
 		})
 	}
 }
@@ -145,7 +164,7 @@ func (st tagsState) serialize(t *testing.T) string {
 	return string(bytes)
 }
 
-func (st tagsState) validateTransitionTo(t *testing.T, st2 tagsState) {
+func (st tagsState) validateTransitionTo(t *testing.T, testIdent int, st2 tagsState) {
 	t.Logf("state1 = %v", st.serialize(t))
 	t.Logf("state2 = %v", st2.serialize(t))
 
@@ -161,6 +180,7 @@ func (st tagsState) validateTransitionTo(t *testing.T, st2 tagsState) {
 			"aws:region": getEnvRegion(t),
 			"state1":     st.serialize(t),
 			"state2":     st2.serialize(t),
+			"testIdent":  fmt.Sprintf("test%d", testIdent),
 		},
 		Quick: true,
 	})
@@ -177,14 +197,34 @@ func (st tagsState) expectedTags() map[string]string {
 	return r
 }
 
+type tagsFetcher = func() (map[string]string, error)
+
+func (st tagsState) assertTagsEqualWithRetry(
+	t *testing.T,
+	getActualTags tagsFetcher,
+	msg string,
+) {
+	expectTags := st.expectedTags()
+	var actualTags map[string]string
+	for attempt := 0; attempt < 3; attempt++ {
+		var err error = nil
+		actualTags, err = getActualTags()
+		if err == nil && assert.ObjectsAreEqual(expectTags, actualTags) {
+			break
+		}
+		t.Logf("Failed to fetch tags, will attempt again in 1s")
+		time.Sleep(1 * time.Second)
+		t.Logf("Trying to fetch tags again, attempt %d", attempt+1)
+	}
+	require.Equalf(t, expectTags, actualTags, msg)
+}
+
 func (st tagsState) validateStateResult(phase int) func(
 	t *testing.T,
 	stack integration.RuntimeValidationStackInfo,
 ) {
+
 	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-		legacyBucketTags := fetchBucketTags(t, stack.Outputs["legacy-bucket-name"].(string))
-		actualBucketTags := fetchBucketTags(t, stack.Outputs["bucket-name"].(string))
-		appTags := fetchAppConfigTags(t, stack.Outputs["appconfig-app-arn"].(string))
 		for k, v := range stack.Outputs {
 			switch k {
 			case "bucket-name", "legacy-bucket-name", "appconfig-app-arn":
@@ -201,55 +241,74 @@ func (st tagsState) validateStateResult(phase int) func(
 			t.Logf("key=%s tags are as expected: %v", k, actualTagsJSON)
 
 			if k == "bucket" {
-				require.Equalf(t, st.expectedTags(), actualBucketTags, "bad bucket tags")
+				bucketName := stack.Outputs["bucket-name"].(string)
+				st.assertTagsEqualWithRetry(t,
+					fetchBucketTags(bucketName),
+					"bad bucket tags")
 			}
 			if k == "legacy-bucket" {
-				require.Equalf(t, st.expectedTags(), legacyBucketTags, "bad legacy bucket tags")
+				bucketName := stack.Outputs["legacy-bucket-name"].(string)
+				st.assertTagsEqualWithRetry(t,
+					fetchBucketTags(bucketName),
+					"bad legacy bucket tags")
 			}
 			if k == "appconfig-app" {
-				require.Equalf(t, st.expectedTags(), appTags, "bad appconfig app tags")
+				arn := stack.Outputs["appconfig-app-arn"].(string)
+				st.assertTagsEqualWithRetry(t,
+					fetchAppConfigTags(arn),
+					"bad appconfig app tags")
 			}
 		}
 	}
 }
 
-func fetchBucketTags(t *testing.T, awsBucket string) map[string]string {
-	sess := session.Must(session.NewSessionWithOptions(session.Options{
-		SharedConfigState: session.SharedConfigEnable,
-	}))
+func fetchBucketTags(awsBucket string) tagsFetcher {
+	return func() (map[string]string, error) {
+		sess := session.Must(session.NewSessionWithOptions(session.Options{
+			SharedConfigState: session.SharedConfigEnable,
+		}))
 
-	client := s3sdk.New(sess)
+		retries := 5
+		client := s3sdk.New(sess, &aws.Config{MaxRetries: &retries})
 
-	input := &s3sdk.GetBucketTaggingInput{
-		Bucket: &awsBucket,
+		input := &s3sdk.GetBucketTaggingInput{
+			Bucket: &awsBucket,
+		}
+
+		result, err := client.GetBucketTagging(input)
+		if err != nil && strings.Contains(err.Error(), "NoSuchTagSet") {
+			return map[string]string{}, nil
+		}
+		if err != nil {
+			return nil, err
+		}
+
+		tags := make(map[string]string)
+		for _, tag := range result.TagSet {
+			tags[*tag.Key] = *tag.Value
+		}
+
+		return tags, nil
 	}
-
-	result, err := client.GetBucketTagging(input)
-	if err != nil && strings.Contains(err.Error(), "NoSuchTagSet") {
-		return map[string]string{}
-	}
-	require.NoError(t, err)
-
-	tags := make(map[string]string)
-	for _, tag := range result.TagSet {
-		tags[*tag.Key] = *tag.Value
-	}
-
-	return tags
 }
 
-func fetchAppConfigTags(t *testing.T, arn string) map[string]string {
-	sess := session.Must(session.NewSessionWithOptions(session.Options{
-		SharedConfigState: session.SharedConfigEnable,
-	}))
-	client := appconfigsdk.New(sess)
-	out, err := client.ListTagsForResource(&appconfigsdk.ListTagsForResourceInput{
-		ResourceArn: &arn,
-	})
-	require.NoError(t, err)
-	res := map[string]string{}
-	for k, v := range out.Tags {
-		res[k] = *v
+func fetchAppConfigTags(arn string) tagsFetcher {
+	return func() (map[string]string, error) {
+		sess := session.Must(session.NewSessionWithOptions(session.Options{
+			SharedConfigState: session.SharedConfigEnable,
+		}))
+		retries := 5
+		client := appconfigsdk.New(sess, &aws.Config{MaxRetries: &retries})
+		out, err := client.ListTagsForResource(&appconfigsdk.ListTagsForResourceInput{
+			ResourceArn: &arn,
+		})
+		if err != nil {
+			return nil, err
+		}
+		res := map[string]string{}
+		for k, v := range out.Tags {
+			res[k] = *v
+		}
+		return res, nil
 	}
-	return res
 }

@@ -21,6 +21,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		conf := config.New(ctx, "")
 		tagsState := conf.Require("state1")
+		testIdent := conf.Require("testIdent")
 
 		var s state
 
@@ -48,21 +49,21 @@ func main() {
 			return err
 		}
 
-		bucket, err := s3.NewBucketV2(ctx, "bucketv2", &s3.BucketV2Args{
+		bucket, err := s3.NewBucketV2(ctx, "bucketv2"+testIdent, &s3.BucketV2Args{
 			Tags: tagsMap,
 		}, pulumi.Provider(p))
 		if err != nil {
 			return err
 		}
 
-		legacyBucket, err := s3.NewBucket(ctx, "bucketlegacy", &s3.BucketArgs{
+		legacyBucket, err := s3.NewBucket(ctx, "bucketlegacy"+testIdent, &s3.BucketArgs{
 			Tags: tagsMap,
 		}, pulumi.Provider(p))
 		if err != nil {
 			return err
 		}
 
-		app, err := appconfig.NewApplication(ctx, "testappconfigapp",
+		app, err := appconfig.NewApplication(ctx, "testappconfigapp"+testIdent,
 			&appconfig.ApplicationArgs{
 				Tags: tagsMap,
 			}, pulumi.Provider(p))
