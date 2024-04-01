@@ -57,6 +57,11 @@ func TestTagsCombinationsGo(t *testing.T) {
 			tagsState{ResourceTags: map[string]string{"x": ""}},
 		},
 		{
+			"remove an empty default tag",
+			tagsState{DefaultTags: map[string]string{"x": "", "y": ""}},
+			tagsState{DefaultTags: map[string]string{"x": ""}},
+		},
+		{
 			"replace tags with empty",
 			tagsState{
 				DefaultTags:  map[string]string{"x": "s"},
@@ -78,12 +83,23 @@ func TestTagsCombinationsGo(t *testing.T) {
 				ResourceTags: map[string]string{"x": "s", "y": "s"},
 			},
 		},
+		{
+			"regress 1",
+			tagsState{DefaultTags: map[string]string{"x": "s"}, ResourceTags: map[string]string{"x": "", "y": ""}},
+			tagsState{DefaultTags: map[string]string{"x": "s"}, ResourceTags: map[string]string{"x": "", "y": ""}},
+		},
+		{
+			"regress 2",
+			tagsState{DefaultTags: map[string]string{}, ResourceTags: map[string]string{"x": "s", "y": ""}},
+			tagsState{DefaultTags: map[string]string{"x": ""}, ResourceTags: map[string]string{}},
+		},
 	}
 
-	for _, tc := range testCases {
+	for i, tc := range testCases {
 		tc := tc
+		i := i
 		t.Run(tc.name, func(t *testing.T) {
-			tc.s1.validateTransitionTo(t, tc.s2)
+			tc.s1.validateTransitionTo(t, i, tc.s2)
 		})
 	}
 }
@@ -126,11 +142,12 @@ func TestRandomTagsCombinationsGo(t *testing.T) {
 	t.Logf("random-sampling 100 state transitions")
 
 	for i := 0; i < 100; i++ {
+		i := i
 		t.Run(fmt.Sprintf("test-%d", i), func(t *testing.T) {
 			i := rand.Intn(len(states))
 			j := rand.Intn(len(states))
 			state1, state2 := states[i], states[j]
-			state1.validateTransitionTo(t, state2)
+			state1.validateTransitionTo(t, i, state2)
 		})
 	}
 }
@@ -146,7 +163,7 @@ func (st tagsState) serialize(t *testing.T) string {
 	return string(bytes)
 }
 
-func (st tagsState) validateTransitionTo(t *testing.T, st2 tagsState) {
+func (st tagsState) validateTransitionTo(t *testing.T, testIdent int, st2 tagsState) {
 	t.Logf("state1 = %v", st.serialize(t))
 	t.Logf("state2 = %v", st2.serialize(t))
 
@@ -162,6 +179,7 @@ func (st tagsState) validateTransitionTo(t *testing.T, st2 tagsState) {
 			"aws:region": getEnvRegion(t),
 			"state1":     st.serialize(t),
 			"state2":     st2.serialize(t),
+			"testIdent":  fmt.Sprintf("test%d", testIdent),
 		},
 		Quick: true,
 	})
