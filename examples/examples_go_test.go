@@ -12,6 +12,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	appconfigsdk "github.com/aws/aws-sdk-go/service/appconfig"
 	s3sdk "github.com/aws/aws-sdk-go/service/s3"
@@ -218,7 +219,8 @@ func fetchBucketTags(t *testing.T, awsBucket string) map[string]string {
 		SharedConfigState: session.SharedConfigEnable,
 	}))
 
-	client := s3sdk.New(sess)
+	retries := 5
+	client := s3sdk.New(sess, &aws.Config{MaxRetries: &retries})
 
 	input := &s3sdk.GetBucketTaggingInput{
 		Bucket: &awsBucket,
@@ -242,7 +244,8 @@ func fetchAppConfigTags(t *testing.T, arn string) map[string]string {
 	sess := session.Must(session.NewSessionWithOptions(session.Options{
 		SharedConfigState: session.SharedConfigEnable,
 	}))
-	client := appconfigsdk.New(sess)
+	retries := 5
+	client := appconfigsdk.New(sess, &aws.Config{MaxRetries: &retries})
 	out, err := client.ListTagsForResource(&appconfigsdk.ListTagsForResourceInput{
 		ResourceArn: &arn,
 	})
