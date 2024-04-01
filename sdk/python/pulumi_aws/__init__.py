@@ -261,6 +261,8 @@ if typing.TYPE_CHECKING:
     lightsail = __lightsail
     import pulumi_aws.location as __location
     location = __location
+    import pulumi_aws.m2 as __m2
+    m2 = __m2
     import pulumi_aws.macie as __macie
     macie = __macie
     import pulumi_aws.macie2 as __macie2
@@ -547,6 +549,7 @@ else:
     licensemanager = _utilities.lazy_import('pulumi_aws.licensemanager')
     lightsail = _utilities.lazy_import('pulumi_aws.lightsail')
     location = _utilities.lazy_import('pulumi_aws.location')
+    m2 = _utilities.lazy_import('pulumi_aws.m2')
     macie = _utilities.lazy_import('pulumi_aws.macie')
     macie2 = _utilities.lazy_import('pulumi_aws.macie2')
     mediaconvert = _utilities.lazy_import('pulumi_aws.mediaconvert')
@@ -2188,6 +2191,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudfront/keyvaluestoreKey",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey": "KeyvaluestoreKey"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudfront/monitoringSubscription",
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
@@ -3276,6 +3287,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "devopsguru/notificationChannel",
+  "fqn": "pulumi_aws.devopsguru",
+  "classes": {
+   "aws:devopsguru/notificationChannel:NotificationChannel": "NotificationChannel"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "devopsguru/resourceCollection",
   "fqn": "pulumi_aws.devopsguru",
   "classes": {
@@ -3660,6 +3679,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "dynamodb/resourcePolicy",
+  "fqn": "pulumi_aws.dynamodb",
+  "classes": {
+   "aws:dynamodb/resourcePolicy:ResourcePolicy": "ResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "dynamodb/table",
   "fqn": "pulumi_aws.dynamodb",
   "classes": {
@@ -3928,6 +3955,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2",
   "classes": {
    "aws:ec2/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/instanceMetadataDefaults",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults": "InstanceMetadataDefaults"
   }
  },
  {
@@ -6644,6 +6679,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lakeformation/resourceLfTag",
+  "fqn": "pulumi_aws.lakeformation",
+  "classes": {
+   "aws:lakeformation/resourceLfTag:ResourceLfTag": "ResourceLfTag"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lakeformation/resourceLfTags",
   "fqn": "pulumi_aws.lakeformation",
   "classes": {
@@ -7144,6 +7187,30 @@ _utilities.register(
   "fqn": "pulumi_aws.location",
   "classes": {
    "aws:location/trackerAssociation:TrackerAssociation": "TrackerAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "m2/application",
+  "fqn": "pulumi_aws.m2",
+  "classes": {
+   "aws:m2/application:Application": "Application"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "m2/deployment",
+  "fqn": "pulumi_aws.m2",
+  "classes": {
+   "aws:m2/deployment:Deployment": "Deployment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "m2/environment",
+  "fqn": "pulumi_aws.m2",
+  "classes": {
+   "aws:m2/environment:Environment": "Environment"
   }
  },
  {
@@ -8692,6 +8759,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "redshiftserverless/customDomainAssociation",
+  "fqn": "pulumi_aws.redshiftserverless",
+  "classes": {
+   "aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation": "CustomDomainAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "redshiftserverless/endpointAccess",
   "fqn": "pulumi_aws.redshiftserverless",
   "classes": {
@@ -9888,6 +9963,14 @@ _utilities.register(
   "fqn": "pulumi_aws.serverlessrepository",
   "classes": {
    "aws:serverlessrepository/cloudFormationStack:CloudFormationStack": "CloudFormationStack"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "servicecatalog/appregistryApplication",
+  "fqn": "pulumi_aws.servicecatalog",
+  "classes": {
+   "aws:servicecatalog/appregistryApplication:AppregistryApplication": "AppregistryApplication"
   }
  },
  {

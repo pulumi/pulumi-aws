@@ -10,6 +10,11 @@ export type EventSourcesConfig = import("./eventSourcesConfig").EventSourcesConf
 export const EventSourcesConfig: typeof import("./eventSourcesConfig").EventSourcesConfig = null as any;
 utilities.lazyLoad(exports, ["EventSourcesConfig"], () => require("./eventSourcesConfig"));
 
+export { NotificationChannelArgs, NotificationChannelState } from "./notificationChannel";
+export type NotificationChannel = import("./notificationChannel").NotificationChannel;
+export const NotificationChannel: typeof import("./notificationChannel").NotificationChannel = null as any;
+utilities.lazyLoad(exports, ["NotificationChannel"], () => require("./notificationChannel"));
+
 export { ResourceCollectionArgs, ResourceCollectionState } from "./resourceCollection";
 export type ResourceCollection = import("./resourceCollection").ResourceCollection;
 export const ResourceCollection: typeof import("./resourceCollection").ResourceCollection = null as any;
@@ -22,6 +27,8 @@ const _module = {
         switch (type) {
             case "aws:devopsguru/eventSourcesConfig:EventSourcesConfig":
                 return new EventSourcesConfig(name, <any>undefined, { urn })
+            case "aws:devopsguru/notificationChannel:NotificationChannel":
+                return new NotificationChannel(name, <any>undefined, { urn })
             case "aws:devopsguru/resourceCollection:ResourceCollection":
                 return new ResourceCollection(name, <any>undefined, { urn })
             default:
@@ -30,4 +37,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "devopsguru/eventSourcesConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "devopsguru/notificationChannel", _module)
 pulumi.runtime.registerResourceModule("aws", "devopsguru/resourceCollection", _module)

@@ -136,7 +136,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         StatusCode = "200",
     ///         ResponseModels = 
     ///         {
-    ///             { "application-json", "MyDemoResponseModel" },
+    ///             { "application/json", "MyDemoResponseModel" },
     ///         },
     ///         ResponseParameters = 
     ///         {

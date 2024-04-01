@@ -1279,6 +1279,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="datazone")
+    private @Nullable Output<String> datazone;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> datazone() {
+        return Optional.ofNullable(this.datazone);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="dax")
     private @Nullable Output<String> dax;
 
@@ -2929,6 +2944,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="paymentcryptography")
+    private @Nullable Output<String> paymentcryptography;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> paymentcryptography() {
+        return Optional.ofNullable(this.paymentcryptography);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="pcaconnectorad")
     private @Nullable Output<String> pcaconnectorad;
 
@@ -4212,6 +4242,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.dataexchange = $.dataexchange;
         this.datapipeline = $.datapipeline;
         this.datasync = $.datasync;
+        this.datazone = $.datazone;
         this.dax = $.dax;
         this.deploy = $.deploy;
         this.detective = $.detective;
@@ -4322,6 +4353,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.organizations = $.organizations;
         this.osis = $.osis;
         this.outposts = $.outposts;
+        this.paymentcryptography = $.paymentcryptography;
         this.pcaconnectorad = $.pcaconnectorad;
         this.pinpoint = $.pinpoint;
         this.pipes = $.pipes;
@@ -6184,6 +6216,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder datasync(String datasync) {
             return datasync(Output.of(datasync));
+        }
+
+        /**
+         * @param datazone Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datazone(@Nullable Output<String> datazone) {
+            $.datazone = datazone;
+            return this;
+        }
+
+        /**
+         * @param datazone Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datazone(String datazone) {
+            return datazone(Output.of(datazone));
         }
 
         /**
@@ -8494,6 +8547,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder outposts(String outposts) {
             return outposts(Output.of(outposts));
+        }
+
+        /**
+         * @param paymentcryptography Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder paymentcryptography(@Nullable Output<String> paymentcryptography) {
+            $.paymentcryptography = paymentcryptography;
+            return this;
+        }
+
+        /**
+         * @param paymentcryptography Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder paymentcryptography(String paymentcryptography) {
+            return paymentcryptography(Output.of(paymentcryptography));
         }
 
         /**

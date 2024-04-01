@@ -174,14 +174,14 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * The IPv6 CIDR on the AWS side of the VPN connection.
      * 
      */
     @Import(name="remoteIpv6NetworkCidr")
     private @Nullable Output<String> remoteIpv6NetworkCidr;
 
     /**
-     * @return The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * @return The IPv6 CIDR on the AWS side of the VPN connection.
      * 
      */
     public Optional<Output<String>> remoteIpv6NetworkCidr() {
@@ -1417,7 +1417,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param remoteIpv6NetworkCidr The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+         * @param remoteIpv6NetworkCidr The IPv6 CIDR on the AWS side of the VPN connection.
          * 
          * @return builder
          * 
@@ -1428,7 +1428,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param remoteIpv6NetworkCidr The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+         * @param remoteIpv6NetworkCidr The IPv6 CIDR on the AWS side of the VPN connection.
          * 
          * @return builder
          * 

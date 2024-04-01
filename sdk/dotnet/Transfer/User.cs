@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer
 {
     /// <summary>
-    /// Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `aws.transfer.SshKey` resource.
-    /// 
     /// ## Example Usage
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;

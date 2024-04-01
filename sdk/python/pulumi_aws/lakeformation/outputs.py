@@ -26,6 +26,12 @@ __all__ = [
     'PermissionsLfTagPolicyExpression',
     'PermissionsTable',
     'PermissionsTableWithColumns',
+    'ResourceLfTagDatabase',
+    'ResourceLfTagLfTag',
+    'ResourceLfTagTable',
+    'ResourceLfTagTableWithColumns',
+    'ResourceLfTagTableWithColumnsColumnWildcard',
+    'ResourceLfTagTimeouts',
     'ResourceLfTagsDatabase',
     'ResourceLfTagsLfTag',
     'ResourceLfTagsTable',
@@ -847,6 +853,349 @@ class PermissionsTableWithColumns(dict):
         The following arguments are optional:
         """
         return pulumi.get(self, "wildcard")
+
+
+@pulumi.output_type
+class ResourceLfTagDatabase(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogId":
+            suggest = "catalog_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceLfTagDatabase. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceLfTagDatabase.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceLfTagDatabase.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 catalog_id: Optional[str] = None):
+        """
+        :param str name: Name of the database resource. Unique to the Data Catalog.
+               
+               The following argument is optional:
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        pulumi.set(__self__, "name", name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the database resource. Unique to the Data Catalog.
+
+        The following argument is optional:
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+
+@pulumi.output_type
+class ResourceLfTagLfTag(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogId":
+            suggest = "catalog_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceLfTagLfTag. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceLfTagLfTag.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceLfTagLfTag.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: str,
+                 value: str,
+                 catalog_id: Optional[str] = None):
+        """
+        :param str key: Key name for an existing LF-tag.
+        :param str value: Value from the possible values for the LF-tag.
+               
+               The following argument is optional:
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Key name for an existing LF-tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value from the possible values for the LF-tag.
+
+        The following argument is optional:
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+
+@pulumi.output_type
+class ResourceLfTagTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "catalogId":
+            suggest = "catalog_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceLfTagTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceLfTagTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceLfTagTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 catalog_id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 wildcard: Optional[bool] = None):
+        """
+        :param str database_name: Name of the database for the table. Unique to a Data Catalog.
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param str name: Name of the table.
+        :param bool wildcard: Whether to use a wildcard representing every table under a database. Defaults to `false`.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if wildcard is not None:
+            pulumi.set(__self__, "wildcard", wildcard)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        Name of the database for the table. Unique to a Data Catalog.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def wildcard(self) -> Optional[bool]:
+        """
+        Whether to use a wildcard representing every table under a database. Defaults to `false`.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "wildcard")
+
+
+@pulumi.output_type
+class ResourceLfTagTableWithColumns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "catalogId":
+            suggest = "catalog_id"
+        elif key == "columnNames":
+            suggest = "column_names"
+        elif key == "columnWildcard":
+            suggest = "column_wildcard"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceLfTagTableWithColumns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceLfTagTableWithColumns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceLfTagTableWithColumns.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 name: str,
+                 catalog_id: Optional[str] = None,
+                 column_names: Optional[Sequence[str]] = None,
+                 column_wildcard: Optional['outputs.ResourceLfTagTableWithColumnsColumnWildcard'] = None):
+        """
+        :param str database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
+        :param str name: Name of the table resource.
+               
+               The following arguments are optional:
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param Sequence[str] column_names: Set of column names for the table.
+        :param 'ResourceLfTagTableWithColumnsColumnWildcardArgs' column_wildcard: Option to add column wildcard. See Column Wildcard for more details.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if column_names is not None:
+            pulumi.set(__self__, "column_names", column_names)
+        if column_wildcard is not None:
+            pulumi.set(__self__, "column_wildcard", column_wildcard)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        Name of the database for the table with columns resource. Unique to the Data Catalog.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the table resource.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @property
+    @pulumi.getter(name="columnNames")
+    def column_names(self) -> Optional[Sequence[str]]:
+        """
+        Set of column names for the table.
+        """
+        return pulumi.get(self, "column_names")
+
+    @property
+    @pulumi.getter(name="columnWildcard")
+    def column_wildcard(self) -> Optional['outputs.ResourceLfTagTableWithColumnsColumnWildcard']:
+        """
+        Option to add column wildcard. See Column Wildcard for more details.
+        """
+        return pulumi.get(self, "column_wildcard")
+
+
+@pulumi.output_type
+class ResourceLfTagTableWithColumnsColumnWildcard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludedColumnNames":
+            suggest = "excluded_column_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceLfTagTableWithColumnsColumnWildcard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceLfTagTableWithColumnsColumnWildcard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceLfTagTableWithColumnsColumnWildcard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 excluded_column_names: Optional[Sequence[str]] = None):
+        if excluded_column_names is not None:
+            pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+
+    @property
+    @pulumi.getter(name="excludedColumnNames")
+    def excluded_column_names(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "excluded_column_names")
+
+
+@pulumi.output_type
+class ResourceLfTagTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
 
 
 @pulumi.output_type

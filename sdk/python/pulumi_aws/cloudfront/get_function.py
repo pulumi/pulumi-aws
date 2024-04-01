@@ -21,7 +21,7 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, arn=None, code=None, comment=None, etag=None, id=None, last_modified_time=None, name=None, runtime=None, stage=None, status=None):
+    def __init__(__self__, arn=None, code=None, comment=None, etag=None, id=None, key_value_store_associations=None, last_modified_time=None, name=None, runtime=None, stage=None, status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetFunctionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if key_value_store_associations and not isinstance(key_value_store_associations, list):
+            raise TypeError("Expected argument 'key_value_store_associations' to be a list")
+        pulumi.set(__self__, "key_value_store_associations", key_value_store_associations)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -94,6 +97,14 @@ class GetFunctionResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="keyValueStoreAssociations")
+    def key_value_store_associations(self) -> Sequence[str]:
+        """
+        List of `cloudfront.KeyValueStore` ARNs associated to the function.
+        """
+        return pulumi.get(self, "key_value_store_associations")
+
+    @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> str:
         """
@@ -139,6 +150,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             comment=self.comment,
             etag=self.etag,
             id=self.id,
+            key_value_store_associations=self.key_value_store_associations,
             last_modified_time=self.last_modified_time,
             name=self.name,
             runtime=self.runtime,
@@ -181,6 +193,7 @@ def get_function(name: Optional[str] = None,
         comment=pulumi.get(__ret__, 'comment'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
+        key_value_store_associations=pulumi.get(__ret__, 'key_value_store_associations'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         name=pulumi.get(__ret__, 'name'),
         runtime=pulumi.get(__ret__, 'runtime'),

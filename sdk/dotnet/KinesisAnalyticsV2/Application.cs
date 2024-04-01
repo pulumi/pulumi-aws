@@ -387,7 +387,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`.
+        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`.
         /// </summary>
         [Output("runtimeEnvironment")]
         public Output<string> RuntimeEnvironment { get; private set; } = null!;
@@ -505,7 +505,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`.
+        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`.
         /// </summary>
         [Input("runtimeEnvironment", required: true)]
         public Input<string> RuntimeEnvironment { get; set; } = null!;
@@ -591,7 +591,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`.
+        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`.
         /// </summary>
         [Input("runtimeEnvironment")]
         public Input<string>? RuntimeEnvironment { get; set; }

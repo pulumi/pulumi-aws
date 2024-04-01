@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  * }
  * const exampleTargetGroup = new aws.lb.TargetGroup("example", {});
  * const exampleTargetGroupAttachment: aws.lb.TargetGroupAttachment[] = [];
- * pulumi.all(example.map((v, k) => [k, v]).reduce((__obj, [, ]) => ({ ...__obj, [v.id]: v }))).apply(rangeBody => {
+ * pulumi.all(example.map((v, k) => [k, v]).reduce((__obj, [, ]) => ({ ...__obj, [k]: v }))).apply(rangeBody => {
  *     for (const range of Object.entries(rangeBody).map(([k, v]) => ({key: k, value: v}))) {
  *         exampleTargetGroupAttachment.push(new aws.lb.TargetGroupAttachment(`example-${range.key}`, {
  *             targetGroupArn: exampleTargetGroup.arn,

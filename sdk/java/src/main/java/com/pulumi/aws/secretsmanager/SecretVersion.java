@@ -124,14 +124,14 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+     * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
      * 
      */
     @Export(name="secretBinary", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretBinary;
 
     /**
-     * @return Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+     * @return Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
      * 
      */
     public Output<Optional<String>> secretBinary() {
@@ -152,14 +152,14 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
         return this.secretId;
     }
     /**
-     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
+     * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
      * 
      */
     @Export(name="secretString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secretString;
 
     /**
-     * @return Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
+     * @return Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
      * 
      */
     public Output<Optional<String>> secretString() {

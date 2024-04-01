@@ -294,9 +294,13 @@ namespace Pulumi.Aws.Rds
         /// Provides the option group name for the DB snapshot.
         /// </summary>
         public readonly string OptionGroupName;
+        /// <summary>
+        /// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
+        /// </summary>
+        public readonly string OriginalSnapshotCreateTime;
         public readonly int Port;
         /// <summary>
-        /// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
+        /// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
         /// </summary>
         public readonly string SnapshotCreateTime;
         public readonly string? SnapshotType;
@@ -356,6 +360,8 @@ namespace Pulumi.Aws.Rds
 
             string optionGroupName,
 
+            string originalSnapshotCreateTime,
+
             int port,
 
             string snapshotCreateTime,
@@ -390,6 +396,7 @@ namespace Pulumi.Aws.Rds
             LicenseModel = licenseModel;
             MostRecent = mostRecent;
             OptionGroupName = optionGroupName;
+            OriginalSnapshotCreateTime = originalSnapshotCreateTime;
             Port = port;
             SnapshotCreateTime = snapshotCreateTime;
             SnapshotType = snapshotType;

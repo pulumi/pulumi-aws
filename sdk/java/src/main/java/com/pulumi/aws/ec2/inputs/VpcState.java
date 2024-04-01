@@ -108,9 +108,17 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.defaultSecurityGroupId);
     }
 
+    /**
+     * DHCP options id of the desired VPC.
+     * 
+     */
     @Import(name="dhcpOptionsId")
     private @Nullable Output<String> dhcpOptionsId;
 
+    /**
+     * @return DHCP options id of the desired VPC.
+     * 
+     */
     public Optional<Output<String>> dhcpOptionsId() {
         return Optional.ofNullable(this.dhcpOptionsId);
     }
@@ -523,11 +531,23 @@ public final class VpcState extends com.pulumi.resources.ResourceArgs {
             return defaultSecurityGroupId(Output.of(defaultSecurityGroupId));
         }
 
+        /**
+         * @param dhcpOptionsId DHCP options id of the desired VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dhcpOptionsId(@Nullable Output<String> dhcpOptionsId) {
             $.dhcpOptionsId = dhcpOptionsId;
             return this;
         }
 
+        /**
+         * @param dhcpOptionsId DHCP options id of the desired VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dhcpOptionsId(String dhcpOptionsId) {
             return dhcpOptionsId(Output.of(dhcpOptionsId));
         }

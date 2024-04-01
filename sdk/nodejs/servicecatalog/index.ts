@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AppregistryApplicationArgs, AppregistryApplicationState } from "./appregistryApplication";
+export type AppregistryApplication = import("./appregistryApplication").AppregistryApplication;
+export const AppregistryApplication: typeof import("./appregistryApplication").AppregistryApplication = null as any;
+utilities.lazyLoad(exports, ["AppregistryApplication"], () => require("./appregistryApplication"));
+
 export { BudgetResourceAssociationArgs, BudgetResourceAssociationState } from "./budgetResourceAssociation";
 export type BudgetResourceAssociation = import("./budgetResourceAssociation").BudgetResourceAssociation;
 export const BudgetResourceAssociation: typeof import("./budgetResourceAssociation").BudgetResourceAssociation = null as any;
@@ -14,6 +19,11 @@ export { ConstraintArgs, ConstraintState } from "./constraint";
 export type Constraint = import("./constraint").Constraint;
 export const Constraint: typeof import("./constraint").Constraint = null as any;
 utilities.lazyLoad(exports, ["Constraint"], () => require("./constraint"));
+
+export { GetAppregistryApplicationArgs, GetAppregistryApplicationResult, GetAppregistryApplicationOutputArgs } from "./getAppregistryApplication";
+export const getAppregistryApplication: typeof import("./getAppregistryApplication").getAppregistryApplication = null as any;
+export const getAppregistryApplicationOutput: typeof import("./getAppregistryApplication").getAppregistryApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getAppregistryApplication","getAppregistryApplicationOutput"], () => require("./getAppregistryApplication"));
 
 export { GetConstraintArgs, GetConstraintResult, GetConstraintOutputArgs } from "./getConstraint";
 export const getConstraint: typeof import("./getConstraint").getConstraint = null as any;
@@ -105,6 +115,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:servicecatalog/appregistryApplication:AppregistryApplication":
+                return new AppregistryApplication(name, <any>undefined, { urn })
             case "aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation":
                 return new BudgetResourceAssociation(name, <any>undefined, { urn })
             case "aws:servicecatalog/constraint:Constraint":
@@ -136,6 +148,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "servicecatalog/appregistryApplication", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/budgetResourceAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/constraint", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/organizationsAccess", _module)

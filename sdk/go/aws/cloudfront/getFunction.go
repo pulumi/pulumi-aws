@@ -73,6 +73,8 @@ type LookupFunctionResult struct {
 	Etag string `pulumi:"etag"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// List of `cloudfront.KeyValueStore` ARNs associated to the function.
+	KeyValueStoreAssociations []string `pulumi:"keyValueStoreAssociations"`
 	// When this resource was last modified.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	Name             string `pulumi:"name"`
@@ -146,6 +148,11 @@ func (o LookupFunctionResultOutput) Etag() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupFunctionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of `cloudfront.KeyValueStore` ARNs associated to the function.
+func (o LookupFunctionResultOutput) KeyValueStoreAssociations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupFunctionResult) []string { return v.KeyValueStoreAssociations }).(pulumi.StringArrayOutput)
 }
 
 // When this resource was last modified.

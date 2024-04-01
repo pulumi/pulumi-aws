@@ -90,6 +90,11 @@ export type KeyValueStore = import("./keyValueStore").KeyValueStore;
 export const KeyValueStore: typeof import("./keyValueStore").KeyValueStore = null as any;
 utilities.lazyLoad(exports, ["KeyValueStore"], () => require("./keyValueStore"));
 
+export { KeyvaluestoreKeyArgs, KeyvaluestoreKeyState } from "./keyvaluestoreKey";
+export type KeyvaluestoreKey = import("./keyvaluestoreKey").KeyvaluestoreKey;
+export const KeyvaluestoreKey: typeof import("./keyvaluestoreKey").KeyvaluestoreKey = null as any;
+utilities.lazyLoad(exports, ["KeyvaluestoreKey"], () => require("./keyvaluestoreKey"));
+
 export { MonitoringSubscriptionArgs, MonitoringSubscriptionState } from "./monitoringSubscription";
 export type MonitoringSubscription = import("./monitoringSubscription").MonitoringSubscription;
 export const MonitoringSubscription: typeof import("./monitoringSubscription").MonitoringSubscription = null as any;
@@ -146,6 +151,8 @@ const _module = {
                 return new KeyGroup(name, <any>undefined, { urn })
             case "aws:cloudfront/keyValueStore:KeyValueStore":
                 return new KeyValueStore(name, <any>undefined, { urn })
+            case "aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey":
+                return new KeyvaluestoreKey(name, <any>undefined, { urn })
             case "aws:cloudfront/monitoringSubscription:MonitoringSubscription":
                 return new MonitoringSubscription(name, <any>undefined, { urn })
             case "aws:cloudfront/originAccessControl:OriginAccessControl":
@@ -173,6 +180,7 @@ pulumi.runtime.registerResourceModule("aws", "cloudfront/fieldLevelEncryptionPro
 pulumi.runtime.registerResourceModule("aws", "cloudfront/function", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/keyGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/keyValueStore", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/keyvaluestoreKey", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/monitoringSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessControl", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessIdentity", _module)

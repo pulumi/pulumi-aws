@@ -485,6 +485,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    datazone?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     dax?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -922,6 +926,10 @@ export interface ProviderEndpoint {
      * Use this to override the default service endpoint URL
      */
     outposts?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
+    paymentcryptography?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
      */
@@ -17553,6 +17561,21 @@ export namespace devopsguru {
         status: pulumi.Input<string>;
     }
 
+    export interface NotificationChannelFilters {
+        /**
+         * Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
+         */
+        messageTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
+         */
+        severities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface NotificationChannelSns {
+        topicArn: pulumi.Input<string>;
+    }
+
     export interface ResourceCollectionCloudformation {
         /**
          * Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
@@ -33913,7 +33936,7 @@ export namespace kinesis {
          */
         orcSerDe?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe>;
         /**
-         * Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/documentation/latest/). More details below.
+         * Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). More details below.
          */
         parquetSerDe?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe>;
     }
@@ -36200,6 +36223,97 @@ export namespace lakeformation {
          * The following arguments are optional:
          */
         wildcard?: pulumi.Input<boolean>;
+    }
+
+    export interface ResourceLfTagDatabase {
+        /**
+         * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         */
+        catalogId?: pulumi.Input<string>;
+        /**
+         * Name of the database resource. Unique to the Data Catalog.
+         *
+         * The following argument is optional:
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface ResourceLfTagLfTag {
+        /**
+         * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         */
+        catalogId?: pulumi.Input<string>;
+        /**
+         * Key name for an existing LF-tag.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Value from the possible values for the LF-tag.
+         *
+         * The following argument is optional:
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ResourceLfTagTable {
+        /**
+         * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         */
+        catalogId?: pulumi.Input<string>;
+        /**
+         * Name of the database for the table. Unique to a Data Catalog.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * Name of the table.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Whether to use a wildcard representing every table under a database. Defaults to `false`.
+         *
+         * The following arguments are optional:
+         */
+        wildcard?: pulumi.Input<boolean>;
+    }
+
+    export interface ResourceLfTagTableWithColumns {
+        /**
+         * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         */
+        catalogId?: pulumi.Input<string>;
+        /**
+         * Set of column names for the table.
+         */
+        columnNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Option to add column wildcard. See Column Wildcard for more details.
+         */
+        columnWildcard?: pulumi.Input<inputs.lakeformation.ResourceLfTagTableWithColumnsColumnWildcard>;
+        /**
+         * Name of the database for the table with columns resource. Unique to the Data Catalog.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * Name of the table resource.
+         *
+         * The following arguments are optional:
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface ResourceLfTagTableWithColumnsColumnWildcard {
+        excludedColumnNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResourceLfTagTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
     }
 
     export interface ResourceLfTagsDatabase {
@@ -49707,6 +49821,98 @@ export namespace location {
     }
 }
 
+export namespace m2 {
+    export interface ApplicationDefinition {
+        /**
+         * JSON application definition. Either this or `s3Location` must be specified.
+         */
+        content?: pulumi.Input<string>;
+        /**
+         * Location of the application definition in S3. Either this or `content` must be specified.
+         */
+        s3Location?: pulumi.Input<string>;
+    }
+
+    export interface ApplicationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface DeploymentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentHighAvailabilityConfig {
+        /**
+         * Desired number of instances for the Environment.
+         */
+        desiredCapacity: pulumi.Input<number>;
+    }
+
+    export interface EnvironmentStorageConfiguration {
+        efs?: pulumi.Input<inputs.m2.EnvironmentStorageConfigurationEfs>;
+        fsx?: pulumi.Input<inputs.m2.EnvironmentStorageConfigurationFsx>;
+    }
+
+    export interface EnvironmentStorageConfigurationEfs {
+        /**
+         * Id of the EFS filesystem to mount.
+         */
+        fileSystemId: pulumi.Input<string>;
+        /**
+         * Path to mount the filesystem on, must start with `/m2/mount/`.
+         */
+        mountPoint: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentStorageConfigurationFsx {
+        /**
+         * Id of the FSX filesystem to mount.
+         */
+        fileSystemId: pulumi.Input<string>;
+        /**
+         * Path to mount the filesystem on, must start with `/m2/mount/`.
+         */
+        mountPoint: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+}
+
 export namespace macie {
     export interface FindingsFilterFindingCriteria {
         /**
@@ -59833,6 +60039,114 @@ export namespace resourceexplorer {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         update?: pulumi.Input<string>;
+    }
+
+    export interface SearchResource {
+        /**
+         * Amazon resource name of resource.
+         */
+        arn?: string;
+        /**
+         * The date and time that the information about this resource property was last updated.
+         */
+        lastReportedAt?: string;
+        /**
+         * Amazon Web Services account that owns the resource.
+         */
+        owningAccountId?: string;
+        /**
+         * Amazon Web Services Region in which the resource was created and exists.
+         */
+        region?: string;
+        /**
+         * Structure with additional type-specific details about the resource.  See `resourceProperty` below.
+         */
+        resourceProperties?: inputs.resourceexplorer.SearchResourceResourceProperty[];
+        /**
+         * Type of the resource.
+         */
+        resourceType?: string;
+        /**
+         * Amazon Web Service that owns the resource and is responsible for creating and updating it.
+         */
+        service?: string;
+    }
+
+    export interface SearchResourceArgs {
+        /**
+         * Amazon resource name of resource.
+         */
+        arn?: pulumi.Input<string>;
+        /**
+         * The date and time that the information about this resource property was last updated.
+         */
+        lastReportedAt?: pulumi.Input<string>;
+        /**
+         * Amazon Web Services account that owns the resource.
+         */
+        owningAccountId?: pulumi.Input<string>;
+        /**
+         * Amazon Web Services Region in which the resource was created and exists.
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * Structure with additional type-specific details about the resource.  See `resourceProperty` below.
+         */
+        resourceProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer.SearchResourceResourcePropertyArgs>[]>;
+        /**
+         * Type of the resource.
+         */
+        resourceType?: pulumi.Input<string>;
+        /**
+         * Amazon Web Service that owns the resource and is responsible for creating and updating it.
+         */
+        service?: pulumi.Input<string>;
+    }
+
+    export interface SearchResourceCount {
+        completed: boolean;
+        /**
+         * Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
+         */
+        totalResources?: number;
+    }
+
+    export interface SearchResourceCountArgs {
+        completed: pulumi.Input<boolean>;
+        /**
+         * Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
+         */
+        totalResources?: pulumi.Input<number>;
+    }
+
+    export interface SearchResourceResourceProperty {
+        /**
+         * Details about this property. The content of this field is a JSON object that varies based on the resource type.
+         */
+        data?: string;
+        /**
+         * The date and time that the information about this resource property was last updated.
+         */
+        lastReportedAt?: string;
+        /**
+         * Name of this property of the resource.
+         */
+        name?: string;
+    }
+
+    export interface SearchResourceResourcePropertyArgs {
+        /**
+         * Details about this property. The content of this field is a JSON object that varies based on the resource type.
+         */
+        data?: pulumi.Input<string>;
+        /**
+         * The date and time that the information about this resource property was last updated.
+         */
+        lastReportedAt?: pulumi.Input<string>;
+        /**
+         * Name of this property of the resource.
+         */
+        name?: pulumi.Input<string>;
     }
 
     export interface ViewFilters {

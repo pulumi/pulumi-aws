@@ -134,6 +134,10 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// List of `aws.cloudfront.KeyValueStore` ARNs associated to the function.
+        /// </summary>
+        public readonly ImmutableArray<string> KeyValueStoreAssociations;
+        /// <summary>
         /// When this resource was last modified.
         /// </summary>
         public readonly string LastModifiedTime;
@@ -160,6 +164,8 @@ namespace Pulumi.Aws.CloudFront
 
             string id,
 
+            ImmutableArray<string> keyValueStoreAssociations,
+
             string lastModifiedTime,
 
             string name,
@@ -175,6 +181,7 @@ namespace Pulumi.Aws.CloudFront
             Comment = comment;
             Etag = etag;
             Id = id;
+            KeyValueStoreAssociations = keyValueStoreAssociations;
             LastModifiedTime = lastModifiedTime;
             Name = name;
             Runtime = runtime;

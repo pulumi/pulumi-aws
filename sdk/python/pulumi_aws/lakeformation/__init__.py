@@ -13,6 +13,7 @@ from .get_resource import *
 from .lf_tag import *
 from .permissions import *
 from .resource import *
+from .resource_lf_tag import *
 from .resource_lf_tags import *
 from ._inputs import *
 from . import outputs

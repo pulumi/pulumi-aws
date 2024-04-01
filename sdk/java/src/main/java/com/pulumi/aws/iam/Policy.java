@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 /**
  * Provides an IAM policy.
  * 
+ * &gt; **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -75,14 +77,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:iam/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN assigned by AWS to this policy.
+     * ARN assigned by AWS to this policy.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN assigned by AWS to this policy.
+     * @return ARN assigned by AWS to this policy.
      * 
      */
     public Output<String> arn() {
@@ -103,14 +105,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The name of the policy. If omitted, the provider will assign a random, unique name.
+     * Name of the policy. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the policy. If omitted, the provider will assign a random, unique name.
+     * @return Name of the policy. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {
@@ -131,44 +133,42 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
-     * Path in which to create the policy.
-     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+     * Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
     @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
     /**
-     * @return Path in which to create the policy.
-     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+     * @return Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
     public Output<Optional<String>> path() {
         return Codegen.optional(this.path);
     }
     /**
-     * The policy document. This is a JSON formatted string.
+     * Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return The policy document. This is a JSON formatted string.
+     * @return Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
      * 
      */
     public Output<String> policy() {
         return this.policy;
     }
     /**
-     * The policy&#39;s ID.
+     * Policy&#39;s ID.
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
-     * @return The policy&#39;s ID.
+     * @return Policy&#39;s ID.
      * 
      */
     public Output<String> policyId() {

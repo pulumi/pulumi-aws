@@ -98,8 +98,6 @@ class ContainerPolicy(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a MediaStore Container Policy.
-
         ## Example Usage
 
         <!--Start PulumiCodeChooser -->
@@ -151,8 +149,6 @@ class ContainerPolicy(pulumi.CustomResource):
                  args: ContainerPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a MediaStore Container Policy.
-
         ## Example Usage
 
         <!--Start PulumiCodeChooser -->

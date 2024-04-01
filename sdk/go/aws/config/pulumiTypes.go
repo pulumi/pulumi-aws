@@ -459,6 +459,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Datasync *string `pulumi:"datasync"`
 	// Use this to override the default service endpoint URL
+	Datazone *string `pulumi:"datazone"`
+	// Use this to override the default service endpoint URL
 	Dax *string `pulumi:"dax"`
 	// Use this to override the default service endpoint URL
 	Deploy *string `pulumi:"deploy"`
@@ -678,6 +680,8 @@ type Endpoints struct {
 	Osis *string `pulumi:"osis"`
 	// Use this to override the default service endpoint URL
 	Outposts *string `pulumi:"outposts"`
+	// Use this to override the default service endpoint URL
+	Paymentcryptography *string `pulumi:"paymentcryptography"`
 	// Use this to override the default service endpoint URL
 	Pcaconnectorad *string `pulumi:"pcaconnectorad"`
 	// Use this to override the default service endpoint URL
@@ -1021,6 +1025,8 @@ type EndpointsArgs struct {
 	// Use this to override the default service endpoint URL
 	Datasync pulumi.StringPtrInput `pulumi:"datasync"`
 	// Use this to override the default service endpoint URL
+	Datazone pulumi.StringPtrInput `pulumi:"datazone"`
+	// Use this to override the default service endpoint URL
 	Dax pulumi.StringPtrInput `pulumi:"dax"`
 	// Use this to override the default service endpoint URL
 	Deploy pulumi.StringPtrInput `pulumi:"deploy"`
@@ -1240,6 +1246,8 @@ type EndpointsArgs struct {
 	Osis pulumi.StringPtrInput `pulumi:"osis"`
 	// Use this to override the default service endpoint URL
 	Outposts pulumi.StringPtrInput `pulumi:"outposts"`
+	// Use this to override the default service endpoint URL
+	Paymentcryptography pulumi.StringPtrInput `pulumi:"paymentcryptography"`
 	// Use this to override the default service endpoint URL
 	Pcaconnectorad pulumi.StringPtrInput `pulumi:"pcaconnectorad"`
 	// Use this to override the default service endpoint URL
@@ -1874,6 +1882,11 @@ func (o EndpointsOutput) Datasync() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
+func (o EndpointsOutput) Datazone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Datazone }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Dax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Dax }).(pulumi.StringPtrOutput)
 }
@@ -2421,6 +2434,11 @@ func (o EndpointsOutput) Osis() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Outposts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Outposts }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Paymentcryptography() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Paymentcryptography }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

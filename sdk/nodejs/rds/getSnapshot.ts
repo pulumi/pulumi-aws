@@ -150,9 +150,13 @@ export interface GetSnapshotResult {
      * Provides the option group name for the DB snapshot.
      */
     readonly optionGroupName: string;
+    /**
+     * Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
+     */
+    readonly originalSnapshotCreateTime: string;
     readonly port: number;
     /**
-     * Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
+     * Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
      */
     readonly snapshotCreateTime: string;
     readonly snapshotType?: string;

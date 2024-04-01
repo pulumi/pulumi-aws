@@ -65,6 +65,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ImageBlockPublicAccess{}
 	case "aws:ec2/instance:Instance":
 		r = &Instance{}
+	case "aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults":
+		r = &InstanceMetadataDefaults{}
 	case "aws:ec2/internetGateway:InternetGateway":
 		r = &InternetGateway{}
 	case "aws:ec2/internetGatewayAttachment:InternetGatewayAttachment":
@@ -328,6 +330,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/instanceMetadataDefaults",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

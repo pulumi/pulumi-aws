@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -90,6 +91,20 @@ public class Function extends com.pulumi.resources.CustomResource {
      */
     public Output<String> etag() {
         return this.etag;
+    }
+    /**
+     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+     * 
+     */
+    @Export(name="keyValueStoreAssociations", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> keyValueStoreAssociations;
+
+    /**
+     * @return List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+     * 
+     */
+    public Output<Optional<List<String>>> keyValueStoreAssociations() {
+        return Codegen.optional(this.keyValueStoreAssociations);
     }
     /**
      * ETag hash of any `LIVE` stage of the function.

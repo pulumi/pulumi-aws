@@ -70,6 +70,10 @@ export interface GetFunctionResult {
      */
     readonly id: string;
     /**
+     * List of `aws.cloudfront.KeyValueStore` ARNs associated to the function.
+     */
+    readonly keyValueStoreAssociations: string[];
+    /**
      * When this resource was last modified.
      */
     readonly lastModifiedTime: string;

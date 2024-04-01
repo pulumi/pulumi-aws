@@ -36,6 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.acmpca.CertificateAuthority;
  * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
+ * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
+ * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
  * import com.pulumi.tls.PrivateKey;
  * import com.pulumi.tls.PrivateKeyArgs;
  * import com.pulumi.tls.CertRequest;
@@ -58,7 +60,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleCertificateAuthority = new CertificateAuthority(&#34;exampleCertificateAuthority&#34;, CertificateAuthorityArgs.builder()        
- *             .privateCertificateConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
+ *                 .keyAlgorithm(&#34;RSA_4096&#34;)
+ *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
+ *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
+ *                     .commonName(&#34;example.com&#34;)
+ *                     .build())
+ *                 .build())
  *             .permanentDeletionTimeInDays(7)
  *             .build());
  * 
@@ -67,7 +75,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var csr = new CertRequest(&#34;csr&#34;, CertRequestArgs.builder()        
- *             .keyAlgorithm(&#34;RSA&#34;)
  *             .privateKeyPem(key.privateKeyPem())
  *             .subject(CertRequestSubjectArgs.builder()
  *                 .commonName(&#34;example&#34;)

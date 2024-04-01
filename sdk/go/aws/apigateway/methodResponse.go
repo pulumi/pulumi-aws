@@ -160,7 +160,7 @@ import (
 //				HttpMethod: myDemoMethod.HttpMethod,
 //				StatusCode: pulumi.String("200"),
 //				ResponseModels: pulumi.StringMap{
-//					"application-json": pulumi.String("MyDemoResponseModel"),
+//					"application/json": pulumi.String("MyDemoResponseModel"),
 //				},
 //				ResponseParameters: pulumi.BoolMap{
 //					"method.response.header.Content-Type":     pulumi.Bool(false),

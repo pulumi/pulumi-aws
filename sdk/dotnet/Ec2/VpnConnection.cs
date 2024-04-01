@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> RemoteIpv4NetworkCidr { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// The IPv6 CIDR on the AWS side of the VPN connection.
         /// </summary>
         [Output("remoteIpv6NetworkCidr")]
         public Output<string> RemoteIpv6NetworkCidr { get; private set; } = null!;
@@ -692,7 +692,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? RemoteIpv4NetworkCidr { get; set; }
 
         /// <summary>
-        /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// The IPv6 CIDR on the AWS side of the VPN connection.
         /// </summary>
         [Input("remoteIpv6NetworkCidr")]
         public Input<string>? RemoteIpv6NetworkCidr { get; set; }
@@ -1168,7 +1168,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? RemoteIpv4NetworkCidr { get; set; }
 
         /// <summary>
-        /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        /// The IPv6 CIDR on the AWS side of the VPN connection.
         /// </summary>
         [Input("remoteIpv6NetworkCidr")]
         public Input<string>? RemoteIpv6NetworkCidr { get; set; }

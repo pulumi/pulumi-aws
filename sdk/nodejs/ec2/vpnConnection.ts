@@ -183,7 +183,7 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly remoteIpv4NetworkCidr!: pulumi.Output<string>;
     /**
-     * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * The IPv6 CIDR on the AWS side of the VPN connection.
      */
     public readonly remoteIpv6NetworkCidr!: pulumi.Output<string>;
     /**
@@ -651,7 +651,7 @@ export interface VpnConnectionState {
      */
     remoteIpv4NetworkCidr?: pulumi.Input<string>;
     /**
-     * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * The IPv6 CIDR on the AWS side of the VPN connection.
      */
     remoteIpv6NetworkCidr?: pulumi.Input<string>;
     /**
@@ -931,7 +931,7 @@ export interface VpnConnectionArgs {
      */
     remoteIpv4NetworkCidr?: pulumi.Input<string>;
     /**
-     * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * The IPv6 CIDR on the AWS side of the VPN connection.
      */
     remoteIpv6NetworkCidr?: pulumi.Input<string>;
     /**

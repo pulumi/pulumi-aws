@@ -75,9 +75,14 @@ public final class GetSnapshotResult {
      * 
      */
     private String optionGroupName;
+    /**
+     * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn&#39;t change when the snapshot is copied.
+     * 
+     */
+    private String originalSnapshotCreateTime;
     private Integer port;
     /**
-     * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
+     * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
      * 
      */
     private String snapshotCreateTime;
@@ -202,11 +207,18 @@ public final class GetSnapshotResult {
     public String optionGroupName() {
         return this.optionGroupName;
     }
+    /**
+     * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn&#39;t change when the snapshot is copied.
+     * 
+     */
+    public String originalSnapshotCreateTime() {
+        return this.originalSnapshotCreateTime;
+    }
     public Integer port() {
         return this.port;
     }
     /**
-     * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
+     * @return Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
      * 
      */
     public String snapshotCreateTime() {
@@ -279,6 +291,7 @@ public final class GetSnapshotResult {
         private String licenseModel;
         private @Nullable Boolean mostRecent;
         private String optionGroupName;
+        private String originalSnapshotCreateTime;
         private Integer port;
         private String snapshotCreateTime;
         private @Nullable String snapshotType;
@@ -307,6 +320,7 @@ public final class GetSnapshotResult {
     	      this.licenseModel = defaults.licenseModel;
     	      this.mostRecent = defaults.mostRecent;
     	      this.optionGroupName = defaults.optionGroupName;
+    	      this.originalSnapshotCreateTime = defaults.originalSnapshotCreateTime;
     	      this.port = defaults.port;
     	      this.snapshotCreateTime = defaults.snapshotCreateTime;
     	      this.snapshotType = defaults.snapshotType;
@@ -437,6 +451,14 @@ public final class GetSnapshotResult {
             return this;
         }
         @CustomType.Setter
+        public Builder originalSnapshotCreateTime(String originalSnapshotCreateTime) {
+            if (originalSnapshotCreateTime == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "originalSnapshotCreateTime");
+            }
+            this.originalSnapshotCreateTime = originalSnapshotCreateTime;
+            return this;
+        }
+        @CustomType.Setter
         public Builder port(Integer port) {
             if (port == null) {
               throw new MissingRequiredPropertyException("GetSnapshotResult", "port");
@@ -524,6 +546,7 @@ public final class GetSnapshotResult {
             _resultValue.licenseModel = licenseModel;
             _resultValue.mostRecent = mostRecent;
             _resultValue.optionGroupName = optionGroupName;
+            _resultValue.originalSnapshotCreateTime = originalSnapshotCreateTime;
             _resultValue.port = port;
             _resultValue.snapshotCreateTime = snapshotCreateTime;
             _resultValue.snapshotType = snapshotType;

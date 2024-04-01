@@ -188,6 +188,375 @@ func (o IndexTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SearchResource struct {
+	// Amazon resource name of resource.
+	Arn string `pulumi:"arn"`
+	// The date and time that the information about this resource property was last updated.
+	LastReportedAt string `pulumi:"lastReportedAt"`
+	// Amazon Web Services account that owns the resource.
+	OwningAccountId string `pulumi:"owningAccountId"`
+	// Amazon Web Services Region in which the resource was created and exists.
+	Region string `pulumi:"region"`
+	// Structure with additional type-specific details about the resource.  See `resourceProperty` below.
+	ResourceProperties []SearchResourceResourceProperty `pulumi:"resourceProperties"`
+	// Type of the resource.
+	ResourceType string `pulumi:"resourceType"`
+	// Amazon Web Service that owns the resource and is responsible for creating and updating it.
+	Service string `pulumi:"service"`
+}
+
+// SearchResourceInput is an input type that accepts SearchResourceArgs and SearchResourceOutput values.
+// You can construct a concrete instance of `SearchResourceInput` via:
+//
+//	SearchResourceArgs{...}
+type SearchResourceInput interface {
+	pulumi.Input
+
+	ToSearchResourceOutput() SearchResourceOutput
+	ToSearchResourceOutputWithContext(context.Context) SearchResourceOutput
+}
+
+type SearchResourceArgs struct {
+	// Amazon resource name of resource.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The date and time that the information about this resource property was last updated.
+	LastReportedAt pulumi.StringInput `pulumi:"lastReportedAt"`
+	// Amazon Web Services account that owns the resource.
+	OwningAccountId pulumi.StringInput `pulumi:"owningAccountId"`
+	// Amazon Web Services Region in which the resource was created and exists.
+	Region pulumi.StringInput `pulumi:"region"`
+	// Structure with additional type-specific details about the resource.  See `resourceProperty` below.
+	ResourceProperties SearchResourceResourcePropertyArrayInput `pulumi:"resourceProperties"`
+	// Type of the resource.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Amazon Web Service that owns the resource and is responsible for creating and updating it.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (SearchResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SearchResource)(nil)).Elem()
+}
+
+func (i SearchResourceArgs) ToSearchResourceOutput() SearchResourceOutput {
+	return i.ToSearchResourceOutputWithContext(context.Background())
+}
+
+func (i SearchResourceArgs) ToSearchResourceOutputWithContext(ctx context.Context) SearchResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SearchResourceOutput)
+}
+
+// SearchResourceArrayInput is an input type that accepts SearchResourceArray and SearchResourceArrayOutput values.
+// You can construct a concrete instance of `SearchResourceArrayInput` via:
+//
+//	SearchResourceArray{ SearchResourceArgs{...} }
+type SearchResourceArrayInput interface {
+	pulumi.Input
+
+	ToSearchResourceArrayOutput() SearchResourceArrayOutput
+	ToSearchResourceArrayOutputWithContext(context.Context) SearchResourceArrayOutput
+}
+
+type SearchResourceArray []SearchResourceInput
+
+func (SearchResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SearchResource)(nil)).Elem()
+}
+
+func (i SearchResourceArray) ToSearchResourceArrayOutput() SearchResourceArrayOutput {
+	return i.ToSearchResourceArrayOutputWithContext(context.Background())
+}
+
+func (i SearchResourceArray) ToSearchResourceArrayOutputWithContext(ctx context.Context) SearchResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SearchResourceArrayOutput)
+}
+
+type SearchResourceOutput struct{ *pulumi.OutputState }
+
+func (SearchResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SearchResource)(nil)).Elem()
+}
+
+func (o SearchResourceOutput) ToSearchResourceOutput() SearchResourceOutput {
+	return o
+}
+
+func (o SearchResourceOutput) ToSearchResourceOutputWithContext(ctx context.Context) SearchResourceOutput {
+	return o
+}
+
+// Amazon resource name of resource.
+func (o SearchResourceOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v SearchResource) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The date and time that the information about this resource property was last updated.
+func (o SearchResourceOutput) LastReportedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v SearchResource) string { return v.LastReportedAt }).(pulumi.StringOutput)
+}
+
+// Amazon Web Services account that owns the resource.
+func (o SearchResourceOutput) OwningAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v SearchResource) string { return v.OwningAccountId }).(pulumi.StringOutput)
+}
+
+// Amazon Web Services Region in which the resource was created and exists.
+func (o SearchResourceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v SearchResource) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Structure with additional type-specific details about the resource.  See `resourceProperty` below.
+func (o SearchResourceOutput) ResourceProperties() SearchResourceResourcePropertyArrayOutput {
+	return o.ApplyT(func(v SearchResource) []SearchResourceResourceProperty { return v.ResourceProperties }).(SearchResourceResourcePropertyArrayOutput)
+}
+
+// Type of the resource.
+func (o SearchResourceOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v SearchResource) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Amazon Web Service that owns the resource and is responsible for creating and updating it.
+func (o SearchResourceOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v SearchResource) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type SearchResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (SearchResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SearchResource)(nil)).Elem()
+}
+
+func (o SearchResourceArrayOutput) ToSearchResourceArrayOutput() SearchResourceArrayOutput {
+	return o
+}
+
+func (o SearchResourceArrayOutput) ToSearchResourceArrayOutputWithContext(ctx context.Context) SearchResourceArrayOutput {
+	return o
+}
+
+func (o SearchResourceArrayOutput) Index(i pulumi.IntInput) SearchResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SearchResource {
+		return vs[0].([]SearchResource)[vs[1].(int)]
+	}).(SearchResourceOutput)
+}
+
+type SearchResourceCount struct {
+	Completed bool `pulumi:"completed"`
+	// Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
+	TotalResources int `pulumi:"totalResources"`
+}
+
+// SearchResourceCountInput is an input type that accepts SearchResourceCountArgs and SearchResourceCountOutput values.
+// You can construct a concrete instance of `SearchResourceCountInput` via:
+//
+//	SearchResourceCountArgs{...}
+type SearchResourceCountInput interface {
+	pulumi.Input
+
+	ToSearchResourceCountOutput() SearchResourceCountOutput
+	ToSearchResourceCountOutputWithContext(context.Context) SearchResourceCountOutput
+}
+
+type SearchResourceCountArgs struct {
+	Completed pulumi.BoolInput `pulumi:"completed"`
+	// Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
+	TotalResources pulumi.IntInput `pulumi:"totalResources"`
+}
+
+func (SearchResourceCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SearchResourceCount)(nil)).Elem()
+}
+
+func (i SearchResourceCountArgs) ToSearchResourceCountOutput() SearchResourceCountOutput {
+	return i.ToSearchResourceCountOutputWithContext(context.Background())
+}
+
+func (i SearchResourceCountArgs) ToSearchResourceCountOutputWithContext(ctx context.Context) SearchResourceCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SearchResourceCountOutput)
+}
+
+// SearchResourceCountArrayInput is an input type that accepts SearchResourceCountArray and SearchResourceCountArrayOutput values.
+// You can construct a concrete instance of `SearchResourceCountArrayInput` via:
+//
+//	SearchResourceCountArray{ SearchResourceCountArgs{...} }
+type SearchResourceCountArrayInput interface {
+	pulumi.Input
+
+	ToSearchResourceCountArrayOutput() SearchResourceCountArrayOutput
+	ToSearchResourceCountArrayOutputWithContext(context.Context) SearchResourceCountArrayOutput
+}
+
+type SearchResourceCountArray []SearchResourceCountInput
+
+func (SearchResourceCountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SearchResourceCount)(nil)).Elem()
+}
+
+func (i SearchResourceCountArray) ToSearchResourceCountArrayOutput() SearchResourceCountArrayOutput {
+	return i.ToSearchResourceCountArrayOutputWithContext(context.Background())
+}
+
+func (i SearchResourceCountArray) ToSearchResourceCountArrayOutputWithContext(ctx context.Context) SearchResourceCountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SearchResourceCountArrayOutput)
+}
+
+type SearchResourceCountOutput struct{ *pulumi.OutputState }
+
+func (SearchResourceCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SearchResourceCount)(nil)).Elem()
+}
+
+func (o SearchResourceCountOutput) ToSearchResourceCountOutput() SearchResourceCountOutput {
+	return o
+}
+
+func (o SearchResourceCountOutput) ToSearchResourceCountOutputWithContext(ctx context.Context) SearchResourceCountOutput {
+	return o
+}
+
+func (o SearchResourceCountOutput) Completed() pulumi.BoolOutput {
+	return o.ApplyT(func(v SearchResourceCount) bool { return v.Completed }).(pulumi.BoolOutput)
+}
+
+// Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
+func (o SearchResourceCountOutput) TotalResources() pulumi.IntOutput {
+	return o.ApplyT(func(v SearchResourceCount) int { return v.TotalResources }).(pulumi.IntOutput)
+}
+
+type SearchResourceCountArrayOutput struct{ *pulumi.OutputState }
+
+func (SearchResourceCountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SearchResourceCount)(nil)).Elem()
+}
+
+func (o SearchResourceCountArrayOutput) ToSearchResourceCountArrayOutput() SearchResourceCountArrayOutput {
+	return o
+}
+
+func (o SearchResourceCountArrayOutput) ToSearchResourceCountArrayOutputWithContext(ctx context.Context) SearchResourceCountArrayOutput {
+	return o
+}
+
+func (o SearchResourceCountArrayOutput) Index(i pulumi.IntInput) SearchResourceCountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SearchResourceCount {
+		return vs[0].([]SearchResourceCount)[vs[1].(int)]
+	}).(SearchResourceCountOutput)
+}
+
+type SearchResourceResourceProperty struct {
+	// Details about this property. The content of this field is a JSON object that varies based on the resource type.
+	Data string `pulumi:"data"`
+	// The date and time that the information about this resource property was last updated.
+	LastReportedAt string `pulumi:"lastReportedAt"`
+	// Name of this property of the resource.
+	Name string `pulumi:"name"`
+}
+
+// SearchResourceResourcePropertyInput is an input type that accepts SearchResourceResourcePropertyArgs and SearchResourceResourcePropertyOutput values.
+// You can construct a concrete instance of `SearchResourceResourcePropertyInput` via:
+//
+//	SearchResourceResourcePropertyArgs{...}
+type SearchResourceResourcePropertyInput interface {
+	pulumi.Input
+
+	ToSearchResourceResourcePropertyOutput() SearchResourceResourcePropertyOutput
+	ToSearchResourceResourcePropertyOutputWithContext(context.Context) SearchResourceResourcePropertyOutput
+}
+
+type SearchResourceResourcePropertyArgs struct {
+	// Details about this property. The content of this field is a JSON object that varies based on the resource type.
+	Data pulumi.StringInput `pulumi:"data"`
+	// The date and time that the information about this resource property was last updated.
+	LastReportedAt pulumi.StringInput `pulumi:"lastReportedAt"`
+	// Name of this property of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SearchResourceResourcePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SearchResourceResourceProperty)(nil)).Elem()
+}
+
+func (i SearchResourceResourcePropertyArgs) ToSearchResourceResourcePropertyOutput() SearchResourceResourcePropertyOutput {
+	return i.ToSearchResourceResourcePropertyOutputWithContext(context.Background())
+}
+
+func (i SearchResourceResourcePropertyArgs) ToSearchResourceResourcePropertyOutputWithContext(ctx context.Context) SearchResourceResourcePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SearchResourceResourcePropertyOutput)
+}
+
+// SearchResourceResourcePropertyArrayInput is an input type that accepts SearchResourceResourcePropertyArray and SearchResourceResourcePropertyArrayOutput values.
+// You can construct a concrete instance of `SearchResourceResourcePropertyArrayInput` via:
+//
+//	SearchResourceResourcePropertyArray{ SearchResourceResourcePropertyArgs{...} }
+type SearchResourceResourcePropertyArrayInput interface {
+	pulumi.Input
+
+	ToSearchResourceResourcePropertyArrayOutput() SearchResourceResourcePropertyArrayOutput
+	ToSearchResourceResourcePropertyArrayOutputWithContext(context.Context) SearchResourceResourcePropertyArrayOutput
+}
+
+type SearchResourceResourcePropertyArray []SearchResourceResourcePropertyInput
+
+func (SearchResourceResourcePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SearchResourceResourceProperty)(nil)).Elem()
+}
+
+func (i SearchResourceResourcePropertyArray) ToSearchResourceResourcePropertyArrayOutput() SearchResourceResourcePropertyArrayOutput {
+	return i.ToSearchResourceResourcePropertyArrayOutputWithContext(context.Background())
+}
+
+func (i SearchResourceResourcePropertyArray) ToSearchResourceResourcePropertyArrayOutputWithContext(ctx context.Context) SearchResourceResourcePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SearchResourceResourcePropertyArrayOutput)
+}
+
+type SearchResourceResourcePropertyOutput struct{ *pulumi.OutputState }
+
+func (SearchResourceResourcePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SearchResourceResourceProperty)(nil)).Elem()
+}
+
+func (o SearchResourceResourcePropertyOutput) ToSearchResourceResourcePropertyOutput() SearchResourceResourcePropertyOutput {
+	return o
+}
+
+func (o SearchResourceResourcePropertyOutput) ToSearchResourceResourcePropertyOutputWithContext(ctx context.Context) SearchResourceResourcePropertyOutput {
+	return o
+}
+
+// Details about this property. The content of this field is a JSON object that varies based on the resource type.
+func (o SearchResourceResourcePropertyOutput) Data() pulumi.StringOutput {
+	return o.ApplyT(func(v SearchResourceResourceProperty) string { return v.Data }).(pulumi.StringOutput)
+}
+
+// The date and time that the information about this resource property was last updated.
+func (o SearchResourceResourcePropertyOutput) LastReportedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v SearchResourceResourceProperty) string { return v.LastReportedAt }).(pulumi.StringOutput)
+}
+
+// Name of this property of the resource.
+func (o SearchResourceResourcePropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SearchResourceResourceProperty) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type SearchResourceResourcePropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (SearchResourceResourcePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SearchResourceResourceProperty)(nil)).Elem()
+}
+
+func (o SearchResourceResourcePropertyArrayOutput) ToSearchResourceResourcePropertyArrayOutput() SearchResourceResourcePropertyArrayOutput {
+	return o
+}
+
+func (o SearchResourceResourcePropertyArrayOutput) ToSearchResourceResourcePropertyArrayOutputWithContext(ctx context.Context) SearchResourceResourcePropertyArrayOutput {
+	return o
+}
+
+func (o SearchResourceResourcePropertyArrayOutput) Index(i pulumi.IntInput) SearchResourceResourcePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SearchResourceResourceProperty {
+		return vs[0].([]SearchResourceResourceProperty)[vs[1].(int)]
+	}).(SearchResourceResourcePropertyOutput)
+}
+
 type ViewFilters struct {
 	// The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
 	FilterString string `pulumi:"filterString"`
@@ -425,12 +794,24 @@ func (o ViewIncludedPropertyArrayOutput) Index(i pulumi.IntInput) ViewIncludedPr
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexTimeoutsInput)(nil)).Elem(), IndexTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexTimeoutsPtrInput)(nil)).Elem(), IndexTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SearchResourceInput)(nil)).Elem(), SearchResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SearchResourceArrayInput)(nil)).Elem(), SearchResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SearchResourceCountInput)(nil)).Elem(), SearchResourceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SearchResourceCountArrayInput)(nil)).Elem(), SearchResourceCountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SearchResourceResourcePropertyInput)(nil)).Elem(), SearchResourceResourcePropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SearchResourceResourcePropertyArrayInput)(nil)).Elem(), SearchResourceResourcePropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewFiltersInput)(nil)).Elem(), ViewFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewFiltersPtrInput)(nil)).Elem(), ViewFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewIncludedPropertyInput)(nil)).Elem(), ViewIncludedPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewIncludedPropertyArrayInput)(nil)).Elem(), ViewIncludedPropertyArray{})
 	pulumi.RegisterOutputType(IndexTimeoutsOutput{})
 	pulumi.RegisterOutputType(IndexTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(SearchResourceOutput{})
+	pulumi.RegisterOutputType(SearchResourceArrayOutput{})
+	pulumi.RegisterOutputType(SearchResourceCountOutput{})
+	pulumi.RegisterOutputType(SearchResourceCountArrayOutput{})
+	pulumi.RegisterOutputType(SearchResourceResourcePropertyOutput{})
+	pulumi.RegisterOutputType(SearchResourceResourcePropertyArrayOutput{})
 	pulumi.RegisterOutputType(ViewFiltersOutput{})
 	pulumi.RegisterOutputType(ViewFiltersPtrOutput{})
 	pulumi.RegisterOutputType(ViewIncludedPropertyOutput{})

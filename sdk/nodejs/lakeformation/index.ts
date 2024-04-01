@@ -45,6 +45,11 @@ export type Resource = import("./resource").Resource;
 export const Resource: typeof import("./resource").Resource = null as any;
 utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
 
+export { ResourceLfTagArgs, ResourceLfTagState } from "./resourceLfTag";
+export type ResourceLfTag = import("./resourceLfTag").ResourceLfTag;
+export const ResourceLfTag: typeof import("./resourceLfTag").ResourceLfTag = null as any;
+utilities.lazyLoad(exports, ["ResourceLfTag"], () => require("./resourceLfTag"));
+
 export { ResourceLfTagsArgs, ResourceLfTagsState } from "./resourceLfTags";
 export type ResourceLfTags = import("./resourceLfTags").ResourceLfTags;
 export const ResourceLfTags: typeof import("./resourceLfTags").ResourceLfTags = null as any;
@@ -65,6 +70,8 @@ const _module = {
                 return new Permissions(name, <any>undefined, { urn })
             case "aws:lakeformation/resource:Resource":
                 return new Resource(name, <any>undefined, { urn })
+            case "aws:lakeformation/resourceLfTag:ResourceLfTag":
+                return new ResourceLfTag(name, <any>undefined, { urn })
             case "aws:lakeformation/resourceLfTags:ResourceLfTags":
                 return new ResourceLfTags(name, <any>undefined, { urn })
             default:
@@ -77,4 +84,5 @@ pulumi.runtime.registerResourceModule("aws", "lakeformation/dataLakeSettings", _
 pulumi.runtime.registerResourceModule("aws", "lakeformation/lfTag", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/permissions", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/resource", _module)
+pulumi.runtime.registerResourceModule("aws", "lakeformation/resourceLfTag", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/resourceLfTags", _module)

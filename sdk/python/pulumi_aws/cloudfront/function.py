@@ -17,6 +17,7 @@ class FunctionArgs:
                  code: pulumi.Input[str],
                  runtime: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
+                 key_value_store_associations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None):
         """
@@ -26,6 +27,7 @@ class FunctionArgs:
                
                The following arguments are optional:
         :param pulumi.Input[str] comment: Comment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         """
@@ -33,6 +35,8 @@ class FunctionArgs:
         pulumi.set(__self__, "runtime", runtime)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if key_value_store_associations is not None:
+            pulumi.set(__self__, "key_value_store_associations", key_value_store_associations)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if publish is not None:
@@ -77,6 +81,18 @@ class FunctionArgs:
         pulumi.set(self, "comment", value)
 
     @property
+    @pulumi.getter(name="keyValueStoreAssociations")
+    def key_value_store_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        """
+        return pulumi.get(self, "key_value_store_associations")
+
+    @key_value_store_associations.setter
+    def key_value_store_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "key_value_store_associations", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -108,6 +124,7 @@ class _FunctionState:
                  code: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 key_value_store_associations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  live_stage_etag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
@@ -119,6 +136,7 @@ class _FunctionState:
         :param pulumi.Input[str] code: Source code of the function
         :param pulumi.Input[str] comment: Comment.
         :param pulumi.Input[str] etag: ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
         :param pulumi.Input[str] live_stage_etag: ETag hash of any `LIVE` stage of the function.
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
@@ -135,6 +153,8 @@ class _FunctionState:
             pulumi.set(__self__, "comment", comment)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if key_value_store_associations is not None:
+            pulumi.set(__self__, "key_value_store_associations", key_value_store_associations)
         if live_stage_etag is not None:
             pulumi.set(__self__, "live_stage_etag", live_stage_etag)
         if name is not None:
@@ -193,6 +213,18 @@ class _FunctionState:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="keyValueStoreAssociations")
+    def key_value_store_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        """
+        return pulumi.get(self, "key_value_store_associations")
+
+    @key_value_store_associations.setter
+    def key_value_store_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "key_value_store_associations", value)
 
     @property
     @pulumi.getter(name="liveStageEtag")
@@ -264,6 +296,7 @@ class Function(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 key_value_store_associations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
@@ -289,6 +322,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] code: Source code of the function
         :param pulumi.Input[str] comment: Comment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         :param pulumi.Input[str] runtime: Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
@@ -335,6 +369,7 @@ class Function(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 key_value_store_associations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
@@ -351,6 +386,7 @@ class Function(pulumi.CustomResource):
                 raise TypeError("Missing required property 'code'")
             __props__.__dict__["code"] = code
             __props__.__dict__["comment"] = comment
+            __props__.__dict__["key_value_store_associations"] = key_value_store_associations
             __props__.__dict__["name"] = name
             __props__.__dict__["publish"] = publish
             if runtime is None and not opts.urn:
@@ -374,6 +410,7 @@ class Function(pulumi.CustomResource):
             code: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             etag: Optional[pulumi.Input[str]] = None,
+            key_value_store_associations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             live_stage_etag: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             publish: Optional[pulumi.Input[bool]] = None,
@@ -390,6 +427,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] code: Source code of the function
         :param pulumi.Input[str] comment: Comment.
         :param pulumi.Input[str] etag: ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
         :param pulumi.Input[str] live_stage_etag: ETag hash of any `LIVE` stage of the function.
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
@@ -406,6 +444,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["code"] = code
         __props__.__dict__["comment"] = comment
         __props__.__dict__["etag"] = etag
+        __props__.__dict__["key_value_store_associations"] = key_value_store_associations
         __props__.__dict__["live_stage_etag"] = live_stage_etag
         __props__.__dict__["name"] = name
         __props__.__dict__["publish"] = publish
@@ -444,6 +483,14 @@ class Function(pulumi.CustomResource):
         ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="keyValueStoreAssociations")
+    def key_value_store_associations(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        """
+        return pulumi.get(self, "key_value_store_associations")
 
     @property
     @pulumi.getter(name="liveStageEtag")

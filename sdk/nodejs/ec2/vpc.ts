@@ -124,6 +124,9 @@ export class Vpc extends pulumi.CustomResource {
      * The ID of the security group created by default on VPC creation
      */
     public /*out*/ readonly defaultSecurityGroupId!: pulumi.Output<string>;
+    /**
+     * DHCP options id of the desired VPC.
+     */
     public /*out*/ readonly dhcpOptionsId!: pulumi.Output<string>;
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
@@ -283,6 +286,9 @@ export interface VpcState {
      * The ID of the security group created by default on VPC creation
      */
     defaultSecurityGroupId?: pulumi.Input<string>;
+    /**
+     * DHCP options id of the desired VPC.
+     */
     dhcpOptionsId?: pulumi.Input<string>;
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
