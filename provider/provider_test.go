@@ -4,17 +4,20 @@ package provider
 import (
 	"context"
 	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-
 	"github.com/pulumi/providertest"
+	"github.com/pulumi/providertest/optproviderupgrade"
+	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/assertpreview"
+	"github.com/pulumi/providertest/pulumitest/opttest"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
-
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func providerServer(t *testing.T) pulumirpc.ResourceProviderServer {
@@ -106,4 +109,34 @@ func getEnvRegion(t *testing.T) string {
 		envRegion = "us-west-2"
 	}
 	return envRegion
+}
+
+type testProviderUpgradeOptions struct {
+	baselineVersion string
+}
+
+func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions) {
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
+	}
+	t.Parallel()
+	t.Helper()
+	var (
+		providerName    string = "aws"
+		baselineVersion string = "5.42.0"
+	)
+	if opts != nil && opts.baselineVersion != "" {
+		baselineVersion = opts.baselineVersion
+	}
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	test := pulumitest.NewPulumiTest(t, dir,
+		opttest.DownloadProviderVersion(providerName, baselineVersion),
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.SkipInstall(),
+	)
+	result := providertest.PreviewProviderUpgrade(
+		test, providerName, baselineVersion, optproviderupgrade.DisableAttach(),
+	)
+	assertpreview.HasNoReplacements(t, result)
 }

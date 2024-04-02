@@ -12,130 +12,128 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-
-	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
-
-	"github.com/pulumi/providertest"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/opttest"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
-func TestBucket(t *testing.T) {
-	test(t, filepath.Join("test-programs", "bucket"), "")
+func TestBucketUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "bucket"), nil)
 }
 
-func TestEKSCluster(t *testing.T) {
-	test(t, filepath.Join("test-programs", "eks-cluster"), "")
+func TestEKSClusterUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "eks-cluster"), nil)
 }
 
-func TestRdsInstance(t *testing.T) {
-	test(t, filepath.Join("test-programs", "rds-instance"), "")
+func TestRdsInstanceUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "rds-instance"), nil)
 }
 
-func TestRoute53ResolverEndpoint(t *testing.T) {
-	test(t, filepath.Join("test-programs", "route53-resolver-endpoint"), "")
+func TestRoute53ResolverEndpointUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "route53-resolver-endpoint"), nil)
 }
 
-func TestSnsTopic(t *testing.T) {
-	test(t, filepath.Join("test-programs", "sns-topic"), "")
+func TestSnsTopicUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "sns-topic"), nil)
 }
 
-func TestApiGatewayIntegrationResponse(t *testing.T) {
-	test(t, filepath.Join("test-programs", "apigateway-integrationresponse"), "")
+func TestApiGatewayIntegrationResponseUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "apigateway-integrationresponse"), nil)
 }
 
-func TestApiGatewayMethodResponse(t *testing.T) {
-	test(t, filepath.Join("test-programs", "apigateway-methodreponse"), "")
+func TestApiGatewayMethodResponseUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "apigateway-methodreponse"), nil)
 }
 
-func TestApiGatewayResource(t *testing.T) {
-	test(t, filepath.Join("test-programs", "apigateway-resource"), "")
+func TestApiGatewayResourceUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "apigateway-resource"), nil)
 }
 
-func TestApiGatewayResourceResponse(t *testing.T) {
-	test(t, filepath.Join("test-programs", "apigateway-resource-response"), "")
+func TestApiGatewayResourceResponseUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "apigateway-resource-response"), nil)
 }
 
-func TestCloudwatchEventRule(t *testing.T) {
-	test(t, filepath.Join("test-programs", "cloudwatch-eventrule"), "")
+func TestCloudwatchEventRuleUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "cloudwatch-eventrule"), nil)
 }
 
-func TestCloudwatchLogGroup(t *testing.T) {
-	test(t, filepath.Join("test-programs", "cloudwatch-loggroup"), "")
+func TestCloudwatchLogGroupUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "cloudwatch-loggroup"), nil)
 }
 
-func TestDynamoTable(t *testing.T) {
-	test(t, filepath.Join("test-programs", "dynamodb-table"), "",
-		providertest.WithDiffValidation(providertest.NoReplacements()))
+func TestDynamoTableUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "dynamodb-table"), nil)
 }
 
-func TestEcrLifecyclePolicy(t *testing.T) {
-	test(t, filepath.Join("test-programs", "ecr-lifecyclepolicy"), "")
+func TestEcrLifecyclePolicyUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "ecr-lifecyclepolicy"), nil)
 }
 
-func TestEcrRepository(t *testing.T) {
-	test(t, filepath.Join("test-programs", "ecr-repository"), "")
+func TestEcrRepositoryUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "ecr-repository"), nil)
 }
 
-func TestIamInstanceProfile(t *testing.T) {
-	test(t, filepath.Join("test-programs", "iam-instanceprofile"), "")
+func TestIamInstanceProfileUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "iam-instanceprofile"), nil)
 }
 
-func TestIamOpenIDConnectProvider(t *testing.T) {
-	test(t, filepath.Join("test-programs", "iam-openidconnectprovider"), "")
+func TestIamOpenIDConnectProviderUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "iam-openidconnectprovider"), nil)
 }
 
-func TestKmsKey(t *testing.T) {
-	test(t, filepath.Join("test-programs", "kms-key"), "")
+func TestKmsKeyUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "kms-key"), nil)
 }
 
-func TestSecretsManagerSecret(t *testing.T) {
-	test(t, filepath.Join("test-programs", "secretsmanager-secret"), "")
+func TestSecretsManagerSecretUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "secretsmanager-secret"), nil)
 }
 
-func TestEC2Networking(t *testing.T) {
-	test(t, filepath.Join("test-programs", "ec2-networking"), "")
+func TestEC2NetworkingUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "ec2-networking"), nil)
 }
 
-func TestECSService(t *testing.T) {
-	test(t, filepath.Join("test-programs", "ecs-service"), "")
+func TestECSServiceUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "ecs-service"), nil)
 }
 
-func TestIAMUser(t *testing.T) {
-	test(t, filepath.Join("test-programs", "iam-user"), "")
+func TestIAMUserUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "iam-user"), nil)
 }
 
-func TestLB(t *testing.T) {
-	test(t, filepath.Join("test-programs", "lb"), "")
+func TestLBUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "lb"), nil)
 }
 
-func TestACM(t *testing.T) {
+func TestACMUpgrade(t *testing.T) {
 	t.Skip("Blocked by https://github.com/pulumi/pulumi-aws/issues/3617")
-	test(t, filepath.Join("test-programs", "acm"), "")
+	testProviderUpgrade(t, filepath.Join("test-programs", "acm"), nil)
 }
 
-func TestBucketObj(t *testing.T) {
-	test(t, filepath.Join("test-programs", "bucket-obj"), "")
+func TestBucketObjUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "bucket-obj"), nil)
 }
 
-func TestSubnetGroup(t *testing.T) {
-	test(t, filepath.Join("test-programs", "subnet-group"), "")
+func TestSubnetGroupUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "subnet-group"), nil)
 }
 
-func TestEC2Instance(t *testing.T) {
-	test(t, filepath.Join("test-programs", "ec2-instance"), "")
+func TestEC2InstanceUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "ec2-instance"), nil)
 }
 
-func TestCloudfrontDistribution(t *testing.T) {
+func TestCloudfrontDistributionUpgrade(t *testing.T) {
 	// Baseline version is needed because of https://github.com/pulumi/providertest/issues/76
-	test(t, filepath.Join("test-programs", "cloudfront-distribution"), "6.10.0")
+	testProviderUpgrade(t, filepath.Join("test-programs", "cloudfront-distribution"), &testProviderUpgradeOptions{
+		baselineVersion: "6.10.0",
+	})
 }
 
-func TestSecretVersion(t *testing.T) {
-	test(t, filepath.Join("test-programs", "secretversion"), "")
+func TestSecretVersionUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "secretversion"), nil)
 }
 
 func TestRdsParameterGroupUnclearDiff(t *testing.T) {
