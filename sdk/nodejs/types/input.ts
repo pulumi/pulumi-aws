@@ -11941,10 +11941,25 @@ export namespace cloudfront {
 
 export namespace cloudhsmv2 {
     export interface ClusterClusterCertificate {
+        /**
+         * The HSM hardware certificate issued (signed) by AWS CloudHSM.
+         */
         awsHardwareCertificate?: pulumi.Input<string>;
+        /**
+         * The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+         */
         clusterCertificate?: pulumi.Input<string>;
+        /**
+         * The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+         */
         clusterCsr?: pulumi.Input<string>;
+        /**
+         * The HSM certificate issued (signed) by the HSM hardware.
+         */
         hsmCertificate?: pulumi.Input<string>;
+        /**
+         * The HSM hardware certificate issued (signed) by the hardware manufacturer.
+         */
         manufacturerHardwareCertificate?: pulumi.Input<string>;
     }
 
@@ -25290,6 +25305,9 @@ export namespace eks {
          * * Between /24 and /12.
          */
         serviceIpv4Cidr?: pulumi.Input<string>;
+        /**
+         * The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+         */
         serviceIpv6Cidr?: pulumi.Input<string>;
     }
 
@@ -25988,6 +26006,9 @@ export namespace elasticsearch {
     }
 
     export interface DomainVpcOptions {
+        /**
+         * If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
+         */
         availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
@@ -25997,6 +26018,9 @@ export namespace elasticsearch {
          * List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
          */
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * If the domain was created inside a VPC, the ID of the VPC.
+         */
         vpcId?: pulumi.Input<string>;
     }
 
@@ -26532,7 +26556,7 @@ export namespace emr {
          */
         ebsConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterCoreInstanceGroupEbsConfig>[]>;
         /**
-         * ID of the cluster.
+         * Core node type Instance Group ID, if using Instance Group for this node type.
          */
         id?: pulumi.Input<string>;
         /**
@@ -26771,7 +26795,7 @@ export namespace emr {
          */
         ebsConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterMasterInstanceGroupEbsConfig>[]>;
         /**
-         * ID of the cluster.
+         * Master node type Instance Group ID, if using Instance Group for this node type.
          */
         id?: pulumi.Input<string>;
         /**
@@ -36483,6 +36507,9 @@ export namespace lambda {
          * Conditions where snap start is enabled. Valid values are `PublishedVersions`.
          */
         applyOn: pulumi.Input<string>;
+        /**
+         * Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+         */
         optimizationStatus?: pulumi.Input<string>;
     }
 
@@ -36533,6 +36560,9 @@ export namespace lambda {
          * List of subnet IDs associated with the Lambda function.
          */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ID of the VPC.
+         */
         vpcId?: pulumi.Input<string>;
     }
 
@@ -52891,8 +52921,25 @@ export namespace mq {
     }
 
     export interface BrokerInstance {
+        /**
+         * The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engineType`.
+         */
         consoleUrl?: pulumi.Input<string>;
+        /**
+         * Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
+         * * For `ActiveMQ`:
+         * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
+         * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
+         * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
+         * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
+         * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+         * * For `RabbitMQ`:
+         * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+         */
         endpoints?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * IP Address of the broker.
+         */
         ipAddress?: pulumi.Input<string>;
     }
 
@@ -55109,6 +55156,9 @@ export namespace opensearch {
     }
 
     export interface DomainVpcOptions {
+        /**
+         * If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
+         */
         availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * List of VPC Security Group IDs to be applied to the OpenSearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
@@ -55118,6 +55168,9 @@ export namespace opensearch {
          * List of VPC Subnet IDs for the OpenSearch domain endpoints to be created in.
          */
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * If the domain was created inside a VPC, the ID of the VPC.
+         */
         vpcId?: pulumi.Input<string>;
     }
 
@@ -65673,6 +65726,9 @@ export namespace sagemaker {
          * The ID of the subnets in the VPC that you want to connect.
          */
         subnets?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The IDs for the VPC service endpoints of your VPC workforce.
+         */
         vpcEndpointId?: pulumi.Input<string>;
         /**
          * The ID of the VPC that the workforce uses for communication.

@@ -11144,6 +11144,7 @@ class WorkforceWorkforceVpcConfig(dict):
         """
         :param Sequence[str] security_group_ids: The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
         :param Sequence[str] subnets: The ID of the subnets in the VPC that you want to connect.
+        :param str vpc_endpoint_id: The IDs for the VPC service endpoints of your VPC workforce.
         :param str vpc_id: The ID of the VPC that the workforce uses for communication.
         """
         if security_group_ids is not None:
@@ -11174,6 +11175,9 @@ class WorkforceWorkforceVpcConfig(dict):
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[str]:
+        """
+        The IDs for the VPC service endpoints of your VPC workforce.
+        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @property

@@ -704,7 +704,7 @@ class ClusterCoreInstanceGroup(dict):
         :param str autoscaling_policy: String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
         :param str bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param Sequence['ClusterCoreInstanceGroupEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        :param str id: ID of the cluster.
+        :param str id: Core node type Instance Group ID, if using Instance Group for this node type.
         :param int instance_count: Target number of instances for the instance group. Must be at least 1. Defaults to 1.
         :param str name: Friendly name given to the instance group.
         """
@@ -758,7 +758,7 @@ class ClusterCoreInstanceGroup(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        ID of the cluster.
+        Core node type Instance Group ID, if using Instance Group for this node type.
         """
         return pulumi.get(self, "id")
 
@@ -1626,7 +1626,7 @@ class ClusterMasterInstanceGroup(dict):
         :param str instance_type: EC2 instance type for all instances in the instance group.
         :param str bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param Sequence['ClusterMasterInstanceGroupEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        :param str id: ID of the cluster.
+        :param str id: Master node type Instance Group ID, if using Instance Group for this node type.
         :param int instance_count: Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
         :param str name: Friendly name given to the instance group.
         """
@@ -1670,7 +1670,7 @@ class ClusterMasterInstanceGroup(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        ID of the cluster.
+        Master node type Instance Group ID, if using Instance Group for this node type.
         """
         return pulumi.get(self, "id")
 

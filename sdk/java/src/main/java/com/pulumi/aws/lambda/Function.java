@@ -860,7 +860,6 @@ public class Function extends com.pulumi.resources.CustomResource {
     }
     /**
      * ARN of the signing profile version.
-     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      * 
      */
     @Export(name="signingProfileVersionArn", refs={String.class}, tree="[0]")
@@ -868,7 +867,6 @@ public class Function extends com.pulumi.resources.CustomResource {
 
     /**
      * @return ARN of the signing profile version.
-     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      * 
      */
     public Output<String> signingProfileVersionArn() {
@@ -992,7 +990,6 @@ public class Function extends com.pulumi.resources.CustomResource {
     }
     /**
      * Latest published version of your Lambda Function.
-     * * `vpc_config.vpc_id` - ID of the VPC.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
@@ -1000,7 +997,6 @@ public class Function extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Latest published version of your Lambda Function.
-     * * `vpc_config.vpc_id` - ID of the VPC.
      * 
      */
     public Output<String> version() {

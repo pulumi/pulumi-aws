@@ -13,6 +13,9 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     [OutputType]
     public sealed class DomainVpcOptions
     {
+        /// <summary>
+        /// If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
         /// List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
@@ -22,6 +25,9 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// If the domain was created inside a VPC, the ID of the VPC.
+        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

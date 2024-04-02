@@ -27,6 +27,9 @@ namespace Pulumi.Aws.Eks.Outputs
         /// * Between /24 and /12.
         /// </summary>
         public readonly string? ServiceIpv4Cidr;
+        /// <summary>
+        /// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+        /// </summary>
         public readonly string? ServiceIpv6Cidr;
 
         [OutputConstructor]

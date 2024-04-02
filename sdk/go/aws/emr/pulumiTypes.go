@@ -1417,7 +1417,7 @@ type ClusterCoreInstanceGroup struct {
 	BidPrice *string `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 	EbsConfigs []ClusterCoreInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
-	// ID of the cluster.
+	// Core node type Instance Group ID, if using Instance Group for this node type.
 	Id *string `pulumi:"id"`
 	// Target number of instances for the instance group. Must be at least 1. Defaults to 1.
 	InstanceCount *int `pulumi:"instanceCount"`
@@ -1445,7 +1445,7 @@ type ClusterCoreInstanceGroupArgs struct {
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 	EbsConfigs ClusterCoreInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
-	// ID of the cluster.
+	// Core node type Instance Group ID, if using Instance Group for this node type.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Target number of instances for the instance group. Must be at least 1. Defaults to 1.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
@@ -1547,7 +1547,7 @@ func (o ClusterCoreInstanceGroupOutput) EbsConfigs() ClusterCoreInstanceGroupEbs
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) []ClusterCoreInstanceGroupEbsConfig { return v.EbsConfigs }).(ClusterCoreInstanceGroupEbsConfigArrayOutput)
 }
 
-// ID of the cluster.
+// Core node type Instance Group ID, if using Instance Group for this node type.
 func (o ClusterCoreInstanceGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1621,7 +1621,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) EbsConfigs() ClusterCoreInstanceGroup
 	}).(ClusterCoreInstanceGroupEbsConfigArrayOutput)
 }
 
-// ID of the cluster.
+// Core node type Instance Group ID, if using Instance Group for this node type.
 func (o ClusterCoreInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *string {
 		if v == nil {
@@ -3350,7 +3350,7 @@ type ClusterMasterInstanceGroup struct {
 	BidPrice *string `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 	EbsConfigs []ClusterMasterInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
-	// ID of the cluster.
+	// Master node type Instance Group ID, if using Instance Group for this node type.
 	Id *string `pulumi:"id"`
 	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount *int `pulumi:"instanceCount"`
@@ -3376,7 +3376,7 @@ type ClusterMasterInstanceGroupArgs struct {
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 	EbsConfigs ClusterMasterInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
-	// ID of the cluster.
+	// Master node type Instance Group ID, if using Instance Group for this node type.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
@@ -3473,7 +3473,7 @@ func (o ClusterMasterInstanceGroupOutput) EbsConfigs() ClusterMasterInstanceGrou
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) []ClusterMasterInstanceGroupEbsConfig { return v.EbsConfigs }).(ClusterMasterInstanceGroupEbsConfigArrayOutput)
 }
 
-// ID of the cluster.
+// Master node type Instance Group ID, if using Instance Group for this node type.
 func (o ClusterMasterInstanceGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -3537,7 +3537,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) EbsConfigs() ClusterMasterInstanceG
 	}).(ClusterMasterInstanceGroupEbsConfigArrayOutput)
 }
 
-// ID of the cluster.
+// Master node type Instance Group ID, if using Instance Group for this node type.
 func (o ClusterMasterInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
 		if v == nil {

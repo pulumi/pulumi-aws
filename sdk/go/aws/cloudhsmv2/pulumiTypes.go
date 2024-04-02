@@ -14,10 +14,15 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClusterClusterCertificate struct {
-	AwsHardwareCertificate          *string `pulumi:"awsHardwareCertificate"`
-	ClusterCertificate              *string `pulumi:"clusterCertificate"`
-	ClusterCsr                      *string `pulumi:"clusterCsr"`
-	HsmCertificate                  *string `pulumi:"hsmCertificate"`
+	// The HSM hardware certificate issued (signed) by AWS CloudHSM.
+	AwsHardwareCertificate *string `pulumi:"awsHardwareCertificate"`
+	// The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+	ClusterCertificate *string `pulumi:"clusterCertificate"`
+	// The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+	ClusterCsr *string `pulumi:"clusterCsr"`
+	// The HSM certificate issued (signed) by the HSM hardware.
+	HsmCertificate *string `pulumi:"hsmCertificate"`
+	// The HSM hardware certificate issued (signed) by the hardware manufacturer.
 	ManufacturerHardwareCertificate *string `pulumi:"manufacturerHardwareCertificate"`
 }
 
@@ -33,10 +38,15 @@ type ClusterClusterCertificateInput interface {
 }
 
 type ClusterClusterCertificateArgs struct {
-	AwsHardwareCertificate          pulumi.StringPtrInput `pulumi:"awsHardwareCertificate"`
-	ClusterCertificate              pulumi.StringPtrInput `pulumi:"clusterCertificate"`
-	ClusterCsr                      pulumi.StringPtrInput `pulumi:"clusterCsr"`
-	HsmCertificate                  pulumi.StringPtrInput `pulumi:"hsmCertificate"`
+	// The HSM hardware certificate issued (signed) by AWS CloudHSM.
+	AwsHardwareCertificate pulumi.StringPtrInput `pulumi:"awsHardwareCertificate"`
+	// The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+	ClusterCertificate pulumi.StringPtrInput `pulumi:"clusterCertificate"`
+	// The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+	ClusterCsr pulumi.StringPtrInput `pulumi:"clusterCsr"`
+	// The HSM certificate issued (signed) by the HSM hardware.
+	HsmCertificate pulumi.StringPtrInput `pulumi:"hsmCertificate"`
+	// The HSM hardware certificate issued (signed) by the hardware manufacturer.
 	ManufacturerHardwareCertificate pulumi.StringPtrInput `pulumi:"manufacturerHardwareCertificate"`
 }
 
@@ -91,22 +101,27 @@ func (o ClusterClusterCertificateOutput) ToClusterClusterCertificateOutputWithCo
 	return o
 }
 
+// The HSM hardware certificate issued (signed) by AWS CloudHSM.
 func (o ClusterClusterCertificateOutput) AwsHardwareCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterCertificate) *string { return v.AwsHardwareCertificate }).(pulumi.StringPtrOutput)
 }
 
+// The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
 func (o ClusterClusterCertificateOutput) ClusterCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterCertificate) *string { return v.ClusterCertificate }).(pulumi.StringPtrOutput)
 }
 
+// The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
 func (o ClusterClusterCertificateOutput) ClusterCsr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterCertificate) *string { return v.ClusterCsr }).(pulumi.StringPtrOutput)
 }
 
+// The HSM certificate issued (signed) by the HSM hardware.
 func (o ClusterClusterCertificateOutput) HsmCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterCertificate) *string { return v.HsmCertificate }).(pulumi.StringPtrOutput)
 }
 
+// The HSM hardware certificate issued (signed) by the hardware manufacturer.
 func (o ClusterClusterCertificateOutput) ManufacturerHardwareCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterCertificate) *string { return v.ManufacturerHardwareCertificate }).(pulumi.StringPtrOutput)
 }
@@ -132,10 +147,16 @@ func (o ClusterClusterCertificateArrayOutput) Index(i pulumi.IntInput) ClusterCl
 }
 
 type GetClusterClusterCertificate struct {
-	AwsHardwareCertificate          string `pulumi:"awsHardwareCertificate"`
-	ClusterCertificate              string `pulumi:"clusterCertificate"`
-	ClusterCsr                      string `pulumi:"clusterCsr"`
-	HsmCertificate                  string `pulumi:"hsmCertificate"`
+	// The HSM hardware certificate issued (signed) by AWS CloudHSM.
+	AwsHardwareCertificate string `pulumi:"awsHardwareCertificate"`
+	// The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+	ClusterCertificate string `pulumi:"clusterCertificate"`
+	// The certificate signing request (CSR). Available only in UNINITIALIZED state.
+	ClusterCsr string `pulumi:"clusterCsr"`
+	// The HSM certificate issued (signed) by the HSM hardware.
+	HsmCertificate string `pulumi:"hsmCertificate"`
+	// The HSM hardware certificate issued (signed) by the hardware manufacturer.
+	// The number of available cluster certificates may vary depending on state of the cluster.
 	ManufacturerHardwareCertificate string `pulumi:"manufacturerHardwareCertificate"`
 }
 
@@ -151,10 +172,16 @@ type GetClusterClusterCertificateInput interface {
 }
 
 type GetClusterClusterCertificateArgs struct {
-	AwsHardwareCertificate          pulumi.StringInput `pulumi:"awsHardwareCertificate"`
-	ClusterCertificate              pulumi.StringInput `pulumi:"clusterCertificate"`
-	ClusterCsr                      pulumi.StringInput `pulumi:"clusterCsr"`
-	HsmCertificate                  pulumi.StringInput `pulumi:"hsmCertificate"`
+	// The HSM hardware certificate issued (signed) by AWS CloudHSM.
+	AwsHardwareCertificate pulumi.StringInput `pulumi:"awsHardwareCertificate"`
+	// The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+	ClusterCertificate pulumi.StringInput `pulumi:"clusterCertificate"`
+	// The certificate signing request (CSR). Available only in UNINITIALIZED state.
+	ClusterCsr pulumi.StringInput `pulumi:"clusterCsr"`
+	// The HSM certificate issued (signed) by the HSM hardware.
+	HsmCertificate pulumi.StringInput `pulumi:"hsmCertificate"`
+	// The HSM hardware certificate issued (signed) by the hardware manufacturer.
+	// The number of available cluster certificates may vary depending on state of the cluster.
 	ManufacturerHardwareCertificate pulumi.StringInput `pulumi:"manufacturerHardwareCertificate"`
 }
 
@@ -209,22 +236,28 @@ func (o GetClusterClusterCertificateOutput) ToGetClusterClusterCertificateOutput
 	return o
 }
 
+// The HSM hardware certificate issued (signed) by AWS CloudHSM.
 func (o GetClusterClusterCertificateOutput) AwsHardwareCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterClusterCertificate) string { return v.AwsHardwareCertificate }).(pulumi.StringOutput)
 }
 
+// The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
 func (o GetClusterClusterCertificateOutput) ClusterCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterClusterCertificate) string { return v.ClusterCertificate }).(pulumi.StringOutput)
 }
 
+// The certificate signing request (CSR). Available only in UNINITIALIZED state.
 func (o GetClusterClusterCertificateOutput) ClusterCsr() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterClusterCertificate) string { return v.ClusterCsr }).(pulumi.StringOutput)
 }
 
+// The HSM certificate issued (signed) by the HSM hardware.
 func (o GetClusterClusterCertificateOutput) HsmCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterClusterCertificate) string { return v.HsmCertificate }).(pulumi.StringOutput)
 }
 
+// The HSM hardware certificate issued (signed) by the hardware manufacturer.
+// The number of available cluster certificates may vary depending on state of the cluster.
 func (o GetClusterClusterCertificateOutput) ManufacturerHardwareCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterClusterCertificate) string { return v.ManufacturerHardwareCertificate }).(pulumi.StringOutput)
 }

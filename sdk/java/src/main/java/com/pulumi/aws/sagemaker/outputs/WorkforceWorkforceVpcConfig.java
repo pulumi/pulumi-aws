@@ -22,6 +22,10 @@ public final class WorkforceWorkforceVpcConfig {
      * 
      */
     private @Nullable List<String> subnets;
+    /**
+     * @return The IDs for the VPC service endpoints of your VPC workforce.
+     * 
+     */
     private @Nullable String vpcEndpointId;
     /**
      * @return The ID of the VPC that the workforce uses for communication.
@@ -44,6 +48,10 @@ public final class WorkforceWorkforceVpcConfig {
     public List<String> subnets() {
         return this.subnets == null ? List.of() : this.subnets;
     }
+    /**
+     * @return The IDs for the VPC service endpoints of your VPC workforce.
+     * 
+     */
     public Optional<String> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }

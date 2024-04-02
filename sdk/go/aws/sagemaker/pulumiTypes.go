@@ -30171,8 +30171,9 @@ type WorkforceWorkforceVpcConfig struct {
 	// The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The ID of the subnets in the VPC that you want to connect.
-	Subnets       []string `pulumi:"subnets"`
-	VpcEndpointId *string  `pulumi:"vpcEndpointId"`
+	Subnets []string `pulumi:"subnets"`
+	// The IDs for the VPC service endpoints of your VPC workforce.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// The ID of the VPC that the workforce uses for communication.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -30192,8 +30193,9 @@ type WorkforceWorkforceVpcConfigArgs struct {
 	// The VPC security group IDs. The security groups must be for the same VPC as specified in the subnet.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// The ID of the subnets in the VPC that you want to connect.
-	Subnets       pulumi.StringArrayInput `pulumi:"subnets"`
-	VpcEndpointId pulumi.StringPtrInput   `pulumi:"vpcEndpointId"`
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	// The IDs for the VPC service endpoints of your VPC workforce.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
 	// The ID of the VPC that the workforce uses for communication.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
@@ -30285,6 +30287,7 @@ func (o WorkforceWorkforceVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkforceWorkforceVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
+// The IDs for the VPC service endpoints of your VPC workforce.
 func (o WorkforceWorkforceVpcConfigOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkforceWorkforceVpcConfig) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
@@ -30338,6 +30341,7 @@ func (o WorkforceWorkforceVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// The IDs for the VPC service endpoints of your VPC workforce.
 func (o WorkforceWorkforceVpcConfigPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkforceWorkforceVpcConfig) *string {
 		if v == nil {
