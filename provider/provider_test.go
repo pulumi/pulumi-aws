@@ -113,6 +113,9 @@ func getEnvRegion(t *testing.T) string {
 
 type testProviderUpgradeOptions struct {
 	baselineVersion string
+	linkNodeSDK     bool
+	installDeps     bool
+	setEnvRegion    bool
 }
 
 func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions) {
@@ -130,11 +133,21 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	}
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
-	test := pulumitest.NewPulumiTest(t, dir,
+	options := []opttest.Option{
 		opttest.DownloadProviderVersion(providerName, baselineVersion),
 		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
-		opttest.SkipInstall(),
-	)
+	}
+	if opts == nil || !opts.installDeps {
+		options = append(options, opttest.SkipInstall())
+	}
+	if opts != nil && opts.linkNodeSDK {
+		options = append(options, opttest.YarnLink("@pulumi/aws"))
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+	if opts != nil && opts.setEnvRegion {
+		test.SetConfig("aws:region", "INVALID_REGION")
+		test.SetConfig("aws:envRegion", getEnvRegion(t))
+	}
 	result := providertest.PreviewProviderUpgrade(
 		test, providerName, baselineVersion, optproviderupgrade.DisableAttach(),
 	)
