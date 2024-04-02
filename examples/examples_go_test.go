@@ -206,14 +206,19 @@ func (st tagsState) assertTagsEqualWithRetry(
 ) {
 	expectTags := st.expectedTags()
 	var actualTags map[string]string
-	for attempt := 0; attempt < 3; attempt++ {
+	for attempt := 0; attempt < 10; attempt++ {
 		var err error = nil
 		actualTags, err = getActualTags()
 		if err == nil && assert.ObjectsAreEqual(expectTags, actualTags) {
 			break
 		}
-		t.Logf("Failed to fetch tags, will attempt again in 1s")
-		time.Sleep(1 * time.Second)
+		if err != nil {
+			t.Logf("Ignoring error: %v", err)
+		} else {
+			t.Logf("Ignoring incorrect tags: %#v -- expecting #%v", actualTags, expectTags)
+		}
+		t.Logf("Failed to fetch tags, will attempt again in 5s")
+		time.Sleep(5 * time.Second)
 		t.Logf("Trying to fetch tags again, attempt %d", attempt+1)
 	}
 	require.Equalf(t, expectTags, actualTags, msg)
