@@ -50,6 +50,7 @@ func nodeProviderUpgradeOpts() *testProviderUpgradeOptions {
 }
 
 func TestRegress3094(t *testing.T) {
+	skipIfShort(t)
 	dir := filepath.Join("test-programs", "regress-3094")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)

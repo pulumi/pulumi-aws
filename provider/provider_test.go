@@ -33,10 +33,14 @@ type testProviderUpgradeOptions struct {
 	setEnvRegion    bool
 }
 
-func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions) {
+func skipIfShort(t *testing.T) {
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
 	}
+
+}
+func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions) {
+	skipIfShort(t)
 	t.Parallel()
 	t.Helper()
 	var (
