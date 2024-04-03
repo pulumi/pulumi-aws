@@ -1,0 +1,735 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2023-11-10T18:04:12.196234-05:00",
+      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+      "version": "v3.92.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:eIi9X5pcYA0=:v1:plzHPKIKC81PUIWo:FmYYIbMVI3ZX/mc2YTeu7WQIBgziWA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::queue::pulumi:pulumi:Stack::queue-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "outputs": {
+          "bucketUrl": "s3://testbucket-db00f74",
+          "queueUrl": "https://sqs.us-west-2.amazonaws.com/616138583583/queue-6f3f78a"
+        },
+        "created": "2023-11-10T23:03:02.418268Z",
+        "modified": "2023-11-10T23:03:02.418268Z",
+        "sourcePosition": "project:///node_modules/@pulumi/runtime/stack.ts#36,23"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::pulumi:providers:aws::prov",
+        "custom": true,
+        "id": "612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true",
+          "version": "5.42.0"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true",
+          "version": "5.42.0"
+        },
+        "parent": "urn:pulumi:test::queue::pulumi:pulumi:Stack::queue-test",
+        "propertyDependencies": {
+          "region": null,
+          "skipCredentialsValidation": null,
+          "skipMetadataApiCheck": null,
+          "skipRegionValidation": null
+        },
+        "created": "2023-11-10T23:03:04.10642Z",
+        "modified": "2023-11-10T23:03:04.10642Z",
+        "sourcePosition": "project:///node_modules/@pulumi/provider.ts#128,9"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:s3/bucket:Bucket::testbucket",
+        "custom": true,
+        "id": "testbucket-db00f74",
+        "type": "aws:s3/bucket:Bucket",
+        "inputs": {
+          "__defaults": [
+            "acl",
+            "bucket"
+          ],
+          "acl": "private",
+          "bucket": "testbucket-db00f74",
+          "forceDestroy": true,
+          "serverSideEncryptionConfiguration": {
+            "__defaults": [],
+            "rule": {
+              "__defaults": [],
+              "applyServerSideEncryptionByDefault": {
+                "__defaults": [],
+                "sseAlgorithm": "AES256"
+              }
+            }
+          }
+        },
+        "outputs": {
+          "accelerationStatus": "",
+          "acl": "private",
+          "arn": "arn:aws:s3:::testbucket-db00f74",
+          "bucket": "testbucket-db00f74",
+          "bucketDomainName": "testbucket-db00f74.s3.amazonaws.com",
+          "bucketRegionalDomainName": "testbucket-db00f74.s3.us-west-2.amazonaws.com",
+          "corsRules": [],
+          "forceDestroy": true,
+          "grants": [],
+          "hostedZoneId": "Z3BJ6K6RIION7M",
+          "id": "testbucket-db00f74",
+          "lifecycleRules": [],
+          "loggings": [],
+          "objectLockConfiguration": null,
+          "region": "us-west-2",
+          "replicationConfiguration": null,
+          "requestPayer": "BucketOwner",
+          "serverSideEncryptionConfiguration": {
+            "rule": {
+              "applyServerSideEncryptionByDefault": {
+                "kmsMasterKeyId": "",
+                "sseAlgorithm": "AES256"
+              },
+              "bucketKeyEnabled": false
+            }
+          },
+          "tags": {},
+          "tagsAll": {},
+          "versioning": {
+            "enabled": false,
+            "mfaDelete": false
+          },
+          "website": null
+        },
+        "parent": "urn:pulumi:test::queue::pulumi:pulumi:Stack::queue-test",
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "forceDestroy": null,
+          "serverSideEncryptionConfiguration": null
+        },
+        "created": "2023-11-10T23:03:08.706816Z",
+        "modified": "2023-11-10T23:03:08.706816Z",
+        "sourcePosition": "project:///index.ts#21,16"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue::queue",
+        "custom": true,
+        "id": "https://sqs.us-west-2.amazonaws.com/616138583583/queue-6f3f78a",
+        "type": "aws:sqs/queue:Queue",
+        "inputs": {
+          "__defaults": [
+            "contentBasedDeduplication",
+            "delaySeconds",
+            "fifoQueue",
+            "maxMessageSize",
+            "messageRetentionSeconds",
+            "name",
+            "receiveWaitTimeSeconds"
+          ],
+          "contentBasedDeduplication": false,
+          "delaySeconds": 0,
+          "fifoQueue": false,
+          "maxMessageSize": 262144,
+          "messageRetentionSeconds": 345600,
+          "name": "queue-6f3f78a",
+          "receiveWaitTimeSeconds": 0,
+          "visibilityTimeoutSeconds": 300
+        },
+        "outputs": {
+          "arn": "arn:aws:sqs:us-west-2:616138583583:queue-6f3f78a",
+          "contentBasedDeduplication": false,
+          "deduplicationScope": "",
+          "delaySeconds": 0,
+          "fifoQueue": false,
+          "fifoThroughputLimit": "",
+          "id": "https://sqs.us-west-2.amazonaws.com/616138583583/queue-6f3f78a",
+          "kmsDataKeyReusePeriodSeconds": 300,
+          "kmsMasterKeyId": "",
+          "maxMessageSize": 262144,
+          "messageRetentionSeconds": 345600,
+          "name": "queue-6f3f78a",
+          "namePrefix": "",
+          "policy": "",
+          "receiveWaitTimeSeconds": 0,
+          "redriveAllowPolicy": "",
+          "redrivePolicy": "",
+          "sqsManagedSseEnabled": true,
+          "tags": {},
+          "tagsAll": {},
+          "url": "https://sqs.us-west-2.amazonaws.com/616138583583/queue-6f3f78a",
+          "visibilityTimeoutSeconds": 300
+        },
+        "parent": "urn:pulumi:test::queue::pulumi:pulumi:Stack::queue-test",
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "visibilityTimeoutSeconds": null
+        },
+        "created": "2023-11-10T23:03:31.897457Z",
+        "modified": "2023-11-10T23:03:31.897457Z",
+        "sourcePosition": "project:///index.ts#32,15"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "custom": false,
+        "type": "aws:sqs:QueueEventSubscription",
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue::queue",
+        "created": "2023-11-10T23:03:31.918386Z",
+        "modified": "2023-11-10T23:03:31.918386Z",
+        "sourcePosition": "project:///node_modules/@pulumi/sqs/sqsMixins.ts#79,9"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription",
+        "custom": true,
+        "id": "subscription-493e917",
+        "type": "aws:iam/role:Role",
+        "inputs": {
+          "__defaults": [
+            "forceDetachPolicies",
+            "maxSessionDuration",
+            "name",
+            "path"
+          ],
+          "assumeRolePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Effect\":\"Allow\",\"Sid\":\"\"}]}",
+          "forceDetachPolicies": false,
+          "maxSessionDuration": 3600,
+          "name": "subscription-493e917",
+          "path": "/"
+        },
+        "outputs": {
+          "arn": "arn:aws:iam::616138583583:role/subscription-493e917",
+          "assumeRolePolicy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}",
+          "createDate": "2023-11-10T23:03:32Z",
+          "description": "",
+          "forceDetachPolicies": false,
+          "id": "subscription-493e917",
+          "inlinePolicies": [],
+          "managedPolicyArns": [],
+          "maxSessionDuration": 3600,
+          "name": "subscription-493e917",
+          "namePrefix": "",
+          "path": "/",
+          "roleLastUseds": [
+            {
+              "lastUsedDate": "",
+              "region": ""
+            }
+          ],
+          "tags": {},
+          "tagsAll": {},
+          "uniqueId": "AROAY65FYVYP3LXMG5T3O"
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "assumeRolePolicy": null
+        },
+        "created": "2023-11-10T23:03:32.318812Z",
+        "modified": "2023-11-10T23:03:32.318812Z",
+        "sourcePosition": "project:///node_modules/@pulumi/lambda/lambdaMixins.ts#304,20"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::subscription-e1a3786d",
+        "custom": true,
+        "id": "subscription-493e917-20231110230332436700000001",
+        "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+        "inputs": {
+          "__defaults": [],
+          "policyArn": "arn:aws:iam::aws:policy/AmazonKinesisFullAccess",
+          "role": "subscription-493e917"
+        },
+        "outputs": {
+          "id": "subscription-493e917-20231110230332436700000001",
+          "policyArn": "arn:aws:iam::aws:policy/AmazonKinesisFullAccess",
+          "role": "subscription-493e917"
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "dependencies": [
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+        ],
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "policyArn": null,
+          "role": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+          ]
+        },
+        "created": "2023-11-10T23:03:32.578476Z",
+        "modified": "2023-11-10T23:03:32.578476Z",
+        "sourcePosition": "project:///node_modules/@pulumi/lambda/lambdaMixins.ts#318,40"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::subscription-a1de8170",
+        "custom": true,
+        "id": "subscription-493e917-20231110230332533400000003",
+        "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+        "inputs": {
+          "__defaults": [],
+          "policyArn": "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+          "role": "subscription-493e917"
+        },
+        "outputs": {
+          "id": "subscription-493e917-20231110230332533400000003",
+          "policyArn": "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+          "role": "subscription-493e917"
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "dependencies": [
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+        ],
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "policyArn": null,
+          "role": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+          ]
+        },
+        "created": "2023-11-10T23:03:32.597095Z",
+        "modified": "2023-11-10T23:03:32.597095Z",
+        "sourcePosition": "project:///node_modules/@pulumi/lambda/lambdaMixins.ts#318,40"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::subscription-4aaabb8e",
+        "custom": true,
+        "id": "subscription-493e917-20231110230332521300000002",
+        "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+        "inputs": {
+          "__defaults": [],
+          "policyArn": "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+          "role": "subscription-493e917"
+        },
+        "outputs": {
+          "id": "subscription-493e917-20231110230332521300000002",
+          "policyArn": "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+          "role": "subscription-493e917"
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "dependencies": [
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+        ],
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "policyArn": null,
+          "role": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+          ]
+        },
+        "created": "2023-11-10T23:03:32.597224Z",
+        "modified": "2023-11-10T23:03:32.597224Z",
+        "sourcePosition": "project:///node_modules/@pulumi/lambda/lambdaMixins.ts#318,40"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::subscription-019020e7",
+        "custom": true,
+        "id": "subscription-493e917-20231110230332617800000006",
+        "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+        "inputs": {
+          "__defaults": [],
+          "policyArn": "arn:aws:iam::aws:policy/AmazonCognitoPowerUser",
+          "role": "subscription-493e917"
+        },
+        "outputs": {
+          "id": "subscription-493e917-20231110230332617800000006",
+          "policyArn": "arn:aws:iam::aws:policy/AmazonCognitoPowerUser",
+          "role": "subscription-493e917"
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "dependencies": [
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+        ],
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "policyArn": null,
+          "role": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+          ]
+        },
+        "created": "2023-11-10T23:03:32.674436Z",
+        "modified": "2023-11-10T23:03:32.674436Z",
+        "sourcePosition": "project:///node_modules/@pulumi/lambda/lambdaMixins.ts#318,40"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::subscription-74d12784",
+        "custom": true,
+        "id": "subscription-493e917-20231110230332617800000005",
+        "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+        "inputs": {
+          "__defaults": [],
+          "policyArn": "arn:aws:iam::aws:policy/CloudWatchEventsFullAccess",
+          "role": "subscription-493e917"
+        },
+        "outputs": {
+          "id": "subscription-493e917-20231110230332617800000005",
+          "policyArn": "arn:aws:iam::aws:policy/CloudWatchEventsFullAccess",
+          "role": "subscription-493e917"
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "dependencies": [
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+        ],
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "policyArn": null,
+          "role": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+          ]
+        },
+        "created": "2023-11-10T23:03:32.681812Z",
+        "modified": "2023-11-10T23:03:32.681812Z",
+        "sourcePosition": "project:///node_modules/@pulumi/lambda/lambdaMixins.ts#318,40"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::subscription-b5aeb6b6",
+        "custom": true,
+        "id": "subscription-493e917-20231110230332617800000004",
+        "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+        "inputs": {
+          "__defaults": [],
+          "policyArn": "arn:aws:iam::aws:policy/AWSLambda_FullAccess",
+          "role": "subscription-493e917"
+        },
+        "outputs": {
+          "id": "subscription-493e917-20231110230332617800000004",
+          "policyArn": "arn:aws:iam::aws:policy/AWSLambda_FullAccess",
+          "role": "subscription-493e917"
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "dependencies": [
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+        ],
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "policyArn": null,
+          "role": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+          ]
+        },
+        "created": "2023-11-10T23:03:32.688605Z",
+        "modified": "2023-11-10T23:03:32.688605Z",
+        "sourcePosition": "project:///node_modules/@pulumi/lambda/lambdaMixins.ts#318,40"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::subscription-6c156834",
+        "custom": true,
+        "id": "subscription-493e917-20231110230332632200000008",
+        "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+        "inputs": {
+          "__defaults": [],
+          "policyArn": "arn:aws:iam::aws:policy/CloudWatchFullAccess",
+          "role": "subscription-493e917"
+        },
+        "outputs": {
+          "id": "subscription-493e917-20231110230332632200000008",
+          "policyArn": "arn:aws:iam::aws:policy/CloudWatchFullAccess",
+          "role": "subscription-493e917"
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "dependencies": [
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+        ],
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "policyArn": null,
+          "role": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+          ]
+        },
+        "created": "2023-11-10T23:03:32.698556Z",
+        "modified": "2023-11-10T23:03:32.698556Z",
+        "sourcePosition": "project:///node_modules/@pulumi/lambda/lambdaMixins.ts#318,40"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::subscription-1b4caae3",
+        "custom": true,
+        "id": "subscription-493e917-20231110230332631900000007",
+        "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+        "inputs": {
+          "__defaults": [],
+          "policyArn": "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess",
+          "role": "subscription-493e917"
+        },
+        "outputs": {
+          "id": "subscription-493e917-20231110230332631900000007",
+          "policyArn": "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess",
+          "role": "subscription-493e917"
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "dependencies": [
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+        ],
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "policyArn": null,
+          "role": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+          ]
+        },
+        "created": "2023-11-10T23:03:32.716979Z",
+        "modified": "2023-11-10T23:03:32.716979Z",
+        "sourcePosition": "project:///node_modules/@pulumi/lambda/lambdaMixins.ts#318,40"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/rolePolicyAttachment:RolePolicyAttachment::subscription-7cd09230",
+        "custom": true,
+        "id": "subscription-493e917-20231110230332632300000009",
+        "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+        "inputs": {
+          "__defaults": [],
+          "policyArn": "arn:aws:iam::aws:policy/AmazonSQSFullAccess",
+          "role": "subscription-493e917"
+        },
+        "outputs": {
+          "id": "subscription-493e917-20231110230332632300000009",
+          "policyArn": "arn:aws:iam::aws:policy/AmazonSQSFullAccess",
+          "role": "subscription-493e917"
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "dependencies": [
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+        ],
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "policyArn": null,
+          "role": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+          ]
+        },
+        "created": "2023-11-10T23:03:32.717115Z",
+        "modified": "2023-11-10T23:03:32.717115Z",
+        "sourcePosition": "project:///node_modules/@pulumi/lambda/lambdaMixins.ts#318,40"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:lambda/function:Function::subscription",
+        "custom": true,
+        "id": "subscription-f6e5ff0",
+        "type": "aws:lambda/function:Function",
+        "inputs": {
+          "__defaults": [
+            "memorySize",
+            "name",
+            "packageType",
+            "publish",
+            "reservedConcurrentExecutions",
+            "skipDestroy"
+          ],
+          "code": {
+            "4dabf18193072939515e22adb298388d": "0def7320c3a5731c473e5ecbe6d01bc7",
+            "assets": {
+              "__index.js": {
+                "4dabf18193072939515e22adb298388d": "c44067f5952c0a294b673a41bacd8c17",
+                "hash": "7eacbc8ccbbce964612bb7f7442881a10a173aa0c56e075c0ef19cb87c9ff744",
+                "text": "exports.handler = __f0;\n\nvar __bucket = {};\nvar __bucket_id_proto = {};\nObject.defineProperty(__f2, \"prototype\", { value: __bucket_id_proto });\nObject.defineProperty(__bucket_id_proto, \"constructor\", { configurable: true, writable: true, value: __f2 });\nObject.defineProperty(__bucket_id_proto, \"apply\", { configurable: true, writable: true, value: __f3 });\nObject.defineProperty(__bucket_id_proto, \"get\", { configurable: true, writable: true, value: __f4 });\nvar __bucket_id = Object.create(__bucket_id_proto);\n__bucket_id.value = \"testbucket-db00f74\";\n__bucket.id = __bucket_id;\n\nfunction __f1(__0, __1, __2, __3) {\n  return (function() {\n    with({ this: undefined, arguments: undefined }) {\n\nreturn function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\n\n    }\n  }).apply(undefined, undefined).apply(this, arguments);\n}\n\nfunction __f2(__0) {\n  return (function() {\n    with({ this: undefined, arguments: undefined }) {\n\nreturn function /*constructor*/(value) {\n        this.value = value;\n    };\n\n    }\n  }).apply(undefined, undefined).apply(this, arguments);\n}\n\nfunction __f3(__0) {\n  return (function() {\n    with({ this: undefined, arguments: undefined }) {\n\nreturn function /*apply*/(func) {\n        throw new Error(\"'apply' is not allowed from inside a cloud-callback. Use 'get' to retrieve the value of this Output directly.\");\n    };\n\n    }\n  }).apply(undefined, undefined).apply(this, arguments);\n}\n\nfunction __f4() {\n  return (function() {\n    with({ this: undefined, arguments: undefined }) {\n\nreturn function /*get*/() {\n        return this.value;\n    };\n\n    }\n  }).apply(undefined, undefined).apply(this, arguments);\n}\n\nfunction __f0(__0) {\n  return (function() {\n    with({ __awaiter: __f1, bucket: __bucket, this: undefined, arguments: undefined }) {\n\nreturn (event) =\u003e __awaiter(void 0, void 0, void 0, function* () {\n    console.log(\"Received: \" + JSON.stringify(event, null, 2));\n    const awssdk = yield Promise.resolve().then(() =\u003e require(\"aws-sdk\"));\n    const s3 = new awssdk.S3();\n    const recordFile = \"lastEvent.json\";\n    console.log(\"Storing sqs message to S3.\");\n    yield s3.putObject({\n        Bucket: bucket.id.get(),\n        Key: recordFile,\n        Body: JSON.stringify(event),\n    }).promise();\n    console.log(\"Stored sqs message to S3.\");\n});\n\n    }\n  }).apply(undefined, undefined).apply(this, arguments);\n}\n"
+              }
+            },
+            "hash": "c0be1ee1e6c7e86d1e2bf537aa0ca353a494240f6230610d6ca1a8a4361bbd13"
+          },
+          "handler": "__index.handler",
+          "memorySize": 128,
+          "name": "subscription-f6e5ff0",
+          "packageType": "Zip",
+          "publish": false,
+          "reservedConcurrentExecutions": -1,
+          "role": "arn:aws:iam::616138583583:role/subscription-493e917",
+          "runtime": "nodejs16.x",
+          "skipDestroy": false,
+          "timeout": 180
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":600000000000,\"update\":600000000000}}",
+          "architectures": [
+            "x86_64"
+          ],
+          "arn": "arn:aws:lambda:us-west-2:616138583583:function:subscription-f6e5ff0",
+          "code": {
+            "4dabf18193072939515e22adb298388d": "0def7320c3a5731c473e5ecbe6d01bc7",
+            "assets": {
+              "__index.js": {
+                "4dabf18193072939515e22adb298388d": "c44067f5952c0a294b673a41bacd8c17",
+                "hash": "7eacbc8ccbbce964612bb7f7442881a10a173aa0c56e075c0ef19cb87c9ff744",
+                "text": "exports.handler = __f0;\n\nvar __bucket = {};\nvar __bucket_id_proto = {};\nObject.defineProperty(__f2, \"prototype\", { value: __bucket_id_proto });\nObject.defineProperty(__bucket_id_proto, \"constructor\", { configurable: true, writable: true, value: __f2 });\nObject.defineProperty(__bucket_id_proto, \"apply\", { configurable: true, writable: true, value: __f3 });\nObject.defineProperty(__bucket_id_proto, \"get\", { configurable: true, writable: true, value: __f4 });\nvar __bucket_id = Object.create(__bucket_id_proto);\n__bucket_id.value = \"testbucket-db00f74\";\n__bucket.id = __bucket_id;\n\nfunction __f1(__0, __1, __2, __3) {\n  return (function() {\n    with({ this: undefined, arguments: undefined }) {\n\nreturn function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\n\n    }\n  }).apply(undefined, undefined).apply(this, arguments);\n}\n\nfunction __f2(__0) {\n  return (function() {\n    with({ this: undefined, arguments: undefined }) {\n\nreturn function /*constructor*/(value) {\n        this.value = value;\n    };\n\n    }\n  }).apply(undefined, undefined).apply(this, arguments);\n}\n\nfunction __f3(__0) {\n  return (function() {\n    with({ this: undefined, arguments: undefined }) {\n\nreturn function /*apply*/(func) {\n        throw new Error(\"'apply' is not allowed from inside a cloud-callback. Use 'get' to retrieve the value of this Output directly.\");\n    };\n\n    }\n  }).apply(undefined, undefined).apply(this, arguments);\n}\n\nfunction __f4() {\n  return (function() {\n    with({ this: undefined, arguments: undefined }) {\n\nreturn function /*get*/() {\n        return this.value;\n    };\n\n    }\n  }).apply(undefined, undefined).apply(this, arguments);\n}\n\nfunction __f0(__0) {\n  return (function() {\n    with({ __awaiter: __f1, bucket: __bucket, this: undefined, arguments: undefined }) {\n\nreturn (event) =\u003e __awaiter(void 0, void 0, void 0, function* () {\n    console.log(\"Received: \" + JSON.stringify(event, null, 2));\n    const awssdk = yield Promise.resolve().then(() =\u003e require(\"aws-sdk\"));\n    const s3 = new awssdk.S3();\n    const recordFile = \"lastEvent.json\";\n    console.log(\"Storing sqs message to S3.\");\n    yield s3.putObject({\n        Bucket: bucket.id.get(),\n        Key: recordFile,\n        Body: JSON.stringify(event),\n    }).promise();\n    console.log(\"Stored sqs message to S3.\");\n});\n\n    }\n  }).apply(undefined, undefined).apply(this, arguments);\n}\n"
+              }
+            },
+            "hash": "c0be1ee1e6c7e86d1e2bf537aa0ca353a494240f6230610d6ca1a8a4361bbd13"
+          },
+          "codeSigningConfigArn": "",
+          "deadLetterConfig": null,
+          "description": "",
+          "environment": null,
+          "ephemeralStorage": {
+            "size": 512
+          },
+          "fileSystemConfig": null,
+          "handler": "__index.handler",
+          "id": "subscription-f6e5ff0",
+          "imageConfig": null,
+          "imageUri": "",
+          "invokeArn": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:616138583583:function:subscription-f6e5ff0/invocations",
+          "kmsKeyArn": "",
+          "lastModified": "2023-11-10T23:03:41.292+0000",
+          "layers": [],
+          "memorySize": 128,
+          "name": "subscription-f6e5ff0",
+          "packageType": "Zip",
+          "publish": false,
+          "qualifiedArn": "arn:aws:lambda:us-west-2:616138583583:function:subscription-f6e5ff0:$LATEST",
+          "qualifiedInvokeArn": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:616138583583:function:subscription-f6e5ff0:$LATEST/invocations",
+          "reservedConcurrentExecutions": -1,
+          "role": "arn:aws:iam::616138583583:role/subscription-493e917",
+          "runtime": "nodejs16.x",
+          "signingJobArn": "",
+          "signingProfileVersionArn": "",
+          "skipDestroy": false,
+          "snapStart": null,
+          "sourceCodeHash": "r/l4peCmk3rdB5lTPO+92JwqyKuGd2TyyFQEqHdV2rQ=",
+          "sourceCodeSize": 1058,
+          "tags": {},
+          "tagsAll": {},
+          "timeout": 180,
+          "tracingConfig": {
+            "mode": "PassThrough"
+          },
+          "version": "$LATEST",
+          "vpcConfig": null
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "dependencies": [
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+        ],
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "code": null,
+          "handler": null,
+          "role": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:iam/role:Role::subscription"
+          ],
+          "runtime": null,
+          "timeout": null
+        },
+        "created": "2023-11-10T23:03:47.003006Z",
+        "modified": "2023-11-10T23:03:47.003006Z",
+        "sourcePosition": "project:///node_modules/@pulumi/lambda/lambdaMixins.ts#389,9"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:lambda/permission:Permission::subscription",
+        "custom": true,
+        "id": "subscription-7882dc8",
+        "type": "aws:lambda/permission:Permission",
+        "inputs": {
+          "__defaults": [
+            "statementId"
+          ],
+          "action": "lambda:*",
+          "function": "subscription-f6e5ff0",
+          "principal": "sqs.amazonaws.com",
+          "sourceArn": "arn:aws:sqs:us-west-2:616138583583:queue-6f3f78a",
+          "statementId": "subscription-7882dc8"
+        },
+        "outputs": {
+          "action": "lambda:*",
+          "function": "subscription-f6e5ff0",
+          "id": "subscription-7882dc8",
+          "principal": "sqs.amazonaws.com",
+          "qualifier": "",
+          "sourceArn": "arn:aws:sqs:us-west-2:616138583583:queue-6f3f78a",
+          "statementId": "subscription-7882dc8",
+          "statementIdPrefix": ""
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "dependencies": [
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:lambda/function:Function::subscription",
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue::queue"
+        ],
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "action": null,
+          "function": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:lambda/function:Function::subscription"
+          ],
+          "principal": null,
+          "sourceArn": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue::queue"
+          ]
+        },
+        "created": "2023-11-10T23:03:47.63525Z",
+        "modified": "2023-11-10T23:03:47.63525Z",
+        "sourcePosition": "project:///node_modules/@pulumi/sqs/sqsMixins.ts#87,27"
+      },
+      {
+        "urn": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:lambda/eventSourceMapping:EventSourceMapping::subscription",
+        "custom": true,
+        "id": "de051699-982b-4473-b87d-82c297e0364c",
+        "type": "aws:lambda/eventSourceMapping:EventSourceMapping",
+        "inputs": {
+          "__defaults": [],
+          "batchSize": 1,
+          "enabled": true,
+          "eventSourceArn": "arn:aws:sqs:us-west-2:616138583583:queue-6f3f78a",
+          "functionName": "subscription-f6e5ff0"
+        },
+        "outputs": {
+          "amazonManagedKafkaEventSourceConfig": null,
+          "batchSize": 1,
+          "bisectBatchOnFunctionError": false,
+          "destinationConfig": null,
+          "documentDbEventSourceConfig": null,
+          "enabled": true,
+          "eventSourceArn": "arn:aws:sqs:us-west-2:616138583583:queue-6f3f78a",
+          "filterCriteria": null,
+          "functionArn": "arn:aws:lambda:us-west-2:616138583583:function:subscription-f6e5ff0",
+          "functionName": "arn:aws:lambda:us-west-2:616138583583:function:subscription-f6e5ff0",
+          "functionResponseTypes": [],
+          "id": "de051699-982b-4473-b87d-82c297e0364c",
+          "lastModified": "2023-11-10T23:03:47Z",
+          "lastProcessingResult": "",
+          "maximumBatchingWindowInSeconds": 0,
+          "maximumRecordAgeInSeconds": 0,
+          "maximumRetryAttempts": 0,
+          "parallelizationFactor": 0,
+          "queues": [],
+          "scalingConfig": null,
+          "selfManagedEventSource": null,
+          "selfManagedKafkaEventSourceConfig": null,
+          "sourceAccessConfigurations": [],
+          "startingPosition": "",
+          "startingPositionTimestamp": "",
+          "state": "Enabled",
+          "stateTransitionReason": "USER_INITIATED",
+          "topics": [],
+          "tumblingWindowInSeconds": 0,
+          "uuid": "de051699-982b-4473-b87d-82c297e0364c"
+        },
+        "parent": "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription::subscription",
+        "dependencies": [
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue::queue",
+          "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:lambda/function:Function::subscription"
+        ],
+        "provider": "urn:pulumi:test::queue::pulumi:providers:aws::prov::612269ea-c4ab-4aed-bbcc-b5afba60c711",
+        "propertyDependencies": {
+          "batchSize": null,
+          "enabled": null,
+          "eventSourceArn": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue::queue"
+          ],
+          "functionName": [
+            "urn:pulumi:test::queue::aws:sqs/queue:Queue$aws:sqs:QueueEventSubscription$aws:lambda/function:Function::subscription"
+          ]
+        },
+        "created": "2023-11-10T23:04:12.196094Z",
+        "modified": "2023-11-10T23:04:12.196094Z",
+        "sourcePosition": "project:///node_modules/@pulumi/sqs/sqsMixins.ts#94,35"
+      }
+    ]
+  }
+}

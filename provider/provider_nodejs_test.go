@@ -6,63 +6,60 @@
 package provider
 
 import (
-	"fmt"
+	"os"
 	"path/filepath"
 	"testing"
 
-	"github.com/pulumi/providertest"
-	"github.com/stretchr/testify/assert"
+	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/opttest"
+	"github.com/stretchr/testify/require"
 )
 
-func TestLambdaLayerNew(t *testing.T) {
-	nodeTest(t, filepath.Join("..", "examples", "lambda-layer-new"))
+func TestLambdaLayerNewUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("..", "examples", "lambda-layer-new"), nodeProviderUpgradeOpts())
 }
 
-func TestCloudWatch(t *testing.T) {
-	nodeTest(t, filepath.Join("..", "examples", "cloudwatch"))
+func TestCloudWatchUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("..", "examples", "cloudwatch"), nodeProviderUpgradeOpts())
 }
 
-func TestLogGroup(t *testing.T) {
-	nodeTest(t, filepath.Join("..", "examples", "logGroup"))
+func TestLogGroupUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("..", "examples", "logGroup"), nodeProviderUpgradeOpts())
 }
 
-func TestQueue(t *testing.T) {
-	nodeTest(t, filepath.Join("..", "examples", "queue"),
-		providertest.WithSkippedUpgradeTestMode(providertest.UpgradeTestMode_Quick, "Prefer PreviewOnly"),
-		providertest.WithDiffValidation(providertest.NoReplacements()))
+func TestQueueUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("..", "examples", "queue"), nodeProviderUpgradeOpts())
 }
 
-func TestRoute53(t *testing.T) {
-	nodeTest(t, filepath.Join("..", "examples", "route53"))
+func TestRoute53Upgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("..", "examples", "route53"), nodeProviderUpgradeOpts())
 }
 
-func TestJobQueue(t *testing.T) {
-	simpleNodeTest(t, filepath.Join("test-programs", "job-queue"),
-		providertest.WithSkippedUpgradeTestMode(providertest.UpgradeTestMode_Quick, "Prefer PreviewOnly"),
-		providertest.WithDiffValidation(func(t *testing.T, d providertest.Diffs) {
-			for _, diff := range d {
-				if diff.URN.Name() != "testQueue" {
-					continue
-				}
-				assert.Emptyf(t, diff.Replaces, "Unexpected replace plan for testQueue")
-				for _, changedProp := range diff.Diffs {
-					// Ignoring benign update from nil to empty-map tags.
-					if changedProp == "tags" {
-						continue
-					}
-					if changedProp == "tagsAll" {
-						continue
-					}
-					assert.Fail(t, fmt.Sprintf("Unexpected update for testQueue: %s", changedProp))
-				}
-			}
-		}))
+func TestJobQueueUpgrade(t *testing.T) {
+	opts := nodeProviderUpgradeOpts()
+	opts.setEnvRegion = false
+	testProviderUpgrade(t, filepath.Join("test-programs", "job-queue"), opts)
+}
+
+func nodeProviderUpgradeOpts() *testProviderUpgradeOptions {
+	return &testProviderUpgradeOptions{
+		linkNodeSDK:  true,
+		installDeps:  true,
+		setEnvRegion: true,
+	}
 }
 
 func TestRegress3094(t *testing.T) {
-	simpleNodeTest(t,
-		filepath.Join("test-programs", "regress-3094"),
-		providertest.WithSkippedUpgradeTestMode(providertest.UpgradeTestMode_Quick, "Not testing upgrades"),
-		providertest.WithSkippedUpgradeTestMode(providertest.UpgradeTestMode_PreviewOnly, "Not testing upgrades"),
-	)
+	skipIfShort(t)
+	dir := filepath.Join("test-programs", "regress-3094")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	providerName := "aws"
+	options := []opttest.Option{
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+	upResult := test.Up()
+	t.Logf("#%v", upResult.Summary)
 }

@@ -1,0 +1,87 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2023-11-10T17:11:33.785172-05:00",
+      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+      "version": "v3.92.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:Cx6ieij5EqY=:v1:LJeGMAp3VdD0YgVz:38zfOWNeuSJ2yAJpkoPDD9C+Opnvww=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:pulumi:Stack::aws_sns_topic_Topic_1-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2023-11-10T22:11:29.729964Z",
+        "modified": "2023-11-10T22:11:29.729964Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:providers:aws::default",
+        "custom": true,
+        "id": "b8ee8ff4-c33b-406f-b91d-2da0765a912d",
+        "type": "pulumi:providers:aws",
+        "created": "2023-11-10T22:11:31.300023Z",
+        "modified": "2023-11-10T22:11:31.300023Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_sns_topic_Topic_1::aws:sns/topic:Topic::user_updates",
+        "custom": true,
+        "id": "arn:aws:sns:us-west-2:616138583583:user-updates-topic",
+        "type": "aws:sns/topic:Topic",
+        "inputs": {
+          "__defaults": [
+            "contentBasedDeduplication",
+            "fifoTopic"
+          ],
+          "contentBasedDeduplication": false,
+          "fifoTopic": false,
+          "name": "user-updates-topic"
+        },
+        "outputs": {
+          "applicationFailureFeedbackRoleArn": "",
+          "applicationSuccessFeedbackRoleArn": "",
+          "applicationSuccessFeedbackSampleRate": 0,
+          "arn": "arn:aws:sns:us-west-2:616138583583:user-updates-topic",
+          "contentBasedDeduplication": false,
+          "deliveryPolicy": "",
+          "displayName": "",
+          "fifoTopic": false,
+          "firehoseFailureFeedbackRoleArn": "",
+          "firehoseSuccessFeedbackRoleArn": "",
+          "firehoseSuccessFeedbackSampleRate": 0,
+          "httpFailureFeedbackRoleArn": "",
+          "httpSuccessFeedbackRoleArn": "",
+          "httpSuccessFeedbackSampleRate": 0,
+          "id": "arn:aws:sns:us-west-2:616138583583:user-updates-topic",
+          "kmsMasterKeyId": "",
+          "lambdaFailureFeedbackRoleArn": "",
+          "lambdaSuccessFeedbackRoleArn": "",
+          "lambdaSuccessFeedbackSampleRate": 0,
+          "name": "user-updates-topic",
+          "namePrefix": "",
+          "owner": "616138583583",
+          "policy": "{\"Id\":\"__default_policy_ID\",\"Statement\":[{\"Action\":[\"SNS:GetTopicAttributes\",\"SNS:SetTopicAttributes\",\"SNS:AddPermission\",\"SNS:RemovePermission\",\"SNS:DeleteTopic\",\"SNS:Subscribe\",\"SNS:ListSubscriptionsByTopic\",\"SNS:Publish\"],\"Condition\":{\"StringEquals\":{\"AWS:SourceOwner\":\"616138583583\"}},\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sns:us-west-2:616138583583:user-updates-topic\",\"Sid\":\"__default_statement_ID\"}],\"Version\":\"2008-10-17\"}",
+          "signatureVersion": 0,
+          "sqsFailureFeedbackRoleArn": "",
+          "sqsSuccessFeedbackRoleArn": "",
+          "sqsSuccessFeedbackSampleRate": 0,
+          "tags": {},
+          "tagsAll": {},
+          "tracingConfig": ""
+        },
+        "parent": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:pulumi:Stack::aws_sns_topic_Topic_1-test",
+        "provider": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:providers:aws::default::b8ee8ff4-c33b-406f-b91d-2da0765a912d",
+        "propertyDependencies": {
+          "name": null
+        },
+        "created": "2023-11-10T22:11:33.784938Z",
+        "modified": "2023-11-10T22:11:33.784938Z"
+      }
+    ]
+  }
+}

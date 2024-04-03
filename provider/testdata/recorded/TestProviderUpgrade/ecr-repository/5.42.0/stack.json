@@ -1,0 +1,77 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2023-11-10T17:26:12.374823-05:00",
+      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+      "version": "v3.92.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:dZghmHy8hWE=:v1:88Q0xVK9mtvtr/NT:FR9upeyrqFjuvdrd/J0eMi6qSVJn3g=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::aws_ecr_repository_Repository_1::pulumi:pulumi:Stack::aws_ecr_repository_Repository_1-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2023-11-10T22:26:08.939438Z",
+        "modified": "2023-11-10T22:26:08.939438Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_ecr_repository_Repository_1::pulumi:providers:aws::default",
+        "custom": true,
+        "id": "dccdccee-08ec-44d4-a247-0a526e7ed38c",
+        "type": "pulumi:providers:aws",
+        "created": "2023-11-10T22:26:10.521168Z",
+        "modified": "2023-11-10T22:26:10.521168Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_ecr_repository_Repository_1::aws:ecr/repository:Repository::foo",
+        "custom": true,
+        "id": "bar",
+        "type": "aws:ecr/repository:Repository",
+        "inputs": {
+          "__defaults": [],
+          "imageScanningConfiguration": {
+            "__defaults": [],
+            "scanOnPush": true
+          },
+          "imageTagMutability": "MUTABLE",
+          "name": "bar"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"delete\":1200000000000}}",
+          "arn": "arn:aws:ecr:us-west-2:616138583583:repository/bar",
+          "encryptionConfigurations": [
+            {
+              "encryptionType": "AES256",
+              "kmsKey": ""
+            }
+          ],
+          "id": "bar",
+          "imageScanningConfiguration": {
+            "scanOnPush": true
+          },
+          "imageTagMutability": "MUTABLE",
+          "name": "bar",
+          "registryId": "616138583583",
+          "repositoryUrl": "616138583583.dkr.ecr.us-west-2.amazonaws.com/bar",
+          "tags": {},
+          "tagsAll": {}
+        },
+        "parent": "urn:pulumi:test::aws_ecr_repository_Repository_1::pulumi:pulumi:Stack::aws_ecr_repository_Repository_1-test",
+        "provider": "urn:pulumi:test::aws_ecr_repository_Repository_1::pulumi:providers:aws::default::dccdccee-08ec-44d4-a247-0a526e7ed38c",
+        "propertyDependencies": {
+          "imageScanningConfiguration": null,
+          "imageTagMutability": null,
+          "name": null
+        },
+        "created": "2023-11-10T22:26:12.374647Z",
+        "modified": "2023-11-10T22:26:12.374647Z"
+      }
+    ]
+  }
+}

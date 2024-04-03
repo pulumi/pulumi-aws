@@ -2,99 +2,17 @@
 package provider
 
 import (
-	"context"
 	"os"
-	"strings"
+	"path/filepath"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-
 	"github.com/pulumi/providertest"
-	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
-	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
-
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	"github.com/pulumi/providertest/optproviderupgrade"
+	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/assertpreview"
+	"github.com/pulumi/providertest/pulumitest/opttest"
+	"github.com/stretchr/testify/require"
 )
-
-func providerServer(t *testing.T) pulumirpc.ResourceProviderServer {
-	ctx := context.Background()
-	version.Version = "0.0.1"
-	info := Provider()
-	p, err := pfbridge.MakeMuxedServer(ctx, info.Name, *info,
-		/*
-		 * We leave the schema blank. This will result in incorrect calls to
-		 * GetSchema, but otherwise does not effect the provider. It reduces the
-		 * time to test start by minutes.
-		 */
-		[]byte("{}"),
-	)(nil)
-	require.NoError(t, err)
-	return p
-}
-
-func skipIfShort(t *testing.T) {
-	if testing.Short() {
-		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without AWS creds")
-		return
-	}
-}
-
-func withNoChangesInResourcesAndNoReplacementsInProvider() providertest.Option {
-	return providertest.WithDiffValidation(func(t *testing.T, diffs providertest.Diffs) {
-		for _, d := range diffs {
-			// For the explicit provider, prohibit replacements.
-			isProvider := strings.HasSuffix(string(d.URN), "aws::provider") ||
-				strings.Contains(string(d.URN), "pulumi:providers:aws")
-			if isProvider {
-				assert.Emptyf(t, d.Replaces, "Unexpected replacement plan for %#v", d)
-			} else { // For normal resources, prohibit any changes.
-				assert.Falsef(t, d.HasChanges, "Expected no change for %#v", d)
-			}
-		}
-	})
-}
-
-func test(t *testing.T, dir, baselineVersion string, opts ...providertest.Option) {
-	if len(opts) == 0 {
-		opts = []providertest.Option{withNoChangesInResourcesAndNoReplacementsInProvider()}
-	}
-	skipIfShort(t)
-	if baselineVersion == "" {
-		baselineVersion = "5.42.0"
-	}
-	opts = append(opts,
-		providertest.WithProviderName("aws"),
-		providertest.WithBaselineVersion(baselineVersion),
-		providertest.WithResourceProviderServer(providerServer(t)),
-	)
-	ptest := providertest.NewProviderTest(dir, opts...)
-	ptest.Run(t)
-}
-
-func nodeTest(t *testing.T, dir string, opts ...providertest.Option) {
-	if len(opts) == 0 {
-		opts = []providertest.Option{withNoChangesInResourcesAndNoReplacementsInProvider()}
-	}
-	envRegion := getEnvRegion(t)
-	opts = append(opts,
-		providertest.WithConfig("aws:region", "INVALID_REGION"),
-		providertest.WithConfig("aws:envRegion", envRegion),
-	)
-	test(t, dir, "", opts...)
-}
-
-// This version of nodeTest does not aws:region INVALID_REGION manipulation.
-func simpleNodeTest(t *testing.T, dir string, opts ...providertest.Option) {
-	if len(opts) == 0 {
-		opts = []providertest.Option{withNoChangesInResourcesAndNoReplacementsInProvider()}
-	}
-	envRegion := getEnvRegion(t)
-	opts = append(opts,
-		providertest.WithConfig("aws:region", envRegion),
-	)
-	test(t, dir, "", opts...)
-}
 
 func TestUpgradeCoverage(t *testing.T) {
 	providertest.ReportUpgradeCoverage(t)
@@ -106,4 +24,51 @@ func getEnvRegion(t *testing.T) string {
 		envRegion = "us-west-2"
 	}
 	return envRegion
+}
+
+type testProviderUpgradeOptions struct {
+	baselineVersion string
+	linkNodeSDK     bool
+	installDeps     bool
+	setEnvRegion    bool
+}
+
+func skipIfShort(t *testing.T) {
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
+	}
+
+}
+func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions) {
+	skipIfShort(t)
+	t.Parallel()
+	t.Helper()
+	var (
+		providerName    string = "aws"
+		baselineVersion string = "5.42.0"
+	)
+	if opts != nil && opts.baselineVersion != "" {
+		baselineVersion = opts.baselineVersion
+	}
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	options := []opttest.Option{
+		opttest.DownloadProviderVersion(providerName, baselineVersion),
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+	}
+	if opts == nil || !opts.installDeps {
+		options = append(options, opttest.SkipInstall())
+	}
+	if opts != nil && opts.linkNodeSDK {
+		options = append(options, opttest.YarnLink("@pulumi/aws"))
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+	if opts != nil && opts.setEnvRegion {
+		test.SetConfig("aws:region", "INVALID_REGION")
+		test.SetConfig("aws:envRegion", getEnvRegion(t))
+	}
+	result := providertest.PreviewProviderUpgrade(
+		test, providerName, baselineVersion, optproviderupgrade.DisableAttach(),
+	)
+	assertpreview.HasNoReplacements(t, result)
 }

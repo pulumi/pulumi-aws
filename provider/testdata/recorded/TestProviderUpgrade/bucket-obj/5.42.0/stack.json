@@ -1,0 +1,198 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-03-12T15:26:37.921263Z",
+      "magic": "4fa6a6dae0ccab3589c700b0790a52fa47015f8ec72d37a2e10816857250b8c2",
+      "version": "v3.108.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:h7ra7OMAZi4=:v1:dfDGOOd7v5FNRYKI:F4ICmSGfTA86z30K/bV2StcfXJhn8Q=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::bucket-obj::pulumi:pulumi:Stack::bucket-obj-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-03-12T15:26:29.084991Z",
+        "modified": "2024-03-12T15:26:29.084991Z"
+      },
+      {
+        "urn": "urn:pulumi:test::bucket-obj::pulumi:providers:aws::default",
+        "custom": true,
+        "id": "8dbc7fcf-64ee-4a60-86ab-a4c5adcfefb9",
+        "type": "pulumi:providers:aws",
+        "created": "2024-03-12T15:26:30.804752Z",
+        "modified": "2024-03-12T15:26:30.804752Z"
+      },
+      {
+        "urn": "urn:pulumi:test::bucket-obj::aws:s3/bucket:Bucket::myBucket",
+        "custom": true,
+        "id": "mybucket-258f2d8",
+        "type": "aws:s3/bucket:Bucket",
+        "inputs": {
+          "__defaults": [
+            "acl",
+            "bucket",
+            "forceDestroy"
+          ],
+          "acl": "private",
+          "bucket": "mybucket-258f2d8",
+          "forceDestroy": false,
+          "website": {
+            "__defaults": [],
+            "indexDocument": "index.html"
+          }
+        },
+        "outputs": {
+          "accelerationStatus": "",
+          "acl": "private",
+          "arn": "arn:aws:s3:::mybucket-258f2d8",
+          "bucket": "mybucket-258f2d8",
+          "bucketDomainName": "mybucket-258f2d8.s3.amazonaws.com",
+          "bucketRegionalDomainName": "mybucket-258f2d8.s3.us-west-2.amazonaws.com",
+          "corsRules": [],
+          "forceDestroy": false,
+          "grants": [],
+          "hostedZoneId": "Z3BJ6K6RIION7M",
+          "id": "mybucket-258f2d8",
+          "lifecycleRules": [],
+          "loggings": [],
+          "objectLockConfiguration": null,
+          "region": "us-west-2",
+          "replicationConfiguration": null,
+          "requestPayer": "BucketOwner",
+          "serverSideEncryptionConfiguration": {
+            "rule": {
+              "applyServerSideEncryptionByDefault": {
+                "kmsMasterKeyId": "",
+                "sseAlgorithm": "AES256"
+              },
+              "bucketKeyEnabled": false
+            }
+          },
+          "tags": {},
+          "tagsAll": {},
+          "versioning": {
+            "enabled": false,
+            "mfaDelete": false
+          },
+          "website": {
+            "errorDocument": "",
+            "indexDocument": "index.html",
+            "redirectAllRequestsTo": "",
+            "routingRules": ""
+          },
+          "websiteDomain": "s3-website-us-west-2.amazonaws.com",
+          "websiteEndpoint": "mybucket-258f2d8.s3-website-us-west-2.amazonaws.com"
+        },
+        "parent": "urn:pulumi:test::bucket-obj::pulumi:pulumi:Stack::bucket-obj-test",
+        "provider": "urn:pulumi:test::bucket-obj::pulumi:providers:aws::default::8dbc7fcf-64ee-4a60-86ab-a4c5adcfefb9",
+        "propertyDependencies": {
+          "website": null
+        },
+        "created": "2024-03-12T15:26:37.053076Z",
+        "modified": "2024-03-12T15:26:37.053076Z"
+      },
+      {
+        "urn": "urn:pulumi:test::bucket-obj::aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock::myBucketPublicAccessBlock",
+        "custom": true,
+        "id": "mybucket-258f2d8",
+        "type": "aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock",
+        "inputs": {
+          "__defaults": [],
+          "blockPublicAcls": true,
+          "blockPublicPolicy": true,
+          "bucket": "mybucket-258f2d8",
+          "ignorePublicAcls": true,
+          "restrictPublicBuckets": true
+        },
+        "outputs": {
+          "blockPublicAcls": true,
+          "blockPublicPolicy": true,
+          "bucket": "mybucket-258f2d8",
+          "id": "mybucket-258f2d8",
+          "ignorePublicAcls": true,
+          "restrictPublicBuckets": true
+        },
+        "parent": "urn:pulumi:test::bucket-obj::pulumi:pulumi:Stack::bucket-obj-test",
+        "dependencies": [
+          "urn:pulumi:test::bucket-obj::aws:s3/bucket:Bucket::myBucket"
+        ],
+        "provider": "urn:pulumi:test::bucket-obj::pulumi:providers:aws::default::8dbc7fcf-64ee-4a60-86ab-a4c5adcfefb9",
+        "propertyDependencies": {
+          "blockPublicAcls": null,
+          "blockPublicPolicy": null,
+          "bucket": [
+            "urn:pulumi:test::bucket-obj::aws:s3/bucket:Bucket::myBucket"
+          ],
+          "ignorePublicAcls": null,
+          "restrictPublicBuckets": null
+        },
+        "created": "2024-03-12T15:26:37.744659Z",
+        "modified": "2024-03-12T15:26:37.744659Z"
+      },
+      {
+        "urn": "urn:pulumi:test::bucket-obj::aws:s3/bucketObject:BucketObject::myBucketIndex",
+        "custom": true,
+        "id": "index.html",
+        "type": "aws:s3/bucketObject:BucketObject",
+        "inputs": {
+          "__defaults": [
+            "acl",
+            "forceDestroy"
+          ],
+          "acl": "private",
+          "bucket": "mybucket-258f2d8",
+          "content": "\u003chtml\u003e\u003cbody\u003e\u003ch1\u003eHello, world!\u003c/h1\u003e\u003c/body\u003e\u003c/html\u003e",
+          "contentType": "text/html",
+          "forceDestroy": false,
+          "key": "index.html"
+        },
+        "outputs": {
+          "acl": "private",
+          "bucket": "mybucket-258f2d8",
+          "bucketKeyEnabled": false,
+          "cacheControl": "",
+          "content": "\u003chtml\u003e\u003cbody\u003e\u003ch1\u003eHello, world!\u003c/h1\u003e\u003c/body\u003e\u003c/html\u003e",
+          "contentDisposition": "",
+          "contentEncoding": "",
+          "contentLanguage": "",
+          "contentType": "text/html",
+          "etag": "cfd576df6cbe598b91e16908b222e46f",
+          "forceDestroy": false,
+          "id": "index.html",
+          "key": "index.html",
+          "metadata": {},
+          "objectLockLegalHoldStatus": "",
+          "objectLockMode": "",
+          "objectLockRetainUntilDate": "",
+          "serverSideEncryption": "AES256",
+          "storageClass": "STANDARD",
+          "tags": {},
+          "tagsAll": {},
+          "versionId": "",
+          "websiteRedirect": ""
+        },
+        "parent": "urn:pulumi:test::bucket-obj::pulumi:pulumi:Stack::bucket-obj-test",
+        "dependencies": [
+          "urn:pulumi:test::bucket-obj::aws:s3/bucket:Bucket::myBucket"
+        ],
+        "provider": "urn:pulumi:test::bucket-obj::pulumi:providers:aws::default::8dbc7fcf-64ee-4a60-86ab-a4c5adcfefb9",
+        "propertyDependencies": {
+          "bucket": [
+            "urn:pulumi:test::bucket-obj::aws:s3/bucket:Bucket::myBucket"
+          ],
+          "content": null,
+          "contentType": null,
+          "key": null
+        },
+        "created": "2024-03-12T15:26:37.92098Z",
+        "modified": "2024-03-12T15:26:37.92098Z"
+      }
+    ]
+  }
+}
