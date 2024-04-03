@@ -156,7 +156,8 @@ type Vpc struct {
 	DefaultRouteTableId pulumi.StringOutput `pulumi:"defaultRouteTableId"`
 	// The ID of the security group created by default on VPC creation
 	DefaultSecurityGroupId pulumi.StringOutput `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId          pulumi.StringOutput `pulumi:"dhcpOptionsId"`
+	// DHCP options id of the desired VPC.
+	DhcpOptionsId pulumi.StringOutput `pulumi:"dhcpOptionsId"`
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames pulumi.BoolOutput `pulumi:"enableDnsHostnames"`
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
@@ -235,7 +236,8 @@ type vpcState struct {
 	DefaultRouteTableId *string `pulumi:"defaultRouteTableId"`
 	// The ID of the security group created by default on VPC creation
 	DefaultSecurityGroupId *string `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId          *string `pulumi:"dhcpOptionsId"`
+	// DHCP options id of the desired VPC.
+	DhcpOptionsId *string `pulumi:"dhcpOptionsId"`
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
@@ -285,7 +287,8 @@ type VpcState struct {
 	DefaultRouteTableId pulumi.StringPtrInput
 	// The ID of the security group created by default on VPC creation
 	DefaultSecurityGroupId pulumi.StringPtrInput
-	DhcpOptionsId          pulumi.StringPtrInput
+	// DHCP options id of the desired VPC.
+	DhcpOptionsId pulumi.StringPtrInput
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames pulumi.BoolPtrInput
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
@@ -502,6 +505,7 @@ func (o VpcOutput) DefaultSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringOutput { return v.DefaultSecurityGroupId }).(pulumi.StringOutput)
 }
 
+// DHCP options id of the desired VPC.
 func (o VpcOutput) DhcpOptionsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vpc) pulumi.StringOutput { return v.DhcpOptionsId }).(pulumi.StringOutput)
 }

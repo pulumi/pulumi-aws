@@ -10,6 +10,7 @@ from .get_table import *
 from .get_table_item import *
 from .global_table import *
 from .kinesis_streaming_destination import *
+from .resource_policy import *
 from .table import *
 from .table_export import *
 from .table_item import *

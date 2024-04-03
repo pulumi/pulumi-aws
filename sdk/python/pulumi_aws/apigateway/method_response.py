@@ -318,7 +318,7 @@ class MethodResponse(pulumi.CustomResource):
             http_method=my_demo_method.http_method,
             status_code="200",
             response_models={
-                "application-json": "MyDemoResponseModel",
+                "application/json": "MyDemoResponseModel",
             },
             response_parameters={
                 "method.response.header.Content-Type": False,
@@ -435,7 +435,7 @@ class MethodResponse(pulumi.CustomResource):
             http_method=my_demo_method.http_method,
             status_code="200",
             response_models={
-                "application-json": "MyDemoResponseModel",
+                "application/json": "MyDemoResponseModel",
             },
             response_parameters={
                 "method.response.header.Content-Type": False,

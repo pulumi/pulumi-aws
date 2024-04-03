@@ -31,6 +31,11 @@ export type KinesisStreamingDestination = import("./kinesisStreamingDestination"
 export const KinesisStreamingDestination: typeof import("./kinesisStreamingDestination").KinesisStreamingDestination = null as any;
 utilities.lazyLoad(exports, ["KinesisStreamingDestination"], () => require("./kinesisStreamingDestination"));
 
+export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
 export { TableArgs, TableState } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
@@ -67,6 +72,8 @@ const _module = {
                 return new GlobalTable(name, <any>undefined, { urn })
             case "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination":
                 return new KinesisStreamingDestination(name, <any>undefined, { urn })
+            case "aws:dynamodb/resourcePolicy:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws:dynamodb/table:Table":
                 return new Table(name, <any>undefined, { urn })
             case "aws:dynamodb/tableExport:TableExport":
@@ -85,6 +92,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "dynamodb/contributorInsights", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/globalTable", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/kinesisStreamingDestination", _module)
+pulumi.runtime.registerResourceModule("aws", "dynamodb/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/table", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/tableExport", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/tableItem", _module)

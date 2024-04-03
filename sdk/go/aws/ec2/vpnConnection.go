@@ -225,7 +225,7 @@ type VpnConnection struct {
 	OutsideIpAddressType pulumi.StringOutput `pulumi:"outsideIpAddressType"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr pulumi.StringOutput `pulumi:"remoteIpv4NetworkCidr"`
-	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+	// The IPv6 CIDR on the AWS side of the VPN connection.
 	RemoteIpv6NetworkCidr pulumi.StringOutput `pulumi:"remoteIpv6NetworkCidr"`
 	// The static routes associated with the VPN connection. Detailed below.
 	Routes VpnConnectionRouteTypeArrayOutput `pulumi:"routes"`
@@ -421,7 +421,7 @@ type vpnConnectionState struct {
 	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr *string `pulumi:"remoteIpv4NetworkCidr"`
-	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+	// The IPv6 CIDR on the AWS side of the VPN connection.
 	RemoteIpv6NetworkCidr *string `pulumi:"remoteIpv6NetworkCidr"`
 	// The static routes associated with the VPN connection. Detailed below.
 	Routes []VpnConnectionRouteType `pulumi:"routes"`
@@ -570,7 +570,7 @@ type VpnConnectionState struct {
 	OutsideIpAddressType pulumi.StringPtrInput
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr pulumi.StringPtrInput
-	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+	// The IPv6 CIDR on the AWS side of the VPN connection.
 	RemoteIpv6NetworkCidr pulumi.StringPtrInput
 	// The static routes associated with the VPN connection. Detailed below.
 	Routes VpnConnectionRouteTypeArrayInput
@@ -715,7 +715,7 @@ type vpnConnectionArgs struct {
 	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr *string `pulumi:"remoteIpv4NetworkCidr"`
-	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+	// The IPv6 CIDR on the AWS side of the VPN connection.
 	RemoteIpv6NetworkCidr *string `pulumi:"remoteIpv6NetworkCidr"`
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
@@ -827,7 +827,7 @@ type VpnConnectionArgs struct {
 	OutsideIpAddressType pulumi.StringPtrInput
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr pulumi.StringPtrInput
-	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+	// The IPv6 CIDR on the AWS side of the VPN connection.
 	RemoteIpv6NetworkCidr pulumi.StringPtrInput
 	// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
 	StaticRoutesOnly pulumi.BoolPtrInput
@@ -1062,7 +1062,7 @@ func (o VpnConnectionOutput) RemoteIpv4NetworkCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.RemoteIpv4NetworkCidr }).(pulumi.StringOutput)
 }
 
-// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+// The IPv6 CIDR on the AWS side of the VPN connection.
 func (o VpnConnectionOutput) RemoteIpv6NetworkCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.RemoteIpv6NetworkCidr }).(pulumi.StringOutput)
 }

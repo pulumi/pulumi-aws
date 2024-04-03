@@ -362,14 +362,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.remoteIpv4NetworkCidr;
     }
     /**
-     * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * The IPv6 CIDR on the AWS side of the VPN connection.
      * 
      */
     @Export(name="remoteIpv6NetworkCidr", refs={String.class}, tree="[0]")
     private Output<String> remoteIpv6NetworkCidr;
 
     /**
-     * @return The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * @return The IPv6 CIDR on the AWS side of the VPN connection.
      * 
      */
     public Output<String> remoteIpv6NetworkCidr() {

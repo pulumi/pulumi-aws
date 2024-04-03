@@ -117,6 +117,10 @@ export class VpcIpam extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+     */
+    public readonly tier!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpcIpam resource with the given unique name, arguments, and options.
@@ -142,6 +146,7 @@ export class VpcIpam extends pulumi.CustomResource {
             resourceInputs["scopeCount"] = state ? state.scopeCount : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tier"] = state ? state.tier : undefined;
         } else {
             const args = argsOrState as VpcIpamArgs | undefined;
             if ((!args || args.operatingRegions === undefined) && !opts.urn) {
@@ -151,6 +156,7 @@ export class VpcIpam extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryAssociationId"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryId"] = undefined /*out*/;
@@ -215,6 +221,10 @@ export interface VpcIpamState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+     */
+    tier?: pulumi.Input<string>;
 }
 
 /**
@@ -237,4 +247,8 @@ export interface VpcIpamArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+     */
+    tier?: pulumi.Input<string>;
 }

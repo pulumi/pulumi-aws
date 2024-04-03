@@ -17,14 +17,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     public static final PolicyState Empty = new PolicyState();
 
     /**
-     * The ARN assigned by AWS to this policy.
+     * ARN assigned by AWS to this policy.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN assigned by AWS to this policy.
+     * @return ARN assigned by AWS to this policy.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -47,14 +47,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the policy. If omitted, the provider will assign a random, unique name.
+     * Name of the policy. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the policy. If omitted, the provider will assign a random, unique name.
+     * @return Name of the policy. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -77,16 +77,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Path in which to create the policy.
-     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+     * Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return Path in which to create the policy.
-     * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+     * @return Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
     public Optional<Output<String>> path() {
@@ -94,14 +92,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The policy document. This is a JSON formatted string.
+     * Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return The policy document. This is a JSON formatted string.
+     * @return Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
      * 
      */
     public Optional<Output<String>> policy() {
@@ -109,14 +107,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The policy&#39;s ID.
+     * Policy&#39;s ID.
      * 
      */
     @Import(name="policyId")
     private @Nullable Output<String> policyId;
 
     /**
-     * @return The policy&#39;s ID.
+     * @return Policy&#39;s ID.
      * 
      */
     public Optional<Output<String>> policyId() {
@@ -194,7 +192,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN assigned by AWS to this policy.
+         * @param arn ARN assigned by AWS to this policy.
          * 
          * @return builder
          * 
@@ -205,7 +203,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN assigned by AWS to this policy.
+         * @param arn ARN assigned by AWS to this policy.
          * 
          * @return builder
          * 
@@ -236,7 +234,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the policy. If omitted, the provider will assign a random, unique name.
+         * @param name Name of the policy. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -247,7 +245,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the policy. If omitted, the provider will assign a random, unique name.
+         * @param name Name of the policy. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -278,8 +276,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param path Path in which to create the policy.
-         * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+         * @param path Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
          * 
          * @return builder
          * 
@@ -290,8 +287,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param path Path in which to create the policy.
-         * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+         * @param path Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
          * 
          * @return builder
          * 
@@ -301,7 +297,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy The policy document. This is a JSON formatted string.
+         * @param policy Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
          * 
          * @return builder
          * 
@@ -312,7 +308,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy The policy document. This is a JSON formatted string.
+         * @param policy Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
          * 
          * @return builder
          * 
@@ -322,7 +318,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId The policy&#39;s ID.
+         * @param policyId Policy&#39;s ID.
          * 
          * @return builder
          * 
@@ -333,7 +329,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyId The policy&#39;s ID.
+         * @param policyId Policy&#39;s ID.
          * 
          * @return builder
          * 

@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .custom_domain_association import *
 from .endpoint_access import *
 from .get_credentials import *
 from .get_namespace import *

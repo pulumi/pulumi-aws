@@ -127,6 +127,12 @@ namespace Pulumi.Aws.Ec2
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+        /// </summary>
+        [Output("tier")]
+        public Output<string?> Tier { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a VpcIpam resource with the given unique name, arguments, and options.
@@ -208,6 +214,12 @@ namespace Pulumi.Aws.Ec2
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+        /// </summary>
+        [Input("tier")]
+        public Input<string>? Tier { get; set; }
 
         public VpcIpamArgs()
         {
@@ -302,6 +314,12 @@ namespace Pulumi.Aws.Ec2
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+        /// </summary>
+        [Input("tier")]
+        public Input<string>? Tier { get; set; }
 
         public VpcIpamState()
         {

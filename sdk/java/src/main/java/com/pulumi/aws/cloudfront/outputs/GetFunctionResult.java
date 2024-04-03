@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -35,6 +36,11 @@ public final class GetFunctionResult {
      * 
      */
     private String id;
+    /**
+     * @return List of `aws.cloudfront.KeyValueStore` ARNs associated to the function.
+     * 
+     */
+    private List<String> keyValueStoreAssociations;
     /**
      * @return When this resource was last modified.
      * 
@@ -90,6 +96,13 @@ public final class GetFunctionResult {
         return this.id;
     }
     /**
+     * @return List of `aws.cloudfront.KeyValueStore` ARNs associated to the function.
+     * 
+     */
+    public List<String> keyValueStoreAssociations() {
+        return this.keyValueStoreAssociations;
+    }
+    /**
      * @return When this resource was last modified.
      * 
      */
@@ -131,6 +144,7 @@ public final class GetFunctionResult {
         private String comment;
         private String etag;
         private String id;
+        private List<String> keyValueStoreAssociations;
         private String lastModifiedTime;
         private String name;
         private String runtime;
@@ -144,6 +158,7 @@ public final class GetFunctionResult {
     	      this.comment = defaults.comment;
     	      this.etag = defaults.etag;
     	      this.id = defaults.id;
+    	      this.keyValueStoreAssociations = defaults.keyValueStoreAssociations;
     	      this.lastModifiedTime = defaults.lastModifiedTime;
     	      this.name = defaults.name;
     	      this.runtime = defaults.runtime;
@@ -192,6 +207,17 @@ public final class GetFunctionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder keyValueStoreAssociations(List<String> keyValueStoreAssociations) {
+            if (keyValueStoreAssociations == null) {
+              throw new MissingRequiredPropertyException("GetFunctionResult", "keyValueStoreAssociations");
+            }
+            this.keyValueStoreAssociations = keyValueStoreAssociations;
+            return this;
+        }
+        public Builder keyValueStoreAssociations(String... keyValueStoreAssociations) {
+            return keyValueStoreAssociations(List.of(keyValueStoreAssociations));
+        }
+        @CustomType.Setter
         public Builder lastModifiedTime(String lastModifiedTime) {
             if (lastModifiedTime == null) {
               throw new MissingRequiredPropertyException("GetFunctionResult", "lastModifiedTime");
@@ -238,6 +264,7 @@ public final class GetFunctionResult {
             _resultValue.comment = comment;
             _resultValue.etag = etag;
             _resultValue.id = id;
+            _resultValue.keyValueStoreAssociations = keyValueStoreAssociations;
             _resultValue.lastModifiedTime = lastModifiedTime;
             _resultValue.name = name;
             _resultValue.runtime = runtime;

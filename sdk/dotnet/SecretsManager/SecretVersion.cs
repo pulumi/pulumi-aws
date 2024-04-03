@@ -87,7 +87,7 @@ namespace Pulumi.Aws.SecretsManager
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+        /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
         /// </summary>
         [Output("secretBinary")]
         public Output<string?> SecretBinary { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.SecretsManager
         public Output<string> SecretId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
+        /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
         /// </summary>
         [Output("secretString")]
         public Output<string?> SecretString { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.SecretsManager
         private Input<string>? _secretBinary;
 
         /// <summary>
-        /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+        /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
         /// </summary>
         public Input<string>? SecretBinary
         {
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.SecretsManager
         private Input<string>? _secretString;
 
         /// <summary>
-        /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
+        /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
         /// </summary>
         public Input<string>? SecretString
         {
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.SecretsManager
         private Input<string>? _secretBinary;
 
         /// <summary>
-        /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+        /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
         /// </summary>
         public Input<string>? SecretBinary
         {
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.SecretsManager
         private Input<string>? _secretString;
 
         /// <summary>
-        /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
+        /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
         /// </summary>
         public Input<string>? SecretString
         {

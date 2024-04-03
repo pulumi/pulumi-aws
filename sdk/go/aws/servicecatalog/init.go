@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:servicecatalog/appregistryApplication:AppregistryApplication":
+		r = &AppregistryApplication{}
 	case "aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation":
 		r = &BudgetResourceAssociation{}
 	case "aws:servicecatalog/constraint:Constraint":
@@ -60,6 +62,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicecatalog/appregistryApplication",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"servicecatalog/budgetResourceAssociation",

@@ -194,6 +194,7 @@ import * as lex from "./lex";
 import * as licensemanager from "./licensemanager";
 import * as lightsail from "./lightsail";
 import * as location from "./location";
+import * as m2 from "./m2";
 import * as macie from "./macie";
 import * as macie2 from "./macie2";
 import * as mediaconvert from "./mediaconvert";
@@ -400,6 +401,7 @@ export {
     licensemanager,
     lightsail,
     location,
+    m2,
     macie,
     macie2,
     mediaconvert,

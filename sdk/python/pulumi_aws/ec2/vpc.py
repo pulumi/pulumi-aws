@@ -260,6 +260,7 @@ class _VpcState:
         :param pulumi.Input[str] default_network_acl_id: The ID of the network ACL created by default on VPC creation
         :param pulumi.Input[str] default_route_table_id: The ID of the route table created by default on VPC creation
         :param pulumi.Input[str] default_security_group_id: The ID of the security group created by default on VPC creation
+        :param pulumi.Input[str] dhcp_options_id: DHCP options id of the desired VPC.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
         :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
@@ -401,6 +402,9 @@ class _VpcState:
     @property
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        DHCP options id of the desired VPC.
+        """
         return pulumi.get(self, "dhcp_options_id")
 
     @dhcp_options_id.setter
@@ -866,6 +870,7 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[str] default_network_acl_id: The ID of the network ACL created by default on VPC creation
         :param pulumi.Input[str] default_route_table_id: The ID of the route table created by default on VPC creation
         :param pulumi.Input[str] default_security_group_id: The ID of the security group created by default on VPC creation
+        :param pulumi.Input[str] dhcp_options_id: DHCP options id of the desired VPC.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
         :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
@@ -963,6 +968,9 @@ class Vpc(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Output[str]:
+        """
+        DHCP options id of the desired VPC.
+        """
         return pulumi.get(self, "dhcp_options_id")
 
     @property

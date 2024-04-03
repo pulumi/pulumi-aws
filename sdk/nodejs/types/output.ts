@@ -16651,6 +16651,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        datazone?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         dax?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -17088,6 +17092,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         outposts?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        paymentcryptography?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -20385,6 +20393,21 @@ export namespace devopsguru {
          * Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
          */
         status: string;
+    }
+
+    export interface NotificationChannelFilters {
+        /**
+         * Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
+         */
+        messageTypes?: string[];
+        /**
+         * Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
+         */
+        severities?: string[];
+    }
+
+    export interface NotificationChannelSns {
+        topicArn: string;
     }
 
     export interface ResourceCollectionCloudformation {
@@ -39370,7 +39393,7 @@ export namespace kinesis {
          */
         orcSerDe?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe;
         /**
-         * Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/documentation/latest/). More details below.
+         * Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). More details below.
          */
         parquetSerDe?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe;
     }
@@ -41556,6 +41579,97 @@ export namespace lakeformation {
          * The following arguments are optional:
          */
         wildcard?: boolean;
+    }
+
+    export interface ResourceLfTagDatabase {
+        /**
+         * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         */
+        catalogId?: string;
+        /**
+         * Name of the database resource. Unique to the Data Catalog.
+         *
+         * The following argument is optional:
+         */
+        name: string;
+    }
+
+    export interface ResourceLfTagLfTag {
+        /**
+         * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         */
+        catalogId: string;
+        /**
+         * Key name for an existing LF-tag.
+         */
+        key: string;
+        /**
+         * Value from the possible values for the LF-tag.
+         *
+         * The following argument is optional:
+         */
+        value: string;
+    }
+
+    export interface ResourceLfTagTable {
+        /**
+         * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         */
+        catalogId?: string;
+        /**
+         * Name of the database for the table. Unique to a Data Catalog.
+         */
+        databaseName: string;
+        /**
+         * Name of the table.
+         */
+        name?: string;
+        /**
+         * Whether to use a wildcard representing every table under a database. Defaults to `false`.
+         *
+         * The following arguments are optional:
+         */
+        wildcard?: boolean;
+    }
+
+    export interface ResourceLfTagTableWithColumns {
+        /**
+         * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         */
+        catalogId?: string;
+        /**
+         * Set of column names for the table.
+         */
+        columnNames?: string[];
+        /**
+         * Option to add column wildcard. See Column Wildcard for more details.
+         */
+        columnWildcard?: outputs.lakeformation.ResourceLfTagTableWithColumnsColumnWildcard;
+        /**
+         * Name of the database for the table with columns resource. Unique to the Data Catalog.
+         */
+        databaseName: string;
+        /**
+         * Name of the table resource.
+         *
+         * The following arguments are optional:
+         */
+        name: string;
+    }
+
+    export interface ResourceLfTagTableWithColumnsColumnWildcard {
+        excludedColumnNames?: string[];
+    }
+
+    export interface ResourceLfTagTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
     }
 
     export interface ResourceLfTagsDatabase {
@@ -55314,6 +55428,99 @@ export namespace location {
 
 }
 
+export namespace m2 {
+    export interface ApplicationDefinition {
+        /**
+         * JSON application definition. Either this or `s3Location` must be specified.
+         */
+        content?: string;
+        /**
+         * Location of the application definition in S3. Either this or `content` must be specified.
+         */
+        s3Location?: string;
+    }
+
+    export interface ApplicationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface DeploymentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface EnvironmentHighAvailabilityConfig {
+        /**
+         * Desired number of instances for the Environment.
+         */
+        desiredCapacity: number;
+    }
+
+    export interface EnvironmentStorageConfiguration {
+        efs?: outputs.m2.EnvironmentStorageConfigurationEfs;
+        fsx?: outputs.m2.EnvironmentStorageConfigurationFsx;
+    }
+
+    export interface EnvironmentStorageConfigurationEfs {
+        /**
+         * Id of the EFS filesystem to mount.
+         */
+        fileSystemId: string;
+        /**
+         * Path to mount the filesystem on, must start with `/m2/mount/`.
+         */
+        mountPoint: string;
+    }
+
+    export interface EnvironmentStorageConfigurationFsx {
+        /**
+         * Id of the FSX filesystem to mount.
+         */
+        fileSystemId: string;
+        /**
+         * Path to mount the filesystem on, must start with `/m2/mount/`.
+         */
+        mountPoint: string;
+    }
+
+    export interface EnvironmentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+}
+
 export namespace macie {
     export interface FindingsFilterFindingCriteria {
         /**
@@ -66482,6 +66689,60 @@ export namespace resourceexplorer {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         update?: string;
+    }
+
+    export interface SearchResource {
+        /**
+         * Amazon resource name of resource.
+         */
+        arn: string;
+        /**
+         * The date and time that the information about this resource property was last updated.
+         */
+        lastReportedAt: string;
+        /**
+         * Amazon Web Services account that owns the resource.
+         */
+        owningAccountId: string;
+        /**
+         * Amazon Web Services Region in which the resource was created and exists.
+         */
+        region: string;
+        /**
+         * Structure with additional type-specific details about the resource.  See `resourceProperty` below.
+         */
+        resourceProperties?: outputs.resourceexplorer.SearchResourceResourceProperty[];
+        /**
+         * Type of the resource.
+         */
+        resourceType: string;
+        /**
+         * Amazon Web Service that owns the resource and is responsible for creating and updating it.
+         */
+        service: string;
+    }
+
+    export interface SearchResourceCount {
+        completed: boolean;
+        /**
+         * Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
+         */
+        totalResources: number;
+    }
+
+    export interface SearchResourceResourceProperty {
+        /**
+         * Details about this property. The content of this field is a JSON object that varies based on the resource type.
+         */
+        data: string;
+        /**
+         * The date and time that the information about this resource property was last updated.
+         */
+        lastReportedAt: string;
+        /**
+         * Name of this property of the resource.
+         */
+        name: string;
     }
 
     export interface ViewFilters {

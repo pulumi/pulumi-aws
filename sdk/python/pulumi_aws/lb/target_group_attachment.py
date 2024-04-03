@@ -236,7 +236,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
                     target_id=range["value"],
                     port=80))
 
-        pulumi.Output.all({v.id: v for k, v in example}).apply(lambda resolved_outputs: create_example(resolved_outputs[0]))
+        pulumi.Output.all({k: v for k, v in example}).apply(lambda resolved_outputs: create_example(resolved_outputs[0]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -324,7 +324,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
                     target_id=range["value"],
                     port=80))
 
-        pulumi.Output.all({v.id: v for k, v in example}).apply(lambda resolved_outputs: create_example(resolved_outputs[0]))
+        pulumi.Output.all({k: v for k, v in example}).apply(lambda resolved_outputs: create_example(resolved_outputs[0]))
         ```
         <!--End PulumiCodeChooser -->
 

@@ -79,7 +79,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
-        :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
@@ -322,7 +322,7 @@ class VpnConnectionArgs:
     @pulumi.getter(name="remoteIpv6NetworkCidr")
     def remote_ipv6_network_cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        The IPv6 CIDR on the AWS side of the VPN connection.
         """
         return pulumi.get(self, "remote_ipv6_network_cidr")
 
@@ -970,7 +970,7 @@ class _VpnConnectionState:
         :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
-        :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionRouteArgs']]] routes: The static routes associated with the VPN connection. Detailed below.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1305,7 +1305,7 @@ class _VpnConnectionState:
     @pulumi.getter(name="remoteIpv6NetworkCidr")
     def remote_ipv6_network_cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        The IPv6 CIDR on the AWS side of the VPN connection.
         """
         return pulumi.get(self, "remote_ipv6_network_cidr")
 
@@ -2213,7 +2213,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
-        :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
@@ -2619,7 +2619,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
-        :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionRouteArgs']]]] routes: The static routes associated with the VPN connection. Detailed below.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -2844,7 +2844,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter(name="remoteIpv6NetworkCidr")
     def remote_ipv6_network_cidr(self) -> pulumi.Output[str]:
         """
-        The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        The IPv6 CIDR on the AWS side of the VPN connection.
         """
         return pulumi.get(self, "remote_ipv6_network_cidr")
 

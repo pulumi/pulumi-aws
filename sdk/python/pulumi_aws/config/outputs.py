@@ -321,6 +321,7 @@ class Endpoints(dict):
                  dataexchange: Optional[str] = None,
                  datapipeline: Optional[str] = None,
                  datasync: Optional[str] = None,
+                 datazone: Optional[str] = None,
                  dax: Optional[str] = None,
                  deploy: Optional[str] = None,
                  detective: Optional[str] = None,
@@ -431,6 +432,7 @@ class Endpoints(dict):
                  organizations: Optional[str] = None,
                  osis: Optional[str] = None,
                  outposts: Optional[str] = None,
+                 paymentcryptography: Optional[str] = None,
                  pcaconnectorad: Optional[str] = None,
                  pinpoint: Optional[str] = None,
                  pipes: Optional[str] = None,
@@ -596,6 +598,7 @@ class Endpoints(dict):
         :param str dataexchange: Use this to override the default service endpoint URL
         :param str datapipeline: Use this to override the default service endpoint URL
         :param str datasync: Use this to override the default service endpoint URL
+        :param str datazone: Use this to override the default service endpoint URL
         :param str dax: Use this to override the default service endpoint URL
         :param str deploy: Use this to override the default service endpoint URL
         :param str detective: Use this to override the default service endpoint URL
@@ -706,6 +709,7 @@ class Endpoints(dict):
         :param str organizations: Use this to override the default service endpoint URL
         :param str osis: Use this to override the default service endpoint URL
         :param str outposts: Use this to override the default service endpoint URL
+        :param str paymentcryptography: Use this to override the default service endpoint URL
         :param str pcaconnectorad: Use this to override the default service endpoint URL
         :param str pinpoint: Use this to override the default service endpoint URL
         :param str pipes: Use this to override the default service endpoint URL
@@ -955,6 +959,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "datapipeline", datapipeline)
         if datasync is not None:
             pulumi.set(__self__, "datasync", datasync)
+        if datazone is not None:
+            pulumi.set(__self__, "datazone", datazone)
         if dax is not None:
             pulumi.set(__self__, "dax", dax)
         if deploy is not None:
@@ -1175,6 +1181,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "osis", osis)
         if outposts is not None:
             pulumi.set(__self__, "outposts", outposts)
+        if paymentcryptography is not None:
+            pulumi.set(__self__, "paymentcryptography", paymentcryptography)
         if pcaconnectorad is not None:
             pulumi.set(__self__, "pcaconnectorad", pcaconnectorad)
         if pinpoint is not None:
@@ -2007,6 +2015,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "datasync")
+
+    @property
+    @pulumi.getter
+    def datazone(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "datazone")
 
     @property
     @pulumi.getter
@@ -2887,6 +2903,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "outposts")
+
+    @property
+    @pulumi.getter
+    def paymentcryptography(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "paymentcryptography")
 
     @property
     @pulumi.getter

@@ -8,8 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `aws.transfer.SshKey` resource.
- *
  * ## Example Usage
  *
  * <!--Start PulumiCodeChooser -->

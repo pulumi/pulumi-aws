@@ -10,10 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SsoAdmin
 {
     /// <summary>
-    /// Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
-    /// 
-    /// &gt; **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `aws.ssoadmin.PermissionSet` resource.
-    /// Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+    /// ## Example Usage
     /// 
     /// ## Import
     /// 

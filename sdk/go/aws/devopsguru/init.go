@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:devopsguru/eventSourcesConfig:EventSourcesConfig":
 		r = &EventSourcesConfig{}
+	case "aws:devopsguru/notificationChannel:NotificationChannel":
+		r = &NotificationChannel{}
 	case "aws:devopsguru/resourceCollection:ResourceCollection":
 		r = &ResourceCollection{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"devopsguru/eventSourcesConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"devopsguru/notificationChannel",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

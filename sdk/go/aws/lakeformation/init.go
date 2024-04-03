@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Permissions{}
 	case "aws:lakeformation/resource:Resource":
 		r = &Resource{}
+	case "aws:lakeformation/resourceLfTag:ResourceLfTag":
+		r = &ResourceLfTag{}
 	case "aws:lakeformation/resourceLfTags:ResourceLfTags":
 		r = &ResourceLfTags{}
 	default:
@@ -69,6 +71,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lakeformation/resource",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lakeformation/resourceLfTag",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

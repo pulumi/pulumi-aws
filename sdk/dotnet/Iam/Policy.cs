@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM policy.
     /// 
+    /// &gt; **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
+    /// 
     /// ## Example Usage
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;
@@ -63,7 +65,7 @@ namespace Pulumi.Aws.Iam
     public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN assigned by AWS to this policy.
+        /// ARN assigned by AWS to this policy.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -75,7 +77,7 @@ namespace Pulumi.Aws.Iam
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the policy. If omitted, the provider will assign a random, unique name.
+        /// Name of the policy. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -87,20 +89,19 @@ namespace Pulumi.Aws.Iam
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Path in which to create the policy.
-        /// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        /// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
         /// <summary>
-        /// The policy document. This is a JSON formatted string.
+        /// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
         /// </summary>
         [Output("policy")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
         /// <summary>
-        /// The policy's ID.
+        /// Policy's ID.
         /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
@@ -170,7 +171,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the policy. If omitted, the provider will assign a random, unique name.
+        /// Name of the policy. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -182,14 +183,13 @@ namespace Pulumi.Aws.Iam
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Path in which to create the policy.
-        /// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        /// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The policy document. This is a JSON formatted string.
+        /// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Iam
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN assigned by AWS to this policy.
+        /// ARN assigned by AWS to this policy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the policy. If omitted, the provider will assign a random, unique name.
+        /// Name of the policy. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -239,20 +239,19 @@ namespace Pulumi.Aws.Iam
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Path in which to create the policy.
-        /// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        /// Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The policy document. This is a JSON formatted string.
+        /// Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
         /// </summary>
         [Input("policy")]
         public Input<string>? PolicyDocument { get; set; }
 
         /// <summary>
-        /// The policy's ID.
+        /// Policy's ID.
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }

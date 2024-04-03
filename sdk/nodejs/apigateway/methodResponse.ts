@@ -98,7 +98,7 @@ import {RestApi} from "./index";
  *     httpMethod: myDemoMethod.httpMethod,
  *     statusCode: "200",
  *     responseModels: {
- *         "application-json": "MyDemoResponseModel",
+ *         "application/json": "MyDemoResponseModel",
  *     },
  *     responseParameters: {
  *         "method.response.header.Content-Type": false,

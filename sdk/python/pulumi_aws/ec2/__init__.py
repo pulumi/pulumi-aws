@@ -90,6 +90,7 @@ from .get_vpcs import *
 from .get_vpn_gateway import *
 from .image_block_public_access import *
 from .instance import *
+from .instance_metadata_defaults import *
 from .internet_gateway import *
 from .internet_gateway_attachment import *
 from .key_pair import *

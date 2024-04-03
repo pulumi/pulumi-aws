@@ -425,6 +425,11 @@ export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
 utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 
+export { InstanceMetadataDefaultsArgs, InstanceMetadataDefaultsState } from "./instanceMetadataDefaults";
+export type InstanceMetadataDefaults = import("./instanceMetadataDefaults").InstanceMetadataDefaults;
+export const InstanceMetadataDefaults: typeof import("./instanceMetadataDefaults").InstanceMetadataDefaults = null as any;
+utilities.lazyLoad(exports, ["InstanceMetadataDefaults"], () => require("./instanceMetadataDefaults"));
+
 export * from "./instancePlatform";
 export * from "./instanceType";
 export { InternetGatewayArgs, InternetGatewayState } from "./internetGateway";
@@ -837,6 +842,8 @@ const _module = {
                 return new ImageBlockPublicAccess(name, <any>undefined, { urn })
             case "aws:ec2/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults":
+                return new InstanceMetadataDefaults(name, <any>undefined, { urn })
             case "aws:ec2/internetGateway:InternetGateway":
                 return new InternetGateway(name, <any>undefined, { urn })
             case "aws:ec2/internetGatewayAttachment:InternetGatewayAttachment":
@@ -1006,6 +1013,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/fleet", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/flowLog", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/imageBlockPublicAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/instance", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/instanceMetadataDefaults", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/internetGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/internetGatewayAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/keyPair", _module)

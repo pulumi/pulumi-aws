@@ -12,6 +12,8 @@ from .. import _utilities
 __all__ = [
     'EventSourcesConfigEventSourceArgs',
     'EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs',
+    'NotificationChannelFiltersArgs',
+    'NotificationChannelSnsArgs',
     'ResourceCollectionCloudformationArgs',
     'ResourceCollectionTagsArgs',
 ]
@@ -59,6 +61,61 @@ class EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs:
     @status.setter
     def status(self, value: pulumi.Input[str]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class NotificationChannelFiltersArgs:
+    def __init__(__self__, *,
+                 message_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 severities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] message_types: Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] severities: Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
+        """
+        if message_types is not None:
+            pulumi.set(__self__, "message_types", message_types)
+        if severities is not None:
+            pulumi.set(__self__, "severities", severities)
+
+    @property
+    @pulumi.getter(name="messageTypes")
+    def message_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
+        """
+        return pulumi.get(self, "message_types")
+
+    @message_types.setter
+    def message_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "message_types", value)
+
+    @property
+    @pulumi.getter
+    def severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
+        """
+        return pulumi.get(self, "severities")
+
+    @severities.setter
+    def severities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "severities", value)
+
+
+@pulumi.input_type
+class NotificationChannelSnsArgs:
+    def __init__(__self__, *,
+                 topic_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "topic_arn", value)
 
 
 @pulumi.input_type

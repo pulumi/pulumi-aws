@@ -239,6 +239,20 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+     * 
+     */
+    @Export(name="tier", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tier;
+
+    /**
+     * @return specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+     * 
+     */
+    public Output<Optional<String>> tier() {
+        return Codegen.optional(this.tier);
+    }
 
     /**
      *

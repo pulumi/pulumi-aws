@@ -5,8 +5,10 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .appregistry_application import *
 from .budget_resource_association import *
 from .constraint import *
+from .get_appregistry_application import *
 from .get_constraint import *
 from .get_launch_paths import *
 from .get_portfolio import *

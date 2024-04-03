@@ -209,6 +209,295 @@ func (o EventSourcesConfigEventSourceAmazonCodeGuruProfilerArrayOutput) Index(i 
 	}).(EventSourcesConfigEventSourceAmazonCodeGuruProfilerOutput)
 }
 
+type NotificationChannelFilters struct {
+	// Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
+	MessageTypes []string `pulumi:"messageTypes"`
+	// Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
+	Severities []string `pulumi:"severities"`
+}
+
+// NotificationChannelFiltersInput is an input type that accepts NotificationChannelFiltersArgs and NotificationChannelFiltersOutput values.
+// You can construct a concrete instance of `NotificationChannelFiltersInput` via:
+//
+//	NotificationChannelFiltersArgs{...}
+type NotificationChannelFiltersInput interface {
+	pulumi.Input
+
+	ToNotificationChannelFiltersOutput() NotificationChannelFiltersOutput
+	ToNotificationChannelFiltersOutputWithContext(context.Context) NotificationChannelFiltersOutput
+}
+
+type NotificationChannelFiltersArgs struct {
+	// Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
+	MessageTypes pulumi.StringArrayInput `pulumi:"messageTypes"`
+	// Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
+	Severities pulumi.StringArrayInput `pulumi:"severities"`
+}
+
+func (NotificationChannelFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannelFilters)(nil)).Elem()
+}
+
+func (i NotificationChannelFiltersArgs) ToNotificationChannelFiltersOutput() NotificationChannelFiltersOutput {
+	return i.ToNotificationChannelFiltersOutputWithContext(context.Background())
+}
+
+func (i NotificationChannelFiltersArgs) ToNotificationChannelFiltersOutputWithContext(ctx context.Context) NotificationChannelFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelFiltersOutput)
+}
+
+func (i NotificationChannelFiltersArgs) ToNotificationChannelFiltersPtrOutput() NotificationChannelFiltersPtrOutput {
+	return i.ToNotificationChannelFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i NotificationChannelFiltersArgs) ToNotificationChannelFiltersPtrOutputWithContext(ctx context.Context) NotificationChannelFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelFiltersOutput).ToNotificationChannelFiltersPtrOutputWithContext(ctx)
+}
+
+// NotificationChannelFiltersPtrInput is an input type that accepts NotificationChannelFiltersArgs, NotificationChannelFiltersPtr and NotificationChannelFiltersPtrOutput values.
+// You can construct a concrete instance of `NotificationChannelFiltersPtrInput` via:
+//
+//	        NotificationChannelFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationChannelFiltersPtrInput interface {
+	pulumi.Input
+
+	ToNotificationChannelFiltersPtrOutput() NotificationChannelFiltersPtrOutput
+	ToNotificationChannelFiltersPtrOutputWithContext(context.Context) NotificationChannelFiltersPtrOutput
+}
+
+type notificationChannelFiltersPtrType NotificationChannelFiltersArgs
+
+func NotificationChannelFiltersPtr(v *NotificationChannelFiltersArgs) NotificationChannelFiltersPtrInput {
+	return (*notificationChannelFiltersPtrType)(v)
+}
+
+func (*notificationChannelFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationChannelFilters)(nil)).Elem()
+}
+
+func (i *notificationChannelFiltersPtrType) ToNotificationChannelFiltersPtrOutput() NotificationChannelFiltersPtrOutput {
+	return i.ToNotificationChannelFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *notificationChannelFiltersPtrType) ToNotificationChannelFiltersPtrOutputWithContext(ctx context.Context) NotificationChannelFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelFiltersPtrOutput)
+}
+
+type NotificationChannelFiltersOutput struct{ *pulumi.OutputState }
+
+func (NotificationChannelFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannelFilters)(nil)).Elem()
+}
+
+func (o NotificationChannelFiltersOutput) ToNotificationChannelFiltersOutput() NotificationChannelFiltersOutput {
+	return o
+}
+
+func (o NotificationChannelFiltersOutput) ToNotificationChannelFiltersOutputWithContext(ctx context.Context) NotificationChannelFiltersOutput {
+	return o
+}
+
+func (o NotificationChannelFiltersOutput) ToNotificationChannelFiltersPtrOutput() NotificationChannelFiltersPtrOutput {
+	return o.ToNotificationChannelFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationChannelFiltersOutput) ToNotificationChannelFiltersPtrOutputWithContext(ctx context.Context) NotificationChannelFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationChannelFilters) *NotificationChannelFilters {
+		return &v
+	}).(NotificationChannelFiltersPtrOutput)
+}
+
+// Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
+func (o NotificationChannelFiltersOutput) MessageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationChannelFilters) []string { return v.MessageTypes }).(pulumi.StringArrayOutput)
+}
+
+// Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
+func (o NotificationChannelFiltersOutput) Severities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationChannelFilters) []string { return v.Severities }).(pulumi.StringArrayOutput)
+}
+
+type NotificationChannelFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationChannelFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationChannelFilters)(nil)).Elem()
+}
+
+func (o NotificationChannelFiltersPtrOutput) ToNotificationChannelFiltersPtrOutput() NotificationChannelFiltersPtrOutput {
+	return o
+}
+
+func (o NotificationChannelFiltersPtrOutput) ToNotificationChannelFiltersPtrOutputWithContext(ctx context.Context) NotificationChannelFiltersPtrOutput {
+	return o
+}
+
+func (o NotificationChannelFiltersPtrOutput) Elem() NotificationChannelFiltersOutput {
+	return o.ApplyT(func(v *NotificationChannelFilters) NotificationChannelFilters {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationChannelFilters
+		return ret
+	}).(NotificationChannelFiltersOutput)
+}
+
+// Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
+func (o NotificationChannelFiltersPtrOutput) MessageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NotificationChannelFilters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
+func (o NotificationChannelFiltersPtrOutput) Severities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NotificationChannelFilters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Severities
+	}).(pulumi.StringArrayOutput)
+}
+
+type NotificationChannelSns struct {
+	TopicArn string `pulumi:"topicArn"`
+}
+
+// NotificationChannelSnsInput is an input type that accepts NotificationChannelSnsArgs and NotificationChannelSnsOutput values.
+// You can construct a concrete instance of `NotificationChannelSnsInput` via:
+//
+//	NotificationChannelSnsArgs{...}
+type NotificationChannelSnsInput interface {
+	pulumi.Input
+
+	ToNotificationChannelSnsOutput() NotificationChannelSnsOutput
+	ToNotificationChannelSnsOutputWithContext(context.Context) NotificationChannelSnsOutput
+}
+
+type NotificationChannelSnsArgs struct {
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (NotificationChannelSnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannelSns)(nil)).Elem()
+}
+
+func (i NotificationChannelSnsArgs) ToNotificationChannelSnsOutput() NotificationChannelSnsOutput {
+	return i.ToNotificationChannelSnsOutputWithContext(context.Background())
+}
+
+func (i NotificationChannelSnsArgs) ToNotificationChannelSnsOutputWithContext(ctx context.Context) NotificationChannelSnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelSnsOutput)
+}
+
+func (i NotificationChannelSnsArgs) ToNotificationChannelSnsPtrOutput() NotificationChannelSnsPtrOutput {
+	return i.ToNotificationChannelSnsPtrOutputWithContext(context.Background())
+}
+
+func (i NotificationChannelSnsArgs) ToNotificationChannelSnsPtrOutputWithContext(ctx context.Context) NotificationChannelSnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelSnsOutput).ToNotificationChannelSnsPtrOutputWithContext(ctx)
+}
+
+// NotificationChannelSnsPtrInput is an input type that accepts NotificationChannelSnsArgs, NotificationChannelSnsPtr and NotificationChannelSnsPtrOutput values.
+// You can construct a concrete instance of `NotificationChannelSnsPtrInput` via:
+//
+//	        NotificationChannelSnsArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationChannelSnsPtrInput interface {
+	pulumi.Input
+
+	ToNotificationChannelSnsPtrOutput() NotificationChannelSnsPtrOutput
+	ToNotificationChannelSnsPtrOutputWithContext(context.Context) NotificationChannelSnsPtrOutput
+}
+
+type notificationChannelSnsPtrType NotificationChannelSnsArgs
+
+func NotificationChannelSnsPtr(v *NotificationChannelSnsArgs) NotificationChannelSnsPtrInput {
+	return (*notificationChannelSnsPtrType)(v)
+}
+
+func (*notificationChannelSnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationChannelSns)(nil)).Elem()
+}
+
+func (i *notificationChannelSnsPtrType) ToNotificationChannelSnsPtrOutput() NotificationChannelSnsPtrOutput {
+	return i.ToNotificationChannelSnsPtrOutputWithContext(context.Background())
+}
+
+func (i *notificationChannelSnsPtrType) ToNotificationChannelSnsPtrOutputWithContext(ctx context.Context) NotificationChannelSnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelSnsPtrOutput)
+}
+
+type NotificationChannelSnsOutput struct{ *pulumi.OutputState }
+
+func (NotificationChannelSnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannelSns)(nil)).Elem()
+}
+
+func (o NotificationChannelSnsOutput) ToNotificationChannelSnsOutput() NotificationChannelSnsOutput {
+	return o
+}
+
+func (o NotificationChannelSnsOutput) ToNotificationChannelSnsOutputWithContext(ctx context.Context) NotificationChannelSnsOutput {
+	return o
+}
+
+func (o NotificationChannelSnsOutput) ToNotificationChannelSnsPtrOutput() NotificationChannelSnsPtrOutput {
+	return o.ToNotificationChannelSnsPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationChannelSnsOutput) ToNotificationChannelSnsPtrOutputWithContext(ctx context.Context) NotificationChannelSnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationChannelSns) *NotificationChannelSns {
+		return &v
+	}).(NotificationChannelSnsPtrOutput)
+}
+
+func (o NotificationChannelSnsOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationChannelSns) string { return v.TopicArn }).(pulumi.StringOutput)
+}
+
+type NotificationChannelSnsPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationChannelSnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationChannelSns)(nil)).Elem()
+}
+
+func (o NotificationChannelSnsPtrOutput) ToNotificationChannelSnsPtrOutput() NotificationChannelSnsPtrOutput {
+	return o
+}
+
+func (o NotificationChannelSnsPtrOutput) ToNotificationChannelSnsPtrOutputWithContext(ctx context.Context) NotificationChannelSnsPtrOutput {
+	return o
+}
+
+func (o NotificationChannelSnsPtrOutput) Elem() NotificationChannelSnsOutput {
+	return o.ApplyT(func(v *NotificationChannelSns) NotificationChannelSns {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationChannelSns
+		return ret
+	}).(NotificationChannelSnsOutput)
+}
+
+func (o NotificationChannelSnsPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationChannelSns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ResourceCollectionCloudformation struct {
 	// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
 	StackNames []string `pulumi:"stackNames"`
@@ -507,6 +796,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourcesConfigEventSourceArrayInput)(nil)).Elem(), EventSourcesConfigEventSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourcesConfigEventSourceAmazonCodeGuruProfilerInput)(nil)).Elem(), EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourcesConfigEventSourceAmazonCodeGuruProfilerArrayInput)(nil)).Elem(), EventSourcesConfigEventSourceAmazonCodeGuruProfilerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelFiltersInput)(nil)).Elem(), NotificationChannelFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelFiltersPtrInput)(nil)).Elem(), NotificationChannelFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelSnsInput)(nil)).Elem(), NotificationChannelSnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelSnsPtrInput)(nil)).Elem(), NotificationChannelSnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionCloudformationInput)(nil)).Elem(), ResourceCollectionCloudformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionCloudformationPtrInput)(nil)).Elem(), ResourceCollectionCloudformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionTagsInput)(nil)).Elem(), ResourceCollectionTagsArgs{})
@@ -515,6 +808,10 @@ func init() {
 	pulumi.RegisterOutputType(EventSourcesConfigEventSourceArrayOutput{})
 	pulumi.RegisterOutputType(EventSourcesConfigEventSourceAmazonCodeGuruProfilerOutput{})
 	pulumi.RegisterOutputType(EventSourcesConfigEventSourceAmazonCodeGuruProfilerArrayOutput{})
+	pulumi.RegisterOutputType(NotificationChannelFiltersOutput{})
+	pulumi.RegisterOutputType(NotificationChannelFiltersPtrOutput{})
+	pulumi.RegisterOutputType(NotificationChannelSnsOutput{})
+	pulumi.RegisterOutputType(NotificationChannelSnsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceCollectionCloudformationOutput{})
 	pulumi.RegisterOutputType(ResourceCollectionCloudformationPtrOutput{})
 	pulumi.RegisterOutputType(ResourceCollectionTagsOutput{})

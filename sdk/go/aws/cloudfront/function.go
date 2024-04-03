@@ -38,6 +38,8 @@ type Function struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+	KeyValueStoreAssociations pulumi.StringArrayOutput `pulumi:"keyValueStoreAssociations"`
 	// ETag hash of any `LIVE` stage of the function.
 	LiveStageEtag pulumi.StringOutput `pulumi:"liveStageEtag"`
 	// Unique name for your CloudFront Function.
@@ -96,6 +98,8 @@ type functionState struct {
 	Comment *string `pulumi:"comment"`
 	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
 	Etag *string `pulumi:"etag"`
+	// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+	KeyValueStoreAssociations []string `pulumi:"keyValueStoreAssociations"`
 	// ETag hash of any `LIVE` stage of the function.
 	LiveStageEtag *string `pulumi:"liveStageEtag"`
 	// Unique name for your CloudFront Function.
@@ -119,6 +123,8 @@ type FunctionState struct {
 	Comment pulumi.StringPtrInput
 	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
 	Etag pulumi.StringPtrInput
+	// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+	KeyValueStoreAssociations pulumi.StringArrayInput
 	// ETag hash of any `LIVE` stage of the function.
 	LiveStageEtag pulumi.StringPtrInput
 	// Unique name for your CloudFront Function.
@@ -142,6 +148,8 @@ type functionArgs struct {
 	Code string `pulumi:"code"`
 	// Comment.
 	Comment *string `pulumi:"comment"`
+	// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+	KeyValueStoreAssociations []string `pulumi:"keyValueStoreAssociations"`
 	// Unique name for your CloudFront Function.
 	Name *string `pulumi:"name"`
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
@@ -158,6 +166,8 @@ type FunctionArgs struct {
 	Code pulumi.StringInput
 	// Comment.
 	Comment pulumi.StringPtrInput
+	// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+	KeyValueStoreAssociations pulumi.StringArrayInput
 	// Unique name for your CloudFront Function.
 	Name pulumi.StringPtrInput
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
@@ -273,6 +283,11 @@ func (o FunctionOutput) Comment() pulumi.StringPtrOutput {
 // ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
 func (o FunctionOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+func (o FunctionOutput) KeyValueStoreAssociations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.KeyValueStoreAssociations }).(pulumi.StringArrayOutput)
 }
 
 // ETag hash of any `LIVE` stage of the function.

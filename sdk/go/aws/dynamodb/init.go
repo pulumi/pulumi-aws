@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GlobalTable{}
 	case "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination":
 		r = &KinesisStreamingDestination{}
+	case "aws:dynamodb/resourcePolicy:ResourcePolicy":
+		r = &ResourcePolicy{}
 	case "aws:dynamodb/table:Table":
 		r = &Table{}
 	case "aws:dynamodb/tableExport:TableExport":
@@ -63,6 +65,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dynamodb/kinesisStreamingDestination",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dynamodb/resourcePolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

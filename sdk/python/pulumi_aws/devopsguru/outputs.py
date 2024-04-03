@@ -13,6 +13,8 @@ from . import outputs
 __all__ = [
     'EventSourcesConfigEventSource',
     'EventSourcesConfigEventSourceAmazonCodeGuruProfiler',
+    'NotificationChannelFilters',
+    'NotificationChannelSns',
     'ResourceCollectionCloudformation',
     'ResourceCollectionTags',
 ]
@@ -69,6 +71,83 @@ class EventSourcesConfigEventSourceAmazonCodeGuruProfiler(dict):
         Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class NotificationChannelFilters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageTypes":
+            suggest = "message_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationChannelFilters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationChannelFilters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationChannelFilters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 message_types: Optional[Sequence[str]] = None,
+                 severities: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] message_types: Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
+        :param Sequence[str] severities: Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
+        """
+        if message_types is not None:
+            pulumi.set(__self__, "message_types", message_types)
+        if severities is not None:
+            pulumi.set(__self__, "severities", severities)
+
+    @property
+    @pulumi.getter(name="messageTypes")
+    def message_types(self) -> Optional[Sequence[str]]:
+        """
+        Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
+        """
+        return pulumi.get(self, "message_types")
+
+    @property
+    @pulumi.getter
+    def severities(self) -> Optional[Sequence[str]]:
+        """
+        Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
+        """
+        return pulumi.get(self, "severities")
+
+
+@pulumi.output_type
+class NotificationChannelSns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationChannelSns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationChannelSns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationChannelSns.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topic_arn: str):
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> str:
+        return pulumi.get(self, "topic_arn")
 
 
 @pulumi.output_type

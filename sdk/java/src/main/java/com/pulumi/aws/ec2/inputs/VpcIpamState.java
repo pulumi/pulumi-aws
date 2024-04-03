@@ -195,6 +195,21 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+     * 
+     */
+    @Import(name="tier")
+    private @Nullable Output<String> tier;
+
+    /**
+     * @return specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+     * 
+     */
+    public Optional<Output<String>> tier() {
+        return Optional.ofNullable(this.tier);
+    }
+
     private VpcIpamState() {}
 
     private VpcIpamState(VpcIpamState $) {
@@ -209,6 +224,7 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         this.scopeCount = $.scopeCount;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.tier = $.tier;
     }
 
     public static Builder builder() {
@@ -478,6 +494,27 @@ public final class VpcIpamState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param tier specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tier(@Nullable Output<String> tier) {
+            $.tier = tier;
+            return this;
+        }
+
+        /**
+         * @param tier specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tier(String tier) {
+            return tier(Output.of(tier));
         }
 
         public VpcIpamState build() {

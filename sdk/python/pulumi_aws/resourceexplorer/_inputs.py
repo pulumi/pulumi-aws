@@ -11,6 +11,9 @@ from .. import _utilities
 
 __all__ = [
     'IndexTimeoutsArgs',
+    'SearchResourceArgs',
+    'SearchResourceCountArgs',
+    'SearchResourceResourcePropertyArgs',
     'ViewFiltersArgs',
     'ViewIncludedPropertyArgs',
 ]
@@ -68,6 +71,204 @@ class IndexTimeoutsArgs:
     @update.setter
     def update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update", value)
+
+
+@pulumi.input_type
+class SearchResourceArgs:
+    def __init__(__self__, *,
+                 arn: str,
+                 last_reported_at: str,
+                 owning_account_id: str,
+                 region: str,
+                 resource_type: str,
+                 service: str,
+                 resource_properties: Optional[Sequence['SearchResourceResourcePropertyArgs']] = None):
+        """
+        :param str arn: Amazon resource name of resource.
+        :param str last_reported_at: The date and time that the information about this resource property was last updated.
+        :param str owning_account_id: Amazon Web Services account that owns the resource.
+        :param str region: Amazon Web Services Region in which the resource was created and exists.
+        :param str resource_type: Type of the resource.
+        :param str service: Amazon Web Service that owns the resource and is responsible for creating and updating it.
+        :param Sequence['SearchResourceResourcePropertyArgs'] resource_properties: Structure with additional type-specific details about the resource.  See `resource_property` below.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "last_reported_at", last_reported_at)
+        pulumi.set(__self__, "owning_account_id", owning_account_id)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "service", service)
+        if resource_properties is not None:
+            pulumi.set(__self__, "resource_properties", resource_properties)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        Amazon resource name of resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: str):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="lastReportedAt")
+    def last_reported_at(self) -> str:
+        """
+        The date and time that the information about this resource property was last updated.
+        """
+        return pulumi.get(self, "last_reported_at")
+
+    @last_reported_at.setter
+    def last_reported_at(self, value: str):
+        pulumi.set(self, "last_reported_at", value)
+
+    @property
+    @pulumi.getter(name="owningAccountId")
+    def owning_account_id(self) -> str:
+        """
+        Amazon Web Services account that owns the resource.
+        """
+        return pulumi.get(self, "owning_account_id")
+
+    @owning_account_id.setter
+    def owning_account_id(self, value: str):
+        pulumi.set(self, "owning_account_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        Amazon Web Services Region in which the resource was created and exists.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: str):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: str):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> str:
+        """
+        Amazon Web Service that owns the resource and is responsible for creating and updating it.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: str):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter(name="resourceProperties")
+    def resource_properties(self) -> Optional[Sequence['SearchResourceResourcePropertyArgs']]:
+        """
+        Structure with additional type-specific details about the resource.  See `resource_property` below.
+        """
+        return pulumi.get(self, "resource_properties")
+
+    @resource_properties.setter
+    def resource_properties(self, value: Optional[Sequence['SearchResourceResourcePropertyArgs']]):
+        pulumi.set(self, "resource_properties", value)
+
+
+@pulumi.input_type
+class SearchResourceCountArgs:
+    def __init__(__self__, *,
+                 completed: bool,
+                 total_resources: int):
+        """
+        :param int total_resources: Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
+        """
+        pulumi.set(__self__, "completed", completed)
+        pulumi.set(__self__, "total_resources", total_resources)
+
+    @property
+    @pulumi.getter
+    def completed(self) -> bool:
+        return pulumi.get(self, "completed")
+
+    @completed.setter
+    def completed(self, value: bool):
+        pulumi.set(self, "completed", value)
+
+    @property
+    @pulumi.getter(name="totalResources")
+    def total_resources(self) -> int:
+        """
+        Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
+        """
+        return pulumi.get(self, "total_resources")
+
+    @total_resources.setter
+    def total_resources(self, value: int):
+        pulumi.set(self, "total_resources", value)
+
+
+@pulumi.input_type
+class SearchResourceResourcePropertyArgs:
+    def __init__(__self__, *,
+                 data: str,
+                 last_reported_at: str,
+                 name: str):
+        """
+        :param str data: Details about this property. The content of this field is a JSON object that varies based on the resource type.
+        :param str last_reported_at: The date and time that the information about this resource property was last updated.
+        :param str name: Name of this property of the resource.
+        """
+        pulumi.set(__self__, "data", data)
+        pulumi.set(__self__, "last_reported_at", last_reported_at)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def data(self) -> str:
+        """
+        Details about this property. The content of this field is a JSON object that varies based on the resource type.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: str):
+        pulumi.set(self, "data", value)
+
+    @property
+    @pulumi.getter(name="lastReportedAt")
+    def last_reported_at(self) -> str:
+        """
+        The date and time that the information about this resource property was last updated.
+        """
+        return pulumi.get(self, "last_reported_at")
+
+    @last_reported_at.setter
+    def last_reported_at(self, value: str):
+        pulumi.set(self, "last_reported_at", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of this property of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

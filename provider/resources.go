@@ -165,6 +165,7 @@ const (
 	licensemanagerMod           = "LicenseManager"           // License Manager
 	lightsailMod                = "LightSail"                // LightSail
 	locationMod                 = "Location"                 // Location
+	m2Mod                       = "M2"                       // Mainframe Modernisation
 	macieMod                    = "Macie"                    // Macie (Classic)
 	macie2Mod                   = "Macie2"                   // Macie2
 	mediaconvertMod             = "MediaConvert"             // Media Convert
@@ -377,6 +378,7 @@ var moduleMap = map[string]string{
 	"licensemanager":                  licensemanagerMod,
 	"lightsail":                       lightsailMod,
 	"location":                        locationMod,
+	"m2":                              m2Mod,
 	"macie":                           macieMod,
 	"macie2":                          macie2Mod,
 	"media_convert":                   mediaconvertMod,
@@ -1789,9 +1791,10 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_internet_gateway":              {Tok: awsResource(ec2Mod, "InternetGateway")},
-			"aws_internet_gateway_attachment":   {Tok: awsResource(ec2Mod, "InternetGatewayAttachment")},
-			"aws_ec2_image_block_public_access": {Tok: awsResource(ec2Mod, "ImageBlockPublicAccess")},
+			"aws_internet_gateway":               {Tok: awsResource(ec2Mod, "InternetGateway")},
+			"aws_internet_gateway_attachment":    {Tok: awsResource(ec2Mod, "InternetGatewayAttachment")},
+			"aws_ec2_image_block_public_access":  {Tok: awsResource(ec2Mod, "ImageBlockPublicAccess")},
+			"aws_ec2_instance_metadata_defaults": {Tok: awsResource(ec2Mod, "InstanceMetadataDefaults")},
 			"aws_key_pair": {
 				Tok: awsResource(ec2Mod, "KeyPair"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -5970,6 +5973,11 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			// VpcLattice
 			"aws_vpclattice_service":  {Tok: awsDataSource(vpclatticeMod, "getService")},
 			"aws_vpclattice_listener": {Tok: awsDataSource(vpclatticeMod, "getListener")},
+
+			// Resource Explorer 2
+			"aws_resourceexplorer2_search": {
+				Tok: awsDataSource("ResourceExplorer", "Search"),
+			},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

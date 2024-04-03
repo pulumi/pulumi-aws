@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a MediaStore Container Policy.
- *
  * ## Example Usage
  *
  * <!--Start PulumiCodeChooser -->

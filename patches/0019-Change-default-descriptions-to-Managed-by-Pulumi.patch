@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
-Subject: [PATCH 19/47] Change default descriptions to "Managed by Pulumi"
+Subject: [PATCH 19/48] Change default descriptions to "Managed by Pulumi"
 
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
@@ -1061,7 +1061,7 @@ index 804d43ea28..989e905765 100644
  			{
  				Action:            aws.String(route53.ChangeActionDelete),
 diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
-index e39e6ec7c0..b00f880a2a 100644
+index d2e20f6dda..b9e1bf2bfe 100644
 --- a/internal/service/route53/zone.go
 +++ b/internal/service/route53/zone.go
 @@ -59,7 +59,7 @@ func ResourceZone() *schema.Resource {

@@ -153,6 +153,9 @@ namespace Pulumi.Aws.Ec2
         [Output("defaultSecurityGroupId")]
         public Output<string> DefaultSecurityGroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// DHCP options id of the desired VPC.
+        /// </summary>
         [Output("dhcpOptionsId")]
         public Output<string> DhcpOptionsId { get; private set; } = null!;
 
@@ -422,6 +425,9 @@ namespace Pulumi.Aws.Ec2
         [Input("defaultSecurityGroupId")]
         public Input<string>? DefaultSecurityGroupId { get; set; }
 
+        /// <summary>
+        /// DHCP options id of the desired VPC.
+        /// </summary>
         [Input("dhcpOptionsId")]
         public Input<string>? DhcpOptionsId { get; set; }
 

@@ -22,12 +22,11 @@ class PolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[str] policy: Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
         :param pulumi.Input[str] description: Description of the IAM policy.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[str] path: Path in which to create the policy.
-               See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        :param pulumi.Input[str] path: Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "policy", policy)
@@ -46,7 +45,7 @@ class PolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
         """
-        The policy document. This is a JSON formatted string.
+        Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
         """
         return pulumi.get(self, "policy")
 
@@ -70,7 +69,7 @@ class PolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the policy. If omitted, the provider will assign a random, unique name.
+        Name of the policy. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -94,8 +93,7 @@ class PolicyArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
-        Path in which to create the policy.
-        See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         """
         return pulumi.get(self, "path")
 
@@ -130,14 +128,13 @@ class _PolicyState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
-        :param pulumi.Input[str] arn: The ARN assigned by AWS to this policy.
+        :param pulumi.Input[str] arn: ARN assigned by AWS to this policy.
         :param pulumi.Input[str] description: Description of the IAM policy.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[str] path: Path in which to create the policy.
-               See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[str] policy_id: The policy's ID.
+        :param pulumi.Input[str] path: Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        :param pulumi.Input[str] policy: Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
+        :param pulumi.Input[str] policy_id: Policy's ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -167,7 +164,7 @@ class _PolicyState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN assigned by AWS to this policy.
+        ARN assigned by AWS to this policy.
         """
         return pulumi.get(self, "arn")
 
@@ -191,7 +188,7 @@ class _PolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the policy. If omitted, the provider will assign a random, unique name.
+        Name of the policy. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -215,8 +212,7 @@ class _PolicyState:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
-        Path in which to create the policy.
-        See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         """
         return pulumi.get(self, "path")
 
@@ -228,7 +224,7 @@ class _PolicyState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The policy document. This is a JSON formatted string.
+        Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
         """
         return pulumi.get(self, "policy")
 
@@ -240,7 +236,7 @@ class _PolicyState:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The policy's ID.
+        Policy's ID.
         """
         return pulumi.get(self, "policy_id")
 
@@ -291,6 +287,8 @@ class Policy(pulumi.CustomResource):
         """
         Provides an IAM policy.
 
+        > **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
+
         ## Example Usage
 
         <!--Start PulumiCodeChooser -->
@@ -325,11 +323,10 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the IAM policy.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[str] path: Path in which to create the policy.
-               See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[str] path: Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        :param pulumi.Input[str] policy: Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -340,6 +337,8 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM policy.
+
+        > **NOTE:** We suggest using explicit JSON encoding or `aws.iam.getPolicyDocument` when assigning a value to `policy`. They seamlessly translate configuration to JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
 
         ## Example Usage
 
@@ -439,14 +438,13 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN assigned by AWS to this policy.
+        :param pulumi.Input[str] arn: ARN assigned by AWS to this policy.
         :param pulumi.Input[str] description: Description of the IAM policy.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[str] path: Path in which to create the policy.
-               See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
-        :param pulumi.Input[str] policy_id: The policy's ID.
+        :param pulumi.Input[str] path: Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        :param pulumi.Input[str] policy: Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
+        :param pulumi.Input[str] policy_id: Policy's ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -469,7 +467,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN assigned by AWS to this policy.
+        ARN assigned by AWS to this policy.
         """
         return pulumi.get(self, "arn")
 
@@ -485,7 +483,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the policy. If omitted, the provider will assign a random, unique name.
+        Name of the policy. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -501,8 +499,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
         """
-        Path in which to create the policy.
-        See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         """
         return pulumi.get(self, "path")
 
@@ -510,7 +507,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
         """
-        The policy document. This is a JSON formatted string.
+        Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
         """
         return pulumi.get(self, "policy")
 
@@ -518,7 +515,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[str]:
         """
-        The policy's ID.
+        Policy's ID.
         """
         return pulumi.get(self, "policy_id")
 

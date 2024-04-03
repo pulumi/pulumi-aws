@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -45,6 +46,21 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
+    }
+
+    /**
+     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+     * 
+     */
+    @Import(name="keyValueStoreAssociations")
+    private @Nullable Output<List<String>> keyValueStoreAssociations;
+
+    /**
+     * @return List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+     * 
+     */
+    public Optional<Output<List<String>>> keyValueStoreAssociations() {
+        return Optional.ofNullable(this.keyValueStoreAssociations);
     }
 
     /**
@@ -101,6 +117,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     private FunctionArgs(FunctionArgs $) {
         this.code = $.code;
         this.comment = $.comment;
+        this.keyValueStoreAssociations = $.keyValueStoreAssociations;
         this.name = $.name;
         this.publish = $.publish;
         this.runtime = $.runtime;
@@ -164,6 +181,37 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
+        }
+
+        /**
+         * @param keyValueStoreAssociations List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyValueStoreAssociations(@Nullable Output<List<String>> keyValueStoreAssociations) {
+            $.keyValueStoreAssociations = keyValueStoreAssociations;
+            return this;
+        }
+
+        /**
+         * @param keyValueStoreAssociations List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyValueStoreAssociations(List<String> keyValueStoreAssociations) {
+            return keyValueStoreAssociations(Output.of(keyValueStoreAssociations));
+        }
+
+        /**
+         * @param keyValueStoreAssociations List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyValueStoreAssociations(String... keyValueStoreAssociations) {
+            return keyValueStoreAssociations(List.of(keyValueStoreAssociations));
         }
 
         /**

@@ -247,9 +247,17 @@ public class Vpc extends com.pulumi.resources.CustomResource {
     public Output<String> defaultSecurityGroupId() {
         return this.defaultSecurityGroupId;
     }
+    /**
+     * DHCP options id of the desired VPC.
+     * 
+     */
     @Export(name="dhcpOptionsId", refs={String.class}, tree="[0]")
     private Output<String> dhcpOptionsId;
 
+    /**
+     * @return DHCP options id of the desired VPC.
+     * 
+     */
     public Output<String> dhcpOptionsId() {
         return this.dhcpOptionsId;
     }

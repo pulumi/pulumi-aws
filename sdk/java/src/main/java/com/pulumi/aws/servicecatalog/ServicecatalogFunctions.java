@@ -4,6 +4,8 @@
 package com.pulumi.aws.servicecatalog;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.servicecatalog.inputs.GetAppregistryApplicationArgs;
+import com.pulumi.aws.servicecatalog.inputs.GetAppregistryApplicationPlainArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetConstraintArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetConstraintPlainArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetLaunchPathsArgs;
@@ -16,6 +18,7 @@ import com.pulumi.aws.servicecatalog.inputs.GetProductArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetProductPlainArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetProvisioningArtifactsArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetProvisioningArtifactsPlainArgs;
+import com.pulumi.aws.servicecatalog.outputs.GetAppregistryApplicationResult;
 import com.pulumi.aws.servicecatalog.outputs.GetConstraintResult;
 import com.pulumi.aws.servicecatalog.outputs.GetLaunchPathsResult;
 import com.pulumi.aws.servicecatalog.outputs.GetPortfolioConstraintsResult;
@@ -29,6 +32,174 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ServicecatalogFunctions {
+    /**
+     * Data source for managing an AWS Service Catalog AppRegistry Application.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryApplication(GetAppregistryApplicationArgs.builder()
+     *             .id(&#34;application-1234&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAppregistryApplicationResult> getAppregistryApplication(GetAppregistryApplicationArgs args) {
+        return getAppregistryApplication(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Service Catalog AppRegistry Application.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryApplication(GetAppregistryApplicationArgs.builder()
+     *             .id(&#34;application-1234&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAppregistryApplicationResult> getAppregistryApplicationPlain(GetAppregistryApplicationPlainArgs args) {
+        return getAppregistryApplicationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Service Catalog AppRegistry Application.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryApplication(GetAppregistryApplicationArgs.builder()
+     *             .id(&#34;application-1234&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAppregistryApplicationResult> getAppregistryApplication(GetAppregistryApplicationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", TypeShape.of(GetAppregistryApplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Service Catalog AppRegistry Application.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryApplication(GetAppregistryApplicationArgs.builder()
+     *             .id(&#34;application-1234&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAppregistryApplicationResult> getAppregistryApplicationPlain(GetAppregistryApplicationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", TypeShape.of(GetAppregistryApplicationResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Provides information on a Service Catalog Constraint.
      * 

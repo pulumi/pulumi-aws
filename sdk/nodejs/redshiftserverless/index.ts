@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CustomDomainAssociationArgs, CustomDomainAssociationState } from "./customDomainAssociation";
+export type CustomDomainAssociation = import("./customDomainAssociation").CustomDomainAssociation;
+export const CustomDomainAssociation: typeof import("./customDomainAssociation").CustomDomainAssociation = null as any;
+utilities.lazyLoad(exports, ["CustomDomainAssociation"], () => require("./customDomainAssociation"));
+
 export { EndpointAccessArgs, EndpointAccessState } from "./endpointAccess";
 export type EndpointAccess = import("./endpointAccess").EndpointAccess;
 export const EndpointAccess: typeof import("./endpointAccess").EndpointAccess = null as any;
@@ -55,6 +60,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation":
+                return new CustomDomainAssociation(name, <any>undefined, { urn })
             case "aws:redshiftserverless/endpointAccess:EndpointAccess":
                 return new EndpointAccess(name, <any>undefined, { urn })
             case "aws:redshiftserverless/namespace:Namespace":
@@ -72,6 +79,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "redshiftserverless/customDomainAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "redshiftserverless/endpointAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "redshiftserverless/namespace", _module)
 pulumi.runtime.registerResourceModule("aws", "redshiftserverless/resourcePolicy", _module)

@@ -21,8 +21,8 @@ class SecretVersionArgs:
         """
         The set of arguments for constructing a SecretVersion resource.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-        :param pulumi.Input[str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
-        :param pulumi.Input[str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
+        :param pulumi.Input[str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
+        :param pulumi.Input[str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] version_stages: Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
                
                > **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
@@ -51,7 +51,7 @@ class SecretVersionArgs:
     @pulumi.getter(name="secretBinary")
     def secret_binary(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+        Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
         """
         return pulumi.get(self, "secret_binary")
 
@@ -63,7 +63,7 @@ class SecretVersionArgs:
     @pulumi.getter(name="secretString")
     def secret_string(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
+        Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
         """
         return pulumi.get(self, "secret_string")
 
@@ -98,9 +98,9 @@ class _SecretVersionState:
         """
         Input properties used for looking up and filtering SecretVersion resources.
         :param pulumi.Input[str] arn: The ARN of the secret.
-        :param pulumi.Input[str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+        :param pulumi.Input[str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-        :param pulumi.Input[str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
+        :param pulumi.Input[str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
         :param pulumi.Input[str] version_id: The unique identifier of the version of the secret.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] version_stages: Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
                
@@ -135,7 +135,7 @@ class _SecretVersionState:
     @pulumi.getter(name="secretBinary")
     def secret_binary(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+        Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
         """
         return pulumi.get(self, "secret_binary")
 
@@ -159,7 +159,7 @@ class _SecretVersionState:
     @pulumi.getter(name="secretString")
     def secret_string(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
+        Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
         """
         return pulumi.get(self, "secret_string")
 
@@ -259,9 +259,9 @@ class SecretVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+        :param pulumi.Input[str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-        :param pulumi.Input[str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
+        :param pulumi.Input[str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] version_stages: Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
                
                > **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
@@ -387,9 +387,9 @@ class SecretVersion(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the secret.
-        :param pulumi.Input[str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+        :param pulumi.Input[str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-        :param pulumi.Input[str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
+        :param pulumi.Input[str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
         :param pulumi.Input[str] version_id: The unique identifier of the version of the secret.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] version_stages: Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
                
@@ -419,7 +419,7 @@ class SecretVersion(pulumi.CustomResource):
     @pulumi.getter(name="secretBinary")
     def secret_binary(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies binary data that you want to encrypt and store in this version of the secret. This is required if secret_string is not set. Needs to be encoded to base64.
+        Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
         """
         return pulumi.get(self, "secret_binary")
 
@@ -435,7 +435,7 @@ class SecretVersion(pulumi.CustomResource):
     @pulumi.getter(name="secretString")
     def secret_string(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies text data that you want to encrypt and store in this version of the secret. This is required if secret_binary is not set.
+        Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
         """
         return pulumi.get(self, "secret_string")
 

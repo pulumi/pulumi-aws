@@ -435,6 +435,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String datazone;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String dax;
     /**
      * @return Use this to override the default service endpoint URL
@@ -981,6 +986,11 @@ public final class Endpoints {
      * 
      */
     private @Nullable String outposts;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String paymentcryptography;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -1975,6 +1985,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> datazone() {
+        return Optional.ofNullable(this.datazone);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> dax() {
         return Optional.ofNullable(this.dax);
     }
@@ -2745,6 +2762,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> paymentcryptography() {
+        return Optional.ofNullable(this.paymentcryptography);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> pcaconnectorad() {
         return Optional.ofNullable(this.pcaconnectorad);
     }
@@ -3395,6 +3419,7 @@ public final class Endpoints {
         private @Nullable String dataexchange;
         private @Nullable String datapipeline;
         private @Nullable String datasync;
+        private @Nullable String datazone;
         private @Nullable String dax;
         private @Nullable String deploy;
         private @Nullable String detective;
@@ -3505,6 +3530,7 @@ public final class Endpoints {
         private @Nullable String organizations;
         private @Nullable String osis;
         private @Nullable String outposts;
+        private @Nullable String paymentcryptography;
         private @Nullable String pcaconnectorad;
         private @Nullable String pinpoint;
         private @Nullable String pipes;
@@ -3672,6 +3698,7 @@ public final class Endpoints {
     	      this.dataexchange = defaults.dataexchange;
     	      this.datapipeline = defaults.datapipeline;
     	      this.datasync = defaults.datasync;
+    	      this.datazone = defaults.datazone;
     	      this.dax = defaults.dax;
     	      this.deploy = defaults.deploy;
     	      this.detective = defaults.detective;
@@ -3782,6 +3809,7 @@ public final class Endpoints {
     	      this.organizations = defaults.organizations;
     	      this.osis = defaults.osis;
     	      this.outposts = defaults.outposts;
+    	      this.paymentcryptography = defaults.paymentcryptography;
     	      this.pcaconnectorad = defaults.pcaconnectorad;
     	      this.pinpoint = defaults.pinpoint;
     	      this.pipes = defaults.pipes;
@@ -4366,6 +4394,12 @@ public final class Endpoints {
         public Builder datasync(@Nullable String datasync) {
 
             this.datasync = datasync;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder datazone(@Nullable String datazone) {
+
+            this.datazone = datazone;
             return this;
         }
         @CustomType.Setter
@@ -5029,6 +5063,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder paymentcryptography(@Nullable String paymentcryptography) {
+
+            this.paymentcryptography = paymentcryptography;
+            return this;
+        }
+        @CustomType.Setter
         public Builder pcaconnectorad(@Nullable String pcaconnectorad) {
 
             this.pcaconnectorad = pcaconnectorad;
@@ -5594,6 +5634,7 @@ public final class Endpoints {
             _resultValue.dataexchange = dataexchange;
             _resultValue.datapipeline = datapipeline;
             _resultValue.datasync = datasync;
+            _resultValue.datazone = datazone;
             _resultValue.dax = dax;
             _resultValue.deploy = deploy;
             _resultValue.detective = detective;
@@ -5704,6 +5745,7 @@ public final class Endpoints {
             _resultValue.organizations = organizations;
             _resultValue.osis = osis;
             _resultValue.outposts = outposts;
+            _resultValue.paymentcryptography = paymentcryptography;
             _resultValue.pcaconnectorad = pcaconnectorad;
             _resultValue.pinpoint = pinpoint;
             _resultValue.pipes = pipes;

@@ -54,6 +54,12 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        /// </summary>
+        [Output("keyValueStoreAssociations")]
+        public Output<ImmutableArray<string>> KeyValueStoreAssociations { get; private set; } = null!;
+
+        /// <summary>
         /// ETag hash of any `LIVE` stage of the function.
         /// </summary>
         [Output("liveStageEtag")]
@@ -143,6 +149,18 @@ namespace Pulumi.Aws.CloudFront
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        [Input("keyValueStoreAssociations")]
+        private InputList<string>? _keyValueStoreAssociations;
+
+        /// <summary>
+        /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        /// </summary>
+        public InputList<string> KeyValueStoreAssociations
+        {
+            get => _keyValueStoreAssociations ?? (_keyValueStoreAssociations = new InputList<string>());
+            set => _keyValueStoreAssociations = value;
+        }
+
         /// <summary>
         /// Unique name for your CloudFront Function.
         /// </summary>
@@ -194,6 +212,18 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        [Input("keyValueStoreAssociations")]
+        private InputList<string>? _keyValueStoreAssociations;
+
+        /// <summary>
+        /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+        /// </summary>
+        public InputList<string> KeyValueStoreAssociations
+        {
+            get => _keyValueStoreAssociations ?? (_keyValueStoreAssociations = new InputList<string>());
+            set => _keyValueStoreAssociations = value;
+        }
 
         /// <summary>
         /// ETag hash of any `LIVE` stage of the function.

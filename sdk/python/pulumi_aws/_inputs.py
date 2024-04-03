@@ -393,6 +393,7 @@ class ProviderEndpointArgs:
                  dataexchange: Optional[pulumi.Input[str]] = None,
                  datapipeline: Optional[pulumi.Input[str]] = None,
                  datasync: Optional[pulumi.Input[str]] = None,
+                 datazone: Optional[pulumi.Input[str]] = None,
                  dax: Optional[pulumi.Input[str]] = None,
                  deploy: Optional[pulumi.Input[str]] = None,
                  detective: Optional[pulumi.Input[str]] = None,
@@ -503,6 +504,7 @@ class ProviderEndpointArgs:
                  organizations: Optional[pulumi.Input[str]] = None,
                  osis: Optional[pulumi.Input[str]] = None,
                  outposts: Optional[pulumi.Input[str]] = None,
+                 paymentcryptography: Optional[pulumi.Input[str]] = None,
                  pcaconnectorad: Optional[pulumi.Input[str]] = None,
                  pinpoint: Optional[pulumi.Input[str]] = None,
                  pipes: Optional[pulumi.Input[str]] = None,
@@ -668,6 +670,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] dataexchange: Use this to override the default service endpoint URL
         :param pulumi.Input[str] datapipeline: Use this to override the default service endpoint URL
         :param pulumi.Input[str] datasync: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] datazone: Use this to override the default service endpoint URL
         :param pulumi.Input[str] dax: Use this to override the default service endpoint URL
         :param pulumi.Input[str] deploy: Use this to override the default service endpoint URL
         :param pulumi.Input[str] detective: Use this to override the default service endpoint URL
@@ -778,6 +781,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] organizations: Use this to override the default service endpoint URL
         :param pulumi.Input[str] osis: Use this to override the default service endpoint URL
         :param pulumi.Input[str] outposts: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] paymentcryptography: Use this to override the default service endpoint URL
         :param pulumi.Input[str] pcaconnectorad: Use this to override the default service endpoint URL
         :param pulumi.Input[str] pinpoint: Use this to override the default service endpoint URL
         :param pulumi.Input[str] pipes: Use this to override the default service endpoint URL
@@ -1027,6 +1031,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "datapipeline", datapipeline)
         if datasync is not None:
             pulumi.set(__self__, "datasync", datasync)
+        if datazone is not None:
+            pulumi.set(__self__, "datazone", datazone)
         if dax is not None:
             pulumi.set(__self__, "dax", dax)
         if deploy is not None:
@@ -1247,6 +1253,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "osis", osis)
         if outposts is not None:
             pulumi.set(__self__, "outposts", outposts)
+        if paymentcryptography is not None:
+            pulumi.set(__self__, "paymentcryptography", paymentcryptography)
         if pcaconnectorad is not None:
             pulumi.set(__self__, "pcaconnectorad", pcaconnectorad)
         if pinpoint is not None:
@@ -2415,6 +2423,18 @@ class ProviderEndpointArgs:
     @datasync.setter
     def datasync(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "datasync", value)
+
+    @property
+    @pulumi.getter
+    def datazone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "datazone")
+
+    @datazone.setter
+    def datazone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "datazone", value)
 
     @property
     @pulumi.getter
@@ -3735,6 +3755,18 @@ class ProviderEndpointArgs:
     @outposts.setter
     def outposts(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "outposts", value)
+
+    @property
+    @pulumi.getter
+    def paymentcryptography(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "paymentcryptography")
+
+    @paymentcryptography.setter
+    def paymentcryptography(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "paymentcryptography", value)
 
     @property
     @pulumi.getter

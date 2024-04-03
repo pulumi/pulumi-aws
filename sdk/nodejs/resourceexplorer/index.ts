@@ -10,6 +10,11 @@ export type Index = import("./index_").Index;
 export const Index: typeof import("./index_").Index = null as any;
 utilities.lazyLoad(exports, ["Index"], () => require("./index_"));
 
+export { SearchArgs, SearchResult, SearchOutputArgs } from "./search";
+export const search: typeof import("./search").search = null as any;
+export const searchOutput: typeof import("./search").searchOutput = null as any;
+utilities.lazyLoad(exports, ["search","searchOutput"], () => require("./search"));
+
 export { ViewArgs, ViewState } from "./view";
 export type View = import("./view").View;
 export const View: typeof import("./view").View = null as any;

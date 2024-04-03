@@ -2477,6 +2477,1067 @@ func (o PermissionsTableWithColumnsPtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ResourceLfTagDatabase struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// Name of the database resource. Unique to the Data Catalog.
+	//
+	// The following argument is optional:
+	Name string `pulumi:"name"`
+}
+
+// ResourceLfTagDatabaseInput is an input type that accepts ResourceLfTagDatabaseArgs and ResourceLfTagDatabaseOutput values.
+// You can construct a concrete instance of `ResourceLfTagDatabaseInput` via:
+//
+//	ResourceLfTagDatabaseArgs{...}
+type ResourceLfTagDatabaseInput interface {
+	pulumi.Input
+
+	ToResourceLfTagDatabaseOutput() ResourceLfTagDatabaseOutput
+	ToResourceLfTagDatabaseOutputWithContext(context.Context) ResourceLfTagDatabaseOutput
+}
+
+type ResourceLfTagDatabaseArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// Name of the database resource. Unique to the Data Catalog.
+	//
+	// The following argument is optional:
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ResourceLfTagDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagDatabase)(nil)).Elem()
+}
+
+func (i ResourceLfTagDatabaseArgs) ToResourceLfTagDatabaseOutput() ResourceLfTagDatabaseOutput {
+	return i.ToResourceLfTagDatabaseOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagDatabaseArgs) ToResourceLfTagDatabaseOutputWithContext(ctx context.Context) ResourceLfTagDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagDatabaseOutput)
+}
+
+func (i ResourceLfTagDatabaseArgs) ToResourceLfTagDatabasePtrOutput() ResourceLfTagDatabasePtrOutput {
+	return i.ToResourceLfTagDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagDatabaseArgs) ToResourceLfTagDatabasePtrOutputWithContext(ctx context.Context) ResourceLfTagDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagDatabaseOutput).ToResourceLfTagDatabasePtrOutputWithContext(ctx)
+}
+
+// ResourceLfTagDatabasePtrInput is an input type that accepts ResourceLfTagDatabaseArgs, ResourceLfTagDatabasePtr and ResourceLfTagDatabasePtrOutput values.
+// You can construct a concrete instance of `ResourceLfTagDatabasePtrInput` via:
+//
+//	        ResourceLfTagDatabaseArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceLfTagDatabasePtrInput interface {
+	pulumi.Input
+
+	ToResourceLfTagDatabasePtrOutput() ResourceLfTagDatabasePtrOutput
+	ToResourceLfTagDatabasePtrOutputWithContext(context.Context) ResourceLfTagDatabasePtrOutput
+}
+
+type resourceLfTagDatabasePtrType ResourceLfTagDatabaseArgs
+
+func ResourceLfTagDatabasePtr(v *ResourceLfTagDatabaseArgs) ResourceLfTagDatabasePtrInput {
+	return (*resourceLfTagDatabasePtrType)(v)
+}
+
+func (*resourceLfTagDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagDatabase)(nil)).Elem()
+}
+
+func (i *resourceLfTagDatabasePtrType) ToResourceLfTagDatabasePtrOutput() ResourceLfTagDatabasePtrOutput {
+	return i.ToResourceLfTagDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceLfTagDatabasePtrType) ToResourceLfTagDatabasePtrOutputWithContext(ctx context.Context) ResourceLfTagDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagDatabasePtrOutput)
+}
+
+type ResourceLfTagDatabaseOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagDatabase)(nil)).Elem()
+}
+
+func (o ResourceLfTagDatabaseOutput) ToResourceLfTagDatabaseOutput() ResourceLfTagDatabaseOutput {
+	return o
+}
+
+func (o ResourceLfTagDatabaseOutput) ToResourceLfTagDatabaseOutputWithContext(ctx context.Context) ResourceLfTagDatabaseOutput {
+	return o
+}
+
+func (o ResourceLfTagDatabaseOutput) ToResourceLfTagDatabasePtrOutput() ResourceLfTagDatabasePtrOutput {
+	return o.ToResourceLfTagDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceLfTagDatabaseOutput) ToResourceLfTagDatabasePtrOutputWithContext(ctx context.Context) ResourceLfTagDatabasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLfTagDatabase) *ResourceLfTagDatabase {
+		return &v
+	}).(ResourceLfTagDatabasePtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagDatabaseOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagDatabase) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the database resource. Unique to the Data Catalog.
+//
+// The following argument is optional:
+func (o ResourceLfTagDatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceLfTagDatabase) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ResourceLfTagDatabasePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagDatabase)(nil)).Elem()
+}
+
+func (o ResourceLfTagDatabasePtrOutput) ToResourceLfTagDatabasePtrOutput() ResourceLfTagDatabasePtrOutput {
+	return o
+}
+
+func (o ResourceLfTagDatabasePtrOutput) ToResourceLfTagDatabasePtrOutputWithContext(ctx context.Context) ResourceLfTagDatabasePtrOutput {
+	return o
+}
+
+func (o ResourceLfTagDatabasePtrOutput) Elem() ResourceLfTagDatabaseOutput {
+	return o.ApplyT(func(v *ResourceLfTagDatabase) ResourceLfTagDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLfTagDatabase
+		return ret
+	}).(ResourceLfTagDatabaseOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagDatabasePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the database resource. Unique to the Data Catalog.
+//
+// The following argument is optional:
+func (o ResourceLfTagDatabasePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceLfTagLfTag struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// Key name for an existing LF-tag.
+	Key string `pulumi:"key"`
+	// Value from the possible values for the LF-tag.
+	//
+	// The following argument is optional:
+	Value string `pulumi:"value"`
+}
+
+// ResourceLfTagLfTagInput is an input type that accepts ResourceLfTagLfTagArgs and ResourceLfTagLfTagOutput values.
+// You can construct a concrete instance of `ResourceLfTagLfTagInput` via:
+//
+//	ResourceLfTagLfTagArgs{...}
+type ResourceLfTagLfTagInput interface {
+	pulumi.Input
+
+	ToResourceLfTagLfTagOutput() ResourceLfTagLfTagOutput
+	ToResourceLfTagLfTagOutputWithContext(context.Context) ResourceLfTagLfTagOutput
+}
+
+type ResourceLfTagLfTagArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// Key name for an existing LF-tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value from the possible values for the LF-tag.
+	//
+	// The following argument is optional:
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ResourceLfTagLfTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagLfTag)(nil)).Elem()
+}
+
+func (i ResourceLfTagLfTagArgs) ToResourceLfTagLfTagOutput() ResourceLfTagLfTagOutput {
+	return i.ToResourceLfTagLfTagOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagLfTagArgs) ToResourceLfTagLfTagOutputWithContext(ctx context.Context) ResourceLfTagLfTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagLfTagOutput)
+}
+
+func (i ResourceLfTagLfTagArgs) ToResourceLfTagLfTagPtrOutput() ResourceLfTagLfTagPtrOutput {
+	return i.ToResourceLfTagLfTagPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagLfTagArgs) ToResourceLfTagLfTagPtrOutputWithContext(ctx context.Context) ResourceLfTagLfTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagLfTagOutput).ToResourceLfTagLfTagPtrOutputWithContext(ctx)
+}
+
+// ResourceLfTagLfTagPtrInput is an input type that accepts ResourceLfTagLfTagArgs, ResourceLfTagLfTagPtr and ResourceLfTagLfTagPtrOutput values.
+// You can construct a concrete instance of `ResourceLfTagLfTagPtrInput` via:
+//
+//	        ResourceLfTagLfTagArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceLfTagLfTagPtrInput interface {
+	pulumi.Input
+
+	ToResourceLfTagLfTagPtrOutput() ResourceLfTagLfTagPtrOutput
+	ToResourceLfTagLfTagPtrOutputWithContext(context.Context) ResourceLfTagLfTagPtrOutput
+}
+
+type resourceLfTagLfTagPtrType ResourceLfTagLfTagArgs
+
+func ResourceLfTagLfTagPtr(v *ResourceLfTagLfTagArgs) ResourceLfTagLfTagPtrInput {
+	return (*resourceLfTagLfTagPtrType)(v)
+}
+
+func (*resourceLfTagLfTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagLfTag)(nil)).Elem()
+}
+
+func (i *resourceLfTagLfTagPtrType) ToResourceLfTagLfTagPtrOutput() ResourceLfTagLfTagPtrOutput {
+	return i.ToResourceLfTagLfTagPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceLfTagLfTagPtrType) ToResourceLfTagLfTagPtrOutputWithContext(ctx context.Context) ResourceLfTagLfTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagLfTagPtrOutput)
+}
+
+type ResourceLfTagLfTagOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagLfTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagLfTag)(nil)).Elem()
+}
+
+func (o ResourceLfTagLfTagOutput) ToResourceLfTagLfTagOutput() ResourceLfTagLfTagOutput {
+	return o
+}
+
+func (o ResourceLfTagLfTagOutput) ToResourceLfTagLfTagOutputWithContext(ctx context.Context) ResourceLfTagLfTagOutput {
+	return o
+}
+
+func (o ResourceLfTagLfTagOutput) ToResourceLfTagLfTagPtrOutput() ResourceLfTagLfTagPtrOutput {
+	return o.ToResourceLfTagLfTagPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceLfTagLfTagOutput) ToResourceLfTagLfTagPtrOutputWithContext(ctx context.Context) ResourceLfTagLfTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLfTagLfTag) *ResourceLfTagLfTag {
+		return &v
+	}).(ResourceLfTagLfTagPtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagLfTagOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagLfTag) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// Key name for an existing LF-tag.
+func (o ResourceLfTagLfTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceLfTagLfTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value from the possible values for the LF-tag.
+//
+// The following argument is optional:
+func (o ResourceLfTagLfTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceLfTagLfTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ResourceLfTagLfTagPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagLfTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagLfTag)(nil)).Elem()
+}
+
+func (o ResourceLfTagLfTagPtrOutput) ToResourceLfTagLfTagPtrOutput() ResourceLfTagLfTagPtrOutput {
+	return o
+}
+
+func (o ResourceLfTagLfTagPtrOutput) ToResourceLfTagLfTagPtrOutputWithContext(ctx context.Context) ResourceLfTagLfTagPtrOutput {
+	return o
+}
+
+func (o ResourceLfTagLfTagPtrOutput) Elem() ResourceLfTagLfTagOutput {
+	return o.ApplyT(func(v *ResourceLfTagLfTag) ResourceLfTagLfTag {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLfTagLfTag
+		return ret
+	}).(ResourceLfTagLfTagOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagLfTagPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagLfTag) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key name for an existing LF-tag.
+func (o ResourceLfTagLfTagPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagLfTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value from the possible values for the LF-tag.
+//
+// The following argument is optional:
+func (o ResourceLfTagLfTagPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagLfTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceLfTagTable struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// Name of the database for the table. Unique to a Data Catalog.
+	DatabaseName string `pulumi:"databaseName"`
+	// Name of the table.
+	Name *string `pulumi:"name"`
+	// Whether to use a wildcard representing every table under a database. Defaults to `false`.
+	//
+	// The following arguments are optional:
+	Wildcard *bool `pulumi:"wildcard"`
+}
+
+// ResourceLfTagTableInput is an input type that accepts ResourceLfTagTableArgs and ResourceLfTagTableOutput values.
+// You can construct a concrete instance of `ResourceLfTagTableInput` via:
+//
+//	ResourceLfTagTableArgs{...}
+type ResourceLfTagTableInput interface {
+	pulumi.Input
+
+	ToResourceLfTagTableOutput() ResourceLfTagTableOutput
+	ToResourceLfTagTableOutputWithContext(context.Context) ResourceLfTagTableOutput
+}
+
+type ResourceLfTagTableArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// Name of the database for the table. Unique to a Data Catalog.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Name of the table.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Whether to use a wildcard representing every table under a database. Defaults to `false`.
+	//
+	// The following arguments are optional:
+	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
+}
+
+func (ResourceLfTagTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagTable)(nil)).Elem()
+}
+
+func (i ResourceLfTagTableArgs) ToResourceLfTagTableOutput() ResourceLfTagTableOutput {
+	return i.ToResourceLfTagTableOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagTableArgs) ToResourceLfTagTableOutputWithContext(ctx context.Context) ResourceLfTagTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagTableOutput)
+}
+
+func (i ResourceLfTagTableArgs) ToResourceLfTagTablePtrOutput() ResourceLfTagTablePtrOutput {
+	return i.ToResourceLfTagTablePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagTableArgs) ToResourceLfTagTablePtrOutputWithContext(ctx context.Context) ResourceLfTagTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagTableOutput).ToResourceLfTagTablePtrOutputWithContext(ctx)
+}
+
+// ResourceLfTagTablePtrInput is an input type that accepts ResourceLfTagTableArgs, ResourceLfTagTablePtr and ResourceLfTagTablePtrOutput values.
+// You can construct a concrete instance of `ResourceLfTagTablePtrInput` via:
+//
+//	        ResourceLfTagTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceLfTagTablePtrInput interface {
+	pulumi.Input
+
+	ToResourceLfTagTablePtrOutput() ResourceLfTagTablePtrOutput
+	ToResourceLfTagTablePtrOutputWithContext(context.Context) ResourceLfTagTablePtrOutput
+}
+
+type resourceLfTagTablePtrType ResourceLfTagTableArgs
+
+func ResourceLfTagTablePtr(v *ResourceLfTagTableArgs) ResourceLfTagTablePtrInput {
+	return (*resourceLfTagTablePtrType)(v)
+}
+
+func (*resourceLfTagTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagTable)(nil)).Elem()
+}
+
+func (i *resourceLfTagTablePtrType) ToResourceLfTagTablePtrOutput() ResourceLfTagTablePtrOutput {
+	return i.ToResourceLfTagTablePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceLfTagTablePtrType) ToResourceLfTagTablePtrOutputWithContext(ctx context.Context) ResourceLfTagTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagTablePtrOutput)
+}
+
+type ResourceLfTagTableOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagTable)(nil)).Elem()
+}
+
+func (o ResourceLfTagTableOutput) ToResourceLfTagTableOutput() ResourceLfTagTableOutput {
+	return o
+}
+
+func (o ResourceLfTagTableOutput) ToResourceLfTagTableOutputWithContext(ctx context.Context) ResourceLfTagTableOutput {
+	return o
+}
+
+func (o ResourceLfTagTableOutput) ToResourceLfTagTablePtrOutput() ResourceLfTagTablePtrOutput {
+	return o.ToResourceLfTagTablePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceLfTagTableOutput) ToResourceLfTagTablePtrOutputWithContext(ctx context.Context) ResourceLfTagTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLfTagTable) *ResourceLfTagTable {
+		return &v
+	}).(ResourceLfTagTablePtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagTableOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the database for the table. Unique to a Data Catalog.
+func (o ResourceLfTagTableOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceLfTagTable) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Name of the table.
+func (o ResourceLfTagTableOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagTable) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Whether to use a wildcard representing every table under a database. Defaults to `false`.
+//
+// The following arguments are optional:
+func (o ResourceLfTagTableOutput) Wildcard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagTable) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
+}
+
+type ResourceLfTagTablePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagTable)(nil)).Elem()
+}
+
+func (o ResourceLfTagTablePtrOutput) ToResourceLfTagTablePtrOutput() ResourceLfTagTablePtrOutput {
+	return o
+}
+
+func (o ResourceLfTagTablePtrOutput) ToResourceLfTagTablePtrOutputWithContext(ctx context.Context) ResourceLfTagTablePtrOutput {
+	return o
+}
+
+func (o ResourceLfTagTablePtrOutput) Elem() ResourceLfTagTableOutput {
+	return o.ApplyT(func(v *ResourceLfTagTable) ResourceLfTagTable {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLfTagTable
+		return ret
+	}).(ResourceLfTagTableOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the database for the table. Unique to a Data Catalog.
+func (o ResourceLfTagTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the table.
+func (o ResourceLfTagTablePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to use a wildcard representing every table under a database. Defaults to `false`.
+//
+// The following arguments are optional:
+func (o ResourceLfTagTablePtrOutput) Wildcard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagTable) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Wildcard
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ResourceLfTagTableWithColumns struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// Set of column names for the table.
+	ColumnNames []string `pulumi:"columnNames"`
+	// Option to add column wildcard. See Column Wildcard for more details.
+	ColumnWildcard *ResourceLfTagTableWithColumnsColumnWildcard `pulumi:"columnWildcard"`
+	// Name of the database for the table with columns resource. Unique to the Data Catalog.
+	DatabaseName string `pulumi:"databaseName"`
+	// Name of the table resource.
+	//
+	// The following arguments are optional:
+	Name string `pulumi:"name"`
+}
+
+// ResourceLfTagTableWithColumnsInput is an input type that accepts ResourceLfTagTableWithColumnsArgs and ResourceLfTagTableWithColumnsOutput values.
+// You can construct a concrete instance of `ResourceLfTagTableWithColumnsInput` via:
+//
+//	ResourceLfTagTableWithColumnsArgs{...}
+type ResourceLfTagTableWithColumnsInput interface {
+	pulumi.Input
+
+	ToResourceLfTagTableWithColumnsOutput() ResourceLfTagTableWithColumnsOutput
+	ToResourceLfTagTableWithColumnsOutputWithContext(context.Context) ResourceLfTagTableWithColumnsOutput
+}
+
+type ResourceLfTagTableWithColumnsArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// Set of column names for the table.
+	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
+	// Option to add column wildcard. See Column Wildcard for more details.
+	ColumnWildcard ResourceLfTagTableWithColumnsColumnWildcardPtrInput `pulumi:"columnWildcard"`
+	// Name of the database for the table with columns resource. Unique to the Data Catalog.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Name of the table resource.
+	//
+	// The following arguments are optional:
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ResourceLfTagTableWithColumnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagTableWithColumns)(nil)).Elem()
+}
+
+func (i ResourceLfTagTableWithColumnsArgs) ToResourceLfTagTableWithColumnsOutput() ResourceLfTagTableWithColumnsOutput {
+	return i.ToResourceLfTagTableWithColumnsOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagTableWithColumnsArgs) ToResourceLfTagTableWithColumnsOutputWithContext(ctx context.Context) ResourceLfTagTableWithColumnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagTableWithColumnsOutput)
+}
+
+func (i ResourceLfTagTableWithColumnsArgs) ToResourceLfTagTableWithColumnsPtrOutput() ResourceLfTagTableWithColumnsPtrOutput {
+	return i.ToResourceLfTagTableWithColumnsPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagTableWithColumnsArgs) ToResourceLfTagTableWithColumnsPtrOutputWithContext(ctx context.Context) ResourceLfTagTableWithColumnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagTableWithColumnsOutput).ToResourceLfTagTableWithColumnsPtrOutputWithContext(ctx)
+}
+
+// ResourceLfTagTableWithColumnsPtrInput is an input type that accepts ResourceLfTagTableWithColumnsArgs, ResourceLfTagTableWithColumnsPtr and ResourceLfTagTableWithColumnsPtrOutput values.
+// You can construct a concrete instance of `ResourceLfTagTableWithColumnsPtrInput` via:
+//
+//	        ResourceLfTagTableWithColumnsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceLfTagTableWithColumnsPtrInput interface {
+	pulumi.Input
+
+	ToResourceLfTagTableWithColumnsPtrOutput() ResourceLfTagTableWithColumnsPtrOutput
+	ToResourceLfTagTableWithColumnsPtrOutputWithContext(context.Context) ResourceLfTagTableWithColumnsPtrOutput
+}
+
+type resourceLfTagTableWithColumnsPtrType ResourceLfTagTableWithColumnsArgs
+
+func ResourceLfTagTableWithColumnsPtr(v *ResourceLfTagTableWithColumnsArgs) ResourceLfTagTableWithColumnsPtrInput {
+	return (*resourceLfTagTableWithColumnsPtrType)(v)
+}
+
+func (*resourceLfTagTableWithColumnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagTableWithColumns)(nil)).Elem()
+}
+
+func (i *resourceLfTagTableWithColumnsPtrType) ToResourceLfTagTableWithColumnsPtrOutput() ResourceLfTagTableWithColumnsPtrOutput {
+	return i.ToResourceLfTagTableWithColumnsPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceLfTagTableWithColumnsPtrType) ToResourceLfTagTableWithColumnsPtrOutputWithContext(ctx context.Context) ResourceLfTagTableWithColumnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagTableWithColumnsPtrOutput)
+}
+
+type ResourceLfTagTableWithColumnsOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagTableWithColumnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagTableWithColumns)(nil)).Elem()
+}
+
+func (o ResourceLfTagTableWithColumnsOutput) ToResourceLfTagTableWithColumnsOutput() ResourceLfTagTableWithColumnsOutput {
+	return o
+}
+
+func (o ResourceLfTagTableWithColumnsOutput) ToResourceLfTagTableWithColumnsOutputWithContext(ctx context.Context) ResourceLfTagTableWithColumnsOutput {
+	return o
+}
+
+func (o ResourceLfTagTableWithColumnsOutput) ToResourceLfTagTableWithColumnsPtrOutput() ResourceLfTagTableWithColumnsPtrOutput {
+	return o.ToResourceLfTagTableWithColumnsPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceLfTagTableWithColumnsOutput) ToResourceLfTagTableWithColumnsPtrOutputWithContext(ctx context.Context) ResourceLfTagTableWithColumnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLfTagTableWithColumns) *ResourceLfTagTableWithColumns {
+		return &v
+	}).(ResourceLfTagTableWithColumnsPtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagTableWithColumnsOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagTableWithColumns) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// Set of column names for the table.
+func (o ResourceLfTagTableWithColumnsOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceLfTagTableWithColumns) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
+}
+
+// Option to add column wildcard. See Column Wildcard for more details.
+func (o ResourceLfTagTableWithColumnsOutput) ColumnWildcard() ResourceLfTagTableWithColumnsColumnWildcardPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagTableWithColumns) *ResourceLfTagTableWithColumnsColumnWildcard {
+		return v.ColumnWildcard
+	}).(ResourceLfTagTableWithColumnsColumnWildcardPtrOutput)
+}
+
+// Name of the database for the table with columns resource. Unique to the Data Catalog.
+func (o ResourceLfTagTableWithColumnsOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceLfTagTableWithColumns) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Name of the table resource.
+//
+// The following arguments are optional:
+func (o ResourceLfTagTableWithColumnsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceLfTagTableWithColumns) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ResourceLfTagTableWithColumnsPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagTableWithColumnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagTableWithColumns)(nil)).Elem()
+}
+
+func (o ResourceLfTagTableWithColumnsPtrOutput) ToResourceLfTagTableWithColumnsPtrOutput() ResourceLfTagTableWithColumnsPtrOutput {
+	return o
+}
+
+func (o ResourceLfTagTableWithColumnsPtrOutput) ToResourceLfTagTableWithColumnsPtrOutputWithContext(ctx context.Context) ResourceLfTagTableWithColumnsPtrOutput {
+	return o
+}
+
+func (o ResourceLfTagTableWithColumnsPtrOutput) Elem() ResourceLfTagTableWithColumnsOutput {
+	return o.ApplyT(func(v *ResourceLfTagTableWithColumns) ResourceLfTagTableWithColumns {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLfTagTableWithColumns
+		return ret
+	}).(ResourceLfTagTableWithColumnsOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagTableWithColumnsPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagTableWithColumns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of column names for the table.
+func (o ResourceLfTagTableWithColumnsPtrOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceLfTagTableWithColumns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Option to add column wildcard. See Column Wildcard for more details.
+func (o ResourceLfTagTableWithColumnsPtrOutput) ColumnWildcard() ResourceLfTagTableWithColumnsColumnWildcardPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagTableWithColumns) *ResourceLfTagTableWithColumnsColumnWildcard {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnWildcard
+	}).(ResourceLfTagTableWithColumnsColumnWildcardPtrOutput)
+}
+
+// Name of the database for the table with columns resource. Unique to the Data Catalog.
+func (o ResourceLfTagTableWithColumnsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagTableWithColumns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the table resource.
+//
+// The following arguments are optional:
+func (o ResourceLfTagTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagTableWithColumns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceLfTagTableWithColumnsColumnWildcard struct {
+	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
+}
+
+// ResourceLfTagTableWithColumnsColumnWildcardInput is an input type that accepts ResourceLfTagTableWithColumnsColumnWildcardArgs and ResourceLfTagTableWithColumnsColumnWildcardOutput values.
+// You can construct a concrete instance of `ResourceLfTagTableWithColumnsColumnWildcardInput` via:
+//
+//	ResourceLfTagTableWithColumnsColumnWildcardArgs{...}
+type ResourceLfTagTableWithColumnsColumnWildcardInput interface {
+	pulumi.Input
+
+	ToResourceLfTagTableWithColumnsColumnWildcardOutput() ResourceLfTagTableWithColumnsColumnWildcardOutput
+	ToResourceLfTagTableWithColumnsColumnWildcardOutputWithContext(context.Context) ResourceLfTagTableWithColumnsColumnWildcardOutput
+}
+
+type ResourceLfTagTableWithColumnsColumnWildcardArgs struct {
+	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
+}
+
+func (ResourceLfTagTableWithColumnsColumnWildcardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagTableWithColumnsColumnWildcard)(nil)).Elem()
+}
+
+func (i ResourceLfTagTableWithColumnsColumnWildcardArgs) ToResourceLfTagTableWithColumnsColumnWildcardOutput() ResourceLfTagTableWithColumnsColumnWildcardOutput {
+	return i.ToResourceLfTagTableWithColumnsColumnWildcardOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagTableWithColumnsColumnWildcardArgs) ToResourceLfTagTableWithColumnsColumnWildcardOutputWithContext(ctx context.Context) ResourceLfTagTableWithColumnsColumnWildcardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagTableWithColumnsColumnWildcardOutput)
+}
+
+func (i ResourceLfTagTableWithColumnsColumnWildcardArgs) ToResourceLfTagTableWithColumnsColumnWildcardPtrOutput() ResourceLfTagTableWithColumnsColumnWildcardPtrOutput {
+	return i.ToResourceLfTagTableWithColumnsColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagTableWithColumnsColumnWildcardArgs) ToResourceLfTagTableWithColumnsColumnWildcardPtrOutputWithContext(ctx context.Context) ResourceLfTagTableWithColumnsColumnWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagTableWithColumnsColumnWildcardOutput).ToResourceLfTagTableWithColumnsColumnWildcardPtrOutputWithContext(ctx)
+}
+
+// ResourceLfTagTableWithColumnsColumnWildcardPtrInput is an input type that accepts ResourceLfTagTableWithColumnsColumnWildcardArgs, ResourceLfTagTableWithColumnsColumnWildcardPtr and ResourceLfTagTableWithColumnsColumnWildcardPtrOutput values.
+// You can construct a concrete instance of `ResourceLfTagTableWithColumnsColumnWildcardPtrInput` via:
+//
+//	        ResourceLfTagTableWithColumnsColumnWildcardArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceLfTagTableWithColumnsColumnWildcardPtrInput interface {
+	pulumi.Input
+
+	ToResourceLfTagTableWithColumnsColumnWildcardPtrOutput() ResourceLfTagTableWithColumnsColumnWildcardPtrOutput
+	ToResourceLfTagTableWithColumnsColumnWildcardPtrOutputWithContext(context.Context) ResourceLfTagTableWithColumnsColumnWildcardPtrOutput
+}
+
+type resourceLfTagTableWithColumnsColumnWildcardPtrType ResourceLfTagTableWithColumnsColumnWildcardArgs
+
+func ResourceLfTagTableWithColumnsColumnWildcardPtr(v *ResourceLfTagTableWithColumnsColumnWildcardArgs) ResourceLfTagTableWithColumnsColumnWildcardPtrInput {
+	return (*resourceLfTagTableWithColumnsColumnWildcardPtrType)(v)
+}
+
+func (*resourceLfTagTableWithColumnsColumnWildcardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagTableWithColumnsColumnWildcard)(nil)).Elem()
+}
+
+func (i *resourceLfTagTableWithColumnsColumnWildcardPtrType) ToResourceLfTagTableWithColumnsColumnWildcardPtrOutput() ResourceLfTagTableWithColumnsColumnWildcardPtrOutput {
+	return i.ToResourceLfTagTableWithColumnsColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceLfTagTableWithColumnsColumnWildcardPtrType) ToResourceLfTagTableWithColumnsColumnWildcardPtrOutputWithContext(ctx context.Context) ResourceLfTagTableWithColumnsColumnWildcardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagTableWithColumnsColumnWildcardPtrOutput)
+}
+
+type ResourceLfTagTableWithColumnsColumnWildcardOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagTableWithColumnsColumnWildcardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagTableWithColumnsColumnWildcard)(nil)).Elem()
+}
+
+func (o ResourceLfTagTableWithColumnsColumnWildcardOutput) ToResourceLfTagTableWithColumnsColumnWildcardOutput() ResourceLfTagTableWithColumnsColumnWildcardOutput {
+	return o
+}
+
+func (o ResourceLfTagTableWithColumnsColumnWildcardOutput) ToResourceLfTagTableWithColumnsColumnWildcardOutputWithContext(ctx context.Context) ResourceLfTagTableWithColumnsColumnWildcardOutput {
+	return o
+}
+
+func (o ResourceLfTagTableWithColumnsColumnWildcardOutput) ToResourceLfTagTableWithColumnsColumnWildcardPtrOutput() ResourceLfTagTableWithColumnsColumnWildcardPtrOutput {
+	return o.ToResourceLfTagTableWithColumnsColumnWildcardPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceLfTagTableWithColumnsColumnWildcardOutput) ToResourceLfTagTableWithColumnsColumnWildcardPtrOutputWithContext(ctx context.Context) ResourceLfTagTableWithColumnsColumnWildcardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLfTagTableWithColumnsColumnWildcard) *ResourceLfTagTableWithColumnsColumnWildcard {
+		return &v
+	}).(ResourceLfTagTableWithColumnsColumnWildcardPtrOutput)
+}
+
+func (o ResourceLfTagTableWithColumnsColumnWildcardOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceLfTagTableWithColumnsColumnWildcard) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
+}
+
+type ResourceLfTagTableWithColumnsColumnWildcardPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagTableWithColumnsColumnWildcardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagTableWithColumnsColumnWildcard)(nil)).Elem()
+}
+
+func (o ResourceLfTagTableWithColumnsColumnWildcardPtrOutput) ToResourceLfTagTableWithColumnsColumnWildcardPtrOutput() ResourceLfTagTableWithColumnsColumnWildcardPtrOutput {
+	return o
+}
+
+func (o ResourceLfTagTableWithColumnsColumnWildcardPtrOutput) ToResourceLfTagTableWithColumnsColumnWildcardPtrOutputWithContext(ctx context.Context) ResourceLfTagTableWithColumnsColumnWildcardPtrOutput {
+	return o
+}
+
+func (o ResourceLfTagTableWithColumnsColumnWildcardPtrOutput) Elem() ResourceLfTagTableWithColumnsColumnWildcardOutput {
+	return o.ApplyT(func(v *ResourceLfTagTableWithColumnsColumnWildcard) ResourceLfTagTableWithColumnsColumnWildcard {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLfTagTableWithColumnsColumnWildcard
+		return ret
+	}).(ResourceLfTagTableWithColumnsColumnWildcardOutput)
+}
+
+func (o ResourceLfTagTableWithColumnsColumnWildcardPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceLfTagTableWithColumnsColumnWildcard) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type ResourceLfTagTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// ResourceLfTagTimeoutsInput is an input type that accepts ResourceLfTagTimeoutsArgs and ResourceLfTagTimeoutsOutput values.
+// You can construct a concrete instance of `ResourceLfTagTimeoutsInput` via:
+//
+//	ResourceLfTagTimeoutsArgs{...}
+type ResourceLfTagTimeoutsInput interface {
+	pulumi.Input
+
+	ToResourceLfTagTimeoutsOutput() ResourceLfTagTimeoutsOutput
+	ToResourceLfTagTimeoutsOutputWithContext(context.Context) ResourceLfTagTimeoutsOutput
+}
+
+type ResourceLfTagTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (ResourceLfTagTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagTimeouts)(nil)).Elem()
+}
+
+func (i ResourceLfTagTimeoutsArgs) ToResourceLfTagTimeoutsOutput() ResourceLfTagTimeoutsOutput {
+	return i.ToResourceLfTagTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagTimeoutsArgs) ToResourceLfTagTimeoutsOutputWithContext(ctx context.Context) ResourceLfTagTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagTimeoutsOutput)
+}
+
+func (i ResourceLfTagTimeoutsArgs) ToResourceLfTagTimeoutsPtrOutput() ResourceLfTagTimeoutsPtrOutput {
+	return i.ToResourceLfTagTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagTimeoutsArgs) ToResourceLfTagTimeoutsPtrOutputWithContext(ctx context.Context) ResourceLfTagTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagTimeoutsOutput).ToResourceLfTagTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ResourceLfTagTimeoutsPtrInput is an input type that accepts ResourceLfTagTimeoutsArgs, ResourceLfTagTimeoutsPtr and ResourceLfTagTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ResourceLfTagTimeoutsPtrInput` via:
+//
+//	        ResourceLfTagTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceLfTagTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToResourceLfTagTimeoutsPtrOutput() ResourceLfTagTimeoutsPtrOutput
+	ToResourceLfTagTimeoutsPtrOutputWithContext(context.Context) ResourceLfTagTimeoutsPtrOutput
+}
+
+type resourceLfTagTimeoutsPtrType ResourceLfTagTimeoutsArgs
+
+func ResourceLfTagTimeoutsPtr(v *ResourceLfTagTimeoutsArgs) ResourceLfTagTimeoutsPtrInput {
+	return (*resourceLfTagTimeoutsPtrType)(v)
+}
+
+func (*resourceLfTagTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagTimeouts)(nil)).Elem()
+}
+
+func (i *resourceLfTagTimeoutsPtrType) ToResourceLfTagTimeoutsPtrOutput() ResourceLfTagTimeoutsPtrOutput {
+	return i.ToResourceLfTagTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceLfTagTimeoutsPtrType) ToResourceLfTagTimeoutsPtrOutputWithContext(ctx context.Context) ResourceLfTagTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagTimeoutsPtrOutput)
+}
+
+type ResourceLfTagTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagTimeouts)(nil)).Elem()
+}
+
+func (o ResourceLfTagTimeoutsOutput) ToResourceLfTagTimeoutsOutput() ResourceLfTagTimeoutsOutput {
+	return o
+}
+
+func (o ResourceLfTagTimeoutsOutput) ToResourceLfTagTimeoutsOutputWithContext(ctx context.Context) ResourceLfTagTimeoutsOutput {
+	return o
+}
+
+func (o ResourceLfTagTimeoutsOutput) ToResourceLfTagTimeoutsPtrOutput() ResourceLfTagTimeoutsPtrOutput {
+	return o.ToResourceLfTagTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceLfTagTimeoutsOutput) ToResourceLfTagTimeoutsPtrOutputWithContext(ctx context.Context) ResourceLfTagTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLfTagTimeouts) *ResourceLfTagTimeouts {
+		return &v
+	}).(ResourceLfTagTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceLfTagTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ResourceLfTagTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type ResourceLfTagTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagTimeouts)(nil)).Elem()
+}
+
+func (o ResourceLfTagTimeoutsPtrOutput) ToResourceLfTagTimeoutsPtrOutput() ResourceLfTagTimeoutsPtrOutput {
+	return o
+}
+
+func (o ResourceLfTagTimeoutsPtrOutput) ToResourceLfTagTimeoutsPtrOutputWithContext(ctx context.Context) ResourceLfTagTimeoutsPtrOutput {
+	return o
+}
+
+func (o ResourceLfTagTimeoutsPtrOutput) Elem() ResourceLfTagTimeoutsOutput {
+	return o.ApplyT(func(v *ResourceLfTagTimeouts) ResourceLfTagTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLfTagTimeouts
+		return ret
+	}).(ResourceLfTagTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceLfTagTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ResourceLfTagTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type ResourceLfTagsDatabase struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
@@ -4883,6 +5944,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTablePtrInput)(nil)).Elem(), PermissionsTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTableWithColumnsInput)(nil)).Elem(), PermissionsTableWithColumnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTableWithColumnsPtrInput)(nil)).Elem(), PermissionsTableWithColumnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagDatabaseInput)(nil)).Elem(), ResourceLfTagDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagDatabasePtrInput)(nil)).Elem(), ResourceLfTagDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagLfTagInput)(nil)).Elem(), ResourceLfTagLfTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagLfTagPtrInput)(nil)).Elem(), ResourceLfTagLfTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagTableInput)(nil)).Elem(), ResourceLfTagTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagTablePtrInput)(nil)).Elem(), ResourceLfTagTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagTableWithColumnsInput)(nil)).Elem(), ResourceLfTagTableWithColumnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagTableWithColumnsPtrInput)(nil)).Elem(), ResourceLfTagTableWithColumnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagTableWithColumnsColumnWildcardInput)(nil)).Elem(), ResourceLfTagTableWithColumnsColumnWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagTableWithColumnsColumnWildcardPtrInput)(nil)).Elem(), ResourceLfTagTableWithColumnsColumnWildcardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagTimeoutsInput)(nil)).Elem(), ResourceLfTagTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagTimeoutsPtrInput)(nil)).Elem(), ResourceLfTagTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagsDatabaseInput)(nil)).Elem(), ResourceLfTagsDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagsDatabasePtrInput)(nil)).Elem(), ResourceLfTagsDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagsLfTagInput)(nil)).Elem(), ResourceLfTagsLfTagArgs{})
@@ -4941,6 +6014,18 @@ func init() {
 	pulumi.RegisterOutputType(PermissionsTablePtrOutput{})
 	pulumi.RegisterOutputType(PermissionsTableWithColumnsOutput{})
 	pulumi.RegisterOutputType(PermissionsTableWithColumnsPtrOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagDatabaseOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagDatabasePtrOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagLfTagOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagLfTagPtrOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagTableOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagTablePtrOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagTableWithColumnsOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagTableWithColumnsPtrOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagTableWithColumnsColumnWildcardOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagTableWithColumnsColumnWildcardPtrOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagTimeoutsOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceLfTagsDatabaseOutput{})
 	pulumi.RegisterOutputType(ResourceLfTagsDatabasePtrOutput{})
 	pulumi.RegisterOutputType(ResourceLfTagsLfTagOutput{})

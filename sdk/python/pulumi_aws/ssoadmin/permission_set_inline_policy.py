@@ -130,10 +130,7 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
-
-        > **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `ssoadmin.PermissionSet` resource.
-        Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+        ## Example Usage
 
         ## Import
 
@@ -156,10 +153,7 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
                  args: PermissionSetInlinePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
-
-        > **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `ssoadmin.PermissionSet` resource.
-        Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+        ## Example Usage
 
         ## Import
 

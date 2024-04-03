@@ -130,8 +130,10 @@ type LookupSnapshotResult struct {
 	MostRecent   *bool  `pulumi:"mostRecent"`
 	// Provides the option group name for the DB snapshot.
 	OptionGroupName string `pulumi:"optionGroupName"`
-	Port            int    `pulumi:"port"`
-	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
+	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
+	OriginalSnapshotCreateTime string `pulumi:"originalSnapshotCreateTime"`
+	Port                       int    `pulumi:"port"`
+	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
 	SnapshotCreateTime string  `pulumi:"snapshotCreateTime"`
 	SnapshotType       *string `pulumi:"snapshotType"`
 	// DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
@@ -279,11 +281,16 @@ func (o LookupSnapshotResultOutput) OptionGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OptionGroupName }).(pulumi.StringOutput)
 }
 
+// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
+func (o LookupSnapshotResultOutput) OriginalSnapshotCreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OriginalSnapshotCreateTime }).(pulumi.StringOutput)
+}
+
 func (o LookupSnapshotResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
+// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
 func (o LookupSnapshotResultOutput) SnapshotCreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.SnapshotCreateTime }).(pulumi.StringOutput)
 }

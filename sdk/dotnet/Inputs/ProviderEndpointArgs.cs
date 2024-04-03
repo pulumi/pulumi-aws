@@ -519,6 +519,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("datazone")]
+        public Input<string>? Datazone { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("dax")]
         public Input<string>? Dax { get; set; }
 
@@ -1175,6 +1181,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("outposts")]
         public Input<string>? Outposts { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("paymentcryptography")]
+        public Input<string>? Paymentcryptography { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

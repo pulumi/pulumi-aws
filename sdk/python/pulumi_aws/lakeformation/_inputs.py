@@ -25,6 +25,12 @@ __all__ = [
     'PermissionsLfTagPolicyExpressionArgs',
     'PermissionsTableArgs',
     'PermissionsTableWithColumnsArgs',
+    'ResourceLfTagDatabaseArgs',
+    'ResourceLfTagLfTagArgs',
+    'ResourceLfTagTableArgs',
+    'ResourceLfTagTableWithColumnsArgs',
+    'ResourceLfTagTableWithColumnsColumnWildcardArgs',
+    'ResourceLfTagTimeoutsArgs',
     'ResourceLfTagsDatabaseArgs',
     'ResourceLfTagsLfTagArgs',
     'ResourceLfTagsTableArgs',
@@ -814,6 +820,324 @@ class PermissionsTableWithColumnsArgs:
     @wildcard.setter
     def wildcard(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "wildcard", value)
+
+
+@pulumi.input_type
+class ResourceLfTagDatabaseArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Name of the database resource. Unique to the Data Catalog.
+               
+               The following argument is optional:
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        pulumi.set(__self__, "name", name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the database resource. Unique to the Data Catalog.
+
+        The following argument is optional:
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+
+@pulumi.input_type
+class ResourceLfTagLfTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Key name for an existing LF-tag.
+        :param pulumi.Input[str] value: Value from the possible values for the LF-tag.
+               
+               The following argument is optional:
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Key name for an existing LF-tag.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value from the possible values for the LF-tag.
+
+        The following argument is optional:
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+
+@pulumi.input_type
+class ResourceLfTagTableArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 wildcard: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] database_name: Name of the database for the table. Unique to a Data Catalog.
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param pulumi.Input[str] name: Name of the table.
+        :param pulumi.Input[bool] wildcard: Whether to use a wildcard representing every table under a database. Defaults to `false`.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if wildcard is not None:
+            pulumi.set(__self__, "wildcard", wildcard)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        Name of the database for the table. Unique to a Data Catalog.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def wildcard(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use a wildcard representing every table under a database. Defaults to `false`.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "wildcard")
+
+    @wildcard.setter
+    def wildcard(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "wildcard", value)
+
+
+@pulumi.input_type
+class ResourceLfTagTableWithColumnsArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 column_wildcard: Optional[pulumi.Input['ResourceLfTagTableWithColumnsColumnWildcardArgs']] = None):
+        """
+        :param pulumi.Input[str] database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
+        :param pulumi.Input[str] name: Name of the table resource.
+               
+               The following arguments are optional:
+        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: Set of column names for the table.
+        :param pulumi.Input['ResourceLfTagTableWithColumnsColumnWildcardArgs'] column_wildcard: Option to add column wildcard. See Column Wildcard for more details.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if column_names is not None:
+            pulumi.set(__self__, "column_names", column_names)
+        if column_wildcard is not None:
+            pulumi.set(__self__, "column_wildcard", column_wildcard)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        Name of the database for the table with columns resource. Unique to the Data Catalog.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the table resource.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="columnNames")
+    def column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of column names for the table.
+        """
+        return pulumi.get(self, "column_names")
+
+    @column_names.setter
+    def column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "column_names", value)
+
+    @property
+    @pulumi.getter(name="columnWildcard")
+    def column_wildcard(self) -> Optional[pulumi.Input['ResourceLfTagTableWithColumnsColumnWildcardArgs']]:
+        """
+        Option to add column wildcard. See Column Wildcard for more details.
+        """
+        return pulumi.get(self, "column_wildcard")
+
+    @column_wildcard.setter
+    def column_wildcard(self, value: Optional[pulumi.Input['ResourceLfTagTableWithColumnsColumnWildcardArgs']]):
+        pulumi.set(self, "column_wildcard", value)
+
+
+@pulumi.input_type
+class ResourceLfTagTableWithColumnsColumnWildcardArgs:
+    def __init__(__self__, *,
+                 excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if excluded_column_names is not None:
+            pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+
+    @property
+    @pulumi.getter(name="excludedColumnNames")
+    def excluded_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "excluded_column_names")
+
+    @excluded_column_names.setter
+    def excluded_column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_column_names", value)
+
+
+@pulumi.input_type
+class ResourceLfTagTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
 
 
 @pulumi.input_type

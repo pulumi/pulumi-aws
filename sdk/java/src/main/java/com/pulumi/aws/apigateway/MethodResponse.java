@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  *             .resourceId(myDemoResource.id())
  *             .httpMethod(myDemoMethod.httpMethod())
  *             .statusCode(&#34;200&#34;)
- *             .responseModels(Map.of(&#34;application-json&#34;, &#34;MyDemoResponseModel&#34;))
+ *             .responseModels(Map.of(&#34;application/json&#34;, &#34;MyDemoResponseModel&#34;))
  *             .responseParameters(Map.ofEntries(
  *                 Map.entry(&#34;method.response.header.Content-Type&#34;, false),
  *                 Map.entry(&#34;method-response-header.X-My-Demo-Header&#34;, false)

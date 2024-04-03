@@ -66,6 +66,10 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+     */
+    public readonly keyValueStoreAssociations!: pulumi.Output<string[] | undefined>;
+    /**
      * ETag hash of any `LIVE` stage of the function.
      */
     public /*out*/ readonly liveStageEtag!: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["code"] = state ? state.code : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["keyValueStoreAssociations"] = state ? state.keyValueStoreAssociations : undefined;
             resourceInputs["liveStageEtag"] = state ? state.liveStageEtag : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["publish"] = state ? state.publish : undefined;
@@ -120,6 +125,7 @@ export class Function extends pulumi.CustomResource {
             }
             resourceInputs["code"] = args ? args.code : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["keyValueStoreAssociations"] = args ? args.keyValueStoreAssociations : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publish"] = args ? args.publish : undefined;
             resourceInputs["runtime"] = args ? args.runtime : undefined;
@@ -153,6 +159,10 @@ export interface FunctionState {
      * ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
      */
     etag?: pulumi.Input<string>;
+    /**
+     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+     */
+    keyValueStoreAssociations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ETag hash of any `LIVE` stage of the function.
      */
@@ -189,6 +199,10 @@ export interface FunctionArgs {
      * Comment.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
+     */
+    keyValueStoreAssociations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Unique name for your CloudFront Function.
      */

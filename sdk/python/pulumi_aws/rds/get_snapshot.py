@@ -21,7 +21,7 @@ class GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, allocated_storage=None, availability_zone=None, db_instance_identifier=None, db_snapshot_arn=None, db_snapshot_identifier=None, encrypted=None, engine=None, engine_version=None, id=None, include_public=None, include_shared=None, iops=None, kms_key_id=None, license_model=None, most_recent=None, option_group_name=None, port=None, snapshot_create_time=None, snapshot_type=None, source_db_snapshot_identifier=None, source_region=None, status=None, storage_type=None, tags=None, vpc_id=None):
+    def __init__(__self__, allocated_storage=None, availability_zone=None, db_instance_identifier=None, db_snapshot_arn=None, db_snapshot_identifier=None, encrypted=None, engine=None, engine_version=None, id=None, include_public=None, include_shared=None, iops=None, kms_key_id=None, license_model=None, most_recent=None, option_group_name=None, original_snapshot_create_time=None, port=None, snapshot_create_time=None, snapshot_type=None, source_db_snapshot_identifier=None, source_region=None, status=None, storage_type=None, tags=None, vpc_id=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -70,6 +70,9 @@ class GetSnapshotResult:
         if option_group_name and not isinstance(option_group_name, str):
             raise TypeError("Expected argument 'option_group_name' to be a str")
         pulumi.set(__self__, "option_group_name", option_group_name)
+        if original_snapshot_create_time and not isinstance(original_snapshot_create_time, str):
+            raise TypeError("Expected argument 'original_snapshot_create_time' to be a str")
+        pulumi.set(__self__, "original_snapshot_create_time", original_snapshot_create_time)
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
@@ -212,6 +215,14 @@ class GetSnapshotResult:
         return pulumi.get(self, "option_group_name")
 
     @property
+    @pulumi.getter(name="originalSnapshotCreateTime")
+    def original_snapshot_create_time(self) -> str:
+        """
+        Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
+        """
+        return pulumi.get(self, "original_snapshot_create_time")
+
+    @property
     @pulumi.getter
     def port(self) -> int:
         return pulumi.get(self, "port")
@@ -220,7 +231,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="snapshotCreateTime")
     def snapshot_create_time(self) -> str:
         """
-        Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).
+        Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
         """
         return pulumi.get(self, "snapshot_create_time")
 
@@ -297,6 +308,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             license_model=self.license_model,
             most_recent=self.most_recent,
             option_group_name=self.option_group_name,
+            original_snapshot_create_time=self.original_snapshot_create_time,
             port=self.port,
             snapshot_create_time=self.snapshot_create_time,
             snapshot_type=self.snapshot_type,
@@ -393,6 +405,7 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
         license_model=pulumi.get(__ret__, 'license_model'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
         option_group_name=pulumi.get(__ret__, 'option_group_name'),
+        original_snapshot_create_time=pulumi.get(__ret__, 'original_snapshot_create_time'),
         port=pulumi.get(__ret__, 'port'),
         snapshot_create_time=pulumi.get(__ret__, 'snapshot_create_time'),
         snapshot_type=pulumi.get(__ret__, 'snapshot_type'),
