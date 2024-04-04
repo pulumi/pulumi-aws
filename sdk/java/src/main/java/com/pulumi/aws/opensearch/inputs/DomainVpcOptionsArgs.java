@@ -16,9 +16,17 @@ public final class DomainVpcOptionsArgs extends com.pulumi.resources.ResourceArg
 
     public static final DomainVpcOptionsArgs Empty = new DomainVpcOptionsArgs();
 
+    /**
+     * If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * 
+     */
     @Import(name="availabilityZones")
     private @Nullable Output<List<String>> availabilityZones;
 
+    /**
+     * @return If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+     * 
+     */
     public Optional<Output<List<String>>> availabilityZones() {
         return Optional.ofNullable(this.availabilityZones);
     }
@@ -53,9 +61,17 @@ public final class DomainVpcOptionsArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.subnetIds);
     }
 
+    /**
+     * If the domain was created inside a VPC, the ID of the VPC.
+     * 
+     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
+    /**
+     * @return If the domain was created inside a VPC, the ID of the VPC.
+     * 
+     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -87,15 +103,33 @@ public final class DomainVpcOptionsArgs extends com.pulumi.resources.ResourceArg
             $ = new DomainVpcOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param availabilityZones If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZones(@Nullable Output<List<String>> availabilityZones) {
             $.availabilityZones = availabilityZones;
             return this;
         }
 
+        /**
+         * @param availabilityZones If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZones(List<String> availabilityZones) {
             return availabilityZones(Output.of(availabilityZones));
         }
 
+        /**
+         * @param availabilityZones If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZones(String... availabilityZones) {
             return availabilityZones(List.of(availabilityZones));
         }
@@ -162,11 +196,23 @@ public final class DomainVpcOptionsArgs extends com.pulumi.resources.ResourceArg
             return subnetIds(List.of(subnetIds));
         }
 
+        /**
+         * @param vpcId If the domain was created inside a VPC, the ID of the VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
+        /**
+         * @param vpcId If the domain was created inside a VPC, the ID of the VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

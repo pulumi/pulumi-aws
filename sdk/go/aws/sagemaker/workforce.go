@@ -127,7 +127,6 @@ type Workforce struct {
 	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
 	SourceIpConfig WorkforceSourceIpConfigOutput `pulumi:"sourceIpConfig"`
 	// The subdomain for your OIDC Identity Provider.
-	// * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
 	Subdomain pulumi.StringOutput `pulumi:"subdomain"`
 	// The name of the Workforce (must be unique).
 	WorkforceName pulumi.StringOutput `pulumi:"workforceName"`
@@ -177,7 +176,6 @@ type workforceState struct {
 	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
 	SourceIpConfig *WorkforceSourceIpConfig `pulumi:"sourceIpConfig"`
 	// The subdomain for your OIDC Identity Provider.
-	// * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
 	Subdomain *string `pulumi:"subdomain"`
 	// The name of the Workforce (must be unique).
 	WorkforceName *string `pulumi:"workforceName"`
@@ -195,7 +193,6 @@ type WorkforceState struct {
 	// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
 	SourceIpConfig WorkforceSourceIpConfigPtrInput
 	// The subdomain for your OIDC Identity Provider.
-	// * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
 	Subdomain pulumi.StringPtrInput
 	// The name of the Workforce (must be unique).
 	WorkforceName pulumi.StringPtrInput
@@ -342,7 +339,6 @@ func (o WorkforceOutput) SourceIpConfig() WorkforceSourceIpConfigOutput {
 }
 
 // The subdomain for your OIDC Identity Provider.
-// * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
 func (o WorkforceOutput) Subdomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workforce) pulumi.StringOutput { return v.Subdomain }).(pulumi.StringOutput)
 }

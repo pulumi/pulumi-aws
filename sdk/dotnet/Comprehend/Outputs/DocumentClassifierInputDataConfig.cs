@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Comprehend.Outputs
         public readonly string? DataFormat;
         /// <summary>
         /// Delimiter between labels when training a multi-label classifier.
-        /// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
+        /// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
         /// Default is `|`.
         /// </summary>
         public readonly string? LabelDelimiter;

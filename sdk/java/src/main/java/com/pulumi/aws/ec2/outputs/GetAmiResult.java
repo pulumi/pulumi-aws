@@ -174,8 +174,6 @@ public final class GetAmiResult {
     private String state;
     /**
      * @return Describes a state change. Fields are `UNSET` if not available.
-     * * `state_reason.code` - The reason code for the state change.
-     * * `state_reason.message` - The message for the state change.
      * 
      */
     private Map<String,String> stateReason;
@@ -428,8 +426,6 @@ public final class GetAmiResult {
     }
     /**
      * @return Describes a state change. Fields are `UNSET` if not available.
-     * * `state_reason.code` - The reason code for the state change.
-     * * `state_reason.message` - The message for the state change.
      * 
      */
     public Map<String,String> stateReason() {

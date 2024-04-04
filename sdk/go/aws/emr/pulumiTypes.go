@@ -638,11 +638,9 @@ func (o ClusterCoreInstanceFleetPtrOutput) TargetSpotCapacity() pulumi.IntPtrOut
 }
 
 type ClusterCoreInstanceFleetInstanceTypeConfig struct {
-	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-	// (MISSING)
+	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPrice *string `pulumi:"bidPrice"`
-	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-	// (MISSING)
+	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 	Configurations []ClusterCoreInstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
@@ -666,11 +664,9 @@ type ClusterCoreInstanceFleetInstanceTypeConfigInput interface {
 }
 
 type ClusterCoreInstanceFleetInstanceTypeConfigArgs struct {
-	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-	// (MISSING)
+	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
-	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-	// (MISSING)
+	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 	Configurations ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
@@ -733,14 +729,12 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) ToClusterCoreInstanceF
 	return o
 }
 
-// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-// (MISSING)
+// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
 
-// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-// (MISSING)
+// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfig) *float64 {
 		return v.BidPriceAsPercentageOfOnDemandPrice
@@ -1417,7 +1411,7 @@ type ClusterCoreInstanceGroup struct {
 	BidPrice *string `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 	EbsConfigs []ClusterCoreInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
-	// ID of the cluster.
+	// Core node type Instance Group ID, if using Instance Group for this node type.
 	Id *string `pulumi:"id"`
 	// Target number of instances for the instance group. Must be at least 1. Defaults to 1.
 	InstanceCount *int `pulumi:"instanceCount"`
@@ -1445,7 +1439,7 @@ type ClusterCoreInstanceGroupArgs struct {
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 	EbsConfigs ClusterCoreInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
-	// ID of the cluster.
+	// Core node type Instance Group ID, if using Instance Group for this node type.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Target number of instances for the instance group. Must be at least 1. Defaults to 1.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
@@ -1547,7 +1541,7 @@ func (o ClusterCoreInstanceGroupOutput) EbsConfigs() ClusterCoreInstanceGroupEbs
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) []ClusterCoreInstanceGroupEbsConfig { return v.EbsConfigs }).(ClusterCoreInstanceGroupEbsConfigArrayOutput)
 }
 
-// ID of the cluster.
+// Core node type Instance Group ID, if using Instance Group for this node type.
 func (o ClusterCoreInstanceGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1621,7 +1615,7 @@ func (o ClusterCoreInstanceGroupPtrOutput) EbsConfigs() ClusterCoreInstanceGroup
 	}).(ClusterCoreInstanceGroupEbsConfigArrayOutput)
 }
 
-// ID of the cluster.
+// Core node type Instance Group ID, if using Instance Group for this node type.
 func (o ClusterCoreInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceGroup) *string {
 		if v == nil {
@@ -2571,11 +2565,9 @@ func (o ClusterMasterInstanceFleetPtrOutput) TargetSpotCapacity() pulumi.IntPtrO
 }
 
 type ClusterMasterInstanceFleetInstanceTypeConfig struct {
-	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-	// (MISSING)
+	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPrice *string `pulumi:"bidPrice"`
-	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-	// (MISSING)
+	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 	Configurations []ClusterMasterInstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
@@ -2599,11 +2591,9 @@ type ClusterMasterInstanceFleetInstanceTypeConfigInput interface {
 }
 
 type ClusterMasterInstanceFleetInstanceTypeConfigArgs struct {
-	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-	// (MISSING)
+	// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
-	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-	// (MISSING)
+	// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 	Configurations ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
@@ -2666,14 +2656,12 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) ToClusterMasterInsta
 	return o
 }
 
-// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-// (MISSING)
+// Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
 
-// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-// (MISSING)
+// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfig) *float64 {
 		return v.BidPriceAsPercentageOfOnDemandPrice
@@ -3350,7 +3338,7 @@ type ClusterMasterInstanceGroup struct {
 	BidPrice *string `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 	EbsConfigs []ClusterMasterInstanceGroupEbsConfig `pulumi:"ebsConfigs"`
-	// ID of the cluster.
+	// Master node type Instance Group ID, if using Instance Group for this node type.
 	Id *string `pulumi:"id"`
 	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount *int `pulumi:"instanceCount"`
@@ -3376,7 +3364,7 @@ type ClusterMasterInstanceGroupArgs struct {
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
 	// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
 	EbsConfigs ClusterMasterInstanceGroupEbsConfigArrayInput `pulumi:"ebsConfigs"`
-	// ID of the cluster.
+	// Master node type Instance Group ID, if using Instance Group for this node type.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
@@ -3473,7 +3461,7 @@ func (o ClusterMasterInstanceGroupOutput) EbsConfigs() ClusterMasterInstanceGrou
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) []ClusterMasterInstanceGroupEbsConfig { return v.EbsConfigs }).(ClusterMasterInstanceGroupEbsConfigArrayOutput)
 }
 
-// ID of the cluster.
+// Master node type Instance Group ID, if using Instance Group for this node type.
 func (o ClusterMasterInstanceGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -3537,7 +3525,7 @@ func (o ClusterMasterInstanceGroupPtrOutput) EbsConfigs() ClusterMasterInstanceG
 	}).(ClusterMasterInstanceGroupEbsConfigArrayOutput)
 }
 
-// ID of the cluster.
+// Master node type Instance Group ID, if using Instance Group for this node type.
 func (o ClusterMasterInstanceGroupPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceGroup) *string {
 		if v == nil {
@@ -4011,11 +3999,9 @@ func (o ClusterStepHadoopJarStepOutput) Properties() pulumi.StringMapOutput {
 }
 
 type InstanceFleetInstanceTypeConfig struct {
-	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-	// (MISSING)
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPrice *string `pulumi:"bidPrice"`
-	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-	// (MISSING)
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPriceAsPercentageOfOnDemandPrice *float64 `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 	Configurations []InstanceFleetInstanceTypeConfigConfiguration `pulumi:"configurations"`
@@ -4039,11 +4025,9 @@ type InstanceFleetInstanceTypeConfigInput interface {
 }
 
 type InstanceFleetInstanceTypeConfigArgs struct {
-	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-	// (MISSING)
+	// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPrice pulumi.StringPtrInput `pulumi:"bidPrice"`
-	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-	// (MISSING)
+	// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 	BidPriceAsPercentageOfOnDemandPrice pulumi.Float64PtrInput `pulumi:"bidPriceAsPercentageOfOnDemandPrice"`
 	// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
 	Configurations InstanceFleetInstanceTypeConfigConfigurationArrayInput `pulumi:"configurations"`
@@ -4106,14 +4090,12 @@ func (o InstanceFleetInstanceTypeConfigOutput) ToInstanceFleetInstanceTypeConfig
 	return o
 }
 
-// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-// (MISSING)
+// The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o InstanceFleetInstanceTypeConfigOutput) BidPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) *string { return v.BidPrice }).(pulumi.StringPtrOutput)
 }
 
-// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%!
-// (MISSING)
+// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
 func (o InstanceFleetInstanceTypeConfigOutput) BidPriceAsPercentageOfOnDemandPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InstanceFleetInstanceTypeConfig) *float64 { return v.BidPriceAsPercentageOfOnDemandPrice }).(pulumi.Float64PtrOutput)
 }

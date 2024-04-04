@@ -12,33 +12,6 @@ namespace Pulumi.Aws.CloudFormation
     /// <summary>
     /// Manages a version of a CloudFormation Type.
     /// 
-    /// ## Example Usage
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFormation.CloudFormationType("example", new()
-    ///     {
-    ///         SchemaHandlerPackage = $"s3://{exampleAwsS3Object.Bucket}/{exampleAwsS3Object.Key}",
-    ///         Type = "RESOURCE",
-    ///         TypeName = "ExampleCompany::ExampleService::ExampleResource",
-    ///         LoggingConfig = new Aws.CloudFormation.Inputs.CloudFormationTypeLoggingConfigArgs
-    ///         {
-    ///             LogGroupName = exampleAwsCloudwatchLogGroup.Name,
-    ///             LogRoleArn = exampleAwsIamRole.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:

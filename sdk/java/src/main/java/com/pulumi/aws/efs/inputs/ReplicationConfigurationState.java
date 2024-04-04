@@ -18,8 +18,6 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
     /**
      * When the replication configuration was created.
-     * * `destination[0].file_system_id` - The fs ID of the replica.
-     * * `destination[0].status` - The status of the replication.
      * 
      */
     @Import(name="creationTime")
@@ -27,8 +25,6 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
     /**
      * @return When the replication configuration was created.
-     * * `destination[0].file_system_id` - The fs ID of the replica.
-     * * `destination[0].status` - The status of the replication.
      * 
      */
     public Optional<Output<String>> creationTime() {
@@ -141,8 +137,6 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
         /**
          * @param creationTime When the replication configuration was created.
-         * * `destination[0].file_system_id` - The fs ID of the replica.
-         * * `destination[0].status` - The status of the replication.
          * 
          * @return builder
          * 
@@ -154,8 +148,6 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
 
         /**
          * @param creationTime When the replication configuration was created.
-         * * `destination[0].file_system_id` - The fs ID of the replica.
-         * * `destination[0].status` - The status of the replication.
          * 
          * @return builder
          * 

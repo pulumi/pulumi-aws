@@ -17,6 +17,9 @@ namespace Pulumi.Aws.Lambda.Outputs
         /// Conditions where snap start is enabled. Valid values are `PublishedVersions`.
         /// </summary>
         public readonly string ApplyOn;
+        /// <summary>
+        /// Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+        /// </summary>
         public readonly string? OptimizationStatus;
 
         [OutputConstructor]

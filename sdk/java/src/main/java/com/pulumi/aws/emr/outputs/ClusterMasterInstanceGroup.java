@@ -26,7 +26,7 @@ public final class ClusterMasterInstanceGroup {
      */
     private @Nullable List<ClusterMasterInstanceGroupEbsConfig> ebsConfigs;
     /**
-     * @return ID of the cluster.
+     * @return Master node type Instance Group ID, if using Instance Group for this node type.
      * 
      */
     private @Nullable String id;
@@ -62,7 +62,7 @@ public final class ClusterMasterInstanceGroup {
         return this.ebsConfigs == null ? List.of() : this.ebsConfigs;
     }
     /**
-     * @return ID of the cluster.
+     * @return Master node type Instance Group ID, if using Instance Group for this node type.
      * 
      */
     public Optional<String> id() {

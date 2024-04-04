@@ -42,6 +42,9 @@ namespace Pulumi.Aws.Lambda.Inputs
             set => _subnetIds = value;
         }
 
+        /// <summary>
+        /// ID of the VPC.
+        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

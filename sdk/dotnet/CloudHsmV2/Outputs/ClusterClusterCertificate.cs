@@ -13,10 +13,25 @@ namespace Pulumi.Aws.CloudHsmV2.Outputs
     [OutputType]
     public sealed class ClusterClusterCertificate
     {
+        /// <summary>
+        /// The HSM hardware certificate issued (signed) by AWS CloudHSM.
+        /// </summary>
         public readonly string? AwsHardwareCertificate;
+        /// <summary>
+        /// The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+        /// </summary>
         public readonly string? ClusterCertificate;
+        /// <summary>
+        /// The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+        /// </summary>
         public readonly string? ClusterCsr;
+        /// <summary>
+        /// The HSM certificate issued (signed) by the HSM hardware.
+        /// </summary>
         public readonly string? HsmCertificate;
+        /// <summary>
+        /// The HSM hardware certificate issued (signed) by the hardware manufacturer.
+        /// </summary>
         public readonly string? ManufacturerHardwareCertificate;
 
         [OutputConstructor]

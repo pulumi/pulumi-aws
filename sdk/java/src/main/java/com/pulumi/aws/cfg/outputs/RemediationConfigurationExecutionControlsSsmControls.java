@@ -12,30 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RemediationConfigurationExecutionControlsSsmControls {
     /**
-     * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
-     * (MISSING)
+     * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
      * 
      */
     private @Nullable Integer concurrentExecutionRatePercentage;
     /**
-     * @return Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
-     * (MISSING)
+     * @return Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
      * 
      */
     private @Nullable Integer errorPercentage;
 
     private RemediationConfigurationExecutionControlsSsmControls() {}
     /**
-     * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
-     * (MISSING)
+     * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
      * 
      */
     public Optional<Integer> concurrentExecutionRatePercentage() {
         return Optional.ofNullable(this.concurrentExecutionRatePercentage);
     }
     /**
-     * @return Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
-     * (MISSING)
+     * @return Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
      * 
      */
     public Optional<Integer> errorPercentage() {

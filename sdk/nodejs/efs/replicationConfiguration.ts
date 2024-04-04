@@ -105,8 +105,6 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
 
     /**
      * When the replication configuration was created.
-     * * `destination[0].file_system_id` - The fs ID of the replica.
-     * * `destination[0].status` - The status of the replication.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
@@ -175,8 +173,6 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
 export interface ReplicationConfigurationState {
     /**
      * When the replication configuration was created.
-     * * `destination[0].file_system_id` - The fs ID of the replica.
-     * * `destination[0].status` - The status of the replication.
      */
     creationTime?: pulumi.Input<string>;
     /**

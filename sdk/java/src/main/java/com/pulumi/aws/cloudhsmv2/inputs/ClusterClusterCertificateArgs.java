@@ -15,37 +15,77 @@ public final class ClusterClusterCertificateArgs extends com.pulumi.resources.Re
 
     public static final ClusterClusterCertificateArgs Empty = new ClusterClusterCertificateArgs();
 
+    /**
+     * The HSM hardware certificate issued (signed) by AWS CloudHSM.
+     * 
+     */
     @Import(name="awsHardwareCertificate")
     private @Nullable Output<String> awsHardwareCertificate;
 
+    /**
+     * @return The HSM hardware certificate issued (signed) by AWS CloudHSM.
+     * 
+     */
     public Optional<Output<String>> awsHardwareCertificate() {
         return Optional.ofNullable(this.awsHardwareCertificate);
     }
 
+    /**
+     * The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster&#39;s owner.
+     * 
+     */
     @Import(name="clusterCertificate")
     private @Nullable Output<String> clusterCertificate;
 
+    /**
+     * @return The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster&#39;s owner.
+     * 
+     */
     public Optional<Output<String>> clusterCertificate() {
         return Optional.ofNullable(this.clusterCertificate);
     }
 
+    /**
+     * The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+     * 
+     */
     @Import(name="clusterCsr")
     private @Nullable Output<String> clusterCsr;
 
+    /**
+     * @return The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+     * 
+     */
     public Optional<Output<String>> clusterCsr() {
         return Optional.ofNullable(this.clusterCsr);
     }
 
+    /**
+     * The HSM certificate issued (signed) by the HSM hardware.
+     * 
+     */
     @Import(name="hsmCertificate")
     private @Nullable Output<String> hsmCertificate;
 
+    /**
+     * @return The HSM certificate issued (signed) by the HSM hardware.
+     * 
+     */
     public Optional<Output<String>> hsmCertificate() {
         return Optional.ofNullable(this.hsmCertificate);
     }
 
+    /**
+     * The HSM hardware certificate issued (signed) by the hardware manufacturer.
+     * 
+     */
     @Import(name="manufacturerHardwareCertificate")
     private @Nullable Output<String> manufacturerHardwareCertificate;
 
+    /**
+     * @return The HSM hardware certificate issued (signed) by the hardware manufacturer.
+     * 
+     */
     public Optional<Output<String>> manufacturerHardwareCertificate() {
         return Optional.ofNullable(this.manufacturerHardwareCertificate);
     }
@@ -78,47 +118,107 @@ public final class ClusterClusterCertificateArgs extends com.pulumi.resources.Re
             $ = new ClusterClusterCertificateArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param awsHardwareCertificate The HSM hardware certificate issued (signed) by AWS CloudHSM.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsHardwareCertificate(@Nullable Output<String> awsHardwareCertificate) {
             $.awsHardwareCertificate = awsHardwareCertificate;
             return this;
         }
 
+        /**
+         * @param awsHardwareCertificate The HSM hardware certificate issued (signed) by AWS CloudHSM.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsHardwareCertificate(String awsHardwareCertificate) {
             return awsHardwareCertificate(Output.of(awsHardwareCertificate));
         }
 
+        /**
+         * @param clusterCertificate The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster&#39;s owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterCertificate(@Nullable Output<String> clusterCertificate) {
             $.clusterCertificate = clusterCertificate;
             return this;
         }
 
+        /**
+         * @param clusterCertificate The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster&#39;s owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterCertificate(String clusterCertificate) {
             return clusterCertificate(Output.of(clusterCertificate));
         }
 
+        /**
+         * @param clusterCsr The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterCsr(@Nullable Output<String> clusterCsr) {
             $.clusterCsr = clusterCsr;
             return this;
         }
 
+        /**
+         * @param clusterCsr The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterCsr(String clusterCsr) {
             return clusterCsr(Output.of(clusterCsr));
         }
 
+        /**
+         * @param hsmCertificate The HSM certificate issued (signed) by the HSM hardware.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hsmCertificate(@Nullable Output<String> hsmCertificate) {
             $.hsmCertificate = hsmCertificate;
             return this;
         }
 
+        /**
+         * @param hsmCertificate The HSM certificate issued (signed) by the HSM hardware.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hsmCertificate(String hsmCertificate) {
             return hsmCertificate(Output.of(hsmCertificate));
         }
 
+        /**
+         * @param manufacturerHardwareCertificate The HSM hardware certificate issued (signed) by the hardware manufacturer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder manufacturerHardwareCertificate(@Nullable Output<String> manufacturerHardwareCertificate) {
             $.manufacturerHardwareCertificate = manufacturerHardwareCertificate;
             return this;
         }
 
+        /**
+         * @param manufacturerHardwareCertificate The HSM hardware certificate issued (signed) by the hardware manufacturer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder manufacturerHardwareCertificate(String manufacturerHardwareCertificate) {
             return manufacturerHardwareCertificate(Output.of(manufacturerHardwareCertificate));
         }

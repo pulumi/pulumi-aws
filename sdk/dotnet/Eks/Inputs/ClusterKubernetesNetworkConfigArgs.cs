@@ -30,6 +30,9 @@ namespace Pulumi.Aws.Eks.Inputs
         [Input("serviceIpv4Cidr")]
         public Input<string>? ServiceIpv4Cidr { get; set; }
 
+        /// <summary>
+        /// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+        /// </summary>
         [Input("serviceIpv6Cidr")]
         public Input<string>? ServiceIpv6Cidr { get; set; }
 

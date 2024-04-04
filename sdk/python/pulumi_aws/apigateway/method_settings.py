@@ -172,68 +172,6 @@ class MethodSettings(pulumi.CustomResource):
 
         ### End-to-end
 
-        ### Basic Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.apigateway.RestApi("example",
-            body=json.dumps({
-                "openapi": "3.0.1",
-                "info": {
-                    "title": "example",
-                    "version": "1.0",
-                },
-                "paths": {
-                    "/path1": {
-                        "get": {
-                            "x-amazon-apigateway-integration": {
-                                "httpMethod": "GET",
-                                "payloadFormatVersion": "1.0",
-                                "type": "HTTP_PROXY",
-                                "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-                            },
-                        },
-                    },
-                },
-            }),
-            name="example")
-        example_deployment = aws.apigateway.Deployment("example",
-            rest_api=example.id,
-            triggers={
-                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps(example.body)).apply(lambda invoke: invoke.result),
-            })
-        example_stage = aws.apigateway.Stage("example",
-            deployment=example_deployment.id,
-            rest_api=example.id,
-            stage_name="example")
-        all = aws.apigateway.MethodSettings("all",
-            rest_api=example.id,
-            stage_name=example_stage.stage_name,
-            method_path="*/*",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                metrics_enabled=True,
-                logging_level="ERROR",
-            ))
-        path_specific = aws.apigateway.MethodSettings("path_specific",
-            rest_api=example.id,
-            stage_name=example_stage.stage_name,
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                metrics_enabled=True,
-                logging_level="INFO",
-            ))
-        ```
-        <!--End PulumiCodeChooser -->
-
-        ### CloudWatch Logging and Tracing
-
-        The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
-
         ### Off
 
         <!--Start PulumiCodeChooser -->
@@ -337,68 +275,6 @@ class MethodSettings(pulumi.CustomResource):
         ## Example Usage
 
         ### End-to-end
-
-        ### Basic Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.apigateway.RestApi("example",
-            body=json.dumps({
-                "openapi": "3.0.1",
-                "info": {
-                    "title": "example",
-                    "version": "1.0",
-                },
-                "paths": {
-                    "/path1": {
-                        "get": {
-                            "x-amazon-apigateway-integration": {
-                                "httpMethod": "GET",
-                                "payloadFormatVersion": "1.0",
-                                "type": "HTTP_PROXY",
-                                "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-                            },
-                        },
-                    },
-                },
-            }),
-            name="example")
-        example_deployment = aws.apigateway.Deployment("example",
-            rest_api=example.id,
-            triggers={
-                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps(example.body)).apply(lambda invoke: invoke.result),
-            })
-        example_stage = aws.apigateway.Stage("example",
-            deployment=example_deployment.id,
-            rest_api=example.id,
-            stage_name="example")
-        all = aws.apigateway.MethodSettings("all",
-            rest_api=example.id,
-            stage_name=example_stage.stage_name,
-            method_path="*/*",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                metrics_enabled=True,
-                logging_level="ERROR",
-            ))
-        path_specific = aws.apigateway.MethodSettings("path_specific",
-            rest_api=example.id,
-            stage_name=example_stage.stage_name,
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                metrics_enabled=True,
-                logging_level="INFO",
-            ))
-        ```
-        <!--End PulumiCodeChooser -->
-
-        ### CloudWatch Logging and Tracing
-
-        The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
 
         ### Off
 

@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  * console
  * 
- *  %!p(MISSING)ulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
+ *  % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
  * 
  */
 @ResourceType(type="aws:verifiedpermissions/schema:Schema")

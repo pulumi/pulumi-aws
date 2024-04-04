@@ -31,9 +31,17 @@ public final class FunctionSnapStartArgs extends com.pulumi.resources.ResourceAr
         return this.applyOn;
     }
 
+    /**
+     * Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+     * 
+     */
     @Import(name="optimizationStatus")
     private @Nullable Output<String> optimizationStatus;
 
+    /**
+     * @return Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+     * 
+     */
     public Optional<Output<String>> optimizationStatus() {
         return Optional.ofNullable(this.optimizationStatus);
     }
@@ -84,11 +92,23 @@ public final class FunctionSnapStartArgs extends com.pulumi.resources.ResourceAr
             return applyOn(Output.of(applyOn));
         }
 
+        /**
+         * @param optimizationStatus Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder optimizationStatus(@Nullable Output<String> optimizationStatus) {
             $.optimizationStatus = optimizationStatus;
             return this;
         }
 
+        /**
+         * @param optimizationStatus Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder optimizationStatus(String optimizationStatus) {
             return optimizationStatus(Output.of(optimizationStatus));
         }

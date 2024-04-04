@@ -50,14 +50,14 @@ public final class ClusterMasterInstanceGroupArgs extends com.pulumi.resources.R
     }
 
     /**
-     * ID of the cluster.
+     * Master node type Instance Group ID, if using Instance Group for this node type.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return ID of the cluster.
+     * @return Master node type Instance Group ID, if using Instance Group for this node type.
      * 
      */
     public Optional<Output<String>> id() {
@@ -191,7 +191,7 @@ public final class ClusterMasterInstanceGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id ID of the cluster.
+         * @param id Master node type Instance Group ID, if using Instance Group for this node type.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class ClusterMasterInstanceGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id ID of the cluster.
+         * @param id Master node type Instance Group ID, if using Instance Group for this node type.
          * 
          * @return builder
          * 

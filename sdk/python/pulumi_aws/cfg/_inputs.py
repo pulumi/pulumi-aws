@@ -491,10 +491,8 @@ class RemediationConfigurationExecutionControlsSsmControlsArgs:
                  concurrent_execution_rate_percentage: Optional[pulumi.Input[int]] = None,
                  error_percentage: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] concurrent_execution_rate_percentage: Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
-               (MISSING)
-        :param pulumi.Input[int] error_percentage: Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
-               (MISSING)
+        :param pulumi.Input[int] concurrent_execution_rate_percentage: Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+        :param pulumi.Input[int] error_percentage: Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
         """
         if concurrent_execution_rate_percentage is not None:
             pulumi.set(__self__, "concurrent_execution_rate_percentage", concurrent_execution_rate_percentage)
@@ -505,8 +503,7 @@ class RemediationConfigurationExecutionControlsSsmControlsArgs:
     @pulumi.getter(name="concurrentExecutionRatePercentage")
     def concurrent_execution_rate_percentage(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
-        (MISSING)
+        Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
         """
         return pulumi.get(self, "concurrent_execution_rate_percentage")
 
@@ -518,8 +515,7 @@ class RemediationConfigurationExecutionControlsSsmControlsArgs:
     @pulumi.getter(name="errorPercentage")
     def error_percentage(self) -> Optional[pulumi.Input[int]]:
         """
-        Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
-        (MISSING)
+        Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
         """
         return pulumi.get(self, "error_percentage")
 

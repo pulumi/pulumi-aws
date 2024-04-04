@@ -81,7 +81,6 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The subdomain for your OIDC Identity Provider.
-     * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      * 
      */
     @Import(name="subdomain")
@@ -89,7 +88,6 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The subdomain for your OIDC Identity Provider.
-     * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      * 
      */
     public Optional<Output<String>> subdomain() {
@@ -242,7 +240,6 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subdomain The subdomain for your OIDC Identity Provider.
-         * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
          * 
          * @return builder
          * 
@@ -254,7 +251,6 @@ public final class WorkforceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subdomain The subdomain for your OIDC Identity Provider.
-         * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
          * 
          * @return builder
          * 

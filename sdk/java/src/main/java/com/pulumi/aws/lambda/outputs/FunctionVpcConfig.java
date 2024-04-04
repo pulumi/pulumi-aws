@@ -29,6 +29,10 @@ public final class FunctionVpcConfig {
      * 
      */
     private List<String> subnetIds;
+    /**
+     * @return ID of the VPC.
+     * 
+     */
     private @Nullable String vpcId;
 
     private FunctionVpcConfig() {}
@@ -53,6 +57,10 @@ public final class FunctionVpcConfig {
     public List<String> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * @return ID of the VPC.
+     * 
+     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
