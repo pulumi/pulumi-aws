@@ -35,6 +35,12 @@ namespace Pulumi.Aws.Detective
     ///     var exampleOrganizationAdminAccount = new Aws.Detective.OrganizationAdminAccount("example", new()
     ///     {
     ///         AccountId = "123456789012",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });

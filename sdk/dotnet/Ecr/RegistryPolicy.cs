@@ -36,14 +36,14 @@ namespace Pulumi.Aws.Ecr
     ///     {
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["sid"] = "testpolicy",
-    ///                     ["effect"] = "Allow",
-    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Sid"] = "testpolicy",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
     ///                         {
@@ -52,11 +52,11 @@ namespace Pulumi.Aws.Ecr
     ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
     ///                         }),
     ///                     },
-    ///                     ["action"] = new[]
+    ///                     ["Action"] = new[]
     ///                     {
     ///                         "ecr:ReplicateImage",
     ///                     },
-    ///                     ["resource"] = new[]
+    ///                     ["Resource"] = new[]
     ///                     {
     ///                         Output.Tuple(currentGetPartition, currentGetRegion, current).Apply(values =&gt;
     ///                         {

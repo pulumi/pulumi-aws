@@ -21,29 +21,29 @@ import * as utilities from "../utilities";
  *
  * const vpcConnectionRole = new aws.iam.Role("vpc_connection_role", {
  *     assumeRolePolicy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             effect: "Allow",
- *             action: "sts:AssumeRole",
- *             principal: {
- *                 service: "quicksight.amazonaws.com",
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Effect: "Allow",
+ *             Action: "sts:AssumeRole",
+ *             Principal: {
+ *                 Service: "quicksight.amazonaws.com",
  *             },
  *         }],
  *     }),
  *     inlinePolicies: [{
  *         name: "QuickSightVPCConnectionRolePolicy",
  *         policy: JSON.stringify({
- *             version: "2012-10-17",
- *             statement: [{
- *                 effect: "Allow",
- *                 action: [
+ *             Version: "2012-10-17",
+ *             Statement: [{
+ *                 Effect: "Allow",
+ *                 Action: [
  *                     "ec2:CreateNetworkInterface",
  *                     "ec2:ModifyNetworkInterfaceAttribute",
  *                     "ec2:DeleteNetworkInterface",
  *                     "ec2:DescribeSubnets",
  *                     "ec2:DescribeSecurityGroups",
  *                 ],
- *                 resource: ["*"],
+ *                 Resource: ["*"],
  *             }],
  *         }),
  *     }],

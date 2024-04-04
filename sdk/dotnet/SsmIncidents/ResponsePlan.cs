@@ -37,6 +37,12 @@ namespace Pulumi.Aws.SsmIncidents
     ///         {
     ///             { "key", "value" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -141,6 +147,12 @@ namespace Pulumi.Aws.SsmIncidents
     ///         Tags = 
     ///         {
     ///             { "key", "value" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsSsmincidentsReplicationSet, 
     ///         },
     ///     });
     /// 

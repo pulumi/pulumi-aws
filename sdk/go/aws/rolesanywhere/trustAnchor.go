@@ -64,7 +64,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = acmpca.NewCertificateAuthorityCertificate(ctx, "example", &acmpca.CertificateAuthorityCertificateArgs{
+//			exampleCertificateAuthorityCertificate, err := acmpca.NewCertificateAuthorityCertificate(ctx, "example", &acmpca.CertificateAuthorityCertificateArgs{
 //				CertificateAuthorityArn: example.Arn,
 //				Certificate:             pulumi.Any(exampleAwsAcmpcaCertificate.Certificate),
 //				CertificateChain:        pulumi.Any(exampleAwsAcmpcaCertificate.CertificateChain),
@@ -80,7 +80,9 @@ import (
 //					},
 //					SourceType: pulumi.String("AWS_ACM_PCA"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleCertificateAuthorityCertificate,
+//			}))
 //			if err != nil {
 //				return err
 //			}

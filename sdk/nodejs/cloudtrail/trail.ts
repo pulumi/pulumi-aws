@@ -30,12 +30,6 @@ import * as utilities from "../utilities";
  *     bucket: "my-test-trail",
  *     forceDestroy: true,
  * });
- * const exampleTrail = new aws.cloudtrail.Trail("example", {
- *     name: "example",
- *     s3BucketName: exampleBucketV2.id,
- *     s3KeyPrefix: "prefix",
- *     includeGlobalServiceEvents: false,
- * });
  * const current = aws.getCallerIdentity({});
  * const currentGetPartition = aws.getPartition({});
  * const currentGetRegion = aws.getRegion({});
@@ -83,6 +77,14 @@ import * as utilities from "../utilities";
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: exampleBucketV2.id,
  *     policy: example.apply(example => example.json),
+ * });
+ * const exampleTrail = new aws.cloudtrail.Trail("example", {
+ *     name: "example",
+ *     s3BucketName: exampleBucketV2.id,
+ *     s3KeyPrefix: "prefix",
+ *     includeGlobalServiceEvents: false,
+ * }, {
+ *     dependsOn: [exampleBucketPolicy],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

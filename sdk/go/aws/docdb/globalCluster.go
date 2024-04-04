@@ -53,7 +53,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = docdb.NewClusterInstance(ctx, "primary", &docdb.ClusterInstanceArgs{
+//			primaryClusterInstance, err := docdb.NewClusterInstance(ctx, "primary", &docdb.ClusterInstanceArgs{
 //				Engine:            example.Engine,
 //				Identifier:        pulumi.String("test-primary-cluster-instance"),
 //				ClusterIdentifier: primary.ID(),
@@ -68,7 +68,9 @@ import (
 //				ClusterIdentifier:       pulumi.String("test-secondary-cluster"),
 //				GlobalClusterIdentifier: example.ID(),
 //				DbSubnetGroupName:       pulumi.String("default"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				primary,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -77,7 +79,9 @@ import (
 //				Identifier:        pulumi.String("test-secondary-cluster-instance"),
 //				ClusterIdentifier: secondary.ID(),
 //				InstanceClass:     pulumi.String("db.r5.large"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				primaryClusterInstance,
+//			}))
 //			if err != nil {
 //				return err
 //			}

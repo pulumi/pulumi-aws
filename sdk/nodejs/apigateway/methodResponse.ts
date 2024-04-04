@@ -86,7 +86,7 @@ import {RestApi} from "./index";
  *         title: "MyDemoResponse",
  *         type: "object",
  *         properties: {
- *             message: {
+ *             Message: {
  *                 type: "string",
  *             },
  *         },

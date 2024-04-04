@@ -38,6 +38,12 @@ namespace Pulumi.Aws.SecurityHub
     ///         {
     ///             ConfigurationType = "CENTRAL",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     ///     var exampleConfigurationPolicy = new Aws.SecurityHub.ConfigurationPolicy("example", new()
@@ -56,6 +62,12 @@ namespace Pulumi.Aws.SecurityHub
     ///             {
     ///                 DisabledControlIdentifiers = new() { },
     ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleOrganizationConfiguration, 
     ///         },
     ///     });
     /// 

@@ -79,7 +79,7 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
+//			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
 //				SecretId:     example.ID(),
 //				SecretString: pulumi.String(json0),
 //			})
@@ -92,7 +92,9 @@ import (
 //					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
 //					SecretArn:     example.Arn,
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSecretVersion,
+//			}))
 //			if err != nil {
 //				return err
 //			}

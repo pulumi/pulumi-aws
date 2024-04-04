@@ -47,20 +47,20 @@ import javax.annotation.Nullable;
  *             .resourceArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;action&#34;, jsonArray(
+ *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Action&#34;, jsonArray(
  *                             &#34;network-firewall:ListFirewallPolicies&#34;, 
  *                             &#34;network-firewall:CreateFirewall&#34;, 
  *                             &#34;network-firewall:UpdateFirewall&#34;, 
  *                             &#34;network-firewall:AssociateFirewallPolicy&#34;
  *                         )),
- *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;resource&#34;, exampleAwsNetworkfirewallFirewallPolicy.arn()),
- *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;Resource&#34;, exampleAwsNetworkfirewallFirewallPolicy.arn()),
+ *                         jsonProperty(&#34;Principal&#34;, jsonObject(
  *                             jsonProperty(&#34;AWS&#34;, &#34;arn:aws:iam::123456789012:root&#34;)
  *                         ))
  *                     ))),
- *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
  *                 )))
  *             .build());
  * 
@@ -98,19 +98,19 @@ import javax.annotation.Nullable;
  *             .resourceArn(exampleAwsNetworkfirewallRuleGroup.arn())
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;action&#34;, jsonArray(
+ *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Action&#34;, jsonArray(
  *                             &#34;network-firewall:ListRuleGroups&#34;, 
  *                             &#34;network-firewall:CreateFirewallPolicy&#34;, 
  *                             &#34;network-firewall:UpdateFirewallPolicy&#34;
  *                         )),
- *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;resource&#34;, exampleAwsNetworkfirewallRuleGroup.arn()),
- *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;Resource&#34;, exampleAwsNetworkfirewallRuleGroup.arn()),
+ *                         jsonProperty(&#34;Principal&#34;, jsonObject(
  *                             jsonProperty(&#34;AWS&#34;, &#34;arn:aws:iam::123456789012:root&#34;)
  *                         ))
  *                     ))),
- *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
  *                 )))
  *             .build());
  * 

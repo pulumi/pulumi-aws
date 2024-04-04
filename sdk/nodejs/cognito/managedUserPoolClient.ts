@@ -24,10 +24,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleUserPool = new aws.cognito.UserPool("example", {name: "example"});
- * const exampleManagedUserPoolClient = new aws.cognito.ManagedUserPoolClient("example", {
- *     namePrefix: "AmazonOpenSearchService-example",
- *     userPoolId: exampleUserPool.id,
- * });
  * const exampleIdentityPool = new aws.cognito.IdentityPool("example", {identityPoolName: "example"});
  * const current = aws.getPartition({});
  * const example = current.then(current => aws.iam.getPolicyDocument({
@@ -46,6 +42,10 @@ import * as utilities from "../utilities";
  *     path: "/service-role/",
  *     assumeRolePolicy: example.then(example => example.json),
  * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ *     role: exampleRole.name,
+ *     policyArn: current.then(current => `arn:${current.partition}:iam::aws:policy/AmazonESCognitoAccess`),
+ * });
  * const exampleDomain = new aws.opensearch.Domain("example", {
  *     domainName: "example",
  *     cognitoOptions: {
@@ -58,10 +58,17 @@ import * as utilities from "../utilities";
  *         ebsEnabled: true,
  *         volumeSize: 10,
  *     },
+ * }, {
+ *     dependsOn: [
+ *         exampleAwsCognitoUserPoolDomain,
+ *         exampleRolePolicyAttachment,
+ *     ],
  * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
- *     role: exampleRole.name,
- *     policyArn: current.then(current => `arn:${current.partition}:iam::aws:policy/AmazonESCognitoAccess`),
+ * const exampleManagedUserPoolClient = new aws.cognito.ManagedUserPoolClient("example", {
+ *     namePrefix: "AmazonOpenSearchService-example",
+ *     userPoolId: exampleUserPool.id,
+ * }, {
+ *     dependsOn: [exampleDomain],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

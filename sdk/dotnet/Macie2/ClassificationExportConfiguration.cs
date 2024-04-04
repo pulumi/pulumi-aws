@@ -33,6 +33,12 @@ namespace Pulumi.Aws.Macie2
     ///             KeyPrefix = "exampleprefix/",
     ///             KmsKeyArn = exampleAwsKmsKey.Arn,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });

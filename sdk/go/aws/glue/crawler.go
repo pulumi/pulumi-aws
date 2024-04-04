@@ -229,15 +229,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"grouping": map[string]interface{}{
-//					"tableGroupingPolicy": "CombineCompatibleSchemas",
+//				"Grouping": map[string]interface{}{
+//					"TableGroupingPolicy": "CombineCompatibleSchemas",
 //				},
-//				"crawlerOutput": map[string]interface{}{
-//					"partitions": map[string]interface{}{
-//						"addOrUpdateBehavior": "InheritFromTable",
+//				"CrawlerOutput": map[string]interface{}{
+//					"Partitions": map[string]interface{}{
+//						"AddOrUpdateBehavior": "InheritFromTable",
 //					},
 //				},
-//				"version": 1,
+//				"Version": 1,
 //			})
 //			if err != nil {
 //				return err

@@ -115,6 +115,14 @@ namespace Pulumi.Aws.Dms
     ///         {
     ///             "sg-12345678",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             dms_access_for_endpoint_AmazonDMSRedshiftS3Role, 
+    ///             dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole, 
+    ///             dms_vpc_role_AmazonDMSVPCManagementRole, 
+    ///         },
     ///     });
     /// 
     /// });

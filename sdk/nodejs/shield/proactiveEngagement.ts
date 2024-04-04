@@ -23,8 +23,8 @@ import * as utilities from "../utilities";
  * const example = new aws.iam.Role("example", {
  *     name: awsShieldDrtAccessRoleArn,
  *     assumeRolePolicy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
+ *         Version: "2012-10-17",
+ *         Statement: [{
  *             Sid: "",
  *             Effect: "Allow",
  *             Principal: {
@@ -58,6 +58,8 @@ import * as utilities from "../utilities";
  *             phoneNumber: "+12358132134",
  *         },
  *     ],
+ * }, {
+ *     dependsOn: [testAwsShieldDrtAccessRoleArnAssociation],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

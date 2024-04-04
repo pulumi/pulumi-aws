@@ -29,6 +29,8 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     timeZoneId: "Australia/Sydney",
+ * }, {
+ *     dependsOn: [exampleAwsSsmincidentsReplicationSet],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -82,6 +84,8 @@ import * as utilities from "../utilities";
  *         key1: "tag1",
  *         key2: "tag2",
  *     },
+ * }, {
+ *     dependsOn: [exampleAwsSsmincidentsReplicationSet],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -117,6 +121,8 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  *     timeZoneId: "Australia/Sydney",
+ * }, {
+ *     dependsOn: [exampleAwsSsmincidentsReplicationSet],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

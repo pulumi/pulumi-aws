@@ -249,7 +249,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewPermission(ctx, "allow_bucket", &lambda.PermissionArgs{
+//			allowBucket, err := lambda.NewPermission(ctx, "allow_bucket", &lambda.PermissionArgs{
 //				StatementId: pulumi.String("AllowExecutionFromS3Bucket"),
 //				Action:      pulumi.String("lambda:InvokeFunction"),
 //				Function:    _func.Arn,
@@ -271,7 +271,9 @@ import (
 //						FilterSuffix: pulumi.String(".log"),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				allowBucket,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -343,7 +345,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewPermission(ctx, "allow_bucket1", &lambda.PermissionArgs{
+//			allowBucket1, err := lambda.NewPermission(ctx, "allow_bucket1", &lambda.PermissionArgs{
 //				StatementId: pulumi.String("AllowExecutionFromS3Bucket1"),
 //				Action:      pulumi.String("lambda:InvokeFunction"),
 //				Function:    func1.Arn,
@@ -362,7 +364,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewPermission(ctx, "allow_bucket2", &lambda.PermissionArgs{
+//			allowBucket2, err := lambda.NewPermission(ctx, "allow_bucket2", &lambda.PermissionArgs{
 //				StatementId: pulumi.String("AllowExecutionFromS3Bucket2"),
 //				Action:      pulumi.String("lambda:InvokeFunction"),
 //				Function:    func2.Arn,
@@ -392,7 +394,10 @@ import (
 //						FilterSuffix: pulumi.String(".log"),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				allowBucket1,
+//				allowBucket2,
+//			}))
 //			if err != nil {
 //				return err
 //			}

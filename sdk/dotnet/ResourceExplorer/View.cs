@@ -42,6 +42,12 @@ namespace Pulumi.Aws.ResourceExplorer
     ///                 Name = "tags",
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });

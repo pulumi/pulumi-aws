@@ -357,10 +357,10 @@ class Application(pulumi.CustomResource):
             name="example",
             resource_query=aws.resourcegroups.GroupResourceQueryArgs(
                 query=json.dumps({
-                    "resourceTypeFilters": ["AWS::EC2::Instance"],
-                    "tagFilters": [{
-                        "key": "Stage",
-                        "values": ["Test"],
+                    "ResourceTypeFilters": ["AWS::EC2::Instance"],
+                    "TagFilters": [{
+                        "Key": "Stage",
+                        "Values": ["Test"],
                     }],
                 }),
             ))
@@ -410,10 +410,10 @@ class Application(pulumi.CustomResource):
             name="example",
             resource_query=aws.resourcegroups.GroupResourceQueryArgs(
                 query=json.dumps({
-                    "resourceTypeFilters": ["AWS::EC2::Instance"],
-                    "tagFilters": [{
-                        "key": "Stage",
-                        "values": ["Test"],
+                    "ResourceTypeFilters": ["AWS::EC2::Instance"],
+                    "TagFilters": [{
+                        "Key": "Stage",
+                        "Values": ["Test"],
                     }],
                 }),
             ))

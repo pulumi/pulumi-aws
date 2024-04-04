@@ -100,6 +100,12 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         Ipv4IpamPoolId = testVpcIpamPool.Id,
     ///         Ipv4NetmaskLength = 28,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             testVpcIpamPoolCidr, 
+    ///         },
     ///     });
     /// 
     /// });

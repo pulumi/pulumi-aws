@@ -28,6 +28,8 @@ import * as utilities from "../utilities";
  *     organizationConfiguration: {
  *         configurationType: "CENTRAL",
  *     },
+ * }, {
+ *     dependsOn: [example],
  * });
  * const exampleConfigurationPolicy = new aws.securityhub.ConfigurationPolicy("example", {
  *     name: "Example",
@@ -42,6 +44,8 @@ import * as utilities from "../utilities";
  *             disabledControlIdentifiers: [],
  *         },
  *     },
+ * }, {
+ *     dependsOn: [exampleOrganizationConfiguration],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -60,6 +64,8 @@ import * as utilities from "../utilities";
  *         serviceEnabled: false,
  *         enabledStandardArns: [],
  *     },
+ * }, {
+ *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -118,6 +124,8 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     },
+ * }, {
+ *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

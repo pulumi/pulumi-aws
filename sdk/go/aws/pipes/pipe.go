@@ -47,15 +47,15 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": map[string]interface{}{
-//					"effect": "Allow",
-//					"action": "sts:AssumeRole",
-//					"principal": map[string]interface{}{
-//						"service": "pipes.amazonaws.com",
+//				"Version": "2012-10-17",
+//				"Statement": map[string]interface{}{
+//					"Effect": "Allow",
+//					"Action": "sts:AssumeRole",
+//					"Principal": map[string]interface{}{
+//						"Service": "pipes.amazonaws.com",
 //					},
-//					"condition": map[string]interface{}{
-//						"stringEquals": map[string]interface{}{
+//					"Condition": map[string]interface{}{
+//						"StringEquals": map[string]interface{}{
 //							"aws:SourceAccount": main.AccountId,
 //						},
 //					},
@@ -75,21 +75,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "source", &iam.RolePolicyArgs{
+//			source, err := iam.NewRolePolicy(ctx, "source", &iam.RolePolicyArgs{
 //				Role: example.ID(),
 //				Policy: sourceQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"version": "2012-10-17",
-//						"statement": []map[string]interface{}{
+//						"Version": "2012-10-17",
+//						"Statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"effect": "Allow",
-//								"action": []string{
+//								"Effect": "Allow",
+//								"Action": []string{
 //									"sqs:DeleteMessage",
 //									"sqs:GetQueueAttributes",
 //									"sqs:ReceiveMessage",
 //								},
-//								"resource": []string{
+//								"Resource": []string{
 //									arn,
 //								},
 //							},
@@ -109,19 +109,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicy(ctx, "target", &iam.RolePolicyArgs{
+//			target, err := iam.NewRolePolicy(ctx, "target", &iam.RolePolicyArgs{
 //				Role: example.ID(),
 //				Policy: targetQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON2, err := json.Marshal(map[string]interface{}{
-//						"version": "2012-10-17",
-//						"statement": []map[string]interface{}{
+//						"Version": "2012-10-17",
+//						"Statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"effect": "Allow",
-//								"action": []string{
+//								"Effect": "Allow",
+//								"Action": []string{
 //									"sqs:SendMessage",
 //								},
-//								"resource": []string{
+//								"Resource": []string{
 //									arn,
 //								},
 //							},
@@ -142,7 +142,10 @@ import (
 //				RoleArn: example.Arn,
 //				Source:  sourceQueue.Arn,
 //				Target:  targetQueue.Arn,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				source,
+//				target,
+//			}))
 //			if err != nil {
 //				return err
 //			}

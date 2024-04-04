@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  * const example = new aws.redshift.AuthenticationProfile("example", {
  *     authenticationProfileName: "example",
  *     authenticationProfileContent: JSON.stringify({
- *         allowDBUserOverride: "1",
- *         clientID: "ExampleClientID",
- *         appID: "example",
+ *         AllowDBUserOverride: "1",
+ *         Client_ID: "ExampleClientID",
+ *         App_ID: "example",
  *     }),
  * });
  * ```

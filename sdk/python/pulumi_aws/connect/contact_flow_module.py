@@ -342,41 +342,41 @@ class ContactFlowModule(pulumi.CustomResource):
             name="Example",
             description="Example Contact Flow Module Description",
             content=json.dumps({
-                "version": "2019-10-30",
-                "startAction": "12345678-1234-1234-1234-123456789012",
-                "actions": [
+                "Version": "2019-10-30",
+                "StartAction": "12345678-1234-1234-1234-123456789012",
+                "Actions": [
                     {
-                        "identifier": "12345678-1234-1234-1234-123456789012",
-                        "parameters": {
-                            "text": "Hello contact flow module",
+                        "Identifier": "12345678-1234-1234-1234-123456789012",
+                        "Parameters": {
+                            "Text": "Hello contact flow module",
                         },
-                        "transitions": {
-                            "nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                            "errors": [],
-                            "conditions": [],
+                        "Transitions": {
+                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                            "Errors": [],
+                            "Conditions": [],
                         },
-                        "type": "MessageParticipant",
+                        "Type": "MessageParticipant",
                     },
                     {
-                        "identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                        "type": "DisconnectParticipant",
-                        "parameters": {},
-                        "transitions": {},
+                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                        "Type": "DisconnectParticipant",
+                        "Parameters": {},
+                        "Transitions": {},
                     },
                 ],
-                "settings": {
-                    "inputParameters": [],
-                    "outputParameters": [],
-                    "transitions": [
+                "Settings": {
+                    "InputParameters": [],
+                    "OutputParameters": [],
+                    "Transitions": [
                         {
-                            "displayName": "Success",
-                            "referenceName": "Success",
-                            "description": "",
+                            "DisplayName": "Success",
+                            "ReferenceName": "Success",
+                            "Description": "",
                         },
                         {
-                            "displayName": "Error",
-                            "referenceName": "Error",
-                            "description": "",
+                            "DisplayName": "Error",
+                            "ReferenceName": "Error",
+                            "Description": "",
                         },
                     ],
                 },
@@ -464,41 +464,41 @@ class ContactFlowModule(pulumi.CustomResource):
             name="Example",
             description="Example Contact Flow Module Description",
             content=json.dumps({
-                "version": "2019-10-30",
-                "startAction": "12345678-1234-1234-1234-123456789012",
-                "actions": [
+                "Version": "2019-10-30",
+                "StartAction": "12345678-1234-1234-1234-123456789012",
+                "Actions": [
                     {
-                        "identifier": "12345678-1234-1234-1234-123456789012",
-                        "parameters": {
-                            "text": "Hello contact flow module",
+                        "Identifier": "12345678-1234-1234-1234-123456789012",
+                        "Parameters": {
+                            "Text": "Hello contact flow module",
                         },
-                        "transitions": {
-                            "nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                            "errors": [],
-                            "conditions": [],
+                        "Transitions": {
+                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                            "Errors": [],
+                            "Conditions": [],
                         },
-                        "type": "MessageParticipant",
+                        "Type": "MessageParticipant",
                     },
                     {
-                        "identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                        "type": "DisconnectParticipant",
-                        "parameters": {},
-                        "transitions": {},
+                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                        "Type": "DisconnectParticipant",
+                        "Parameters": {},
+                        "Transitions": {},
                     },
                 ],
-                "settings": {
-                    "inputParameters": [],
-                    "outputParameters": [],
-                    "transitions": [
+                "Settings": {
+                    "InputParameters": [],
+                    "OutputParameters": [],
+                    "Transitions": [
                         {
-                            "displayName": "Success",
-                            "referenceName": "Success",
-                            "description": "",
+                            "DisplayName": "Success",
+                            "ReferenceName": "Success",
+                            "Description": "",
                         },
                         {
-                            "displayName": "Error",
-                            "referenceName": "Error",
-                            "description": "",
+                            "DisplayName": "Error",
+                            "ReferenceName": "Error",
+                            "Description": "",
                         },
                     ],
                 },

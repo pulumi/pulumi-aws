@@ -190,11 +190,13 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
             static_routes_only=True)
         example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("example",
             global_network_id=example.id,
-            transit_gateway_arn=example_transit_gateway.arn)
+            transit_gateway_arn=example_transit_gateway.arn,
+            opts=pulumi.ResourceOptions(depends_on=[example_vpn_connection]))
         example_customer_gateway_association = aws.networkmanager.CustomerGatewayAssociation("example",
             global_network_id=example.id,
             customer_gateway_arn=example_customer_gateway.arn,
-            device_id=example_device.id)
+            device_id=example_device.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_transit_gateway_registration]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -247,11 +249,13 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
             static_routes_only=True)
         example_transit_gateway_registration = aws.networkmanager.TransitGatewayRegistration("example",
             global_network_id=example.id,
-            transit_gateway_arn=example_transit_gateway.arn)
+            transit_gateway_arn=example_transit_gateway.arn,
+            opts=pulumi.ResourceOptions(depends_on=[example_vpn_connection]))
         example_customer_gateway_association = aws.networkmanager.CustomerGatewayAssociation("example",
             global_network_id=example.id,
             customer_gateway_arn=example_customer_gateway.arn,
-            device_id=example_device.id)
+            device_id=example_device.id,
+            opts=pulumi.ResourceOptions(depends_on=[example_transit_gateway_registration]))
         ```
         <!--End PulumiCodeChooser -->
 

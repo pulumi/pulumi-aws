@@ -34,22 +34,22 @@ namespace Pulumi.Aws.Kms
     ///         KeyId = example.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["id"] = "example",
-    ///             ["statement"] = new[]
+    ///             ["Id"] = "example",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["action"] = "kms:*",
-    ///                     ["effect"] = "Allow",
-    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Action"] = "kms:*",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "*",
     ///                     },
-    ///                     ["resource"] = "*",
-    ///                     ["sid"] = "Enable IAM User Permissions",
+    ///                     ["Resource"] = "*",
+    ///                     ["Sid"] = "Enable IAM User Permissions",
     ///                 },
     ///             },
-    ///             ["version"] = "2012-10-17",
+    ///             ["Version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 

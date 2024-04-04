@@ -45,7 +45,11 @@ import (
 // UpdateConfig: &eks.NodeGroupUpdateConfigArgs{
 // MaxUnavailable: pulumi.Int(1),
 // },
-// })
+// }, pulumi.DependsOn([]pulumi.Resource{
+// example_AmazonEKSWorkerNodePolicy,
+// example_AmazonEKSCNIPolicy,
+// example_AmazonEC2ContainerRegistryReadOnly,
+// }))
 // if err != nil {
 // return err
 // }
@@ -112,16 +116,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"statement": []map[string]interface{}{
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"action": "sts:AssumeRole",
-//						"effect": "Allow",
-//						"principal": map[string]interface{}{
-//							"service": "ec2.amazonaws.com",
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "ec2.amazonaws.com",
 //						},
 //					},
 //				},
-//				"version": "2012-10-17",
+//				"Version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err

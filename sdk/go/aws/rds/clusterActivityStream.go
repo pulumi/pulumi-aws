@@ -54,7 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = rds.NewClusterInstance(ctx, "default", &rds.ClusterInstanceArgs{
+//			defaultClusterInstance, err := rds.NewClusterInstance(ctx, "default", &rds.ClusterInstanceArgs{
 //				Identifier:        pulumi.String("aurora-instance-demo"),
 //				ClusterIdentifier: _default.ClusterIdentifier,
 //				Engine:            _default.Engine,
@@ -73,7 +73,9 @@ import (
 //				ResourceArn: _default.Arn,
 //				Mode:        pulumi.String("async"),
 //				KmsKeyId:    defaultKey.KeyId,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				defaultClusterInstance,
+//			}))
 //			if err != nil {
 //				return err
 //			}

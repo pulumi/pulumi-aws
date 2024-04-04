@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Ec2
     ///         VpcId = @default.Id,
     ///         CidrBlock = "10.0.0.0/24",
     ///         MapPublicIpOnLaunch = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             gw, 
+    ///         },
     ///     });
     /// 
     ///     var foo = new Aws.Ec2.Instance("foo", new()
@@ -120,6 +126,12 @@ namespace Pulumi.Aws.Ec2
     ///         Domain = "vpc",
     ///         Instance = foo.Id,
     ///         AssociateWithPrivateIp = "10.0.0.12",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             gw, 
+    ///         },
     ///     });
     /// 
     /// });

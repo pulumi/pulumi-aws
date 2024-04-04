@@ -76,7 +76,7 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
+// exampleRolePolicy, err := iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 // Name: pulumi.String("cloudfront-realtime-log-config-example"),
 // Role: exampleRole.ID(),
 // Policy: pulumi.String(example.Json),
@@ -98,7 +98,9 @@ import (
 // StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
 // },
 // },
-// })
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleRolePolicy,
+// }))
 // if err != nil {
 // return err
 // }

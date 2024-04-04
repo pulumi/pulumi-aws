@@ -58,6 +58,12 @@ namespace Pulumi.Aws.Chime
     ///                 Password = "test!",
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             defaultVoiceConnectorTermination, 
+    ///         },
     ///     });
     /// 
     /// });

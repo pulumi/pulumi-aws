@@ -27,18 +27,24 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     ///     var memberDetector = new Aws.GuardDuty.Detector("member");
     /// 
-    ///     var member = new Aws.GuardDuty.InviteAccepter("member", new()
-    ///     {
-    ///         DetectorId = memberDetector.Id,
-    ///         MasterAccountId = primary.AccountId,
-    ///     });
-    /// 
     ///     var memberMember = new Aws.GuardDuty.Member("member", new()
     ///     {
     ///         AccountId = memberDetector.AccountId,
     ///         DetectorId = primary.Id,
     ///         Email = "required@example.com",
     ///         Invite = true,
+    ///     });
+    /// 
+    ///     var member = new Aws.GuardDuty.InviteAccepter("member", new()
+    ///     {
+    ///         DetectorId = memberDetector.Id,
+    ///         MasterAccountId = primary.AccountId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             memberMember, 
+    ///         },
     ///     });
     /// 
     /// });

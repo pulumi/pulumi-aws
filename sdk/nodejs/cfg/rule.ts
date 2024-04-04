@@ -23,13 +23,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const r = new aws.cfg.Rule("r", {
- *     name: "example",
- *     source: {
- *         owner: "AWS",
- *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
- *     },
- * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -47,6 +40,15 @@ import * as utilities from "../utilities";
  * const foo = new aws.cfg.Recorder("foo", {
  *     name: "example",
  *     roleArn: rRole.arn,
+ * });
+ * const r = new aws.cfg.Rule("r", {
+ *     name: "example",
+ *     source: {
+ *         owner: "AWS",
+ *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
+ *     },
+ * }, {
+ *     dependsOn: [foo],
  * });
  * const p = aws.iam.getPolicyDocument({
  *     statements: [{
@@ -83,7 +85,12 @@ import * as utilities from "../utilities";
  * const exampleRule = new aws.cfg.Rule("example", {source: {
  *     owner: "CUSTOM_LAMBDA",
  *     sourceIdentifier: exampleFunction.arn,
- * }});
+ * }}, {
+ *     dependsOn: [
+ *         example,
+ *         examplePermission,
+ *     ],
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

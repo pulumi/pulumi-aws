@@ -45,7 +45,9 @@ import (
 //				MaxSize: pulumi.Int(1),
 //				MinSize: pulumi.Int(1),
 //				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsIamRolePolicyAttachment,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -105,7 +107,9 @@ import (
 //					pulumi.String("subnet-12345678"),
 //					pulumi.String("subnet-23456789"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsIamRolePolicyAttachment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

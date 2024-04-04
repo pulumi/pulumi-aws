@@ -397,7 +397,8 @@ class OrganizationManagedRule(pulumi.CustomResource):
             feature_set="ALL")
         example_organization_managed_rule = aws.cfg.OrganizationManagedRule("example",
             name="example",
-            rule_identifier="IAM_PASSWORD_POLICY")
+            rule_identifier="IAM_PASSWORD_POLICY",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -447,7 +448,8 @@ class OrganizationManagedRule(pulumi.CustomResource):
             feature_set="ALL")
         example_organization_managed_rule = aws.cfg.OrganizationManagedRule("example",
             name="example",
-            rule_identifier="IAM_PASSWORD_POLICY")
+            rule_identifier="IAM_PASSWORD_POLICY",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 

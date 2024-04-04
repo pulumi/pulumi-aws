@@ -91,8 +91,8 @@ import (
 //					Input: example.Url.ApplyT(func(url string) (pulumi.String, error) {
 //						var _zero pulumi.String
 //						tmpJSON0, err := json.Marshal(map[string]interface{}{
-//							"messageBody": "Greetings, programs!",
-//							"queueUrl":    url,
+//							"MessageBody": "Greetings, programs!",
+//							"QueueUrl":    url,
 //						})
 //						if err != nil {
 //							return _zero, err

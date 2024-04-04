@@ -18,10 +18,10 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     resourceQuery: {
  *         query: JSON.stringify({
- *             resourceTypeFilters: ["AWS::EC2::Instance"],
- *             tagFilters: [{
- *                 key: "Stage",
- *                 values: ["Test"],
+ *             ResourceTypeFilters: ["AWS::EC2::Instance"],
+ *             TagFilters: [{
+ *                 Key: "Stage",
+ *                 Values: ["Test"],
  *             }],
  *         }),
  *     },

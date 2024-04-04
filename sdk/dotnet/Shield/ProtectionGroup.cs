@@ -85,6 +85,12 @@ namespace Pulumi.Aws.Shield
     ///                 return $"arn:aws:ec2:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
     ///             }),
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleProtection, 
+    ///         },
     ///     });
     /// 
     /// });

@@ -22,19 +22,19 @@ import * as utilities from "../utilities";
  *     type: "data",
  *     description: "read and write permissions",
  *     policy: JSON.stringify([{
- *         rules: [
+ *         Rules: [
  *             {
- *                 resourceType: "index",
- *                 resource: ["index/example-collection/*"],
- *                 permission: ["aoss:*"],
+ *                 ResourceType: "index",
+ *                 Resource: ["index/example-collection/*"],
+ *                 Permission: ["aoss:*"],
  *             },
  *             {
- *                 resourceType: "collection",
- *                 resource: ["collection/example-collection"],
- *                 permission: ["aoss:*"],
+ *                 ResourceType: "collection",
+ *                 Resource: ["collection/example-collection"],
+ *                 Permission: ["aoss:*"],
  *             },
  *         ],
- *         principal: [current.then(current => current.arn)],
+ *         Principal: [current.then(current => current.arn)],
  *     }]),
  * });
  * ```
@@ -53,22 +53,22 @@ import * as utilities from "../utilities";
  *     type: "data",
  *     description: "read-only permissions",
  *     policy: JSON.stringify([{
- *         rules: [
+ *         Rules: [
  *             {
- *                 resourceType: "index",
- *                 resource: ["index/example-collection/*"],
- *                 permission: [
+ *                 ResourceType: "index",
+ *                 Resource: ["index/example-collection/*"],
+ *                 Permission: [
  *                     "aoss:DescribeIndex",
  *                     "aoss:ReadDocument",
  *                 ],
  *             },
  *             {
- *                 resourceType: "collection",
- *                 resource: ["collection/example-collection"],
- *                 permission: ["aoss:DescribeCollectionItems"],
+ *                 ResourceType: "collection",
+ *                 Resource: ["collection/example-collection"],
+ *                 Permission: ["aoss:DescribeCollectionItems"],
  *             },
  *         ],
- *         principal: [current.then(current => current.arn)],
+ *         Principal: [current.then(current => current.arn)],
  *     }]),
  * });
  * ```
@@ -86,19 +86,19 @@ import * as utilities from "../utilities";
  *     type: "data",
  *     description: "saml permissions",
  *     policy: JSON.stringify([{
- *         rules: [
+ *         Rules: [
  *             {
- *                 resourceType: "index",
- *                 resource: ["index/example-collection/*"],
- *                 permission: ["aoss:*"],
+ *                 ResourceType: "index",
+ *                 Resource: ["index/example-collection/*"],
+ *                 Permission: ["aoss:*"],
  *             },
  *             {
- *                 resourceType: "collection",
- *                 resource: ["collection/example-collection"],
- *                 permission: ["aoss:*"],
+ *                 ResourceType: "collection",
+ *                 Resource: ["collection/example-collection"],
+ *                 Permission: ["aoss:*"],
  *             },
  *         ],
- *         principal: [
+ *         Principal: [
  *             "saml/123456789012/myprovider/user/Annie",
  *             "saml/123456789012/anotherprovider/group/Accounting",
  *         ],

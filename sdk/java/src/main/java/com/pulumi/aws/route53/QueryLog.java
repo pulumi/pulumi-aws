@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
  * import com.pulumi.aws.route53.QueryLog;
  * import com.pulumi.aws.route53.QueryLogArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,7 +88,9 @@ import javax.annotation.Nullable;
  *         var exampleComQueryLog = new QueryLog(&#34;exampleComQueryLog&#34;, QueryLogArgs.builder()        
  *             .cloudwatchLogGroupArn(awsRoute53ExampleCom.arn())
  *             .zoneId(exampleCom.zoneId())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(route53_query_logging_policyLogResourcePolicy)
+ *                 .build());
  * 
  *     }
  * }

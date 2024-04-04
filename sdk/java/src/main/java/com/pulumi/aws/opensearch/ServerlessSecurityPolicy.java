@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  *             .description(&#34;encryption security policy for example-collection&#34;)
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;rules&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;resource&#34;, jsonArray(&#34;collection/example-collection&#34;)),
- *                         jsonProperty(&#34;resourceType&#34;, &#34;collection&#34;)
+ *                     jsonProperty(&#34;Rules&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;)),
+ *                         jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;)
  *                     ))),
- *                     jsonProperty(&#34;aWSOwnedKey&#34;, true)
+ *                     jsonProperty(&#34;AWSOwnedKey&#34;, true)
  *                 )))
  *             .build());
  * 
@@ -96,11 +96,11 @@ import javax.annotation.Nullable;
  *             .description(&#34;encryption security policy for collections that begin with \&#34;example\&#34;&#34;)
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;rules&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;resource&#34;, jsonArray(&#34;collection/example*&#34;)),
- *                         jsonProperty(&#34;resourceType&#34;, &#34;collection&#34;)
+ *                     jsonProperty(&#34;Rules&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example*&#34;)),
+ *                         jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;)
  *                     ))),
- *                     jsonProperty(&#34;aWSOwnedKey&#34;, true)
+ *                     jsonProperty(&#34;AWSOwnedKey&#34;, true)
  *                 )))
  *             .build());
  * 
@@ -140,12 +140,12 @@ import javax.annotation.Nullable;
  *             .description(&#34;encryption security policy using customer KMS key&#34;)
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;rules&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;resource&#34;, jsonArray(&#34;collection/customer-managed-key-collection&#34;)),
- *                         jsonProperty(&#34;resourceType&#34;, &#34;collection&#34;)
+ *                     jsonProperty(&#34;Rules&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/customer-managed-key-collection&#34;)),
+ *                         jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;)
  *                     ))),
- *                     jsonProperty(&#34;aWSOwnedKey&#34;, false),
- *                     jsonProperty(&#34;kmsARN&#34;, &#34;arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36&#34;)
+ *                     jsonProperty(&#34;AWSOwnedKey&#34;, false),
+ *                     jsonProperty(&#34;KmsARN&#34;, &#34;arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36&#34;)
  *                 )))
  *             .build());
  * 
@@ -187,18 +187,18 @@ import javax.annotation.Nullable;
  *             .description(&#34;Public access&#34;)
  *             .policy(serializeJson(
  *                 jsonArray(jsonObject(
- *                     jsonProperty(&#34;description&#34;, &#34;Public access to collection and Dashboards endpoint for example collection&#34;),
- *                     jsonProperty(&#34;rules&#34;, jsonArray(
+ *                     jsonProperty(&#34;Description&#34;, &#34;Public access to collection and Dashboards endpoint for example collection&#34;),
+ *                     jsonProperty(&#34;Rules&#34;, jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;resourceType&#34;, &#34;collection&#34;),
- *                             jsonProperty(&#34;resource&#34;, jsonArray(&#34;collection/example-collection&#34;))
+ *                             jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;),
+ *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;resourceType&#34;, &#34;dashboard&#34;),
- *                             jsonProperty(&#34;resource&#34;, jsonArray(&#34;collection/example-collection&#34;))
+ *                             jsonProperty(&#34;ResourceType&#34;, &#34;dashboard&#34;),
+ *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;))
  *                         )
  *                     )),
- *                     jsonProperty(&#34;allowFromPublic&#34;, true)
+ *                     jsonProperty(&#34;AllowFromPublic&#34;, true)
  *                 ))))
  *             .build());
  * 
@@ -238,19 +238,19 @@ import javax.annotation.Nullable;
  *             .description(&#34;VPC access&#34;)
  *             .policy(serializeJson(
  *                 jsonArray(jsonObject(
- *                     jsonProperty(&#34;description&#34;, &#34;VPC access to collection and Dashboards endpoint for example collection&#34;),
- *                     jsonProperty(&#34;rules&#34;, jsonArray(
+ *                     jsonProperty(&#34;Description&#34;, &#34;VPC access to collection and Dashboards endpoint for example collection&#34;),
+ *                     jsonProperty(&#34;Rules&#34;, jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;resourceType&#34;, &#34;collection&#34;),
- *                             jsonProperty(&#34;resource&#34;, jsonArray(&#34;collection/example-collection&#34;))
+ *                             jsonProperty(&#34;ResourceType&#34;, &#34;collection&#34;),
+ *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;resourceType&#34;, &#34;dashboard&#34;),
- *                             jsonProperty(&#34;resource&#34;, jsonArray(&#34;collection/example-collection&#34;))
+ *                             jsonProperty(&#34;ResourceType&#34;, &#34;dashboard&#34;),
+ *                             jsonProperty(&#34;Resource&#34;, jsonArray(&#34;collection/example-collection&#34;))
  *                         )
  *                     )),
- *                     jsonProperty(&#34;allowFromPublic&#34;, false),
- *                     jsonProperty(&#34;sourceVPCEs&#34;, jsonArray(&#34;vpce-050f79086ee71ac05&#34;))
+ *                     jsonProperty(&#34;AllowFromPublic&#34;, false),
+ *                     jsonProperty(&#34;SourceVPCEs&#34;, jsonArray(&#34;vpce-050f79086ee71ac05&#34;))
  *                 ))))
  *             .build());
  * 

@@ -81,6 +81,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.PermissionArgs;
  * import com.pulumi.aws.lb.TargetGroupAttachment;
  * import com.pulumi.aws.lb.TargetGroupAttachmentArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -112,7 +113,9 @@ import javax.annotation.Nullable;
  *         var testTargetGroupAttachment = new TargetGroupAttachment(&#34;testTargetGroupAttachment&#34;, TargetGroupAttachmentArgs.builder()        
  *             .targetGroupArn(test.arn())
  *             .targetId(testFunction.arn())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(withLb)
+ *                 .build());
  * 
  *     }
  * }

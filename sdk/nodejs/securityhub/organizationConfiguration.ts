@@ -31,7 +31,9 @@ import * as utilities from "../utilities";
  *     awsServiceAccessPrincipals: ["securityhub.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("example", {adminAccountId: "123456789012"});
+ * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("example", {adminAccountId: "123456789012"}, {
+ *     dependsOn: [example],
+ * });
  * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("example", {autoEnable: true});
  * ```
  * <!--End PulumiCodeChooser -->
@@ -43,14 +45,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.securityhub.OrganizationAdminAccount("example", {adminAccountId: "123456789012"});
- * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("example", {linkingMode: "ALL_REGIONS"});
+ * const example = new aws.securityhub.OrganizationAdminAccount("example", {adminAccountId: "123456789012"}, {
+ *     dependsOn: [exampleAwsOrganizationsOrganization],
+ * });
+ * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("example", {linkingMode: "ALL_REGIONS"}, {
+ *     dependsOn: [example],
+ * });
  * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("example", {
  *     autoEnable: false,
  *     autoEnableStandards: "NONE",
  *     organizationConfiguration: {
  *         configurationType: "CENTRAL",
  *     },
+ * }, {
+ *     dependsOn: [exampleFindingAggregator],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

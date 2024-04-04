@@ -135,7 +135,7 @@ import (
 //				"title":   "MyDemoResponse",
 //				"type":    "object",
 //				"properties": map[string]interface{}{
-//					"message": map[string]interface{}{
+//					"Message": map[string]interface{}{
 //						"type": "string",
 //					},
 //				},

@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cfg.ConformancePack;
  * import com.pulumi.aws.cfg.ConformancePackArgs;
  * import com.pulumi.aws.cfg.inputs.ConformancePackInputParameterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,7 +73,9 @@ import javax.annotation.Nullable;
  *         SourceIdentifier: IAM_PASSWORD_POLICY
  *     Type: AWS::Config::ConfigRule
  *             &#34;&#34;&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsConfigConfigurationRecorder)
+ *                 .build());
  * 
  *     }
  * }
@@ -94,6 +97,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.cfg.ConformancePack;
  * import com.pulumi.aws.cfg.ConformancePackArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -133,7 +137,9 @@ import javax.annotation.Nullable;
  *                 var key = values.t2;
  *                 return String.format(&#34;s3://%s/%s&#34;, bucket,key);
  *             }))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsConfigConfigurationRecorder)
+ *                 .build());
  * 
  *     }
  * }

@@ -56,16 +56,16 @@ namespace Pulumi.Aws.CostExplorer
     ///         MonitorType = "CUSTOM",
     ///         MonitorSpecification = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["and"] = null,
-    ///             ["costCategories"] = null,
-    ///             ["dimensions"] = null,
-    ///             ["not"] = null,
-    ///             ["or"] = null,
-    ///             ["tags"] = new Dictionary&lt;string, object?&gt;
+    ///             ["And"] = null,
+    ///             ["CostCategories"] = null,
+    ///             ["Dimensions"] = null,
+    ///             ["Not"] = null,
+    ///             ["Or"] = null,
+    ///             ["Tags"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["key"] = "CostCenter",
-    ///                 ["matchOptions"] = null,
-    ///                 ["values"] = new[]
+    ///                 ["Key"] = "CostCenter",
+    ///                 ["MatchOptions"] = null,
+    ///                 ["Values"] = new[]
     ///                 {
     ///                     "10000",
     ///                 },

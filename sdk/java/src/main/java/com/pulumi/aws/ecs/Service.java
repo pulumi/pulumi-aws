@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecs.inputs.ServiceOrderedPlacementStrategyArgs;
  * import com.pulumi.aws.ecs.inputs.ServiceLoadBalancerArgs;
  * import com.pulumi.aws.ecs.inputs.ServicePlacementConstraintArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -73,7 +74,7 @@ import javax.annotation.Nullable;
  *                 .field(&#34;cpu&#34;)
  *                 .build())
  *             .loadBalancers(ServiceLoadBalancerArgs.builder()
- *                 .targetGroupArn(foo.arn())
+ *                 .targetGroupArn(fooAwsLbTargetGroup.arn())
  *                 .containerName(&#34;mongo&#34;)
  *                 .containerPort(8080)
  *                 .build())
@@ -81,7 +82,9 @@ import javax.annotation.Nullable;
  *                 .type(&#34;memberOf&#34;)
  *                 .expression(&#34;attribute:ecs.availability-zone in [us-west-2a, us-west-2b]&#34;)
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(foo)
+ *                 .build());
  * 
  *     }
  * }

@@ -35,14 +35,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": []map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"action": "sts:AssumeRole",
-//						"effect": "Allow",
-//						"sid":    "",
-//						"principal": map[string]interface{}{
-//							"service": "lambda.amazonaws.com",
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Sid":    "",
+//						"Principal": map[string]interface{}{
+//							"Service": "lambda.amazonaws.com",
 //						},
 //					},
 //				},
@@ -121,14 +121,14 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": []map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"action": "sts:AssumeRole",
-//						"effect": "Allow",
-//						"sid":    "",
-//						"principal": map[string]interface{}{
-//							"service": "lambda.amazonaws.com",
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Sid":    "",
+//						"Principal": map[string]interface{}{
+//							"Service": "lambda.amazonaws.com",
 //						},
 //					},
 //				},
@@ -286,7 +286,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewPermission(ctx, "logging", &lambda.PermissionArgs{
+//			logging, err := lambda.NewPermission(ctx, "logging", &lambda.PermissionArgs{
 //				Action:    pulumi.String("lambda:InvokeFunction"),
 //				Function:  loggingFunction.Name,
 //				Principal: pulumi.String("logs.eu-west-1.amazonaws.com"),
@@ -302,7 +302,9 @@ import (
 //				FilterPattern:  pulumi.String(""),
 //				LogGroup:       _default.Name,
 //				Name:           pulumi.String("logging_default"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				logging,
+//			}))
 //			if err != nil {
 //				return err
 //			}

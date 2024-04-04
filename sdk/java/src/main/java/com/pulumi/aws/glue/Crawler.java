@@ -277,15 +277,15 @@ import javax.annotation.Nullable;
  *             .tags(tags)
  *             .configuration(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;grouping&#34;, jsonObject(
- *                         jsonProperty(&#34;tableGroupingPolicy&#34;, &#34;CombineCompatibleSchemas&#34;)
+ *                     jsonProperty(&#34;Grouping&#34;, jsonObject(
+ *                         jsonProperty(&#34;TableGroupingPolicy&#34;, &#34;CombineCompatibleSchemas&#34;)
  *                     )),
- *                     jsonProperty(&#34;crawlerOutput&#34;, jsonObject(
- *                         jsonProperty(&#34;partitions&#34;, jsonObject(
- *                             jsonProperty(&#34;addOrUpdateBehavior&#34;, &#34;InheritFromTable&#34;)
+ *                     jsonProperty(&#34;CrawlerOutput&#34;, jsonObject(
+ *                         jsonProperty(&#34;Partitions&#34;, jsonObject(
+ *                             jsonProperty(&#34;AddOrUpdateBehavior&#34;, &#34;InheritFromTable&#34;)
  *                         ))
  *                     )),
- *                     jsonProperty(&#34;version&#34;, 1)
+ *                     jsonProperty(&#34;Version&#34;, 1)
  *                 )))
  *             .s3Targets(CrawlerS3TargetArgs.builder()
  *                 .path(String.format(&#34;s3://%s&#34;, dataLakeBucket.bucket()))

@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.transcribe.Vocabulary;
  * import com.pulumi.aws.transcribe.VocabularyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileAsset;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -73,7 +74,9 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
  *                 Map.entry(&#34;tag2&#34;, &#34;value3&#34;)
  *             ))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(object)
+ *                 .build());
  * 
  *     }
  * }

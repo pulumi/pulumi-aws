@@ -304,7 +304,8 @@ class ProtectionGroup(pulumi.CustomResource):
             protection_group_id="example",
             aggregation="MEAN",
             pattern="ARBITRARY",
-            members=[example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}")])
+            members=[example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}")],
+            opts=pulumi.ResourceOptions(depends_on=[example_protection]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -384,7 +385,8 @@ class ProtectionGroup(pulumi.CustomResource):
             protection_group_id="example",
             aggregation="MEAN",
             pattern="ARBITRARY",
-            members=[example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}")])
+            members=[example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}")],
+            opts=pulumi.ResourceOptions(depends_on=[example_protection]))
         ```
         <!--End PulumiCodeChooser -->
 

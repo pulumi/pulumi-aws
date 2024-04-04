@@ -83,6 +83,12 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         CloudwatchLogGroupArn = awsRoute53ExampleCom.Arn,
     ///         ZoneId = exampleCom.ZoneId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             route53_query_logging_policyLogResourcePolicy, 
+    ///         },
     ///     });
     /// 
     /// });

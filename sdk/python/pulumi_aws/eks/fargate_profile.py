@@ -324,14 +324,14 @@ class FargateProfile(pulumi.CustomResource):
         example = aws.iam.Role("example",
             name="eks-fargate-profile-example",
             assume_role_policy=json.dumps({
-                "statement": [{
-                    "action": "sts:AssumeRole",
-                    "effect": "Allow",
-                    "principal": {
-                        "service": "eks-fargate-pods.amazonaws.com",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "eks-fargate-pods.amazonaws.com",
                     },
                 }],
-                "version": "2012-10-17",
+                "Version": "2012-10-17",
             }))
         example__amazon_eks_fargate_pod_execution_role_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
@@ -396,14 +396,14 @@ class FargateProfile(pulumi.CustomResource):
         example = aws.iam.Role("example",
             name="eks-fargate-profile-example",
             assume_role_policy=json.dumps({
-                "statement": [{
-                    "action": "sts:AssumeRole",
-                    "effect": "Allow",
-                    "principal": {
-                        "service": "eks-fargate-pods.amazonaws.com",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "eks-fargate-pods.amazonaws.com",
                     },
                 }],
-                "version": "2012-10-17",
+                "Version": "2012-10-17",
             }))
         example__amazon_eks_fargate_pod_execution_role_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",

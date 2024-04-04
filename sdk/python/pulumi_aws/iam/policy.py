@@ -302,11 +302,11 @@ class Policy(pulumi.CustomResource):
             path="/",
             description="My test policy",
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": ["ec2:Describe*"],
-                    "effect": "Allow",
-                    "resource": "*",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": ["ec2:Describe*"],
+                    "Effect": "Allow",
+                    "Resource": "*",
                 }],
             }))
         ```
@@ -353,11 +353,11 @@ class Policy(pulumi.CustomResource):
             path="/",
             description="My test policy",
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": ["ec2:Describe*"],
-                    "effect": "Allow",
-                    "resource": "*",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": ["ec2:Describe*"],
+                    "Effect": "Allow",
+                    "Resource": "*",
                 }],
             }))
         ```

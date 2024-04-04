@@ -41,26 +41,26 @@ namespace Pulumi.Aws.CloudWatch
     ///         LogGroupName = example.Name,
     ///         PolicyDocument = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["name"] = "Example",
-    ///             ["version"] = "2021-06-01",
-    ///             ["statement"] = new[]
+    ///             ["Name"] = "Example",
+    ///             ["Version"] = "2021-06-01",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["sid"] = "Audit",
-    ///                     ["dataIdentifier"] = new[]
+    ///                     ["Sid"] = "Audit",
+    ///                     ["DataIdentifier"] = new[]
     ///                     {
     ///                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
     ///                     },
-    ///                     ["operation"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Operation"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["audit"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["Audit"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["findingsDestination"] = new Dictionary&lt;string, object?&gt;
+    ///                             ["FindingsDestination"] = new Dictionary&lt;string, object?&gt;
     ///                             {
     ///                                 ["S3"] = new Dictionary&lt;string, object?&gt;
     ///                                 {
-    ///                                     ["bucket"] = exampleBucketV2.Bucket,
+    ///                                     ["Bucket"] = exampleBucketV2.Bucket,
     ///                                 },
     ///                             },
     ///                         },
@@ -68,16 +68,16 @@ namespace Pulumi.Aws.CloudWatch
     ///                 },
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["sid"] = "Redact",
-    ///                     ["dataIdentifier"] = new[]
+    ///                     ["Sid"] = "Redact",
+    ///                     ["DataIdentifier"] = new[]
     ///                     {
     ///                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
     ///                     },
-    ///                     ["operation"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Operation"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["deidentify"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["Deidentify"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["maskConfig"] = new Dictionary&lt;string, object?&gt;
+    ///                             ["MaskConfig"] = new Dictionary&lt;string, object?&gt;
     ///                             {
     ///                             },
     ///                         },

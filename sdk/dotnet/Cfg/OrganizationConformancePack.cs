@@ -27,6 +27,15 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var exampleOrganization = new Aws.Organizations.Organization("example", new()
+    ///     {
+    ///         AwsServiceAccessPrincipals = new[]
+    ///         {
+    ///             "config-multiaccountsetup.amazonaws.com",
+    ///         },
+    ///         FeatureSet = "ALL",
+    ///     });
+    /// 
     ///     var example = new Aws.Cfg.OrganizationConformancePack("example", new()
     ///     {
     ///         Name = "example",
@@ -50,15 +59,13 @@ namespace Pulumi.Aws.Cfg
     ///         SourceIdentifier: IAM_PASSWORD_POLICY
     ///     Type: AWS::Config::ConfigRule
     /// ",
-    ///     });
-    /// 
-    ///     var exampleOrganization = new Aws.Organizations.Organization("example", new()
+    ///     }, new CustomResourceOptions
     ///     {
-    ///         AwsServiceAccessPrincipals = new[]
+    ///         DependsOn =
     ///         {
-    ///             "config-multiaccountsetup.amazonaws.com",
+    ///             exampleAwsConfigConfigurationRecorder, 
+    ///             exampleOrganization, 
     ///         },
-    ///         FeatureSet = "ALL",
     ///     });
     /// 
     /// });
@@ -76,6 +83,15 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var exampleOrganization = new Aws.Organizations.Organization("example", new()
+    ///     {
+    ///         AwsServiceAccessPrincipals = new[]
+    ///         {
+    ///             "config-multiaccountsetup.amazonaws.com",
+    ///         },
+    ///         FeatureSet = "ALL",
+    ///     });
+    /// 
     ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
     ///     {
     ///         Bucket = "example",
@@ -105,15 +121,13 @@ namespace Pulumi.Aws.Cfg
     ///             var key = values.Item2;
     ///             return $"s3://{bucket}/{key}";
     ///         }),
-    ///     });
-    /// 
-    ///     var exampleOrganization = new Aws.Organizations.Organization("example", new()
+    ///     }, new CustomResourceOptions
     ///     {
-    ///         AwsServiceAccessPrincipals = new[]
+    ///         DependsOn =
     ///         {
-    ///             "config-multiaccountsetup.amazonaws.com",
+    ///             exampleAwsConfigConfigurationRecorder, 
+    ///             exampleOrganization, 
     ///         },
-    ///         FeatureSet = "ALL",
     ///     });
     /// 
     /// });

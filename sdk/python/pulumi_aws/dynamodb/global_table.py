@@ -161,7 +161,11 @@ class GlobalTable(pulumi.CustomResource):
                 aws.dynamodb.GlobalTableReplicaArgs(
                     region_name="us-west-2",
                 ),
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    us_east_1,
+                    us_west_2,
+                ]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -229,7 +233,11 @@ class GlobalTable(pulumi.CustomResource):
                 aws.dynamodb.GlobalTableReplicaArgs(
                     region_name="us-west-2",
                 ),
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    us_east_1,
+                    us_west_2,
+                ]))
         ```
         <!--End PulumiCodeChooser -->
 

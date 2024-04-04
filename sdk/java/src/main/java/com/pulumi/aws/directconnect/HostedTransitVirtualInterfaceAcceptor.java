@@ -32,12 +32,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.directconnect.HostedTransitVirtualInterface;
- * import com.pulumi.aws.directconnect.HostedTransitVirtualInterfaceArgs;
  * import com.pulumi.aws.directconnect.Gateway;
  * import com.pulumi.aws.directconnect.GatewayArgs;
+ * import com.pulumi.aws.directconnect.HostedTransitVirtualInterface;
+ * import com.pulumi.aws.directconnect.HostedTransitVirtualInterfaceArgs;
  * import com.pulumi.aws.directconnect.HostedTransitVirtualInterfaceAcceptor;
  * import com.pulumi.aws.directconnect.HostedTransitVirtualInterfaceAcceptorArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,6 +54,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
+ *         // Accepter&#39;s side of the VIF.
+ *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
+ *             .name(&#34;tf-dxg-example&#34;)
+ *             .amazonSideAsn(64512)
+ *             .build());
+ * 
  *         // Creator&#39;s side of the VIF
  *         var creator = new HostedTransitVirtualInterface(&#34;creator&#34;, HostedTransitVirtualInterfaceArgs.builder()        
  *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
@@ -61,13 +68,9 @@ import javax.annotation.Nullable;
  *             .vlan(4094)
  *             .addressFamily(&#34;ipv4&#34;)
  *             .bgpAsn(65352)
- *             .build());
- * 
- *         // Accepter&#39;s side of the VIF.
- *         var example = new Gateway(&#34;example&#34;, GatewayArgs.builder()        
- *             .name(&#34;tf-dxg-example&#34;)
- *             .amazonSideAsn(64512)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *         var accepterHostedTransitVirtualInterfaceAcceptor = new HostedTransitVirtualInterfaceAcceptor(&#34;accepterHostedTransitVirtualInterfaceAcceptor&#34;, HostedTransitVirtualInterfaceAcceptorArgs.builder()        
  *             .virtualInterfaceId(creator.id())

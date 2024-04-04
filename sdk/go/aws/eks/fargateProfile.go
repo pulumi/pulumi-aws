@@ -77,16 +77,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"statement": []map[string]interface{}{
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"action": "sts:AssumeRole",
-//						"effect": "Allow",
-//						"principal": map[string]interface{}{
-//							"service": "eks-fargate-pods.amazonaws.com",
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "eks-fargate-pods.amazonaws.com",
 //						},
 //					},
 //				},
-//				"version": "2012-10-17",
+//				"Version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err

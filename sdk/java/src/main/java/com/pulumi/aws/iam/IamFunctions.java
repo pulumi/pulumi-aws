@@ -4892,6 +4892,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.BucketObject;
      * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -4907,7 +4908,9 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         var example = new BucketObject(&#34;example&#34;, BucketObjectArgs.builder()        
      *             .bucket(&#34;my-test-bucket&#34;)
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .dependsOn(s3ObjectAccess)
+     *                 .build());
      * 
      *     }
      * }
@@ -4966,11 +4969,11 @@ public final class IamFunctions {
      *             .user(example.name())
      *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; serializeJson(
      *                 jsonObject(
-     *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
-     *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
-     *                         jsonProperty(&#34;action&#34;, &#34;s3:GetObject&#34;),
-     *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
-     *                         jsonProperty(&#34;resource&#34;, arn)
+     *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+     *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+     *                         jsonProperty(&#34;Action&#34;, &#34;s3:GetObject&#34;),
+     *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+     *                         jsonProperty(&#34;Resource&#34;, arn)
      *                     )))
      *                 ))))
      *             .build());
@@ -4982,14 +4985,14 @@ public final class IamFunctions {
      *                 var exampleBucketV2Arn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
-     *                         jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
-     *                         jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
-     *                             jsonProperty(&#34;action&#34;, &#34;s3:*&#34;),
-     *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
-     *                             jsonProperty(&#34;principal&#34;, jsonObject(
+     *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+     *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+     *                             jsonProperty(&#34;Action&#34;, &#34;s3:*&#34;),
+     *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+     *                             jsonProperty(&#34;Principal&#34;, jsonObject(
      *                                 jsonProperty(&#34;AWS&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
      *                             )),
-     *                             jsonProperty(&#34;resource&#34;, jsonArray(
+     *                             jsonProperty(&#34;Resource&#34;, jsonArray(
      *                                 exampleBucketV2Arn, 
      *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
      *                             ))
@@ -5081,6 +5084,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.BucketObject;
      * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5096,7 +5100,9 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         var example = new BucketObject(&#34;example&#34;, BucketObjectArgs.builder()        
      *             .bucket(&#34;my-test-bucket&#34;)
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .dependsOn(s3ObjectAccess)
+     *                 .build());
      * 
      *     }
      * }
@@ -5155,11 +5161,11 @@ public final class IamFunctions {
      *             .user(example.name())
      *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; serializeJson(
      *                 jsonObject(
-     *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
-     *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
-     *                         jsonProperty(&#34;action&#34;, &#34;s3:GetObject&#34;),
-     *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
-     *                         jsonProperty(&#34;resource&#34;, arn)
+     *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+     *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+     *                         jsonProperty(&#34;Action&#34;, &#34;s3:GetObject&#34;),
+     *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+     *                         jsonProperty(&#34;Resource&#34;, arn)
      *                     )))
      *                 ))))
      *             .build());
@@ -5171,14 +5177,14 @@ public final class IamFunctions {
      *                 var exampleBucketV2Arn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
-     *                         jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
-     *                         jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
-     *                             jsonProperty(&#34;action&#34;, &#34;s3:*&#34;),
-     *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
-     *                             jsonProperty(&#34;principal&#34;, jsonObject(
+     *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+     *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+     *                             jsonProperty(&#34;Action&#34;, &#34;s3:*&#34;),
+     *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+     *                             jsonProperty(&#34;Principal&#34;, jsonObject(
      *                                 jsonProperty(&#34;AWS&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
      *                             )),
-     *                             jsonProperty(&#34;resource&#34;, jsonArray(
+     *                             jsonProperty(&#34;Resource&#34;, jsonArray(
      *                                 exampleBucketV2Arn, 
      *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
      *                             ))
@@ -5270,6 +5276,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.BucketObject;
      * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5285,7 +5292,9 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         var example = new BucketObject(&#34;example&#34;, BucketObjectArgs.builder()        
      *             .bucket(&#34;my-test-bucket&#34;)
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .dependsOn(s3ObjectAccess)
+     *                 .build());
      * 
      *     }
      * }
@@ -5344,11 +5353,11 @@ public final class IamFunctions {
      *             .user(example.name())
      *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; serializeJson(
      *                 jsonObject(
-     *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
-     *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
-     *                         jsonProperty(&#34;action&#34;, &#34;s3:GetObject&#34;),
-     *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
-     *                         jsonProperty(&#34;resource&#34;, arn)
+     *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+     *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+     *                         jsonProperty(&#34;Action&#34;, &#34;s3:GetObject&#34;),
+     *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+     *                         jsonProperty(&#34;Resource&#34;, arn)
      *                     )))
      *                 ))))
      *             .build());
@@ -5360,14 +5369,14 @@ public final class IamFunctions {
      *                 var exampleBucketV2Arn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
-     *                         jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
-     *                         jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
-     *                             jsonProperty(&#34;action&#34;, &#34;s3:*&#34;),
-     *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
-     *                             jsonProperty(&#34;principal&#34;, jsonObject(
+     *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+     *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+     *                             jsonProperty(&#34;Action&#34;, &#34;s3:*&#34;),
+     *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+     *                             jsonProperty(&#34;Principal&#34;, jsonObject(
      *                                 jsonProperty(&#34;AWS&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
      *                             )),
-     *                             jsonProperty(&#34;resource&#34;, jsonArray(
+     *                             jsonProperty(&#34;Resource&#34;, jsonArray(
      *                                 exampleBucketV2Arn, 
      *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
      *                             ))
@@ -5459,6 +5468,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.s3.BucketObject;
      * import com.pulumi.aws.s3.BucketObjectArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -5474,7 +5484,9 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         var example = new BucketObject(&#34;example&#34;, BucketObjectArgs.builder()        
      *             .bucket(&#34;my-test-bucket&#34;)
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .dependsOn(s3ObjectAccess)
+     *                 .build());
      * 
      *     }
      * }
@@ -5533,11 +5545,11 @@ public final class IamFunctions {
      *             .user(example.name())
      *             .policy(exampleBucketV2.arn().applyValue(arn -&gt; serializeJson(
      *                 jsonObject(
-     *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
-     *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
-     *                         jsonProperty(&#34;action&#34;, &#34;s3:GetObject&#34;),
-     *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
-     *                         jsonProperty(&#34;resource&#34;, arn)
+     *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+     *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+     *                         jsonProperty(&#34;Action&#34;, &#34;s3:GetObject&#34;),
+     *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+     *                         jsonProperty(&#34;Resource&#34;, arn)
      *                     )))
      *                 ))))
      *             .build());
@@ -5549,14 +5561,14 @@ public final class IamFunctions {
      *                 var exampleBucketV2Arn1 = values.t2;
      *                 return serializeJson(
      *                     jsonObject(
-     *                         jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
-     *                         jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
-     *                             jsonProperty(&#34;action&#34;, &#34;s3:*&#34;),
-     *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
-     *                             jsonProperty(&#34;principal&#34;, jsonObject(
+     *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+     *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+     *                             jsonProperty(&#34;Action&#34;, &#34;s3:*&#34;),
+     *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+     *                             jsonProperty(&#34;Principal&#34;, jsonObject(
      *                                 jsonProperty(&#34;AWS&#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
      *                             )),
-     *                             jsonProperty(&#34;resource&#34;, jsonArray(
+     *                             jsonProperty(&#34;Resource&#34;, jsonArray(
      *                                 exampleBucketV2Arn, 
      *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
      *                             ))

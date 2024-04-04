@@ -29,16 +29,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var r = new Aws.Cfg.Rule("r", new()
-    ///     {
-    ///         Name = "example",
-    ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
-    ///         {
-    ///             Owner = "AWS",
-    ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
-    ///         },
-    ///     });
-    /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
@@ -75,6 +65,22 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         Name = "example",
     ///         RoleArn = rRole.Arn,
+    ///     });
+    /// 
+    ///     var r = new Aws.Cfg.Rule("r", new()
+    ///     {
+    ///         Name = "example",
+    ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
+    ///         {
+    ///             Owner = "AWS",
+    ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             foo, 
+    ///         },
     ///     });
     /// 
     ///     var p = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -138,6 +144,13 @@ namespace Pulumi.Aws.Cfg
     ///         {
     ///             Owner = "CUSTOM_LAMBDA",
     ///             SourceIdentifier = exampleFunction.Arn,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///             examplePermission, 
     ///         },
     ///     });
     /// 

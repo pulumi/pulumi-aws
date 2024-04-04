@@ -127,20 +127,20 @@ class ClusterPolicy(pulumi.CustomResource):
         example = aws.msk.ClusterPolicy("example",
             cluster_arn=example_aws_msk_cluster["arn"],
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "sid": "ExampleMskClusterPolicy",
-                    "effect": "Allow",
-                    "principal": {
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Sid": "ExampleMskClusterPolicy",
+                    "Effect": "Allow",
+                    "Principal": {
                         "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                     },
-                    "action": [
+                    "Action": [
                         "kafka:Describe*",
                         "kafka:Get*",
                         "kafka:CreateVpcConnection",
                         "kafka:GetBootstrapBrokers",
                     ],
-                    "resource": example_aws_msk_cluster["arn"],
+                    "Resource": example_aws_msk_cluster["arn"],
                 }],
             }))
         ```
@@ -183,20 +183,20 @@ class ClusterPolicy(pulumi.CustomResource):
         example = aws.msk.ClusterPolicy("example",
             cluster_arn=example_aws_msk_cluster["arn"],
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "sid": "ExampleMskClusterPolicy",
-                    "effect": "Allow",
-                    "principal": {
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Sid": "ExampleMskClusterPolicy",
+                    "Effect": "Allow",
+                    "Principal": {
                         "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                     },
-                    "action": [
+                    "Action": [
                         "kafka:Describe*",
                         "kafka:Get*",
                         "kafka:CreateVpcConnection",
                         "kafka:GetBootstrapBrokers",
                     ],
-                    "resource": example_aws_msk_cluster["arn"],
+                    "Resource": example_aws_msk_cluster["arn"],
                 }],
             }))
         ```

@@ -113,7 +113,8 @@ class FindingAggregator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securityhub.Account("example")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS")
+        example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS",
+        opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -132,7 +133,8 @@ class FindingAggregator(pulumi.CustomResource):
             specified_regions=[
                 "eu-west-1",
                 "eu-west-2",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -151,7 +153,8 @@ class FindingAggregator(pulumi.CustomResource):
             specified_regions=[
                 "eu-west-1",
                 "eu-west-2",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -189,7 +192,8 @@ class FindingAggregator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securityhub.Account("example")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS")
+        example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS",
+        opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -208,7 +212,8 @@ class FindingAggregator(pulumi.CustomResource):
             specified_regions=[
                 "eu-west-1",
                 "eu-west-2",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -227,7 +232,8 @@ class FindingAggregator(pulumi.CustomResource):
             specified_regions=[
                 "eu-west-1",
                 "eu-west-2",
-            ])
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 

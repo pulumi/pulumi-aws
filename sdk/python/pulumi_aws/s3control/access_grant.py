@@ -341,7 +341,8 @@ class AccessGrant(pulumi.CustomResource):
         example = aws.s3control.AccessGrantsInstance("example")
         example_access_grants_location = aws.s3control.AccessGrantsLocation("example",
             iam_role_arn=example_aws_iam_role["arn"],
-            location_scope=f"s3://{example_aws_s3_bucket['bucket']}/prefixA*")
+            location_scope=f"s3://{example_aws_s3_bucket['bucket']}/prefixA*",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         example_access_grant = aws.s3control.AccessGrant("example",
             access_grants_location_id=example_access_grants_location.access_grants_location_id,
             permission="READ",
@@ -393,7 +394,8 @@ class AccessGrant(pulumi.CustomResource):
         example = aws.s3control.AccessGrantsInstance("example")
         example_access_grants_location = aws.s3control.AccessGrantsLocation("example",
             iam_role_arn=example_aws_iam_role["arn"],
-            location_scope=f"s3://{example_aws_s3_bucket['bucket']}/prefixA*")
+            location_scope=f"s3://{example_aws_s3_bucket['bucket']}/prefixA*",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         example_access_grant = aws.s3control.AccessGrant("example",
             access_grants_location_id=example_access_grants_location.access_grants_location_id,
             permission="READ",

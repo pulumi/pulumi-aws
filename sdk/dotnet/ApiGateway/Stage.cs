@@ -107,15 +107,21 @@ namespace Pulumi.Aws.ApiGateway
     ///     var stageName = config.Get("stageName") ?? "example";
     ///     var example = new Aws.ApiGateway.RestApi("example");
     /// 
-    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
-    ///     {
-    ///         StageName = stageName,
-    ///     });
-    /// 
     ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
     ///         Name = example.Id.Apply(id =&gt; $"API-Gateway-Execution-Logs_{id}/{stageName}"),
     ///         RetentionInDays = 7,
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
+    ///     {
+    ///         StageName = stageName,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleLogGroup, 
+    ///         },
     ///     });
     /// 
     /// });

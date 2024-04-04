@@ -37,6 +37,8 @@ import * as utilities from "../utilities";
  *     description: "Test",
  *     iamRole: testRole.id,
  *     registrationLimit: 5,
+ * }, {
+ *     dependsOn: [testAttach],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

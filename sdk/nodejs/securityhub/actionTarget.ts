@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     name: "Send notification to chat",
  *     identifier: "SendToChat",
  *     description: "This is custom action sends selected findings to chat",
+ * }, {
+ *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

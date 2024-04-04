@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *                     jsonProperty(&#34;title&#34;, &#34;MyDemoResponse&#34;),
  *                     jsonProperty(&#34;type&#34;, &#34;object&#34;),
  *                     jsonProperty(&#34;properties&#34;, jsonObject(
- *                         jsonProperty(&#34;message&#34;, jsonObject(
+ *                         jsonProperty(&#34;Message&#34;, jsonObject(
  *                             jsonProperty(&#34;type&#34;, &#34;string&#34;)
  *                         ))
  *                     ))

@@ -33,6 +33,12 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             { "Name", "gw NAT" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsInternetGateway, 
+    ///         },
     ///     });
     /// 
     /// });

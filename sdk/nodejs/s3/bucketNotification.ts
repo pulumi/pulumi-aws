@@ -138,6 +138,8 @@ import * as utilities from "../utilities";
  *         filterPrefix: "AWSLogs/",
  *         filterSuffix: ".log",
  *     }],
+ * }, {
+ *     dependsOn: [allowBucket],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -206,6 +208,11 @@ import * as utilities from "../utilities";
  *             filterPrefix: "OtherLogs/",
  *             filterSuffix: ".log",
  *         },
+ *     ],
+ * }, {
+ *     dependsOn: [
+ *         allowBucket1,
+ *         allowBucket2,
  *     ],
  * });
  * ```

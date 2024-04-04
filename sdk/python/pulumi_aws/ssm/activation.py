@@ -328,7 +328,8 @@ class Activation(pulumi.CustomResource):
             name="test_ssm_activation",
             description="Test",
             iam_role=test_role.id,
-            registration_limit=5)
+            registration_limit=5,
+            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -384,7 +385,8 @@ class Activation(pulumi.CustomResource):
             name="test_ssm_activation",
             description="Test",
             iam_role=test_role.id,
-            registration_limit=5)
+            registration_limit=5,
+            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
         <!--End PulumiCodeChooser -->
 

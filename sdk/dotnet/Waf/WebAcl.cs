@@ -51,6 +51,12 @@ namespace Pulumi.Aws.Waf
     ///                 Type = "IPMatch",
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             ipset, 
+    ///         },
     ///     });
     /// 
     ///     var wafAcl = new Aws.Waf.WebAcl("waf_acl", new()
@@ -73,6 +79,13 @@ namespace Pulumi.Aws.Waf
     ///                 RuleId = wafrule.Id,
     ///                 Type = "REGULAR",
     ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             ipset, 
+    ///             wafrule, 
     ///         },
     ///     });
     /// 

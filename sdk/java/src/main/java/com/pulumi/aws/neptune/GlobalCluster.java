@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.neptune.ClusterArgs;
  * import com.pulumi.aws.neptune.ClusterInstance;
  * import com.pulumi.aws.neptune.ClusterInstanceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -90,7 +91,9 @@ import javax.annotation.Nullable;
  *             .clusterIdentifier(secondary.id())
  *             .instanceClass(&#34;db.r5.large&#34;)
  *             .neptuneSubnetGroupName(&#34;default&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(primaryClusterInstance)
+ *                 .build());
  * 
  *     }
  * }

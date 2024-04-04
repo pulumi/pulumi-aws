@@ -898,7 +898,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     security_group_ids=[first["id"]],
                     role_arn=firehose["arn"],
                 ),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1017,7 +1018,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     security_group_ids=[first["id"]],
                     role_arn=firehose["arn"],
                 ),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1475,7 +1477,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     security_group_ids=[first["id"]],
                     role_arn=firehose["arn"],
                 ),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1594,7 +1597,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                     security_group_ids=[first["id"]],
                     role_arn=firehose["arn"],
                 ),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
         ```
         <!--End PulumiCodeChooser -->
 

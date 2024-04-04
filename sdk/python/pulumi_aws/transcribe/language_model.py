@@ -259,14 +259,14 @@ class LanguageModel(pulumi.CustomResource):
             name="example",
             role=example_role.id,
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": [
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
                         "s3:GetObject",
                         "s3:ListBucket",
                     ],
-                    "effect": "Allow",
-                    "resource": ["*"],
+                    "Effect": "Allow",
+                    "Resource": ["*"],
                 }],
             }))
         example_bucket_v2 = aws.s3.BucketV2("example",
@@ -341,14 +341,14 @@ class LanguageModel(pulumi.CustomResource):
             name="example",
             role=example_role.id,
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": [
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
                         "s3:GetObject",
                         "s3:ListBucket",
                     ],
-                    "effect": "Allow",
-                    "resource": ["*"],
+                    "Effect": "Allow",
+                    "Resource": ["*"],
                 }],
             }))
         example_bucket_v2 = aws.s3.BucketV2("example",

@@ -501,8 +501,8 @@ class Schedule(pulumi.CustomResource):
                 arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
                 role_arn=example_aws_iam_role["arn"],
                 input=pulumi.Output.json_dumps({
-                    "messageBody": "Greetings, programs!",
-                    "queueUrl": example.url,
+                    "MessageBody": "Greetings, programs!",
+                    "QueueUrl": example.url,
                 }),
             ))
         ```
@@ -588,8 +588,8 @@ class Schedule(pulumi.CustomResource):
                 arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
                 role_arn=example_aws_iam_role["arn"],
                 input=pulumi.Output.json_dumps({
-                    "messageBody": "Greetings, programs!",
-                    "queueUrl": example.url,
+                    "MessageBody": "Greetings, programs!",
+                    "QueueUrl": example.url,
                 }),
             ))
         ```

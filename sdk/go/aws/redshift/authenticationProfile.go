@@ -32,9 +32,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"allowDBUserOverride": "1",
-//				"clientID":            "ExampleClientID",
-//				"appID":               "example",
+//				"AllowDBUserOverride": "1",
+//				"Client_ID":           "ExampleClientID",
+//				"App_ID":              "example",
 //			})
 //			if err != nil {
 //				return err

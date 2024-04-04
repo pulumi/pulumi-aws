@@ -213,6 +213,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ * }, {
+ *     dependsOn: [exampleAwsSecretsmanagerSecretVersion],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -321,6 +323,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ * }, {
+ *     dependsOn: [exampleAwsSecretsmanagerSecretVersion],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

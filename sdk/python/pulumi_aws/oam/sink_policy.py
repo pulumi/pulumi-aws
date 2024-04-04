@@ -146,21 +146,21 @@ class SinkPolicy(pulumi.CustomResource):
         example_sink_policy = aws.oam.SinkPolicy("example",
             sink_identifier=example.id,
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": [
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
                         "oam:CreateLink",
                         "oam:UpdateLink",
                     ],
-                    "effect": "Allow",
-                    "resource": "*",
-                    "principal": {
+                    "Effect": "Allow",
+                    "Resource": "*",
+                    "Principal": {
                         "AWS": [
                             "1111111111111",
                             "222222222222",
                         ],
                     },
-                    "condition": {
+                    "Condition": {
                         "ForAllValues:StringEquals": {
                             "oam:ResourceTypes": [
                                 "AWS::CloudWatch::Metric",
@@ -209,21 +209,21 @@ class SinkPolicy(pulumi.CustomResource):
         example_sink_policy = aws.oam.SinkPolicy("example",
             sink_identifier=example.id,
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": [
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
                         "oam:CreateLink",
                         "oam:UpdateLink",
                     ],
-                    "effect": "Allow",
-                    "resource": "*",
-                    "principal": {
+                    "Effect": "Allow",
+                    "Resource": "*",
+                    "Principal": {
                         "AWS": [
                             "1111111111111",
                             "222222222222",
                         ],
                     },
-                    "condition": {
+                    "Condition": {
                         "ForAllValues:StringEquals": {
                             "oam:ResourceTypes": [
                                 "AWS::CloudWatch::Metric",

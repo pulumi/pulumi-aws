@@ -203,6 +203,17 @@ namespace Pulumi.Aws.Lambda
     ///         },
     ///     });
     /// 
+    ///     // Mount target connects the file system to the subnet
+    ///     var alpha = new Aws.Efs.MountTarget("alpha", new()
+    ///     {
+    ///         FileSystemId = efsForLambda.Id,
+    ///         SubnetId = subnetForLambda.Id,
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             sgForLambda.Id,
+    ///         },
+    ///     });
+    /// 
     ///     // EFS access point used by lambda file system
     ///     var accessPointForLambda = new Aws.Efs.AccessPoint("access_point_for_lambda", new()
     ///     {
@@ -243,16 +254,11 @@ namespace Pulumi.Aws.Lambda
     ///                 sgForLambda.Id,
     ///             },
     ///         },
-    ///     });
-    /// 
-    ///     // Mount target connects the file system to the subnet
-    ///     var alpha = new Aws.Efs.MountTarget("alpha", new()
+    ///     }, new CustomResourceOptions
     ///     {
-    ///         FileSystemId = efsForLambda.Id,
-    ///         SubnetId = subnetForLambda.Id,
-    ///         SecurityGroups = new[]
+    ///         DependsOn =
     ///         {
-    ///             sgForLambda.Id,
+    ///             alpha, 
     ///         },
     ///     });
     /// 
@@ -279,15 +285,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var config = new Config();
     ///     var lambdaFunctionName = config.Get("lambdaFunctionName") ?? "lambda_function_name";
-    ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
-    ///     {
-    ///         Name = lambdaFunctionName,
-    ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
-    ///         {
-    ///             LogFormat = "Text",
-    ///         },
-    ///     });
-    /// 
     ///     // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
     ///     // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
     ///     var example = new Aws.CloudWatch.LogGroup("example", new()
@@ -330,6 +327,22 @@ namespace Pulumi.Aws.Lambda
     ///     {
     ///         Role = iamForLambda.Name,
     ///         PolicyArn = lambdaLoggingPolicy.Arn,
+    ///     });
+    /// 
+    ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
+    ///     {
+    ///         Name = lambdaFunctionName,
+    ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
+    ///         {
+    ///             LogFormat = "Text",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             lambdaLogs, 
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });

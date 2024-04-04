@@ -28,13 +28,6 @@ namespace Pulumi.Aws.ApiGateway
     ///         Name = "example_api",
     ///     });
     /// 
-    ///     var example = new Aws.ApiGateway.DocumentationVersion("example", new()
-    ///     {
-    ///         Version = "example_version",
-    ///         RestApiId = exampleRestApi.Id,
-    ///         Description = "Example description",
-    ///     });
-    /// 
     ///     var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("example", new()
     ///     {
     ///         Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
@@ -43,6 +36,19 @@ namespace Pulumi.Aws.ApiGateway
     ///         },
     ///         Properties = "{\"description\":\"Example\"}",
     ///         RestApiId = exampleRestApi.Id,
+    ///     });
+    /// 
+    ///     var example = new Aws.ApiGateway.DocumentationVersion("example", new()
+    ///     {
+    ///         Version = "example_version",
+    ///         RestApiId = exampleRestApi.Id,
+    ///         Description = "Example description",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleDocumentationPart, 
+    ///         },
     ///     });
     /// 
     /// });

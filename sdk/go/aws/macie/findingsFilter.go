@@ -49,7 +49,9 @@ import (
 //						},
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				testAwsMacie2Account,
+//			}))
 //			if err != nil {
 //				return err
 //			}

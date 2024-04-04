@@ -50,6 +50,8 @@ import * as utilities from "../utilities";
  * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("test", {
  *     targetGroupArn: test.arn,
  *     targetId: testFunction.arn,
+ * }, {
+ *     dependsOn: [withLb],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -569,7 +569,8 @@ class DocumentClassifier(pulumi.CustomResource):
             language_code="en",
             input_data_config=aws.comprehend.DocumentClassifierInputDataConfigArgs(
                 s3_uri=documents.id.apply(lambda id: f"s3://{test['bucket']}/{id}"),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         entities = aws.s3.BucketObjectv2("entities")
         ```
         <!--End PulumiCodeChooser -->
@@ -643,7 +644,8 @@ class DocumentClassifier(pulumi.CustomResource):
             language_code="en",
             input_data_config=aws.comprehend.DocumentClassifierInputDataConfigArgs(
                 s3_uri=documents.id.apply(lambda id: f"s3://{test['bucket']}/{id}"),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         entities = aws.s3.BucketObjectv2("entities")
         ```
         <!--End PulumiCodeChooser -->

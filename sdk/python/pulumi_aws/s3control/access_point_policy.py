@@ -139,14 +139,14 @@ class AccessPointPolicy(pulumi.CustomResource):
         example_access_point_policy = aws.s3control.AccessPointPolicy("example",
             access_point_arn=example_access_point.arn,
             policy=pulumi.Output.json_dumps({
-                "version": "2008-10-17",
-                "statement": [{
-                    "effect": "Allow",
-                    "action": "s3:GetObjectTagging",
-                    "principal": {
+                "Version": "2008-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Action": "s3:GetObjectTagging",
+                    "Principal": {
                         "AWS": "*",
                     },
-                    "resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
+                    "Resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
                 }],
             }))
         ```
@@ -197,14 +197,14 @@ class AccessPointPolicy(pulumi.CustomResource):
         example_access_point_policy = aws.s3control.AccessPointPolicy("example",
             access_point_arn=example_access_point.arn,
             policy=pulumi.Output.json_dumps({
-                "version": "2008-10-17",
-                "statement": [{
-                    "effect": "Allow",
-                    "action": "s3:GetObjectTagging",
-                    "principal": {
+                "Version": "2008-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Action": "s3:GetObjectTagging",
+                    "Principal": {
                         "AWS": "*",
                     },
-                    "resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
+                    "Resource": example_access_point.arn.apply(lambda arn: f"{arn}/object/*"),
                 }],
             }))
         ```

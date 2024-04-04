@@ -49,6 +49,12 @@ namespace Pulumi.Aws.Ses
     ///     var exampleVerification = new Aws.Ses.DomainIdentityVerification("example_verification", new()
     ///     {
     ///         Domain = example.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAmazonsesVerificationRecord, 
+    ///         },
     ///     });
     /// 
     /// });

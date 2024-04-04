@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.chime.VoiceConnectorTerminationCredentials;
  * import com.pulumi.aws.chime.VoiceConnectorTerminationCredentialsArgs;
  * import com.pulumi.aws.chime.inputs.VoiceConnectorTerminationCredentialsCredentialArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,7 +71,9 @@ import javax.annotation.Nullable;
  *                 .username(&#34;test&#34;)
  *                 .password(&#34;test!&#34;)
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(defaultVoiceConnectorTermination)
+ *                 .build());
  * 
  *     }
  * }

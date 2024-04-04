@@ -537,23 +537,23 @@ class Stack(pulumi.CustomResource):
                 "VPCCidr": "10.0.0.0/16",
             },
             template_body=json.dumps({
-                "parameters": {
-                    "vPCCidr": {
-                        "type": "String",
-                        "default": "10.0.0.0/16",
-                        "description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+                "Parameters": {
+                    "VPCCidr": {
+                        "Type": "String",
+                        "Default": "10.0.0.0/16",
+                        "Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
                     },
                 },
-                "resources": {
+                "Resources": {
                     "myVpc": {
-                        "type": "AWS::EC2::VPC",
-                        "properties": {
-                            "cidrBlock": {
+                        "Type": "AWS::EC2::VPC",
+                        "Properties": {
+                            "CidrBlock": {
                                 "Ref": "VPCCidr",
                             },
-                            "tags": [{
-                                "key": "Name",
-                                "value": "Primary_CF_VPC",
+                            "Tags": [{
+                                "Key": "Name",
+                                "Value": "Primary_CF_VPC",
                             }],
                         },
                     },
@@ -614,23 +614,23 @@ class Stack(pulumi.CustomResource):
                 "VPCCidr": "10.0.0.0/16",
             },
             template_body=json.dumps({
-                "parameters": {
-                    "vPCCidr": {
-                        "type": "String",
-                        "default": "10.0.0.0/16",
-                        "description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+                "Parameters": {
+                    "VPCCidr": {
+                        "Type": "String",
+                        "Default": "10.0.0.0/16",
+                        "Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
                     },
                 },
-                "resources": {
+                "Resources": {
                     "myVpc": {
-                        "type": "AWS::EC2::VPC",
-                        "properties": {
-                            "cidrBlock": {
+                        "Type": "AWS::EC2::VPC",
+                        "Properties": {
+                            "CidrBlock": {
                                 "Ref": "VPCCidr",
                             },
-                            "tags": [{
-                                "key": "Name",
-                                "value": "Primary_CF_VPC",
+                            "Tags": [{
+                                "Key": "Name",
+                                "Value": "Primary_CF_VPC",
                             }],
                         },
                     },

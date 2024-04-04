@@ -36,11 +36,15 @@ import * as utilities from "../utilities";
  * const exampleTransitGatewayRegistration = new aws.networkmanager.TransitGatewayRegistration("example", {
  *     globalNetworkId: example.id,
  *     transitGatewayArn: exampleTransitGateway.arn,
+ * }, {
+ *     dependsOn: [exampleVpnConnection],
  * });
  * const exampleCustomerGatewayAssociation = new aws.networkmanager.CustomerGatewayAssociation("example", {
  *     globalNetworkId: example.id,
  *     customerGatewayArn: exampleCustomerGateway.arn,
  *     deviceId: exampleDevice.id,
+ * }, {
+ *     dependsOn: [exampleTransitGatewayRegistration],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

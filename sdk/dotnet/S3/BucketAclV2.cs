@@ -47,6 +47,12 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         Bucket = example.Id,
     ///         Acl = "private",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleBucketOwnershipControls, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -94,6 +100,13 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         Bucket = example.Id,
     ///         Acl = "public-read",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleBucketOwnershipControls, 
+    ///             exampleBucketPublicAccessBlock, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -157,6 +170,12 @@ namespace Pulumi.Aws.S3
     ///             {
     ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
     ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleBucketOwnershipControls, 
     ///         },
     ///     });
     /// 

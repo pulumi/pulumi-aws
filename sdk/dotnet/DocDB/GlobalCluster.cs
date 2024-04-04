@@ -60,6 +60,12 @@ namespace Pulumi.Aws.DocDB
     ///         ClusterIdentifier = "test-secondary-cluster",
     ///         GlobalClusterIdentifier = example.Id,
     ///         DbSubnetGroupName = "default",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             primary, 
+    ///         },
     ///     });
     /// 
     ///     var secondaryClusterInstance = new Aws.DocDB.ClusterInstance("secondary", new()
@@ -68,6 +74,12 @@ namespace Pulumi.Aws.DocDB
     ///         Identifier = "test-secondary-cluster-instance",
     ///         ClusterIdentifier = secondary.Id,
     ///         InstanceClass = "db.r5.large",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             primaryClusterInstance, 
+    ///         },
     ///     });
     /// 
     /// });

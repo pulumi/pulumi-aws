@@ -37,34 +37,34 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["rules"] = new[]
+    ///                 ["Rules"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["resourceType"] = "index",
-    ///                         ["resource"] = new[]
+    ///                         ["ResourceType"] = "index",
+    ///                         ["Resource"] = new[]
     ///                         {
     ///                             "index/example-collection/*",
     ///                         },
-    ///                         ["permission"] = new[]
+    ///                         ["Permission"] = new[]
     ///                         {
     ///                             "aoss:*",
     ///                         },
     ///                     },
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["resourceType"] = "collection",
-    ///                         ["resource"] = new[]
+    ///                         ["ResourceType"] = "collection",
+    ///                         ["Resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
-    ///                         ["permission"] = new[]
+    ///                         ["Permission"] = new[]
     ///                         {
     ///                             "aoss:*",
     ///                         },
     ///                     },
     ///                 },
-    ///                 ["principal"] = new[]
+    ///                 ["Principal"] = new[]
     ///                 {
     ///                     current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
     ///                 },
@@ -99,16 +99,16 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["rules"] = new[]
+    ///                 ["Rules"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["resourceType"] = "index",
-    ///                         ["resource"] = new[]
+    ///                         ["ResourceType"] = "index",
+    ///                         ["Resource"] = new[]
     ///                         {
     ///                             "index/example-collection/*",
     ///                         },
-    ///                         ["permission"] = new[]
+    ///                         ["Permission"] = new[]
     ///                         {
     ///                             "aoss:DescribeIndex",
     ///                             "aoss:ReadDocument",
@@ -116,18 +116,18 @@ namespace Pulumi.Aws.OpenSearch
     ///                     },
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["resourceType"] = "collection",
-    ///                         ["resource"] = new[]
+    ///                         ["ResourceType"] = "collection",
+    ///                         ["Resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
-    ///                         ["permission"] = new[]
+    ///                         ["Permission"] = new[]
     ///                         {
     ///                             "aoss:DescribeCollectionItems",
     ///                         },
     ///                     },
     ///                 },
-    ///                 ["principal"] = new[]
+    ///                 ["Principal"] = new[]
     ///                 {
     ///                     current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
     ///                 },
@@ -160,34 +160,34 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["rules"] = new[]
+    ///                 ["Rules"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["resourceType"] = "index",
-    ///                         ["resource"] = new[]
+    ///                         ["ResourceType"] = "index",
+    ///                         ["Resource"] = new[]
     ///                         {
     ///                             "index/example-collection/*",
     ///                         },
-    ///                         ["permission"] = new[]
+    ///                         ["Permission"] = new[]
     ///                         {
     ///                             "aoss:*",
     ///                         },
     ///                     },
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["resourceType"] = "collection",
-    ///                         ["resource"] = new[]
+    ///                         ["ResourceType"] = "collection",
+    ///                         ["Resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
-    ///                         ["permission"] = new[]
+    ///                         ["Permission"] = new[]
     ///                         {
     ///                             "aoss:*",
     ///                         },
     ///                     },
     ///                 },
-    ///                 ["principal"] = new[]
+    ///                 ["Principal"] = new[]
     ///                 {
     ///                     "saml/123456789012/myprovider/user/Annie",
     ///                     "saml/123456789012/anotherprovider/group/Accounting",

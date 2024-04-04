@@ -34,7 +34,9 @@ import (
 //			_, err := ssmcontacts.NewContact(ctx, "example", &ssmcontacts.ContactArgs{
 //				Alias: pulumi.String("alias"),
 //				Type:  pulumi.String("PERSONAL"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsSsmincidentsReplicationSet,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -67,7 +69,9 @@ import (
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsSsmincidentsReplicationSet,
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -80,6 +80,12 @@ namespace Pulumi.Aws.NetworkManager
     ///         {
     ///             Protocol = "GRE",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             test, 
+    ///         },
     ///     });
     /// 
     ///     var example2 = new Aws.NetworkManager.AttachmentAccepter("example2", new()

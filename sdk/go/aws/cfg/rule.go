@@ -36,16 +36,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cfg.NewRule(ctx, "r", &cfg.RuleArgs{
-//				Name: pulumi.String("example"),
-//				Source: &cfg.RuleSourceArgs{
-//					Owner:            pulumi.String("AWS"),
-//					SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
@@ -74,10 +64,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
+//			foo, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
 //				Name:    pulumi.String("example"),
 //				RoleArn: rRole.Arn,
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewRule(ctx, "r", &cfg.RuleArgs{
+//				Name: pulumi.String("example"),
+//				Source: &cfg.RuleSourceArgs{
+//					Owner:            pulumi.String("AWS"),
+//					SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				foo,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -130,7 +132,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cfg.NewRecorder(ctx, "example", nil)
+//			example, err := cfg.NewRecorder(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -138,7 +140,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewPermission(ctx, "example", &lambda.PermissionArgs{
+//			examplePermission, err := lambda.NewPermission(ctx, "example", &lambda.PermissionArgs{
 //				Action:      pulumi.String("lambda:InvokeFunction"),
 //				Function:    exampleFunction.Arn,
 //				Principal:   pulumi.String("config.amazonaws.com"),
@@ -152,7 +154,10 @@ import (
 //					Owner:            pulumi.String("CUSTOM_LAMBDA"),
 //					SourceIdentifier: exampleFunction.Arn,
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//				examplePermission,
+//			}))
 //			if err != nil {
 //				return err
 //			}

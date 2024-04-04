@@ -30,16 +30,16 @@ namespace Pulumi.Aws.Quicksight
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["effect"] = "Allow",
-    ///                     ["action"] = "sts:AssumeRole",
-    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = "quicksight.amazonaws.com",
+    ///                         ["Service"] = "quicksight.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
@@ -51,13 +51,13 @@ namespace Pulumi.Aws.Quicksight
     ///                 Name = "QuickSightVPCConnectionRolePolicy",
     ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["version"] = "2012-10-17",
-    ///                     ["statement"] = new[]
+    ///                     ["Version"] = "2012-10-17",
+    ///                     ["Statement"] = new[]
     ///                     {
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["effect"] = "Allow",
-    ///                             ["action"] = new[]
+    ///                             ["Effect"] = "Allow",
+    ///                             ["Action"] = new[]
     ///                             {
     ///                                 "ec2:CreateNetworkInterface",
     ///                                 "ec2:ModifyNetworkInterfaceAttribute",
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Quicksight
     ///                                 "ec2:DescribeSubnets",
     ///                                 "ec2:DescribeSecurityGroups",
     ///                             },
-    ///                             ["resource"] = new[]
+    ///                             ["Resource"] = new[]
     ///                             {
     ///                                 "*",
     ///                             },

@@ -61,7 +61,9 @@ import (
 //					"tag1": pulumi.String("value1"),
 //					"tag2": pulumi.String("value3"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				object,
+//			}))
 //			if err != nil {
 //				return err
 //			}

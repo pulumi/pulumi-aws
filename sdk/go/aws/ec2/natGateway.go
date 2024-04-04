@@ -37,7 +37,9 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("gw NAT"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsInternetGateway,
+//			}))
 //			if err != nil {
 //				return err
 //			}

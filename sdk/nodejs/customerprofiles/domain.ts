@@ -32,14 +32,14 @@ import * as utilities from "../utilities";
  * const example = new aws.sqs.Queue("example", {
  *     name: "example",
  *     policy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             sid: "Customer Profiles SQS policy",
- *             effect: "Allow",
- *             action: ["sqs:SendMessage"],
- *             resource: "*",
- *             principal: {
- *                 service: "profile.amazonaws.com",
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Sid: "Customer Profiles SQS policy",
+ *             Effect: "Allow",
+ *             Action: ["sqs:SendMessage"],
+ *             Resource: "*",
+ *             Principal: {
+ *                 Service: "profile.amazonaws.com",
  *             },
  *         }],
  *     }),
@@ -55,21 +55,21 @@ import * as utilities from "../utilities";
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: exampleBucketV2.id,
  *     policy: pulumi.jsonStringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             sid: "Customer Profiles S3 policy",
- *             effect: "Allow",
- *             action: [
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Sid: "Customer Profiles S3 policy",
+ *             Effect: "Allow",
+ *             Action: [
  *                 "s3:GetObject",
  *                 "s3:PutObject",
  *                 "s3:ListBucket",
  *             ],
- *             resource: [
+ *             Resource: [
  *                 exampleBucketV2.arn,
  *                 pulumi.interpolate`${exampleBucketV2.arn}/*`,
  *             ],
- *             principal: {
- *                 service: "profile.amazonaws.com",
+ *             Principal: {
+ *                 Service: "profile.amazonaws.com",
  *             },
  *         }],
  *     }),

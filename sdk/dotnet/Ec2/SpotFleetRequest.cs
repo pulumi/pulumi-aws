@@ -113,6 +113,12 @@ namespace Pulumi.Aws.Ec2
     ///                 },
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             test_attach, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -285,6 +291,12 @@ namespace Pulumi.Aws.Ec2
     ///                     },
     ///                 },
     ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             test_attach, 
     ///         },
     ///     });
     /// 

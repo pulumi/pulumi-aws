@@ -334,7 +334,11 @@ class FileSystemAssociation(pulumi.CustomResource):
             associate_public_ip_address=True,
             instance_type=aws.ec2.InstanceType(available["instanceType"]),
             vpc_security_group_ids=[test_aws_security_group["id"]],
-            subnet_id=test_aws_subnet[0]["id"])
+            subnet_id=test_aws_subnet[0]["id"],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    test_aws_route,
+                    test_aws_vpc_dhcp_options_association,
+                ]))
         test_gateway = aws.storagegateway.Gateway("test",
             gateway_ip_address=test.public_ip,
             gateway_name="test-sgw",
@@ -422,7 +426,11 @@ class FileSystemAssociation(pulumi.CustomResource):
             associate_public_ip_address=True,
             instance_type=aws.ec2.InstanceType(available["instanceType"]),
             vpc_security_group_ids=[test_aws_security_group["id"]],
-            subnet_id=test_aws_subnet[0]["id"])
+            subnet_id=test_aws_subnet[0]["id"],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    test_aws_route,
+                    test_aws_vpc_dhcp_options_association,
+                ]))
         test_gateway = aws.storagegateway.Gateway("test",
             gateway_ip_address=test.public_ip,
             gateway_name="test-sgw",

@@ -118,7 +118,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
+//			gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
 //				VpcId: _default.ID(),
 //			})
 //			if err != nil {
@@ -128,7 +128,9 @@ import (
 //				VpcId:               _default.ID(),
 //				CidrBlock:           pulumi.String("10.0.0.0/24"),
 //				MapPublicIpOnLaunch: pulumi.Bool(true),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				gw,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -145,7 +147,9 @@ import (
 //				Domain:                 pulumi.String("vpc"),
 //				Instance:               foo.ID(),
 //				AssociateWithPrivateIp: pulumi.String("10.0.0.12"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				gw,
+//			}))
 //			if err != nil {
 //				return err
 //			}

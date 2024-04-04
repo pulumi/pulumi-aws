@@ -29,6 +29,11 @@ import * as utilities from "../utilities";
  *                 example2.id,
  *             ],
  *         },
+ *     }, {
+ *         dependsOn: [
+ *             example_AmazonEKSClusterPolicy,
+ *             example_AmazonEKSVPCResourceController,
+ *         ],
  *     });
  *     return {
  *         endpoint: example.endpoint,
@@ -85,16 +90,18 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const clusterName = config.get("clusterName") || "example";
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
+ *     name: `/aws/eks/${clusterName}/cluster`,
+ *     retentionInDays: 7,
+ * });
  * const example = new aws.eks.Cluster("example", {
  *     enabledClusterLogTypes: [
  *         "api",
  *         "audit",
  *     ],
  *     name: clusterName,
- * });
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
- *     name: `/aws/eks/${clusterName}/cluster`,
- *     retentionInDays: 7,
+ * }, {
+ *     dependsOn: [exampleLogGroup],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

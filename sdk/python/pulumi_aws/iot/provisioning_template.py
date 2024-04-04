@@ -389,26 +389,26 @@ class ProvisioningTemplate(pulumi.CustomResource):
             provisioning_role_arn=iot_fleet_provisioning.arn,
             enabled=True,
             template_body=pulumi.Output.json_dumps({
-                "parameters": {
-                    "serialNumber": {
-                        "type": "String",
+                "Parameters": {
+                    "SerialNumber": {
+                        "Type": "String",
                     },
                 },
-                "resources": {
+                "Resources": {
                     "certificate": {
-                        "properties": {
-                            "certificateId": {
-                                "ref": "AWS::IoT::Certificate::Id",
+                        "Properties": {
+                            "CertificateId": {
+                                "Ref": "AWS::IoT::Certificate::Id",
                             },
-                            "status": "Active",
+                            "Status": "Active",
                         },
-                        "type": "AWS::IoT::Certificate",
+                        "Type": "AWS::IoT::Certificate",
                     },
                     "policy": {
-                        "properties": {
-                            "policyName": device_policy_policy.name,
+                        "Properties": {
+                            "PolicyName": device_policy_policy.name,
                         },
-                        "type": "AWS::IoT::Policy",
+                        "Type": "AWS::IoT::Policy",
                     },
                 },
             }))
@@ -478,26 +478,26 @@ class ProvisioningTemplate(pulumi.CustomResource):
             provisioning_role_arn=iot_fleet_provisioning.arn,
             enabled=True,
             template_body=pulumi.Output.json_dumps({
-                "parameters": {
-                    "serialNumber": {
-                        "type": "String",
+                "Parameters": {
+                    "SerialNumber": {
+                        "Type": "String",
                     },
                 },
-                "resources": {
+                "Resources": {
                     "certificate": {
-                        "properties": {
-                            "certificateId": {
-                                "ref": "AWS::IoT::Certificate::Id",
+                        "Properties": {
+                            "CertificateId": {
+                                "Ref": "AWS::IoT::Certificate::Id",
                             },
-                            "status": "Active",
+                            "Status": "Active",
                         },
-                        "type": "AWS::IoT::Certificate",
+                        "Type": "AWS::IoT::Certificate",
                     },
                     "policy": {
-                        "properties": {
-                            "policyName": device_policy_policy.name,
+                        "Properties": {
+                            "PolicyName": device_policy_policy.name,
                         },
-                        "type": "AWS::IoT::Policy",
+                        "Type": "AWS::IoT::Policy",
                     },
                 },
             }))

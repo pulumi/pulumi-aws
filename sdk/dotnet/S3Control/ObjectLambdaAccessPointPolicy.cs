@@ -66,18 +66,18 @@ namespace Pulumi.Aws.S3Control
     ///         Name = exampleObjectLambdaAccessPoint.Name,
     ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2008-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2008-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["effect"] = "Allow",
-    ///                     ["action"] = "s3-object-lambda:GetObject",
-    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Action"] = "s3-object-lambda:GetObject",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = current.AccountId,
     ///                     },
-    ///                     ["resource"] = exampleObjectLambdaAccessPoint.Arn,
+    ///                     ["Resource"] = exampleObjectLambdaAccessPoint.Arn,
     ///                 },
     ///             },
     ///         })),

@@ -33,6 +33,8 @@ import * as utilities from "../utilities";
  *     maxSize: 1,
  *     minSize: 1,
  *     roleArn: exampleAwsIamRole.arn,
+ * }, {
+ *     dependsOn: [exampleAwsIamRolePolicyAttachment],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -78,6 +80,8 @@ import * as utilities from "../utilities";
  *         "subnet-12345678",
  *         "subnet-23456789",
  *     ],
+ * }, {
+ *     dependsOn: [exampleAwsIamRolePolicyAttachment],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -30,6 +30,12 @@ import * as utilities from "../utilities";
  *     updateConfig: {
  *         maxUnavailable: 1,
  *     },
+ * }, {
+ *     dependsOn: [
+ *         example_AmazonEKSWorkerNodePolicy,
+ *         example_AmazonEKSCNIPolicy,
+ *         example_AmazonEC2ContainerRegistryReadOnly,
+ *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -59,14 +65,14 @@ import * as utilities from "../utilities";
  * const example = new aws.iam.Role("example", {
  *     name: "eks-node-group-example",
  *     assumeRolePolicy: JSON.stringify({
- *         statement: [{
- *             action: "sts:AssumeRole",
- *             effect: "Allow",
- *             principal: {
- *                 service: "ec2.amazonaws.com",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Principal: {
+ *                 Service: "ec2.amazonaws.com",
  *             },
  *         }],
- *         version: "2012-10-17",
+ *         Version: "2012-10-17",
  *     }),
  * });
  * const example_AmazonEKSWorkerNodePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy", {

@@ -175,7 +175,8 @@ class Insight(pulumi.CustomResource):
                 ],
             ),
             group_by_attribute="AwsAccountId",
-            name="example-insight")
+            name="example-insight",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -197,7 +198,8 @@ class Insight(pulumi.CustomResource):
                 )],
             ),
             group_by_attribute="CreatedAt",
-            name="example-insight")
+            name="example-insight",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -216,7 +218,8 @@ class Insight(pulumi.CustomResource):
                 )],
             ),
             group_by_attribute="NetworkDestinationIpV4",
-            name="example-insight")
+            name="example-insight",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -235,7 +238,8 @@ class Insight(pulumi.CustomResource):
                 )],
             ),
             group_by_attribute="Confidence",
-            name="example-insight")
+            name="example-insight",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -256,7 +260,8 @@ class Insight(pulumi.CustomResource):
                 )],
             ),
             group_by_attribute="ResourceTags",
-            name="example-insight")
+            name="example-insight",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -307,7 +312,8 @@ class Insight(pulumi.CustomResource):
                 ],
             ),
             group_by_attribute="AwsAccountId",
-            name="example-insight")
+            name="example-insight",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -329,7 +335,8 @@ class Insight(pulumi.CustomResource):
                 )],
             ),
             group_by_attribute="CreatedAt",
-            name="example-insight")
+            name="example-insight",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -348,7 +355,8 @@ class Insight(pulumi.CustomResource):
                 )],
             ),
             group_by_attribute="NetworkDestinationIpV4",
-            name="example-insight")
+            name="example-insight",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -367,7 +375,8 @@ class Insight(pulumi.CustomResource):
                 )],
             ),
             group_by_attribute="Confidence",
-            name="example-insight")
+            name="example-insight",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -388,7 +397,8 @@ class Insight(pulumi.CustomResource):
                 )],
             ),
             group_by_attribute="ResourceTags",
-            name="example-insight")
+            name="example-insight",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 

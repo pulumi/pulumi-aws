@@ -190,6 +190,12 @@ namespace Pulumi.Aws.S3
     ///         ObjectLockMode = "GOVERNANCE",
     ///         ObjectLockRetainUntilDate = "2021-12-31T23:59:60Z",
     ///         ForceDestroy = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleBucketVersioningV2, 
+    ///         },
     ///     });
     /// 
     /// });

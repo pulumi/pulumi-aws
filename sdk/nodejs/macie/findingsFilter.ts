@@ -29,6 +29,8 @@ import * as utilities from "../utilities";
  *             eqs: [current.name],
  *         }],
  *     },
+ * }, {
+ *     dependsOn: [testAwsMacie2Account],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

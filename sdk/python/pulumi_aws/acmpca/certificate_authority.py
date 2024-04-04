@@ -522,7 +522,8 @@ class CertificateAuthority(pulumi.CustomResource):
                     s3_bucket_name=example.id,
                     s3_object_acl="BUCKET_OWNER_FULL_CONTROL",
                 ),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -641,7 +642,8 @@ class CertificateAuthority(pulumi.CustomResource):
                     s3_bucket_name=example.id,
                     s3_object_acl="BUCKET_OWNER_FULL_CONTROL",
                 ),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
         <!--End PulumiCodeChooser -->
 
