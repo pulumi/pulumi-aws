@@ -79,10 +79,12 @@ import {Deployment, RestApi} from "./index";
  * const config = new pulumi.Config();
  * const stageName = config.get("stageName") || "example";
  * const example = new aws.apigateway.RestApi("example", {});
- * const exampleStage = new aws.apigateway.Stage("example", {stageName: stageName});
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {
  *     name: pulumi.interpolate`API-Gateway-Execution-Logs_${example.id}/${stageName}`,
  *     retentionInDays: 7,
+ * });
+ * const exampleStage = new aws.apigateway.Stage("example", {stageName: stageName}, {
+ *     dependsOn: [exampleLogGroup],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

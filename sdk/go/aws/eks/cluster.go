@@ -40,7 +40,10 @@ import (
 //						example2.Id,
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example_AmazonEKSClusterPolicy,
+//				example_AmazonEKSVPCResourceController,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -149,20 +152,22 @@ import (
 //			if param := cfg.Get("clusterName"); param != "" {
 //				clusterName = param
 //			}
-//			_, err := eks.NewCluster(ctx, "example", &eks.ClusterArgs{
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name:            pulumi.String(fmt.Sprintf("/aws/eks/%v/cluster", clusterName)),
+//				RetentionInDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eks.NewCluster(ctx, "example", &eks.ClusterArgs{
 //				EnabledClusterLogTypes: pulumi.StringArray{
 //					pulumi.String("api"),
 //					pulumi.String("audit"),
 //				},
 //				Name: pulumi.String(clusterName),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				Name:            pulumi.String(fmt.Sprintf("/aws/eks/%v/cluster", clusterName)),
-//				RetentionInDays: pulumi.Int(7),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleLogGroup,
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -254,13 +254,13 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             name="dms-vpc-role",
             description="Allows DMS to manage VPC",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "effect": "Allow",
-                    "principal": {
-                        "service": "dms.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "dms.amazonaws.com",
                     },
-                    "action": "sts:AssumeRole",
+                    "Action": "sts:AssumeRole",
                 }],
             }))
         example = aws.iam.RolePolicyAttachment("example",
@@ -275,7 +275,8 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             ],
             tags={
                 "Name": "example-id",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -342,13 +343,13 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             name="dms-vpc-role",
             description="Allows DMS to manage VPC",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "effect": "Allow",
-                    "principal": {
-                        "service": "dms.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "dms.amazonaws.com",
                     },
-                    "action": "sts:AssumeRole",
+                    "Action": "sts:AssumeRole",
                 }],
             }))
         example = aws.iam.RolePolicyAttachment("example",
@@ -363,7 +364,8 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
             ],
             tags={
                 "Name": "example-id",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 

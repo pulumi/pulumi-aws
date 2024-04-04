@@ -43,13 +43,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewAccount(ctx, "invitee", nil)
+//			invitee, err := securityhub.NewAccount(ctx, "invitee", nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = securityhub.NewInviteAccepter(ctx, "invitee", &securityhub.InviteAccepterArgs{
 //				MasterId: exampleMember.MasterId,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				invitee,
+//			}))
 //			if err != nil {
 //				return err
 //			}

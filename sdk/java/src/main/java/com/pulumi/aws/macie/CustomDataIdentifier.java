@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie2.Account;
  * import com.pulumi.aws.macie.CustomDataIdentifier;
  * import com.pulumi.aws.macie.CustomDataIdentifierArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,7 +55,9 @@ import javax.annotation.Nullable;
  *             .maximumMatchDistance(10)
  *             .keywords(&#34;keyword&#34;)
  *             .ignoreWords(&#34;ignore&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(test)
+ *                 .build());
  * 
  *     }
  * }

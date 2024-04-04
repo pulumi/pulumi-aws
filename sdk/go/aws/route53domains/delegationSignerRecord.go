@@ -42,53 +42,53 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"statement": []interface{}{
+//				"Statement": []interface{}{
 //					map[string]interface{}{
-//						"action": []string{
+//						"Action": []string{
 //							"kms:DescribeKey",
 //							"kms:GetPublicKey",
 //							"kms:Sign",
 //						},
-//						"effect": "Allow",
-//						"principal": map[string]interface{}{
-//							"service": "dnssec-route53.amazonaws.com",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "dnssec-route53.amazonaws.com",
 //						},
-//						"sid":      "Allow Route 53 DNSSEC Service",
-//						"resource": "*",
-//						"condition": map[string]interface{}{
-//							"stringEquals": map[string]interface{}{
+//						"Sid":      "Allow Route 53 DNSSEC Service",
+//						"Resource": "*",
+//						"Condition": map[string]interface{}{
+//							"StringEquals": map[string]interface{}{
 //								"aws:SourceAccount": current.AccountId,
 //							},
-//							"arnLike": map[string]interface{}{
+//							"ArnLike": map[string]interface{}{
 //								"aws:SourceArn": "arn:aws:route53:::hostedzone/*",
 //							},
 //						},
 //					},
 //					map[string]interface{}{
-//						"action": "kms:CreateGrant",
-//						"effect": "Allow",
-//						"principal": map[string]interface{}{
-//							"service": "dnssec-route53.amazonaws.com",
+//						"Action": "kms:CreateGrant",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "dnssec-route53.amazonaws.com",
 //						},
-//						"sid":      "Allow Route 53 DNSSEC Service to CreateGrant",
-//						"resource": "*",
-//						"condition": map[string]interface{}{
-//							"bool": map[string]interface{}{
+//						"Sid":      "Allow Route 53 DNSSEC Service to CreateGrant",
+//						"Resource": "*",
+//						"Condition": map[string]interface{}{
+//							"Bool": map[string]interface{}{
 //								"kms:GrantIsForAWSResource": "true",
 //							},
 //						},
 //					},
 //					map[string]interface{}{
-//						"action": "kms:*",
-//						"effect": "Allow",
-//						"principal": map[string]interface{}{
+//						"Action": "kms:*",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //						},
-//						"resource": "*",
-//						"sid":      "Enable IAM User Permissions",
+//						"Resource": "*",
+//						"Sid":      "Enable IAM User Permissions",
 //					},
 //				},
-//				"version": "2012-10-17",
+//				"Version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err
@@ -119,7 +119,9 @@ import (
 //			}
 //			_, err = route53.NewHostedZoneDnsSec(ctx, "example", &route53.HostedZoneDnsSecArgs{
 //				HostedZoneId: exampleKeySigningKey.HostedZoneId,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleKeySigningKey,
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -200,6 +200,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.costexplorer.AnomalySubscription;
  * import com.pulumi.aws.costexplorer.AnomalySubscriptionArgs;
  * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -275,7 +276,9 @@ import javax.annotation.Nullable;
  *                 .type(&#34;SNS&#34;)
  *                 .address(costAnomalyUpdates.arn())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(default_)
+ *                 .build());
  * 
  *     }
  * }

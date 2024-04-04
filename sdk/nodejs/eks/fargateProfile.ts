@@ -39,14 +39,14 @@ import * as utilities from "../utilities";
  * const example = new aws.iam.Role("example", {
  *     name: "eks-fargate-profile-example",
  *     assumeRolePolicy: JSON.stringify({
- *         statement: [{
- *             action: "sts:AssumeRole",
- *             effect: "Allow",
- *             principal: {
- *                 service: "eks-fargate-pods.amazonaws.com",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Principal: {
+ *                 Service: "eks-fargate-pods.amazonaws.com",
  *             },
  *         }],
- *         version: "2012-10-17",
+ *         Version: "2012-10-17",
  *     }),
  * });
  * const example_AmazonEKSFargatePodExecutionRolePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", {

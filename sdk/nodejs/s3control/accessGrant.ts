@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  * const exampleAccessGrantsLocation = new aws.s3control.AccessGrantsLocation("example", {
  *     iamRoleArn: exampleAwsIamRole.arn,
  *     locationScope: `s3://${exampleAwsS3Bucket.bucket}/prefixA*`,
+ * }, {
+ *     dependsOn: [example],
  * });
  * const exampleAccessGrant = new aws.s3control.AccessGrant("example", {
  *     accessGrantsLocationId: exampleAccessGrantsLocation.accessGrantsLocationId,

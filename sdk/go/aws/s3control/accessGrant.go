@@ -33,14 +33,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3control.NewAccessGrantsInstance(ctx, "example", nil)
+//			example, err := s3control.NewAccessGrantsInstance(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
 //			exampleAccessGrantsLocation, err := s3control.NewAccessGrantsLocation(ctx, "example", &s3control.AccessGrantsLocationArgs{
 //				IamRoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
 //				LocationScope: pulumi.String(fmt.Sprintf("s3://%v/prefixA*", exampleAwsS3Bucket.Bucket)),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
 //			if err != nil {
 //				return err
 //			}

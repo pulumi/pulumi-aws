@@ -383,7 +383,8 @@ class NatGateway(pulumi.CustomResource):
             subnet_id=example_aws_subnet["id"],
             tags={
                 "Name": "gw NAT",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_aws_internet_gateway]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -471,7 +472,8 @@ class NatGateway(pulumi.CustomResource):
             subnet_id=example_aws_subnet["id"],
             tags={
                 "Name": "gw NAT",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[example_aws_internet_gateway]))
         ```
         <!--End PulumiCodeChooser -->
 

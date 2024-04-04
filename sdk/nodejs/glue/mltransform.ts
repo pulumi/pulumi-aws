@@ -97,6 +97,8 @@ import * as utilities from "../utilities";
  *             primaryKeyColumnName: "my_column_1",
  *         },
  *     },
+ * }, {
+ *     dependsOn: [testAwsIamRolePolicyAttachment],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

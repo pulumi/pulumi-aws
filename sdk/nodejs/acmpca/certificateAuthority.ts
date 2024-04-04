@@ -104,6 +104,8 @@ import * as utilities from "../utilities";
  *             s3ObjectAcl: "BUCKET_OWNER_FULL_CONTROL",
  *         },
  *     },
+ * }, {
+ *     dependsOn: [exampleBucketPolicy],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

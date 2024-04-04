@@ -40,7 +40,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
+//			example, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
 //				AwsServiceAccessPrincipals: pulumi.StringArray{
 //					pulumi.String("securityhub.amazonaws.com"),
 //				},
@@ -51,7 +51,9 @@ import (
 //			}
 //			_, err = securityhub.NewOrganizationAdminAccount(ctx, "example", &securityhub.OrganizationAdminAccountArgs{
 //				AdminAccountId: pulumi.String("123456789012"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -83,15 +85,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securityhub.NewOrganizationAdminAccount(ctx, "example", &securityhub.OrganizationAdminAccountArgs{
+//			example, err := securityhub.NewOrganizationAdminAccount(ctx, "example", &securityhub.OrganizationAdminAccountArgs{
 //				AdminAccountId: pulumi.String("123456789012"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsOrganizationsOrganization,
+//			}))
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
+//			exampleFindingAggregator, err := securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
 //				LinkingMode: pulumi.String("ALL_REGIONS"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -101,7 +107,9 @@ import (
 //				OrganizationConfiguration: &securityhub.OrganizationConfigurationOrganizationConfigurationArgs{
 //					ConfigurationType: pulumi.String("CENTRAL"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleFindingAggregator,
+//			}))
 //			if err != nil {
 //				return err
 //			}

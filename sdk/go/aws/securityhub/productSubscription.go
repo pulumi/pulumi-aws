@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securityhub.NewAccount(ctx, "example", nil)
+//			example, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -42,7 +42,9 @@ import (
 //			}
 //			_, err = securityhub.NewProductSubscription(ctx, "example", &securityhub.ProductSubscriptionArgs{
 //				ProductArn: pulumi.String(fmt.Sprintf("arn:aws:securityhub:%v:733251395267:product/alertlogic/althreatmanagement", current.Name)),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
 //			if err != nil {
 //				return err
 //			}

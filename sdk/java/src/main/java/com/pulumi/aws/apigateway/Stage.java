@@ -115,10 +115,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.Stage;
- * import com.pulumi.aws.apigateway.StageArgs;
  * import com.pulumi.aws.cloudwatch.LogGroup;
  * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.apigateway.Stage;
+ * import com.pulumi.aws.apigateway.StageArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -136,14 +137,16 @@ import javax.annotation.Nullable;
  *         final var stageName = config.get(&#34;stageName&#34;).orElse(&#34;example&#34;);
  *         var example = new RestApi(&#34;example&#34;);
  * 
- *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
- *             .stageName(stageName)
- *             .build());
- * 
  *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
  *             .name(example.id().applyValue(id -&gt; String.format(&#34;API-Gateway-Execution-Logs_%s/%s&#34;, id,stageName)))
  *             .retentionInDays(7)
  *             .build());
+ * 
+ *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
+ *             .stageName(stageName)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleLogGroup)
+ *                 .build());
  * 
  *     }
  * }

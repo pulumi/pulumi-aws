@@ -36,6 +36,12 @@ namespace Pulumi.Aws.Detective
     ///     var member = new Aws.Detective.InvitationAccepter("member", new()
     ///     {
     ///         GraphArn = primary.GraphArn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             primaryMember, 
+    ///         },
     ///     });
     /// 
     /// });

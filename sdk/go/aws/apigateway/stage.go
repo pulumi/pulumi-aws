@@ -140,18 +140,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
-//				StageName: pulumi.String(stageName),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
 //				Name: example.ID().ApplyT(func(id string) (string, error) {
 //					return fmt.Sprintf("API-Gateway-Execution-Logs_%v/%v", id, stageName), nil
 //				}).(pulumi.StringOutput),
 //				RetentionInDays: pulumi.Int(7),
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
+//				StageName: pulumi.String(stageName),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleLogGroup,
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securityhub.NewAccount(ctx, "example", nil)
+//			example, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -37,7 +37,9 @@ import (
 //				AccountId: pulumi.String("123456789012"),
 //				Email:     pulumi.String("example@example.com"),
 //				Invite:    pulumi.Bool(true),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
 //			if err != nil {
 //				return err
 //			}

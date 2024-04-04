@@ -36,14 +36,14 @@ import * as utilities from "../utilities";
  * const exampleObjectLambdaAccessPointPolicy = new aws.s3control.ObjectLambdaAccessPointPolicy("example", {
  *     name: exampleObjectLambdaAccessPoint.name,
  *     policy: pulumi.jsonStringify({
- *         version: "2008-10-17",
- *         statement: [{
- *             effect: "Allow",
- *             action: "s3-object-lambda:GetObject",
- *             principal: {
+ *         Version: "2008-10-17",
+ *         Statement: [{
+ *             Effect: "Allow",
+ *             Action: "s3-object-lambda:GetObject",
+ *             Principal: {
  *                 AWS: current.accountId,
  *             },
- *             resource: exampleObjectLambdaAccessPoint.arn,
+ *             Resource: exampleObjectLambdaAccessPoint.arn,
  *         }],
  *     }),
  * });

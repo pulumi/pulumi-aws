@@ -247,9 +247,6 @@ class DeliveryChannel(pulumi.CustomResource):
         b = aws.s3.BucketV2("b",
             bucket="example-awsconfig",
             force_destroy=True)
-        foo = aws.cfg.DeliveryChannel("foo",
-            name="example",
-            s3_bucket_name=b.bucket)
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -264,6 +261,10 @@ class DeliveryChannel(pulumi.CustomResource):
         foo_recorder = aws.cfg.Recorder("foo",
             name="example",
             role_arn=r.arn)
+        foo = aws.cfg.DeliveryChannel("foo",
+            name="example",
+            s3_bucket_name=b.bucket,
+            opts=pulumi.ResourceOptions(depends_on=[foo_recorder]))
         p = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["s3:*"],
@@ -317,9 +318,6 @@ class DeliveryChannel(pulumi.CustomResource):
         b = aws.s3.BucketV2("b",
             bucket="example-awsconfig",
             force_destroy=True)
-        foo = aws.cfg.DeliveryChannel("foo",
-            name="example",
-            s3_bucket_name=b.bucket)
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -334,6 +332,10 @@ class DeliveryChannel(pulumi.CustomResource):
         foo_recorder = aws.cfg.Recorder("foo",
             name="example",
             role_arn=r.arn)
+        foo = aws.cfg.DeliveryChannel("foo",
+            name="example",
+            s3_bucket_name=b.bucket,
+            opts=pulumi.ResourceOptions(depends_on=[foo_recorder]))
         p = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["s3:*"],

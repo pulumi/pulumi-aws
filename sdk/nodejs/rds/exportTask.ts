@@ -47,13 +47,13 @@ import * as utilities from "../utilities";
  * const exampleRole = new aws.iam.Role("example", {
  *     name: "example",
  *     assumeRolePolicy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             action: "sts:AssumeRole",
- *             effect: "Allow",
- *             sid: "",
- *             principal: {
- *                 service: "export.rds.amazonaws.com",
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Sid: "",
+ *             Principal: {
+ *                 Service: "export.rds.amazonaws.com",
  *             },
  *         }],
  *     }),

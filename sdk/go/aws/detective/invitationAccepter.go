@@ -33,7 +33,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = detective.NewMember(ctx, "primary", &detective.MemberArgs{
+//			primaryMember, err := detective.NewMember(ctx, "primary", &detective.MemberArgs{
 //				AccountId:    pulumi.String("ACCOUNT ID"),
 //				EmailAddress: pulumi.String("EMAIL"),
 //				GraphArn:     primary.ID(),
@@ -44,7 +44,9 @@ import (
 //			}
 //			_, err = detective.NewInvitationAccepter(ctx, "member", &detective.InvitationAccepterArgs{
 //				GraphArn: primary.GraphArn,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				primaryMember,
+//			}))
 //			if err != nil {
 //				return err
 //			}

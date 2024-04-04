@@ -88,6 +88,12 @@ namespace Pulumi.Aws.Cfg
     ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
+    ///     var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organization", new()
+    ///     {
+    ///         Role = organizationRole.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
+    ///     });
+    /// 
     ///     var organization = new Aws.Cfg.ConfigurationAggregator("organization", new()
     ///     {
     ///         Name = "example",
@@ -96,12 +102,12 @@ namespace Pulumi.Aws.Cfg
     ///             AllRegions = true,
     ///             RoleArn = organizationRole.Arn,
     ///         },
-    ///     });
-    /// 
-    ///     var organizationRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("organization", new()
+    ///     }, new CustomResourceOptions
     ///     {
-    ///         Role = organizationRole.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
+    ///         DependsOn =
+    ///         {
+    ///             organizationRolePolicyAttachment, 
+    ///         },
     ///     });
     /// 
     /// });

@@ -206,19 +206,19 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
             type="data",
             description="read and write permissions",
             policy=json.dumps([{
-                "rules": [
+                "Rules": [
                     {
-                        "resourceType": "index",
-                        "resource": ["index/example-collection/*"],
-                        "permission": ["aoss:*"],
+                        "ResourceType": "index",
+                        "Resource": ["index/example-collection/*"],
+                        "Permission": ["aoss:*"],
                     },
                     {
-                        "resourceType": "collection",
-                        "resource": ["collection/example-collection"],
-                        "permission": ["aoss:*"],
+                        "ResourceType": "collection",
+                        "Resource": ["collection/example-collection"],
+                        "Permission": ["aoss:*"],
                     },
                 ],
-                "principal": [current.arn],
+                "Principal": [current.arn],
             }]))
         ```
         <!--End PulumiCodeChooser -->
@@ -237,22 +237,22 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
             type="data",
             description="read-only permissions",
             policy=json.dumps([{
-                "rules": [
+                "Rules": [
                     {
-                        "resourceType": "index",
-                        "resource": ["index/example-collection/*"],
-                        "permission": [
+                        "ResourceType": "index",
+                        "Resource": ["index/example-collection/*"],
+                        "Permission": [
                             "aoss:DescribeIndex",
                             "aoss:ReadDocument",
                         ],
                     },
                     {
-                        "resourceType": "collection",
-                        "resource": ["collection/example-collection"],
-                        "permission": ["aoss:DescribeCollectionItems"],
+                        "ResourceType": "collection",
+                        "Resource": ["collection/example-collection"],
+                        "Permission": ["aoss:DescribeCollectionItems"],
                     },
                 ],
-                "principal": [current.arn],
+                "Principal": [current.arn],
             }]))
         ```
         <!--End PulumiCodeChooser -->
@@ -270,19 +270,19 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
             type="data",
             description="saml permissions",
             policy=json.dumps([{
-                "rules": [
+                "Rules": [
                     {
-                        "resourceType": "index",
-                        "resource": ["index/example-collection/*"],
-                        "permission": ["aoss:*"],
+                        "ResourceType": "index",
+                        "Resource": ["index/example-collection/*"],
+                        "Permission": ["aoss:*"],
                     },
                     {
-                        "resourceType": "collection",
-                        "resource": ["collection/example-collection"],
-                        "permission": ["aoss:*"],
+                        "ResourceType": "collection",
+                        "Resource": ["collection/example-collection"],
+                        "Permission": ["aoss:*"],
                     },
                 ],
-                "principal": [
+                "Principal": [
                     "saml/123456789012/myprovider/user/Annie",
                     "saml/123456789012/anotherprovider/group/Accounting",
                 ],
@@ -332,19 +332,19 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
             type="data",
             description="read and write permissions",
             policy=json.dumps([{
-                "rules": [
+                "Rules": [
                     {
-                        "resourceType": "index",
-                        "resource": ["index/example-collection/*"],
-                        "permission": ["aoss:*"],
+                        "ResourceType": "index",
+                        "Resource": ["index/example-collection/*"],
+                        "Permission": ["aoss:*"],
                     },
                     {
-                        "resourceType": "collection",
-                        "resource": ["collection/example-collection"],
-                        "permission": ["aoss:*"],
+                        "ResourceType": "collection",
+                        "Resource": ["collection/example-collection"],
+                        "Permission": ["aoss:*"],
                     },
                 ],
-                "principal": [current.arn],
+                "Principal": [current.arn],
             }]))
         ```
         <!--End PulumiCodeChooser -->
@@ -363,22 +363,22 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
             type="data",
             description="read-only permissions",
             policy=json.dumps([{
-                "rules": [
+                "Rules": [
                     {
-                        "resourceType": "index",
-                        "resource": ["index/example-collection/*"],
-                        "permission": [
+                        "ResourceType": "index",
+                        "Resource": ["index/example-collection/*"],
+                        "Permission": [
                             "aoss:DescribeIndex",
                             "aoss:ReadDocument",
                         ],
                     },
                     {
-                        "resourceType": "collection",
-                        "resource": ["collection/example-collection"],
-                        "permission": ["aoss:DescribeCollectionItems"],
+                        "ResourceType": "collection",
+                        "Resource": ["collection/example-collection"],
+                        "Permission": ["aoss:DescribeCollectionItems"],
                     },
                 ],
-                "principal": [current.arn],
+                "Principal": [current.arn],
             }]))
         ```
         <!--End PulumiCodeChooser -->
@@ -396,19 +396,19 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
             type="data",
             description="saml permissions",
             policy=json.dumps([{
-                "rules": [
+                "Rules": [
                     {
-                        "resourceType": "index",
-                        "resource": ["index/example-collection/*"],
-                        "permission": ["aoss:*"],
+                        "ResourceType": "index",
+                        "Resource": ["index/example-collection/*"],
+                        "Permission": ["aoss:*"],
                     },
                     {
-                        "resourceType": "collection",
-                        "resource": ["collection/example-collection"],
-                        "permission": ["aoss:*"],
+                        "ResourceType": "collection",
+                        "Resource": ["collection/example-collection"],
+                        "Permission": ["aoss:*"],
                     },
                 ],
-                "principal": [
+                "Principal": [
                     "saml/123456789012/myprovider/user/Annie",
                     "saml/123456789012/anotherprovider/group/Accounting",
                 ],

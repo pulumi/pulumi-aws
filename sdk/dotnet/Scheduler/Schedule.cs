@@ -77,8 +77,8 @@ namespace Pulumi.Aws.Scheduler
     ///             RoleArn = exampleAwsIamRole.Arn,
     ///             Input = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["messageBody"] = "Greetings, programs!",
-    ///                 ["queueUrl"] = example.Url,
+    ///                 ["MessageBody"] = "Greetings, programs!",
+    ///                 ["QueueUrl"] = example.Url,
     ///             })),
     ///         },
     ///     });

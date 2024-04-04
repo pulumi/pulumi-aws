@@ -38,19 +38,19 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"id": "example",
-//				"statement": []map[string]interface{}{
+//				"Id": "example",
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"action": "kms:*",
-//						"effect": "Allow",
-//						"principal": map[string]interface{}{
+//						"Action": "kms:*",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
 //							"AWS": "*",
 //						},
-//						"resource": "*",
-//						"sid":      "Enable IAM User Permissions",
+//						"Resource": "*",
+//						"Sid":      "Enable IAM User Permissions",
 //					},
 //				},
-//				"version": "2012-10-17",
+//				"Version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err

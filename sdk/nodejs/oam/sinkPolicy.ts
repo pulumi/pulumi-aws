@@ -20,21 +20,21 @@ import * as utilities from "../utilities";
  * const exampleSinkPolicy = new aws.oam.SinkPolicy("example", {
  *     sinkIdentifier: example.id,
  *     policy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             action: [
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: [
  *                 "oam:CreateLink",
  *                 "oam:UpdateLink",
  *             ],
- *             effect: "Allow",
- *             resource: "*",
- *             principal: {
+ *             Effect: "Allow",
+ *             Resource: "*",
+ *             Principal: {
  *                 AWS: [
  *                     "1111111111111",
  *                     "222222222222",
  *                 ],
  *             },
- *             condition: {
+ *             Condition: {
  *                 "ForAllValues:StringEquals": {
  *                     "oam:ResourceTypes": [
  *                         "AWS::CloudWatch::Metric",

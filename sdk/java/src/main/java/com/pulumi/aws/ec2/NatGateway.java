@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.NatGateway;
  * import com.pulumi.aws.ec2.NatGatewayArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,7 +51,9 @@ import javax.annotation.Nullable;
  *             .allocationId(exampleAwsEip.id())
  *             .subnetId(exampleAwsSubnet.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsInternetGateway)
+ *                 .build());
  * 
  *     }
  * }

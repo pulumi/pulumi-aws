@@ -25,53 +25,53 @@ import * as utilities from "../utilities";
  *     deletionWindowInDays: 7,
  *     keyUsage: "SIGN_VERIFY",
  *     policy: JSON.stringify({
- *         statement: [
+ *         Statement: [
  *             {
- *                 action: [
+ *                 Action: [
  *                     "kms:DescribeKey",
  *                     "kms:GetPublicKey",
  *                     "kms:Sign",
  *                 ],
- *                 effect: "Allow",
- *                 principal: {
- *                     service: "dnssec-route53.amazonaws.com",
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     Service: "dnssec-route53.amazonaws.com",
  *                 },
- *                 sid: "Allow Route 53 DNSSEC Service",
- *                 resource: "*",
- *                 condition: {
- *                     stringEquals: {
+ *                 Sid: "Allow Route 53 DNSSEC Service",
+ *                 Resource: "*",
+ *                 Condition: {
+ *                     StringEquals: {
  *                         "aws:SourceAccount": current.then(current => current.accountId),
  *                     },
- *                     arnLike: {
+ *                     ArnLike: {
  *                         "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
  *                     },
  *                 },
  *             },
  *             {
- *                 action: "kms:CreateGrant",
- *                 effect: "Allow",
- *                 principal: {
- *                     service: "dnssec-route53.amazonaws.com",
+ *                 Action: "kms:CreateGrant",
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     Service: "dnssec-route53.amazonaws.com",
  *                 },
- *                 sid: "Allow Route 53 DNSSEC Service to CreateGrant",
- *                 resource: "*",
- *                 condition: {
- *                     bool: {
+ *                 Sid: "Allow Route 53 DNSSEC Service to CreateGrant",
+ *                 Resource: "*",
+ *                 Condition: {
+ *                     Bool: {
  *                         "kms:GrantIsForAWSResource": "true",
  *                     },
  *                 },
  *             },
  *             {
- *                 action: "kms:*",
- *                 effect: "Allow",
- *                 principal: {
+ *                 Action: "kms:*",
+ *                 Effect: "Allow",
+ *                 Principal: {
  *                     AWS: current.then(current => `arn:aws:iam::${current.accountId}:root`),
  *                 },
- *                 resource: "*",
- *                 sid: "Enable IAM User Permissions",
+ *                 Resource: "*",
+ *                 Sid: "Enable IAM User Permissions",
  *             },
  *         ],
- *         version: "2012-10-17",
+ *         Version: "2012-10-17",
  *     }),
  * });
  * const exampleZone = new aws.route53.Zone("example", {name: "example.com"});
@@ -80,7 +80,9 @@ import * as utilities from "../utilities";
  *     keyManagementServiceArn: testAwsKmsKey.arn,
  *     name: "example",
  * });
- * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("example", {hostedZoneId: exampleKeySigningKey.hostedZoneId});
+ * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("example", {hostedZoneId: exampleKeySigningKey.hostedZoneId}, {
+ *     dependsOn: [exampleKeySigningKey],
+ * });
  * const exampleDelegationSignerRecord = new aws.route53domains.DelegationSignerRecord("example", {
  *     domainName: "example.com",
  *     signingAttributes: {

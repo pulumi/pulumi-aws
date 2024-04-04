@@ -101,6 +101,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkmanager.ConnectPeer;
  * import com.pulumi.aws.networkmanager.ConnectPeerArgs;
  * import com.pulumi.aws.networkmanager.inputs.ConnectPeerBgpOptionsArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -132,7 +133,9 @@ import javax.annotation.Nullable;
  *             .options(ConnectAttachmentOptionsArgs.builder()
  *                 .protocol(&#34;GRE&#34;)
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(test)
+ *                 .build());
  * 
  *         var example2 = new AttachmentAccepter(&#34;example2&#34;, AttachmentAccepterArgs.builder()        
  *             .attachmentId(exampleConnectAttachment.id())
@@ -146,7 +149,9 @@ import javax.annotation.Nullable;
  *                 .peerAsn(65500)
  *                 .build())
  *             .insideCidrBlocks(&#34;172.16.0.0/16&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example2)
+ *                 .build());
  * 
  *     }
  * }

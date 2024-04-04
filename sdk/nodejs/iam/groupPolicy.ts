@@ -26,11 +26,11 @@ import {PolicyDocument} from "./index";
  *     name: "my_developer_policy",
  *     group: myDevelopers.name,
  *     policy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             action: ["ec2:Describe*"],
- *             effect: "Allow",
- *             resource: "*",
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: ["ec2:Describe*"],
+ *             Effect: "Allow",
+ *             Resource: "*",
  *         }],
  *     }),
  * });

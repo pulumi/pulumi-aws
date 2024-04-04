@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securityhub.NewAccount(ctx, "example", nil)
+//			example, err := securityhub.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -42,13 +42,17 @@ import (
 //			}
 //			_, err = securityhub.NewStandardsSubscription(ctx, "cis", &securityhub.StandardsSubscriptionArgs{
 //				StandardsArn: pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
 //			if err != nil {
 //				return err
 //			}
 //			_, err = securityhub.NewStandardsSubscription(ctx, "pci_321", &securityhub.StandardsSubscriptionArgs{
 //				StandardsArn: pulumi.String(fmt.Sprintf("arn:aws:securityhub:%v::standards/pci-dss/v/3.2.1", current.Name)),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -38,14 +38,6 @@ namespace Pulumi.Aws.CloudTrail
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var exampleTrail = new Aws.CloudTrail.Trail("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         S3BucketName = exampleBucketV2.Id,
-    ///         S3KeyPrefix = "prefix",
-    ///         IncludeGlobalServiceEvents = false,
-    ///     });
-    /// 
     ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var currentGetPartition = Aws.GetPartition.Invoke();
@@ -144,6 +136,20 @@ namespace Pulumi.Aws.CloudTrail
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var exampleTrail = new Aws.CloudTrail.Trail("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         S3BucketName = exampleBucketV2.Id,
+    ///         S3KeyPrefix = "prefix",
+    ///         IncludeGlobalServiceEvents = false,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleBucketPolicy, 
+    ///         },
     ///     });
     /// 
     /// });

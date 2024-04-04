@@ -16,6 +16,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const accepter = aws.getCallerIdentity({});
+ * // Accepter's side of the VIF.
+ * const vpnGw = new aws.ec2.VpnGateway("vpn_gw", {});
  * // Creator's side of the VIF
  * const creator = new aws.directconnect.HostedPrivateVirtualInterface("creator", {
  *     connectionId: "dxcon-zzzzzzzz",
@@ -24,9 +26,9 @@ import * as utilities from "../utilities";
  *     vlan: 4094,
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,
+ * }, {
+ *     dependsOn: [vpnGw],
  * });
- * // Accepter's side of the VIF.
- * const vpnGw = new aws.ec2.VpnGateway("vpn_gw", {});
  * const accepterHostedPrivateVirtualInterfaceAccepter = new aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepter", {
  *     virtualInterfaceId: creator.id,
  *     vpnGatewayId: vpnGw.id,

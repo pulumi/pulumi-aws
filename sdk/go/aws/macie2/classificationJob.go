@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := macie2.NewAccount(ctx, "test", nil)
+//			test, err := macie2.NewAccount(ctx, "test", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -46,7 +46,9 @@ import (
 //						},
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				test,
+//			}))
 //			if err != nil {
 //				return err
 //			}

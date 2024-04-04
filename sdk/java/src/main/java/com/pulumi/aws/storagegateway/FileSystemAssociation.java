@@ -80,6 +80,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.storagegateway.FileSystemAssociation;
  * import com.pulumi.aws.storagegateway.FileSystemAssociationArgs;
  * import com.pulumi.aws.storagegateway.inputs.FileSystemAssociationCacheAttributesArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -103,7 +104,11 @@ import javax.annotation.Nullable;
  *             .instanceType(available.instanceType())
  *             .vpcSecurityGroupIds(testAwsSecurityGroup.id())
  *             .subnetId(testAwsSubnet[0].id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     testAwsRoute,
+ *                     testAwsVpcDhcpOptionsAssociation)
+ *                 .build());
  * 
  *         var testGateway = new Gateway(&#34;testGateway&#34;, GatewayArgs.builder()        
  *             .gatewayIpAddress(test.publicIp())

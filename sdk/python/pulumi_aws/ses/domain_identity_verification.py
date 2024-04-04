@@ -104,7 +104,8 @@ class DomainIdentityVerification(pulumi.CustomResource):
             type=aws.route53.RecordType.TXT,
             ttl=600,
             records=[example.verification_token])
-        example_verification = aws.ses.DomainIdentityVerification("example_verification", domain=example.id)
+        example_verification = aws.ses.DomainIdentityVerification("example_verification", domain=example.id,
+        opts=pulumi.ResourceOptions(depends_on=[example_amazonses_verification_record]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -141,7 +142,8 @@ class DomainIdentityVerification(pulumi.CustomResource):
             type=aws.route53.RecordType.TXT,
             ttl=600,
             records=[example.verification_token])
-        example_verification = aws.ses.DomainIdentityVerification("example_verification", domain=example.id)
+        example_verification = aws.ses.DomainIdentityVerification("example_verification", domain=example.id,
+        opts=pulumi.ResourceOptions(depends_on=[example_amazonses_verification_record]))
         ```
         <!--End PulumiCodeChooser -->
 

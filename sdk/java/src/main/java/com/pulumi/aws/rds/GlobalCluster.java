@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.rds.ClusterArgs;
  * import com.pulumi.aws.rds.ClusterInstance;
  * import com.pulumi.aws.rds.ClusterInstanceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -85,7 +86,9 @@ import javax.annotation.Nullable;
  *             .clusterIdentifier(&#34;test-secondary-cluster&#34;)
  *             .globalClusterIdentifier(example.id())
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(primaryClusterInstance)
+ *                 .build());
  * 
  *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
@@ -116,6 +119,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.rds.ClusterArgs;
  * import com.pulumi.aws.rds.ClusterInstance;
  * import com.pulumi.aws.rds.ClusterInstanceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -163,7 +167,9 @@ import javax.annotation.Nullable;
  *             .globalClusterIdentifier(example.id())
  *             .skipFinalSnapshot(true)
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(primaryClusterInstance)
+ *                 .build());
  * 
  *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .engine(example.engine())

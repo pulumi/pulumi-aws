@@ -376,26 +376,26 @@ class ContactFlow(pulumi.CustomResource):
             description="Test Contact Flow Description",
             type="CONTACT_FLOW",
             content=json.dumps({
-                "version": "2019-10-30",
-                "startAction": "12345678-1234-1234-1234-123456789012",
-                "actions": [
+                "Version": "2019-10-30",
+                "StartAction": "12345678-1234-1234-1234-123456789012",
+                "Actions": [
                     {
-                        "identifier": "12345678-1234-1234-1234-123456789012",
-                        "type": "MessageParticipant",
-                        "transitions": {
-                            "nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                            "errors": [],
-                            "conditions": [],
+                        "Identifier": "12345678-1234-1234-1234-123456789012",
+                        "Type": "MessageParticipant",
+                        "Transitions": {
+                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                            "Errors": [],
+                            "Conditions": [],
                         },
-                        "parameters": {
-                            "text": "Thanks for calling the sample flow!",
+                        "Parameters": {
+                            "Text": "Thanks for calling the sample flow!",
                         },
                     },
                     {
-                        "identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                        "type": "DisconnectParticipant",
-                        "transitions": {},
-                        "parameters": {},
+                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                        "Type": "DisconnectParticipant",
+                        "Transitions": {},
+                        "Parameters": {},
                     },
                 ],
             }),
@@ -485,26 +485,26 @@ class ContactFlow(pulumi.CustomResource):
             description="Test Contact Flow Description",
             type="CONTACT_FLOW",
             content=json.dumps({
-                "version": "2019-10-30",
-                "startAction": "12345678-1234-1234-1234-123456789012",
-                "actions": [
+                "Version": "2019-10-30",
+                "StartAction": "12345678-1234-1234-1234-123456789012",
+                "Actions": [
                     {
-                        "identifier": "12345678-1234-1234-1234-123456789012",
-                        "type": "MessageParticipant",
-                        "transitions": {
-                            "nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                            "errors": [],
-                            "conditions": [],
+                        "Identifier": "12345678-1234-1234-1234-123456789012",
+                        "Type": "MessageParticipant",
+                        "Transitions": {
+                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                            "Errors": [],
+                            "Conditions": [],
                         },
-                        "parameters": {
-                            "text": "Thanks for calling the sample flow!",
+                        "Parameters": {
+                            "Text": "Thanks for calling the sample flow!",
                         },
                     },
                     {
-                        "identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                        "type": "DisconnectParticipant",
-                        "transitions": {},
-                        "parameters": {},
+                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+                        "Type": "DisconnectParticipant",
+                        "Transitions": {},
+                        "Parameters": {},
                     },
                 ],
             }),

@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3control.AccessGrantArgs;
  * import com.pulumi.aws.s3control.inputs.AccessGrantAccessGrantsLocationConfigurationArgs;
  * import com.pulumi.aws.s3control.inputs.AccessGrantGranteeArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,7 +57,9 @@ import javax.annotation.Nullable;
  *         var exampleAccessGrantsLocation = new AccessGrantsLocation(&#34;exampleAccessGrantsLocation&#34;, AccessGrantsLocationArgs.builder()        
  *             .iamRoleArn(exampleAwsIamRole.arn())
  *             .locationScope(String.format(&#34;s3://%s/prefixA*&#34;, exampleAwsS3Bucket.bucket()))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *         var exampleAccessGrant = new AccessGrant(&#34;exampleAccessGrant&#34;, AccessGrantArgs.builder()        
  *             .accessGrantsLocationId(exampleAccessGrantsLocation.accessGrantsLocationId())

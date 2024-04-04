@@ -127,7 +127,9 @@ import (
 //						PrimaryKeyColumnName: pulumi.String("my_column_1"),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				testAwsIamRolePolicyAttachment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -45,7 +45,9 @@ import (
 //					},
 //				},
 //				TimeZoneId: pulumi.String("Australia/Sydney"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsSsmincidentsReplicationSet,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -119,7 +121,9 @@ import (
 //					"key1": pulumi.String("tag1"),
 //					"key2": pulumi.String("tag2"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsSsmincidentsReplicationSet,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -171,7 +175,9 @@ import (
 //					},
 //				},
 //				TimeZoneId: pulumi.String("Australia/Sydney"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsSsmincidentsReplicationSet,
+//			}))
 //			if err != nil {
 //				return err
 //			}

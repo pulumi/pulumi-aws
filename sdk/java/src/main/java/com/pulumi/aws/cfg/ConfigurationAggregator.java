@@ -73,11 +73,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.cfg.ConfigurationAggregator;
  * import com.pulumi.aws.cfg.ConfigurationAggregatorArgs;
  * import com.pulumi.aws.cfg.inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -107,18 +108,20 @@ import javax.annotation.Nullable;
  *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
+ *         var organizationRolePolicyAttachment = new RolePolicyAttachment(&#34;organizationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .role(organizationRole.name())
+ *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations&#34;)
+ *             .build());
+ * 
  *         var organization = new ConfigurationAggregator(&#34;organization&#34;, ConfigurationAggregatorArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .organizationAggregationSource(ConfigurationAggregatorOrganizationAggregationSourceArgs.builder()
  *                 .allRegions(true)
  *                 .roleArn(organizationRole.arn())
  *                 .build())
- *             .build());
- * 
- *         var organizationRolePolicyAttachment = new RolePolicyAttachment(&#34;organizationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(organizationRole.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(organizationRolePolicyAttachment)
+ *                 .build());
  * 
  *     }
  * }

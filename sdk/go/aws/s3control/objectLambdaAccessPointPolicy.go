@@ -71,15 +71,15 @@ import (
 //				Policy: exampleObjectLambdaAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"version": "2008-10-17",
-//						"statement": []map[string]interface{}{
+//						"Version": "2008-10-17",
+//						"Statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"effect": "Allow",
-//								"action": "s3-object-lambda:GetObject",
-//								"principal": map[string]interface{}{
+//								"Effect": "Allow",
+//								"Action": "s3-object-lambda:GetObject",
+//								"Principal": map[string]interface{}{
 //									"AWS": current.AccountId,
 //								},
-//								"resource": arn,
+//								"Resource": arn,
 //							},
 //						},
 //					})

@@ -620,10 +620,11 @@ class Stage(pulumi.CustomResource):
         if stage_name is None:
             stage_name = "example"
         example = aws.apigateway.RestApi("example")
-        example_stage = aws.apigateway.Stage("example", stage_name=stage_name)
         example_log_group = aws.cloudwatch.LogGroup("example",
             name=example.id.apply(lambda id: f"API-Gateway-Execution-Logs_{id}/{stage_name}"),
             retention_in_days=7)
+        example_stage = aws.apigateway.Stage("example", stage_name=stage_name,
+        opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -724,10 +725,11 @@ class Stage(pulumi.CustomResource):
         if stage_name is None:
             stage_name = "example"
         example = aws.apigateway.RestApi("example")
-        example_stage = aws.apigateway.Stage("example", stage_name=stage_name)
         example_log_group = aws.cloudwatch.LogGroup("example",
             name=example.id.apply(lambda id: f"API-Gateway-Execution-Logs_{id}/{stage_name}"),
             retention_in_days=7)
+        example_stage = aws.apigateway.Stage("example", stage_name=stage_name,
+        opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
         ```
         <!--End PulumiCodeChooser -->
 

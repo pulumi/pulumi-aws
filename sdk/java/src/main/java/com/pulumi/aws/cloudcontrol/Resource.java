@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  *             .typeName(&#34;AWS::ECS::Cluster&#34;)
  *             .desiredState(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;clusterName&#34;, &#34;example&#34;),
- *                     jsonProperty(&#34;tags&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;key&#34;, &#34;CostCenter&#34;),
- *                         jsonProperty(&#34;value&#34;, &#34;IT&#34;)
+ *                     jsonProperty(&#34;ClusterName&#34;, &#34;example&#34;),
+ *                     jsonProperty(&#34;Tags&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Key&#34;, &#34;CostCenter&#34;),
+ *                         jsonProperty(&#34;Value&#34;, &#34;IT&#34;)
  *                     )))
  *                 )))
  *             .build());

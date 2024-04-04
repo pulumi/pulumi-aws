@@ -50,16 +50,18 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
+ * const organizationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("organization", {
+ *     role: organizationRole.name,
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
+ * });
  * const organization = new aws.cfg.ConfigurationAggregator("organization", {
  *     name: "example",
  *     organizationAggregationSource: {
  *         allRegions: true,
  *         roleArn: organizationRole.arn,
  *     },
- * });
- * const organizationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("organization", {
- *     role: organizationRole.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
+ * }, {
+ *     dependsOn: [organizationRolePolicyAttachment],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

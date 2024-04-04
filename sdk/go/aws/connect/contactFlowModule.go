@@ -41,41 +41,41 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version":     "2019-10-30",
-//				"startAction": "12345678-1234-1234-1234-123456789012",
-//				"actions": []interface{}{
+//				"Version":     "2019-10-30",
+//				"StartAction": "12345678-1234-1234-1234-123456789012",
+//				"Actions": []interface{}{
 //					map[string]interface{}{
-//						"identifier": "12345678-1234-1234-1234-123456789012",
-//						"parameters": map[string]interface{}{
-//							"text": "Hello contact flow module",
+//						"Identifier": "12345678-1234-1234-1234-123456789012",
+//						"Parameters": map[string]interface{}{
+//							"Text": "Hello contact flow module",
 //						},
-//						"transitions": map[string]interface{}{
-//							"nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//							"errors":     []interface{}{},
-//							"conditions": []interface{}{},
+//						"Transitions": map[string]interface{}{
+//							"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//							"Errors":     []interface{}{},
+//							"Conditions": []interface{}{},
 //						},
-//						"type": "MessageParticipant",
+//						"Type": "MessageParticipant",
 //					},
 //					map[string]interface{}{
-//						"identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//						"type":        "DisconnectParticipant",
-//						"parameters":  nil,
-//						"transitions": nil,
+//						"Identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//						"Type":        "DisconnectParticipant",
+//						"Parameters":  nil,
+//						"Transitions": nil,
 //					},
 //				},
-//				"settings": map[string]interface{}{
-//					"inputParameters":  []interface{}{},
-//					"outputParameters": []interface{}{},
-//					"transitions": []map[string]interface{}{
+//				"Settings": map[string]interface{}{
+//					"InputParameters":  []interface{}{},
+//					"OutputParameters": []interface{}{},
+//					"Transitions": []map[string]interface{}{
 //						map[string]interface{}{
-//							"displayName":   "Success",
-//							"referenceName": "Success",
-//							"description":   "",
+//							"DisplayName":   "Success",
+//							"ReferenceName": "Success",
+//							"Description":   "",
 //						},
 //						map[string]interface{}{
-//							"displayName":   "Error",
-//							"referenceName": "Error",
-//							"description":   "",
+//							"DisplayName":   "Error",
+//							"ReferenceName": "Error",
+//							"Description":   "",
 //						},
 //					},
 //				},

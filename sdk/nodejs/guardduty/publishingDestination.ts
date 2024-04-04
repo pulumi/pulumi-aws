@@ -82,6 +82,8 @@ import * as utilities from "../utilities";
  *     detectorId: testGd.id,
  *     destinationArn: gdBucket.arn,
  *     kmsKeyArn: gdKey.arn,
+ * }, {
+ *     dependsOn: [gdBucketPolicy],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

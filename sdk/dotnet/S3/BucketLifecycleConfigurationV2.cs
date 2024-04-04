@@ -492,6 +492,12 @@ namespace Pulumi.Aws.S3
     ///                 Status = "Enabled",
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             versioning, 
+    ///         },
     ///     });
     /// 
     /// });

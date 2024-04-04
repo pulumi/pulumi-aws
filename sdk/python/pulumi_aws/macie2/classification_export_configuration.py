@@ -83,7 +83,8 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
             bucket_name=example_aws_s3_bucket["bucket"],
             key_prefix="exampleprefix/",
             kms_key_arn=example_aws_kms_key["arn"],
-        ))
+        ),
+        opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -120,7 +121,8 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
             bucket_name=example_aws_s3_bucket["bucket"],
             key_prefix="exampleprefix/",
             kms_key_arn=example_aws_kms_key["arn"],
-        ))
+        ),
+        opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 

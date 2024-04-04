@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  * const example = new aws.redshiftserverless.ResourcePolicy("example", {
  *     resourceArn: exampleAwsRedshiftserverlessSnapshot.arn,
  *     policy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             effect: "Allow",
- *             principal: {
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Effect: "Allow",
+ *             Principal: {
  *                 AWS: ["12345678901"],
  *             },
- *             action: ["redshift-serverless:RestoreFromSnapshot"],
- *             sid: "",
+ *             Action: ["redshift-serverless:RestoreFromSnapshot"],
+ *             Sid: "",
  *         }],
  *     }),
  * });

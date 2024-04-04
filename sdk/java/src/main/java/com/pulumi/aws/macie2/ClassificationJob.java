@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie2.ClassificationJob;
  * import com.pulumi.aws.macie2.ClassificationJobArgs;
  * import com.pulumi.aws.macie2.inputs.ClassificationJobS3JobDefinitionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,7 +62,9 @@ import javax.annotation.Nullable;
  *                     .buckets(&#34;S3 BUCKET NAME&#34;)
  *                     .build())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(test)
+ *                 .build());
  * 
  *     }
  * }

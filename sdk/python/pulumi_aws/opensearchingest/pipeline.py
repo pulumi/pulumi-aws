@@ -426,13 +426,13 @@ class Pipeline(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.iam.Role("example", assume_role_policy=json.dumps({
-            "version": "2012-10-17",
-            "statement": [{
-                "action": "sts:AssumeRole",
-                "effect": "Allow",
-                "sid": "",
-                "principal": {
-                    "service": "osis-pipelines.amazonaws.com",
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Sid": "",
+                "Principal": {
+                    "Service": "osis-pipelines.amazonaws.com",
                 },
             }],
         }))
@@ -518,13 +518,13 @@ class Pipeline(pulumi.CustomResource):
 
         current = aws.get_region()
         example = aws.iam.Role("example", assume_role_policy=json.dumps({
-            "version": "2012-10-17",
-            "statement": [{
-                "action": "sts:AssumeRole",
-                "effect": "Allow",
-                "sid": "",
-                "principal": {
-                    "service": "osis-pipelines.amazonaws.com",
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Action": "sts:AssumeRole",
+                "Effect": "Allow",
+                "Sid": "",
+                "Principal": {
+                    "Service": "osis-pipelines.amazonaws.com",
                 },
             }],
         }))

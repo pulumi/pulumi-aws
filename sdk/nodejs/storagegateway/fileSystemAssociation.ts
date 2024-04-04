@@ -45,6 +45,11 @@ import * as utilities from "../utilities";
  *     instanceType: aws.ec2.InstanceType[available.instanceType],
  *     vpcSecurityGroupIds: [testAwsSecurityGroup.id],
  *     subnetId: testAwsSubnet[0].id,
+ * }, {
+ *     dependsOn: [
+ *         testAwsRoute,
+ *         testAwsVpcDhcpOptionsAssociation,
+ *     ],
  * });
  * const testGateway = new aws.storagegateway.Gateway("test", {
  *     gatewayIpAddress: test.publicIp,

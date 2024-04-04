@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.RealtimeLogConfigArgs;
  * import com.pulumi.aws.cloudfront.inputs.RealtimeLogConfigEndpointArgs;
  * import com.pulumi.aws.cloudfront.inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -98,7 +99,9 @@ import javax.annotation.Nullable;
  *                     .streamArn(exampleAwsKinesisStream.arn())
  *                     .build())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleRolePolicy)
+ *                 .build());
  * 
  *     }
  * }

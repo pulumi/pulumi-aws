@@ -64,6 +64,13 @@ namespace Pulumi.Aws.StorageGateway
     ///             testAwsSecurityGroup.Id,
     ///         },
     ///         SubnetId = testAwsSubnet[0].Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             testAwsRoute, 
+    ///             testAwsVpcDhcpOptionsAssociation, 
+    ///         },
     ///     });
     /// 
     ///     var testGateway = new Aws.StorageGateway.Gateway("test", new()

@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * const example = new aws.cloudcontrol.Resource("example", {
  *     typeName: "AWS::ECS::Cluster",
  *     desiredState: JSON.stringify({
- *         clusterName: "example",
- *         tags: [{
- *             key: "CostCenter",
- *             value: "IT",
+ *         ClusterName: "example",
+ *         Tags: [{
+ *             Key: "CostCenter",
+ *             Value: "IT",
  *         }],
  *     }),
  * });

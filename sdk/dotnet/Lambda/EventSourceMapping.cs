@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Lambda
     ///                     {
     ///                         ["body"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["temperature"] = new[]
+    ///                             ["Temperature"] = new[]
     ///                             {
     ///                                 new Dictionary&lt;string, object?&gt;
     ///                                 {
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Lambda
     ///                                     },
     ///                                 },
     ///                             },
-    ///                             ["location"] = new[]
+    ///                             ["Location"] = new[]
     ///                             {
     ///                                 "New York",
     ///                             },

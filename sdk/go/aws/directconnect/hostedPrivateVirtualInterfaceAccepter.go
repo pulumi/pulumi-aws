@@ -36,6 +36,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Accepter's side of the VIF.
+//			vpnGw, err := ec2.NewVpnGateway(ctx, "vpn_gw", nil)
+//			if err != nil {
+//				return err
+//			}
 //			// Creator's side of the VIF
 //			creator, err := directconnect.NewHostedPrivateVirtualInterface(ctx, "creator", &directconnect.HostedPrivateVirtualInterfaceArgs{
 //				ConnectionId:   pulumi.String("dxcon-zzzzzzzz"),
@@ -44,12 +49,9 @@ import (
 //				Vlan:           pulumi.Int(4094),
 //				AddressFamily:  pulumi.String("ipv4"),
 //				BgpAsn:         pulumi.Int(65352),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Accepter's side of the VIF.
-//			vpnGw, err := ec2.NewVpnGateway(ctx, "vpn_gw", nil)
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				vpnGw,
+//			}))
 //			if err != nil {
 //				return err
 //			}

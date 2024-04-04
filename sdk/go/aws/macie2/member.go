@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := macie2.NewAccount(ctx, "example", nil)
+//			example, err := macie2.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -39,7 +39,9 @@ import (
 //				Invite:                             pulumi.Bool(true),
 //				InvitationMessage:                  pulumi.String("Message of the invitation"),
 //				InvitationDisableEmailNotification: pulumi.Bool(true),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
 //			if err != nil {
 //				return err
 //			}

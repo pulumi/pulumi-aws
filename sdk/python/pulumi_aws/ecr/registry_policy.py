@@ -98,15 +98,15 @@ class RegistryPolicy(pulumi.CustomResource):
         current_get_region = aws.get_region()
         current_get_partition = aws.get_partition()
         example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
-            "version": "2012-10-17",
-            "statement": [{
-                "sid": "testpolicy",
-                "effect": "Allow",
-                "principal": {
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Sid": "testpolicy",
+                "Effect": "Allow",
+                "Principal": {
                     "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                 },
-                "action": ["ecr:ReplicateImage"],
-                "resource": [f"arn:{current_get_partition.partition}:ecr:{current_get_region.name}:{current.account_id}:repository/*"],
+                "Action": ["ecr:ReplicateImage"],
+                "Resource": [f"arn:{current_get_partition.partition}:ecr:{current_get_region.name}:{current.account_id}:repository/*"],
             }],
         }))
         ```
@@ -147,15 +147,15 @@ class RegistryPolicy(pulumi.CustomResource):
         current_get_region = aws.get_region()
         current_get_partition = aws.get_partition()
         example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
-            "version": "2012-10-17",
-            "statement": [{
-                "sid": "testpolicy",
-                "effect": "Allow",
-                "principal": {
+            "Version": "2012-10-17",
+            "Statement": [{
+                "Sid": "testpolicy",
+                "Effect": "Allow",
+                "Principal": {
                     "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                 },
-                "action": ["ecr:ReplicateImage"],
-                "resource": [f"arn:{current_get_partition.partition}:ecr:{current_get_region.name}:{current.account_id}:repository/*"],
+                "Action": ["ecr:ReplicateImage"],
+                "Resource": [f"arn:{current_get_partition.partition}:ecr:{current_get_region.name}:{current.account_id}:repository/*"],
             }],
         }))
         ```

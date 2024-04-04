@@ -397,29 +397,29 @@ class VpcConnection(pulumi.CustomResource):
 
         vpc_connection_role = aws.iam.Role("vpc_connection_role",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "effect": "Allow",
-                    "action": "sts:AssumeRole",
-                    "principal": {
-                        "service": "quicksight.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Action": "sts:AssumeRole",
+                    "Principal": {
+                        "Service": "quicksight.amazonaws.com",
                     },
                 }],
             }),
             inline_policies=[aws.iam.RoleInlinePolicyArgs(
                 name="QuickSightVPCConnectionRolePolicy",
                 policy=json.dumps({
-                    "version": "2012-10-17",
-                    "statement": [{
-                        "effect": "Allow",
-                        "action": [
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Effect": "Allow",
+                        "Action": [
                             "ec2:CreateNetworkInterface",
                             "ec2:ModifyNetworkInterfaceAttribute",
                             "ec2:DeleteNetworkInterface",
                             "ec2:DescribeSubnets",
                             "ec2:DescribeSecurityGroups",
                         ],
-                        "resource": ["*"],
+                        "Resource": ["*"],
                     }],
                 }),
             )])
@@ -477,29 +477,29 @@ class VpcConnection(pulumi.CustomResource):
 
         vpc_connection_role = aws.iam.Role("vpc_connection_role",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "effect": "Allow",
-                    "action": "sts:AssumeRole",
-                    "principal": {
-                        "service": "quicksight.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Action": "sts:AssumeRole",
+                    "Principal": {
+                        "Service": "quicksight.amazonaws.com",
                     },
                 }],
             }),
             inline_policies=[aws.iam.RoleInlinePolicyArgs(
                 name="QuickSightVPCConnectionRolePolicy",
                 policy=json.dumps({
-                    "version": "2012-10-17",
-                    "statement": [{
-                        "effect": "Allow",
-                        "action": [
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Effect": "Allow",
+                        "Action": [
                             "ec2:CreateNetworkInterface",
                             "ec2:ModifyNetworkInterfaceAttribute",
                             "ec2:DeleteNetworkInterface",
                             "ec2:DescribeSubnets",
                             "ec2:DescribeSecurityGroups",
                         ],
-                        "resource": ["*"],
+                        "Resource": ["*"],
                     }],
                 }),
             )])

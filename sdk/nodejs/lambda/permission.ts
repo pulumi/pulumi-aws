@@ -21,13 +21,13 @@ import {Function} from "./index";
  * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
  *     name: "iam_for_lambda",
  *     assumeRolePolicy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             action: "sts:AssumeRole",
- *             effect: "Allow",
- *             sid: "",
- *             principal: {
- *                 service: "lambda.amazonaws.com",
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Sid: "",
+ *             Principal: {
+ *                 Service: "lambda.amazonaws.com",
  *             },
  *         }],
  *     }),
@@ -67,13 +67,13 @@ import {Function} from "./index";
  * const defaultRole = new aws.iam.Role("default", {
  *     name: "iam_for_lambda_with_sns",
  *     assumeRolePolicy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             action: "sts:AssumeRole",
- *             effect: "Allow",
- *             sid: "",
- *             principal: {
- *                 service: "lambda.amazonaws.com",
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Sid: "",
+ *             Principal: {
+ *                 Service: "lambda.amazonaws.com",
  *             },
  *         }],
  *     }),
@@ -161,6 +161,8 @@ import {Function} from "./index";
  *     filterPattern: "",
  *     logGroup: _default.name,
  *     name: "logging_default",
+ * }, {
+ *     dependsOn: [logging],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

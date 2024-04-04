@@ -435,7 +435,11 @@ class OrganizationCustomRule(pulumi.CustomResource):
         example_organization_custom_rule = aws.cfg.OrganizationCustomRule("example",
             lambda_function_arn=example_aws_lambda_function["arn"],
             name="example",
-            trigger_types=["ConfigurationItemChangeNotification"])
+            trigger_types=["ConfigurationItemChangeNotification"],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example,
+                    example_organization,
+                ]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -492,7 +496,11 @@ class OrganizationCustomRule(pulumi.CustomResource):
         example_organization_custom_rule = aws.cfg.OrganizationCustomRule("example",
             lambda_function_arn=example_aws_lambda_function["arn"],
             name="example",
-            trigger_types=["ConfigurationItemChangeNotification"])
+            trigger_types=["ConfigurationItemChangeNotification"],
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example,
+                    example_organization,
+                ]))
         ```
         <!--End PulumiCodeChooser -->
 

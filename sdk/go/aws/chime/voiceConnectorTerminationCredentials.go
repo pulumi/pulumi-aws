@@ -38,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chime.NewVoiceConnectorTermination(ctx, "default", &chime.VoiceConnectorTerminationArgs{
+//			defaultVoiceConnectorTermination, err := chime.NewVoiceConnectorTermination(ctx, "default", &chime.VoiceConnectorTerminationArgs{
 //				Disabled: pulumi.Bool(true),
 //				CpsLimit: pulumi.Int(1),
 //				CidrAllowLists: pulumi.StringArray{
@@ -61,7 +61,9 @@ import (
 //						Password: pulumi.String("test!"),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				defaultVoiceConnectorTermination,
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -39,6 +39,14 @@ namespace Pulumi.Aws.Eks
     ///         {
     ///             MaxUnavailable = 1,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example_AmazonEKSWorkerNodePolicy, 
+    ///             example_AmazonEKSCNIPolicy, 
+    ///             example_AmazonEC2ContainerRegistryReadOnly, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -87,19 +95,19 @@ namespace Pulumi.Aws.Eks
     ///         Name = "eks-node-group-example",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["statement"] = new[]
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["action"] = "sts:AssumeRole",
-    ///                     ["effect"] = "Allow",
-    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = "ec2.amazonaws.com",
+    ///                         ["Service"] = "ec2.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
-    ///             ["version"] = "2012-10-17",
+    ///             ["Version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 

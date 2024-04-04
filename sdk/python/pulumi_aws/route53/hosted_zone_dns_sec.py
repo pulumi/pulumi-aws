@@ -127,39 +127,40 @@ class HostedZoneDnsSec(pulumi.CustomResource):
             deletion_window_in_days=7,
             key_usage="SIGN_VERIFY",
             policy=json.dumps({
-                "statement": [
+                "Statement": [
                     {
-                        "action": [
+                        "Action": [
                             "kms:DescribeKey",
                             "kms:GetPublicKey",
                             "kms:Sign",
                             "kms:Verify",
                         ],
-                        "effect": "Allow",
-                        "principal": {
-                            "service": "dnssec-route53.amazonaws.com",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "dnssec-route53.amazonaws.com",
                         },
-                        "resource": "*",
-                        "sid": "Allow Route 53 DNSSEC Service",
+                        "Resource": "*",
+                        "Sid": "Allow Route 53 DNSSEC Service",
                     },
                     {
-                        "action": "kms:*",
-                        "effect": "Allow",
-                        "principal": {
+                        "Action": "kms:*",
+                        "Effect": "Allow",
+                        "Principal": {
                             "AWS": f"arn:aws:iam::{current.account_id}:root",
                         },
-                        "resource": "*",
-                        "sid": "Enable IAM User Permissions",
+                        "Resource": "*",
+                        "Sid": "Enable IAM User Permissions",
                     },
                 ],
-                "version": "2012-10-17",
+                "Version": "2012-10-17",
             }))
         example_zone = aws.route53.Zone("example", name="example.com")
         example_key_signing_key = aws.route53.KeySigningKey("example",
             hosted_zone_id=example_zone.id,
             key_management_service_arn=example.arn,
             name="example")
-        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id)
+        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id,
+        opts=pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -205,39 +206,40 @@ class HostedZoneDnsSec(pulumi.CustomResource):
             deletion_window_in_days=7,
             key_usage="SIGN_VERIFY",
             policy=json.dumps({
-                "statement": [
+                "Statement": [
                     {
-                        "action": [
+                        "Action": [
                             "kms:DescribeKey",
                             "kms:GetPublicKey",
                             "kms:Sign",
                             "kms:Verify",
                         ],
-                        "effect": "Allow",
-                        "principal": {
-                            "service": "dnssec-route53.amazonaws.com",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "dnssec-route53.amazonaws.com",
                         },
-                        "resource": "*",
-                        "sid": "Allow Route 53 DNSSEC Service",
+                        "Resource": "*",
+                        "Sid": "Allow Route 53 DNSSEC Service",
                     },
                     {
-                        "action": "kms:*",
-                        "effect": "Allow",
-                        "principal": {
+                        "Action": "kms:*",
+                        "Effect": "Allow",
+                        "Principal": {
                             "AWS": f"arn:aws:iam::{current.account_id}:root",
                         },
-                        "resource": "*",
-                        "sid": "Enable IAM User Permissions",
+                        "Resource": "*",
+                        "Sid": "Enable IAM User Permissions",
                     },
                 ],
-                "version": "2012-10-17",
+                "Version": "2012-10-17",
             }))
         example_zone = aws.route53.Zone("example", name="example.com")
         example_key_signing_key = aws.route53.KeySigningKey("example",
             hosted_zone_id=example_zone.id,
             key_management_service_arn=example.arn,
             name="example")
-        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id)
+        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id,
+        opts=pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
         ```
         <!--End PulumiCodeChooser -->
 

@@ -25,6 +25,17 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var b = new Aws.S3.BucketV2("b", new()
+    ///     {
+    ///         Bucket = "awsconfig-example",
+    ///     });
+    /// 
+    ///     var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("foo", new()
+    ///     {
+    ///         Name = "example",
+    ///         S3BucketName = b.Bucket,
+    ///     });
+    /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
@@ -67,23 +78,18 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         Name = fooRecorder.Name,
     ///         IsEnabled = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             fooDeliveryChannel, 
+    ///         },
     ///     });
     /// 
     ///     var a = new Aws.Iam.RolePolicyAttachment("a", new()
     ///     {
     ///         Role = r.Name,
     ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole",
-    ///     });
-    /// 
-    ///     var b = new Aws.S3.BucketV2("b", new()
-    ///     {
-    ///         Bucket = "awsconfig-example",
-    ///     });
-    /// 
-    ///     var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("foo", new()
-    ///     {
-    ///         Name = "example",
-    ///         S3BucketName = b.Bucket,
     ///     });
     /// 
     ///     var p = Aws.Iam.GetPolicyDocument.Invoke(new()

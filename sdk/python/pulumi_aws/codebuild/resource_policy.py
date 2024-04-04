@@ -119,21 +119,21 @@ class ResourcePolicy(pulumi.CustomResource):
         example_resource_policy = aws.codebuild.ResourcePolicy("example",
             resource_arn=example.arn,
             policy=pulumi.Output.json_dumps({
-                "version": "2012-10-17",
-                "id": "default",
-                "statement": [{
-                    "sid": "default",
-                    "effect": "Allow",
-                    "principal": {
+                "Version": "2012-10-17",
+                "Id": "default",
+                "Statement": [{
+                    "Sid": "default",
+                    "Effect": "Allow",
+                    "Principal": {
                         "AWS": f"arn:{current.partition}:iam::{current_get_caller_identity.account_id}:root",
                     },
-                    "action": [
+                    "Action": [
                         "codebuild:BatchGetReportGroups",
                         "codebuild:BatchGetReports",
                         "codebuild:ListReportsForReportGroup",
                         "codebuild:DescribeTestCases",
                     ],
-                    "resource": example.arn,
+                    "Resource": example.arn,
                 }],
             }))
         ```
@@ -180,21 +180,21 @@ class ResourcePolicy(pulumi.CustomResource):
         example_resource_policy = aws.codebuild.ResourcePolicy("example",
             resource_arn=example.arn,
             policy=pulumi.Output.json_dumps({
-                "version": "2012-10-17",
-                "id": "default",
-                "statement": [{
-                    "sid": "default",
-                    "effect": "Allow",
-                    "principal": {
+                "Version": "2012-10-17",
+                "Id": "default",
+                "Statement": [{
+                    "Sid": "default",
+                    "Effect": "Allow",
+                    "Principal": {
                         "AWS": f"arn:{current.partition}:iam::{current_get_caller_identity.account_id}:root",
                     },
-                    "action": [
+                    "Action": [
                         "codebuild:BatchGetReportGroups",
                         "codebuild:BatchGetReports",
                         "codebuild:ListReportsForReportGroup",
                         "codebuild:DescribeTestCases",
                     ],
-                    "resource": example.arn,
+                    "Resource": example.arn,
                 }],
             }))
         ```

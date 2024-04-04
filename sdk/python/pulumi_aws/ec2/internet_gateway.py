@@ -28,7 +28,7 @@ class InternetGatewayArgs:
                import pulumi_aws as aws
                
                gw = aws.ec2.InternetGateway("gw", vpc_id=main["id"])
-               foo = aws.ec2.Instance("foo")
+               foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
                ```
                <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
@@ -52,7 +52,7 @@ class InternetGatewayArgs:
         import pulumi_aws as aws
 
         gw = aws.ec2.InternetGateway("gw", vpc_id=main["id"])
-        foo = aws.ec2.Instance("foo")
+        foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
         ```
         <!--End PulumiCodeChooser -->
         """
@@ -97,7 +97,7 @@ class _InternetGatewayState:
                import pulumi_aws as aws
                
                gw = aws.ec2.InternetGateway("gw", vpc_id=main["id"])
-               foo = aws.ec2.Instance("foo")
+               foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
                ```
                <!--End PulumiCodeChooser -->
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -155,7 +155,7 @@ class _InternetGatewayState:
         import pulumi_aws as aws
 
         gw = aws.ec2.InternetGateway("gw", vpc_id=main["id"])
-        foo = aws.ec2.Instance("foo")
+        foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
         ```
         <!--End PulumiCodeChooser -->
         """
@@ -239,7 +239,7 @@ class InternetGateway(pulumi.CustomResource):
                import pulumi_aws as aws
                
                gw = aws.ec2.InternetGateway("gw", vpc_id=main["id"])
-               foo = aws.ec2.Instance("foo")
+               foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
                ```
                <!--End PulumiCodeChooser -->
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
@@ -341,7 +341,7 @@ class InternetGateway(pulumi.CustomResource):
                import pulumi_aws as aws
                
                gw = aws.ec2.InternetGateway("gw", vpc_id=main["id"])
-               foo = aws.ec2.Instance("foo")
+               foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
                ```
                <!--End PulumiCodeChooser -->
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -388,7 +388,7 @@ class InternetGateway(pulumi.CustomResource):
         import pulumi_aws as aws
 
         gw = aws.ec2.InternetGateway("gw", vpc_id=main["id"])
-        foo = aws.ec2.Instance("foo")
+        foo = aws.ec2.Instance("foo", opts=pulumi.ResourceOptions(depends_on=[gw]))
         ```
         <!--End PulumiCodeChooser -->
         """

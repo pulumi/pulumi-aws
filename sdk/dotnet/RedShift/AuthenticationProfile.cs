@@ -29,9 +29,9 @@ namespace Pulumi.Aws.RedShift
     ///         AuthenticationProfileName = "example",
     ///         AuthenticationProfileContent = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["allowDBUserOverride"] = "1",
-    ///             ["clientID"] = "ExampleClientID",
-    ///             ["appID"] = "example",
+    ///             ["AllowDBUserOverride"] = "1",
+    ///             ["Client_ID"] = "ExampleClientID",
+    ///             ["App_ID"] = "example",
     ///         }),
     ///     });
     /// 

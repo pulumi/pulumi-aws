@@ -80,6 +80,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.dms.ReplicationSubnetGroup;
  * import com.pulumi.aws.dms.ReplicationSubnetGroupArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -98,13 +99,13 @@ import javax.annotation.Nullable;
  *             .description(&#34;Allows DMS to manage VPC&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;principal&#34;, jsonObject(
- *                             jsonProperty(&#34;service&#34;, &#34;dms.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;Principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;Service&#34;, &#34;dms.amazonaws.com&#34;)
  *                         )),
- *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;)
+ *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;)
  *                     )))
  *                 )))
  *             .build());
@@ -121,7 +122,9 @@ import javax.annotation.Nullable;
  *                 &#34;subnet-12345678&#34;,
  *                 &#34;subnet-12345679&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;example-id&#34;))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }

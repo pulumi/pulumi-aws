@@ -166,6 +166,8 @@ import * as utilities from "../utilities";
  *         type: "SNS",
  *         address: costAnomalyUpdates.arn,
  *     }],
+ * }, {
+ *     dependsOn: [_default],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

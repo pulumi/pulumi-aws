@@ -30,23 +30,23 @@ namespace Pulumi.Aws.RolesAnywhere
     ///         Path = "/",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["action"] = new[]
+    ///                     ["Action"] = new[]
     ///                     {
     ///                         "sts:AssumeRole",
     ///                         "sts:TagSession",
     ///                         "sts:SetSourceIdentity",
     ///                     },
-    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = "rolesanywhere.amazonaws.com",
+    ///                         ["Service"] = "rolesanywhere.amazonaws.com",
     ///                     },
-    ///                     ["effect"] = "Allow",
-    ///                     ["sid"] = "",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Sid"] = "",
     ///                 },
     ///             },
     ///         }),

@@ -41,14 +41,14 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": []map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"action": []string{
+//						"Action": []string{
 //							"ec2:Describe*",
 //						},
-//						"effect":   "Allow",
-//						"resource": "*",
+//						"Effect":   "Allow",
+//						"Resource": "*",
 //					},
 //				},
 //			})

@@ -26,6 +26,9 @@ namespace Pulumi.Aws.DirectConnect
     /// {
     ///     var accepter = Aws.GetCallerIdentity.Invoke();
     /// 
+    ///     // Accepter's side of the VIF.
+    ///     var vpnGw = new Aws.Ec2.VpnGateway("vpn_gw");
+    /// 
     ///     // Creator's side of the VIF
     ///     var creator = new Aws.DirectConnect.HostedPrivateVirtualInterface("creator", new()
     ///     {
@@ -35,10 +38,13 @@ namespace Pulumi.Aws.DirectConnect
     ///         Vlan = 4094,
     ///         AddressFamily = "ipv4",
     ///         BgpAsn = 65352,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             vpnGw, 
+    ///         },
     ///     });
-    /// 
-    ///     // Accepter's side of the VIF.
-    ///     var vpnGw = new Aws.Ec2.VpnGateway("vpn_gw");
     /// 
     ///     var accepterHostedPrivateVirtualInterfaceAccepter = new Aws.DirectConnect.HostedPrivateVirtualInterfaceAccepter("accepter", new()
     ///     {

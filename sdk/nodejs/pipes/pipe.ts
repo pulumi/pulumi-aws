@@ -27,15 +27,15 @@ import * as utilities from "../utilities";
  *
  * const main = aws.getCallerIdentity({});
  * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
- *     version: "2012-10-17",
- *     statement: {
- *         effect: "Allow",
- *         action: "sts:AssumeRole",
- *         principal: {
- *             service: "pipes.amazonaws.com",
+ *     Version: "2012-10-17",
+ *     Statement: {
+ *         Effect: "Allow",
+ *         Action: "sts:AssumeRole",
+ *         Principal: {
+ *             Service: "pipes.amazonaws.com",
  *         },
- *         condition: {
- *             stringEquals: {
+ *         Condition: {
+ *             StringEquals: {
  *                 "aws:SourceAccount": main.then(main => main.accountId),
  *             },
  *         },
@@ -45,15 +45,15 @@ import * as utilities from "../utilities";
  * const source = new aws.iam.RolePolicy("source", {
  *     role: example.id,
  *     policy: pulumi.jsonStringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             effect: "Allow",
- *             action: [
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Effect: "Allow",
+ *             Action: [
  *                 "sqs:DeleteMessage",
  *                 "sqs:GetQueueAttributes",
  *                 "sqs:ReceiveMessage",
  *             ],
- *             resource: [sourceQueue.arn],
+ *             Resource: [sourceQueue.arn],
  *         }],
  *     }),
  * });
@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  * const target = new aws.iam.RolePolicy("target", {
  *     role: example.id,
  *     policy: pulumi.jsonStringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             effect: "Allow",
- *             action: ["sqs:SendMessage"],
- *             resource: [targetQueue.arn],
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Effect: "Allow",
+ *             Action: ["sqs:SendMessage"],
+ *             Resource: [targetQueue.arn],
  *         }],
  *     }),
  * });
@@ -74,6 +74,11 @@ import * as utilities from "../utilities";
  *     roleArn: example.arn,
  *     source: sourceQueue.arn,
  *     target: targetQueue.arn,
+ * }, {
+ *     dependsOn: [
+ *         source,
+ *         target,
+ *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

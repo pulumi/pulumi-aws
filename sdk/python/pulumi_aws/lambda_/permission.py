@@ -441,13 +441,13 @@ class Permission(pulumi.CustomResource):
         iam_for_lambda = aws.iam.Role("iam_for_lambda",
             name="iam_for_lambda",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": "sts:AssumeRole",
-                    "effect": "Allow",
-                    "sid": "",
-                    "principal": {
-                        "service": "lambda.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com",
                     },
                 }],
             }))
@@ -484,13 +484,13 @@ class Permission(pulumi.CustomResource):
         default_role = aws.iam.Role("default",
             name="iam_for_lambda_with_sns",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": "sts:AssumeRole",
-                    "effect": "Allow",
-                    "sid": "",
-                    "principal": {
-                        "service": "lambda.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com",
                     },
                 }],
             }))
@@ -566,7 +566,8 @@ class Permission(pulumi.CustomResource):
             destination_arn=logging_function.arn,
             filter_pattern="",
             log_group=default.name,
-            name="logging_default")
+            name="logging_default",
+            opts=pulumi.ResourceOptions(depends_on=[logging]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -661,13 +662,13 @@ class Permission(pulumi.CustomResource):
         iam_for_lambda = aws.iam.Role("iam_for_lambda",
             name="iam_for_lambda",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": "sts:AssumeRole",
-                    "effect": "Allow",
-                    "sid": "",
-                    "principal": {
-                        "service": "lambda.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com",
                     },
                 }],
             }))
@@ -704,13 +705,13 @@ class Permission(pulumi.CustomResource):
         default_role = aws.iam.Role("default",
             name="iam_for_lambda_with_sns",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": "sts:AssumeRole",
-                    "effect": "Allow",
-                    "sid": "",
-                    "principal": {
-                        "service": "lambda.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com",
                     },
                 }],
             }))
@@ -786,7 +787,8 @@ class Permission(pulumi.CustomResource):
             destination_arn=logging_function.arn,
             filter_pattern="",
             log_group=default.name,
-            name="logging_default")
+            name="logging_default",
+            opts=pulumi.ResourceOptions(depends_on=[logging]))
         ```
         <!--End PulumiCodeChooser -->
 

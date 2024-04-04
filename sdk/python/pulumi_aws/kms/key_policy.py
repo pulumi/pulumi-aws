@@ -161,17 +161,17 @@ class KeyPolicy(pulumi.CustomResource):
         example_key_policy = aws.kms.KeyPolicy("example",
             key_id=example.id,
             policy=json.dumps({
-                "id": "example",
-                "statement": [{
-                    "action": "kms:*",
-                    "effect": "Allow",
-                    "principal": {
+                "Id": "example",
+                "Statement": [{
+                    "Action": "kms:*",
+                    "Effect": "Allow",
+                    "Principal": {
                         "AWS": "*",
                     },
-                    "resource": "*",
-                    "sid": "Enable IAM User Permissions",
+                    "Resource": "*",
+                    "Sid": "Enable IAM User Permissions",
                 }],
-                "version": "2012-10-17",
+                "Version": "2012-10-17",
             }))
         ```
         <!--End PulumiCodeChooser -->
@@ -215,17 +215,17 @@ class KeyPolicy(pulumi.CustomResource):
         example_key_policy = aws.kms.KeyPolicy("example",
             key_id=example.id,
             policy=json.dumps({
-                "id": "example",
-                "statement": [{
-                    "action": "kms:*",
-                    "effect": "Allow",
-                    "principal": {
+                "Id": "example",
+                "Statement": [{
+                    "Action": "kms:*",
+                    "Effect": "Allow",
+                    "Principal": {
                         "AWS": "*",
                     },
-                    "resource": "*",
-                    "sid": "Enable IAM User Permissions",
+                    "Resource": "*",
+                    "Sid": "Enable IAM User Permissions",
                 }],
-                "version": "2012-10-17",
+                "Version": "2012-10-17",
             }))
         ```
         <!--End PulumiCodeChooser -->

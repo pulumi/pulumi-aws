@@ -55,6 +55,12 @@ namespace Pulumi.Aws.Cfg
     ///         SourceIdentifier: IAM_PASSWORD_POLICY
     ///     Type: AWS::Config::ConfigRule
     /// ",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsConfigConfigurationRecorder, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -101,6 +107,12 @@ namespace Pulumi.Aws.Cfg
     ///             var key = values.Item2;
     ///             return $"s3://{bucket}/{key}";
     ///         }),
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsConfigConfigurationRecorder, 
+    ///         },
     ///     });
     /// 
     /// });

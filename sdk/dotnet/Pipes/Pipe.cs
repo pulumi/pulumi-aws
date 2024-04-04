@@ -38,18 +38,18 @@ namespace Pulumi.Aws.Pipes
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new Dictionary&lt;string, object?&gt;
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["effect"] = "Allow",
-    ///                 ["action"] = "sts:AssumeRole",
-    ///                 ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["Effect"] = "Allow",
+    ///                 ["Action"] = "sts:AssumeRole",
+    ///                 ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["service"] = "pipes.amazonaws.com",
+    ///                     ["Service"] = "pipes.amazonaws.com",
     ///                 },
-    ///                 ["condition"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["Condition"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["stringEquals"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["StringEquals"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["aws:SourceAccount"] = main.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                     },
@@ -65,19 +65,19 @@ namespace Pulumi.Aws.Pipes
     ///         Role = example.Id,
     ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["effect"] = "Allow",
-    ///                     ["action"] = new[]
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Action"] = new[]
     ///                     {
     ///                         "sqs:DeleteMessage",
     ///                         "sqs:GetQueueAttributes",
     ///                         "sqs:ReceiveMessage",
     ///                     },
-    ///                     ["resource"] = new[]
+    ///                     ["Resource"] = new[]
     ///                     {
     ///                         sourceQueue.Arn,
     ///                     },
@@ -93,17 +93,17 @@ namespace Pulumi.Aws.Pipes
     ///         Role = example.Id,
     ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["effect"] = "Allow",
-    ///                     ["action"] = new[]
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Action"] = new[]
     ///                     {
     ///                         "sqs:SendMessage",
     ///                     },
-    ///                     ["resource"] = new[]
+    ///                     ["Resource"] = new[]
     ///                     {
     ///                         targetQueue.Arn,
     ///                     },
@@ -118,6 +118,13 @@ namespace Pulumi.Aws.Pipes
     ///         RoleArn = example.Arn,
     ///         Source = sourceQueue.Arn,
     ///         Target = targetQueue.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             source, 
+    ///             target, 
+    ///         },
     ///     });
     /// 
     /// });

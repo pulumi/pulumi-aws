@@ -48,6 +48,8 @@ import * as utilities from "../utilities";
  * const exampleComQueryLog = new aws.route53.QueryLog("example_com", {
  *     cloudwatchLogGroupArn: awsRoute53ExampleCom.arn,
  *     zoneId: exampleCom.zoneId,
+ * }, {
+ *     dependsOn: [route53_query_logging_policyLogResourcePolicy],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

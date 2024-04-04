@@ -131,6 +131,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityRevocationConfigurationArgs;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -188,7 +189,9 @@ import javax.annotation.Nullable;
  *                     .s3ObjectAcl(&#34;BUCKET_OWNER_FULL_CONTROL&#34;)
  *                     .build())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleBucketPolicy)
+ *                 .build());
  * 
  *     }
  * }

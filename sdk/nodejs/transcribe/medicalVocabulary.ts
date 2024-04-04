@@ -33,6 +33,8 @@ import * as utilities from "../utilities";
  *         tag1: "value1",
  *         tag2: "value3",
  *     },
+ * }, {
+ *     dependsOn: [object],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

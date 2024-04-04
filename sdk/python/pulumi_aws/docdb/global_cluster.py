@@ -365,12 +365,14 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version=example.engine_version,
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
-            db_subnet_group_name="default")
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(depends_on=[primary]))
         secondary_cluster_instance = aws.docdb.ClusterInstance("secondary",
             engine=example.engine,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary.id,
-            instance_class="db.r5.large")
+            instance_class="db.r5.large",
+            opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -450,12 +452,14 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version=example.engine_version,
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
-            db_subnet_group_name="default")
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(depends_on=[primary]))
         secondary_cluster_instance = aws.docdb.ClusterInstance("secondary",
             engine=example.engine,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary.id,
-            instance_class="db.r5.large")
+            instance_class="db.r5.large",
+            opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         ```
         <!--End PulumiCodeChooser -->
 

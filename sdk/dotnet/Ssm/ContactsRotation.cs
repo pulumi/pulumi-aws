@@ -44,6 +44,12 @@ namespace Pulumi.Aws.Ssm
     ///             },
     ///         },
     ///         TimeZoneId = "Australia/Sydney",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.Ssm
     ///             { "key1", "tag1" },
     ///             { "key2", "tag2" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -175,6 +187,12 @@ namespace Pulumi.Aws.Ssm
     ///             },
     ///         },
     ///         TimeZoneId = "Australia/Sydney",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///         },
     ///     });
     /// 
     /// });

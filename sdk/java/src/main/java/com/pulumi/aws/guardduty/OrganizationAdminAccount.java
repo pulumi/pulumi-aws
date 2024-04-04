@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.Detector;
  * import com.pulumi.aws.guardduty.OrganizationAdminAccount;
  * import com.pulumi.aws.guardduty.OrganizationAdminAccountArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,7 +53,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount(&#34;exampleOrganizationAdminAccount&#34;, OrganizationAdminAccountArgs.builder()        
  *             .adminAccountId(&#34;123456789012&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }

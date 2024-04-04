@@ -497,13 +497,13 @@ class Role(pulumi.CustomResource):
         test_role = aws.iam.Role("test_role",
             name="test_role",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": "sts:AssumeRole",
-                    "effect": "Allow",
-                    "sid": "",
-                    "principal": {
-                        "service": "ec2.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "ec2.amazonaws.com",
                     },
                 }],
             }),
@@ -555,11 +555,11 @@ class Role(pulumi.CustomResource):
                 aws.iam.RoleInlinePolicyArgs(
                     name="my_inline_policy",
                     policy=json.dumps({
-                        "version": "2012-10-17",
-                        "statement": [{
-                            "action": ["ec2:Describe*"],
-                            "effect": "Allow",
-                            "resource": "*",
+                        "Version": "2012-10-17",
+                        "Statement": [{
+                            "Action": ["ec2:Describe*"],
+                            "Effect": "Allow",
+                            "Resource": "*",
                         }],
                     }),
                 ),
@@ -600,25 +600,25 @@ class Role(pulumi.CustomResource):
         policy_one = aws.iam.Policy("policy_one",
             name="policy-618033",
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": ["ec2:Describe*"],
-                    "effect": "Allow",
-                    "resource": "*",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": ["ec2:Describe*"],
+                    "Effect": "Allow",
+                    "Resource": "*",
                 }],
             }))
         policy_two = aws.iam.Policy("policy_two",
             name="policy-381966",
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": [
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
                         "s3:ListAllMyBuckets",
                         "s3:ListBucket",
                         "s3:HeadBucket",
                     ],
-                    "effect": "Allow",
-                    "resource": "*",
+                    "Effect": "Allow",
+                    "Resource": "*",
                 }],
             }))
         example = aws.iam.Role("example",
@@ -700,13 +700,13 @@ class Role(pulumi.CustomResource):
         test_role = aws.iam.Role("test_role",
             name="test_role",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": "sts:AssumeRole",
-                    "effect": "Allow",
-                    "sid": "",
-                    "principal": {
-                        "service": "ec2.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "ec2.amazonaws.com",
                     },
                 }],
             }),
@@ -758,11 +758,11 @@ class Role(pulumi.CustomResource):
                 aws.iam.RoleInlinePolicyArgs(
                     name="my_inline_policy",
                     policy=json.dumps({
-                        "version": "2012-10-17",
-                        "statement": [{
-                            "action": ["ec2:Describe*"],
-                            "effect": "Allow",
-                            "resource": "*",
+                        "Version": "2012-10-17",
+                        "Statement": [{
+                            "Action": ["ec2:Describe*"],
+                            "Effect": "Allow",
+                            "Resource": "*",
                         }],
                     }),
                 ),
@@ -803,25 +803,25 @@ class Role(pulumi.CustomResource):
         policy_one = aws.iam.Policy("policy_one",
             name="policy-618033",
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": ["ec2:Describe*"],
-                    "effect": "Allow",
-                    "resource": "*",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": ["ec2:Describe*"],
+                    "Effect": "Allow",
+                    "Resource": "*",
                 }],
             }))
         policy_two = aws.iam.Policy("policy_two",
             name="policy-381966",
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": [
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
                         "s3:ListAllMyBuckets",
                         "s3:ListBucket",
                         "s3:HeadBucket",
                     ],
-                    "effect": "Allow",
-                    "resource": "*",
+                    "Effect": "Allow",
+                    "Resource": "*",
                 }],
             }))
         example = aws.iam.Role("example",

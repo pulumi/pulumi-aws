@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.Member;
  * import com.pulumi.aws.securityhub.MemberArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,7 +50,9 @@ import javax.annotation.Nullable;
  *             .accountId(&#34;123456789012&#34;)
  *             .email(&#34;example@example.com&#34;)
  *             .invite(true)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }

@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dms.S3Endpoint;
  * import com.pulumi.aws.dms.S3EndpointArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,7 +58,9 @@ import javax.annotation.Nullable;
  *             .endpointType(&#34;target&#34;)
  *             .bucketName(&#34;beckut_name&#34;)
  *             .serviceAccessRoleArn(exampleAwsIamRole.arn())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsIamRolePolicy)
+ *                 .build());
  * 
  *     }
  * }
@@ -75,6 +78,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.dms.S3Endpoint;
  * import com.pulumi.aws.dms.S3EndpointArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -138,7 +142,9 @@ import javax.annotation.Nullable;
  *             .useCsvNoSupValue(false)
  *             .useTaskStartTimeForFullLoadTimestamp(true)
  *             .glueCatalogGeneration(true)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsIamRolePolicy)
+ *                 .build());
  * 
  *     }
  * }

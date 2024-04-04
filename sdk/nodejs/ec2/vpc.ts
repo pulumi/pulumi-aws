@@ -60,6 +60,8 @@ import * as utilities from "../utilities";
  * const testVpc = new aws.ec2.Vpc("test", {
  *     ipv4IpamPoolId: testVpcIpamPool.id,
  *     ipv4NetmaskLength: 28,
+ * }, {
+ *     dependsOn: [testVpcIpamPoolCidr],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

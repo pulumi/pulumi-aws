@@ -18,17 +18,17 @@ import * as utilities from "../utilities";
  * const exampleKeyPolicy = new aws.kms.KeyPolicy("example", {
  *     keyId: example.id,
  *     policy: JSON.stringify({
- *         id: "example",
- *         statement: [{
- *             action: "kms:*",
- *             effect: "Allow",
- *             principal: {
+ *         Id: "example",
+ *         Statement: [{
+ *             Action: "kms:*",
+ *             Effect: "Allow",
+ *             Principal: {
  *                 AWS: "*",
  *             },
- *             resource: "*",
- *             sid: "Enable IAM User Permissions",
+ *             Resource: "*",
+ *             Sid: "Enable IAM User Permissions",
  *         }],
- *         version: "2012-10-17",
+ *         Version: "2012-10-17",
  *     }),
  * });
  * ```

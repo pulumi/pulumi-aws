@@ -74,6 +74,12 @@ namespace Pulumi.Aws.LB
     ///     {
     ///         TargetGroupArn = test.Arn,
     ///         TargetId = testFunction.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             withLb, 
+    ///         },
     ///     });
     /// 
     /// });

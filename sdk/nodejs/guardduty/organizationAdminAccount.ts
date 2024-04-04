@@ -19,7 +19,9 @@ import * as utilities from "../utilities";
  *     featureSet: "ALL",
  * });
  * const exampleDetector = new aws.guardduty.Detector("example", {});
- * const exampleOrganizationAdminAccount = new aws.guardduty.OrganizationAdminAccount("example", {adminAccountId: "123456789012"});
+ * const exampleOrganizationAdminAccount = new aws.guardduty.OrganizationAdminAccount("example", {adminAccountId: "123456789012"}, {
+ *     dependsOn: [example],
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

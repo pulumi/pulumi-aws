@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     organizationConfiguration: {
  *         configurationType: "CENTRAL",
  *     },
+ * }, {
+ *     dependsOn: [example],
  * });
  * const exampleConfigurationPolicy = new aws.securityhub.ConfigurationPolicy("example", {
  *     name: "Example",
@@ -37,6 +39,8 @@ import * as utilities from "../utilities";
  *             disabledControlIdentifiers: [],
  *         },
  *     },
+ * }, {
+ *     dependsOn: [exampleOrganizationConfiguration],
  * });
  * const accountExample = new aws.securityhub.ConfigurationPolicyAssociation("account_example", {
  *     targetId: "123456789012",

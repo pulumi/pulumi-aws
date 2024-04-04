@@ -260,7 +260,7 @@ import javax.annotation.Nullable;
  *                     .pattern(serializeJson(
  *                         jsonObject(
  *                             jsonProperty(&#34;body&#34;, jsonObject(
- *                                 jsonProperty(&#34;temperature&#34;, jsonArray(jsonObject(
+ *                                 jsonProperty(&#34;Temperature&#34;, jsonArray(jsonObject(
  *                                     jsonProperty(&#34;numeric&#34;, jsonArray(
  *                                         &#34;&gt;&#34;, 
  *                                         0, 
@@ -268,7 +268,7 @@ import javax.annotation.Nullable;
  *                                         100
  *                                     ))
  *                                 ))),
- *                                 jsonProperty(&#34;location&#34;, jsonArray(&#34;New York&#34;))
+ *                                 jsonProperty(&#34;Location&#34;, jsonArray(&#34;New York&#34;))
  *                             ))
  *                         )))
  *                     .build())

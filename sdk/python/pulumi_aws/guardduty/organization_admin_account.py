@@ -79,7 +79,8 @@ class OrganizationAdminAccount(pulumi.CustomResource):
             aws_service_access_principals=["guardduty.amazonaws.com"],
             feature_set="ALL")
         example_detector = aws.guardduty.Detector("example")
-        example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("example", admin_account_id="123456789012")
+        example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("example", admin_account_id="123456789012",
+        opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -115,7 +116,8 @@ class OrganizationAdminAccount(pulumi.CustomResource):
             aws_service_access_principals=["guardduty.amazonaws.com"],
             feature_set="ALL")
         example_detector = aws.guardduty.Detector("example")
-        example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("example", admin_account_id="123456789012")
+        example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("example", admin_account_id="123456789012",
+        opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 

@@ -34,6 +34,8 @@ import * as utilities from "../utilities";
  * const exampleAnalyzer = new aws.accessanalyzer.Analyzer("example", {
  *     analyzerName: "example",
  *     type: "ORGANIZATION",
+ * }, {
+ *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

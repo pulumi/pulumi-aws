@@ -21,6 +21,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const exampleOrganization = new aws.organizations.Organization("example", {
+ *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
+ *     featureSet: "ALL",
+ * });
  * const example = new aws.cfg.OrganizationConformancePack("example", {
  *     name: "example",
  *     inputParameters: [{
@@ -39,10 +43,11 @@ import * as utilities from "../utilities";
  *         SourceIdentifier: IAM_PASSWORD_POLICY
  *     Type: AWS::Config::ConfigRule
  * `,
- * });
- * const exampleOrganization = new aws.organizations.Organization("example", {
- *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
- *     featureSet: "ALL",
+ * }, {
+ *     dependsOn: [
+ *         exampleAwsConfigConfigurationRecorder,
+ *         exampleOrganization,
+ *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -54,6 +59,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const exampleOrganization = new aws.organizations.Organization("example", {
+ *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
+ *     featureSet: "ALL",
+ * });
  * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
  *     bucket: exampleBucketV2.id,
@@ -71,10 +80,11 @@ import * as utilities from "../utilities";
  * const example = new aws.cfg.OrganizationConformancePack("example", {
  *     name: "example",
  *     templateS3Uri: pulumi.interpolate`s3://${exampleBucketV2.bucket}/${exampleBucketObjectv2.key}`,
- * });
- * const exampleOrganization = new aws.organizations.Organization("example", {
- *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
- *     featureSet: "ALL",
+ * }, {
+ *     dependsOn: [
+ *         exampleAwsConfigConfigurationRecorder,
+ *         exampleOrganization,
+ *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

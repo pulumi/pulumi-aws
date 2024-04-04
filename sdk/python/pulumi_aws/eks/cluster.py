@@ -580,7 +580,11 @@ class Cluster(pulumi.CustomResource):
                     example1["id"],
                     example2["id"],
                 ],
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example__amazon_eks_cluster_policy,
+                    example__amazon_eksvpc_resource_controller,
+                ]))
         pulumi.export("endpoint", example.endpoint)
         pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
         ```
@@ -630,15 +634,16 @@ class Cluster(pulumi.CustomResource):
         cluster_name = config.get("clusterName")
         if cluster_name is None:
             cluster_name = "example"
+        example_log_group = aws.cloudwatch.LogGroup("example",
+            name=f"/aws/eks/{cluster_name}/cluster",
+            retention_in_days=7)
         example = aws.eks.Cluster("example",
             enabled_cluster_log_types=[
                 "api",
                 "audit",
             ],
-            name=cluster_name)
-        example_log_group = aws.cloudwatch.LogGroup("example",
-            name=f"/aws/eks/{cluster_name}/cluster",
-            retention_in_days=7)
+            name=cluster_name,
+            opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -781,7 +786,11 @@ class Cluster(pulumi.CustomResource):
                     example1["id"],
                     example2["id"],
                 ],
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example__amazon_eks_cluster_policy,
+                    example__amazon_eksvpc_resource_controller,
+                ]))
         pulumi.export("endpoint", example.endpoint)
         pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
         ```
@@ -831,15 +840,16 @@ class Cluster(pulumi.CustomResource):
         cluster_name = config.get("clusterName")
         if cluster_name is None:
             cluster_name = "example"
+        example_log_group = aws.cloudwatch.LogGroup("example",
+            name=f"/aws/eks/{cluster_name}/cluster",
+            retention_in_days=7)
         example = aws.eks.Cluster("example",
             enabled_cluster_log_types=[
                 "api",
                 "audit",
             ],
-            name=cluster_name)
-        example_log_group = aws.cloudwatch.LogGroup("example",
-            name=f"/aws/eks/{cluster_name}/cluster",
-            retention_in_days=7)
+            name=cluster_name,
+            opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
         ```
         <!--End PulumiCodeChooser -->
 
