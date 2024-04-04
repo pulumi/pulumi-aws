@@ -10,10 +10,17 @@ There are two sources of data:
 Combine the two.
 """
 
+import argparse as ap
 import yaml
 import os
 import json
+import sys
 from json.decoder import WHITESPACE
+
+
+argp = ap.ArgumentParser(description=__doc__)
+argp.add_argument('-v', action='store_true', help='Print OriginalHCL', default=False)
+args = argp.parse_args()
 
 
 # https://stackoverflow.com/a/8640959
@@ -64,6 +71,12 @@ for obj in iterload(f'{coverage_output_dir}/byExample.json'):
     r, n = rn
     if has_failures(obj):
         obj['Importance'] = n
+        obj['Failures'] = list(set([obj['ConversionResults'][k]['FailureInfo'] for k in obj['ConversionResults']]))
+        del obj['ConversionResults']
+
+        if not args.v:
+            del obj['OriginalHCL']
+
         topres[r] = True
         important.append(obj)
 
