@@ -195,7 +195,6 @@ public class Workforce extends com.pulumi.resources.CustomResource {
     }
     /**
      * The subdomain for your OIDC Identity Provider.
-     * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      * 
      */
     @Export(name="subdomain", refs={String.class}, tree="[0]")
@@ -203,7 +202,6 @@ public class Workforce extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The subdomain for your OIDC Identity Provider.
-     * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      * 
      */
     public Output<String> subdomain() {

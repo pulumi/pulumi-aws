@@ -1251,6 +1251,7 @@ func (o CertificateValidityPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type GetCertificateAuthorityRevocationConfiguration struct {
+	// Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
 	CrlConfigurations  []GetCertificateAuthorityRevocationConfigurationCrlConfiguration  `pulumi:"crlConfigurations"`
 	OcspConfigurations []GetCertificateAuthorityRevocationConfigurationOcspConfiguration `pulumi:"ocspConfigurations"`
 }
@@ -1267,6 +1268,7 @@ type GetCertificateAuthorityRevocationConfigurationInput interface {
 }
 
 type GetCertificateAuthorityRevocationConfigurationArgs struct {
+	// Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
 	CrlConfigurations  GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput  `pulumi:"crlConfigurations"`
 	OcspConfigurations GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayInput `pulumi:"ocspConfigurations"`
 }
@@ -1322,6 +1324,7 @@ func (o GetCertificateAuthorityRevocationConfigurationOutput) ToGetCertificateAu
 	return o
 }
 
+// Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
 func (o GetCertificateAuthorityRevocationConfigurationOutput) CrlConfigurations() GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfiguration) []GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
 		return v.CrlConfigurations

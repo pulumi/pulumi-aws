@@ -63,8 +63,6 @@ class _ReplicationConfigurationState:
         """
         Input properties used for looking up and filtering ReplicationConfiguration resources.
         :param pulumi.Input[str] creation_time: When the replication configuration was created.
-               * `destination[0].file_system_id` - The fs ID of the replica.
-               * `destination[0].status` - The status of the replication.
         :param pulumi.Input['ReplicationConfigurationDestinationArgs'] destination: A destination configuration block (documented below).
         :param pulumi.Input[str] original_source_file_system_arn: The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
         :param pulumi.Input[str] source_file_system_arn: The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
@@ -89,8 +87,6 @@ class _ReplicationConfigurationState:
     def creation_time(self) -> Optional[pulumi.Input[str]]:
         """
         When the replication configuration was created.
-        * `destination[0].file_system_id` - The fs ID of the replica.
-        * `destination[0].status` - The status of the replication.
         """
         return pulumi.get(self, "creation_time")
 
@@ -368,8 +364,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] creation_time: When the replication configuration was created.
-               * `destination[0].file_system_id` - The fs ID of the replica.
-               * `destination[0].status` - The status of the replication.
         :param pulumi.Input[pulumi.InputType['ReplicationConfigurationDestinationArgs']] destination: A destination configuration block (documented below).
         :param pulumi.Input[str] original_source_file_system_arn: The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
         :param pulumi.Input[str] source_file_system_arn: The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
@@ -393,8 +387,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def creation_time(self) -> pulumi.Output[str]:
         """
         When the replication configuration was created.
-        * `destination[0].file_system_id` - The fs ID of the replica.
-        * `destination[0].status` - The status of the replication.
         """
         return pulumi.get(self, "creation_time")
 

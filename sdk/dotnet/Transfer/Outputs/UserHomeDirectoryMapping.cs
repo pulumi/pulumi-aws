@@ -21,6 +21,13 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// Represents the map target.
         /// 
         /// The `Restricted` option is achieved using the following mapping:
+        /// 
+        /// ```
+        /// home_directory_mappings {
+        /// entry  = "/"
+        /// target = "/${aws_s3_bucket.foo.id}/$${Transfer:UserName}"
+        /// }
+        /// ```
         /// </summary>
         public readonly string Target;
 

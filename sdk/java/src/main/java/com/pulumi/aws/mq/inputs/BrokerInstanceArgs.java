@@ -16,23 +16,63 @@ public final class BrokerInstanceArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final BrokerInstanceArgs Empty = new BrokerInstanceArgs();
 
+    /**
+     * The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+     * 
+     */
     @Import(name="consoleUrl")
     private @Nullable Output<String> consoleUrl;
 
+    /**
+     * @return The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+     * 
+     */
     public Optional<Output<String>> consoleUrl() {
         return Optional.ofNullable(this.consoleUrl);
     }
 
+    /**
+     * Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
+     * * For `ActiveMQ`:
+     * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
+     * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
+     * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
+     * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
+     * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+     * * For `RabbitMQ`:
+     * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+     * 
+     */
     @Import(name="endpoints")
     private @Nullable Output<List<String>> endpoints;
 
+    /**
+     * @return Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
+     * * For `ActiveMQ`:
+     * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
+     * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
+     * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
+     * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
+     * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+     * * For `RabbitMQ`:
+     * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+     * 
+     */
     public Optional<Output<List<String>>> endpoints() {
         return Optional.ofNullable(this.endpoints);
     }
 
+    /**
+     * IP Address of the broker.
+     * 
+     */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
+    /**
+     * @return IP Address of the broker.
+     * 
+     */
     public Optional<Output<String>> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
@@ -63,33 +103,99 @@ public final class BrokerInstanceArgs extends com.pulumi.resources.ResourceArgs 
             $ = new BrokerInstanceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param consoleUrl The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consoleUrl(@Nullable Output<String> consoleUrl) {
             $.consoleUrl = consoleUrl;
             return this;
         }
 
+        /**
+         * @param consoleUrl The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder consoleUrl(String consoleUrl) {
             return consoleUrl(Output.of(consoleUrl));
         }
 
+        /**
+         * @param endpoints Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
+         * * For `ActiveMQ`:
+         * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
+         * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
+         * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
+         * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
+         * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+         * * For `RabbitMQ`:
+         * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpoints(@Nullable Output<List<String>> endpoints) {
             $.endpoints = endpoints;
             return this;
         }
 
+        /**
+         * @param endpoints Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
+         * * For `ActiveMQ`:
+         * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
+         * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
+         * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
+         * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
+         * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+         * * For `RabbitMQ`:
+         * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpoints(List<String> endpoints) {
             return endpoints(Output.of(endpoints));
         }
 
+        /**
+         * @param endpoints Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
+         * * For `ActiveMQ`:
+         * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
+         * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
+         * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
+         * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
+         * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+         * * For `RabbitMQ`:
+         * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpoints(String... endpoints) {
             return endpoints(List.of(endpoints));
         }
 
+        /**
+         * @param ipAddress IP Address of the broker.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
+        /**
+         * @param ipAddress IP Address of the broker.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }

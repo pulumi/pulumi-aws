@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Emr.Inputs
         }
 
         /// <summary>
-        /// ID of the cluster.
+        /// Master node type Instance Group ID, if using Instance Group for this node type.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

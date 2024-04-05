@@ -430,30 +430,6 @@ class ServerCertificate(pulumi.CustomResource):
         to create a new, updated `iam.ServerCertificate` resource and replace it in
         dependant resources before attempting to destroy the old version.
 
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test_cert = aws.iam.ServerCertificate("test_cert",
-            name_prefix="example-cert",
-            certificate_body=std.file(input="self-ca-cert.pem").result,
-            private_key=std.file(input="test-key.pem").result)
-        ourapp = aws.elb.LoadBalancer("ourapp",
-            name="asg-deployment-example",
-            availability_zones=["us-west-2a"],
-            cross_zone_load_balancing=True,
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=8000,
-                instance_protocol="http",
-                lb_port=443,
-                lb_protocol="https",
-                ssl_certificate_id=test_cert.arn,
-            )])
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
@@ -545,30 +521,6 @@ class ServerCertificate(pulumi.CustomResource):
         `create_before_destroy`. This will allow this provider
         to create a new, updated `iam.ServerCertificate` resource and replace it in
         dependant resources before attempting to destroy the old version.
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test_cert = aws.iam.ServerCertificate("test_cert",
-            name_prefix="example-cert",
-            certificate_body=std.file(input="self-ca-cert.pem").result,
-            private_key=std.file(input="test-key.pem").result)
-        ourapp = aws.elb.LoadBalancer("ourapp",
-            name="asg-deployment-example",
-            availability_zones=["us-west-2a"],
-            cross_zone_load_balancing=True,
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=8000,
-                instance_protocol="http",
-                lb_port=443,
-                lb_protocol="https",
-                ssl_certificate_id=test_cert.arn,
-            )])
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -12,20 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Basic
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apigatewayv2.Deployment("example", {
- *     apiId: exampleAwsApigatewayv2Api.id,
- *     description: "Example deployment",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:

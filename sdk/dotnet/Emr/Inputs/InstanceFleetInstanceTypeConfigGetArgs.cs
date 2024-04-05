@@ -13,15 +13,13 @@ namespace Pulumi.Aws.Emr.Inputs
     public sealed class InstanceFleetInstanceTypeConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-        /// (MISSING)
+        /// The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         /// </summary>
         [Input("bidPrice")]
         public Input<string>? BidPrice { get; set; }
 
         /// <summary>
-        /// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-        /// (MISSING)
+        /// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         /// </summary>
         [Input("bidPriceAsPercentageOfOnDemandPrice")]
         public Input<double>? BidPriceAsPercentageOfOnDemandPrice { get; set; }

@@ -41,7 +41,7 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// 
     /// console
     /// 
-    ///  %!p(MISSING)ulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
+    ///  % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
     /// </summary>
     [AwsResourceType("aws:verifiedpermissions/policyStore:PolicyStore")]
     public partial class PolicyStore : global::Pulumi.CustomResource

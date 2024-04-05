@@ -156,7 +156,7 @@ def get_random_password(exclude_characters: Optional[str] = None,
     :param str exclude_characters: String of the characters that you don't want in the password.
     :param bool exclude_lowercase: Specifies whether to exclude lowercase letters from the password.
     :param bool exclude_numbers: Specifies whether to exclude numbers from the password.
-    :param bool exclude_punctuation: Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&(MISSING) ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~ .``
+    :param bool exclude_punctuation: Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~ .``
     :param bool exclude_uppercase: Specifies whether to exclude uppercase letters from the password.
     :param bool include_space: Specifies whether to include the space character.
     :param int password_length: Length of the password.
@@ -216,7 +216,7 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
     :param str exclude_characters: String of the characters that you don't want in the password.
     :param bool exclude_lowercase: Specifies whether to exclude lowercase letters from the password.
     :param bool exclude_numbers: Specifies whether to exclude numbers from the password.
-    :param bool exclude_punctuation: Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&(MISSING) ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~ .``
+    :param bool exclude_punctuation: Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~ .``
     :param bool exclude_uppercase: Specifies whether to exclude uppercase letters from the password.
     :param bool include_space: Specifies whether to include the space character.
     :param int password_length: Length of the password.

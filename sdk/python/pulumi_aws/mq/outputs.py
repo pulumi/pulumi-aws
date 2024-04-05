@@ -137,6 +137,19 @@ class BrokerInstance(dict):
                  console_url: Optional[str] = None,
                  endpoints: Optional[Sequence[str]] = None,
                  ip_address: Optional[str] = None):
+        """
+        :param str console_url: The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+        :param Sequence[str] endpoints: Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
+               * For `ActiveMQ`:
+               * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
+               * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
+               * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
+               * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
+               * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+               * For `RabbitMQ`:
+               * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+        :param str ip_address: IP Address of the broker.
+        """
         if console_url is not None:
             pulumi.set(__self__, "console_url", console_url)
         if endpoints is not None:
@@ -147,16 +160,33 @@ class BrokerInstance(dict):
     @property
     @pulumi.getter(name="consoleUrl")
     def console_url(self) -> Optional[str]:
+        """
+        The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+        """
         return pulumi.get(self, "console_url")
 
     @property
     @pulumi.getter
     def endpoints(self) -> Optional[Sequence[str]]:
+        """
+        Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
+        * For `ActiveMQ`:
+        * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
+        * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
+        * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
+        * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
+        * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+        * For `RabbitMQ`:
+        * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+        """
         return pulumi.get(self, "endpoints")
 
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[str]:
+        """
+        IP Address of the broker.
+        """
         return pulumi.get(self, "ip_address")
 
 

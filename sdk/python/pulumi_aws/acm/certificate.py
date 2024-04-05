@@ -686,22 +686,6 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Create Certificate
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cert = aws.acm.Certificate("cert",
-            domain_name="example.com",
-            validation_method="DNS",
-            tags={
-                "Environment": "test",
-            })
-        ```
-        <!--End PulumiCodeChooser -->
-
         ### Custom Domain Validation Options
 
         <!--Start PulumiCodeChooser -->
@@ -848,22 +832,6 @@ class Certificate(pulumi.CustomResource):
         To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
 
         ## Example Usage
-
-        ### Create Certificate
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cert = aws.acm.Certificate("cert",
-            domain_name="example.com",
-            validation_method="DNS",
-            tags={
-                "Environment": "test",
-            })
-        ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Domain Validation Options
 

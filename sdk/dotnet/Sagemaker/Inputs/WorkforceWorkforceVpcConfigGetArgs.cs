@@ -36,6 +36,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
             set => _subnets = value;
         }
 
+        /// <summary>
+        /// The IDs for the VPC service endpoints of your VPC workforce.
+        /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
 

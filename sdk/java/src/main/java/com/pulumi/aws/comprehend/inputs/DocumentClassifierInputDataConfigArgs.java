@@ -55,7 +55,7 @@ public final class DocumentClassifierInputDataConfigArgs extends com.pulumi.reso
 
     /**
      * Delimiter between labels when training a multi-label classifier.
-     * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
+     * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
      * Default is `|`.
      * 
      */
@@ -64,7 +64,7 @@ public final class DocumentClassifierInputDataConfigArgs extends com.pulumi.reso
 
     /**
      * @return Delimiter between labels when training a multi-label classifier.
-     * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
+     * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
      * Default is `|`.
      * 
      */
@@ -186,7 +186,7 @@ public final class DocumentClassifierInputDataConfigArgs extends com.pulumi.reso
 
         /**
          * @param labelDelimiter Delimiter between labels when training a multi-label classifier.
-         * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
+         * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
          * Default is `|`.
          * 
          * @return builder
@@ -199,7 +199,7 @@ public final class DocumentClassifierInputDataConfigArgs extends com.pulumi.reso
 
         /**
          * @param labelDelimiter Delimiter between labels when training a multi-label classifier.
-         * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
+         * Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `&gt;`, `?`, `/`, `&lt;space&gt;`, and `&lt;tab&gt;`.
          * Default is `|`.
          * 
          * @return builder

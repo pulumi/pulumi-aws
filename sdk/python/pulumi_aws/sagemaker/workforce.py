@@ -117,7 +117,6 @@ class _WorkforceState:
         :param pulumi.Input['WorkforceOidcConfigArgs'] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
         :param pulumi.Input['WorkforceSourceIpConfigArgs'] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         :param pulumi.Input[str] subdomain: The subdomain for your OIDC Identity Provider.
-               * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
         :param pulumi.Input[str] workforce_name: The name of the Workforce (must be unique).
         :param pulumi.Input['WorkforceWorkforceVpcConfigArgs'] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
@@ -189,7 +188,6 @@ class _WorkforceState:
     def subdomain(self) -> Optional[pulumi.Input[str]]:
         """
         The subdomain for your OIDC Identity Provider.
-        * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
         """
         return pulumi.get(self, "subdomain")
 
@@ -432,7 +430,6 @@ class Workforce(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkforceOidcConfigArgs']] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
         :param pulumi.Input[pulumi.InputType['WorkforceSourceIpConfigArgs']] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         :param pulumi.Input[str] subdomain: The subdomain for your OIDC Identity Provider.
-               * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
         :param pulumi.Input[str] workforce_name: The name of the Workforce (must be unique).
         :param pulumi.Input[pulumi.InputType['WorkforceWorkforceVpcConfigArgs']] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
@@ -486,7 +483,6 @@ class Workforce(pulumi.CustomResource):
     def subdomain(self) -> pulumi.Output[str]:
         """
         The subdomain for your OIDC Identity Provider.
-        * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
         """
         return pulumi.get(self, "subdomain")
 

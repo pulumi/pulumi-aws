@@ -315,32 +315,6 @@ class ParameterGroup(pulumi.CustomResource):
         ```
         <!--End PulumiCodeChooser -->
 
-        ### `create_before_destroy` Lifecycle Configuration
-
-        The `create_before_destroy`
-        lifecycle configuration is necessary for modifications that force re-creation of an existing,
-        in-use parameter group. This includes common situations like changing the group `name` or
-        bumping the `family` version during a major version upgrade. This configuration will prevent destruction
-        of the deposed parameter group while still in use by the database during upgrade.
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.ParameterGroup("example",
-            name="my-pg",
-            family="postgres13",
-            parameters=[aws.rds.ParameterGroupParameterArgs(
-                name="log_connections",
-                value="1",
-            )])
-        example_instance = aws.rds.Instance("example",
-            parameter_group_name=example.name,
-            apply_immediately=True)
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Using `pulumi import`, import DB Parameter groups using the `name`. For example:
@@ -402,32 +376,6 @@ class ParameterGroup(pulumi.CustomResource):
                     value="utf8",
                 ),
             ])
-        ```
-        <!--End PulumiCodeChooser -->
-
-        ### `create_before_destroy` Lifecycle Configuration
-
-        The `create_before_destroy`
-        lifecycle configuration is necessary for modifications that force re-creation of an existing,
-        in-use parameter group. This includes common situations like changing the group `name` or
-        bumping the `family` version during a major version upgrade. This configuration will prevent destruction
-        of the deposed parameter group while still in use by the database during upgrade.
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.ParameterGroup("example",
-            name="my-pg",
-            family="postgres13",
-            parameters=[aws.rds.ParameterGroupParameterArgs(
-                name="log_connections",
-                value="1",
-            )])
-        example_instance = aws.rds.Instance("example",
-            parameter_group_name=example.name,
-            apply_immediately=True)
         ```
         <!--End PulumiCodeChooser -->
 

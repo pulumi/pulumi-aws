@@ -308,7 +308,6 @@ type Cluster struct {
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
 	ConfigurationInfo ClusterConfigurationInfoPtrOutput `pulumi:"configurationInfo"`
 	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-	// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
 	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
 	// Configuration block for specifying encryption. See below.
 	EncryptionInfo ClusterEncryptionInfoPtrOutput `pulumi:"encryptionInfo"`
@@ -408,7 +407,6 @@ type clusterState struct {
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
 	ConfigurationInfo *ClusterConfigurationInfo `pulumi:"configurationInfo"`
 	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-	// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
 	CurrentVersion *string `pulumi:"currentVersion"`
 	// Configuration block for specifying encryption. See below.
 	EncryptionInfo *ClusterEncryptionInfo `pulumi:"encryptionInfo"`
@@ -470,7 +468,6 @@ type ClusterState struct {
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
 	ConfigurationInfo ClusterConfigurationInfoPtrInput
 	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-	// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
 	CurrentVersion pulumi.StringPtrInput
 	// Configuration block for specifying encryption. See below.
 	EncryptionInfo ClusterEncryptionInfoPtrInput
@@ -725,7 +722,6 @@ func (o ClusterOutput) ConfigurationInfo() ClusterConfigurationInfoPtrOutput {
 }
 
 // Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
 func (o ClusterOutput) CurrentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CurrentVersion }).(pulumi.StringOutput)
 }

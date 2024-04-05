@@ -222,17 +222,6 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * List of information about allocated brokers (both active &amp; standby).
-     * * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
-     * * `instances.0.ip_address` - IP Address of the broker.
-     * * `instances.0.endpoints` - Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-     * * For `ActiveMQ`:
-     * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-     * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-     * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-     * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-     * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-     * * For `RabbitMQ`:
-     * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
      * 
      */
     @Import(name="instances")
@@ -240,17 +229,6 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return List of information about allocated brokers (both active &amp; standby).
-     * * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
-     * * `instances.0.ip_address` - IP Address of the broker.
-     * * `instances.0.endpoints` - Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-     * * For `ActiveMQ`:
-     * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-     * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-     * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-     * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-     * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-     * * For `RabbitMQ`:
-     * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
      * 
      */
     public Optional<Output<List<BrokerInstanceArgs>>> instances() {
@@ -757,17 +735,6 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instances List of information about allocated brokers (both active &amp; standby).
-         * * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
-         * * `instances.0.ip_address` - IP Address of the broker.
-         * * `instances.0.endpoints` - Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-         * * For `ActiveMQ`:
-         * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-         * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-         * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-         * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-         * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-         * * For `RabbitMQ`:
-         * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
          * 
          * @return builder
          * 
@@ -779,17 +746,6 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instances List of information about allocated brokers (both active &amp; standby).
-         * * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
-         * * `instances.0.ip_address` - IP Address of the broker.
-         * * `instances.0.endpoints` - Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-         * * For `ActiveMQ`:
-         * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-         * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-         * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-         * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-         * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-         * * For `RabbitMQ`:
-         * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
          * 
          * @return builder
          * 
@@ -800,17 +756,6 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param instances List of information about allocated brokers (both active &amp; standby).
-         * * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
-         * * `instances.0.ip_address` - IP Address of the broker.
-         * * `instances.0.endpoints` - Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-         * * For `ActiveMQ`:
-         * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-         * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-         * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-         * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-         * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-         * * For `RabbitMQ`:
-         * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
          * 
          * @return builder
          * 

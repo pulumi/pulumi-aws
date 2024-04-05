@@ -16,16 +16,14 @@ public final class RemediationConfigurationExecutionControlsSsmControlsArgs exte
     public static final RemediationConfigurationExecutionControlsSsmControlsArgs Empty = new RemediationConfigurationExecutionControlsSsmControlsArgs();
 
     /**
-     * Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
-     * (MISSING)
+     * Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
      * 
      */
     @Import(name="concurrentExecutionRatePercentage")
     private @Nullable Output<Integer> concurrentExecutionRatePercentage;
 
     /**
-     * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
-     * (MISSING)
+     * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
      * 
      */
     public Optional<Output<Integer>> concurrentExecutionRatePercentage() {
@@ -33,16 +31,14 @@ public final class RemediationConfigurationExecutionControlsSsmControlsArgs exte
     }
 
     /**
-     * Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
-     * (MISSING)
+     * Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
      * 
      */
     @Import(name="errorPercentage")
     private @Nullable Output<Integer> errorPercentage;
 
     /**
-     * @return Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
-     * (MISSING)
+     * @return Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
      * 
      */
     public Optional<Output<Integer>> errorPercentage() {
@@ -75,8 +71,7 @@ public final class RemediationConfigurationExecutionControlsSsmControlsArgs exte
         }
 
         /**
-         * @param concurrentExecutionRatePercentage Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
-         * (MISSING)
+         * @param concurrentExecutionRatePercentage Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
          * 
          * @return builder
          * 
@@ -87,8 +82,7 @@ public final class RemediationConfigurationExecutionControlsSsmControlsArgs exte
         }
 
         /**
-         * @param concurrentExecutionRatePercentage Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
-         * (MISSING)
+         * @param concurrentExecutionRatePercentage Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
          * 
          * @return builder
          * 
@@ -98,8 +92,7 @@ public final class RemediationConfigurationExecutionControlsSsmControlsArgs exte
         }
 
         /**
-         * @param errorPercentage Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
-         * (MISSING)
+         * @param errorPercentage Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
          * 
          * @return builder
          * 
@@ -110,8 +103,7 @@ public final class RemediationConfigurationExecutionControlsSsmControlsArgs exte
         }
 
         /**
-         * @param errorPercentage Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
-         * (MISSING)
+         * @param errorPercentage Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
          * 
          * @return builder
          * 

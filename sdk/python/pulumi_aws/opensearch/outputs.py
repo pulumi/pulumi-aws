@@ -1370,8 +1370,10 @@ class DomainVpcOptions(dict):
                  subnet_ids: Optional[Sequence[str]] = None,
                  vpc_id: Optional[str] = None):
         """
+        :param Sequence[str] availability_zones: If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
         :param Sequence[str] security_group_ids: List of VPC Security Group IDs to be applied to the OpenSearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
         :param Sequence[str] subnet_ids: List of VPC Subnet IDs for the OpenSearch domain endpoints to be created in.
+        :param str vpc_id: If the domain was created inside a VPC, the ID of the VPC.
         """
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
@@ -1385,6 +1387,9 @@ class DomainVpcOptions(dict):
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[Sequence[str]]:
+        """
+        If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+        """
         return pulumi.get(self, "availability_zones")
 
     @property
@@ -1406,6 +1411,9 @@ class DomainVpcOptions(dict):
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
+        """
+        If the domain was created inside a VPC, the ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
 

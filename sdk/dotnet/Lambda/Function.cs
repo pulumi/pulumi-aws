@@ -564,7 +564,6 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// ARN of the signing profile version.
-        /// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         /// </summary>
         [Output("signingProfileVersionArn")]
         public Output<string> SigningProfileVersionArn { get; private set; } = null!;
@@ -619,7 +618,6 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Latest published version of your Lambda Function.
-        /// * `vpc_config.vpc_id` - ID of the VPC.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -1124,7 +1122,6 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// ARN of the signing profile version.
-        /// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         /// </summary>
         [Input("signingProfileVersionArn")]
         public Input<string>? SigningProfileVersionArn { get; set; }
@@ -1192,7 +1189,6 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Latest published version of your Lambda Function.
-        /// * `vpc_config.vpc_id` - ID of the VPC.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

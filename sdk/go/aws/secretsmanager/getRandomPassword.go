@@ -59,7 +59,7 @@ type GetRandomPasswordArgs struct {
 	ExcludeLowercase *bool `pulumi:"excludeLowercase"`
 	// Specifies whether to exclude numbers from the password.
 	ExcludeNumbers *bool `pulumi:"excludeNumbers"`
-	// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&(MISSING) ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
+	// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
 	ExcludePunctuation *bool `pulumi:"excludePunctuation"`
 	// Specifies whether to exclude uppercase letters from the password.
 	ExcludeUppercase *bool `pulumi:"excludeUppercase"`
@@ -108,7 +108,7 @@ type GetRandomPasswordOutputArgs struct {
 	ExcludeLowercase pulumi.BoolPtrInput `pulumi:"excludeLowercase"`
 	// Specifies whether to exclude numbers from the password.
 	ExcludeNumbers pulumi.BoolPtrInput `pulumi:"excludeNumbers"`
-	// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&(MISSING) ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
+	// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
 	ExcludePunctuation pulumi.BoolPtrInput `pulumi:"excludePunctuation"`
 	// Specifies whether to exclude uppercase letters from the password.
 	ExcludeUppercase pulumi.BoolPtrInput `pulumi:"excludeUppercase"`

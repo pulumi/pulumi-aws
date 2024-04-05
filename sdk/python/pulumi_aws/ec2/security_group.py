@@ -501,39 +501,6 @@ class SecurityGroup(pulumi.CustomResource):
 
         Despite these sticky problems, below are some ways to improve your experience when you find it necessary to recreate a security group.
 
-        ### `create_before_destroy`
-
-        (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
-
-        Normally, the provider first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won't succeed. You can invert the default behavior using the `create_before_destroy` meta argument:
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroup("example", name="changeable-name")
-        ```
-        <!--End PulumiCodeChooser -->
-
-        ### `replace_triggered_by`
-
-        (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
-
-        To replace a resource when a security group changes, use the `replace_triggered_by` meta argument. Note that in this example, the `ec2.Instance` will be destroyed and created again when the `ec2.SecurityGroup` changes.
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroup("example", name="sg")
-        example_instance = aws.ec2.Instance("example",
-            instance_type=aws.ec2.InstanceType.T3_SMALL,
-            vpc_security_group_ids=[test["id"]])
-        ```
-        <!--End PulumiCodeChooser -->
-
         ### Shorter timeout
 
         (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
@@ -731,39 +698,6 @@ class SecurityGroup(pulumi.CustomResource):
         The provider does not model bi-directional dependencies like this, but, even if it did, simply knowing the dependency situation would not be enough to solve it. For example, some resources must always have an associated security group while others don't need to. In addition, when the `ec2.SecurityGroup` resource attempts to recreate, it receives a dependent object error, which does not provide information on whether the dependent object is a security group rule or, for example, an associated EC2 instance. Within the provider, the associated resource (_e.g._, `ec2.Instance`) does not receive an error when the `ec2.SecurityGroup` is trying to recreate even though that is where changes to the associated resource would need to take place (_e.g._, removing the security group association).
 
         Despite these sticky problems, below are some ways to improve your experience when you find it necessary to recreate a security group.
-
-        ### `create_before_destroy`
-
-        (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
-
-        Normally, the provider first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won't succeed. You can invert the default behavior using the `create_before_destroy` meta argument:
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroup("example", name="changeable-name")
-        ```
-        <!--End PulumiCodeChooser -->
-
-        ### `replace_triggered_by`
-
-        (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
-
-        To replace a resource when a security group changes, use the `replace_triggered_by` meta argument. Note that in this example, the `ec2.Instance` will be destroyed and created again when the `ec2.SecurityGroup` changes.
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroup("example", name="sg")
-        example_instance = aws.ec2.Instance("example",
-            instance_type=aws.ec2.InstanceType.T3_SMALL,
-            vpc_security_group_ids=[test["id"]])
-        ```
-        <!--End PulumiCodeChooser -->
 
         ### Shorter timeout
 

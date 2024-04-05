@@ -332,10 +332,8 @@ class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
                  weighted_capacity: Optional[int] = None):
         """
         :param str instance_type: EC2 instance type, such as m4.xlarge.
-        :param str bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-               (MISSING)
-        :param float bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-               (MISSING)
+        :param str bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param float bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs'] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param int weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
@@ -364,8 +362,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[str]:
         """
-        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-        (MISSING)
+        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         """
         return pulumi.get(self, "bid_price")
 
@@ -373,8 +370,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
     @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
     def bid_price_as_percentage_of_on_demand_price(self) -> Optional[float]:
         """
-        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-        (MISSING)
+        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         """
         return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
 
@@ -704,7 +700,7 @@ class ClusterCoreInstanceGroup(dict):
         :param str autoscaling_policy: String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
         :param str bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param Sequence['ClusterCoreInstanceGroupEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        :param str id: ID of the cluster.
+        :param str id: Core node type Instance Group ID, if using Instance Group for this node type.
         :param int instance_count: Target number of instances for the instance group. Must be at least 1. Defaults to 1.
         :param str name: Friendly name given to the instance group.
         """
@@ -758,7 +754,7 @@ class ClusterCoreInstanceGroup(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        ID of the cluster.
+        Core node type Instance Group ID, if using Instance Group for this node type.
         """
         return pulumi.get(self, "id")
 
@@ -1258,10 +1254,8 @@ class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
                  weighted_capacity: Optional[int] = None):
         """
         :param str instance_type: EC2 instance type, such as m4.xlarge.
-        :param str bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-               (MISSING)
-        :param float bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-               (MISSING)
+        :param str bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param float bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs'] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param int weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
@@ -1290,8 +1284,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[str]:
         """
-        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-        (MISSING)
+        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         """
         return pulumi.get(self, "bid_price")
 
@@ -1299,8 +1292,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
     @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
     def bid_price_as_percentage_of_on_demand_price(self) -> Optional[float]:
         """
-        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-        (MISSING)
+        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         """
         return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
 
@@ -1626,7 +1618,7 @@ class ClusterMasterInstanceGroup(dict):
         :param str instance_type: EC2 instance type for all instances in the instance group.
         :param str bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param Sequence['ClusterMasterInstanceGroupEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        :param str id: ID of the cluster.
+        :param str id: Master node type Instance Group ID, if using Instance Group for this node type.
         :param int instance_count: Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
         :param str name: Friendly name given to the instance group.
         """
@@ -1670,7 +1662,7 @@ class ClusterMasterInstanceGroup(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        ID of the cluster.
+        Master node type Instance Group ID, if using Instance Group for this node type.
         """
         return pulumi.get(self, "id")
 
@@ -1988,10 +1980,8 @@ class InstanceFleetInstanceTypeConfig(dict):
                  weighted_capacity: Optional[int] = None):
         """
         :param str instance_type: An EC2 instance type, such as m4.xlarge.
-        :param str bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-               (MISSING)
-        :param float bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-               (MISSING)
+        :param str bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param float bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param Sequence['InstanceFleetInstanceTypeConfigConfigurationArgs'] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param Sequence['InstanceFleetInstanceTypeConfigEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param int weighted_capacity: The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
@@ -2020,8 +2010,7 @@ class InstanceFleetInstanceTypeConfig(dict):
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[str]:
         """
-        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-        (MISSING)
+        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         """
         return pulumi.get(self, "bid_price")
 
@@ -2029,8 +2018,7 @@ class InstanceFleetInstanceTypeConfig(dict):
     @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
     def bid_price_as_percentage_of_on_demand_price(self) -> Optional[float]:
         """
-        The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
-        (MISSING)
+        The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         """
         return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
 

@@ -68,36 +68,6 @@ import * as utilities from "../utilities";
  * to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
  * dependant resources before attempting to destroy the old version.
  *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const testCert = new aws.iam.ServerCertificate("test_cert", {
- *     namePrefix: "example-cert",
- *     certificateBody: std.file({
- *         input: "self-ca-cert.pem",
- *     }).then(invoke => invoke.result),
- *     privateKey: std.file({
- *         input: "test-key.pem",
- *     }).then(invoke => invoke.result),
- * });
- * const ourapp = new aws.elb.LoadBalancer("ourapp", {
- *     name: "asg-deployment-example",
- *     availabilityZones: ["us-west-2a"],
- *     crossZoneLoadBalancing: true,
- *     listeners: [{
- *         instancePort: 8000,
- *         instanceProtocol: "http",
- *         lbPort: 443,
- *         lbProtocol: "https",
- *         sslCertificateId: testCert.arn,
- *     }],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Using `pulumi import`, import IAM Server Certificates using the `name`. For example:

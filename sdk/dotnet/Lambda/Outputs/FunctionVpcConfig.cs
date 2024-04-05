@@ -25,6 +25,9 @@ namespace Pulumi.Aws.Lambda.Outputs
         /// List of subnet IDs associated with the Lambda function.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// ID of the VPC.
+        /// </summary>
         public readonly string? VpcId;
 
         [OutputConstructor]

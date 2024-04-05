@@ -88,7 +88,7 @@ namespace Pulumi.Aws.SecretsManager
         public bool? ExcludeNumbers { get; set; }
 
         /// <summary>
-        /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&amp;(MISSING) ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+        /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
         /// </summary>
         [Input("excludePunctuation")]
         public bool? ExcludePunctuation { get; set; }
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.SecretsManager
         public Input<bool>? ExcludeNumbers { get; set; }
 
         /// <summary>
-        /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&amp;(MISSING) ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+        /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
         /// </summary>
         [Input("excludePunctuation")]
         public Input<bool>? ExcludePunctuation { get; set; }

@@ -31,7 +31,7 @@ public final class ClusterCoreInstanceGroup {
      */
     private @Nullable List<ClusterCoreInstanceGroupEbsConfig> ebsConfigs;
     /**
-     * @return ID of the cluster.
+     * @return Core node type Instance Group ID, if using Instance Group for this node type.
      * 
      */
     private @Nullable String id;
@@ -74,7 +74,7 @@ public final class ClusterCoreInstanceGroup {
         return this.ebsConfigs == null ? List.of() : this.ebsConfigs;
     }
     /**
-     * @return ID of the cluster.
+     * @return Core node type Instance Group ID, if using Instance Group for this node type.
      * 
      */
     public Optional<String> id() {

@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * console
  * 
- *  %!p(MISSING)ulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
+ *  % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
  * 
  */
 @ResourceType(type="aws:verifiedpermissions/policyStore:PolicyStore")

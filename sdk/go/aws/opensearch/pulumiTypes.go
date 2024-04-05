@@ -3543,12 +3543,14 @@ func (o DomainSoftwareUpdateOptionsPtrOutput) AutoSoftwareUpdateEnabled() pulumi
 }
 
 type DomainVpcOptions struct {
+	// If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// List of VPC Security Group IDs to be applied to the OpenSearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// List of VPC Subnet IDs for the OpenSearch domain endpoints to be created in.
 	SubnetIds []string `pulumi:"subnetIds"`
-	VpcId     *string  `pulumi:"vpcId"`
+	// If the domain was created inside a VPC, the ID of the VPC.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // DomainVpcOptionsInput is an input type that accepts DomainVpcOptionsArgs and DomainVpcOptionsOutput values.
@@ -3563,12 +3565,14 @@ type DomainVpcOptionsInput interface {
 }
 
 type DomainVpcOptionsArgs struct {
+	// If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
 	// List of VPC Security Group IDs to be applied to the OpenSearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// List of VPC Subnet IDs for the OpenSearch domain endpoints to be created in.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId     pulumi.StringPtrInput   `pulumi:"vpcId"`
+	// If the domain was created inside a VPC, the ID of the VPC.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (DomainVpcOptionsArgs) ElementType() reflect.Type {
@@ -3648,6 +3652,7 @@ func (o DomainVpcOptionsOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx conte
 	}).(DomainVpcOptionsPtrOutput)
 }
 
+// If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 func (o DomainVpcOptionsOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainVpcOptions) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
@@ -3662,6 +3667,7 @@ func (o DomainVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// If the domain was created inside a VPC, the ID of the VPC.
 func (o DomainVpcOptionsOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainVpcOptions) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -3690,6 +3696,7 @@ func (o DomainVpcOptionsPtrOutput) Elem() DomainVpcOptionsOutput {
 	}).(DomainVpcOptionsOutput)
 }
 
+// If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 func (o DomainVpcOptionsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainVpcOptions) []string {
 		if v == nil {
@@ -3719,6 +3726,7 @@ func (o DomainVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// If the domain was created inside a VPC, the ID of the VPC.
 func (o DomainVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainVpcOptions) *string {
 		if v == nil {

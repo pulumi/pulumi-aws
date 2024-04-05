@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * console
  *
- *  %!p(MISSING)ulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
+ *  % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
  */
 export class PolicyStore extends pulumi.CustomResource {
     /**
