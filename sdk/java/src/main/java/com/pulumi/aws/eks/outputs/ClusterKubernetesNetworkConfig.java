@@ -27,6 +27,10 @@ public final class ClusterKubernetesNetworkConfig {
      * 
      */
     private @Nullable String serviceIpv4Cidr;
+    /**
+     * @return The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
+     * 
+     */
     private @Nullable String serviceIpv6Cidr;
 
     private ClusterKubernetesNetworkConfig() {}
@@ -50,6 +54,10 @@ public final class ClusterKubernetesNetworkConfig {
     public Optional<String> serviceIpv4Cidr() {
         return Optional.ofNullable(this.serviceIpv4Cidr);
     }
+    /**
+     * @return The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
+     * 
+     */
     public Optional<String> serviceIpv6Cidr() {
         return Optional.ofNullable(this.serviceIpv6Cidr);
     }

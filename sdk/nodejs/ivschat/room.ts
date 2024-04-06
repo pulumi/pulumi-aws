@@ -23,32 +23,6 @@ import * as utilities from "../utilities";
  * ```
  * <!--End PulumiCodeChooser -->
  *
- * ## Usage with Logging Configuration to S3 Bucket
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.BucketV2("example", {
- *     bucketPrefix: "tf-ivschat-logging-bucket-",
- *     forceDestroy: true,
- * });
- * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("example", {
- *     name: "tf-ivschat-loggingconfiguration",
- *     destinationConfiguration: {
- *         s3: {
- *             bucketName: example.id,
- *         },
- *     },
- * });
- * const exampleRoom = new aws.ivschat.Room("example", {
- *     name: "tf-ivschat-room",
- *     loggingConfigurationIdentifiers: [exampleLoggingConfiguration.arn],
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:

@@ -512,7 +512,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-     * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
      * 
      */
     @Export(name="currentVersion", refs={String.class}, tree="[0]")
@@ -520,7 +519,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-     * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
      * 
      */
     public Output<String> currentVersion() {

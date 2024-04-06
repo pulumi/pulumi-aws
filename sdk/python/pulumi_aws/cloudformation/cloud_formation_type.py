@@ -393,24 +393,6 @@ class CloudFormationType(pulumi.CustomResource):
         """
         Manages a version of a CloudFormation Type.
 
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudformation.CloudFormationType("example",
-            schema_handler_package=f"s3://{example_aws_s3_object['bucket']}/{example_aws_s3_object['key']}",
-            type="RESOURCE",
-            type_name="ExampleCompany::ExampleService::ExampleResource",
-            logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArgs(
-                log_group_name=example_aws_cloudwatch_log_group["name"],
-                log_role_arn=example_aws_iam_role["arn"],
-            ))
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
@@ -435,24 +417,6 @@ class CloudFormationType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a version of a CloudFormation Type.
-
-        ## Example Usage
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cloudformation.CloudFormationType("example",
-            schema_handler_package=f"s3://{example_aws_s3_object['bucket']}/{example_aws_s3_object['key']}",
-            type="RESOURCE",
-            type_name="ExampleCompany::ExampleService::ExampleResource",
-            logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArgs(
-                log_group_name=example_aws_cloudwatch_log_group["name"],
-                log_role_arn=example_aws_iam_role["arn"],
-            ))
-        ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

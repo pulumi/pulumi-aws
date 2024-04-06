@@ -467,7 +467,6 @@ type Function struct {
 	// ARN of the signing job.
 	SigningJobArn pulumi.StringOutput `pulumi:"signingJobArn"`
 	// ARN of the signing profile version.
-	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	SigningProfileVersionArn pulumi.StringOutput `pulumi:"signingProfileVersionArn"`
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
@@ -488,7 +487,6 @@ type Function struct {
 	// Configuration block. Detailed below.
 	TracingConfig FunctionTracingConfigOutput `pulumi:"tracingConfig"`
 	// Latest published version of your Lambda Function.
-	// * `vpc_config.vpc_id` - ID of the VPC.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// Configuration block. Detailed below.
 	VpcConfig FunctionVpcConfigPtrOutput `pulumi:"vpcConfig"`
@@ -598,7 +596,6 @@ type functionState struct {
 	// ARN of the signing job.
 	SigningJobArn *string `pulumi:"signingJobArn"`
 	// ARN of the signing profile version.
-	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	SigningProfileVersionArn *string `pulumi:"signingProfileVersionArn"`
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
@@ -619,7 +616,6 @@ type functionState struct {
 	// Configuration block. Detailed below.
 	TracingConfig *FunctionTracingConfig `pulumi:"tracingConfig"`
 	// Latest published version of your Lambda Function.
-	// * `vpc_config.vpc_id` - ID of the VPC.
 	Version *string `pulumi:"version"`
 	// Configuration block. Detailed below.
 	VpcConfig *FunctionVpcConfig `pulumi:"vpcConfig"`
@@ -697,7 +693,6 @@ type FunctionState struct {
 	// ARN of the signing job.
 	SigningJobArn pulumi.StringPtrInput
 	// ARN of the signing profile version.
-	// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	SigningProfileVersionArn pulumi.StringPtrInput
 	// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrInput
@@ -718,7 +713,6 @@ type FunctionState struct {
 	// Configuration block. Detailed below.
 	TracingConfig FunctionTracingConfigPtrInput
 	// Latest published version of your Lambda Function.
-	// * `vpc_config.vpc_id` - ID of the VPC.
 	Version pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	VpcConfig FunctionVpcConfigPtrInput
@@ -1133,7 +1127,6 @@ func (o FunctionOutput) SigningJobArn() pulumi.StringOutput {
 }
 
 // ARN of the signing profile version.
-// * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 func (o FunctionOutput) SigningProfileVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.SigningProfileVersionArn }).(pulumi.StringOutput)
 }
@@ -1181,7 +1174,6 @@ func (o FunctionOutput) TracingConfig() FunctionTracingConfigOutput {
 }
 
 // Latest published version of your Lambda Function.
-// * `vpc_config.vpc_id` - ID of the VPC.
 func (o FunctionOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

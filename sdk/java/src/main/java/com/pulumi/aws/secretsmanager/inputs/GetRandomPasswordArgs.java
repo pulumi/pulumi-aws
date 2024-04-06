@@ -63,14 +63,14 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ %!&amp;(MISSING) &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+     * Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
      * 
      */
     @Import(name="excludePunctuation")
     private @Nullable Output<Boolean> excludePunctuation;
 
     /**
-     * @return Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ %!&amp;(MISSING) &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+     * @return Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
      * 
      */
     public Optional<Output<Boolean>> excludePunctuation() {
@@ -232,7 +232,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludePunctuation Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ %!&amp;(MISSING) &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+         * @param excludePunctuation Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludePunctuation Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ %!&amp;(MISSING) &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+         * @param excludePunctuation Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
          * 
          * @return builder
          * 

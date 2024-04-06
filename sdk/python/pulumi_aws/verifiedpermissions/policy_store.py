@@ -155,7 +155,7 @@ class PolicyStore(pulumi.CustomResource):
 
         console
 
-         %!p(MISSING)ulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
+         % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,7 +190,7 @@ class PolicyStore(pulumi.CustomResource):
 
         console
 
-         %!p(MISSING)ulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
+         % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
 
         :param str resource_name: The name of the resource.
         :param PolicyStoreArgs args: The arguments to use to populate this resource's properties.

@@ -252,6 +252,7 @@ class ClusterKubernetesNetworkConfigArgs:
                * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
                
                * Between /24 and /12.
+        :param pulumi.Input[str] service_ipv6_cidr: The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         """
         if ip_family is not None:
             pulumi.set(__self__, "ip_family", ip_family)
@@ -293,6 +294,9 @@ class ClusterKubernetesNetworkConfigArgs:
     @property
     @pulumi.getter(name="serviceIpv6Cidr")
     def service_ipv6_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+        """
         return pulumi.get(self, "service_ipv6_cidr")
 
     @service_ipv6_cidr.setter

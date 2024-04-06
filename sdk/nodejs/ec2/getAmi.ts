@@ -237,8 +237,6 @@ export interface GetAmiResult {
     readonly state: string;
     /**
      * Describes a state change. Fields are `UNSET` if not available.
-     * * `state_reason.code` - The reason code for the state change.
-     * * `state_reason.message` - The message for the state change.
      */
     readonly stateReason: {[key: string]: string};
     /**

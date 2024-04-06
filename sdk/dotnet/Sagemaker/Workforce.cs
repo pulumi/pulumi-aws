@@ -125,7 +125,6 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// The subdomain for your OIDC Identity Provider.
-        /// * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
         /// </summary>
         [Output("subdomain")]
         public Output<string> Subdomain { get; private set; } = null!;
@@ -252,7 +251,6 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// The subdomain for your OIDC Identity Provider.
-        /// * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
         /// </summary>
         [Input("subdomain")]
         public Input<string>? Subdomain { get; set; }

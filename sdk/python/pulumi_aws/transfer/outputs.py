@@ -639,6 +639,13 @@ class UserHomeDirectoryMapping(dict):
         :param str target: Represents the map target.
                
                The `Restricted` option is achieved using the following mapping:
+               
+               ```
+               home_directory_mappings {
+               entry  = "/"
+               target = "/${aws_s3_bucket.foo.id}/$${Transfer:UserName}"
+               }
+               ```
         """
         pulumi.set(__self__, "entry", entry)
         pulumi.set(__self__, "target", target)
@@ -658,6 +665,13 @@ class UserHomeDirectoryMapping(dict):
         Represents the map target.
 
         The `Restricted` option is achieved using the following mapping:
+
+        ```
+        home_directory_mappings {
+        entry  = "/"
+        target = "/${aws_s3_bucket.foo.id}/$${Transfer:UserName}"
+        }
+        ```
         """
         return pulumi.get(self, "target")
 

@@ -409,8 +409,6 @@ class GetAmiResult:
     def state_reason(self) -> Mapping[str, str]:
         """
         Describes a state change. Fields are `UNSET` if not available.
-        * `state_reason.code` - The reason code for the state change.
-        * `state_reason.message` - The message for the state change.
         """
         return pulumi.get(self, "state_reason")
 

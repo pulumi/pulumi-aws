@@ -12,18 +12,33 @@ namespace Pulumi.Aws.CloudHsmV2.Inputs
 
     public sealed class ClusterClusterCertificateGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The HSM hardware certificate issued (signed) by AWS CloudHSM.
+        /// </summary>
         [Input("awsHardwareCertificate")]
         public Input<string>? AwsHardwareCertificate { get; set; }
 
+        /// <summary>
+        /// The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+        /// </summary>
         [Input("clusterCertificate")]
         public Input<string>? ClusterCertificate { get; set; }
 
+        /// <summary>
+        /// The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+        /// </summary>
         [Input("clusterCsr")]
         public Input<string>? ClusterCsr { get; set; }
 
+        /// <summary>
+        /// The HSM certificate issued (signed) by the HSM hardware.
+        /// </summary>
         [Input("hsmCertificate")]
         public Input<string>? HsmCertificate { get; set; }
 
+        /// <summary>
+        /// The HSM hardware certificate issued (signed) by the hardware manufacturer.
+        /// </summary>
         [Input("manufacturerHardwareCertificate")]
         public Input<string>? ManufacturerHardwareCertificate { get; set; }
 

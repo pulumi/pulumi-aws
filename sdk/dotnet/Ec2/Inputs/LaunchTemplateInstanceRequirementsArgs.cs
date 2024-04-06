@@ -23,6 +23,14 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// List of accelerator manufacturer names. Default is any manufacturer.
+        /// 
+        /// ```
+        /// Valid names:
+        /// * amazon-web-services
+        /// * amd
+        /// * nvidia
+        /// * xilinx
+        /// ```
         /// </summary>
         public InputList<string> AcceleratorManufacturers
         {
@@ -35,6 +43,17 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// List of accelerator names. Default is any acclerator.
+        /// 
+        /// ```
+        /// Valid names:
+        /// * a100            - NVIDIA A100 GPUs
+        /// * v100            - NVIDIA V100 GPUs
+        /// * k80             - NVIDIA K80 GPUs
+        /// * t4              - NVIDIA T4 GPUs
+        /// * m60             - NVIDIA M60 GPUs
+        /// * radeon-pro-v520 - AMD Radeon Pro V520 GPUs
+        /// * vu9p            - Xilinx VU9P FPGAs
+        /// ```
         /// </summary>
         public InputList<string> AcceleratorNames
         {
@@ -53,6 +72,13 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// List of accelerator types. Default is any accelerator type.
+        /// 
+        /// ```
+        /// Valid types:
+        /// * fpga
+        /// * gpu
+        /// * inference
+        /// ```
         /// </summary>
         public InputList<string> AcceleratorTypes
         {
@@ -99,6 +125,13 @@ namespace Pulumi.Aws.Ec2.Inputs
         /// List of CPU manufacturer names. Default is any manufacturer.
         /// 
         /// &gt; **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+        /// 
+        /// ```
+        /// Valid names:
+        /// * amazon-web-services
+        /// * amd
+        /// * intel
+        /// ```
         /// </summary>
         public InputList<string> CpuManufacturers
         {
@@ -125,6 +158,12 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// List of instance generation names. Default is any generation.
+        /// 
+        /// ```
+        /// Valid names:
+        /// * current  - Recommended for best performance.
+        /// * previous - For existing applications optimized for older instance types.
+        /// ```
         /// </summary>
         public InputList<string> InstanceGenerations
         {
@@ -143,6 +182,12 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// List of local storage type names. Default any storage type.
+        /// 
+        /// ```
+        /// Value names:
+        /// * hdd - hard disk drive
+        /// * ssd - solid state drive
+        /// ```
         /// </summary>
         public InputList<string> LocalStorageTypes
         {

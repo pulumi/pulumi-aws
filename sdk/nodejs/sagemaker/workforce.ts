@@ -116,7 +116,6 @@ export class Workforce extends pulumi.CustomResource {
     public readonly sourceIpConfig!: pulumi.Output<outputs.sagemaker.WorkforceSourceIpConfig>;
     /**
      * The subdomain for your OIDC Identity Provider.
-     * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      */
     public /*out*/ readonly subdomain!: pulumi.Output<string>;
     /**
@@ -188,7 +187,6 @@ export interface WorkforceState {
     sourceIpConfig?: pulumi.Input<inputs.sagemaker.WorkforceSourceIpConfig>;
     /**
      * The subdomain for your OIDC Identity Provider.
-     * * `workforce_vpc_config.0.vpc_endpoint_id` - The IDs for the VPC service endpoints of your VPC workforce.
      */
     subdomain?: pulumi.Input<string>;
     /**

@@ -188,24 +188,6 @@ import {Function} from "./index";
  * ```
  * <!--End PulumiCodeChooser -->
  *
- * ### With `replaceTriggeredBy` Lifecycle Configuration
- *
- * If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const logging = new aws.lambda.Permission("logging", {
- *     action: "lambda:InvokeFunction",
- *     "function": example.functionName,
- *     principal: "events.amazonaws.com",
- *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For example:

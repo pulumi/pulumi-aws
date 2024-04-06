@@ -38,7 +38,7 @@ class DocumentClassifierInputDataConfigArgs:
         :param pulumi.Input[str] data_format: The format for the training data.
                One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
         :param pulumi.Input[str] label_delimiter: Delimiter between labels when training a multi-label classifier.
-               Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+               Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
                Default is `|`.
         :param pulumi.Input[str] s3_uri: Location of training documents.
                Used if `data_format` is `COMPREHEND_CSV`.
@@ -86,7 +86,7 @@ class DocumentClassifierInputDataConfigArgs:
     def label_delimiter(self) -> Optional[pulumi.Input[str]]:
         """
         Delimiter between labels when training a multi-label classifier.
-        Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+        Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
         Default is `|`.
         """
         return pulumi.get(self, "label_delimiter")

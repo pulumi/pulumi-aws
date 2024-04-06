@@ -369,7 +369,6 @@ namespace Pulumi.Aws.Msk
 
         /// <summary>
         /// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-        /// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         /// </summary>
         [Output("currentVersion")]
         public Output<string> CurrentVersion { get; private set; } = null!;
@@ -670,7 +669,6 @@ namespace Pulumi.Aws.Msk
 
         /// <summary>
         /// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-        /// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         /// </summary>
         [Input("currentVersion")]
         public Input<string>? CurrentVersion { get; set; }

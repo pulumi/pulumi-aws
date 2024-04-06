@@ -260,7 +260,6 @@ class _ClusterState:
         :param pulumi.Input[str] cluster_uuid: UUID of the MSK cluster, for use in IAM policies.
         :param pulumi.Input['ClusterConfigurationInfoArgs'] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
         :param pulumi.Input[str] current_version: Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-               * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         :param pulumi.Input['ClusterEncryptionInfoArgs'] encryption_info: Configuration block for specifying encryption. See below.
         :param pulumi.Input[str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         :param pulumi.Input[str] kafka_version: Specify the desired Kafka software version.
@@ -530,7 +529,6 @@ class _ClusterState:
     def current_version(self) -> Optional[pulumi.Input[str]]:
         """
         Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-        * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         """
         return pulumi.get(self, "current_version")
 
@@ -1149,7 +1147,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_uuid: UUID of the MSK cluster, for use in IAM policies.
         :param pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
         :param pulumi.Input[str] current_version: Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-               * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         :param pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']] encryption_info: Configuration block for specifying encryption. See below.
         :param pulumi.Input[str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         :param pulumi.Input[str] kafka_version: Specify the desired Kafka software version.
@@ -1329,7 +1326,6 @@ class Cluster(pulumi.CustomResource):
     def current_version(self) -> pulumi.Output[str]:
         """
         Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-        * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         """
         return pulumi.get(self, "current_version")
 

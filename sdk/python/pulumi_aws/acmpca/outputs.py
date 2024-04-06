@@ -492,12 +492,18 @@ class GetCertificateAuthorityRevocationConfigurationResult(dict):
     def __init__(__self__, *,
                  crl_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult'],
                  ocsp_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult']):
+        """
+        :param Sequence['GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs'] crl_configurations: Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+        """
         pulumi.set(__self__, "crl_configurations", crl_configurations)
         pulumi.set(__self__, "ocsp_configurations", ocsp_configurations)
 
     @property
     @pulumi.getter(name="crlConfigurations")
     def crl_configurations(self) -> Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult']:
+        """
+        Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+        """
         return pulumi.get(self, "crl_configurations")
 
     @property

@@ -62,41 +62,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Create Certificate
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.acm.Certificate;
- * import com.pulumi.aws.acm.CertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
- *             .domainName(&#34;example.com&#34;)
- *             .validationMethod(&#34;DNS&#34;)
- *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ### Custom Domain Validation Options
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

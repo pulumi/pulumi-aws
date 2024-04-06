@@ -50,31 +50,6 @@ namespace Pulumi.Aws.Acm
     /// 
     /// ## Example Usage
     /// 
-    /// ### Create Certificate
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cert = new Aws.Acm.Certificate("cert", new()
-    ///     {
-    ///         DomainName = "example.com",
-    ///         ValidationMethod = "DNS",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ### Custom Domain Validation Options
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;

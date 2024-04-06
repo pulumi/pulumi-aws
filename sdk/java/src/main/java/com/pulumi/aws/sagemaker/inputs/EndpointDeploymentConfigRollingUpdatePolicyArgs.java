@@ -19,14 +19,14 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs extends com.p
     public static final EndpointDeploymentConfigRollingUpdatePolicyArgs Empty = new EndpointDeploymentConfigRollingUpdatePolicyArgs();
 
     /**
-     * Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5%!t(MISSING)o 50%!o(MISSING)f the variant&#39;s total instance count. See Maximum Batch Size.
+     * Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
      * 
      */
     @Import(name="maximumBatchSize", required=true)
     private Output<EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs> maximumBatchSize;
 
     /**
-     * @return Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5%!t(MISSING)o 50%!o(MISSING)f the variant&#39;s total instance count. See Maximum Batch Size.
+     * @return Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
      * 
      */
     public Output<EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs> maximumBatchSize() {
@@ -49,14 +49,14 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs extends com.p
     }
 
     /**
-     * Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100%!o(MISSING)f total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+     * Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
      * 
      */
     @Import(name="rollbackMaximumBatchSize")
     private @Nullable Output<EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs> rollbackMaximumBatchSize;
 
     /**
-     * @return Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100%!o(MISSING)f total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+     * @return Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
      * 
      */
     public Optional<Output<EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs>> rollbackMaximumBatchSize() {
@@ -106,7 +106,7 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs extends com.p
         }
 
         /**
-         * @param maximumBatchSize Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5%!t(MISSING)o 50%!o(MISSING)f the variant&#39;s total instance count. See Maximum Batch Size.
+         * @param maximumBatchSize Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs extends com.p
         }
 
         /**
-         * @param maximumBatchSize Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5%!t(MISSING)o 50%!o(MISSING)f the variant&#39;s total instance count. See Maximum Batch Size.
+         * @param maximumBatchSize Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs extends com.p
         }
 
         /**
-         * @param rollbackMaximumBatchSize Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100%!o(MISSING)f total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+         * @param rollbackMaximumBatchSize Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs extends com.p
         }
 
         /**
-         * @param rollbackMaximumBatchSize Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100%!o(MISSING)f total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+         * @param rollbackMaximumBatchSize Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
          * 
          * @return builder
          * 
