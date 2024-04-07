@@ -648,7 +648,6 @@ class _FunctionState:
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[str] signing_job_arn: ARN of the signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN of the signing profile version.
-               * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
@@ -658,7 +657,6 @@ class _FunctionState:
         :param pulumi.Input[int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
         :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Configuration block. Detailed below.
         :param pulumi.Input[str] version: Latest published version of your Lambda Function.
-               * `vpc_config.vpc_id` - ID of the VPC.
         :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
         if architectures is not None:
@@ -1154,7 +1152,6 @@ class _FunctionState:
     def signing_profile_version_arn(self) -> Optional[pulumi.Input[str]]:
         """
         ARN of the signing profile version.
-        * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         """
         return pulumi.get(self, "signing_profile_version_arn")
 
@@ -1266,7 +1263,6 @@ class _FunctionState:
     def version(self) -> Optional[pulumi.Input[str]]:
         """
         Latest published version of your Lambda Function.
-        * `vpc_config.vpc_id` - ID of the VPC.
         """
         return pulumi.get(self, "version")
 
@@ -1985,7 +1981,6 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename` and `image_uri`.
         :param pulumi.Input[str] signing_job_arn: ARN of the signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN of the signing profile version.
-               * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
         :param pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']] snap_start: Snap start settings block. Detailed below.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
@@ -1995,7 +1990,6 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
         :param pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']] tracing_config: Configuration block. Detailed below.
         :param pulumi.Input[str] version: Latest published version of your Lambda Function.
-               * `vpc_config.vpc_id` - ID of the VPC.
         :param pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -2316,7 +2310,6 @@ class Function(pulumi.CustomResource):
     def signing_profile_version_arn(self) -> pulumi.Output[str]:
         """
         ARN of the signing profile version.
-        * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         """
         return pulumi.get(self, "signing_profile_version_arn")
 
@@ -2392,7 +2385,6 @@ class Function(pulumi.CustomResource):
     def version(self) -> pulumi.Output[str]:
         """
         Latest published version of your Lambda Function.
-        * `vpc_config.vpc_id` - ID of the VPC.
         """
         return pulumi.get(self, "version")
 

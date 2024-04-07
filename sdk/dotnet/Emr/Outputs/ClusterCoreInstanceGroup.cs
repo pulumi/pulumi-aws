@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterCoreInstanceGroupEbsConfig> EbsConfigs;
         /// <summary>
-        /// ID of the cluster.
+        /// Core node type Instance Group ID, if using Instance Group for this node type.
         /// </summary>
         public readonly string? Id;
         /// <summary>

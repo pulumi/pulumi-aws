@@ -294,8 +294,6 @@ export class Domain extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
-     * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -452,8 +450,6 @@ export interface DomainState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
-     * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
      *
      * @deprecated Please use `tags` instead.
      */

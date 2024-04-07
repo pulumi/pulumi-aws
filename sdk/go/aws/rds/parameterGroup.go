@@ -68,54 +68,6 @@ import (
 // ```
 // <!--End PulumiCodeChooser -->
 //
-// ### `createBeforeDestroy` Lifecycle Configuration
-//
-// The `createBeforeDestroy`
-// lifecycle configuration is necessary for modifications that force re-creation of an existing,
-// in-use parameter group. This includes common situations like changing the group `name` or
-// bumping the `family` version during a major version upgrade. This configuration will prevent destruction
-// of the deposed parameter group while still in use by the database during upgrade.
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := rds.NewParameterGroup(ctx, "example", &rds.ParameterGroupArgs{
-//				Name:   pulumi.String("my-pg"),
-//				Family: pulumi.String("postgres13"),
-//				Parameters: rds.ParameterGroupParameterArray{
-//					&rds.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("log_connections"),
-//						Value: pulumi.String("1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewInstance(ctx, "example", &rds.InstanceArgs{
-//				ParameterGroupName: example.Name,
-//				ApplyImmediately:   pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ## Import
 //
 // Using `pulumi import`, import DB Parameter groups using the `name`. For example:

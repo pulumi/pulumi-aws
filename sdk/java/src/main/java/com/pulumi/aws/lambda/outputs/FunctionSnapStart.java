@@ -17,6 +17,10 @@ public final class FunctionSnapStart {
      * 
      */
     private String applyOn;
+    /**
+     * @return Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+     * 
+     */
     private @Nullable String optimizationStatus;
 
     private FunctionSnapStart() {}
@@ -27,6 +31,10 @@ public final class FunctionSnapStart {
     public String applyOn() {
         return this.applyOn;
     }
+    /**
+     * @return Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+     * 
+     */
     public Optional<String> optimizationStatus() {
         return Optional.ofNullable(this.optimizationStatus);
     }

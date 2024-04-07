@@ -914,9 +914,35 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
         """
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
+               
+               ```
+               Valid names:
+               * amazon-web-services
+               * amd
+               * nvidia
+               * xilinx
+               ```
         :param Sequence[str] accelerator_names: List of accelerator names. Default is any acclerator.
+               
+               ```
+               Valid names:
+               * a100            - NVIDIA A100 GPUs
+               * v100            - NVIDIA V100 GPUs
+               * k80             - NVIDIA K80 GPUs
+               * t4              - NVIDIA T4 GPUs
+               * m60             - NVIDIA M60 GPUs
+               * radeon-pro-v520 - AMD Radeon Pro V520 GPUs
+               * vu9p            - Xilinx VU9P FPGAs
+               ```
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: List of accelerator types. Default is any accelerator type.
+               
+               ```
+               Valid types:
+               * fpga
+               * gpu
+               * inference
+               ```
         :param Sequence[str] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
@@ -926,12 +952,31 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
         :param Sequence[str] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
                > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+               
+               ```
+               Valid names:
+               * amazon-web-services
+               * amd
+               * intel
+               ```
         :param Sequence[str] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
                
                > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param Sequence[str] instance_generations: List of instance generation names. Default is any generation.
+               
+               ```
+               Valid names:
+               * current  - Recommended for best performance.
+               * previous - For existing applications optimized for older instance types.
+               ```
         :param str local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param Sequence[str] local_storage_types: List of local storage type names. Default any storage type.
+               
+               ```
+               Value names:
+               * hdd - hard disk drive
+               * ssd - solid state drive
+               ```
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs' memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
@@ -1006,6 +1051,14 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def accelerator_manufacturers(self) -> Optional[Sequence[str]]:
         """
         List of accelerator manufacturer names. Default is any manufacturer.
+
+        ```
+        Valid names:
+        * amazon-web-services
+        * amd
+        * nvidia
+        * xilinx
+        ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
 
@@ -1014,6 +1067,17 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def accelerator_names(self) -> Optional[Sequence[str]]:
         """
         List of accelerator names. Default is any acclerator.
+
+        ```
+        Valid names:
+        * a100            - NVIDIA A100 GPUs
+        * v100            - NVIDIA V100 GPUs
+        * k80             - NVIDIA K80 GPUs
+        * t4              - NVIDIA T4 GPUs
+        * m60             - NVIDIA M60 GPUs
+        * radeon-pro-v520 - AMD Radeon Pro V520 GPUs
+        * vu9p            - Xilinx VU9P FPGAs
+        ```
         """
         return pulumi.get(self, "accelerator_names")
 
@@ -1030,6 +1094,13 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def accelerator_types(self) -> Optional[Sequence[str]]:
         """
         List of accelerator types. Default is any accelerator type.
+
+        ```
+        Valid types:
+        * fpga
+        * gpu
+        * inference
+        ```
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -1074,6 +1145,13 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
         List of CPU manufacturer names. Default is any manufacturer.
 
         > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+
+        ```
+        Valid names:
+        * amazon-web-services
+        * amd
+        * intel
+        ```
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -1092,6 +1170,12 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def instance_generations(self) -> Optional[Sequence[str]]:
         """
         List of instance generation names. Default is any generation.
+
+        ```
+        Valid names:
+        * current  - Recommended for best performance.
+        * previous - For existing applications optimized for older instance types.
+        ```
         """
         return pulumi.get(self, "instance_generations")
 
@@ -1108,6 +1192,12 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def local_storage_types(self) -> Optional[Sequence[str]]:
         """
         List of local storage type names. Default any storage type.
+
+        ```
+        Value names:
+        * hdd - hard disk drive
+        * ssd - solid state drive
+        ```
         """
         return pulumi.get(self, "local_storage_types")
 
@@ -2886,7 +2976,7 @@ class PolicyStepAdjustment(dict):
                Without a value, AWS will treat this bound as positive infinity. The upper bound
                must be greater than the lower bound.
                
-               Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+               Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
                
                The following arguments are only available to "TargetTrackingScaling" type policies:
         """
@@ -2925,7 +3015,7 @@ class PolicyStepAdjustment(dict):
         Without a value, AWS will treat this bound as positive infinity. The upper bound
         must be greater than the lower bound.
 
-        Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+        Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
 
         The following arguments are only available to "TargetTrackingScaling" type policies:
         """

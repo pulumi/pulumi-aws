@@ -54,7 +54,7 @@ export interface GetRandomPasswordArgs {
      */
     excludeNumbers?: boolean;
     /**
-     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&(MISSING) ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
+     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
      */
     excludePunctuation?: boolean;
     /**
@@ -134,7 +134,7 @@ export interface GetRandomPasswordOutputArgs {
      */
     excludeNumbers?: pulumi.Input<boolean>;
     /**
-     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&(MISSING) ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
+     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
      */
     excludePunctuation?: pulumi.Input<boolean>;
     /**

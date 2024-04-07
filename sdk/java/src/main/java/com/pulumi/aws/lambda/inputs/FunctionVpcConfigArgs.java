@@ -63,9 +63,17 @@ public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceAr
         return this.subnetIds;
     }
 
+    /**
+     * ID of the VPC.
+     * 
+     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
+    /**
+     * @return ID of the VPC.
+     * 
+     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -180,11 +188,23 @@ public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceAr
             return subnetIds(List.of(subnetIds));
         }
 
+        /**
+         * @param vpcId ID of the VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
+        /**
+         * @param vpcId ID of the VPC.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

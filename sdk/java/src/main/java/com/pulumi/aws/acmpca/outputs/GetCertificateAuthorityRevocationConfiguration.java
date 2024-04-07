@@ -12,10 +12,18 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCertificateAuthorityRevocationConfiguration {
+    /**
+     * @return Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+     * 
+     */
     private List<GetCertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfigurations;
     private List<GetCertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfigurations;
 
     private GetCertificateAuthorityRevocationConfiguration() {}
+    /**
+     * @return Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+     * 
+     */
     public List<GetCertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfigurations() {
         return this.crlConfigurations;
     }

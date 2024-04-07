@@ -14,6 +14,10 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
     {
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
+
+        /// <summary>
+        /// If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+        /// </summary>
         public InputList<string> AvailabilityZones
         {
             get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
@@ -44,6 +48,9 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
             set => _subnetIds = value;
         }
 
+        /// <summary>
+        /// If the domain was created inside a VPC, the ID of the VPC.
+        /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 

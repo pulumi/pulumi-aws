@@ -49,34 +49,6 @@ import * as utilities from "../utilities";
  * ```
  * <!--End PulumiCodeChooser -->
  *
- * ### `createBeforeDestroy` Lifecycle Configuration
- *
- * The `createBeforeDestroy`
- * lifecycle configuration is necessary for modifications that force re-creation of an existing,
- * in-use parameter group. This includes common situations like changing the group `name` or
- * bumping the `family` version during a major version upgrade. This configuration will prevent destruction
- * of the deposed parameter group while still in use by the database during upgrade.
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.ParameterGroup("example", {
- *     name: "my-pg",
- *     family: "postgres13",
- *     parameters: [{
- *         name: "log_connections",
- *         value: "1",
- *     }],
- * });
- * const exampleInstance = new aws.rds.Instance("example", {
- *     parameterGroupName: example.name,
- *     applyImmediately: true,
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
  * ## Import
  *
  * Using `pulumi import`, import DB Parameter groups using the `name`. For example:

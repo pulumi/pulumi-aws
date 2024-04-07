@@ -109,8 +109,6 @@ namespace Pulumi.Aws.Efs
     {
         /// <summary>
         /// When the replication configuration was created.
-        /// * `destination[0].file_system_id` - The fs ID of the replica.
-        /// * `destination[0].status` - The status of the replication.
         /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
@@ -213,8 +211,6 @@ namespace Pulumi.Aws.Efs
     {
         /// <summary>
         /// When the replication configuration was created.
-        /// * `destination[0].file_system_id` - The fs ID of the replica.
-        /// * `destination[0].status` - The status of the replication.
         /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }

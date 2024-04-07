@@ -21,6 +21,13 @@ class ClusterClusterCertificateArgs:
                  cluster_csr: Optional[pulumi.Input[str]] = None,
                  hsm_certificate: Optional[pulumi.Input[str]] = None,
                  manufacturer_hardware_certificate: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] aws_hardware_certificate: The HSM hardware certificate issued (signed) by AWS CloudHSM.
+        :param pulumi.Input[str] cluster_certificate: The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+        :param pulumi.Input[str] cluster_csr: The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+        :param pulumi.Input[str] hsm_certificate: The HSM certificate issued (signed) by the HSM hardware.
+        :param pulumi.Input[str] manufacturer_hardware_certificate: The HSM hardware certificate issued (signed) by the hardware manufacturer.
+        """
         if aws_hardware_certificate is not None:
             pulumi.set(__self__, "aws_hardware_certificate", aws_hardware_certificate)
         if cluster_certificate is not None:
@@ -35,6 +42,9 @@ class ClusterClusterCertificateArgs:
     @property
     @pulumi.getter(name="awsHardwareCertificate")
     def aws_hardware_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HSM hardware certificate issued (signed) by AWS CloudHSM.
+        """
         return pulumi.get(self, "aws_hardware_certificate")
 
     @aws_hardware_certificate.setter
@@ -44,6 +54,9 @@ class ClusterClusterCertificateArgs:
     @property
     @pulumi.getter(name="clusterCertificate")
     def cluster_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+        """
         return pulumi.get(self, "cluster_certificate")
 
     @cluster_certificate.setter
@@ -53,6 +66,9 @@ class ClusterClusterCertificateArgs:
     @property
     @pulumi.getter(name="clusterCsr")
     def cluster_csr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+        """
         return pulumi.get(self, "cluster_csr")
 
     @cluster_csr.setter
@@ -62,6 +78,9 @@ class ClusterClusterCertificateArgs:
     @property
     @pulumi.getter(name="hsmCertificate")
     def hsm_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HSM certificate issued (signed) by the HSM hardware.
+        """
         return pulumi.get(self, "hsm_certificate")
 
     @hsm_certificate.setter
@@ -71,6 +90,9 @@ class ClusterClusterCertificateArgs:
     @property
     @pulumi.getter(name="manufacturerHardwareCertificate")
     def manufacturer_hardware_certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HSM hardware certificate issued (signed) by the hardware manufacturer.
+        """
         return pulumi.get(self, "manufacturer_hardware_certificate")
 
     @manufacturer_hardware_certificate.setter

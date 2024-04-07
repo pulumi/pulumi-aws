@@ -3135,7 +3135,8 @@ func (o FunctionLoggingConfigPtrOutput) SystemLogLevel() pulumi.StringPtrOutput 
 
 type FunctionSnapStart struct {
 	// Conditions where snap start is enabled. Valid values are `PublishedVersions`.
-	ApplyOn            string  `pulumi:"applyOn"`
+	ApplyOn string `pulumi:"applyOn"`
+	// Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	OptimizationStatus *string `pulumi:"optimizationStatus"`
 }
 
@@ -3152,7 +3153,8 @@ type FunctionSnapStartInput interface {
 
 type FunctionSnapStartArgs struct {
 	// Conditions where snap start is enabled. Valid values are `PublishedVersions`.
-	ApplyOn            pulumi.StringInput    `pulumi:"applyOn"`
+	ApplyOn pulumi.StringInput `pulumi:"applyOn"`
+	// Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	OptimizationStatus pulumi.StringPtrInput `pulumi:"optimizationStatus"`
 }
 
@@ -3238,6 +3240,7 @@ func (o FunctionSnapStartOutput) ApplyOn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionSnapStart) string { return v.ApplyOn }).(pulumi.StringOutput)
 }
 
+// Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 func (o FunctionSnapStartOutput) OptimizationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionSnapStart) *string { return v.OptimizationStatus }).(pulumi.StringPtrOutput)
 }
@@ -3276,6 +3279,7 @@ func (o FunctionSnapStartPtrOutput) ApplyOn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 func (o FunctionSnapStartPtrOutput) OptimizationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionSnapStart) *string {
 		if v == nil {
@@ -3661,7 +3665,8 @@ type FunctionVpcConfig struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// List of subnet IDs associated with the Lambda function.
 	SubnetIds []string `pulumi:"subnetIds"`
-	VpcId     *string  `pulumi:"vpcId"`
+	// ID of the VPC.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // FunctionVpcConfigInput is an input type that accepts FunctionVpcConfigArgs and FunctionVpcConfigOutput values.
@@ -3682,7 +3687,8 @@ type FunctionVpcConfigArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// List of subnet IDs associated with the Lambda function.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId     pulumi.StringPtrInput   `pulumi:"vpcId"`
+	// ID of the VPC.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (FunctionVpcConfigArgs) ElementType() reflect.Type {
@@ -3777,6 +3783,7 @@ func (o FunctionVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// ID of the VPC.
 func (o FunctionVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -3835,6 +3842,7 @@ func (o FunctionVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// ID of the VPC.
 func (o FunctionVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionVpcConfig) *string {
 		if v == nil {

@@ -401,7 +401,6 @@ export class Function extends pulumi.CustomResource {
     public /*out*/ readonly signingJobArn!: pulumi.Output<string>;
     /**
      * ARN of the signing profile version.
-     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      */
     public /*out*/ readonly signingProfileVersionArn!: pulumi.Output<string>;
     /**
@@ -440,7 +439,6 @@ export class Function extends pulumi.CustomResource {
     public readonly tracingConfig!: pulumi.Output<outputs.lambda.FunctionTracingConfig>;
     /**
      * Latest published version of your Lambda Function.
-     * * `vpc_config.vpc_id` - ID of the VPC.
      */
     public /*out*/ readonly version!: pulumi.Output<string>;
     /**
@@ -698,7 +696,6 @@ export interface FunctionState {
     signingJobArn?: pulumi.Input<string>;
     /**
      * ARN of the signing profile version.
-     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      */
     signingProfileVersionArn?: pulumi.Input<string>;
     /**
@@ -737,7 +734,6 @@ export interface FunctionState {
     tracingConfig?: pulumi.Input<inputs.lambda.FunctionTracingConfig>;
     /**
      * Latest published version of your Lambda Function.
-     * * `vpc_config.vpc_id` - ID of the VPC.
      */
     version?: pulumi.Input<string>;
     /**

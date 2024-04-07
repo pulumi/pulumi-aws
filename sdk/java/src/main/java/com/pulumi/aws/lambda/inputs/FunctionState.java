@@ -533,7 +533,6 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * ARN of the signing profile version.
-     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      * 
      */
     @Import(name="signingProfileVersionArn")
@@ -541,7 +540,6 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return ARN of the signing profile version.
-     * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      * 
      */
     public Optional<Output<String>> signingProfileVersionArn() {
@@ -678,7 +676,6 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Latest published version of your Lambda Function.
-     * * `vpc_config.vpc_id` - ID of the VPC.
      * 
      */
     @Import(name="version")
@@ -686,7 +683,6 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Latest published version of your Lambda Function.
-     * * `vpc_config.vpc_id` - ID of the VPC.
      * 
      */
     public Optional<Output<String>> version() {
@@ -1522,7 +1518,6 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param signingProfileVersionArn ARN of the signing profile version.
-         * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
          * 
          * @return builder
          * 
@@ -1534,7 +1529,6 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param signingProfileVersionArn ARN of the signing profile version.
-         * * `snap_start.optimization_status` - Optimization status of the snap start configuration. Valid values are `On` and `Off`.
          * 
          * @return builder
          * 
@@ -1721,7 +1715,6 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param version Latest published version of your Lambda Function.
-         * * `vpc_config.vpc_id` - ID of the VPC.
          * 
          * @return builder
          * 
@@ -1733,7 +1726,6 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param version Latest published version of your Lambda Function.
-         * * `vpc_config.vpc_id` - ID of the VPC.
          * 
          * @return builder
          * 

@@ -10,25 +10,67 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterClusterCertificate {
+    /**
+     * @return The HSM hardware certificate issued (signed) by AWS CloudHSM.
+     * 
+     */
     private String awsHardwareCertificate;
+    /**
+     * @return The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster&#39;s owner.
+     * 
+     */
     private String clusterCertificate;
+    /**
+     * @return The certificate signing request (CSR). Available only in UNINITIALIZED state.
+     * 
+     */
     private String clusterCsr;
+    /**
+     * @return The HSM certificate issued (signed) by the HSM hardware.
+     * 
+     */
     private String hsmCertificate;
+    /**
+     * @return The HSM hardware certificate issued (signed) by the hardware manufacturer.
+     * The number of available cluster certificates may vary depending on state of the cluster.
+     * 
+     */
     private String manufacturerHardwareCertificate;
 
     private GetClusterClusterCertificate() {}
+    /**
+     * @return The HSM hardware certificate issued (signed) by AWS CloudHSM.
+     * 
+     */
     public String awsHardwareCertificate() {
         return this.awsHardwareCertificate;
     }
+    /**
+     * @return The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster&#39;s owner.
+     * 
+     */
     public String clusterCertificate() {
         return this.clusterCertificate;
     }
+    /**
+     * @return The certificate signing request (CSR). Available only in UNINITIALIZED state.
+     * 
+     */
     public String clusterCsr() {
         return this.clusterCsr;
     }
+    /**
+     * @return The HSM certificate issued (signed) by the HSM hardware.
+     * 
+     */
     public String hsmCertificate() {
         return this.hsmCertificate;
     }
+    /**
+     * @return The HSM hardware certificate issued (signed) by the hardware manufacturer.
+     * The number of available cluster certificates may vary depending on state of the cluster.
+     * 
+     */
     public String manufacturerHardwareCertificate() {
         return this.manufacturerHardwareCertificate;
     }

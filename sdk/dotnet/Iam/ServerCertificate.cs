@@ -89,54 +89,6 @@ namespace Pulumi.Aws.Iam
     /// to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
     /// dependant resources before attempting to destroy the old version.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testCert = new Aws.Iam.ServerCertificate("test_cert", new()
-    ///     {
-    ///         NamePrefix = "example-cert",
-    ///         CertificateBody = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "self-ca-cert.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PrivateKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "test-key.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    ///     var ourapp = new Aws.Elb.LoadBalancer("ourapp", new()
-    ///     {
-    ///         Name = "asg-deployment-example",
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-west-2a",
-    ///         },
-    ///         CrossZoneLoadBalancing = true,
-    ///         Listeners = new[]
-    ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///             {
-    ///                 InstancePort = 8000,
-    ///                 InstanceProtocol = "http",
-    ///                 LbPort = 443,
-    ///                 LbProtocol = "https",
-    ///                 SslCertificateId = testCert.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM Server Certificates using the `name`. For example:

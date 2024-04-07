@@ -590,23 +590,6 @@ class Permission(pulumi.CustomResource):
         ```
         <!--End PulumiCodeChooser -->
 
-        ### With `replace_triggered_by` Lifecycle Configuration
-
-        If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        logging = aws.lambda_.Permission("logging",
-            action="lambda:InvokeFunction",
-            function=example["functionName"],
-            principal="events.amazonaws.com",
-            source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
-        ```
-        <!--End PulumiCodeChooser -->
-
         ## Import
 
         Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For example:
@@ -808,23 +791,6 @@ class Permission(pulumi.CustomResource):
             principal="arn:aws:iam::444455556666:role/example",
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
-        ```
-        <!--End PulumiCodeChooser -->
-
-        ### With `replace_triggered_by` Lifecycle Configuration
-
-        If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
-
-        <!--Start PulumiCodeChooser -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        logging = aws.lambda_.Permission("logging",
-            action="lambda:InvokeFunction",
-            function=example["functionName"],
-            principal="events.amazonaws.com",
-            source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
         ```
         <!--End PulumiCodeChooser -->
 

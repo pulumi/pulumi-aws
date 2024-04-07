@@ -46,9 +46,17 @@ public final class WorkforceWorkforceVpcConfigArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.subnets);
     }
 
+    /**
+     * The IDs for the VPC service endpoints of your VPC workforce.
+     * 
+     */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
+    /**
+     * @return The IDs for the VPC service endpoints of your VPC workforce.
+     * 
+     */
     public Optional<Output<String>> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
@@ -157,11 +165,23 @@ public final class WorkforceWorkforceVpcConfigArgs extends com.pulumi.resources.
             return subnets(List.of(subnets));
         }
 
+        /**
+         * @param vpcEndpointId The IDs for the VPC service endpoints of your VPC workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointId(@Nullable Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
+        /**
+         * @param vpcEndpointId The IDs for the VPC service endpoints of your VPC workforce.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }

@@ -11,25 +11,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterClusterCertificate {
+    /**
+     * @return The HSM hardware certificate issued (signed) by AWS CloudHSM.
+     * 
+     */
     private @Nullable String awsHardwareCertificate;
+    /**
+     * @return The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster&#39;s owner.
+     * 
+     */
     private @Nullable String clusterCertificate;
+    /**
+     * @return The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+     * 
+     */
     private @Nullable String clusterCsr;
+    /**
+     * @return The HSM certificate issued (signed) by the HSM hardware.
+     * 
+     */
     private @Nullable String hsmCertificate;
+    /**
+     * @return The HSM hardware certificate issued (signed) by the hardware manufacturer.
+     * 
+     */
     private @Nullable String manufacturerHardwareCertificate;
 
     private ClusterClusterCertificate() {}
+    /**
+     * @return The HSM hardware certificate issued (signed) by AWS CloudHSM.
+     * 
+     */
     public Optional<String> awsHardwareCertificate() {
         return Optional.ofNullable(this.awsHardwareCertificate);
     }
+    /**
+     * @return The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster&#39;s owner.
+     * 
+     */
     public Optional<String> clusterCertificate() {
         return Optional.ofNullable(this.clusterCertificate);
     }
+    /**
+     * @return The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+     * 
+     */
     public Optional<String> clusterCsr() {
         return Optional.ofNullable(this.clusterCsr);
     }
+    /**
+     * @return The HSM certificate issued (signed) by the HSM hardware.
+     * 
+     */
     public Optional<String> hsmCertificate() {
         return Optional.ofNullable(this.hsmCertificate);
     }
+    /**
+     * @return The HSM hardware certificate issued (signed) by the hardware manufacturer.
+     * 
+     */
     public Optional<String> manufacturerHardwareCertificate() {
         return Optional.ofNullable(this.manufacturerHardwareCertificate);
     }

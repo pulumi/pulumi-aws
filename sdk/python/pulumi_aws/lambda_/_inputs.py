@@ -699,6 +699,7 @@ class FunctionSnapStartArgs:
                  optimization_status: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] apply_on: Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+        :param pulumi.Input[str] optimization_status: Optimization status of the snap start configuration. Valid values are `On` and `Off`.
         """
         pulumi.set(__self__, "apply_on", apply_on)
         if optimization_status is not None:
@@ -719,6 +720,9 @@ class FunctionSnapStartArgs:
     @property
     @pulumi.getter(name="optimizationStatus")
     def optimization_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optimization status of the snap start configuration. Valid values are `On` and `Off`.
+        """
         return pulumi.get(self, "optimization_status")
 
     @optimization_status.setter
@@ -862,6 +866,7 @@ class FunctionVpcConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of security group IDs associated with the Lambda function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of subnet IDs associated with the Lambda function.
         :param pulumi.Input[bool] ipv6_allowed_for_dual_stack: Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+        :param pulumi.Input[str] vpc_id: ID of the VPC.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -909,6 +914,9 @@ class FunctionVpcConfigArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the VPC.
+        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
