@@ -95,14 +95,10 @@ export class NetworkAcl extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Specifies an egress rule. Parameters defined below.
-     *
-     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     public readonly egress!: pulumi.Output<outputs.ec2.NetworkAclEgress[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
-     *
-     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     public readonly ingress!: pulumi.Output<outputs.ec2.NetworkAclIngress[]>;
     /**
@@ -178,14 +174,10 @@ export interface NetworkAclState {
     arn?: pulumi.Input<string>;
     /**
      * Specifies an egress rule. Parameters defined below.
-     *
-     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
-     *
-     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
     /**
@@ -218,14 +210,10 @@ export interface NetworkAclState {
 export interface NetworkAclArgs {
     /**
      * Specifies an egress rule. Parameters defined below.
-     *
-     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
-     *
-     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
     /**

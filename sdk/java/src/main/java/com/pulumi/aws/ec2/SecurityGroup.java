@@ -393,11 +393,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
-     * @deprecated
-     * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
-     * 
      */
-    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
     @Export(name="egress", refs={List.class,SecurityGroupEgress.class}, tree="[0,1]")
     private Output<List<SecurityGroupEgress>> egress;
 
@@ -411,11 +407,7 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
-     * @deprecated
-     * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
-     * 
      */
-    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
     @Export(name="ingress", refs={List.class,SecurityGroupIngress.class}, tree="[0,1]")
     private Output<List<SecurityGroupIngress>> ingress;
 

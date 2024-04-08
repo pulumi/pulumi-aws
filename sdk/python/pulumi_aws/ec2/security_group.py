@@ -40,13 +40,7 @@ class SecurityGroupArgs:
         if description is not None:
             pulumi.set(__self__, "description", description)
         if egress is not None:
-            warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
-            pulumi.log.warn("""egress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""")
-        if egress is not None:
             pulumi.set(__self__, "egress", egress)
-        if ingress is not None:
-            warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
-            pulumi.log.warn("""ingress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""")
         if ingress is not None:
             pulumi.set(__self__, "ingress", ingress)
         if name is not None:
@@ -78,9 +72,6 @@ class SecurityGroupArgs:
         """
         Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         """
-        warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
-        pulumi.log.warn("""egress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""")
-
         return pulumi.get(self, "egress")
 
     @egress.setter
@@ -93,9 +84,6 @@ class SecurityGroupArgs:
         """
         Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         """
-        warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
-        pulumi.log.warn("""ingress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""")
-
         return pulumi.get(self, "ingress")
 
     @ingress.setter
@@ -198,13 +186,7 @@ class _SecurityGroupState:
         if description is not None:
             pulumi.set(__self__, "description", description)
         if egress is not None:
-            warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
-            pulumi.log.warn("""egress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""")
-        if egress is not None:
             pulumi.set(__self__, "egress", egress)
-        if ingress is not None:
-            warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
-            pulumi.log.warn("""ingress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""")
         if ingress is not None:
             pulumi.set(__self__, "ingress", ingress)
         if name is not None:
@@ -255,9 +237,6 @@ class _SecurityGroupState:
         """
         Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         """
-        warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
-        pulumi.log.warn("""egress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""")
-
         return pulumi.get(self, "egress")
 
     @egress.setter
@@ -270,9 +249,6 @@ class _SecurityGroupState:
         """
         Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         """
-        warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
-        pulumi.log.warn("""ingress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""")
-
         return pulumi.get(self, "ingress")
 
     @ingress.setter
@@ -884,9 +860,6 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         """
-        warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
-        pulumi.log.warn("""egress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""")
-
         return pulumi.get(self, "egress")
 
     @property
@@ -895,9 +868,6 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         """
-        warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
-        pulumi.log.warn("""ingress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.""")
-
         return pulumi.get(self, "ingress")
 
     @property
