@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Glue
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testAwsIamRolePolicyAttachment, 
+    ///             testAwsIamRolePolicyAttachment,
     ///         },
     ///     });
     /// 

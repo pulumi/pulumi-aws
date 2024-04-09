@@ -48,7 +48,7 @@ namespace Pulumi.Aws.GameLift
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsIamRolePolicyAttachment, 
+    ///             exampleAwsIamRolePolicyAttachment,
     ///         },
     ///     });
     /// 
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.GameLift
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsIamRolePolicyAttachment, 
+    ///             exampleAwsIamRolePolicyAttachment,
     ///         },
     ///     });
     /// 

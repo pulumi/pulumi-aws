@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ecs
     ///     {
     ///         DependsOn =
     ///         {
-    ///             foo, 
+    ///             foo,
     ///         },
     ///     });
     /// 

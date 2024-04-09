@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Transcribe
     ///     {
     ///         DependsOn =
     ///         {
-    ///             @object, 
+    ///             @object,
     ///         },
     ///     });
     /// 

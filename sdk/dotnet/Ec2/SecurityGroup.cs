@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleResource, 
+    ///             exampleResource,
     ///         },
     ///     });
     /// 

@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Batch
     ///     {
     ///         DependsOn =
     ///         {
-    ///             awsBatchServiceRoleRolePolicyAttachment, 
+    ///             awsBatchServiceRoleRolePolicyAttachment,
     ///         },
     ///     });
     /// 
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Batch
     ///     {
     ///         DependsOn =
     ///         {
-    ///             awsBatchServiceRole, 
+    ///             awsBatchServiceRole,
     ///         },
     ///     });
     /// 

@@ -55,7 +55,7 @@ namespace Pulumi.Aws.WafRegional
     ///     {
     ///         DependsOn =
     ///         {
-    ///             ipset, 
+    ///             ipset,
     ///         },
     ///     });
     /// 

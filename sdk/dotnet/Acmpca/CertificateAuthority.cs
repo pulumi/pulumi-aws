@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Acmpca
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketPolicy, 
+    ///             exampleBucketPolicy,
     ///         },
     ///     });
     /// 
