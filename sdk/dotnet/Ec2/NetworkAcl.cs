@@ -182,7 +182,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Specifies an egress rule. Parameters defined below.
         /// </summary>
-        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.NetworkAclEgressArgs> Egress
         {
             get => _egress ?? (_egress = new InputList<Inputs.NetworkAclEgressArgs>());
@@ -195,7 +194,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Specifies an ingress rule. Parameters defined below.
         /// </summary>
-        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.NetworkAclIngressArgs> Ingress
         {
             get => _ingress ?? (_ingress = new InputList<Inputs.NetworkAclIngressArgs>());
@@ -252,7 +250,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Specifies an egress rule. Parameters defined below.
         /// </summary>
-        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.NetworkAclEgressGetArgs> Egress
         {
             get => _egress ?? (_egress = new InputList<Inputs.NetworkAclEgressGetArgs>());
@@ -265,7 +262,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Specifies an ingress rule. Parameters defined below.
         /// </summary>
-        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.NetworkAclIngressGetArgs> Ingress
         {
             get => _ingress ?? (_ingress = new InputList<Inputs.NetworkAclIngressGetArgs>());

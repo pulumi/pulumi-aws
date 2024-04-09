@@ -429,7 +429,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         /// </summary>
-        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.SecurityGroupEgressArgs> Egress
         {
             get => _egress ?? (_egress = new InputList<Inputs.SecurityGroupEgressArgs>());
@@ -442,7 +441,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         /// </summary>
-        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.SecurityGroupIngressArgs> Ingress
         {
             get => _ingress ?? (_ingress = new InputList<Inputs.SecurityGroupIngressArgs>());
@@ -512,7 +510,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         /// </summary>
-        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.SecurityGroupEgressGetArgs> Egress
         {
             get => _egress ?? (_egress = new InputList<Inputs.SecurityGroupEgressGetArgs>());
@@ -525,7 +522,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         /// </summary>
-        [Obsolete(@"Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.")]
         public InputList<Inputs.SecurityGroupIngressGetArgs> Ingress
         {
             get => _ingress ?? (_ingress = new InputList<Inputs.SecurityGroupIngressGetArgs>());

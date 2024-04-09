@@ -37,22 +37,14 @@ public final class NetworkAclState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies an egress rule. Parameters defined below.
      * 
-     * @deprecated
-     * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
-     * 
      */
-    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
     @Import(name="egress")
     private @Nullable Output<List<NetworkAclEgressArgs>> egress;
 
     /**
      * @return Specifies an egress rule. Parameters defined below.
      * 
-     * @deprecated
-     * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
-     * 
      */
-    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
     public Optional<Output<List<NetworkAclEgressArgs>>> egress() {
         return Optional.ofNullable(this.egress);
     }
@@ -60,22 +52,14 @@ public final class NetworkAclState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies an ingress rule. Parameters defined below.
      * 
-     * @deprecated
-     * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
-     * 
      */
-    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
     @Import(name="ingress")
     private @Nullable Output<List<NetworkAclIngressArgs>> ingress;
 
     /**
      * @return Specifies an ingress rule. Parameters defined below.
      * 
-     * @deprecated
-     * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
-     * 
      */
-    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
     public Optional<Output<List<NetworkAclIngressArgs>>> ingress() {
         return Optional.ofNullable(this.ingress);
     }
@@ -220,11 +204,7 @@ public final class NetworkAclState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
-         * 
          */
-        @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
         public Builder egress(@Nullable Output<List<NetworkAclEgressArgs>> egress) {
             $.egress = egress;
             return this;
@@ -235,11 +215,7 @@ public final class NetworkAclState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
-         * 
          */
-        @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
         public Builder egress(List<NetworkAclEgressArgs> egress) {
             return egress(Output.of(egress));
         }
@@ -249,11 +225,7 @@ public final class NetworkAclState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
-         * 
          */
-        @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
         public Builder egress(NetworkAclEgressArgs... egress) {
             return egress(List.of(egress));
         }
@@ -263,11 +235,7 @@ public final class NetworkAclState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
-         * 
          */
-        @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
         public Builder ingress(@Nullable Output<List<NetworkAclIngressArgs>> ingress) {
             $.ingress = ingress;
             return this;
@@ -278,11 +246,7 @@ public final class NetworkAclState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
-         * 
          */
-        @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
         public Builder ingress(List<NetworkAclIngressArgs> ingress) {
             return ingress(Output.of(ingress));
         }
@@ -292,11 +256,7 @@ public final class NetworkAclState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
-         * 
          */
-        @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
         public Builder ingress(NetworkAclIngressArgs... ingress) {
             return ingress(List.of(ingress));
         }

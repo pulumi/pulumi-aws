@@ -89,12 +89,8 @@ type NetworkAcl struct {
 	// The ARN of the network ACL
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies an egress rule. Parameters defined below.
-	//
-	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress NetworkAclEgressArrayOutput `pulumi:"egress"`
 	// Specifies an ingress rule. Parameters defined below.
-	//
-	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress NetworkAclIngressArrayOutput `pulumi:"ingress"`
 	// The ID of the AWS account that owns the network ACL.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
@@ -146,12 +142,8 @@ type networkAclState struct {
 	// The ARN of the network ACL
 	Arn *string `pulumi:"arn"`
 	// Specifies an egress rule. Parameters defined below.
-	//
-	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress []NetworkAclEgress `pulumi:"egress"`
 	// Specifies an ingress rule. Parameters defined below.
-	//
-	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress []NetworkAclIngress `pulumi:"ingress"`
 	// The ID of the AWS account that owns the network ACL.
 	OwnerId *string `pulumi:"ownerId"`
@@ -171,12 +163,8 @@ type NetworkAclState struct {
 	// The ARN of the network ACL
 	Arn pulumi.StringPtrInput
 	// Specifies an egress rule. Parameters defined below.
-	//
-	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress NetworkAclEgressArrayInput
 	// Specifies an ingress rule. Parameters defined below.
-	//
-	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress NetworkAclIngressArrayInput
 	// The ID of the AWS account that owns the network ACL.
 	OwnerId pulumi.StringPtrInput
@@ -198,12 +186,8 @@ func (NetworkAclState) ElementType() reflect.Type {
 
 type networkAclArgs struct {
 	// Specifies an egress rule. Parameters defined below.
-	//
-	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress []NetworkAclEgress `pulumi:"egress"`
 	// Specifies an ingress rule. Parameters defined below.
-	//
-	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress []NetworkAclIngress `pulumi:"ingress"`
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -216,12 +200,8 @@ type networkAclArgs struct {
 // The set of arguments for constructing a NetworkAcl resource.
 type NetworkAclArgs struct {
 	// Specifies an egress rule. Parameters defined below.
-	//
-	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress NetworkAclEgressArrayInput
 	// Specifies an ingress rule. Parameters defined below.
-	//
-	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress NetworkAclIngressArrayInput
 	// A list of Subnet IDs to apply the ACL to
 	SubnetIds pulumi.StringArrayInput
@@ -324,15 +304,11 @@ func (o NetworkAclOutput) Arn() pulumi.StringOutput {
 }
 
 // Specifies an egress rule. Parameters defined below.
-//
-// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
 func (o NetworkAclOutput) Egress() NetworkAclEgressArrayOutput {
 	return o.ApplyT(func(v *NetworkAcl) NetworkAclEgressArrayOutput { return v.Egress }).(NetworkAclEgressArrayOutput)
 }
 
 // Specifies an ingress rule. Parameters defined below.
-//
-// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
 func (o NetworkAclOutput) Ingress() NetworkAclIngressArrayOutput {
 	return o.ApplyT(func(v *NetworkAcl) NetworkAclIngressArrayOutput { return v.Ingress }).(NetworkAclIngressArrayOutput)
 }
