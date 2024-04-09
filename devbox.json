@@ -4,7 +4,7 @@
     "pulumictl@latest",
     "go@1.21.",
     "nodejs@20.",
-    "python3@3.11",
+    "python3@3.11.8",
     "dotnet-sdk@6.0.",
     "gradle_7@7.6"
   ],
