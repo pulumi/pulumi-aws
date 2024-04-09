@@ -1,0 +1,909 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Kyle Pitzen <kpitzen@pulumi.com>
+Date: Fri, 27 Jan 2023 09:37:43 -0600
+Subject: [PATCH 15/47] Reverts patches to S3BucketLegacy and GameLift
+
+Previously, we were pulling along patches which removed a few simplifications
+to waiters in AWS GameLift, and a newer patch which plumbed through context.Context
+in various places for CRUD operations in S3 Buckets (which are now ported to Legacy)
+and in GameLift - specifically matchmaking configurations and rulesets.
+
+This PR reverts our patches which will prevent future merge conflicts, and updates
+call sites to plumb through the proper Context objects.
+
+diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
+index 0a7c8ea635..d8ee20dc65 100644
+--- a/internal/service/gamelift/matchmaking_configuration.go
++++ b/internal/service/gamelift/matchmaking_configuration.go
+@@ -2,13 +2,13 @@ package gamelift
+ 
+ import (
+ 	"context"
+-	"fmt"
+ 	"log"
+ 	"regexp"
+ 
+ 	"github.com/aws/aws-sdk-go/aws"
+ 	"github.com/aws/aws-sdk-go/service/gamelift"
+ 	"github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+@@ -18,10 +18,10 @@ import (
+ 
+ func ResourceMatchMakingConfiguration() *schema.Resource {
+ 	return &schema.Resource{
+-		Create: resourceMatchmakingConfigurationCreate,
+-		Read:   resourceMatchmakingConfigurationRead,
+-		Update: resourceMatchmakingConfigurationUpdate,
+-		Delete: resourceMatchmakingConfigurationDelete,
++		CreateWithoutTimeout: resourceMatchmakingConfigurationCreate,
++		ReadWithoutTimeout:   resourceMatchmakingConfigurationRead,
++		UpdateWithoutTimeout: resourceMatchmakingConfigurationUpdate,
++		DeleteWithoutTimeout: resourceMatchmakingConfigurationDelete,
+ 		Importer: &schema.ResourceImporter{
+ 			StateContext: schema.ImportStatePassthroughContext,
+ 		},
+@@ -145,7 +145,7 @@ func ResourceMatchMakingConfiguration() *schema.Resource {
+ 	}
+ }
+ 
+-func resourceMatchmakingConfigurationCreate(d *schema.ResourceData, meta interface{}) error {
++func resourceMatchmakingConfigurationCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn()
+ 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
+ 	tags := defaultTagsConfig.MergeTags(tftags.New(context.Background(), d.Get("tags").(map[string]interface{})))
+@@ -193,14 +193,14 @@ func resourceMatchmakingConfigurationCreate(d *schema.ResourceData, meta interfa
+ 	log.Printf("[INFO] Creating GameLift Matchmaking Configuration: %s", input)
+ 	out, err := conn.CreateMatchmakingConfiguration(&input)
+ 	if err != nil {
+-		return fmt.Errorf("error creating GameLift Matchmaking Configuration: %s", err)
++		return diag.Errorf("error creating GameLift Matchmaking Configuration: %s", err)
+ 	}
+ 
+ 	d.SetId(aws.StringValue(out.Configuration.ConfigurationArn))
+-	return resourceMatchmakingConfigurationRead(d, meta)
++	return resourceMatchmakingConfigurationRead(ctx, d, meta)
+ }
+ 
+-func resourceMatchmakingConfigurationRead(d *schema.ResourceData, meta interface{}) error {
++func resourceMatchmakingConfigurationRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn()
+ 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
+ 	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
+@@ -215,7 +215,7 @@ func resourceMatchmakingConfigurationRead(d *schema.ResourceData, meta interface
+ 			d.SetId("")
+ 			return nil
+ 		}
+-		return fmt.Errorf("error reading GameLift Matchmaking Configuration (%s): %s", d.Id(), err)
++		return diag.Errorf("error reading GameLift Matchmaking Configuration (%s): %s", d.Id(), err)
+ 	}
+ 	configurations := out.Configurations
+ 
+@@ -225,7 +225,7 @@ func resourceMatchmakingConfigurationRead(d *schema.ResourceData, meta interface
+ 		return nil
+ 	}
+ 	if len(configurations) != 1 {
+-		return fmt.Errorf("expected exactly 1 GameLift Matchmaking Configuration, found %d under %q",
++		return diag.Errorf("expected exactly 1 GameLift Matchmaking Configuration, found %d under %q",
+ 			len(configurations), d.Id())
+ 	}
+ 	configuration := configurations[0]
+@@ -249,27 +249,27 @@ func resourceMatchmakingConfigurationRead(d *schema.ResourceData, meta interface
+ 	d.Set("rule_set_arn", configuration.RuleSetArn)
+ 	d.Set("rule_set_name", configuration.RuleSetName)
+ 
+-	tags, err := ListTags(context.Background(), conn, arn)
++	tags, err := ListTags(ctx, conn, arn)
+ 
+ 	if err != nil {
+-		return fmt.Errorf("error listing tags for GameLift Matchmaking Configuration (%s): %s", arn, err)
++		return diag.Errorf("error listing tags for GameLift Matchmaking Configuration (%s): %s", arn, err)
+ 	}
+ 
+ 	tags = tags.IgnoreAWS().IgnoreConfig(ignoreTagsConfig)
+ 
+ 	//lintignore:AWSR002
+ 	if err := d.Set("tags", tags.RemoveDefaultConfig(defaultTagsConfig).Map()); err != nil {
+-		return fmt.Errorf("error setting tags: %w", err)
++		return diag.Errorf("error setting tags: %w", err)
+ 	}
+ 
+ 	if err := d.Set("tags_all", tags.Map()); err != nil {
+-		return fmt.Errorf("error setting tags_all: %w", err)
++		return diag.Errorf("error setting tags_all: %w", err)
+ 	}
+ 
+ 	return nil
+ }
+ 
+-func resourceMatchmakingConfigurationUpdate(d *schema.ResourceData, meta interface{}) error {
++func resourceMatchmakingConfigurationUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn()
+ 
+ 	log.Printf("[INFO] Updating GameLift Matchmaking Configuration: %s", d.Id())
+@@ -317,7 +317,7 @@ func resourceMatchmakingConfigurationUpdate(d *schema.ResourceData, meta interfa
+ 
+ 	_, err := conn.UpdateMatchmakingConfiguration(&input)
+ 	if err != nil {
+-		return fmt.Errorf("error updating Gamelift Matchmaking Configuration (%s): %s", d.Id(), err)
++		return diag.Errorf("error updating Gamelift Matchmaking Configuration (%s): %s", d.Id(), err)
+ 	}
+ 
+ 	arn := d.Id()
+@@ -325,15 +325,15 @@ func resourceMatchmakingConfigurationUpdate(d *schema.ResourceData, meta interfa
+ 	if d.HasChange("tags_all") {
+ 		o, n := d.GetChange("tags_all")
+ 
+-		if err := UpdateTags(context.Background(), conn, arn, o, n); err != nil {
+-			return fmt.Errorf("error updating GameLift Matchmaking Configuration (%s) tags: %s", arn, err)
++		if err := UpdateTags(ctx, conn, arn, o, n); err != nil {
++			return diag.Errorf("error updating GameLift Matchmaking Configuration (%s) tags: %s", arn, err)
+ 		}
+ 	}
+ 
+-	return resourceMatchmakingConfigurationRead(d, meta)
++	return resourceMatchmakingConfigurationRead(ctx, d, meta)
+ }
+ 
+-func resourceMatchmakingConfigurationDelete(d *schema.ResourceData, meta interface{}) error {
++func resourceMatchmakingConfigurationDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn()
+ 	log.Printf("[INFO] Deleting GameLift Matchmaking Configuration: %s", d.Id())
+ 	_, err := conn.DeleteMatchmakingConfiguration(&gamelift.DeleteMatchmakingConfigurationInput{
+@@ -343,7 +343,7 @@ func resourceMatchmakingConfigurationDelete(d *schema.ResourceData, meta interfa
+ 		return nil
+ 	}
+ 	if err != nil {
+-		return fmt.Errorf("error deleting GameLift Matchmaking Configuration (%s): %s", d.Id(), err)
++		return diag.Errorf("error deleting GameLift Matchmaking Configuration (%s): %s", d.Id(), err)
+ 	}
+ 
+ 	return nil
+diff --git a/internal/service/gamelift/matchmaking_rule_set.go b/internal/service/gamelift/matchmaking_rule_set.go
+index 28d15ecf5e..8c1189199f 100644
+--- a/internal/service/gamelift/matchmaking_rule_set.go
++++ b/internal/service/gamelift/matchmaking_rule_set.go
+@@ -2,12 +2,12 @@ package gamelift
+ 
+ import (
+ 	"context"
+-	"fmt"
+ 	"log"
+ 
+ 	"github.com/aws/aws-sdk-go/aws"
+ 	"github.com/aws/aws-sdk-go/service/gamelift"
+ 	"github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
+@@ -18,10 +18,10 @@ import (
+ 
+ func ResourceMatchmakingRuleSet() *schema.Resource {
+ 	return &schema.Resource{
+-		Create: resourceMatchmakingRuleSetCreate,
+-		Read:   resourceMatchmakingRuleSetRead,
+-		Update: resourceMatchmakingRuleSetUpdate,
+-		Delete: resourceMatchmakingRuleSetDelete,
++		CreateWithoutTimeout: resourceMatchmakingRuleSetCreate,
++		ReadWithoutTimeout:   resourceMatchmakingRuleSetRead,
++		UpdateWithoutTimeout: resourceMatchmakingRuleSetUpdate,
++		DeleteWithoutTimeout: resourceMatchmakingRuleSetDelete,
+ 		Importer: &schema.ResourceImporter{
+ 			StateContext: schema.ImportStatePassthroughContext,
+ 		},
+@@ -57,7 +57,7 @@ func ResourceMatchmakingRuleSet() *schema.Resource {
+ 	}
+ }
+ 
+-func resourceMatchmakingRuleSetCreate(d *schema.ResourceData, meta interface{}) error {
++func resourceMatchmakingRuleSetCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn()
+ 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
+ 	tags := defaultTagsConfig.MergeTags(tftags.New(context.Background(), d.Get("tags").(map[string]interface{})))
+@@ -70,15 +70,15 @@ func resourceMatchmakingRuleSetCreate(d *schema.ResourceData, meta interface{})
+ 	log.Printf("[INFO] Creating GameLift Matchmaking Rule Set: %s", input)
+ 	out, err := conn.CreateMatchmakingRuleSet(&input)
+ 	if err != nil {
+-		return fmt.Errorf("error creating GameLift Matchmaking Rule Set: %s", err)
++		return diag.Errorf("error creating GameLift Matchmaking Rule Set: %s", err)
+ 	}
+ 
+ 	d.SetId(aws.StringValue(out.RuleSet.RuleSetName))
+ 
+-	return resourceMatchmakingRuleSetRead(d, meta)
++	return resourceMatchmakingRuleSetRead(ctx, d, meta)
+ }
+ 
+-func resourceMatchmakingRuleSetRead(d *schema.ResourceData, meta interface{}) error {
++func resourceMatchmakingRuleSetRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn()
+ 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
+ 
+@@ -92,7 +92,7 @@ func resourceMatchmakingRuleSetRead(d *schema.ResourceData, meta interface{}) er
+ 			d.SetId("")
+ 			return nil
+ 		}
+-		return fmt.Errorf("error reading GameLift Matchmaking Rule Set (%s): %s", d.Id(), err)
++		return diag.Errorf("error reading GameLift Matchmaking Rule Set (%s): %s", d.Id(), err)
+ 	}
+ 	ruleSets := out.RuleSets
+ 
+@@ -102,7 +102,7 @@ func resourceMatchmakingRuleSetRead(d *schema.ResourceData, meta interface{}) er
+ 		return nil
+ 	}
+ 	if len(ruleSets) != 1 {
+-		return fmt.Errorf("expected exactly 1 GameLift Matchmaking Rule Set, found %d under %q",
++		return diag.Errorf("expected exactly 1 GameLift Matchmaking Rule Set, found %d under %q",
+ 			len(ruleSets), d.Id())
+ 	}
+ 	ruleSet := ruleSets[0]
+@@ -112,24 +112,24 @@ func resourceMatchmakingRuleSetRead(d *schema.ResourceData, meta interface{}) er
+ 	d.Set("name", ruleSet.RuleSetName)
+ 	d.Set("rule_set_body", ruleSet.RuleSetBody)
+ 
+-	tags, err := ListTags(context.Background(), conn, arn)
++	tags, err := ListTags(ctx, conn, arn)
+ 
+ 	if err != nil {
+-		return fmt.Errorf("error listing tags for GameLift Matchmaking Rule Set (%s): %s", arn, err)
++		return diag.Errorf("error listing tags for GameLift Matchmaking Rule Set (%s): %s", arn, err)
+ 	}
+ 
+ 	if err := d.Set("tags", tags.RemoveDefaultConfig(defaultTagsConfig).Map()); err != nil {
+-		return fmt.Errorf("error setting tags: %w", err)
++		return diag.Errorf("error setting tags: %w", err)
+ 	}
+ 
+ 	if err := d.Set("tags_all", tags.Map()); err != nil {
+-		return fmt.Errorf("error setting tags_all: %w", err)
++		return diag.Errorf("error setting tags_all: %w", err)
+ 	}
+ 
+ 	return nil
+ }
+ 
+-func resourceMatchmakingRuleSetUpdate(d *schema.ResourceData, meta interface{}) error {
++func resourceMatchmakingRuleSetUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn()
+ 
+ 	log.Printf("[INFO] Updating GameLift Matchmaking Rule Set: %s", d.Id())
+@@ -138,15 +138,15 @@ func resourceMatchmakingRuleSetUpdate(d *schema.ResourceData, meta interface{})
+ 	if d.HasChange("tags_all") {
+ 		o, n := d.GetChange("tags_all")
+ 
+-		if err := UpdateTags(context.Background(), conn, arn, o, n); err != nil {
+-			return fmt.Errorf("error updating GameLift Matchmaking Rule Set (%s) tags: %s", arn, err)
++		if err := UpdateTags(ctx, conn, arn, o, n); err != nil {
++			return diag.Errorf("error updating GameLift Matchmaking Rule Set (%s) tags: %s", arn, err)
+ 		}
+ 	}
+ 
+-	return resourceMatchmakingRuleSetRead(d, meta)
++	return resourceMatchmakingRuleSetRead(ctx, d, meta)
+ }
+ 
+-func resourceMatchmakingRuleSetDelete(d *schema.ResourceData, meta interface{}) error {
++func resourceMatchmakingRuleSetDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn()
+ 	log.Printf("[INFO] Deleting GameLift Matchmaking Rule Set: %s", d.Id())
+ 	_, err := conn.DeleteMatchmakingRuleSet(&gamelift.DeleteMatchmakingRuleSetInput{
+@@ -156,7 +156,7 @@ func resourceMatchmakingRuleSetDelete(d *schema.ResourceData, meta interface{})
+ 		return nil
+ 	}
+ 	if err != nil {
+-		return fmt.Errorf("error deleting GameLift Matchmaking Rule Set (%s): %s", d.Id(), err)
++		return diag.Errorf("error deleting GameLift Matchmaking Rule Set (%s): %s", d.Id(), err)
+ 	}
+ 
+ 	return nil
+diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
+index 56eed6e0f0..69cdf81c1e 100644
+--- a/internal/service/s3legacy/bucket_legacy.go
++++ b/internal/service/s3legacy/bucket_legacy.go
+@@ -20,6 +20,7 @@ import (
+ 	"github.com/aws/aws-sdk-go/service/s3"
+ 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
+ 	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/id"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+@@ -35,10 +36,10 @@ import (
+ 
+ func ResourceBucketLegacy() *schema.Resource {
+ 	return &schema.Resource{
+-		Create: resourceBucketLegacyCreate,
+-		Read:   resourceBucketLegacyRead,
+-		Update: resourceBucketLegacyUpdate,
+-		Delete: resourceBucketLegacyDelete,
++		CreateWithoutTimeout: resourceBucketLegacyCreate,
++		ReadWithoutTimeout:   resourceBucketLegacyRead,
++		UpdateWithoutTimeout: resourceBucketLegacyUpdate,
++		DeleteWithoutTimeout: resourceBucketLegacyDelete,
+ 		Importer: &schema.ResourceImporter{
+ 			State: schema.ImportStatePassthrough,
+ 		},
+@@ -671,7 +672,7 @@ func ResourceBucketLegacy() *schema.Resource {
+ 	}
+ }
+ 
+-func resourceBucketLegacyCreate(d *schema.ResourceData, meta interface{}) error {
++func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).S3Conn()
+ 
+ 	// Get the bucket and acl
+@@ -709,7 +710,7 @@ func resourceBucketLegacyCreate(d *schema.ResourceData, meta interface{}) error
+ 	}
+ 
+ 	if err := ValidBucketNameLegacy(bucket, awsRegion); err != nil {
+-		return fmt.Errorf("Error validating S3 bucket name: %s", err)
++		return diag.Errorf("Error validating S3 bucket name: %s", err)
+ 	}
+ 
+ 	// S3 Object Lock can only be enabled on bucket creation.
+@@ -736,15 +737,15 @@ func resourceBucketLegacyCreate(d *schema.ResourceData, meta interface{}) error
+ 		_, err = conn.CreateBucket(req)
+ 	}
+ 	if err != nil {
+-		return fmt.Errorf("Error creating S3 bucket: %s", err)
++		return diag.Errorf("Error creating S3 bucket: %s", err)
+ 	}
+ 
+ 	// Assign the bucket name as the resource ID
+ 	d.SetId(bucket)
+-	return resourceBucketLegacyUpdate(d, meta)
++	return resourceBucketLegacyUpdate(ctx, d, meta)
+ }
+ 
+-func resourceBucketLegacyUpdate(d *schema.ResourceData, meta interface{}) error {
++func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).S3Conn()
+ 
+ 	if d.HasChange("tags_all") {
+@@ -756,25 +757,25 @@ func resourceBucketLegacyUpdate(d *schema.ResourceData, meta interface{}) error
+ 			return nil, terr
+ 		})
+ 		if err != nil {
+-			return fmt.Errorf("error updating S3 Bucket (%s) tags: %s", d.Id(), err)
++			return diag.Errorf("error updating S3 Bucket (%s) tags: %s", d.Id(), err)
+ 		}
+ 	}
+ 
+ 	if d.HasChange("policy") {
+-		if err := resourceBucketLegacyPolicyUpdate(conn, d); err != nil {
++		if err := resourceBucketLegacyPolicyUpdate(ctx, conn, d); err != nil {
+ 			return err
+ 		}
+ 	}
+ 
+ 	if d.HasChange("cors_rule") {
+ 		if err := resourceBucketLegacyCorsUpdate(conn, d); err != nil {
+-			return err
++			return diag.FromErr(err)
+ 		}
+ 	}
+ 
+ 	if d.HasChange("website") {
+ 		if err := resourceBucketLegacyWebsiteUpdate(conn, d); err != nil {
+-			return err
++			return diag.FromErr(err)
+ 		}
+ 	}
+ 
+@@ -785,74 +786,74 @@ func resourceBucketLegacyUpdate(d *schema.ResourceData, meta interface{}) error
+ 			if versioning := expandVersioningWhenIsNewResourceLegacy(v); versioning != nil {
+ 				err := resourceBucketLegacyVersioningUpdate(conn, d.Id(), versioning)
+ 				if err != nil {
+-					return err
++					return diag.FromErr(err)
+ 				}
+ 			}
+ 		} else {
+ 			if err := resourceBucketLegacyVersioningUpdate(conn, d.Id(), expandVersioningLegacy(v)); err != nil {
+-				return err
++				return diag.FromErr(err)
+ 			}
+ 		}
+ 	}
+ 
+ 	if d.HasChange("acl") && !d.IsNewResource() {
+ 		if err := resourceBucketLegacyACLUpdate(conn, d); err != nil {
+-			return err
++			return diag.FromErr(err)
+ 		}
+ 	}
+ 
+ 	if d.HasChange("grant") {
+-		if err := resourceBucketLegacyGrantsUpdate(conn, d); err != nil {
++		if err := resourceBucketLegacyGrantsUpdate(ctx, conn, d); err != nil {
+ 			return err
+ 		}
+ 	}
+ 
+ 	if d.HasChange("logging") {
+ 		if err := resourceBucketLegacyLoggingUpdate(conn, d); err != nil {
+-			return err
++			return diag.FromErr(err)
+ 		}
+ 	}
+ 
+ 	if d.HasChange("lifecycle_rule") {
+ 		if err := resourceBucketLegacyLifecycleUpdate(conn, d); err != nil {
+-			return err
++			return diag.FromErr(err)
+ 		}
+ 	}
+ 
+ 	if d.HasChange("acceleration_status") {
+ 		if err := resourceBucketLegacyAccelerationUpdate(conn, d); err != nil {
+-			return err
++			return diag.FromErr(err)
+ 		}
+ 	}
+ 
+ 	if d.HasChange("request_payer") {
+ 		if err := resourceBucketLegacyRequestPayerUpdate(conn, d); err != nil {
+-			return err
++			return diag.FromErr(err)
+ 		}
+ 	}
+ 
+ 	if d.HasChange("replication_configuration") {
+ 		if err := resourceBucketLegacyInternalReplicationConfigurationUpdate(conn, d); err != nil {
+-			return err
++			return diag.FromErr(err)
+ 		}
+ 	}
+ 
+ 	if d.HasChange("server_side_encryption_configuration") {
+-		if err := resourceBucketLegacyServerSideEncryptionConfigurationUpdate(conn, d); err != nil {
+-			return err
++		if err := resourceBucketLegacyServerSideEncryptionConfigurationUpdate(ctx, conn, d); err != nil {
++			return diag.FromErr(err)
+ 		}
+ 	}
+ 
+ 	if d.HasChange("object_lock_configuration") {
+ 		if err := resourceBucketLegacyObjectLockConfigurationUpdate(conn, d); err != nil {
+-			return err
++			return diag.FromErr(err)
+ 		}
+ 	}
+ 
+-	return resourceBucketLegacyRead(d, meta)
++	return resourceBucketLegacyRead(ctx, d, meta)
+ }
+ 
+-func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
++func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).S3Conn()
+ 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
+ 	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
+@@ -896,7 +897,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 	}
+ 
+ 	if err != nil {
+-		return fmt.Errorf("error reading S3 Bucket (%s): %w", d.Id(), err)
++		return diag.Errorf("error reading S3 Bucket (%s): %w", d.Id(), err)
+ 	}
+ 
+ 	// In the import case, we won't have this
+@@ -917,24 +918,24 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		log.Printf("[DEBUG] S3 bucket: %s, read policy: %v", d.Id(), pol)
+ 		if err != nil {
+ 			if err := d.Set("policy", ""); err != nil {
+-				return err
++				return diag.FromErr(err)
+ 			}
+ 		} else {
+ 			if v := pol.(*s3.GetBucketPolicyOutput).Policy; v == nil {
+ 				if err := d.Set("policy", ""); err != nil {
+-					return err
++					return diag.FromErr(err)
+ 				}
+ 			} else {
+ 				policyToSet, err := verify.SecondJSONUnlessEquivalent(d.Get("policy").(string), aws.StringValue(v))
+ 
+ 				if err != nil {
+-					return fmt.Errorf("while setting policy (%s), encountered: %w", aws.StringValue(v), err)
++					return diag.Errorf("while setting policy (%s), encountered: %w", aws.StringValue(v), err)
+ 				}
+ 
+ 				policyToSet, err = structure.NormalizeJsonString(policyToSet)
+ 
+ 				if err != nil {
+-					return fmt.Errorf("policy (%s) contains invalid JSON: %w", d.Get("policy").(string), err)
++					return diag.Errorf("policy (%s) contains invalid JSON: %w", d.Get("policy").(string), err)
+ 				}
+ 
+ 				d.Set("policy", policyToSet)
+@@ -945,7 +946,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 	//Read the Grant ACL. Reset if `acl` (canned ACL) is set.
+ 	if acl, ok := d.GetOk("acl"); ok && acl.(string) != "private" {
+ 		if err := d.Set("grant", nil); err != nil {
+-			return fmt.Errorf("error resetting grant %s", err)
++			return diag.Errorf("error resetting grant %s", err)
+ 		}
+ 	} else {
+ 		apResponse, err := retryOnAWSCode("NoSuchBucket", func() (interface{}, error) {
+@@ -954,12 +955,12 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 			})
+ 		})
+ 		if err != nil {
+-			return fmt.Errorf("error getting S3 Bucket (%s) ACL: %s", d.Id(), err)
++			return diag.Errorf("error getting S3 Bucket (%s) ACL: %s", d.Id(), err)
+ 		}
+ 		log.Printf("[DEBUG] S3 bucket: %s, read ACL grants policy: %+v", d.Id(), apResponse)
+ 		grants := flattenGrantsLegacy(apResponse.(*s3.GetBucketAclOutput))
+ 		if err := d.Set("grant", schema.NewSet(grantHashLegacy, grants)); err != nil {
+-			return fmt.Errorf("error setting grant %s", err)
++			return diag.Errorf("error setting grant %s", err)
+ 		}
+ 	}
+ 
+@@ -970,7 +971,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		})
+ 	})
+ 	if err != nil && !tfawserr.ErrMessageContains(err, "NoSuchCORSConfiguration", "") {
+-		return fmt.Errorf("error getting S3 Bucket CORS configuration: %s", err)
++		return diag.Errorf("error getting S3 Bucket CORS configuration: %s", err)
+ 	}
+ 
+ 	corsRules := make([]map[string]interface{}, 0)
+@@ -992,7 +993,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		}
+ 	}
+ 	if err := d.Set("cors_rule", corsRules); err != nil {
+-		return fmt.Errorf("error setting cors_rule: %s", err)
++		return diag.Errorf("error setting cors_rule: %s", err)
+ 	}
+ 
+ 	// Read the website configuration
+@@ -1002,7 +1003,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		})
+ 	})
+ 	if err != nil && !tfawserr.ErrMessageContains(err, "NotImplemented", "") && !tfawserr.ErrMessageContains(err, "NoSuchWebsiteConfiguration", "") {
+-		return fmt.Errorf("error getting S3 Bucket website configuration: %s", err)
++		return diag.Errorf("error getting S3 Bucket website configuration: %s", err)
+ 	}
+ 
+ 	websites := make([]map[string]interface{}, 0, 1)
+@@ -1046,7 +1047,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		if v := ws.RoutingRules; v != nil {
+ 			rr, err := normalizeRoutingRulesLegacy(v)
+ 			if err != nil {
+-				return fmt.Errorf("Error while marshaling routing rules: %s", err)
++				return diag.Errorf("Error while marshaling routing rules: %s", err)
+ 			}
+ 			w["routing_rules"] = rr
+ 		}
+@@ -1058,7 +1059,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		}
+ 	}
+ 	if err := d.Set("website", websites); err != nil {
+-		return fmt.Errorf("error setting website: %s", err)
++		return diag.Errorf("error setting website: %s", err)
+ 	}
+ 
+ 	// Read the versioning configuration
+@@ -1070,12 +1071,12 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 	})
+ 
+ 	if err != nil {
+-		return fmt.Errorf("error getting S3 Bucket versioning (%s): %w", d.Id(), err)
++		return diag.Errorf("error getting S3 Bucket versioning (%s): %w", d.Id(), err)
+ 	}
+ 
+ 	if versioning, ok := versioningResponse.(*s3.GetBucketVersioningOutput); ok {
+ 		if err := d.Set("versioning", flattenVersioningLegacy(versioning)); err != nil {
+-			return fmt.Errorf("error setting versioning: %w", err)
++			return diag.Errorf("error setting versioning: %w", err)
+ 		}
+ 	}
+ 
+@@ -1089,7 +1090,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 
+ 	// Amazon S3 Transfer Acceleration might not be supported in the region
+ 	if err != nil && !tfawserr.ErrMessageContains(err, "MethodNotAllowed", "") && !tfawserr.ErrMessageContains(err, "UnsupportedArgument", "") {
+-		return fmt.Errorf("error getting S3 Bucket acceleration configuration: %s", err)
++		return diag.Errorf("error getting S3 Bucket acceleration configuration: %s", err)
+ 	}
+ 	if accelerate, ok := accelerateResponse.(*s3.GetBucketAccelerateConfigurationOutput); ok {
+ 		d.Set("acceleration_status", accelerate.Status)
+@@ -1104,7 +1105,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 	})
+ 
+ 	if err != nil {
+-		return fmt.Errorf("error getting S3 Bucket request payment: %s", err)
++		return diag.Errorf("error getting S3 Bucket request payment: %s", err)
+ 	}
+ 
+ 	if payer, ok := payerResponse.(*s3.GetBucketRequestPaymentOutput); ok {
+@@ -1119,7 +1120,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 	})
+ 
+ 	if err != nil {
+-		return fmt.Errorf("error getting S3 Bucket logging: %s", err)
++		return diag.Errorf("error getting S3 Bucket logging: %s", err)
+ 	}
+ 
+ 	lcl := make([]map[string]interface{}, 0, 1)
+@@ -1135,7 +1136,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		lcl = append(lcl, lc)
+ 	}
+ 	if err := d.Set("logging", lcl); err != nil {
+-		return fmt.Errorf("error setting logging: %s", err)
++		return diag.Errorf("error setting logging: %s", err)
+ 	}
+ 
+ 	// Read the lifecycle configuration
+@@ -1146,7 +1147,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		})
+ 	})
+ 	if err != nil && !tfawserr.ErrMessageContains(err, "NoSuchLifecycleConfiguration", "") {
+-		return err
++		return diag.FromErr(err)
+ 	}
+ 
+ 	lifecycleRules := make([]map[string]interface{}, 0)
+@@ -1264,7 +1265,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		}
+ 	}
+ 	if err := d.Set("lifecycle_rule", lifecycleRules); err != nil {
+-		return fmt.Errorf("error setting lifecycle_rule: %s", err)
++		return diag.Errorf("error setting lifecycle_rule: %s", err)
+ 	}
+ 
+ 	// Read the bucket replication configuration
+@@ -1275,7 +1276,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		})
+ 	})
+ 	if err != nil && !tfawserr.ErrMessageContains(err, "ReplicationConfigurationNotFoundError", "") {
+-		return fmt.Errorf("error getting S3 Bucket replication: %s", err)
++		return diag.Errorf("error getting S3 Bucket replication: %s", err)
+ 	}
+ 
+ 	replicationConfiguration := make([]map[string]interface{}, 0)
+@@ -1283,7 +1284,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		replicationConfiguration = flattenBucketReplicationConfigurationLegacy(replication.ReplicationConfiguration)
+ 	}
+ 	if err := d.Set("replication_configuration", replicationConfiguration); err != nil {
+-		return fmt.Errorf("error setting replication_configuration: %s", err)
++		return diag.Errorf("error setting replication_configuration: %s", err)
+ 	}
+ 
+ 	// Read the bucket server side encryption configuration
+@@ -1294,7 +1295,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		})
+ 	})
+ 	if err != nil && !tfawserr.ErrMessageContains(err, "ServerSideEncryptionConfigurationNotFoundError", "encryption configuration was not found") {
+-		return fmt.Errorf("error getting S3 Bucket encryption: %s", err)
++		return diag.Errorf("error getting S3 Bucket encryption: %s", err)
+ 	}
+ 
+ 	serverSideEncryptionConfiguration := make([]map[string]interface{}, 0)
+@@ -1302,7 +1303,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		serverSideEncryptionConfiguration = flattenServerSideEncryptionConfigurationLegacy(encryption.ServerSideEncryptionConfiguration)
+ 	}
+ 	if err := d.Set("server_side_encryption_configuration", serverSideEncryptionConfiguration); err != nil {
+-		return fmt.Errorf("error setting server_side_encryption_configuration: %s", err)
++		return diag.Errorf("error setting server_side_encryption_configuration: %s", err)
+ 	}
+ 
+ 	// Object Lock configuration.
+@@ -1310,7 +1311,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 
+ 	// Object lock not supported in all partitions (extra guard, also guards in read func)
+ 	if err != nil && (meta.(*conns.AWSClient).Partition == endpoints.AwsPartitionID || meta.(*conns.AWSClient).Partition == endpoints.AwsUsGovPartitionID) {
+-		return fmt.Errorf("error getting S3 Bucket Object Lock configuration: %s", err)
++		return diag.Errorf("error getting S3 Bucket Object Lock configuration: %s", err)
+ 	}
+ 
+ 	if err != nil {
+@@ -1319,7 +1320,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 
+ 	if err == nil {
+ 		if err := d.Set("object_lock_configuration", conf); err != nil {
+-			return fmt.Errorf("error setting object_lock_configuration: %s", err)
++			return diag.Errorf("error setting object_lock_configuration: %s", err)
+ 		}
+ 	}
+ 
+@@ -1340,18 +1341,18 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 		})
+ 	})
+ 	if err != nil {
+-		return fmt.Errorf("error getting S3 Bucket location: %s", err)
++		return diag.Errorf("error getting S3 Bucket location: %s", err)
+ 	}
+ 
+ 	region := discoveredRegion.(string)
+ 	if err := d.Set("region", region); err != nil {
+-		return err
++		return diag.FromErr(err)
+ 	}
+ 
+ 	// Add the bucket_regional_domain_name as an attribute
+ 	regionalEndpoint, err := bucketLegacyRegionalDomainName(d.Get("bucket").(string), region)
+ 	if err != nil {
+-		return err
++		return diag.FromErr(err)
+ 	}
+ 	d.Set("bucket_regional_domain_name", regionalEndpoint)
+ 
+@@ -1366,14 +1367,14 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 	// Add website_endpoint as an attribute
+ 	websiteEndpoint, err := websiteLegacyEndpoint(meta.(*conns.AWSClient), d)
+ 	if err != nil {
+-		return err
++		return diag.FromErr(err)
+ 	}
+ 	if websiteEndpoint != nil {
+ 		if err := d.Set("website_endpoint", websiteEndpoint.Endpoint); err != nil {
+-			return err
++			return diag.FromErr(err)
+ 		}
+ 		if err := d.Set("website_domain", websiteEndpoint.Domain); err != nil {
+-			return err
++			return diag.FromErr(err)
+ 		}
+ 	}
+ 
+@@ -1383,24 +1384,24 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 	})
+ 
+ 	if err != nil {
+-		return fmt.Errorf("error listing tags for S3 Bucket (%s): %s", d.Id(), err)
++		return diag.Errorf("error listing tags for S3 Bucket (%s): %s", d.Id(), err)
+ 	}
+ 
+ 	tags, ok := tagsRaw.(tftags.KeyValueTags)
+ 
+ 	if !ok {
+-		return fmt.Errorf("error listing tags for S3 Bucket (%s): unable to convert tags", d.Id())
++		return diag.Errorf("error listing tags for S3 Bucket (%s): unable to convert tags", d.Id())
+ 	}
+ 
+ 	tags = tags.IgnoreAWS().IgnoreConfig(ignoreTagsConfig)
+ 
+ 	//lintignore:AWSR002
+ 	if err := d.Set("tags", tags.RemoveDefaultConfig(defaultTagsConfig).Map()); err != nil {
+-		return fmt.Errorf("error setting tags: %w", err)
++		return diag.Errorf("error setting tags: %w", err)
+ 	}
+ 
+ 	if err := d.Set("tags_all", tags.Map()); err != nil {
+-		return fmt.Errorf("error setting tags_all: %w", err)
++		return diag.Errorf("error setting tags_all: %w", err)
+ 	}
+ 
+ 	arn := arn.ARN{
+@@ -1413,7 +1414,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 	return nil
+ }
+ 
+-func resourceBucketLegacyDelete(d *schema.ResourceData, meta interface{}) error {
++func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).S3Conn()
+ 
+ 	log.Printf("[DEBUG] S3 Delete Bucket: %s", d.Id())
+@@ -1445,28 +1446,28 @@ func resourceBucketLegacyDelete(d *schema.ResourceData, meta interface{}) error
+ 			err = DeleteAllObjectVersions(conn, d.Id(), "", objectLockEnabled, false)
+ 
+ 			if err != nil {
+-				return fmt.Errorf("error S3 Bucket force_destroy: %s", err)
++				return diag.Errorf("error S3 Bucket force_destroy: %s", err)
+ 			}
+ 
+ 			// this line recurses until all objects are deleted or an error is returned
+-			return resourceBucketLegacyDelete(d, meta)
++			return resourceBucketLegacyDelete(ctx, d, meta)
+ 		}
+ 	}
+ 
+ 	if err != nil {
+-		return fmt.Errorf("error deleting S3 Bucket (%s): %s", d.Id(), err)
++		return diag.Errorf("error deleting S3 Bucket (%s): %s", d.Id(), err)
+ 	}
+ 
+ 	return nil
+ }
+ 
+-func resourceBucketLegacyPolicyUpdate(conn *s3.S3, d *schema.ResourceData) error {
++func resourceBucketLegacyPolicyUpdate(ctx context.Context, conn *s3.S3, d *schema.ResourceData) diag.Diagnostics {
+ 	bucket := d.Get("bucket").(string)
+ 
+ 	policy, err := structure.NormalizeJsonString(d.Get("policy").(string))
+ 
+ 	if err != nil {
+-		return fmt.Errorf("policy (%s) is an invalid JSON: %w", policy, err)
++		return diag.Errorf("policy (%s) is an invalid JSON: %w", policy, err)
+ 	}
+ 
+ 	if policy != "" {
+@@ -1491,7 +1492,7 @@ func resourceBucketLegacyPolicyUpdate(conn *s3.S3, d *schema.ResourceData) error
+ 			_, err = conn.PutBucketPolicy(params)
+ 		}
+ 		if err != nil {
+-			return fmt.Errorf("Error putting S3 policy: %s", err)
++			return diag.Errorf("Error putting S3 policy: %s", err)
+ 		}
+ 	} else {
+ 		log.Printf("[DEBUG] S3 bucket: %s, delete policy: %s", bucket, policy)
+@@ -1502,21 +1503,21 @@ func resourceBucketLegacyPolicyUpdate(conn *s3.S3, d *schema.ResourceData) error
+ 		})
+ 
+ 		if err != nil {
+-			return fmt.Errorf("Error deleting S3 policy: %s", err)
++			return diag.Errorf("Error deleting S3 policy: %s", err)
+ 		}
+ 	}
+ 
+ 	return nil
+ }
+ 
+-func resourceBucketLegacyGrantsUpdate(conn *s3.S3, d *schema.ResourceData) error {
++func resourceBucketLegacyGrantsUpdate(ctx context.Context, conn *s3.S3, d *schema.ResourceData) diag.Diagnostics {
+ 	bucket := d.Get("bucket").(string)
+ 	rawGrants := d.Get("grant").(*schema.Set).List()
+ 
+ 	if len(rawGrants) == 0 {
+ 		log.Printf("[DEBUG] S3 bucket: %s, Grants fallback to canned ACL", bucket)
+ 		if err := resourceBucketLegacyACLUpdate(conn, d); err != nil {
+-			return fmt.Errorf("Error fallback to canned ACL, %s", err)
++			return diag.Errorf("Error fallback to canned ACL, %s", err)
+ 		}
+ 	} else {
+ 		apResponse, err := retryOnAWSCode("NoSuchBucket", func() (interface{}, error) {
+@@ -1526,7 +1527,7 @@ func resourceBucketLegacyGrantsUpdate(conn *s3.S3, d *schema.ResourceData) error
+ 		})
+ 
+ 		if err != nil {
+-			return fmt.Errorf("error getting S3 Bucket (%s) ACL: %s", d.Id(), err)
++			return diag.Errorf("error getting S3 Bucket (%s) ACL: %s", d.Id(), err)
+ 		}
+ 
+ 		ap := apResponse.(*s3.GetBucketAclOutput)
+@@ -1571,7 +1572,7 @@ func resourceBucketLegacyGrantsUpdate(conn *s3.S3, d *schema.ResourceData) error
+ 		})
+ 
+ 		if err != nil {
+-			return fmt.Errorf("Error putting S3 Grants: %s", err)
++			return diag.Errorf("Error putting S3 Grants: %s", err)
+ 		}
+ 	}
+ 	return nil
+@@ -1949,7 +1950,7 @@ func resourceBucketLegacyRequestPayerUpdate(conn *s3.S3, d *schema.ResourceData)
+ 	return nil
+ }
+ 
+-func resourceBucketLegacyServerSideEncryptionConfigurationUpdate(conn *s3.S3, d *schema.ResourceData) error {
++func resourceBucketLegacyServerSideEncryptionConfigurationUpdate(ctx context.Context, conn *s3.S3, d *schema.ResourceData) error {
+ 	bucket := d.Get("bucket").(string)
+ 	serverSideEncryptionConfiguration := d.Get("server_side_encryption_configuration").([]interface{})
+ 	if len(serverSideEncryptionConfiguration) == 0 {
+@@ -2001,7 +2002,7 @@ func resourceBucketLegacyServerSideEncryptionConfigurationUpdate(conn *s3.S3, d
+ 	log.Printf("[DEBUG] S3 put bucket replication configuration: %#v", i)
+ 
+ 	_, err := tfresource.RetryWhenAWSErrCodeEquals(
+-		context.Background(),
++		ctx,
+ 		propagationTimeout,
+ 		func() (interface{}, error) {
+ 			return conn.PutBucketEncryption(i)
+diff --git a/internal/service/s3legacy/wait.go b/internal/service/s3legacy/wait.go
+index 7a548d8d6d..9031539c19 100644
+--- a/internal/service/s3legacy/wait.go
++++ b/internal/service/s3legacy/wait.go
+@@ -13,6 +13,6 @@ const (
+ 	propagationTimeout   = 1 * time.Minute
+ )
+ 
+-func retryWhenBucketNotFound(f func() (interface{}, error)) (interface{}, error) {
+-	return tfresource.RetryWhenAWSErrCodeEquals(context.Background(), propagationTimeout, f, s3.ErrCodeNoSuchBucket)
++func retryWhenBucketNotFound(ctx context.Context, f func() (interface{}, error)) (interface{}, error) {
++	return tfresource.RetryWhenAWSErrCodeEquals(ctx, propagationTimeout, f, s3.ErrCodeNoSuchBucket)
+ }

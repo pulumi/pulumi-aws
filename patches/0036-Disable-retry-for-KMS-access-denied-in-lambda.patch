@@ -1,0 +1,38 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Mon, 8 Jan 2024 16:58:44 -0500
+Subject: [PATCH 36/47] Disable retry for KMS access denied in lambda
+
+
+diff --git a/internal/service/lambda/service_package_extra.go b/internal/service/lambda/service_package_extra.go
+new file mode 100644
+index 0000000000..bc22020da4
+--- /dev/null
++++ b/internal/service/lambda/service_package_extra.go
+@@ -0,0 +1,26 @@
++package lambda
++
++import (
++	"context"
++
++	"github.com/aws/aws-sdk-go/aws/request"
++	lambda_sdkv1 "github.com/aws/aws-sdk-go/service/lambda"
++	"github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
++)
++
++// Customize lambda retries.
++//
++// References:
++//
++// https://github.com/hashicorp/terraform-provider-aws/blob/main/docs/retries-and-waiters.md
++// https://github.com/pulumi/pulumi-aws/issues/3196
++func (p *servicePackage) CustomizeConn(ctx context.Context, conn *lambda_sdkv1.Lambda) (*lambda_sdkv1.Lambda, error) {
++	conn.Handlers.Retry.PushBack(func(r *request.Request) {
++		if tfawserr.ErrMessageContains(r.Error, lambda_sdkv1.ErrCodeKMSAccessDeniedException,
++			"Lambda was unable to decrypt the environment variables because KMS access was denied.") {
++			// Do not retry this condition at all.
++			r.RetryCount = r.MaxRetries() + 1
++		}
++	})
++	return conn, nil
++}
