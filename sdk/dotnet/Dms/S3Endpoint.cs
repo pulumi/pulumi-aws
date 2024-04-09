@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Dms
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsIamRolePolicy, 
+    ///             exampleAwsIamRolePolicy,
     ///         },
     ///     });
     /// 
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Dms
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsIamRolePolicy, 
+    ///             exampleAwsIamRolePolicy,
     ///         },
     ///     });
     /// 

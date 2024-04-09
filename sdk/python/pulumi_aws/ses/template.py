@@ -195,7 +195,7 @@ class Template(pulumi.CustomResource):
             name="MyTemplate",
             subject="Greetings, {{name}}!",
             html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
-            text=\"\"\"Hello {{name}},
+            text=\"\"\"Hello {{name}},\\x0d
         Your favorite animal is {{favoriteanimal}}.\"\"\")
         ```
         <!--End PulumiCodeChooser -->
@@ -235,7 +235,7 @@ class Template(pulumi.CustomResource):
             name="MyTemplate",
             subject="Greetings, {{name}}!",
             html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
-            text=\"\"\"Hello {{name}},
+            text=\"\"\"Hello {{name}},\\x0d
         Your favorite animal is {{favoriteanimal}}.\"\"\")
         ```
         <!--End PulumiCodeChooser -->

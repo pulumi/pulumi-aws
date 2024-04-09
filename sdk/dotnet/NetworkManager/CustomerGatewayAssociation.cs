@@ -65,7 +65,7 @@ namespace Pulumi.Aws.NetworkManager
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleVpnConnection, 
+    ///             exampleVpnConnection,
     ///         },
     ///     });
     /// 
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.NetworkManager
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleTransitGatewayRegistration, 
+    ///             exampleTransitGatewayRegistration,
     ///         },
     ///     });
     /// 

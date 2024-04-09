@@ -43,7 +43,7 @@ namespace Pulumi.Aws.GuardDuty
     ///     {
     ///         DependsOn =
     ///         {
-    ///             memberMember, 
+    ///             memberMember,
     ///         },
     ///     });
     /// 
