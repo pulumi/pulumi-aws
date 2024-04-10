@@ -1057,7 +1057,7 @@ func (o DetectorDatasourcesS3LogsPtrOutput) Enable() pulumi.BoolPtrOutput {
 }
 
 type DetectorFeatureAdditionalConfiguration struct {
-	// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+	// The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 	Name string `pulumi:"name"`
 	// The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
 	Status string `pulumi:"status"`
@@ -1075,7 +1075,7 @@ type DetectorFeatureAdditionalConfigurationInput interface {
 }
 
 type DetectorFeatureAdditionalConfigurationArgs struct {
-	// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+	// The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -1132,7 +1132,7 @@ func (o DetectorFeatureAdditionalConfigurationOutput) ToDetectorFeatureAdditiona
 	return o
 }
 
-// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+// The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 func (o DetectorFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2480,7 +2480,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi
 type OrganizationConfigurationFeatureAdditionalConfiguration struct {
 	// The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable string `pulumi:"autoEnable"`
-	// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+	// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
 	Name string `pulumi:"name"`
 }
 
@@ -2498,7 +2498,7 @@ type OrganizationConfigurationFeatureAdditionalConfigurationInput interface {
 type OrganizationConfigurationFeatureAdditionalConfigurationArgs struct {
 	// The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable pulumi.StringInput `pulumi:"autoEnable"`
-	// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+	// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2558,7 +2558,7 @@ func (o OrganizationConfigurationFeatureAdditionalConfigurationOutput) AutoEnabl
 	return o.ApplyT(func(v OrganizationConfigurationFeatureAdditionalConfiguration) string { return v.AutoEnable }).(pulumi.StringOutput)
 }
 
-// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
 func (o OrganizationConfigurationFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationConfigurationFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }

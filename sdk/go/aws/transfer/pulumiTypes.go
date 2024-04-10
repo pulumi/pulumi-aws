@@ -1127,10 +1127,155 @@ func (o ServerProtocolDetailsPtrOutput) TlsSessionResumptionMode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerS3StorageOptions struct {
+	// Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
+	//
+	// By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
+	DirectoryListingOptimization *string `pulumi:"directoryListingOptimization"`
+}
+
+// ServerS3StorageOptionsInput is an input type that accepts ServerS3StorageOptionsArgs and ServerS3StorageOptionsOutput values.
+// You can construct a concrete instance of `ServerS3StorageOptionsInput` via:
+//
+//	ServerS3StorageOptionsArgs{...}
+type ServerS3StorageOptionsInput interface {
+	pulumi.Input
+
+	ToServerS3StorageOptionsOutput() ServerS3StorageOptionsOutput
+	ToServerS3StorageOptionsOutputWithContext(context.Context) ServerS3StorageOptionsOutput
+}
+
+type ServerS3StorageOptionsArgs struct {
+	// Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
+	//
+	// By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
+	DirectoryListingOptimization pulumi.StringPtrInput `pulumi:"directoryListingOptimization"`
+}
+
+func (ServerS3StorageOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerS3StorageOptions)(nil)).Elem()
+}
+
+func (i ServerS3StorageOptionsArgs) ToServerS3StorageOptionsOutput() ServerS3StorageOptionsOutput {
+	return i.ToServerS3StorageOptionsOutputWithContext(context.Background())
+}
+
+func (i ServerS3StorageOptionsArgs) ToServerS3StorageOptionsOutputWithContext(ctx context.Context) ServerS3StorageOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerS3StorageOptionsOutput)
+}
+
+func (i ServerS3StorageOptionsArgs) ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput {
+	return i.ToServerS3StorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerS3StorageOptionsArgs) ToServerS3StorageOptionsPtrOutputWithContext(ctx context.Context) ServerS3StorageOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerS3StorageOptionsOutput).ToServerS3StorageOptionsPtrOutputWithContext(ctx)
+}
+
+// ServerS3StorageOptionsPtrInput is an input type that accepts ServerS3StorageOptionsArgs, ServerS3StorageOptionsPtr and ServerS3StorageOptionsPtrOutput values.
+// You can construct a concrete instance of `ServerS3StorageOptionsPtrInput` via:
+//
+//	        ServerS3StorageOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerS3StorageOptionsPtrInput interface {
+	pulumi.Input
+
+	ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput
+	ToServerS3StorageOptionsPtrOutputWithContext(context.Context) ServerS3StorageOptionsPtrOutput
+}
+
+type serverS3StorageOptionsPtrType ServerS3StorageOptionsArgs
+
+func ServerS3StorageOptionsPtr(v *ServerS3StorageOptionsArgs) ServerS3StorageOptionsPtrInput {
+	return (*serverS3StorageOptionsPtrType)(v)
+}
+
+func (*serverS3StorageOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerS3StorageOptions)(nil)).Elem()
+}
+
+func (i *serverS3StorageOptionsPtrType) ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput {
+	return i.ToServerS3StorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverS3StorageOptionsPtrType) ToServerS3StorageOptionsPtrOutputWithContext(ctx context.Context) ServerS3StorageOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerS3StorageOptionsPtrOutput)
+}
+
+type ServerS3StorageOptionsOutput struct{ *pulumi.OutputState }
+
+func (ServerS3StorageOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerS3StorageOptions)(nil)).Elem()
+}
+
+func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsOutput() ServerS3StorageOptionsOutput {
+	return o
+}
+
+func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsOutputWithContext(ctx context.Context) ServerS3StorageOptionsOutput {
+	return o
+}
+
+func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput {
+	return o.ToServerS3StorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsPtrOutputWithContext(ctx context.Context) ServerS3StorageOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerS3StorageOptions) *ServerS3StorageOptions {
+		return &v
+	}).(ServerS3StorageOptionsPtrOutput)
+}
+
+// Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
+//
+// By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
+func (o ServerS3StorageOptionsOutput) DirectoryListingOptimization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerS3StorageOptions) *string { return v.DirectoryListingOptimization }).(pulumi.StringPtrOutput)
+}
+
+type ServerS3StorageOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerS3StorageOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerS3StorageOptions)(nil)).Elem()
+}
+
+func (o ServerS3StorageOptionsPtrOutput) ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput {
+	return o
+}
+
+func (o ServerS3StorageOptionsPtrOutput) ToServerS3StorageOptionsPtrOutputWithContext(ctx context.Context) ServerS3StorageOptionsPtrOutput {
+	return o
+}
+
+func (o ServerS3StorageOptionsPtrOutput) Elem() ServerS3StorageOptionsOutput {
+	return o.ApplyT(func(v *ServerS3StorageOptions) ServerS3StorageOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ServerS3StorageOptions
+		return ret
+	}).(ServerS3StorageOptionsOutput)
+}
+
+// Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
+//
+// By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
+func (o ServerS3StorageOptionsPtrOutput) DirectoryListingOptimization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerS3StorageOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DirectoryListingOptimization
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerWorkflowDetails struct {
-	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
 	OnPartialUpload *ServerWorkflowDetailsOnPartialUpload `pulumi:"onPartialUpload"`
-	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
 	OnUpload *ServerWorkflowDetailsOnUpload `pulumi:"onUpload"`
 }
 
@@ -1146,9 +1291,9 @@ type ServerWorkflowDetailsInput interface {
 }
 
 type ServerWorkflowDetailsArgs struct {
-	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
 	OnPartialUpload ServerWorkflowDetailsOnPartialUploadPtrInput `pulumi:"onPartialUpload"`
-	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
 	OnUpload ServerWorkflowDetailsOnUploadPtrInput `pulumi:"onUpload"`
 }
 
@@ -1229,12 +1374,12 @@ func (o ServerWorkflowDetailsOutput) ToServerWorkflowDetailsPtrOutputWithContext
 	}).(ServerWorkflowDetailsPtrOutput)
 }
 
-// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
 func (o ServerWorkflowDetailsOutput) OnPartialUpload() ServerWorkflowDetailsOnPartialUploadPtrOutput {
 	return o.ApplyT(func(v ServerWorkflowDetails) *ServerWorkflowDetailsOnPartialUpload { return v.OnPartialUpload }).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
 }
 
-// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
 func (o ServerWorkflowDetailsOutput) OnUpload() ServerWorkflowDetailsOnUploadPtrOutput {
 	return o.ApplyT(func(v ServerWorkflowDetails) *ServerWorkflowDetailsOnUpload { return v.OnUpload }).(ServerWorkflowDetailsOnUploadPtrOutput)
 }
@@ -1263,7 +1408,7 @@ func (o ServerWorkflowDetailsPtrOutput) Elem() ServerWorkflowDetailsOutput {
 	}).(ServerWorkflowDetailsOutput)
 }
 
-// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
 func (o ServerWorkflowDetailsPtrOutput) OnPartialUpload() ServerWorkflowDetailsOnPartialUploadPtrOutput {
 	return o.ApplyT(func(v *ServerWorkflowDetails) *ServerWorkflowDetailsOnPartialUpload {
 		if v == nil {
@@ -1273,7 +1418,7 @@ func (o ServerWorkflowDetailsPtrOutput) OnPartialUpload() ServerWorkflowDetailsO
 	}).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
 }
 
-// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
 func (o ServerWorkflowDetailsPtrOutput) OnUpload() ServerWorkflowDetailsOnUploadPtrOutput {
 	return o.ApplyT(func(v *ServerWorkflowDetails) *ServerWorkflowDetailsOnUpload {
 		if v == nil {
@@ -6175,6 +6320,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsPtrInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsPtrInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerS3StorageOptionsInput)(nil)).Elem(), ServerS3StorageOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerS3StorageOptionsPtrInput)(nil)).Elem(), ServerS3StorageOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsPtrInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsOnPartialUploadInput)(nil)).Elem(), ServerWorkflowDetailsOnPartialUploadArgs{})
@@ -6249,6 +6396,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServerProtocolDetailsOutput{})
 	pulumi.RegisterOutputType(ServerProtocolDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServerS3StorageOptionsOutput{})
+	pulumi.RegisterOutputType(ServerS3StorageOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailsOnPartialUploadOutput{})

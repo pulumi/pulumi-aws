@@ -280,7 +280,7 @@ class DetectorFeatureAdditionalConfiguration(dict):
                  name: str,
                  status: str):
         """
-        :param str name: The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        :param str name: The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         :param str status: The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
         """
         pulumi.set(__self__, "name", name)
@@ -290,7 +290,7 @@ class DetectorFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         """
         return pulumi.get(self, "name")
 
@@ -719,7 +719,7 @@ class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
                  name: str):
         """
         :param str auto_enable: The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
-        :param str name: The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+        :param str name: The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
         pulumi.set(__self__, "name", name)
@@ -736,7 +736,7 @@ class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+        The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
         """
         return pulumi.get(self, "name")
 

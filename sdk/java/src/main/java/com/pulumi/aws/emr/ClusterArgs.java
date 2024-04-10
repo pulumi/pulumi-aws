@@ -566,6 +566,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
+     * 
+     */
+    @Import(name="unhealthyNodeReplacement")
+    private @Nullable Output<Boolean> unhealthyNodeReplacement;
+
+    /**
+     * @return Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> unhealthyNodeReplacement() {
+        return Optional.ofNullable(this.unhealthyNodeReplacement);
+    }
+
+    /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
      * 
      */
@@ -612,6 +627,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.steps = $.steps;
         this.tags = $.tags;
         this.terminationProtection = $.terminationProtection;
+        this.unhealthyNodeReplacement = $.unhealthyNodeReplacement;
         this.visibleToAllUsers = $.visibleToAllUsers;
     }
 
@@ -1390,6 +1406,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder terminationProtection(Boolean terminationProtection) {
             return terminationProtection(Output.of(terminationProtection));
+        }
+
+        /**
+         * @param unhealthyNodeReplacement Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unhealthyNodeReplacement(@Nullable Output<Boolean> unhealthyNodeReplacement) {
+            $.unhealthyNodeReplacement = unhealthyNodeReplacement;
+            return this;
+        }
+
+        /**
+         * @param unhealthyNodeReplacement Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unhealthyNodeReplacement(Boolean unhealthyNodeReplacement) {
+            return unhealthyNodeReplacement(Output.of(unhealthyNodeReplacement));
         }
 
         /**

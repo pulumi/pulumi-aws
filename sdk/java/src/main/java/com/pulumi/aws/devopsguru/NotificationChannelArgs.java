@@ -17,14 +17,14 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
     public static final NotificationChannelArgs Empty = new NotificationChannelArgs();
 
     /**
-     * Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+     * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      * 
      */
     @Import(name="filters")
     private @Nullable Output<NotificationChannelFiltersArgs> filters;
 
     /**
-     * @return Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+     * @return Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      * 
      */
     public Optional<Output<NotificationChannelFiltersArgs>> filters() {
@@ -76,7 +76,7 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param filters Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+         * @param filters Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
          * 
          * @return builder
          * 
@@ -87,7 +87,7 @@ public final class NotificationChannelArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param filters Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+         * @param filters Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
          * 
          * @return builder
          * 

@@ -66,7 +66,7 @@ type OrganizationConfigurationFeature struct {
 	AutoEnable pulumi.StringOutput `pulumi:"autoEnable"`
 	// The ID of the detector that configures the delegated administrator.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -112,7 +112,7 @@ type organizationConfigurationFeatureState struct {
 	AutoEnable *string `pulumi:"autoEnable"`
 	// The ID of the detector that configures the delegated administrator.
 	DetectorId *string `pulumi:"detectorId"`
-	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
 	Name *string `pulumi:"name"`
 }
 
@@ -123,7 +123,7 @@ type OrganizationConfigurationFeatureState struct {
 	AutoEnable pulumi.StringPtrInput
 	// The ID of the detector that configures the delegated administrator.
 	DetectorId pulumi.StringPtrInput
-	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
 	Name pulumi.StringPtrInput
 }
 
@@ -138,7 +138,7 @@ type organizationConfigurationFeatureArgs struct {
 	AutoEnable string `pulumi:"autoEnable"`
 	// The ID of the detector that configures the delegated administrator.
 	DetectorId string `pulumi:"detectorId"`
-	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
 	Name *string `pulumi:"name"`
 }
 
@@ -150,7 +150,7 @@ type OrganizationConfigurationFeatureArgs struct {
 	AutoEnable pulumi.StringInput
 	// The ID of the detector that configures the delegated administrator.
 	DetectorId pulumi.StringInput
-	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
 	Name pulumi.StringPtrInput
 }
 
@@ -258,7 +258,7 @@ func (o OrganizationConfigurationFeatureOutput) DetectorId() pulumi.StringOutput
 	return o.ApplyT(func(v *OrganizationConfigurationFeature) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
+// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
 func (o OrganizationConfigurationFeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationFeature) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

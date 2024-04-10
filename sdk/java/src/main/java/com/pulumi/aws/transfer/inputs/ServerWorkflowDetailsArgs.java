@@ -17,14 +17,14 @@ public final class ServerWorkflowDetailsArgs extends com.pulumi.resources.Resour
     public static final ServerWorkflowDetailsArgs Empty = new ServerWorkflowDetailsArgs();
 
     /**
-     * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+     * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
      * 
      */
     @Import(name="onPartialUpload")
     private @Nullable Output<ServerWorkflowDetailsOnPartialUploadArgs> onPartialUpload;
 
     /**
-     * @return A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+     * @return A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
      * 
      */
     public Optional<Output<ServerWorkflowDetailsOnPartialUploadArgs>> onPartialUpload() {
@@ -32,14 +32,14 @@ public final class ServerWorkflowDetailsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+     * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
      * 
      */
     @Import(name="onUpload")
     private @Nullable Output<ServerWorkflowDetailsOnUploadArgs> onUpload;
 
     /**
-     * @return A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+     * @return A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
      * 
      */
     public Optional<Output<ServerWorkflowDetailsOnUploadArgs>> onUpload() {
@@ -72,7 +72,7 @@ public final class ServerWorkflowDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param onPartialUpload A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+         * @param onPartialUpload A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ServerWorkflowDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param onPartialUpload A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+         * @param onPartialUpload A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ServerWorkflowDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param onUpload A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+         * @param onUpload A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ServerWorkflowDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param onUpload A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+         * @param onUpload A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
          * 
          * @return builder
          * 

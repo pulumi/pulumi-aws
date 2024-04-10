@@ -476,10 +476,11 @@ type Instance struct {
 	BlueGreenUpdate InstanceBlueGreenUpdatePtrOutput `pulumi:"blueGreenUpdate"`
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringOutput `pulumi:"caCertIdentifier"`
-	// The character set name to use for DB
-	// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
-	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-	// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+	// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
+	// This can't be changed.
+	// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
+	// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+	// Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
 	CharacterSetName pulumi.StringOutput `pulumi:"characterSetName"`
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
@@ -756,10 +757,11 @@ type instanceState struct {
 	BlueGreenUpdate *InstanceBlueGreenUpdate `pulumi:"blueGreenUpdate"`
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
-	// The character set name to use for DB
-	// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
-	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-	// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+	// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
+	// This can't be changed.
+	// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
+	// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+	// Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
 	CharacterSetName *string `pulumi:"characterSetName"`
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
@@ -997,10 +999,11 @@ type InstanceState struct {
 	BlueGreenUpdate InstanceBlueGreenUpdatePtrInput
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
-	// The character set name to use for DB
-	// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
-	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-	// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+	// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
+	// This can't be changed.
+	// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
+	// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+	// Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
 	CharacterSetName pulumi.StringPtrInput
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
@@ -1238,10 +1241,11 @@ type instanceArgs struct {
 	BlueGreenUpdate *InstanceBlueGreenUpdate `pulumi:"blueGreenUpdate"`
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
-	// The character set name to use for DB
-	// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
-	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-	// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+	// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
+	// This can't be changed.
+	// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
+	// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+	// Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
 	CharacterSetName *string `pulumi:"characterSetName"`
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
@@ -1455,10 +1459,11 @@ type InstanceArgs struct {
 	BlueGreenUpdate InstanceBlueGreenUpdatePtrInput
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
-	// The character set name to use for DB
-	// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
-	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-	// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+	// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
+	// This can't be changed.
+	// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
+	// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+	// Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
 	CharacterSetName pulumi.StringPtrInput
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
@@ -1797,10 +1802,11 @@ func (o InstanceOutput) CaCertIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.CaCertIdentifier }).(pulumi.StringOutput)
 }
 
-// The character set name to use for DB
-// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
-// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
+// This can't be changed.
+// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
+// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+// Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
 func (o InstanceOutput) CharacterSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.CharacterSetName }).(pulumi.StringOutput)
 }

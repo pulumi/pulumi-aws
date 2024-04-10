@@ -3,8 +3,10 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -15,6 +17,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection {
+    /**
+     * @return The names of the fields in the request payload that contain your customer&#39;s primary physical address. See `address_fields` for more details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields addressFields;
+    /**
+     * @return The name of the field in the request payload that contains your customer&#39;s email. See `email_field` for more details.
+     * 
+     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField emailField;
     /**
      * @return Details about your login page password field. See `password_field` for more details.
@@ -27,12 +38,28 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      */
     private String payloadType;
     /**
+     * @return The names of the fields in the request payload that contain your customer&#39;s primary phone number. See `phone_number_fields` for more details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields phoneNumberFields;
+    /**
      * @return Details about your login page username field. See `username_field` for more details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField usernameField;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection() {}
+    /**
+     * @return The names of the fields in the request payload that contain your customer&#39;s primary physical address. See `address_fields` for more details.
+     * 
+     */
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields> addressFields() {
+        return Optional.ofNullable(this.addressFields);
+    }
+    /**
+     * @return The name of the field in the request payload that contains your customer&#39;s email. See `email_field` for more details.
+     * 
+     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField> emailField() {
         return Optional.ofNullable(this.emailField);
     }
@@ -51,6 +78,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         return this.payloadType;
     }
     /**
+     * @return The names of the fields in the request payload that contain your customer&#39;s primary phone number. See `phone_number_fields` for more details.
+     * 
+     */
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields> phoneNumberFields() {
+        return Optional.ofNullable(this.phoneNumberFields);
+    }
+    /**
      * @return Details about your login page username field. See `username_field` for more details.
      * 
      */
@@ -67,19 +101,29 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields addressFields;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField emailField;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField passwordField;
         private String payloadType;
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields phoneNumberFields;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField usernameField;
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.addressFields = defaults.addressFields;
     	      this.emailField = defaults.emailField;
     	      this.passwordField = defaults.passwordField;
     	      this.payloadType = defaults.payloadType;
+    	      this.phoneNumberFields = defaults.phoneNumberFields;
     	      this.usernameField = defaults.usernameField;
         }
 
+        @CustomType.Setter
+        public Builder addressFields(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields addressFields) {
+
+            this.addressFields = addressFields;
+            return this;
+        }
         @CustomType.Setter
         public Builder emailField(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField emailField) {
 
@@ -101,6 +145,12 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             return this;
         }
         @CustomType.Setter
+        public Builder phoneNumberFields(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields phoneNumberFields) {
+
+            this.phoneNumberFields = phoneNumberFields;
+            return this;
+        }
+        @CustomType.Setter
         public Builder usernameField(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField usernameField) {
 
             this.usernameField = usernameField;
@@ -108,9 +158,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection build() {
             final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection();
+            _resultValue.addressFields = addressFields;
             _resultValue.emailField = emailField;
             _resultValue.passwordField = passwordField;
             _resultValue.payloadType = payloadType;
+            _resultValue.phoneNumberFields = phoneNumberFields;
             _resultValue.usernameField = usernameField;
             return _resultValue;
         }

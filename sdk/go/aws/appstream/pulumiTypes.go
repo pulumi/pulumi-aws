@@ -173,7 +173,9 @@ type FleetComputeCapacity struct {
 	// Number of currently available instances that can be used to stream sessions.
 	Available *int `pulumi:"available"`
 	// Desired number of streaming instances.
-	DesiredInstances int `pulumi:"desiredInstances"`
+	DesiredInstances *int `pulumi:"desiredInstances"`
+	// Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+	DesiredSessions *int `pulumi:"desiredSessions"`
 	// Number of instances in use for streaming.
 	InUse *int `pulumi:"inUse"`
 	// Total number of simultaneous streaming instances that are running.
@@ -195,7 +197,9 @@ type FleetComputeCapacityArgs struct {
 	// Number of currently available instances that can be used to stream sessions.
 	Available pulumi.IntPtrInput `pulumi:"available"`
 	// Desired number of streaming instances.
-	DesiredInstances pulumi.IntInput `pulumi:"desiredInstances"`
+	DesiredInstances pulumi.IntPtrInput `pulumi:"desiredInstances"`
+	// Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+	DesiredSessions pulumi.IntPtrInput `pulumi:"desiredSessions"`
 	// Number of instances in use for streaming.
 	InUse pulumi.IntPtrInput `pulumi:"inUse"`
 	// Total number of simultaneous streaming instances that are running.
@@ -285,8 +289,13 @@ func (o FleetComputeCapacityOutput) Available() pulumi.IntPtrOutput {
 }
 
 // Desired number of streaming instances.
-func (o FleetComputeCapacityOutput) DesiredInstances() pulumi.IntOutput {
-	return o.ApplyT(func(v FleetComputeCapacity) int { return v.DesiredInstances }).(pulumi.IntOutput)
+func (o FleetComputeCapacityOutput) DesiredInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.DesiredInstances }).(pulumi.IntPtrOutput)
+}
+
+// Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+func (o FleetComputeCapacityOutput) DesiredSessions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.DesiredSessions }).(pulumi.IntPtrOutput)
 }
 
 // Number of instances in use for streaming.
@@ -339,7 +348,17 @@ func (o FleetComputeCapacityPtrOutput) DesiredInstances() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.DesiredInstances
+		return v.DesiredInstances
+	}).(pulumi.IntPtrOutput)
+}
+
+// Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+func (o FleetComputeCapacityPtrOutput) DesiredSessions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetComputeCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DesiredSessions
 	}).(pulumi.IntPtrOutput)
 }
 

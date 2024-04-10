@@ -32,6 +32,21 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
     }
 
     /**
+     * The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+     * 
+     */
+    @Import(name="catalogEncryptionServiceRole")
+    private @Nullable Output<String> catalogEncryptionServiceRole;
+
+    /**
+     * @return The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+     * 
+     */
+    public Optional<Output<String>> catalogEncryptionServiceRole() {
+        return Optional.ofNullable(this.catalogEncryptionServiceRole);
+    }
+
+    /**
      * The ARN of the AWS KMS key to use for encryption at rest.
      * 
      */
@@ -50,6 +65,7 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
 
     private DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs $) {
         this.catalogEncryptionMode = $.catalogEncryptionMode;
+        this.catalogEncryptionServiceRole = $.catalogEncryptionServiceRole;
         this.sseAwsKmsKeyId = $.sseAwsKmsKeyId;
     }
 
@@ -90,6 +106,27 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
          */
         public Builder catalogEncryptionMode(String catalogEncryptionMode) {
             return catalogEncryptionMode(Output.of(catalogEncryptionMode));
+        }
+
+        /**
+         * @param catalogEncryptionServiceRole The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder catalogEncryptionServiceRole(@Nullable Output<String> catalogEncryptionServiceRole) {
+            $.catalogEncryptionServiceRole = catalogEncryptionServiceRole;
+            return this;
+        }
+
+        /**
+         * @param catalogEncryptionServiceRole The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder catalogEncryptionServiceRole(String catalogEncryptionServiceRole) {
+            return catalogEncryptionServiceRole(Output.of(catalogEncryptionServiceRole));
         }
 
         /**

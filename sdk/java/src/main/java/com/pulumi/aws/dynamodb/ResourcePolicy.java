@@ -15,15 +15,6 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * &lt;!---
- * TIP: A few guiding principles for writing documentation:
- * 1. Use simple language while avoiding jargon and figures of speech.
- * 2. Focus on brevity and clarity to keep a reader&#39;s attention.
- * 3. Use active voice and present tense whenever you can.
- * 4. Document your feature as it exists now; do not mention the future or past if you can help it.
- * 5. Use accessible and inclusive language.
- * ---&gt;`
- * 
  * Resource for managing an AWS DynamoDB Resource Policy.
  * 
  * ## Example Usage

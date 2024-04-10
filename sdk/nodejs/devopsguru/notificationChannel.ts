@@ -81,7 +81,7 @@ export class NotificationChannel extends pulumi.CustomResource {
     }
 
     /**
-     * Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+     * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      */
     public readonly filters!: pulumi.Output<outputs.devopsguru.NotificationChannelFilters | undefined>;
     /**
@@ -121,7 +121,7 @@ export class NotificationChannel extends pulumi.CustomResource {
  */
 export interface NotificationChannelState {
     /**
-     * Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+     * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      */
     filters?: pulumi.Input<inputs.devopsguru.NotificationChannelFilters>;
     /**
@@ -137,7 +137,7 @@ export interface NotificationChannelState {
  */
 export interface NotificationChannelArgs {
     /**
-     * Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+     * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      */
     filters?: pulumi.Input<inputs.devopsguru.NotificationChannelFilters>;
     /**

@@ -5470,6 +5470,8 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPass
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest struct {
 	// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
 	CatalogEncryptionMode string `pulumi:"catalogEncryptionMode"`
+	// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+	CatalogEncryptionServiceRole *string `pulumi:"catalogEncryptionServiceRole"`
 	// The ARN of the AWS KMS key to use for encryption at rest.
 	SseAwsKmsKeyId *string `pulumi:"sseAwsKmsKeyId"`
 }
@@ -5488,6 +5490,8 @@ type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestI
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs struct {
 	// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
 	CatalogEncryptionMode pulumi.StringInput `pulumi:"catalogEncryptionMode"`
+	// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+	CatalogEncryptionServiceRole pulumi.StringPtrInput `pulumi:"catalogEncryptionServiceRole"`
 	// The ARN of the AWS KMS key to use for encryption at rest.
 	SseAwsKmsKeyId pulumi.StringPtrInput `pulumi:"sseAwsKmsKeyId"`
 }
@@ -5576,6 +5580,13 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 	}).(pulumi.StringOutput)
 }
 
+// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) CatalogEncryptionServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
+		return v.CatalogEncryptionServiceRole
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the AWS KMS key to use for encryption at rest.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
@@ -5614,6 +5625,16 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 			return nil
 		}
 		return &v.CatalogEncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) CatalogEncryptionServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogEncryptionServiceRole
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10952,6 +10973,8 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPa
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest struct {
 	// The encryption-at-rest mode for encrypting Data Catalog data.
 	CatalogEncryptionMode string `pulumi:"catalogEncryptionMode"`
+	// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+	CatalogEncryptionServiceRole string `pulumi:"catalogEncryptionServiceRole"`
 	// ARN of the AWS KMS key to use for encryption at rest.
 	SseAwsKmsKeyId string `pulumi:"sseAwsKmsKeyId"`
 }
@@ -10970,6 +10993,8 @@ type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRes
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs struct {
 	// The encryption-at-rest mode for encrypting Data Catalog data.
 	CatalogEncryptionMode pulumi.StringInput `pulumi:"catalogEncryptionMode"`
+	// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+	CatalogEncryptionServiceRole pulumi.StringInput `pulumi:"catalogEncryptionServiceRole"`
 	// ARN of the AWS KMS key to use for encryption at rest.
 	SseAwsKmsKeyId pulumi.StringInput `pulumi:"sseAwsKmsKeyId"`
 }
@@ -11029,6 +11054,13 @@ func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAt
 func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) CatalogEncryptionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest) string {
 		return v.CatalogEncryptionMode
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+func (o GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput) CatalogEncryptionServiceRole() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest) string {
+		return v.CatalogEncryptionServiceRole
 	}).(pulumi.StringOutput)
 }
 

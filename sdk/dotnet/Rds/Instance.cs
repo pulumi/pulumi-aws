@@ -462,10 +462,11 @@ namespace Pulumi.Aws.Rds
         public Output<string> CaCertIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The character set name to use for DB
-        /// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
-        /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-        /// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+        /// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
+        /// This can't be changed.
+        /// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
+        /// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+        /// Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
         /// </summary>
         [Output("characterSetName")]
         public Output<string> CharacterSetName { get; private set; } = null!;
@@ -1043,10 +1044,11 @@ namespace Pulumi.Aws.Rds
         public Input<string>? CaCertIdentifier { get; set; }
 
         /// <summary>
-        /// The character set name to use for DB
-        /// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
-        /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-        /// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+        /// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
+        /// This can't be changed.
+        /// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
+        /// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+        /// Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
         /// </summary>
         [Input("characterSetName")]
         public Input<string>? CharacterSetName { get; set; }
@@ -1571,10 +1573,11 @@ namespace Pulumi.Aws.Rds
         public Input<string>? CaCertIdentifier { get; set; }
 
         /// <summary>
-        /// The character set name to use for DB
-        /// encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
-        /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-        /// or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+        /// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
+        /// This can't be changed.
+        /// See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
+        /// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+        /// Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
         /// </summary>
         [Input("characterSetName")]
         public Input<string>? CharacterSetName { get; set; }

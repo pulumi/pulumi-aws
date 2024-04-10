@@ -166,7 +166,7 @@ type ResourceCollection struct {
 
 	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation ResourceCollectionCloudformationPtrOutput `pulumi:"cloudformation"`
-	// AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
+	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 	Tags ResourceCollectionTagsPtrOutput `pulumi:"tags"`
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
 	//
@@ -209,7 +209,7 @@ func GetResourceCollection(ctx *pulumi.Context,
 type resourceCollectionState struct {
 	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation *ResourceCollectionCloudformation `pulumi:"cloudformation"`
-	// AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
+	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 	Tags *ResourceCollectionTags `pulumi:"tags"`
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
 	//
@@ -220,7 +220,7 @@ type resourceCollectionState struct {
 type ResourceCollectionState struct {
 	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation ResourceCollectionCloudformationPtrInput
-	// AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
+	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 	Tags ResourceCollectionTagsPtrInput
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
 	//
@@ -235,7 +235,7 @@ func (ResourceCollectionState) ElementType() reflect.Type {
 type resourceCollectionArgs struct {
 	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation *ResourceCollectionCloudformation `pulumi:"cloudformation"`
-	// AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
+	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 	Tags *ResourceCollectionTags `pulumi:"tags"`
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
 	//
@@ -247,7 +247,7 @@ type resourceCollectionArgs struct {
 type ResourceCollectionArgs struct {
 	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformation ResourceCollectionCloudformationPtrInput
-	// AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
+	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 	Tags ResourceCollectionTagsPtrInput
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
 	//
@@ -347,7 +347,7 @@ func (o ResourceCollectionOutput) Cloudformation() ResourceCollectionCloudformat
 	return o.ApplyT(func(v *ResourceCollection) ResourceCollectionCloudformationPtrOutput { return v.Cloudformation }).(ResourceCollectionCloudformationPtrOutput)
 }
 
-// AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
+// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 func (o ResourceCollectionOutput) Tags() ResourceCollectionTagsPtrOutput {
 	return o.ApplyT(func(v *ResourceCollection) ResourceCollectionTagsPtrOutput { return v.Tags }).(ResourceCollectionTagsPtrOutput)
 }

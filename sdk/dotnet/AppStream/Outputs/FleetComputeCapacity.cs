@@ -20,7 +20,11 @@ namespace Pulumi.Aws.AppStream.Outputs
         /// <summary>
         /// Desired number of streaming instances.
         /// </summary>
-        public readonly int DesiredInstances;
+        public readonly int? DesiredInstances;
+        /// <summary>
+        /// Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+        /// </summary>
+        public readonly int? DesiredSessions;
         /// <summary>
         /// Number of instances in use for streaming.
         /// </summary>
@@ -34,7 +38,9 @@ namespace Pulumi.Aws.AppStream.Outputs
         private FleetComputeCapacity(
             int? available,
 
-            int desiredInstances,
+            int? desiredInstances,
+
+            int? desiredSessions,
 
             int? inUse,
 
@@ -42,6 +48,7 @@ namespace Pulumi.Aws.AppStream.Outputs
         {
             Available = available;
             DesiredInstances = desiredInstances;
+            DesiredSessions = desiredSessions;
             InUse = inUse;
             Running = running;
         }

@@ -120,7 +120,7 @@ type ClusterInstance struct {
 	// Name of the database engine to be used for the RDS cluster instance.
 	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine pulumi.StringOutput `pulumi:"engine"`
-	// Database engine version.
+	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// Database engine version
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
@@ -232,7 +232,7 @@ type clusterInstanceState struct {
 	// Name of the database engine to be used for the RDS cluster instance.
 	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine *string `pulumi:"engine"`
-	// Database engine version.
+	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Database engine version
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
@@ -306,7 +306,7 @@ type ClusterInstanceState struct {
 	// Name of the database engine to be used for the RDS cluster instance.
 	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine pulumi.StringPtrInput
-	// Database engine version.
+	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
 	EngineVersion pulumi.StringPtrInput
 	// Database engine version
 	EngineVersionActual pulumi.StringPtrInput
@@ -378,7 +378,7 @@ type clusterInstanceArgs struct {
 	// Name of the database engine to be used for the RDS cluster instance.
 	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine string `pulumi:"engine"`
-	// Database engine version.
+	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
@@ -431,7 +431,7 @@ type ClusterInstanceArgs struct {
 	// Name of the database engine to be used for the RDS cluster instance.
 	// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
 	Engine pulumi.StringInput
-	// Database engine version.
+	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
 	EngineVersion pulumi.StringPtrInput
 	// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
@@ -614,7 +614,7 @@ func (o ClusterInstanceOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
-// Database engine version.
+// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
 func (o ClusterInstanceOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
