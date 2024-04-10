@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Tue, 12 Mar 2024 18:05:28 -0400
-Subject: [PATCH 45/49] securitylake_subscriber tags_all patch
+Subject: [PATCH 45/50] securitylake_subscriber tags_all patch
 
 
 diff --git a/internal/service/securitylake/subscriber.go b/internal/service/securitylake/subscriber.go
