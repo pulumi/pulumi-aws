@@ -169,7 +169,7 @@ import * as utilities from "../utilities";
  *         products: ["AmazonLinux2017.09"],
  *         configuration: `[amzn-main]
  * name=amzn-main-Base
- * mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
+ * mirrorlist=http://repo./awsregion./awsdomain//releasever/main/mirror.list
  * mirrorlist_expire=300
  * metadata_expire=300
  * priority=10

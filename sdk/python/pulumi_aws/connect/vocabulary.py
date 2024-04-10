@@ -315,10 +315,10 @@ class Vocabulary(pulumi.CustomResource):
         example = aws.connect.Vocabulary("example",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             name="example",
-            content=\"\"\"Phrase	IPA	SoundsLike	DisplayAs
-        Los-Angeles			Los Angeles
-        F.B.I.	ɛ f b i aɪ		FBI
-        Etienne		eh-tee-en	\"\"\",
+            content=\"\"\"Phrase\\x09IPA\\x09SoundsLike\\x09DisplayAs
+        Los-Angeles\\x09\\x09\\x09Los Angeles
+        F.B.I.\\x09ɛ f b i aɪ\\x09\\x09FBI
+        Etienne\\x09\\x09eh-tee-en\\x09\"\"\",
             language_code="en-US",
             tags={
                 "Key1": "Value1",
@@ -363,10 +363,10 @@ class Vocabulary(pulumi.CustomResource):
         example = aws.connect.Vocabulary("example",
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             name="example",
-            content=\"\"\"Phrase	IPA	SoundsLike	DisplayAs
-        Los-Angeles			Los Angeles
-        F.B.I.	ɛ f b i aɪ		FBI
-        Etienne		eh-tee-en	\"\"\",
+            content=\"\"\"Phrase\\x09IPA\\x09SoundsLike\\x09DisplayAs
+        Los-Angeles\\x09\\x09\\x09Los Angeles
+        F.B.I.\\x09ɛ f b i aɪ\\x09\\x09FBI
+        Etienne\\x09\\x09eh-tee-en\\x09\"\"\",
             language_code="en-US",
             tags={
                 "Key1": "Value1",
