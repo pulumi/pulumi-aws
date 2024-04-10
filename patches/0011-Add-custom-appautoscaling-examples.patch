@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Wed, 9 Nov 2022 17:37:35 +0000
-Subject: [PATCH 11/48] Add custom appautoscaling examples
+Subject: [PATCH 11/49] Add custom appautoscaling examples
 
 
 diff --git a/website/docs/r/appautoscaling_policy.html.markdown b/website/docs/r/appautoscaling_policy.html.markdown
