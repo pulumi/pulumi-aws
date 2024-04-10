@@ -3,6 +3,7 @@ runtime: yaml
 config:
   snsTopicName:
     type: string
+    default: "test-topic"
 resources:
   topic1:
     type: aws:sns:Topic

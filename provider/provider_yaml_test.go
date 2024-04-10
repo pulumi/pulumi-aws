@@ -256,11 +256,11 @@ func pulumiTest(t *testing.T, dir string) *pulumitest.PulumiTest {
 func TestNonIdempotentSnsTopic(t *testing.T) {
 	ptest := pulumiTest(t, filepath.Join("test-programs", "non-idempotent-sns-topic"))
 
-	ptest.InstallStack("test")
 	// generate random name
 	topic_name := randSeq(12)
 	ptest.SetConfig("snsTopicName", topic_name)
+	stack := ptest.InstallStack("test")
+	_, err := stack.CurrentStack().Up(ptest.Context())
 
-	_, err := ptest.CurrentStack().Up(ptest.Context())
 	require.ErrorContains(t, err, "already exists")
 }
