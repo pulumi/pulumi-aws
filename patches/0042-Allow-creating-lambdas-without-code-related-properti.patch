@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Venelin <venelin@pulumi.com>
 Date: Tue, 13 Feb 2024 11:36:02 +0000
-Subject: [PATCH 42/47] Allow creating lambdas without code related properties
+Subject: [PATCH 42/49] Allow creating lambdas without code related properties
 
 
 diff --git a/internal/service/lambda/function.go b/internal/service/lambda/function.go

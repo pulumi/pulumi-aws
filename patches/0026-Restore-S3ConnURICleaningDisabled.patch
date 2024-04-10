@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: corymhall <43035978+corymhall@users.noreply.github.com>
 Date: Tue, 9 Apr 2024 15:24:26 -0400
-Subject: [PATCH 26/47] Restore S3ConnURICleaningDisabled
+Subject: [PATCH 26/49] Restore S3ConnURICleaningDisabled
 
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go

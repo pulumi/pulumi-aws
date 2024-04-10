@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Venelin <venelin@pulumi.com>
 Date: Wed, 14 Feb 2024 14:49:33 +0000
-Subject: [PATCH 40/47] Revert "Merge pull request #35678 from
+Subject: [PATCH 40/49] Revert "Merge pull request #35678 from
  hashicorp/b-elbv2-unexpected-diff"
 
 This reverts commit bfcae6ad3e8a226083f803b40e772e045ec78baa, reversing
