@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Mon, 24 Apr 2023 10:36:36 -0400
-Subject: [PATCH 20/51] Temp remove cognito_identity_pool_roles_attachment
+Subject: [PATCH 20/52] Temp remove cognito_identity_pool_roles_attachment
  example beacuse of flaky translation
 
 

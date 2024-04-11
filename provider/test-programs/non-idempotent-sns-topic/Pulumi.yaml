@@ -1,0 +1,15 @@
+name: "aws_sns_topic_Topic_1"
+runtime: yaml
+config:
+  snsTopicName:
+    type: string
+    default: "test-topic"
+resources:
+  topic1:
+    type: aws:sns:Topic
+    properties:
+      name: ${snsTopicName}
+  topic2:
+    type: aws:sns:Topic
+    properties:
+      name: ${snsTopicName} 
