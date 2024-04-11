@@ -629,6 +629,12 @@ namespace Pulumi.Aws.Emr
         public Output<bool> TerminationProtection { get; private set; } = null!;
 
         /// <summary>
+        /// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
+        /// </summary>
+        [Output("unhealthyNodeReplacement")]
+        public Output<bool?> UnhealthyNodeReplacement { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
         /// </summary>
         [Output("visibleToAllUsers")]
@@ -927,6 +933,12 @@ namespace Pulumi.Aws.Emr
         public Input<bool>? TerminationProtection { get; set; }
 
         /// <summary>
+        /// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
+        /// </summary>
+        [Input("unhealthyNodeReplacement")]
+        public Input<bool>? UnhealthyNodeReplacement { get; set; }
+
+        /// <summary>
         /// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
         /// </summary>
         [Input("visibleToAllUsers")]
@@ -1213,6 +1225,12 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         [Input("terminationProtection")]
         public Input<bool>? TerminationProtection { get; set; }
+
+        /// <summary>
+        /// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
+        /// </summary>
+        [Input("unhealthyNodeReplacement")]
+        public Input<bool>? UnhealthyNodeReplacement { get; set; }
 
         /// <summary>
         /// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.

@@ -32,9 +32,7 @@ import * as utilities from "../utilities";
  * const example = new aws.servicecatalog.AppregistryApplication("example", {name: "example-app"});
  * const bucket = new aws.s3.BucketV2("bucket", {
  *     bucket: "example-bucket",
- *     tags: {
- *         awsApplication: example.arn,
- *     },
+ *     tags: example.applicationTag,
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -76,6 +74,10 @@ export class AppregistryApplication extends pulumi.CustomResource {
     }
 
     /**
+     * A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
+     */
+    public /*out*/ readonly applicationTag!: pulumi.Output<{[key: string]: string}>;
+    /**
      * ARN (Amazon Resource Name) of the application.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -103,6 +105,7 @@ export class AppregistryApplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppregistryApplicationState | undefined;
+            resourceInputs["applicationTag"] = state ? state.applicationTag : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -110,6 +113,7 @@ export class AppregistryApplication extends pulumi.CustomResource {
             const args = argsOrState as AppregistryApplicationArgs | undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["applicationTag"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -121,6 +125,10 @@ export class AppregistryApplication extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AppregistryApplication resources.
  */
 export interface AppregistryApplicationState {
+    /**
+     * A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
+     */
+    applicationTag?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ARN (Amazon Resource Name) of the application.
      */

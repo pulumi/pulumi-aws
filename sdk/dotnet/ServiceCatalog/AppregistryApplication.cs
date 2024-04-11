@@ -55,10 +55,7 @@ namespace Pulumi.Aws.ServiceCatalog
     ///     var bucket = new Aws.S3.BucketV2("bucket", new()
     ///     {
     ///         Bucket = "example-bucket",
-    ///         Tags = 
-    ///         {
-    ///             { "awsApplication", example.Arn },
-    ///         },
+    ///         Tags = example.ApplicationTag,
     ///     });
     /// 
     /// });
@@ -76,6 +73,12 @@ namespace Pulumi.Aws.ServiceCatalog
     [AwsResourceType("aws:servicecatalog/appregistryApplication:AppregistryApplication")]
     public partial class AppregistryApplication : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
+        /// </summary>
+        [Output("applicationTag")]
+        public Output<ImmutableDictionary<string, string>> ApplicationTag { get; private set; } = null!;
+
         /// <summary>
         /// ARN (Amazon Resource Name) of the application.
         /// </summary>
@@ -164,6 +167,18 @@ namespace Pulumi.Aws.ServiceCatalog
 
     public sealed class AppregistryApplicationState : global::Pulumi.ResourceArgs
     {
+        [Input("applicationTag")]
+        private InputMap<string>? _applicationTag;
+
+        /// <summary>
+        /// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
+        /// </summary>
+        public InputMap<string> ApplicationTag
+        {
+            get => _applicationTag ?? (_applicationTag = new InputMap<string>());
+            set => _applicationTag = value;
+        }
+
         /// <summary>
         /// ARN (Amazon Resource Name) of the application.
         /// </summary>

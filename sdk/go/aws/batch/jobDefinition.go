@@ -331,6 +331,8 @@ type JobDefinition struct {
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
 	// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	ContainerProperties pulumi.StringPtrOutput `pulumi:"containerProperties"`
+	// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+	DeregisterOnNewRevision pulumi.BoolPtrOutput `pulumi:"deregisterOnNewRevision"`
 	// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
 	EksProperties JobDefinitionEksPropertiesPtrOutput `pulumi:"eksProperties"`
 	// Specifies the name of the job definition.
@@ -405,6 +407,8 @@ type jobDefinitionState struct {
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
 	// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	ContainerProperties *string `pulumi:"containerProperties"`
+	// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+	DeregisterOnNewRevision *bool `pulumi:"deregisterOnNewRevision"`
 	// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
 	EksProperties *JobDefinitionEksProperties `pulumi:"eksProperties"`
 	// Specifies the name of the job definition.
@@ -447,6 +451,8 @@ type JobDefinitionState struct {
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
 	// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	ContainerProperties pulumi.StringPtrInput
+	// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+	DeregisterOnNewRevision pulumi.BoolPtrInput
 	// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
 	EksProperties JobDefinitionEksPropertiesPtrInput
 	// Specifies the name of the job definition.
@@ -489,6 +495,8 @@ type jobDefinitionArgs struct {
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
 	// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	ContainerProperties *string `pulumi:"containerProperties"`
+	// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+	DeregisterOnNewRevision *bool `pulumi:"deregisterOnNewRevision"`
 	// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
 	EksProperties *JobDefinitionEksProperties `pulumi:"eksProperties"`
 	// Specifies the name of the job definition.
@@ -522,6 +530,8 @@ type JobDefinitionArgs struct {
 	// A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
 	// provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 	ContainerProperties pulumi.StringPtrInput
+	// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+	DeregisterOnNewRevision pulumi.BoolPtrInput
 	// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
 	EksProperties JobDefinitionEksPropertiesPtrInput
 	// Specifies the name of the job definition.
@@ -651,6 +661,11 @@ func (o JobDefinitionOutput) ArnPrefix() pulumi.StringOutput {
 // provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
 func (o JobDefinitionOutput) ContainerProperties() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringPtrOutput { return v.ContainerProperties }).(pulumi.StringPtrOutput)
+}
+
+// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+func (o JobDefinitionOutput) DeregisterOnNewRevision() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.BoolPtrOutput { return v.DeregisterOnNewRevision }).(pulumi.BoolPtrOutput)
 }
 
 // A valid eks properties. This parameter is only valid if the `type` parameter is `container`.

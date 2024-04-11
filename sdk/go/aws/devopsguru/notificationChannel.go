@@ -93,7 +93,7 @@ import (
 type NotificationChannel struct {
 	pulumi.CustomResourceState
 
-	// Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters NotificationChannelFiltersPtrOutput `pulumi:"filters"`
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
@@ -131,7 +131,7 @@ func GetNotificationChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationChannel resources.
 type notificationChannelState struct {
-	// Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters *NotificationChannelFilters `pulumi:"filters"`
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
@@ -140,7 +140,7 @@ type notificationChannelState struct {
 }
 
 type NotificationChannelState struct {
-	// Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters NotificationChannelFiltersPtrInput
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
@@ -153,7 +153,7 @@ func (NotificationChannelState) ElementType() reflect.Type {
 }
 
 type notificationChannelArgs struct {
-	// Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters *NotificationChannelFilters `pulumi:"filters"`
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
@@ -163,7 +163,7 @@ type notificationChannelArgs struct {
 
 // The set of arguments for constructing a NotificationChannel resource.
 type NotificationChannelArgs struct {
-	// Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+	// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 	Filters NotificationChannelFiltersPtrInput
 	// SNS noficiation channel configurations. See the `sns` argument reference below.
 	//
@@ -258,7 +258,7 @@ func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx co
 	return o
 }
 
-// Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
+// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
 func (o NotificationChannelOutput) Filters() NotificationChannelFiltersPtrOutput {
 	return o.ApplyT(func(v *NotificationChannel) NotificationChannelFiltersPtrOutput { return v.Filters }).(NotificationChannelFiltersPtrOutput)
 }

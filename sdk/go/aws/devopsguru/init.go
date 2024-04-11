@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NotificationChannel{}
 	case "aws:devopsguru/resourceCollection:ResourceCollection":
 		r = &ResourceCollection{}
+	case "aws:devopsguru/serviceIntegration:ServiceIntegration":
+		r = &ServiceIntegration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"devopsguru/resourceCollection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"devopsguru/serviceIntegration",
 		&module{version},
 	)
 }

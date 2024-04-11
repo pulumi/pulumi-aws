@@ -125,8 +125,8 @@ class RepositoryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo", name="bar")
-        foopolicy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_repository = aws.ecr.Repository("example", name="example-repo")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="new policy",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -150,9 +150,9 @@ class RepositoryPolicy(pulumi.CustomResource):
                 "ecr:DeleteRepositoryPolicy",
             ],
         )])
-        foopolicy_repository_policy = aws.ecr.RepositoryPolicy("foopolicy",
-            repository=foo.name,
-            policy=foopolicy.json)
+        example_repository_policy = aws.ecr.RepositoryPolicy("example",
+            repository=example_repository.name,
+            policy=example.json)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -187,8 +187,8 @@ class RepositoryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo", name="bar")
-        foopolicy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_repository = aws.ecr.Repository("example", name="example-repo")
+        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="new policy",
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -212,9 +212,9 @@ class RepositoryPolicy(pulumi.CustomResource):
                 "ecr:DeleteRepositoryPolicy",
             ],
         )])
-        foopolicy_repository_policy = aws.ecr.RepositoryPolicy("foopolicy",
-            repository=foo.name,
-            policy=foopolicy.json)
+        example_repository_policy = aws.ecr.RepositoryPolicy("example",
+            repository=example_repository.name,
+            policy=example.json)
         ```
         <!--End PulumiCodeChooser -->
 

@@ -10,6 +10,16 @@ export type EventSourcesConfig = import("./eventSourcesConfig").EventSourcesConf
 export const EventSourcesConfig: typeof import("./eventSourcesConfig").EventSourcesConfig = null as any;
 utilities.lazyLoad(exports, ["EventSourcesConfig"], () => require("./eventSourcesConfig"));
 
+export { GetNotificationChannelArgs, GetNotificationChannelResult, GetNotificationChannelOutputArgs } from "./getNotificationChannel";
+export const getNotificationChannel: typeof import("./getNotificationChannel").getNotificationChannel = null as any;
+export const getNotificationChannelOutput: typeof import("./getNotificationChannel").getNotificationChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getNotificationChannel","getNotificationChannelOutput"], () => require("./getNotificationChannel"));
+
+export { GetResourceCollectionArgs, GetResourceCollectionResult, GetResourceCollectionOutputArgs } from "./getResourceCollection";
+export const getResourceCollection: typeof import("./getResourceCollection").getResourceCollection = null as any;
+export const getResourceCollectionOutput: typeof import("./getResourceCollection").getResourceCollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceCollection","getResourceCollectionOutput"], () => require("./getResourceCollection"));
+
 export { NotificationChannelArgs, NotificationChannelState } from "./notificationChannel";
 export type NotificationChannel = import("./notificationChannel").NotificationChannel;
 export const NotificationChannel: typeof import("./notificationChannel").NotificationChannel = null as any;
@@ -19,6 +29,11 @@ export { ResourceCollectionArgs, ResourceCollectionState } from "./resourceColle
 export type ResourceCollection = import("./resourceCollection").ResourceCollection;
 export const ResourceCollection: typeof import("./resourceCollection").ResourceCollection = null as any;
 utilities.lazyLoad(exports, ["ResourceCollection"], () => require("./resourceCollection"));
+
+export { ServiceIntegrationArgs, ServiceIntegrationState } from "./serviceIntegration";
+export type ServiceIntegration = import("./serviceIntegration").ServiceIntegration;
+export const ServiceIntegration: typeof import("./serviceIntegration").ServiceIntegration = null as any;
+utilities.lazyLoad(exports, ["ServiceIntegration"], () => require("./serviceIntegration"));
 
 
 const _module = {
@@ -31,6 +46,8 @@ const _module = {
                 return new NotificationChannel(name, <any>undefined, { urn })
             case "aws:devopsguru/resourceCollection:ResourceCollection":
                 return new ResourceCollection(name, <any>undefined, { urn })
+            case "aws:devopsguru/serviceIntegration:ServiceIntegration":
+                return new ServiceIntegration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -39,3 +56,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "devopsguru/eventSourcesConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "devopsguru/notificationChannel", _module)
 pulumi.runtime.registerResourceModule("aws", "devopsguru/resourceCollection", _module)
+pulumi.runtime.registerResourceModule("aws", "devopsguru/serviceIntegration", _module)

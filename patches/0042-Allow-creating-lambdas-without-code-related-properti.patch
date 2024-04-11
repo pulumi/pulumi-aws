@@ -1,0 +1,37 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Venelin <venelin@pulumi.com>
+Date: Tue, 13 Feb 2024 11:36:02 +0000
+Subject: [PATCH 42/51] Allow creating lambdas without code related properties
+
+
+diff --git a/internal/service/lambda/function.go b/internal/service/lambda/function.go
+index ba93ca7987..9ebfcbe4f1 100644
+--- a/internal/service/lambda/function.go
++++ b/internal/service/lambda/function.go
+@@ -169,7 +169,7 @@ func ResourceFunction() *schema.Resource {
+ 			"filename": {
+ 				Type:         schema.TypeString,
+ 				Optional:     true,
+-				ExactlyOneOf: []string{"filename", "image_uri", "s3_bucket"},
++				ConflictsWith: []string{"s3_bucket", "s3_key", "s3_object_version", "image_uri"},
+ 			},
+ 			"function_name": {
+ 				Type:         schema.TypeString,
+@@ -208,7 +208,7 @@ func ResourceFunction() *schema.Resource {
+ 			"image_uri": {
+ 				Type:         schema.TypeString,
+ 				Optional:     true,
+-				ExactlyOneOf: []string{"filename", "image_uri", "s3_bucket"},
++				ConflictsWith: []string{"filename", "s3_bucket", "s3_key", "s3_object_version"},
+ 			},
+ 			"invoke_arn": {
+ 				Type:     schema.TypeString,
+@@ -326,7 +326,7 @@ func ResourceFunction() *schema.Resource {
+ 			"s3_bucket": {
+ 				Type:         schema.TypeString,
+ 				Optional:     true,
+-				ExactlyOneOf: []string{"filename", "image_uri", "s3_bucket"},
++				ConflictsWith: []string{"filename", "image_uri"},
+ 				RequiredWith: []string{"s3_key"},
+ 			},
+ 			"s3_key": {

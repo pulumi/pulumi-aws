@@ -329,6 +329,12 @@ namespace Pulumi.Aws.Batch
         public Output<string?> ContainerProperties { get; private set; } = null!;
 
         /// <summary>
+        /// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+        /// </summary>
+        [Output("deregisterOnNewRevision")]
+        public Output<bool?> DeregisterOnNewRevision { get; private set; } = null!;
+
+        /// <summary>
         /// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Output("eksProperties")]
@@ -464,6 +470,12 @@ namespace Pulumi.Aws.Batch
         public Input<string>? ContainerProperties { get; set; }
 
         /// <summary>
+        /// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+        /// </summary>
+        [Input("deregisterOnNewRevision")]
+        public Input<bool>? DeregisterOnNewRevision { get; set; }
+
+        /// <summary>
         /// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Input("eksProperties")]
@@ -577,6 +589,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("containerProperties")]
         public Input<string>? ContainerProperties { get; set; }
+
+        /// <summary>
+        /// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+        /// </summary>
+        [Input("deregisterOnNewRevision")]
+        public Input<bool>? DeregisterOnNewRevision { get; set; }
 
         /// <summary>
         /// A valid eks properties. This parameter is only valid if the `type` parameter is `container`.

@@ -1,0 +1,238 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Venelin <venelin@pulumi.com>
+Date: Wed, 14 Feb 2024 14:49:33 +0000
+Subject: [PATCH 40/51] Revert "Merge pull request #35678 from
+ hashicorp/b-elbv2-unexpected-diff"
+
+This reverts commit bfcae6ad3e8a226083f803b40e772e045ec78baa, reversing
+changes made to e6a44f239c54a63b87f63292ae64121d6ac166a6.
+
+diff --git a/.changelog/35678.txt b/.changelog/35678.txt
+deleted file mode 100644
+index 106f298c02..0000000000
+--- a/.changelog/35678.txt
++++ /dev/null
+@@ -1,7 +0,0 @@
+-```release-note:bug
+-resource/aws_lb_listener: Fixes unexpected diff when using `default_action` parameters which don't match the `type`.
+-```
+-
+-```release-note:bug
+-resource/aws_lb_listener_rule: Fixes unexpected diff when using `action` parameters which don't match the `type`.
+-```
+diff --git a/internal/service/elbv2/listener.go b/internal/service/elbv2/listener.go
+index 5b358cc768..159d62abf7 100644
+--- a/internal/service/elbv2/listener.go
++++ b/internal/service/elbv2/listener.go
+@@ -75,10 +75,9 @@ func ResourceListener() *schema.Resource {
+ 				Elem: &schema.Resource{
+ 					Schema: map[string]*schema.Schema{
+ 						"authenticate_cognito": {
+-							Type:             schema.TypeList,
+-							Optional:         true,
+-							DiffSuppressFunc: suppressIfDefaultActionTypeNot(awstypes.ActionTypeEnumAuthenticateCognito),
+-							MaxItems:         1,
++							Type:     schema.TypeList,
++							Optional: true,
++							MaxItems: 1,
+ 							Elem: &schema.Resource{
+ 								Schema: map[string]*schema.Schema{
+ 									"authentication_request_extra_params": {
+@@ -124,10 +123,9 @@ func ResourceListener() *schema.Resource {
+ 							},
+ 						},
+ 						"authenticate_oidc": {
+-							Type:             schema.TypeList,
+-							Optional:         true,
+-							DiffSuppressFunc: suppressIfDefaultActionTypeNot(awstypes.ActionTypeEnumAuthenticateOidc),
+-							MaxItems:         1,
++							Type:     schema.TypeList,
++							Optional: true,
++							MaxItems: 1,
+ 							Elem: &schema.Resource{
+ 								Schema: map[string]*schema.Schema{
+ 									"authentication_request_extra_params": {
+@@ -185,10 +183,9 @@ func ResourceListener() *schema.Resource {
+ 							},
+ 						},
+ 						"fixed_response": {
+-							Type:             schema.TypeList,
+-							Optional:         true,
+-							DiffSuppressFunc: suppressIfDefaultActionTypeNot(awstypes.ActionTypeEnumFixedResponse),
+-							MaxItems:         1,
++							Type:     schema.TypeList,
++							Optional: true,
++							MaxItems: 1,
+ 							Elem: &schema.Resource{
+ 								Schema: map[string]*schema.Schema{
+ 									"content_type": {
+@@ -217,10 +214,11 @@ func ResourceListener() *schema.Resource {
+ 							},
+ 						},
+ 						"forward": {
+-							Type:             schema.TypeList,
+-							Optional:         true,
+-							DiffSuppressFunc: suppressIfDefaultActionTypeNot(awstypes.ActionTypeEnumForward),
+-							MaxItems:         1,
++							Type:                  schema.TypeList,
++							Optional:              true,
++							DiffSuppressOnRefresh: true,
++							DiffSuppressFunc:      diffSuppressMissingForward("default_action"),
++							MaxItems:              1,
+ 							Elem: &schema.Resource{
+ 								Schema: map[string]*schema.Schema{
+ 									"target_group": {
+@@ -274,10 +272,9 @@ func ResourceListener() *schema.Resource {
+ 							ValidateFunc: validation.IntBetween(listenerActionOrderMin, listenerActionOrderMax),
+ 						},
+ 						"redirect": {
+-							Type:             schema.TypeList,
+-							Optional:         true,
+-							DiffSuppressFunc: suppressIfDefaultActionTypeNot(awstypes.ActionTypeEnumRedirect),
+-							MaxItems:         1,
++							Type:     schema.TypeList,
++							Optional: true,
++							MaxItems: 1,
+ 							Elem: &schema.Resource{
+ 								Schema: map[string]*schema.Schema{
+ 									"host": {
+@@ -322,10 +319,9 @@ func ResourceListener() *schema.Resource {
+ 							},
+ 						},
+ 						"target_group_arn": {
+-							Type:             schema.TypeString,
+-							Optional:         true,
+-							DiffSuppressFunc: suppressIfDefaultActionTypeNot(awstypes.ActionTypeEnumForward),
+-							ValidateFunc:     verify.ValidARN,
++							Type:         schema.TypeString,
++							Optional:     true,
++							ValidateFunc: verify.ValidARN,
+ 						},
+ 						"type": {
+ 							Type:             schema.TypeString,
+@@ -397,21 +393,6 @@ func ResourceListener() *schema.Resource {
+ 	}
+ }
+ 
+-func suppressIfDefaultActionTypeNot(t awstypes.ActionTypeEnum) schema.SchemaDiffSuppressFunc {
+-	return func(k, old, new string, d *schema.ResourceData) bool {
+-		take := 2
+-		i := strings.IndexFunc(k, func(r rune) bool {
+-			if r == '.' {
+-				take -= 1
+-				return take == 0
+-			}
+-			return false
+-		})
+-		at := k[:i+1] + "type"
+-		return awstypes.ActionTypeEnum(d.Get(at).(string)) != t
+-	}
+-}
+-
+ func resourceListenerCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	var diags diag.Diagnostics
+ 	conn := meta.(*conns.AWSClient).ELBV2Client(ctx)
+diff --git a/internal/service/elbv2/listener_rule.go b/internal/service/elbv2/listener_rule.go
+index 3943c4e7dd..047ee68dee 100644
+--- a/internal/service/elbv2/listener_rule.go
++++ b/internal/service/elbv2/listener_rule.go
+@@ -10,7 +10,6 @@ import (
+ 	"log"
+ 	"sort"
+ 	"strconv"
+-	"strings"
+ 	"time"
+ 
+ 	"github.com/YakDriver/regexache"
+@@ -93,10 +92,9 @@ func ResourceListenerRule() *schema.Resource {
+ 						},
+ 
+ 						"target_group_arn": {
+-							Type:             schema.TypeString,
+-							Optional:         true,
+-							DiffSuppressFunc: suppressIfActionTypeNot(awstypes.ActionTypeEnumForward),
+-							ValidateFunc:     verify.ValidARN,
++							Type:         schema.TypeString,
++							Optional:     true,
++							ValidateFunc: verify.ValidARN,
+ 						},
+ 
+ 						"forward": {
+@@ -153,10 +151,9 @@ func ResourceListenerRule() *schema.Resource {
+ 						},
+ 
+ 						"redirect": {
+-							Type:             schema.TypeList,
+-							Optional:         true,
+-							DiffSuppressFunc: suppressIfActionTypeNot(awstypes.ActionTypeEnumRedirect),
+-							MaxItems:         1,
++							Type:     schema.TypeList,
++							Optional: true,
++							MaxItems: 1,
+ 							Elem: &schema.Resource{
+ 								Schema: map[string]*schema.Schema{
+ 									"host": {
+@@ -207,10 +204,9 @@ func ResourceListenerRule() *schema.Resource {
+ 						},
+ 
+ 						"fixed_response": {
+-							Type:             schema.TypeList,
+-							Optional:         true,
+-							DiffSuppressFunc: suppressIfActionTypeNot(awstypes.ActionTypeEnumFixedResponse),
+-							MaxItems:         1,
++							Type:     schema.TypeList,
++							Optional: true,
++							MaxItems: 1,
+ 							Elem: &schema.Resource{
+ 								Schema: map[string]*schema.Schema{
+ 									"content_type": {
+@@ -242,10 +238,9 @@ func ResourceListenerRule() *schema.Resource {
+ 						},
+ 
+ 						"authenticate_cognito": {
+-							Type:             schema.TypeList,
+-							Optional:         true,
+-							DiffSuppressFunc: suppressIfActionTypeNot(awstypes.ActionTypeEnumAuthenticateCognito),
+-							MaxItems:         1,
++							Type:     schema.TypeList,
++							Optional: true,
++							MaxItems: 1,
+ 							Elem: &schema.Resource{
+ 								Schema: map[string]*schema.Schema{
+ 									"authentication_request_extra_params": {
+@@ -292,10 +287,9 @@ func ResourceListenerRule() *schema.Resource {
+ 						},
+ 
+ 						"authenticate_oidc": {
+-							Type:             schema.TypeList,
+-							Optional:         true,
+-							DiffSuppressFunc: suppressIfActionTypeNot(awstypes.ActionTypeEnumAuthenticateOidc),
+-							MaxItems:         1,
++							Type:     schema.TypeList,
++							Optional: true,
++							MaxItems: 1,
+ 							Elem: &schema.Resource{
+ 								Schema: map[string]*schema.Schema{
+ 									"authentication_request_extra_params": {
+@@ -487,21 +481,6 @@ func ResourceListenerRule() *schema.Resource {
+ 	}
+ }
+ 
+-func suppressIfActionTypeNot(t awstypes.ActionTypeEnum) schema.SchemaDiffSuppressFunc {
+-	return func(k, old, new string, d *schema.ResourceData) bool {
+-		take := 2
+-		i := strings.IndexFunc(k, func(r rune) bool {
+-			if r == '.' {
+-				take -= 1
+-				return take == 0
+-			}
+-			return false
+-		})
+-		at := k[:i+1] + "type"
+-		return awstypes.ActionTypeEnum(d.Get(at).(string)) != t
+-	}
+-}
+-
+ func resourceListenerRuleCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	var diags diag.Diagnostics
+ 	conn := meta.(*conns.AWSClient).ELBV2Client(ctx)

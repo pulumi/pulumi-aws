@@ -117,6 +117,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
             ),
             encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
                 catalog_encryption_mode="SSE-KMS",
+                catalog_encryption_service_role=role["test"]["arn"],
                 sse_aws_kms_key_id=test["arn"],
             ),
         ))
@@ -159,6 +160,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
             ),
             encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
                 catalog_encryption_mode="SSE-KMS",
+                catalog_encryption_service_role=role["test"]["arn"],
                 sse_aws_kms_key_id=test["arn"],
             ),
         ))

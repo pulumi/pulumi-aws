@@ -18,7 +18,7 @@ class LifecyclePolicyArgs:
                  repository: pulumi.Input[str]):
         """
         The set of arguments for constructing a LifecyclePolicy resource.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
         :param pulumi.Input[str] repository: Name of the repository to apply the policy.
         """
         pulumi.set(__self__, "policy", policy)
@@ -28,7 +28,7 @@ class LifecyclePolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
         """
-        The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+        The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
         """
         return pulumi.get(self, "policy")
 
@@ -57,7 +57,7 @@ class _LifecyclePolicyState:
                  repository: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LifecyclePolicy resources.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository: Name of the repository to apply the policy.
         """
@@ -72,7 +72,7 @@ class _LifecyclePolicyState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+        The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
         """
         return pulumi.get(self, "policy")
 
@@ -129,9 +129,9 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo", name="bar")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            repository=foo.name,
+        example = aws.ecr.Repository("example", name="example-repo")
+        example_lifecycle_policy = aws.ecr.LifecyclePolicy("example",
+            repository=example.name,
             policy=\"\"\"{
             "rules": [
                 {
@@ -160,9 +160,9 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo", name="bar")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            repository=foo.name,
+        example = aws.ecr.Repository("example", name="example-repo")
+        example_lifecycle_policy = aws.ecr.LifecyclePolicy("example",
+            repository=example.name,
             policy=\"\"\"{
             "rules": [
                 {
@@ -194,7 +194,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
         :param pulumi.Input[str] repository: Name of the repository to apply the policy.
         """
         ...
@@ -219,9 +219,9 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo", name="bar")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            repository=foo.name,
+        example = aws.ecr.Repository("example", name="example-repo")
+        example_lifecycle_policy = aws.ecr.LifecyclePolicy("example",
+            repository=example.name,
             policy=\"\"\"{
             "rules": [
                 {
@@ -250,9 +250,9 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.Repository("foo", name="bar")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            repository=foo.name,
+        example = aws.ecr.Repository("example", name="example-repo")
+        example_lifecycle_policy = aws.ecr.LifecyclePolicy("example",
+            repository=example.name,
             policy=\"\"\"{
             "rules": [
                 {
@@ -335,7 +335,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository: Name of the repository to apply the policy.
         """
@@ -352,7 +352,7 @@ class LifecyclePolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
         """
-        The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+        The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `policy` argument.
         """
         return pulumi.get(self, "policy")
 
