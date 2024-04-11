@@ -5,7 +5,7 @@ Subject: [PATCH 49/49] non-idempotent sns topic creation
 
 
 diff --git a/internal/service/sns/topic.go b/internal/service/sns/topic.go
-index 98ebd87d5d..5f3a61390b 100644
+index 98ebd87d5d..978b814fef 100644
 --- a/internal/service/sns/topic.go
 +++ b/internal/service/sns/topic.go
 @@ -9,6 +9,7 @@ import (
@@ -24,20 +24,27 @@ index 98ebd87d5d..5f3a61390b 100644
 +	return fmt.Sprintf("arn:aws:sns:%s:%s:%s", region, account, snsTopicName)
 +}
 +
-+var snsGlobalMutex sync.Mutex
++var snsGlobalMutex sync.Map
 +
  func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
  	var diags diag.Diagnostics
  	conn := meta.(*conns.AWSClient).SNSClient(ctx)
-@@ -283,6 +290,20 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta inter
+@@ -283,6 +290,27 @@ func resourceTopicCreate(ctx context.Context, d *schema.ResourceData, meta inter
  		delete(attributes, topicAttributeNameFIFOTopic)
  	}
  
-+	// Look up if the topic already exists
-+	snsGlobalMutex.Lock()
-+	defer snsGlobalMutex.Unlock()
++	// create a lock based on the topic ARN. We really want to make sure
++	// that we prevent a race condition where two resources are created with
++	// the same name.
 +	topicArn := constructTopicArn(conn, meta.(*conns.AWSClient).AccountID, meta.(*conns.AWSClient).Region, name)
++	var localMutex *sync.Mutex
++	if val, ok := snsGlobalMutex.LoadOrStore(topicArn, localMutex); ok {
++		localMutex = val.(*sync.Mutex)
++	}
++	localMutex.Lock()
++	defer localMutex.Unlock()
 +
++	// Look up if the topic already exists
 +	_, err = findTopicAttributesWithValidAWSPrincipalsByARN(ctx, conn, topicArn)
 +
 +	if err == nil {
