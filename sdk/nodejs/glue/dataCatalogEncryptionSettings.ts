@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     },
  *     encryptionAtRest: {
  *         catalogEncryptionMode: "SSE-KMS",
+ *         catalogEncryptionServiceRole: role.test.arn,
  *         sseAwsKmsKeyId: test.arn,
  *     },
  * }});

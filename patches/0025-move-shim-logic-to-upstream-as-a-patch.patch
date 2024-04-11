@@ -1,0 +1,83 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Guinevere Saenger <guinevere@pulumi.com>
+Date: Wed, 6 Sep 2023 10:43:30 -0700
+Subject: [PATCH 25/51] move shim logic to upstream as a patch
+
+
+diff --git a/shim/shim.go b/shim/shim.go
+new file mode 100644
+index 0000000000..2af7c06925
+--- /dev/null
++++ b/shim/shim.go
+@@ -0,0 +1,36 @@
++package shim
++
++import (
++	"context"
++
++	pfprovider "github.com/hashicorp/terraform-plugin-framework/provider"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/provider"
++	"github.com/hashicorp/terraform-provider-aws/internal/provider/fwprovider"
++	"github.com/hashicorp/terraform-provider-aws/internal/tags"
++)
++
++type UpstreamProvider struct {
++	SDKV2Provider           *schema.Provider
++	PluginFrameworkProvider pfprovider.Provider
++}
++
++func NewUpstreamProvider(ctx context.Context) (UpstreamProvider, error) {
++	primary, err := provider.New(ctx)
++	if err != nil {
++		return UpstreamProvider{}, err
++	}
++	pf := fwprovider.New(primary)
++	return UpstreamProvider{
++		SDKV2Provider:           primary,
++		PluginFrameworkProvider: pf,
++	}, nil
++}
++
++type TagConfig = tags.DefaultConfig
++
++type TagIgnoreConfig = tags.IgnoreConfig
++
++func NewTagConfig(ctx context.Context, i interface{}) TagConfig {
++	return TagConfig{Tags: tags.New(ctx, i)}
++}
+diff --git a/shim/shim_test.go b/shim/shim_test.go
+new file mode 100644
+index 0000000000..f8ee8a0c54
+--- /dev/null
++++ b/shim/shim_test.go
+@@ -0,0 +1,29 @@
++// Copyright 2023, Pulumi Corporation.
++//
++// Licensed under the Apache License, Version 2.0 (the "License");
++// you may not use this file except in compliance with the License.
++// You may obtain a copy of the License at
++//
++//     http://www.apache.org/licenses/LICENSE-2.0
++//
++// Unless required by applicable law or agreed to in writing, software
++// distributed under the License is distributed on an "AS IS" BASIS,
++// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++// See the License for the specific language governing permissions and
++// limitations under the License.
++
++package shim
++
++import (
++	"context"
++	"testing"
++)
++
++// This checks that any runtime checks in the underlying provider (with patches) are passed.
++func TestProviderShim(t *testing.T) {
++	ctx := context.Background()
++	_, err := NewUpstreamProvider(ctx)
++	if err != nil {
++		t.Fatal(err)
++	}
++}

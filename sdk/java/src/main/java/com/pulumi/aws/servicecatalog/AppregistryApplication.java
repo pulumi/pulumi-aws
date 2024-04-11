@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -86,7 +87,7 @@ import javax.annotation.Nullable;
  * 
  *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
  *             .bucket(&#34;example-bucket&#34;)
- *             .tags(Map.of(&#34;awsApplication&#34;, example.arn()))
+ *             .tags(example.applicationTag())
  *             .build());
  * 
  *     }
@@ -105,6 +106,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:servicecatalog/appregistryApplication:AppregistryApplication")
 public class AppregistryApplication extends com.pulumi.resources.CustomResource {
+    /**
+     * A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
+     * 
+     */
+    @Export(name="applicationTag", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> applicationTag;
+
+    /**
+     * @return A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
+     * 
+     */
+    public Output<Map<String,String>> applicationTag() {
+        return this.applicationTag;
+    }
     /**
      * ARN (Amazon Resource Name) of the application.
      * 

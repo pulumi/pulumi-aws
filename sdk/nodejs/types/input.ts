@@ -7338,7 +7338,11 @@ export namespace appstream {
         /**
          * Desired number of streaming instances.
          */
-        desiredInstances: pulumi.Input<number>;
+        desiredInstances?: pulumi.Input<number>;
+        /**
+         * Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+         */
+        desiredSessions?: pulumi.Input<number>;
         /**
          * Number of instances in use for streaming.
          */
@@ -17619,6 +17623,78 @@ export namespace devopsguru {
         status: pulumi.Input<string>;
     }
 
+    export interface GetNotificationChannelFilter {
+        /**
+         * Events to receive notifications for.
+         */
+        messageTypes?: string[];
+        /**
+         * Severity levels to receive notifications for.
+         */
+        severities?: string[];
+    }
+
+    export interface GetNotificationChannelFilterArgs {
+        /**
+         * Events to receive notifications for.
+         */
+        messageTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Severity levels to receive notifications for.
+         */
+        severities?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetNotificationChannelSn {
+        /**
+         * Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+         */
+        topicArn?: string;
+    }
+
+    export interface GetNotificationChannelSnArgs {
+        /**
+         * Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+         */
+        topicArn?: pulumi.Input<string>;
+    }
+
+    export interface GetResourceCollectionCloudformation {
+        /**
+         * Array of the names of the AWS CloudFormation stacks.
+         */
+        stackNames?: string[];
+    }
+
+    export interface GetResourceCollectionCloudformationArgs {
+        /**
+         * Array of the names of the AWS CloudFormation stacks.
+         */
+        stackNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetResourceCollectionTag {
+        /**
+         * An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
+         */
+        appBoundaryKey?: string;
+        /**
+         * Array of tag values.
+         */
+        tagValues?: string[];
+    }
+
+    export interface GetResourceCollectionTagArgs {
+        /**
+         * An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
+         */
+        appBoundaryKey?: pulumi.Input<string>;
+        /**
+         * Array of tag values.
+         */
+        tagValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface NotificationChannelFilters {
         /**
          * Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
@@ -17631,6 +17707,9 @@ export namespace devopsguru {
     }
 
     export interface NotificationChannelSns {
+        /**
+         * Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+         */
         topicArn: pulumi.Input<string>;
     }
 
@@ -17650,6 +17729,35 @@ export namespace devopsguru {
          * Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
          */
         tagValues: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ServiceIntegrationKmsServerSideEncryption {
+        /**
+         * KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
+         */
+        optInStatus?: pulumi.Input<string>;
+        /**
+         * Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface ServiceIntegrationLogsAnomalyDetection {
+        /**
+         * Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
+         */
+        optInStatus?: pulumi.Input<string>;
+    }
+
+    export interface ServiceIntegrationOpsCenter {
+        /**
+         * Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
+         */
+        optInStatus?: pulumi.Input<string>;
     }
 }
 
@@ -24264,6 +24372,106 @@ export namespace ec2transitgateway {
 }
 
 export namespace ecr {
+    export interface GetLifecyclePolicyDocumentRule {
+        /**
+         * Specifies the action type.
+         */
+        action?: inputs.ecr.GetLifecyclePolicyDocumentRuleAction;
+        /**
+         * Describes the purpose of a rule within a lifecycle policy.
+         */
+        description?: string;
+        /**
+         * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of any must have the highest value for `priority` and be evaluated last.
+         */
+        priority: number;
+        /**
+         * Collects parameters describing the selection criteria for the ECR lifecycle policy:
+         */
+        selection?: inputs.ecr.GetLifecyclePolicyDocumentRuleSelection;
+    }
+
+    export interface GetLifecyclePolicyDocumentRuleArgs {
+        /**
+         * Specifies the action type.
+         */
+        action?: pulumi.Input<inputs.ecr.GetLifecyclePolicyDocumentRuleActionArgs>;
+        /**
+         * Describes the purpose of a rule within a lifecycle policy.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of any must have the highest value for `priority` and be evaluated last.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Collects parameters describing the selection criteria for the ECR lifecycle policy:
+         */
+        selection?: pulumi.Input<inputs.ecr.GetLifecyclePolicyDocumentRuleSelectionArgs>;
+    }
+
+    export interface GetLifecyclePolicyDocumentRuleAction {
+        /**
+         * The supported value is `expire`.
+         */
+        type: string;
+    }
+
+    export interface GetLifecyclePolicyDocumentRuleActionArgs {
+        /**
+         * The supported value is `expire`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface GetLifecyclePolicyDocumentRuleSelection {
+        /**
+         * Specify a count number. If the `countType` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is sinceImagePushed, then the value is the maximum age limit for your images.
+         */
+        countNumber: number;
+        /**
+         * Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+         */
+        countType: string;
+        /**
+         * Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
+         */
+        countUnit?: string;
+        tagPatternLists?: string[];
+        /**
+         * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+         */
+        tagPrefixLists?: string[];
+        /**
+         * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tagPrefixList` value. If you specify untagged, then you must omit `tagPrefixList`.
+         */
+        tagStatus: string;
+    }
+
+    export interface GetLifecyclePolicyDocumentRuleSelectionArgs {
+        /**
+         * Specify a count number. If the `countType` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is sinceImagePushed, then the value is the maximum age limit for your images.
+         */
+        countNumber: pulumi.Input<number>;
+        /**
+         * Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+         */
+        countType: pulumi.Input<string>;
+        /**
+         * Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
+         */
+        countUnit?: pulumi.Input<string>;
+        tagPatternLists?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+         */
+        tagPrefixLists?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tagPrefixList` value. If you specify untagged, then you must omit `tagPrefixList`.
+         */
+        tagStatus: pulumi.Input<string>;
+    }
+
     export interface RegistryScanningConfigurationRule {
         /**
          * One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
@@ -29690,6 +29898,10 @@ export namespace glue {
          */
         catalogEncryptionMode: pulumi.Input<string>;
         /**
+         * The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+         */
+        catalogEncryptionServiceRole?: pulumi.Input<string>;
+        /**
          * The ARN of the AWS KMS key to use for encryption at rest.
          */
         sseAwsKmsKeyId?: pulumi.Input<string>;
@@ -30247,7 +30459,7 @@ export namespace guardduty {
 
     export interface DetectorFeatureAdditionalConfiguration {
         /**
-         * The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+         * The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
          */
         name: pulumi.Input<string>;
         /**
@@ -30359,7 +30571,7 @@ export namespace guardduty {
          */
         autoEnable: pulumi.Input<string>;
         /**
-         * The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+         * The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
          */
         name: pulumi.Input<string>;
     }
@@ -71293,13 +71505,22 @@ export namespace transfer {
         tlsSessionResumptionMode?: pulumi.Input<string>;
     }
 
+    export interface ServerS3StorageOptions {
+        /**
+         * Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
+         *
+         * By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
+         */
+        directoryListingOptimization?: pulumi.Input<string>;
+    }
+
     export interface ServerWorkflowDetails {
         /**
-         * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+         * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
          */
         onPartialUpload?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsOnPartialUpload>;
         /**
-         * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+         * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
          */
         onUpload?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsOnUpload>;
     }
@@ -77000,6 +77221,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection {
+        /**
+         * The names of the fields in the request payload that contain your customer's primary physical address. See `addressFields` for more details.
+         */
+        addressFields?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields>;
+        /**
+         * The name of the field in the request payload that contains your customer's email. See `emailField` for more details.
+         */
         emailField?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField>;
         /**
          * Details about your login page password field. See `passwordField` for more details.
@@ -77010,14 +77238,22 @@ export namespace wafv2 {
          */
         payloadType: pulumi.Input<string>;
         /**
+         * The names of the fields in the request payload that contain your customer's primary phone number. See `phoneNumberFields` for more details.
+         */
+        phoneNumberFields?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields>;
+        /**
          * Details about your login page username field. See `usernameField` for more details.
          */
         usernameField?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField>;
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields {
+        identifiers: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField {
         /**
-         * The identifier for the value to match against in the JSON.
+         * The name of the field in the request payload that contains your customer's email.
          */
         identifier: pulumi.Input<string>;
     }
@@ -77027,6 +77263,10 @@ export namespace wafv2 {
          * The name of the password field.
          */
         identifier: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields {
+        identifiers: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField {

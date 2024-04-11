@@ -13,7 +13,7 @@ namespace Pulumi.Aws.GuardDuty.Inputs
     public sealed class DetectorFeatureAdditionalConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+        /// The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -1,0 +1,80 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Wed, 29 Nov 2023 17:23:09 -0500
+Subject: [PATCH 29/51] Fix markTagsAllNotComputedForResources to recognize
+ SchemaFunc
+
+
+diff --git a/shim/shim.go b/shim/shim.go
+index ce64074bfd..e24e53fe17 100644
+--- a/shim/shim.go
++++ b/shim/shim.go
+@@ -2,6 +2,7 @@ package shim
+ 
+ import (
+ 	"context"
++	"fmt"
+ 
+ 	pfprovider "github.com/hashicorp/terraform-plugin-framework/provider"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+@@ -43,29 +44,44 @@ func NewTagConfig(ctx context.Context, i interface{}) TagConfig {
+ // rationale for this is that Pulumi copies tags to tags_all before it hits the TF layer, so these
+ // attributes must match in schema.
+ func markTagsAllNotComputedForResources(sdkV2Provider *schema.Provider) {
+-	updatedResourcesMap := map[string]*schema.Resource{}
+-	for rn, r := range sdkV2Provider.ResourcesMap {
+-		if _, ok := r.Schema["tags_all"]; ok {
+-			var updatedResource schema.Resource = *r
+-			updatedResource.Schema = map[string]*schema.Schema{}
+ 
+-			for k, v := range r.Schema {
+-				if k == "tags_all" {
+-					if tagsSchema, ok := r.Schema["tags"]; ok {
+-						tagsAll := *tagsSchema
+-						updatedResource.Schema[k] = &tagsAll
+-					} else {
+-						panic("Unable to edit tagsAll schema for " + rn)
+-					}
++	updateSchema := func(rn string, s map[string]*schema.Schema) map[string]*schema.Schema {
++		updatedSchema := map[string]*schema.Schema{}
++		for k, v := range s {
++			if k == "tags_all" {
++				if tagsSchema, ok := s["tags"]; ok {
++					tagsAll := *tagsSchema
++					updatedSchema[k] = &tagsAll
+ 				} else {
+-					updatedResource.Schema[k] = v
++					panic(fmt.Sprintf("Unable to edit tagsAll schema for %q", rn))
+ 				}
++			} else {
++				updatedSchema[k] = v
+ 			}
++		}
++		return updatedSchema
++	}
++
++	updatedResource := func(rn string, r *schema.Resource) *schema.Resource {
++		if _, ok := r.SchemaMap()["tags_all"]; !ok {
++			return r
++		}
+ 
+-			updatedResourcesMap[rn] = &updatedResource
++		u := *r
++		if r.SchemaFunc != nil {
++			old := r.SchemaFunc
++			u.SchemaFunc = func() map[string]*schema.Schema {
++				return updateSchema(rn, old())
++			}
+ 		} else {
+-			updatedResourcesMap[rn] = r
++			u.Schema = updateSchema(rn, r.Schema)
+ 		}
++		return &u
++	}
++
++	updatedResourcesMap := map[string]*schema.Resource{}
++	for rn, r := range sdkV2Provider.ResourcesMap {
++		updatedResourcesMap[rn] = updatedResource(rn, r)
+ 	}
+ 	sdkV2Provider.ResourcesMap = updatedResourcesMap
+ }

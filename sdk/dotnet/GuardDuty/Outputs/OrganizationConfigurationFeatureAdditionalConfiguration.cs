@@ -18,7 +18,7 @@ namespace Pulumi.Aws.GuardDuty.Outputs
         /// </summary>
         public readonly string AutoEnable;
         /// <summary>
-        /// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+        /// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
         /// </summary>
         public readonly string Name;
 

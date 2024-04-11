@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string CatalogEncryptionMode;
         /// <summary>
+        /// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+        /// </summary>
+        public readonly string CatalogEncryptionServiceRole;
+        /// <summary>
         /// ARN of the AWS KMS key to use for encryption at rest.
         /// </summary>
         public readonly string SseAwsKmsKeyId;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Glue.Outputs
         private GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult(
             string catalogEncryptionMode,
 
+            string catalogEncryptionServiceRole,
+
             string sseAwsKmsKeyId)
         {
             CatalogEncryptionMode = catalogEncryptionMode;
+            CatalogEncryptionServiceRole = catalogEncryptionServiceRole;
             SseAwsKmsKeyId = sseAwsKmsKeyId;
         }
     }

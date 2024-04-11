@@ -402,8 +402,10 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains',
@@ -16633,10 +16635,14 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         suggest = None
         if key == "payloadType":
             suggest = "payload_type"
+        elif key == "addressFields":
+            suggest = "address_fields"
         elif key == "emailField":
             suggest = "email_field"
         elif key == "passwordField":
             suggest = "password_field"
+        elif key == "phoneNumberFields":
+            suggest = "phone_number_fields"
         elif key == "usernameField":
             suggest = "username_field"
 
@@ -16653,19 +16659,28 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
     def __init__(__self__, *,
                  payload_type: str,
+                 address_fields: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields'] = None,
                  email_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField'] = None,
                  password_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField'] = None,
+                 phone_number_fields: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields'] = None,
                  username_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField'] = None):
         """
         :param str payload_type: The payload type for your login endpoint, either JSON or form encoded.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs' address_fields: The names of the fields in the request payload that contain your customer's primary physical address. See `address_fields` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs' email_field: The name of the field in the request payload that contains your customer's email. See `email_field` for more details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs' password_field: Details about your login page password field. See `password_field` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsArgs' phone_number_fields: The names of the fields in the request payload that contain your customer's primary phone number. See `phone_number_fields` for more details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs' username_field: Details about your login page username field. See `username_field` for more details.
         """
         pulumi.set(__self__, "payload_type", payload_type)
+        if address_fields is not None:
+            pulumi.set(__self__, "address_fields", address_fields)
         if email_field is not None:
             pulumi.set(__self__, "email_field", email_field)
         if password_field is not None:
             pulumi.set(__self__, "password_field", password_field)
+        if phone_number_fields is not None:
+            pulumi.set(__self__, "phone_number_fields", phone_number_fields)
         if username_field is not None:
             pulumi.set(__self__, "username_field", username_field)
 
@@ -16678,8 +16693,19 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         return pulumi.get(self, "payload_type")
 
     @property
+    @pulumi.getter(name="addressFields")
+    def address_fields(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields']:
+        """
+        The names of the fields in the request payload that contain your customer's primary physical address. See `address_fields` for more details.
+        """
+        return pulumi.get(self, "address_fields")
+
+    @property
     @pulumi.getter(name="emailField")
     def email_field(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField']:
+        """
+        The name of the field in the request payload that contains your customer's email. See `email_field` for more details.
+        """
         return pulumi.get(self, "email_field")
 
     @property
@@ -16691,6 +16717,14 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         return pulumi.get(self, "password_field")
 
     @property
+    @pulumi.getter(name="phoneNumberFields")
+    def phone_number_fields(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields']:
+        """
+        The names of the fields in the request payload that contain your customer's primary phone number. See `phone_number_fields` for more details.
+        """
+        return pulumi.get(self, "phone_number_fields")
+
+    @property
     @pulumi.getter(name="usernameField")
     def username_field(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField']:
         """
@@ -16700,11 +16734,23 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields(dict):
+    def __init__(__self__, *,
+                 identifiers: Sequence[str]):
+        pulumi.set(__self__, "identifiers", identifiers)
+
+    @property
+    @pulumi.getter
+    def identifiers(self) -> Sequence[str]:
+        return pulumi.get(self, "identifiers")
+
+
+@pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField(dict):
     def __init__(__self__, *,
                  identifier: str):
         """
-        :param str identifier: The identifier for the value to match against in the JSON.
+        :param str identifier: The name of the field in the request payload that contains your customer's email.
         """
         pulumi.set(__self__, "identifier", identifier)
 
@@ -16712,7 +16758,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @pulumi.getter
     def identifier(self) -> str:
         """
-        The identifier for the value to match against in the JSON.
+        The name of the field in the request payload that contains your customer's email.
         """
         return pulumi.get(self, "identifier")
 
@@ -16733,6 +16779,18 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         The name of the password field.
         """
         return pulumi.get(self, "identifier")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields(dict):
+    def __init__(__self__, *,
+                 identifiers: Sequence[str]):
+        pulumi.set(__self__, "identifiers", identifiers)
+
+    @property
+    @pulumi.getter
+    def identifiers(self) -> Sequence[str]:
+        return pulumi.get(self, "identifiers")
 
 
 @pulumi.output_type

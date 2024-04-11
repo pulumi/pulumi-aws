@@ -17,6 +17,7 @@ __all__ = [
     'ConnectorSftpConfig',
     'ServerEndpointDetails',
     'ServerProtocolDetails',
+    'ServerS3StorageOptions',
     'ServerWorkflowDetails',
     'ServerWorkflowDetailsOnPartialUpload',
     'ServerWorkflowDetailsOnUpload',
@@ -484,6 +485,46 @@ class ServerProtocolDetails(dict):
 
 
 @pulumi.output_type
+class ServerS3StorageOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryListingOptimization":
+            suggest = "directory_listing_optimization"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerS3StorageOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerS3StorageOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerS3StorageOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_listing_optimization: Optional[str] = None):
+        """
+        :param str directory_listing_optimization: Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
+               
+               By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
+        """
+        if directory_listing_optimization is not None:
+            pulumi.set(__self__, "directory_listing_optimization", directory_listing_optimization)
+
+    @property
+    @pulumi.getter(name="directoryListingOptimization")
+    def directory_listing_optimization(self) -> Optional[str]:
+        """
+        Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
+
+        By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
+        """
+        return pulumi.get(self, "directory_listing_optimization")
+
+
+@pulumi.output_type
 class ServerWorkflowDetails(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -508,8 +549,8 @@ class ServerWorkflowDetails(dict):
                  on_partial_upload: Optional['outputs.ServerWorkflowDetailsOnPartialUpload'] = None,
                  on_upload: Optional['outputs.ServerWorkflowDetailsOnUpload'] = None):
         """
-        :param 'ServerWorkflowDetailsOnPartialUploadArgs' on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
-        :param 'ServerWorkflowDetailsOnUploadArgs' on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+        :param 'ServerWorkflowDetailsOnPartialUploadArgs' on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
+        :param 'ServerWorkflowDetailsOnUploadArgs' on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
         """
         if on_partial_upload is not None:
             pulumi.set(__self__, "on_partial_upload", on_partial_upload)
@@ -520,7 +561,7 @@ class ServerWorkflowDetails(dict):
     @pulumi.getter(name="onPartialUpload")
     def on_partial_upload(self) -> Optional['outputs.ServerWorkflowDetailsOnPartialUpload']:
         """
-        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
         """
         return pulumi.get(self, "on_partial_upload")
 
@@ -528,7 +569,7 @@ class ServerWorkflowDetails(dict):
     @pulumi.getter(name="onUpload")
     def on_upload(self) -> Optional['outputs.ServerWorkflowDetailsOnUpload']:
         """
-        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
         """
         return pulumi.get(self, "on_upload")
 

@@ -281,6 +281,20 @@ public class Fleet extends com.pulumi.resources.CustomResource {
         return this.instanceType;
     }
     /**
+     * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+     * 
+     */
+    @Export(name="maxSessionsPerInstance", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> maxSessionsPerInstance;
+
+    /**
+     * @return The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+     * 
+     */
+    public Output<Optional<Integer>> maxSessionsPerInstance() {
+        return Codegen.optional(this.maxSessionsPerInstance);
+    }
+    /**
      * Maximum amount of time that a streaming session can remain active, in seconds.
      * 
      */

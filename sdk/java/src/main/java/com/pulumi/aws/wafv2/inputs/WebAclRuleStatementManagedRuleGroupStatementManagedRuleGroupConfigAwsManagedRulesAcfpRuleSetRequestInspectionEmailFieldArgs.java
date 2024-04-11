@@ -15,14 +15,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs();
 
     /**
-     * The identifier for the value to match against in the JSON.
+     * The name of the field in the request payload that contains your customer&#39;s email.
      * 
      */
     @Import(name="identifier", required=true)
     private Output<String> identifier;
 
     /**
-     * @return The identifier for the value to match against in the JSON.
+     * @return The name of the field in the request payload that contains your customer&#39;s email.
      * 
      */
     public Output<String> identifier() {
@@ -54,7 +54,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param identifier The identifier for the value to match against in the JSON.
+         * @param identifier The name of the field in the request payload that contains your customer&#39;s email.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param identifier The identifier for the value to match against in the JSON.
+         * @param identifier The name of the field in the request payload that contains your customer&#39;s email.
          * 
          * @return builder
          * 

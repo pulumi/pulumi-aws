@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.tls.PrivateKey;
+ * import com.pulumi.tls.PrivateKeyArgs;
  * import com.pulumi.aws.transfer.Server;
  * import com.pulumi.aws.transfer.ServerArgs;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -50,6 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         var examplePrivateKey = new PrivateKey(&#34;examplePrivateKey&#34;, PrivateKeyArgs.builder()        
+ *             .algorithm(&#34;RSA&#34;)
+ *             .rsaBits(4096)
+ *             .build());
+ * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
  *             .identityProviderType(&#34;SERVICE_MANAGED&#34;)
  *             .tags(Map.of(&#34;NAME&#34;, &#34;tf-acc-test-transfer-server&#34;))
@@ -81,7 +88,7 @@ import javax.annotation.Nullable;
  *         var exampleSshKey = new SshKey(&#34;exampleSshKey&#34;, SshKeyArgs.builder()        
  *             .serverId(exampleServer.id())
  *             .userName(exampleUser.userName())
- *             .body(&#34;... SSH key ...&#34;)
+ *             .body(StdFunctions.trimspace().applyValue(invoke -&gt; invoke.result()))
  *             .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
