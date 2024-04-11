@@ -102,10 +102,6 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class GetAppregistryApplicationResult
     {
         /// <summary>
-        /// A map with a single tag key-value pair used to associate resources with the application.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> ApplicationTag;
-        /// <summary>
         /// ARN (Amazon Resource Name) of the application.
         /// </summary>
         public readonly string Arn;
@@ -121,8 +117,6 @@ namespace Pulumi.Aws.ServiceCatalog
 
         [OutputConstructor]
         private GetAppregistryApplicationResult(
-            ImmutableDictionary<string, string> applicationTag,
-
             string arn,
 
             string description,
@@ -131,7 +125,6 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string name)
         {
-            ApplicationTag = applicationTag;
             Arn = arn;
             Description = description;
             Id = id;

@@ -8,7 +8,6 @@ import typing
 from .get_authorization_token import *
 from .get_credentials import *
 from .get_image import *
-from .get_lifecycle_policy_document import *
 from .get_pull_through_cache_rule import *
 from .get_repositories import *
 from .get_repository import *

@@ -7413,11 +7413,7 @@ export namespace appstream {
         /**
          * Desired number of streaming instances.
          */
-        desiredInstances?: number;
-        /**
-         * Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
-         */
-        desiredSessions?: number;
+        desiredInstances: number;
         /**
          * Number of instances in use for streaming.
          */
@@ -9597,7 +9593,7 @@ export namespace autoscalingplans {
         /**
          * Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
          */
-        predictiveScalingMaxCapacityBuffer: number;
+        predictiveScalingMaxCapacityBuffer?: number;
         /**
          * Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
          */
@@ -20476,42 +20472,6 @@ export namespace devopsguru {
         status: string;
     }
 
-    export interface GetNotificationChannelFilter {
-        /**
-         * Events to receive notifications for.
-         */
-        messageTypes: string[];
-        /**
-         * Severity levels to receive notifications for.
-         */
-        severities: string[];
-    }
-
-    export interface GetNotificationChannelSn {
-        /**
-         * Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-         */
-        topicArn: string;
-    }
-
-    export interface GetResourceCollectionCloudformation {
-        /**
-         * Array of the names of the AWS CloudFormation stacks.
-         */
-        stackNames: string[];
-    }
-
-    export interface GetResourceCollectionTag {
-        /**
-         * An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
-         */
-        appBoundaryKey: string;
-        /**
-         * Array of tag values.
-         */
-        tagValues: string[];
-    }
-
     export interface NotificationChannelFilters {
         /**
          * Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
@@ -20524,9 +20484,6 @@ export namespace devopsguru {
     }
 
     export interface NotificationChannelSns {
-        /**
-         * Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-         */
         topicArn: string;
     }
 
@@ -20546,35 +20503,6 @@ export namespace devopsguru {
          * Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
          */
         tagValues: string[];
-    }
-
-    export interface ServiceIntegrationKmsServerSideEncryption {
-        /**
-         * KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-         */
-        kmsKeyId: string;
-        /**
-         * Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-         */
-        optInStatus: string;
-        /**
-         * Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-         */
-        type: string;
-    }
-
-    export interface ServiceIntegrationLogsAnomalyDetection {
-        /**
-         * Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
-         */
-        optInStatus: string;
-    }
-
-    export interface ServiceIntegrationOpsCenter {
-        /**
-         * Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-         */
-        optInStatus: string;
     }
 
 }
@@ -28428,56 +28356,6 @@ export namespace ec2transitgateway {
 }
 
 export namespace ecr {
-    export interface GetLifecyclePolicyDocumentRule {
-        /**
-         * Specifies the action type.
-         */
-        action?: outputs.ecr.GetLifecyclePolicyDocumentRuleAction;
-        /**
-         * Describes the purpose of a rule within a lifecycle policy.
-         */
-        description?: string;
-        /**
-         * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of any must have the highest value for `priority` and be evaluated last.
-         */
-        priority: number;
-        /**
-         * Collects parameters describing the selection criteria for the ECR lifecycle policy:
-         */
-        selection?: outputs.ecr.GetLifecyclePolicyDocumentRuleSelection;
-    }
-
-    export interface GetLifecyclePolicyDocumentRuleAction {
-        /**
-         * The supported value is `expire`.
-         */
-        type: string;
-    }
-
-    export interface GetLifecyclePolicyDocumentRuleSelection {
-        /**
-         * Specify a count number. If the `countType` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is sinceImagePushed, then the value is the maximum age limit for your images.
-         */
-        countNumber: number;
-        /**
-         * Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
-         */
-        countType: string;
-        /**
-         * Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
-         */
-        countUnit?: string;
-        tagPatternLists?: string[];
-        /**
-         * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
-         */
-        tagPrefixLists?: string[];
-        /**
-         * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tagPrefixList` value. If you specify untagged, then you must omit `tagPrefixList`.
-         */
-        tagStatus: string;
-    }
-
     export interface GetRepositoryEncryptionConfiguration {
         /**
          * Encryption type to use for the repository, either `AES256` or `KMS`.
@@ -34391,10 +34269,6 @@ export namespace glue {
          */
         catalogEncryptionMode: string;
         /**
-         * The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
-         */
-        catalogEncryptionServiceRole?: string;
-        /**
          * The ARN of the AWS KMS key to use for encryption at rest.
          */
         sseAwsKmsKeyId?: string;
@@ -34639,10 +34513,6 @@ export namespace glue {
          * The encryption-at-rest mode for encrypting Data Catalog data.
          */
         catalogEncryptionMode: string;
-        /**
-         * The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
-         */
-        catalogEncryptionServiceRole: string;
         /**
          * ARN of the AWS KMS key to use for encryption at rest.
          */
@@ -35139,7 +35009,7 @@ export namespace guardduty {
 
     export interface DetectorFeatureAdditionalConfiguration {
         /**
-         * The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+         * The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
          */
         name: string;
         /**
@@ -35277,7 +35147,7 @@ export namespace guardduty {
          */
         autoEnable: string;
         /**
-         * The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
+         * The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
          */
         name: string;
     }
@@ -78366,22 +78236,13 @@ export namespace transfer {
         tlsSessionResumptionMode: string;
     }
 
-    export interface ServerS3StorageOptions {
-        /**
-         * Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
-         *
-         * By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
-         */
-        directoryListingOptimization: string;
-    }
-
     export interface ServerWorkflowDetails {
         /**
-         * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
+         * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
          */
         onPartialUpload?: outputs.transfer.ServerWorkflowDetailsOnPartialUpload;
         /**
-         * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
+         * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
          */
         onUpload?: outputs.transfer.ServerWorkflowDetailsOnUpload;
     }
@@ -84099,13 +83960,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection {
-        /**
-         * The names of the fields in the request payload that contain your customer's primary physical address. See `addressFields` for more details.
-         */
-        addressFields?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields;
-        /**
-         * The name of the field in the request payload that contains your customer's email. See `emailField` for more details.
-         */
         emailField?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField;
         /**
          * Details about your login page password field. See `passwordField` for more details.
@@ -84116,22 +83970,14 @@ export namespace wafv2 {
          */
         payloadType: string;
         /**
-         * The names of the fields in the request payload that contain your customer's primary phone number. See `phoneNumberFields` for more details.
-         */
-        phoneNumberFields?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields;
-        /**
          * Details about your login page username field. See `usernameField` for more details.
          */
         usernameField?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField;
     }
 
-    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields {
-        identifiers: string[];
-    }
-
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField {
         /**
-         * The name of the field in the request payload that contains your customer's email.
+         * The identifier for the value to match against in the JSON.
          */
         identifier: string;
     }
@@ -84141,10 +83987,6 @@ export namespace wafv2 {
          * The name of the password field.
          */
         identifier: string;
-    }
-
-    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields {
-        identifiers: string[];
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField {

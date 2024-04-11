@@ -133,10 +133,6 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly instanceType!: pulumi.Output<string>;
     /**
-     * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-     */
-    public readonly maxSessionsPerInstance!: pulumi.Output<number | undefined>;
-    /**
      * Maximum amount of time that a streaming session can remain active, in seconds.
      */
     public readonly maxUserDurationInSeconds!: pulumi.Output<number>;
@@ -194,7 +190,6 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["imageArn"] = state ? state.imageArn : undefined;
             resourceInputs["imageName"] = state ? state.imageName : undefined;
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
-            resourceInputs["maxSessionsPerInstance"] = state ? state.maxSessionsPerInstance : undefined;
             resourceInputs["maxUserDurationInSeconds"] = state ? state.maxUserDurationInSeconds : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -222,7 +217,6 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["imageArn"] = args ? args.imageArn : undefined;
             resourceInputs["imageName"] = args ? args.imageName : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
-            resourceInputs["maxSessionsPerInstance"] = args ? args.maxSessionsPerInstance : undefined;
             resourceInputs["maxUserDurationInSeconds"] = args ? args.maxUserDurationInSeconds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["streamView"] = args ? args.streamView : undefined;
@@ -298,10 +292,6 @@ export interface FleetState {
      * Instance type to use when launching fleet instances.
      */
     instanceType?: pulumi.Input<string>;
-    /**
-     * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-     */
-    maxSessionsPerInstance?: pulumi.Input<number>;
     /**
      * Maximum amount of time that a streaming session can remain active, in seconds.
      */
@@ -386,10 +376,6 @@ export interface FleetArgs {
      * Instance type to use when launching fleet instances.
      */
     instanceType: pulumi.Input<string>;
-    /**
-     * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-     */
-    maxSessionsPerInstance?: pulumi.Input<number>;
     /**
      * Maximum amount of time that a streaming session can remain active, in seconds.
      */

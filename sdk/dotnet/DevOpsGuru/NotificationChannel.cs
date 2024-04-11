@@ -83,7 +83,7 @@ namespace Pulumi.Aws.DevOpsGuru
     public partial class NotificationChannel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        /// Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
         /// </summary>
         [Output("filters")]
         public Output<Outputs.NotificationChannelFilters?> Filters { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.DevOpsGuru
     public sealed class NotificationChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        /// Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
         /// </summary>
         [Input("filters")]
         public Input<Inputs.NotificationChannelFiltersArgs>? Filters { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.DevOpsGuru
     public sealed class NotificationChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        /// Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
         /// </summary>
         [Input("filters")]
         public Input<Inputs.NotificationChannelFiltersGetArgs>? Filters { get; set; }

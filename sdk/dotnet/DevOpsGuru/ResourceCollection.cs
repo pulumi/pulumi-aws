@@ -146,7 +146,7 @@ namespace Pulumi.Aws.DevOpsGuru
         public Output<Outputs.ResourceCollectionCloudformation?> Cloudformation { get; private set; } = null!;
 
         /// <summary>
-        /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+        /// AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
         /// </summary>
         [Output("tags")]
         public Output<Outputs.ResourceCollectionTags?> Tags { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.DevOpsGuru
         public Input<Inputs.ResourceCollectionCloudformationArgs>? Cloudformation { get; set; }
 
         /// <summary>
-        /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+        /// AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
         /// </summary>
         [Input("tags")]
         public Input<Inputs.ResourceCollectionTagsArgs>? Tags { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.DevOpsGuru
         public Input<Inputs.ResourceCollectionCloudformationGetArgs>? Cloudformation { get; set; }
 
         /// <summary>
-        /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+        /// AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
         /// </summary>
         [Input("tags")]
         public Input<Inputs.ResourceCollectionTagsGetArgs>? Tags { get; set; }

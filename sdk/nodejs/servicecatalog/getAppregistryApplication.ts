@@ -45,10 +45,6 @@ export interface GetAppregistryApplicationArgs {
  */
 export interface GetAppregistryApplicationResult {
     /**
-     * A map with a single tag key-value pair used to associate resources with the application.
-     */
-    readonly applicationTag: {[key: string]: string};
-    /**
      * ARN (Amazon Resource Name) of the application.
      */
     readonly arn: string;

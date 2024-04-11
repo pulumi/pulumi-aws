@@ -8,7 +8,6 @@ import com.pulumi.aws.transfer.ServerArgs;
 import com.pulumi.aws.transfer.inputs.ServerState;
 import com.pulumi.aws.transfer.outputs.ServerEndpointDetails;
 import com.pulumi.aws.transfer.outputs.ServerProtocolDetails;
-import com.pulumi.aws.transfer.outputs.ServerS3StorageOptions;
 import com.pulumi.aws.transfer.outputs.ServerWorkflowDetails;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -393,14 +392,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
      * 
      */
     @Export(name="endpointDetails", refs={ServerEndpointDetails.class}, tree="[0]")
     private Output</* @Nullable */ ServerEndpointDetails> endpointDetails;
 
     /**
-     * @return The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+     * @return The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
      * 
      */
     public Output<Optional<ServerEndpointDetails>> endpointDetails() {
@@ -547,14 +546,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.preAuthenticationLoginBanner);
     }
     /**
-     * The protocol settings that are configured for your server. See `protocol_details` block below for details.
+     * The protocol settings that are configured for your server.
      * 
      */
     @Export(name="protocolDetails", refs={ServerProtocolDetails.class}, tree="[0]")
     private Output<ServerProtocolDetails> protocolDetails;
 
     /**
-     * @return The protocol settings that are configured for your server. See `protocol_details` block below for details.
+     * @return The protocol settings that are configured for your server.
      * 
      */
     public Output<ServerProtocolDetails> protocolDetails() {
@@ -573,20 +572,6 @@ public class Server extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> protocols() {
         return this.protocols;
-    }
-    /**
-     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
-     * 
-     */
-    @Export(name="s3StorageOptions", refs={ServerS3StorageOptions.class}, tree="[0]")
-    private Output<ServerS3StorageOptions> s3StorageOptions;
-
-    /**
-     * @return Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
-     * 
-     */
-    public Output<ServerS3StorageOptions> s3StorageOptions() {
-        return this.s3StorageOptions;
     }
     /**
      * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
@@ -683,14 +668,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.url);
     }
     /**
-     * Specifies the workflow details. See `workflow_details` block below for details.
+     * Specifies the workflow details. See Workflow Details below.
      * 
      */
     @Export(name="workflowDetails", refs={ServerWorkflowDetails.class}, tree="[0]")
     private Output</* @Nullable */ ServerWorkflowDetails> workflowDetails;
 
     /**
-     * @return Specifies the workflow details. See `workflow_details` block below for details.
+     * @return Specifies the workflow details. See Workflow Details below.
      * 
      */
     public Output<Optional<ServerWorkflowDetails>> workflowDetails() {

@@ -5,7 +5,6 @@ package com.pulumi.aws.transfer;
 
 import com.pulumi.aws.transfer.inputs.ServerEndpointDetailsArgs;
 import com.pulumi.aws.transfer.inputs.ServerProtocolDetailsArgs;
-import com.pulumi.aws.transfer.inputs.ServerS3StorageOptionsArgs;
 import com.pulumi.aws.transfer.inputs.ServerWorkflowDetailsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -68,14 +67,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
      * 
      */
     @Import(name="endpointDetails")
     private @Nullable Output<ServerEndpointDetailsArgs> endpointDetails;
 
     /**
-     * @return The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+     * @return The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
      * 
      */
     public Optional<Output<ServerEndpointDetailsArgs>> endpointDetails() {
@@ -218,14 +217,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The protocol settings that are configured for your server. See `protocol_details` block below for details.
+     * The protocol settings that are configured for your server.
      * 
      */
     @Import(name="protocolDetails")
     private @Nullable Output<ServerProtocolDetailsArgs> protocolDetails;
 
     /**
-     * @return The protocol settings that are configured for your server. See `protocol_details` block below for details.
+     * @return The protocol settings that are configured for your server.
      * 
      */
     public Optional<Output<ServerProtocolDetailsArgs>> protocolDetails() {
@@ -245,21 +244,6 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> protocols() {
         return Optional.ofNullable(this.protocols);
-    }
-
-    /**
-     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
-     * 
-     */
-    @Import(name="s3StorageOptions")
-    private @Nullable Output<ServerS3StorageOptionsArgs> s3StorageOptions;
-
-    /**
-     * @return Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
-     * 
-     */
-    public Optional<Output<ServerS3StorageOptionsArgs>> s3StorageOptions() {
-        return Optional.ofNullable(this.s3StorageOptions);
     }
 
     /**
@@ -343,14 +327,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the workflow details. See `workflow_details` block below for details.
+     * Specifies the workflow details. See Workflow Details below.
      * 
      */
     @Import(name="workflowDetails")
     private @Nullable Output<ServerWorkflowDetailsArgs> workflowDetails;
 
     /**
-     * @return Specifies the workflow details. See `workflow_details` block below for details.
+     * @return Specifies the workflow details. See Workflow Details below.
      * 
      */
     public Optional<Output<ServerWorkflowDetailsArgs>> workflowDetails() {
@@ -375,7 +359,6 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         this.preAuthenticationLoginBanner = $.preAuthenticationLoginBanner;
         this.protocolDetails = $.protocolDetails;
         this.protocols = $.protocols;
-        this.s3StorageOptions = $.s3StorageOptions;
         this.securityPolicyName = $.securityPolicyName;
         this.structuredLogDestinations = $.structuredLogDestinations;
         this.tags = $.tags;
@@ -465,7 +448,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
          * 
          * @return builder
          * 
@@ -476,7 +459,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+         * @param endpointDetails The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
          * 
          * @return builder
          * 
@@ -675,7 +658,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolDetails The protocol settings that are configured for your server. See `protocol_details` block below for details.
+         * @param protocolDetails The protocol settings that are configured for your server.
          * 
          * @return builder
          * 
@@ -686,7 +669,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocolDetails The protocol settings that are configured for your server. See `protocol_details` block below for details.
+         * @param protocolDetails The protocol settings that are configured for your server.
          * 
          * @return builder
          * 
@@ -724,27 +707,6 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
-        }
-
-        /**
-         * @param s3StorageOptions Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder s3StorageOptions(@Nullable Output<ServerS3StorageOptionsArgs> s3StorageOptions) {
-            $.s3StorageOptions = s3StorageOptions;
-            return this;
-        }
-
-        /**
-         * @param s3StorageOptions Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder s3StorageOptions(ServerS3StorageOptionsArgs s3StorageOptions) {
-            return s3StorageOptions(Output.of(s3StorageOptions));
         }
 
         /**
@@ -862,7 +824,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflowDetails Specifies the workflow details. See `workflow_details` block below for details.
+         * @param workflowDetails Specifies the workflow details. See Workflow Details below.
          * 
          * @return builder
          * 
@@ -873,7 +835,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workflowDetails Specifies the workflow details. See `workflow_details` block below for details.
+         * @param workflowDetails Specifies the workflow details. See Workflow Details below.
          * 
          * @return builder
          * 

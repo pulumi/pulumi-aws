@@ -507,8 +507,6 @@ type Cluster struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 	TerminationProtection pulumi.BoolOutput `pulumi:"terminationProtection"`
-	// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
-	UnhealthyNodeReplacement pulumi.BoolPtrOutput `pulumi:"unhealthyNodeReplacement"`
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
 	VisibleToAllUsers pulumi.BoolPtrOutput `pulumi:"visibleToAllUsers"`
 }
@@ -657,8 +655,6 @@ type clusterState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 	TerminationProtection *bool `pulumi:"terminationProtection"`
-	// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
-	UnhealthyNodeReplacement *bool `pulumi:"unhealthyNodeReplacement"`
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
 	VisibleToAllUsers *bool `pulumi:"visibleToAllUsers"`
 }
@@ -772,8 +768,6 @@ type ClusterState struct {
 	TagsAll pulumi.StringMapInput
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 	TerminationProtection pulumi.BoolPtrInput
-	// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
-	UnhealthyNodeReplacement pulumi.BoolPtrInput
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
 	VisibleToAllUsers pulumi.BoolPtrInput
 }
@@ -882,8 +876,6 @@ type clusterArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 	TerminationProtection *bool `pulumi:"terminationProtection"`
-	// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
-	UnhealthyNodeReplacement *bool `pulumi:"unhealthyNodeReplacement"`
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
 	VisibleToAllUsers *bool `pulumi:"visibleToAllUsers"`
 }
@@ -989,8 +981,6 @@ type ClusterArgs struct {
 	Tags pulumi.StringMapInput
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 	TerminationProtection pulumi.BoolPtrInput
-	// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
-	UnhealthyNodeReplacement pulumi.BoolPtrInput
 	// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
 	VisibleToAllUsers pulumi.BoolPtrInput
 }
@@ -1292,11 +1282,6 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 // Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 func (o ClusterOutput) TerminationProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.TerminationProtection }).(pulumi.BoolOutput)
-}
-
-// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
-func (o ClusterOutput) UnhealthyNodeReplacement() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.UnhealthyNodeReplacement }).(pulumi.BoolPtrOutput)
 }
 
 // Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.

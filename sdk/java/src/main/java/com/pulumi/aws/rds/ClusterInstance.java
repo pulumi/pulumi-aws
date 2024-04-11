@@ -285,14 +285,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.engine;
     }
     /**
-     * Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
+     * Database engine version.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
+     * @return Database engine version.
      * 
      */
     public Output<String> engineVersion() {

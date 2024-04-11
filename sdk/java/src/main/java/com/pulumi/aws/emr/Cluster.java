@@ -974,20 +974,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.terminationProtection;
     }
     /**
-     * Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
-     * 
-     */
-    @Export(name="unhealthyNodeReplacement", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> unhealthyNodeReplacement;
-
-    /**
-     * @return Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> unhealthyNodeReplacement() {
-        return Codegen.optional(this.unhealthyNodeReplacement);
-    }
-    /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
      * 
      */

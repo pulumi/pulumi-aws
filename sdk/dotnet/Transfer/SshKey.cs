@@ -20,17 +20,9 @@ namespace Pulumi.Aws.Transfer
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// using Tls = Pulumi.Tls;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplePrivateKey = new Tls.PrivateKey("example", new()
-    ///     {
-    ///         Algorithm = "RSA",
-    ///         RsaBits = 4096,
-    ///     });
-    /// 
     ///     var exampleServer = new Aws.Transfer.Server("example", new()
     ///     {
     ///         IdentityProviderType = "SERVICE_MANAGED",
@@ -87,10 +79,7 @@ namespace Pulumi.Aws.Transfer
     ///     {
     ///         ServerId = exampleServer.Id,
     ///         UserName = exampleUser.UserName,
-    ///         Body = Std.Trimspace.Invoke(new()
-    ///         {
-    ///             Input = examplePrivateKey.PublicKeyOpenssh,
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Body = "... SSH key ...",
     ///     });
     /// 
     ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()

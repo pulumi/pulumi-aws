@@ -13,13 +13,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- * import * as tls from "@pulumi/tls";
  *
- * const examplePrivateKey = new tls.PrivateKey("example", {
- *     algorithm: "RSA",
- *     rsaBits: 4096,
- * });
  * const exampleServer = new aws.transfer.Server("example", {
  *     identityProviderType: "SERVICE_MANAGED",
  *     tags: {
@@ -51,9 +45,7 @@ import * as utilities from "../utilities";
  * const exampleSshKey = new aws.transfer.SshKey("example", {
  *     serverId: exampleServer.id,
  *     userName: exampleUser.userName,
- *     body: std.trimspaceOutput({
- *         input: examplePrivateKey.publicKeyOpenssh,
- *     }).apply(invoke => invoke.result),
+ *     body: "... SSH key ...",
  * });
  * const example = aws.iam.getPolicyDocument({
  *     statements: [{

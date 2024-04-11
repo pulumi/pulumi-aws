@@ -110,11 +110,10 @@ class InstanceArgs:
         :param pulumi.Input['InstanceBlueGreenUpdateArgs'] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
                See `blue_green_update` below.
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
-        :param pulumi.Input[str] character_set_name: The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
-               This can't be changed.
-               See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
-               [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-               Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+        :param pulumi.Input[str] character_set_name: The character set name to use for DB
+               encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+               Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+               or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
@@ -518,11 +517,10 @@ class InstanceArgs:
     @pulumi.getter(name="characterSetName")
     def character_set_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
-        This can't be changed.
-        See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
-        [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-        Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+        The character set name to use for DB
+        encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+        Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+        or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         """
         return pulumi.get(self, "character_set_name")
 
@@ -1352,11 +1350,10 @@ class _InstanceState:
         :param pulumi.Input['InstanceBlueGreenUpdateArgs'] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
                See `blue_green_update` below.
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
-        :param pulumi.Input[str] character_set_name: The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
-               This can't be changed.
-               See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
-               [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-               Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+        :param pulumi.Input[str] character_set_name: The character set name to use for DB
+               encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+               Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+               or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
@@ -1810,11 +1807,10 @@ class _InstanceState:
     @pulumi.getter(name="characterSetName")
     def character_set_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
-        This can't be changed.
-        See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
-        [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-        Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+        The character set name to use for DB
+        encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+        Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+        or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         """
         return pulumi.get(self, "character_set_name")
 
@@ -3032,11 +3028,10 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
                See `blue_green_update` below.
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
-        :param pulumi.Input[str] character_set_name: The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
-               This can't be changed.
-               See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
-               [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-               Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+        :param pulumi.Input[str] character_set_name: The character set name to use for DB
+               encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+               Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+               or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
@@ -3722,11 +3717,10 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
                See `blue_green_update` below.
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
-        :param pulumi.Input[str] character_set_name: The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
-               This can't be changed.
-               See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
-               [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-               Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+        :param pulumi.Input[str] character_set_name: The character set name to use for DB
+               encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+               Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+               or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
@@ -4053,11 +4047,10 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="characterSetName")
     def character_set_name(self) -> pulumi.Output[str]:
         """
-        The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
-        This can't be changed.
-        See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
-        [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-        Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
+        The character set name to use for DB
+        encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+        Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+        or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         """
         return pulumi.get(self, "character_set_name")
 

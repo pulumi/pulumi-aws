@@ -21,10 +21,7 @@ class GetAppregistryApplicationResult:
     """
     A collection of values returned by getAppregistryApplication.
     """
-    def __init__(__self__, application_tag=None, arn=None, description=None, id=None, name=None):
-        if application_tag and not isinstance(application_tag, dict):
-            raise TypeError("Expected argument 'application_tag' to be a dict")
-        pulumi.set(__self__, "application_tag", application_tag)
+    def __init__(__self__, arn=None, description=None, id=None, name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,14 +34,6 @@ class GetAppregistryApplicationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="applicationTag")
-    def application_tag(self) -> Mapping[str, str]:
-        """
-        A map with a single tag key-value pair used to associate resources with the application.
-        """
-        return pulumi.get(self, "application_tag")
 
     @property
     @pulumi.getter
@@ -82,7 +71,6 @@ class AwaitableGetAppregistryApplicationResult(GetAppregistryApplicationResult):
         if False:
             yield self
         return GetAppregistryApplicationResult(
-            application_tag=self.application_tag,
             arn=self.arn,
             description=self.description,
             id=self.id,
@@ -116,7 +104,6 @@ def get_appregistry_application(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getAppregistryApplication:getAppregistryApplication', __args__, opts=opts, typ=GetAppregistryApplicationResult).value
 
     return AwaitableGetAppregistryApplicationResult(
-        application_tag=pulumi.get(__ret__, 'application_tag'),
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),

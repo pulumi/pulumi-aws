@@ -20,7 +20,7 @@ class NotificationChannelArgs:
                  sns: Optional[pulumi.Input['NotificationChannelSnsArgs']] = None):
         """
         The set of arguments for constructing a NotificationChannel resource.
-        :param pulumi.Input['NotificationChannelFiltersArgs'] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        :param pulumi.Input['NotificationChannelFiltersArgs'] filters: Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
         :param pulumi.Input['NotificationChannelSnsArgs'] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
                
                The following arguments are optional:
@@ -34,7 +34,7 @@ class NotificationChannelArgs:
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input['NotificationChannelFiltersArgs']]:
         """
-        Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
         """
         return pulumi.get(self, "filters")
 
@@ -64,7 +64,7 @@ class _NotificationChannelState:
                  sns: Optional[pulumi.Input['NotificationChannelSnsArgs']] = None):
         """
         Input properties used for looking up and filtering NotificationChannel resources.
-        :param pulumi.Input['NotificationChannelFiltersArgs'] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        :param pulumi.Input['NotificationChannelFiltersArgs'] filters: Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
         :param pulumi.Input['NotificationChannelSnsArgs'] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
                
                The following arguments are optional:
@@ -78,7 +78,7 @@ class _NotificationChannelState:
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input['NotificationChannelFiltersArgs']]:
         """
-        Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
         """
         return pulumi.get(self, "filters")
 
@@ -155,7 +155,7 @@ class NotificationChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['NotificationChannelFiltersArgs']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        :param pulumi.Input[pulumi.InputType['NotificationChannelFiltersArgs']] filters: Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
         :param pulumi.Input[pulumi.InputType['NotificationChannelSnsArgs']] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
                
                The following arguments are optional:
@@ -257,7 +257,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['NotificationChannelFiltersArgs']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        :param pulumi.Input[pulumi.InputType['NotificationChannelFiltersArgs']] filters: Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
         :param pulumi.Input[pulumi.InputType['NotificationChannelSnsArgs']] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
                
                The following arguments are optional:
@@ -274,7 +274,7 @@ class NotificationChannel(pulumi.CustomResource):
     @pulumi.getter
     def filters(self) -> pulumi.Output[Optional['outputs.NotificationChannelFilters']]:
         """
-        Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
         """
         return pulumi.get(self, "filters")
 

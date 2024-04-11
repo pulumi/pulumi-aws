@@ -5,6 +5,7 @@ package com.pulumi.aws.appstream.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -34,30 +35,15 @@ public final class FleetComputeCapacityArgs extends com.pulumi.resources.Resourc
      * Desired number of streaming instances.
      * 
      */
-    @Import(name="desiredInstances")
-    private @Nullable Output<Integer> desiredInstances;
+    @Import(name="desiredInstances", required=true)
+    private Output<Integer> desiredInstances;
 
     /**
      * @return Desired number of streaming instances.
      * 
      */
-    public Optional<Output<Integer>> desiredInstances() {
-        return Optional.ofNullable(this.desiredInstances);
-    }
-
-    /**
-     * Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
-     * 
-     */
-    @Import(name="desiredSessions")
-    private @Nullable Output<Integer> desiredSessions;
-
-    /**
-     * @return Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
-     * 
-     */
-    public Optional<Output<Integer>> desiredSessions() {
-        return Optional.ofNullable(this.desiredSessions);
+    public Output<Integer> desiredInstances() {
+        return this.desiredInstances;
     }
 
     /**
@@ -95,7 +81,6 @@ public final class FleetComputeCapacityArgs extends com.pulumi.resources.Resourc
     private FleetComputeCapacityArgs(FleetComputeCapacityArgs $) {
         this.available = $.available;
         this.desiredInstances = $.desiredInstances;
-        this.desiredSessions = $.desiredSessions;
         this.inUse = $.inUse;
         this.running = $.running;
     }
@@ -145,7 +130,7 @@ public final class FleetComputeCapacityArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder desiredInstances(@Nullable Output<Integer> desiredInstances) {
+        public Builder desiredInstances(Output<Integer> desiredInstances) {
             $.desiredInstances = desiredInstances;
             return this;
         }
@@ -158,27 +143,6 @@ public final class FleetComputeCapacityArgs extends com.pulumi.resources.Resourc
          */
         public Builder desiredInstances(Integer desiredInstances) {
             return desiredInstances(Output.of(desiredInstances));
-        }
-
-        /**
-         * @param desiredSessions Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder desiredSessions(@Nullable Output<Integer> desiredSessions) {
-            $.desiredSessions = desiredSessions;
-            return this;
-        }
-
-        /**
-         * @param desiredSessions Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder desiredSessions(Integer desiredSessions) {
-            return desiredSessions(Output.of(desiredSessions));
         }
 
         /**
@@ -224,6 +188,9 @@ public final class FleetComputeCapacityArgs extends com.pulumi.resources.Resourc
         }
 
         public FleetComputeCapacityArgs build() {
+            if ($.desiredInstances == null) {
+                throw new MissingRequiredPropertyException("FleetComputeCapacityArgs", "desiredInstances");
+            }
             return $;
         }
     }

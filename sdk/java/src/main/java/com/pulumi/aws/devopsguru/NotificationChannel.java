@@ -109,14 +109,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:devopsguru/notificationChannel:NotificationChannel")
 public class NotificationChannel extends com.pulumi.resources.CustomResource {
     /**
-     * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+     * Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
      * 
      */
     @Export(name="filters", refs={NotificationChannelFilters.class}, tree="[0]")
     private Output</* @Nullable */ NotificationChannelFilters> filters;
 
     /**
-     * @return Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+     * @return Filter configurations for the Amazon SNS notification topic  See the `filters` argument reference below.
      * 
      */
     public Output<Optional<NotificationChannelFilters>> filters() {

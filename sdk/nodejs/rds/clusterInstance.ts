@@ -148,7 +148,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<EngineType>;
     /**
-     * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
+     * Database engine version.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -390,7 +390,7 @@ export interface ClusterInstanceState {
      */
     engine?: pulumi.Input<EngineType>;
     /**
-     * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
+     * Database engine version.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -523,7 +523,7 @@ export interface ClusterInstanceArgs {
      */
     engine: pulumi.Input<EngineType>;
     /**
-     * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
+     * Database engine version.
      */
     engineVersion?: pulumi.Input<string>;
     /**

@@ -6,16 +6,10 @@ package com.pulumi.aws.servicecatalog.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 
 @CustomType
 public final class GetAppregistryApplicationResult {
-    /**
-     * @return A map with a single tag key-value pair used to associate resources with the application.
-     * 
-     */
-    private Map<String,String> applicationTag;
     /**
      * @return ARN (Amazon Resource Name) of the application.
      * 
@@ -34,13 +28,6 @@ public final class GetAppregistryApplicationResult {
     private String name;
 
     private GetAppregistryApplicationResult() {}
-    /**
-     * @return A map with a single tag key-value pair used to associate resources with the application.
-     * 
-     */
-    public Map<String,String> applicationTag() {
-        return this.applicationTag;
-    }
     /**
      * @return ARN (Amazon Resource Name) of the application.
      * 
@@ -75,7 +62,6 @@ public final class GetAppregistryApplicationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Map<String,String> applicationTag;
         private String arn;
         private String description;
         private String id;
@@ -83,21 +69,12 @@ public final class GetAppregistryApplicationResult {
         public Builder() {}
         public Builder(GetAppregistryApplicationResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.applicationTag = defaults.applicationTag;
     	      this.arn = defaults.arn;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
         }
 
-        @CustomType.Setter
-        public Builder applicationTag(Map<String,String> applicationTag) {
-            if (applicationTag == null) {
-              throw new MissingRequiredPropertyException("GetAppregistryApplicationResult", "applicationTag");
-            }
-            this.applicationTag = applicationTag;
-            return this;
-        }
         @CustomType.Setter
         public Builder arn(String arn) {
             if (arn == null) {
@@ -132,7 +109,6 @@ public final class GetAppregistryApplicationResult {
         }
         public GetAppregistryApplicationResult build() {
             final var _resultValue = new GetAppregistryApplicationResult();
-            _resultValue.applicationTag = applicationTag;
             _resultValue.arn = arn;
             _resultValue.description = description;
             _resultValue.id = id;

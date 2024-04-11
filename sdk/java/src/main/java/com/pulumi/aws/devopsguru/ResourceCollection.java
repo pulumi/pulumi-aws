@@ -201,14 +201,14 @@ public class ResourceCollection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cloudformation);
     }
     /**
-     * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+     * AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
      * 
      */
     @Export(name="tags", refs={ResourceCollectionTags.class}, tree="[0]")
     private Output</* @Nullable */ ResourceCollectionTags> tags;
 
     /**
-     * @return AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+     * @return AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
      * 
      */
     public Output<Optional<ResourceCollectionTags>> tags() {

@@ -248,10 +248,6 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public readonly containerProperties!: pulumi.Output<string | undefined>;
     /**
-     * When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-     */
-    public readonly deregisterOnNewRevision!: pulumi.Output<boolean | undefined>;
-    /**
      * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      */
     public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
@@ -326,7 +322,6 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["arnPrefix"] = state ? state.arnPrefix : undefined;
             resourceInputs["containerProperties"] = state ? state.containerProperties : undefined;
-            resourceInputs["deregisterOnNewRevision"] = state ? state.deregisterOnNewRevision : undefined;
             resourceInputs["eksProperties"] = state ? state.eksProperties : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodeProperties"] = state ? state.nodeProperties : undefined;
@@ -346,7 +341,6 @@ export class JobDefinition extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["containerProperties"] = args ? args.containerProperties : undefined;
-            resourceInputs["deregisterOnNewRevision"] = args ? args.deregisterOnNewRevision : undefined;
             resourceInputs["eksProperties"] = args ? args.eksProperties : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nodeProperties"] = args ? args.nodeProperties : undefined;
@@ -385,10 +379,6 @@ export interface JobDefinitionState {
      * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      */
     containerProperties?: pulumi.Input<string>;
-    /**
-     * When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-     */
-    deregisterOnNewRevision?: pulumi.Input<boolean>;
     /**
      * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      */
@@ -458,10 +448,6 @@ export interface JobDefinitionArgs {
      * provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      */
     containerProperties?: pulumi.Input<string>;
-    /**
-     * When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-     */
-    deregisterOnNewRevision?: pulumi.Input<boolean>;
     /**
      * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      */

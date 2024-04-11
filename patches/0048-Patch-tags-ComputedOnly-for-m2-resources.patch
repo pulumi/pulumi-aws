@@ -1,0 +1,32 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Mon, 1 Apr 2024 17:25:06 -0400
+Subject: [PATCH 48/49] Patch tags ComputedOnly for m2 resources
+
+
+diff --git a/internal/service/m2/application.go b/internal/service/m2/application.go
+index f6998fab42..5db8ceb815 100644
+--- a/internal/service/m2/application.go
++++ b/internal/service/m2/application.go
+@@ -103,7 +103,7 @@ func (r *applicationResource) Schema(ctx context.Context, request resource.Schem
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"definition": schema.ListNestedBlock{
+diff --git a/internal/service/m2/environment.go b/internal/service/m2/environment.go
+index ea74ae2cd4..e96fe875c1 100644
+--- a/internal/service/m2/environment.go
++++ b/internal/service/m2/environment.go
+@@ -173,7 +173,7 @@ func (r *environmentResource) Schema(ctx context.Context, request resource.Schem
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"high_availability_config": schema.ListNestedBlock{

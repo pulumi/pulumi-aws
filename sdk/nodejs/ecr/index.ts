@@ -20,11 +20,6 @@ export const getImage: typeof import("./getImage").getImage = null as any;
 export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
 utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
 
-export { GetLifecyclePolicyDocumentArgs, GetLifecyclePolicyDocumentResult, GetLifecyclePolicyDocumentOutputArgs } from "./getLifecyclePolicyDocument";
-export const getLifecyclePolicyDocument: typeof import("./getLifecyclePolicyDocument").getLifecyclePolicyDocument = null as any;
-export const getLifecyclePolicyDocumentOutput: typeof import("./getLifecyclePolicyDocument").getLifecyclePolicyDocumentOutput = null as any;
-utilities.lazyLoad(exports, ["getLifecyclePolicyDocument","getLifecyclePolicyDocumentOutput"], () => require("./getLifecyclePolicyDocument"));
-
 export { GetPullThroughCacheRuleArgs, GetPullThroughCacheRuleResult, GetPullThroughCacheRuleOutputArgs } from "./getPullThroughCacheRule";
 export const getPullThroughCacheRule: typeof import("./getPullThroughCacheRule").getPullThroughCacheRule = null as any;
 export const getPullThroughCacheRuleOutput: typeof import("./getPullThroughCacheRule").getPullThroughCacheRuleOutput = null as any;

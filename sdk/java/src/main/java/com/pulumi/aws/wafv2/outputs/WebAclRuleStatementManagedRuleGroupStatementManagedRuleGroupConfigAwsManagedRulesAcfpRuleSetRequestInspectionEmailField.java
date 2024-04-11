@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField {
     /**
-     * @return The name of the field in the request payload that contains your customer&#39;s email.
+     * @return The identifier for the value to match against in the JSON.
      * 
      */
     private String identifier;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField() {}
     /**
-     * @return The name of the field in the request payload that contains your customer&#39;s email.
+     * @return The identifier for the value to match against in the JSON.
      * 
      */
     public String identifier() {

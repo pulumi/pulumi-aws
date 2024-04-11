@@ -123,7 +123,7 @@ export class ResourceCollection extends pulumi.CustomResource {
      */
     public readonly cloudformation!: pulumi.Output<outputs.devopsguru.ResourceCollectionCloudformation | undefined>;
     /**
-     * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+     * AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
      */
     public readonly tags!: pulumi.Output<outputs.devopsguru.ResourceCollectionTags | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface ResourceCollectionState {
      */
     cloudformation?: pulumi.Input<inputs.devopsguru.ResourceCollectionCloudformation>;
     /**
-     * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+     * AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
      */
     tags?: pulumi.Input<inputs.devopsguru.ResourceCollectionTags>;
     /**
@@ -192,7 +192,7 @@ export interface ResourceCollectionArgs {
      */
     cloudformation?: pulumi.Input<inputs.devopsguru.ResourceCollectionCloudformation>;
     /**
-     * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+     * AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
      */
     tags?: pulumi.Input<inputs.devopsguru.ResourceCollectionTags>;
     /**

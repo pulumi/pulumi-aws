@@ -6,7 +6,6 @@ package com.pulumi.aws.servicecatalog.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,21 +14,6 @@ import javax.annotation.Nullable;
 public final class AppregistryApplicationState extends com.pulumi.resources.ResourceArgs {
 
     public static final AppregistryApplicationState Empty = new AppregistryApplicationState();
-
-    /**
-     * A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
-     * 
-     */
-    @Import(name="applicationTag")
-    private @Nullable Output<Map<String,String>> applicationTag;
-
-    /**
-     * @return A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> applicationTag() {
-        return Optional.ofNullable(this.applicationTag);
-    }
 
     /**
      * ARN (Amazon Resource Name) of the application.
@@ -83,7 +67,6 @@ public final class AppregistryApplicationState extends com.pulumi.resources.Reso
     private AppregistryApplicationState() {}
 
     private AppregistryApplicationState(AppregistryApplicationState $) {
-        this.applicationTag = $.applicationTag;
         this.arn = $.arn;
         this.description = $.description;
         this.name = $.name;
@@ -105,27 +88,6 @@ public final class AppregistryApplicationState extends com.pulumi.resources.Reso
 
         public Builder(AppregistryApplicationState defaults) {
             $ = new AppregistryApplicationState(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param applicationTag A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder applicationTag(@Nullable Output<Map<String,String>> applicationTag) {
-            $.applicationTag = applicationTag;
-            return this;
-        }
-
-        /**
-         * @param applicationTag A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder applicationTag(Map<String,String> applicationTag) {
-            return applicationTag(Output.of(applicationTag));
         }
 
         /**

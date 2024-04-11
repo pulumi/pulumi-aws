@@ -70,21 +70,6 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-     * 
-     */
-    @Import(name="deregisterOnNewRevision")
-    private @Nullable Output<Boolean> deregisterOnNewRevision;
-
-    /**
-     * @return When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-     * 
-     */
-    public Optional<Output<Boolean>> deregisterOnNewRevision() {
-        return Optional.ofNullable(this.deregisterOnNewRevision);
-    }
-
-    /**
      * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
@@ -301,7 +286,6 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         this.arn = $.arn;
         this.arnPrefix = $.arnPrefix;
         this.containerProperties = $.containerProperties;
-        this.deregisterOnNewRevision = $.deregisterOnNewRevision;
         this.eksProperties = $.eksProperties;
         this.name = $.name;
         this.nodeProperties = $.nodeProperties;
@@ -398,27 +382,6 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder containerProperties(String containerProperties) {
             return containerProperties(Output.of(containerProperties));
-        }
-
-        /**
-         * @param deregisterOnNewRevision When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder deregisterOnNewRevision(@Nullable Output<Boolean> deregisterOnNewRevision) {
-            $.deregisterOnNewRevision = deregisterOnNewRevision;
-            return this;
-        }
-
-        /**
-         * @param deregisterOnNewRevision When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder deregisterOnNewRevision(Boolean deregisterOnNewRevision) {
-            return deregisterOnNewRevision(Output.of(deregisterOnNewRevision));
         }
 
         /**

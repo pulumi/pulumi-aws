@@ -18,8 +18,8 @@ import {PolicyDocument} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleRepository = new aws.ecr.Repository("example", {name: "example-repo"});
- * const example = aws.iam.getPolicyDocument({
+ * const foo = new aws.ecr.Repository("foo", {name: "bar"});
+ * const foopolicy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "new policy",
  *         effect: "Allow",
@@ -45,9 +45,9 @@ import {PolicyDocument} from "../iam";
  *         ],
  *     }],
  * });
- * const exampleRepositoryPolicy = new aws.ecr.RepositoryPolicy("example", {
- *     repository: exampleRepository.name,
- *     policy: example.then(example => example.json),
+ * const foopolicyRepositoryPolicy = new aws.ecr.RepositoryPolicy("foopolicy", {
+ *     repository: foo.name,
+ *     policy: foopolicy.then(foopolicy => foopolicy.json),
  * });
  * ```
  * <!--End PulumiCodeChooser -->

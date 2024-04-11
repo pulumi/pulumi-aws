@@ -174,14 +174,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
+     * Database engine version.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
+     * @return Database engine version.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -643,7 +643,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param engineVersion Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
+         * @param engineVersion Database engine version.
          * 
          * @return builder
          * 
@@ -654,7 +654,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param engineVersion Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
+         * @param engineVersion Database engine version.
          * 
          * @return builder
          * 

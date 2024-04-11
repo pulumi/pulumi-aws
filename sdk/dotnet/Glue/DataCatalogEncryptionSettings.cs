@@ -35,7 +35,6 @@ namespace Pulumi.Aws.Glue
     ///             EncryptionAtRest = new Aws.Glue.Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs
     ///             {
     ///                 CatalogEncryptionMode = "SSE-KMS",
-    ///                 CatalogEncryptionServiceRole = role.Test.Arn,
     ///                 SseAwsKmsKeyId = test.Arn,
     ///             },
     ///         },

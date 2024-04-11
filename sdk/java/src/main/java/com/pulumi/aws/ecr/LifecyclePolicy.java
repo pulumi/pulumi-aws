@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .name(&#34;example-repo&#34;)
+ *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;bar&#34;)
  *             .build());
  * 
- *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
- *             .repository(example.name())
+ *         var foopolicy = new LifecyclePolicy(&#34;foopolicy&#34;, LifecyclePolicyArgs.builder()        
+ *             .repository(foo.name())
  *             .policy(&#34;&#34;&#34;
  * {
  *     &#34;rules&#34;: [
@@ -106,12 +106,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Repository(&#34;example&#34;, RepositoryArgs.builder()        
- *             .name(&#34;example-repo&#34;)
+ *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;bar&#34;)
  *             .build());
  * 
- *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
- *             .repository(example.name())
+ *         var foopolicy = new LifecyclePolicy(&#34;foopolicy&#34;, LifecyclePolicyArgs.builder()        
+ *             .repository(foo.name())
  *             .policy(&#34;&#34;&#34;
  * {
  *     &#34;rules&#34;: [
@@ -150,14 +150,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ecr/lifecyclePolicy:LifecyclePolicy")
 public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
+     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
+     * @return The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
      * 
      */
     public Output<String> policy() {

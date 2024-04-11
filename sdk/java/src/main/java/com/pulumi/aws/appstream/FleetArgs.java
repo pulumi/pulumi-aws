@@ -203,21 +203,6 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-     * 
-     */
-    @Import(name="maxSessionsPerInstance")
-    private @Nullable Output<Integer> maxSessionsPerInstance;
-
-    /**
-     * @return The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-     * 
-     */
-    public Optional<Output<Integer>> maxSessionsPerInstance() {
-        return Optional.ofNullable(this.maxSessionsPerInstance);
-    }
-
-    /**
      * Maximum amount of time that a streaming session can remain active, in seconds.
      * 
      */
@@ -311,7 +296,6 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         this.imageArn = $.imageArn;
         this.imageName = $.imageName;
         this.instanceType = $.instanceType;
-        this.maxSessionsPerInstance = $.maxSessionsPerInstance;
         this.maxUserDurationInSeconds = $.maxUserDurationInSeconds;
         this.name = $.name;
         this.streamView = $.streamView;
@@ -587,27 +571,6 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
-        }
-
-        /**
-         * @param maxSessionsPerInstance The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder maxSessionsPerInstance(@Nullable Output<Integer> maxSessionsPerInstance) {
-            $.maxSessionsPerInstance = maxSessionsPerInstance;
-            return this;
-        }
-
-        /**
-         * @param maxSessionsPerInstance The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder maxSessionsPerInstance(Integer maxSessionsPerInstance) {
-            return maxSessionsPerInstance(Output.of(maxSessionsPerInstance));
         }
 
         /**

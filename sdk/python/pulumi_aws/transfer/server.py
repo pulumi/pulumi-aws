@@ -31,7 +31,6 @@ class ServerArgs:
                  pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 s3_storage_options: Optional[pulumi.Input['ServerS3StorageOptionsArgs']] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -42,7 +41,7 @@ class ServerArgs:
         :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         :param pulumi.Input[str] directory_id: The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         :param pulumi.Input[str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
-        :param pulumi.Input['ServerEndpointDetailsArgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+        :param pulumi.Input['ServerEndpointDetailsArgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         :param pulumi.Input[str] function: The ARN for a lambda function to use for the Identity provider.
@@ -52,9 +51,8 @@ class ServerArgs:
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
-        :param pulumi.Input['ServerProtocolDetailsArgs'] protocol_details: The protocol settings that are configured for your server. See `protocol_details` block below for details.
+        :param pulumi.Input['ServerProtocolDetailsArgs'] protocol_details: The protocol settings that are configured for your server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        :param pulumi.Input['ServerS3StorageOptionsArgs'] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2024-01`
                * `TransferSecurityPolicy-2023-05`
@@ -69,7 +67,7 @@ class ServerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See `workflow_details` block below for details.
+        :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
@@ -101,8 +99,6 @@ class ServerArgs:
             pulumi.set(__self__, "protocol_details", protocol_details)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
-        if s3_storage_options is not None:
-            pulumi.set(__self__, "s3_storage_options", s3_storage_options)
         if security_policy_name is not None:
             pulumi.set(__self__, "security_policy_name", security_policy_name)
         if structured_log_destinations is not None:
@@ -154,7 +150,7 @@ class ServerArgs:
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> Optional[pulumi.Input['ServerEndpointDetailsArgs']]:
         """
-        The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+        The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         """
         return pulumi.get(self, "endpoint_details")
 
@@ -274,7 +270,7 @@ class ServerArgs:
     @pulumi.getter(name="protocolDetails")
     def protocol_details(self) -> Optional[pulumi.Input['ServerProtocolDetailsArgs']]:
         """
-        The protocol settings that are configured for your server. See `protocol_details` block below for details.
+        The protocol settings that are configured for your server.
         """
         return pulumi.get(self, "protocol_details")
 
@@ -293,18 +289,6 @@ class ServerArgs:
     @protocols.setter
     def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "protocols", value)
-
-    @property
-    @pulumi.getter(name="s3StorageOptions")
-    def s3_storage_options(self) -> Optional[pulumi.Input['ServerS3StorageOptionsArgs']]:
-        """
-        Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
-        """
-        return pulumi.get(self, "s3_storage_options")
-
-    @s3_storage_options.setter
-    def s3_storage_options(self, value: Optional[pulumi.Input['ServerS3StorageOptionsArgs']]):
-        pulumi.set(self, "s3_storage_options", value)
 
     @property
     @pulumi.getter(name="securityPolicyName")
@@ -368,7 +352,7 @@ class ServerArgs:
     @pulumi.getter(name="workflowDetails")
     def workflow_details(self) -> Optional[pulumi.Input['ServerWorkflowDetailsArgs']]:
         """
-        Specifies the workflow details. See `workflow_details` block below for details.
+        Specifies the workflow details. See Workflow Details below.
         """
         return pulumi.get(self, "workflow_details")
 
@@ -398,7 +382,6 @@ class _ServerState:
                  pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 s3_storage_options: Optional[pulumi.Input['ServerS3StorageOptionsArgs']] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -412,7 +395,7 @@ class _ServerState:
         :param pulumi.Input[str] directory_id: The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         :param pulumi.Input[str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         :param pulumi.Input[str] endpoint: The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
-        :param pulumi.Input['ServerEndpointDetailsArgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+        :param pulumi.Input['ServerEndpointDetailsArgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         :param pulumi.Input[str] function: The ARN for a lambda function to use for the Identity provider.
@@ -423,9 +406,8 @@ class _ServerState:
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
-        :param pulumi.Input['ServerProtocolDetailsArgs'] protocol_details: The protocol settings that are configured for your server. See `protocol_details` block below for details.
+        :param pulumi.Input['ServerProtocolDetailsArgs'] protocol_details: The protocol settings that are configured for your server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        :param pulumi.Input['ServerS3StorageOptionsArgs'] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2024-01`
                * `TransferSecurityPolicy-2023-05`
@@ -441,7 +423,7 @@ class _ServerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See `workflow_details` block below for details.
+        :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -479,8 +461,6 @@ class _ServerState:
             pulumi.set(__self__, "protocol_details", protocol_details)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
-        if s3_storage_options is not None:
-            pulumi.set(__self__, "s3_storage_options", s3_storage_options)
         if security_policy_name is not None:
             pulumi.set(__self__, "security_policy_name", security_policy_name)
         if structured_log_destinations is not None:
@@ -561,7 +541,7 @@ class _ServerState:
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> Optional[pulumi.Input['ServerEndpointDetailsArgs']]:
         """
-        The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+        The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         """
         return pulumi.get(self, "endpoint_details")
 
@@ -693,7 +673,7 @@ class _ServerState:
     @pulumi.getter(name="protocolDetails")
     def protocol_details(self) -> Optional[pulumi.Input['ServerProtocolDetailsArgs']]:
         """
-        The protocol settings that are configured for your server. See `protocol_details` block below for details.
+        The protocol settings that are configured for your server.
         """
         return pulumi.get(self, "protocol_details")
 
@@ -712,18 +692,6 @@ class _ServerState:
     @protocols.setter
     def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "protocols", value)
-
-    @property
-    @pulumi.getter(name="s3StorageOptions")
-    def s3_storage_options(self) -> Optional[pulumi.Input['ServerS3StorageOptionsArgs']]:
-        """
-        Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
-        """
-        return pulumi.get(self, "s3_storage_options")
-
-    @s3_storage_options.setter
-    def s3_storage_options(self, value: Optional[pulumi.Input['ServerS3StorageOptionsArgs']]):
-        pulumi.set(self, "s3_storage_options", value)
 
     @property
     @pulumi.getter(name="securityPolicyName")
@@ -802,7 +770,7 @@ class _ServerState:
     @pulumi.getter(name="workflowDetails")
     def workflow_details(self) -> Optional[pulumi.Input['ServerWorkflowDetailsArgs']]:
         """
-        Specifies the workflow details. See `workflow_details` block below for details.
+        Specifies the workflow details. See Workflow Details below.
         """
         return pulumi.get(self, "workflow_details")
 
@@ -831,7 +799,6 @@ class Server(pulumi.CustomResource):
                  pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 s3_storage_options: Optional[pulumi.Input[pulumi.InputType['ServerS3StorageOptionsArgs']]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -979,7 +946,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         :param pulumi.Input[str] directory_id: The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         :param pulumi.Input[str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
-        :param pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+        :param pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         :param pulumi.Input[str] function: The ARN for a lambda function to use for the Identity provider.
@@ -989,9 +956,8 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
-        :param pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']] protocol_details: The protocol settings that are configured for your server. See `protocol_details` block below for details.
+        :param pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']] protocol_details: The protocol settings that are configured for your server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        :param pulumi.Input[pulumi.InputType['ServerS3StorageOptionsArgs']] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2024-01`
                * `TransferSecurityPolicy-2023-05`
@@ -1006,7 +972,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']] workflow_details: Specifies the workflow details. See `workflow_details` block below for details.
+        :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         ...
     @overload
@@ -1180,7 +1146,6 @@ class Server(pulumi.CustomResource):
                  pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 s3_storage_options: Optional[pulumi.Input[pulumi.InputType['ServerS3StorageOptionsArgs']]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1210,7 +1175,6 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["pre_authentication_login_banner"] = None if pre_authentication_login_banner is None else pulumi.Output.secret(pre_authentication_login_banner)
             __props__.__dict__["protocol_details"] = protocol_details
             __props__.__dict__["protocols"] = protocols
-            __props__.__dict__["s3_storage_options"] = s3_storage_options
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["structured_log_destinations"] = structured_log_destinations
             __props__.__dict__["tags"] = tags
@@ -1250,7 +1214,6 @@ class Server(pulumi.CustomResource):
             pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
             protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']]] = None,
             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            s3_storage_options: Optional[pulumi.Input[pulumi.InputType['ServerS3StorageOptionsArgs']]] = None,
             security_policy_name: Optional[pulumi.Input[str]] = None,
             structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1269,7 +1232,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] directory_id: The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         :param pulumi.Input[str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         :param pulumi.Input[str] endpoint: The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
-        :param pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+        :param pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         :param pulumi.Input[str] function: The ARN for a lambda function to use for the Identity provider.
@@ -1280,9 +1243,8 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
-        :param pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']] protocol_details: The protocol settings that are configured for your server. See `protocol_details` block below for details.
+        :param pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']] protocol_details: The protocol settings that are configured for your server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
-        :param pulumi.Input[pulumi.InputType['ServerS3StorageOptionsArgs']] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2024-01`
                * `TransferSecurityPolicy-2023-05`
@@ -1298,7 +1260,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']] workflow_details: Specifies the workflow details. See `workflow_details` block below for details.
+        :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1322,7 +1284,6 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["pre_authentication_login_banner"] = pre_authentication_login_banner
         __props__.__dict__["protocol_details"] = protocol_details
         __props__.__dict__["protocols"] = protocols
-        __props__.__dict__["s3_storage_options"] = s3_storage_options
         __props__.__dict__["security_policy_name"] = security_policy_name
         __props__.__dict__["structured_log_destinations"] = structured_log_destinations
         __props__.__dict__["tags"] = tags
@@ -1375,7 +1336,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> pulumi.Output[Optional['outputs.ServerEndpointDetails']]:
         """
-        The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+        The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         """
         return pulumi.get(self, "endpoint_details")
 
@@ -1463,7 +1424,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="protocolDetails")
     def protocol_details(self) -> pulumi.Output['outputs.ServerProtocolDetails']:
         """
-        The protocol settings that are configured for your server. See `protocol_details` block below for details.
+        The protocol settings that are configured for your server.
         """
         return pulumi.get(self, "protocol_details")
 
@@ -1474,14 +1435,6 @@ class Server(pulumi.CustomResource):
         Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
         """
         return pulumi.get(self, "protocols")
-
-    @property
-    @pulumi.getter(name="s3StorageOptions")
-    def s3_storage_options(self) -> pulumi.Output['outputs.ServerS3StorageOptions']:
-        """
-        Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
-        """
-        return pulumi.get(self, "s3_storage_options")
 
     @property
     @pulumi.getter(name="securityPolicyName")
@@ -1540,7 +1493,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="workflowDetails")
     def workflow_details(self) -> pulumi.Output[Optional['outputs.ServerWorkflowDetails']]:
         """
-        Specifies the workflow details. See `workflow_details` block below for details.
+        Specifies the workflow details. See Workflow Details below.
         """
         return pulumi.get(self, "workflow_details")
 

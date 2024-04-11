@@ -474,10 +474,6 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly terminationProtection!: pulumi.Output<boolean>;
     /**
-     * Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
-     */
-    public readonly unhealthyNodeReplacement!: pulumi.Output<boolean | undefined>;
-    /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
      */
     public readonly visibleToAllUsers!: pulumi.Output<boolean | undefined>;
@@ -528,7 +524,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["terminationProtection"] = state ? state.terminationProtection : undefined;
-            resourceInputs["unhealthyNodeReplacement"] = state ? state.unhealthyNodeReplacement : undefined;
             resourceInputs["visibleToAllUsers"] = state ? state.visibleToAllUsers : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
@@ -567,7 +562,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["steps"] = args ? args.steps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminationProtection"] = args ? args.terminationProtection : undefined;
-            resourceInputs["unhealthyNodeReplacement"] = args ? args.unhealthyNodeReplacement : undefined;
             resourceInputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterState"] = undefined /*out*/;
@@ -742,10 +736,6 @@ export interface ClusterState {
      */
     terminationProtection?: pulumi.Input<boolean>;
     /**
-     * Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
-     */
-    unhealthyNodeReplacement?: pulumi.Input<boolean>;
-    /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
      */
     visibleToAllUsers?: pulumi.Input<boolean>;
@@ -898,10 +888,6 @@ export interface ClusterArgs {
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */
     terminationProtection?: pulumi.Input<boolean>;
-    /**
-     * Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
-     */
-    unhealthyNodeReplacement?: pulumi.Input<boolean>;
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
      */

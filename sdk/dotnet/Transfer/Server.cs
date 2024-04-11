@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         /// </summary>
         [Output("endpointDetails")]
         public Output<Outputs.ServerEndpointDetails?> EndpointDetails { get; private set; } = null!;
@@ -350,7 +350,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> PreAuthenticationLoginBanner { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol settings that are configured for your server. See `protocol_details` block below for details.
+        /// The protocol settings that are configured for your server.
         /// </summary>
         [Output("protocolDetails")]
         public Output<Outputs.ServerProtocolDetails> ProtocolDetails { get; private set; } = null!;
@@ -360,12 +360,6 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
-        /// </summary>
-        [Output("s3StorageOptions")]
-        public Output<Outputs.ServerS3StorageOptions> S3StorageOptions { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
@@ -408,7 +402,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> Url { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the workflow details. See `workflow_details` block below for details.
+        /// Specifies the workflow details. See Workflow Details below.
         /// </summary>
         [Output("workflowDetails")]
         public Output<Outputs.ServerWorkflowDetails?> WorkflowDetails { get; private set; } = null!;
@@ -484,7 +478,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         /// </summary>
         [Input("endpointDetails")]
         public Input<Inputs.ServerEndpointDetailsArgs>? EndpointDetails { get; set; }
@@ -574,7 +568,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The protocol settings that are configured for your server. See `protocol_details` block below for details.
+        /// The protocol settings that are configured for your server.
         /// </summary>
         [Input("protocolDetails")]
         public Input<Inputs.ServerProtocolDetailsArgs>? ProtocolDetails { get; set; }
@@ -590,12 +584,6 @@ namespace Pulumi.Aws.Transfer
             get => _protocols ?? (_protocols = new InputList<string>());
             set => _protocols = value;
         }
-
-        /// <summary>
-        /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
-        /// </summary>
-        [Input("s3StorageOptions")]
-        public Input<Inputs.ServerS3StorageOptionsArgs>? S3StorageOptions { get; set; }
 
         /// <summary>
         /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
@@ -644,7 +632,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// Specifies the workflow details. See `workflow_details` block below for details.
+        /// Specifies the workflow details. See Workflow Details below.
         /// </summary>
         [Input("workflowDetails")]
         public Input<Inputs.ServerWorkflowDetailsArgs>? WorkflowDetails { get; set; }
@@ -688,7 +676,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+        /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         /// </summary>
         [Input("endpointDetails")]
         public Input<Inputs.ServerEndpointDetailsGetArgs>? EndpointDetails { get; set; }
@@ -784,7 +772,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The protocol settings that are configured for your server. See `protocol_details` block below for details.
+        /// The protocol settings that are configured for your server.
         /// </summary>
         [Input("protocolDetails")]
         public Input<Inputs.ServerProtocolDetailsGetArgs>? ProtocolDetails { get; set; }
@@ -800,12 +788,6 @@ namespace Pulumi.Aws.Transfer
             get => _protocols ?? (_protocols = new InputList<string>());
             set => _protocols = value;
         }
-
-        /// <summary>
-        /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
-        /// </summary>
-        [Input("s3StorageOptions")]
-        public Input<Inputs.ServerS3StorageOptionsGetArgs>? S3StorageOptions { get; set; }
 
         /// <summary>
         /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
@@ -867,7 +849,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// Specifies the workflow details. See `workflow_details` block below for details.
+        /// Specifies the workflow details. See Workflow Details below.
         /// </summary>
         [Input("workflowDetails")]
         public Input<Inputs.ServerWorkflowDetailsGetArgs>? WorkflowDetails { get; set; }

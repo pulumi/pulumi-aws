@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;, RepositoryArgs.builder()        
- *             .name(&#34;example-repo&#34;)
+ *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
+ *             .name(&#34;bar&#34;)
  *             .build());
  * 
- *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var foopolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;new policy&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -76,9 +76,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleRepositoryPolicy = new RepositoryPolicy(&#34;exampleRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
- *             .repository(exampleRepository.name())
- *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *         var foopolicyRepositoryPolicy = new RepositoryPolicy(&#34;foopolicyRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
+ *             .repository(foo.name())
+ *             .policy(foopolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

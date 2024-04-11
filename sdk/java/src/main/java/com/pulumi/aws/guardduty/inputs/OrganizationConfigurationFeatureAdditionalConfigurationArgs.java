@@ -30,14 +30,14 @@ public final class OrganizationConfigurationFeatureAdditionalConfigurationArgs e
     }
 
     /**
-     * The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
+     * The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
+     * @return The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
      * 
      */
     public Output<String> name() {
@@ -91,7 +91,7 @@ public final class OrganizationConfigurationFeatureAdditionalConfigurationArgs e
         }
 
         /**
-         * @param name The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
+         * @param name The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class OrganizationConfigurationFeatureAdditionalConfigurationArgs e
         }
 
         /**
-         * @param name The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
+         * @param name The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
          * 
          * @return builder
          * 

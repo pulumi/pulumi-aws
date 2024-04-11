@@ -64,28 +64,35 @@ class DirectoryConfigServiceAccountCredentialsArgs:
 @pulumi.input_type
 class FleetComputeCapacityArgs:
     def __init__(__self__, *,
+                 desired_instances: pulumi.Input[int],
                  available: Optional[pulumi.Input[int]] = None,
-                 desired_instances: Optional[pulumi.Input[int]] = None,
-                 desired_sessions: Optional[pulumi.Input[int]] = None,
                  in_use: Optional[pulumi.Input[int]] = None,
                  running: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] available: Number of currently available instances that can be used to stream sessions.
         :param pulumi.Input[int] desired_instances: Desired number of streaming instances.
-        :param pulumi.Input[int] desired_sessions: Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+        :param pulumi.Input[int] available: Number of currently available instances that can be used to stream sessions.
         :param pulumi.Input[int] in_use: Number of instances in use for streaming.
         :param pulumi.Input[int] running: Total number of simultaneous streaming instances that are running.
         """
+        pulumi.set(__self__, "desired_instances", desired_instances)
         if available is not None:
             pulumi.set(__self__, "available", available)
-        if desired_instances is not None:
-            pulumi.set(__self__, "desired_instances", desired_instances)
-        if desired_sessions is not None:
-            pulumi.set(__self__, "desired_sessions", desired_sessions)
         if in_use is not None:
             pulumi.set(__self__, "in_use", in_use)
         if running is not None:
             pulumi.set(__self__, "running", running)
+
+    @property
+    @pulumi.getter(name="desiredInstances")
+    def desired_instances(self) -> pulumi.Input[int]:
+        """
+        Desired number of streaming instances.
+        """
+        return pulumi.get(self, "desired_instances")
+
+    @desired_instances.setter
+    def desired_instances(self, value: pulumi.Input[int]):
+        pulumi.set(self, "desired_instances", value)
 
     @property
     @pulumi.getter
@@ -98,30 +105,6 @@ class FleetComputeCapacityArgs:
     @available.setter
     def available(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "available", value)
-
-    @property
-    @pulumi.getter(name="desiredInstances")
-    def desired_instances(self) -> Optional[pulumi.Input[int]]:
-        """
-        Desired number of streaming instances.
-        """
-        return pulumi.get(self, "desired_instances")
-
-    @desired_instances.setter
-    def desired_instances(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "desired_instances", value)
-
-    @property
-    @pulumi.getter(name="desiredSessions")
-    def desired_sessions(self) -> Optional[pulumi.Input[int]]:
-        """
-        Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
-        """
-        return pulumi.get(self, "desired_sessions")
-
-    @desired_sessions.setter
-    def desired_sessions(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "desired_sessions", value)
 
     @property
     @pulumi.getter(name="inUse")

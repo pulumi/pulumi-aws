@@ -79,8 +79,6 @@ class FleetComputeCapacity(dict):
         suggest = None
         if key == "desiredInstances":
             suggest = "desired_instances"
-        elif key == "desiredSessions":
-            suggest = "desired_sessions"
         elif key == "inUse":
             suggest = "in_use"
 
@@ -96,28 +94,31 @@ class FleetComputeCapacity(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 desired_instances: int,
                  available: Optional[int] = None,
-                 desired_instances: Optional[int] = None,
-                 desired_sessions: Optional[int] = None,
                  in_use: Optional[int] = None,
                  running: Optional[int] = None):
         """
-        :param int available: Number of currently available instances that can be used to stream sessions.
         :param int desired_instances: Desired number of streaming instances.
-        :param int desired_sessions: Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+        :param int available: Number of currently available instances that can be used to stream sessions.
         :param int in_use: Number of instances in use for streaming.
         :param int running: Total number of simultaneous streaming instances that are running.
         """
+        pulumi.set(__self__, "desired_instances", desired_instances)
         if available is not None:
             pulumi.set(__self__, "available", available)
-        if desired_instances is not None:
-            pulumi.set(__self__, "desired_instances", desired_instances)
-        if desired_sessions is not None:
-            pulumi.set(__self__, "desired_sessions", desired_sessions)
         if in_use is not None:
             pulumi.set(__self__, "in_use", in_use)
         if running is not None:
             pulumi.set(__self__, "running", running)
+
+    @property
+    @pulumi.getter(name="desiredInstances")
+    def desired_instances(self) -> int:
+        """
+        Desired number of streaming instances.
+        """
+        return pulumi.get(self, "desired_instances")
 
     @property
     @pulumi.getter
@@ -126,22 +127,6 @@ class FleetComputeCapacity(dict):
         Number of currently available instances that can be used to stream sessions.
         """
         return pulumi.get(self, "available")
-
-    @property
-    @pulumi.getter(name="desiredInstances")
-    def desired_instances(self) -> Optional[int]:
-        """
-        Desired number of streaming instances.
-        """
-        return pulumi.get(self, "desired_instances")
-
-    @property
-    @pulumi.getter(name="desiredSessions")
-    def desired_sessions(self) -> Optional[int]:
-        """
-        Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
-        """
-        return pulumi.get(self, "desired_sessions")
 
     @property
     @pulumi.getter(name="inUse")

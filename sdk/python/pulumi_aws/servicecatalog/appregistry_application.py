@@ -58,39 +58,23 @@ class AppregistryApplicationArgs:
 @pulumi.input_type
 class _AppregistryApplicationState:
     def __init__(__self__, *,
-                 application_tag: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AppregistryApplication resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] application_tag: A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
         :param pulumi.Input[str] arn: ARN (Amazon Resource Name) of the application.
         :param pulumi.Input[str] description: Description of the application.
         :param pulumi.Input[str] name: Name of the application. The name must be unique within an AWS region.
                
                The following arguments are optional:
         """
-        if application_tag is not None:
-            pulumi.set(__self__, "application_tag", application_tag)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="applicationTag")
-    def application_tag(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
-        """
-        return pulumi.get(self, "application_tag")
-
-    @application_tag.setter
-    def application_tag(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "application_tag", value)
 
     @property
     @pulumi.getter
@@ -167,7 +151,9 @@ class AppregistryApplication(pulumi.CustomResource):
         example = aws.servicecatalog.AppregistryApplication("example", name="example-app")
         bucket = aws.s3.BucketV2("bucket",
             bucket="example-bucket",
-            tags=example.application_tag)
+            tags={
+                "awsApplication": example.arn,
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -220,7 +206,9 @@ class AppregistryApplication(pulumi.CustomResource):
         example = aws.servicecatalog.AppregistryApplication("example", name="example-app")
         bucket = aws.s3.BucketV2("bucket",
             bucket="example-bucket",
-            tags=example.application_tag)
+            tags={
+                "awsApplication": example.arn,
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -260,7 +248,6 @@ class AppregistryApplication(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            __props__.__dict__["application_tag"] = None
             __props__.__dict__["arn"] = None
         super(AppregistryApplication, __self__).__init__(
             'aws:servicecatalog/appregistryApplication:AppregistryApplication',
@@ -272,7 +259,6 @@ class AppregistryApplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_tag: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'AppregistryApplication':
@@ -283,7 +269,6 @@ class AppregistryApplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] application_tag: A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
         :param pulumi.Input[str] arn: ARN (Amazon Resource Name) of the application.
         :param pulumi.Input[str] description: Description of the application.
         :param pulumi.Input[str] name: Name of the application. The name must be unique within an AWS region.
@@ -294,19 +279,10 @@ class AppregistryApplication(pulumi.CustomResource):
 
         __props__ = _AppregistryApplicationState.__new__(_AppregistryApplicationState)
 
-        __props__.__dict__["application_tag"] = application_tag
         __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         return AppregistryApplication(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="applicationTag")
-    def application_tag(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
-        """
-        return pulumi.get(self, "application_tag")
 
     @property
     @pulumi.getter

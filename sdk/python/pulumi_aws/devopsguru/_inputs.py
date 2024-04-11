@@ -16,13 +16,6 @@ __all__ = [
     'NotificationChannelSnsArgs',
     'ResourceCollectionCloudformationArgs',
     'ResourceCollectionTagsArgs',
-    'ServiceIntegrationKmsServerSideEncryptionArgs',
-    'ServiceIntegrationLogsAnomalyDetectionArgs',
-    'ServiceIntegrationOpsCenterArgs',
-    'GetNotificationChannelFilterArgs',
-    'GetNotificationChannelSnArgs',
-    'GetResourceCollectionCloudformationArgs',
-    'GetResourceCollectionTagArgs',
 ]
 
 @pulumi.input_type
@@ -113,17 +106,11 @@ class NotificationChannelFiltersArgs:
 class NotificationChannelSnsArgs:
     def __init__(__self__, *,
                  topic_arn: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] topic_arn: Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-        """
         pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -187,225 +174,6 @@ class ResourceCollectionTagsArgs:
 
     @tag_values.setter
     def tag_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "tag_values", value)
-
-
-@pulumi.input_type
-class ServiceIntegrationKmsServerSideEncryptionArgs:
-    def __init__(__self__, *,
-                 kms_key_id: Optional[pulumi.Input[str]] = None,
-                 opt_in_status: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] kms_key_id: KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-        :param pulumi.Input[str] opt_in_status: Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-        :param pulumi.Input[str] type: Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-        """
-        if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
-        if opt_in_status is not None:
-            pulumi.set(__self__, "opt_in_status", opt_in_status)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
-        """
-        return pulumi.get(self, "kms_key_id")
-
-    @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kms_key_id", value)
-
-    @property
-    @pulumi.getter(name="optInStatus")
-    def opt_in_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
-        """
-        return pulumi.get(self, "opt_in_status")
-
-    @opt_in_status.setter
-    def opt_in_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "opt_in_status", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class ServiceIntegrationLogsAnomalyDetectionArgs:
-    def __init__(__self__, *,
-                 opt_in_status: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] opt_in_status: Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
-        """
-        if opt_in_status is not None:
-            pulumi.set(__self__, "opt_in_status", opt_in_status)
-
-    @property
-    @pulumi.getter(name="optInStatus")
-    def opt_in_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
-        """
-        return pulumi.get(self, "opt_in_status")
-
-    @opt_in_status.setter
-    def opt_in_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "opt_in_status", value)
-
-
-@pulumi.input_type
-class ServiceIntegrationOpsCenterArgs:
-    def __init__(__self__, *,
-                 opt_in_status: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] opt_in_status: Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-        """
-        if opt_in_status is not None:
-            pulumi.set(__self__, "opt_in_status", opt_in_status)
-
-    @property
-    @pulumi.getter(name="optInStatus")
-    def opt_in_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
-        """
-        return pulumi.get(self, "opt_in_status")
-
-    @opt_in_status.setter
-    def opt_in_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "opt_in_status", value)
-
-
-@pulumi.input_type
-class GetNotificationChannelFilterArgs:
-    def __init__(__self__, *,
-                 message_types: Sequence[str],
-                 severities: Sequence[str]):
-        """
-        :param Sequence[str] message_types: Events to receive notifications for.
-        :param Sequence[str] severities: Severity levels to receive notifications for.
-        """
-        pulumi.set(__self__, "message_types", message_types)
-        pulumi.set(__self__, "severities", severities)
-
-    @property
-    @pulumi.getter(name="messageTypes")
-    def message_types(self) -> Sequence[str]:
-        """
-        Events to receive notifications for.
-        """
-        return pulumi.get(self, "message_types")
-
-    @message_types.setter
-    def message_types(self, value: Sequence[str]):
-        pulumi.set(self, "message_types", value)
-
-    @property
-    @pulumi.getter
-    def severities(self) -> Sequence[str]:
-        """
-        Severity levels to receive notifications for.
-        """
-        return pulumi.get(self, "severities")
-
-    @severities.setter
-    def severities(self, value: Sequence[str]):
-        pulumi.set(self, "severities", value)
-
-
-@pulumi.input_type
-class GetNotificationChannelSnArgs:
-    def __init__(__self__, *,
-                 topic_arn: str):
-        """
-        :param str topic_arn: Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-        """
-        pulumi.set(__self__, "topic_arn", topic_arn)
-
-    @property
-    @pulumi.getter(name="topicArn")
-    def topic_arn(self) -> str:
-        """
-        Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
-        """
-        return pulumi.get(self, "topic_arn")
-
-    @topic_arn.setter
-    def topic_arn(self, value: str):
-        pulumi.set(self, "topic_arn", value)
-
-
-@pulumi.input_type
-class GetResourceCollectionCloudformationArgs:
-    def __init__(__self__, *,
-                 stack_names: Sequence[str]):
-        """
-        :param Sequence[str] stack_names: Array of the names of the AWS CloudFormation stacks.
-        """
-        pulumi.set(__self__, "stack_names", stack_names)
-
-    @property
-    @pulumi.getter(name="stackNames")
-    def stack_names(self) -> Sequence[str]:
-        """
-        Array of the names of the AWS CloudFormation stacks.
-        """
-        return pulumi.get(self, "stack_names")
-
-    @stack_names.setter
-    def stack_names(self, value: Sequence[str]):
-        pulumi.set(self, "stack_names", value)
-
-
-@pulumi.input_type
-class GetResourceCollectionTagArgs:
-    def __init__(__self__, *,
-                 app_boundary_key: str,
-                 tag_values: Sequence[str]):
-        """
-        :param str app_boundary_key: An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
-        :param Sequence[str] tag_values: Array of tag values.
-        """
-        pulumi.set(__self__, "app_boundary_key", app_boundary_key)
-        pulumi.set(__self__, "tag_values", tag_values)
-
-    @property
-    @pulumi.getter(name="appBoundaryKey")
-    def app_boundary_key(self) -> str:
-        """
-        An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
-        """
-        return pulumi.get(self, "app_boundary_key")
-
-    @app_boundary_key.setter
-    def app_boundary_key(self, value: str):
-        pulumi.set(self, "app_boundary_key", value)
-
-    @property
-    @pulumi.getter(name="tagValues")
-    def tag_values(self) -> Sequence[str]:
-        """
-        Array of tag values.
-        """
-        return pulumi.get(self, "tag_values")
-
-    @tag_values.setter
-    def tag_values(self, value: Sequence[str]):
         pulumi.set(self, "tag_values", value)
 
 

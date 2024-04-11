@@ -99,8 +99,6 @@ type Fleet struct {
 	ImageName pulumi.StringOutput `pulumi:"imageName"`
 	// Instance type to use when launching fleet instances.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
-	// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-	MaxSessionsPerInstance pulumi.IntPtrOutput `pulumi:"maxSessionsPerInstance"`
 	// Maximum amount of time that a streaming session can remain active, in seconds.
 	MaxUserDurationInSeconds pulumi.IntOutput `pulumi:"maxUserDurationInSeconds"`
 	// Unique name for the fleet.
@@ -183,8 +181,6 @@ type fleetState struct {
 	ImageName *string `pulumi:"imageName"`
 	// Instance type to use when launching fleet instances.
 	InstanceType *string `pulumi:"instanceType"`
-	// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-	MaxSessionsPerInstance *int `pulumi:"maxSessionsPerInstance"`
 	// Maximum amount of time that a streaming session can remain active, in seconds.
 	MaxUserDurationInSeconds *int `pulumi:"maxUserDurationInSeconds"`
 	// Unique name for the fleet.
@@ -232,8 +228,6 @@ type FleetState struct {
 	ImageName pulumi.StringPtrInput
 	// Instance type to use when launching fleet instances.
 	InstanceType pulumi.StringPtrInput
-	// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-	MaxSessionsPerInstance pulumi.IntPtrInput
 	// Maximum amount of time that a streaming session can remain active, in seconds.
 	MaxUserDurationInSeconds pulumi.IntPtrInput
 	// Unique name for the fleet.
@@ -281,8 +275,6 @@ type fleetArgs struct {
 	ImageName *string `pulumi:"imageName"`
 	// Instance type to use when launching fleet instances.
 	InstanceType string `pulumi:"instanceType"`
-	// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-	MaxSessionsPerInstance *int `pulumi:"maxSessionsPerInstance"`
 	// Maximum amount of time that a streaming session can remain active, in seconds.
 	MaxUserDurationInSeconds *int `pulumi:"maxUserDurationInSeconds"`
 	// Unique name for the fleet.
@@ -323,8 +315,6 @@ type FleetArgs struct {
 	ImageName pulumi.StringPtrInput
 	// Instance type to use when launching fleet instances.
 	InstanceType pulumi.StringInput
-	// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-	MaxSessionsPerInstance pulumi.IntPtrInput
 	// Maximum amount of time that a streaming session can remain active, in seconds.
 	MaxUserDurationInSeconds pulumi.IntPtrInput
 	// Unique name for the fleet.
@@ -494,11 +484,6 @@ func (o FleetOutput) ImageName() pulumi.StringOutput {
 // Instance type to use when launching fleet instances.
 func (o FleetOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
-}
-
-// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
-func (o FleetOutput) MaxSessionsPerInstance() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.MaxSessionsPerInstance }).(pulumi.IntPtrOutput)
 }
 
 // Maximum amount of time that a streaming session can remain active, in seconds.

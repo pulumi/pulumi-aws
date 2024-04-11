@@ -19,12 +19,6 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string> CatalogEncryptionMode { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
-        /// </summary>
-        [Input("catalogEncryptionServiceRole")]
-        public Input<string>? CatalogEncryptionServiceRole { get; set; }
-
-        /// <summary>
         /// The ARN of the AWS KMS key to use for encryption at rest.
         /// </summary>
         [Input("sseAwsKmsKeyId")]

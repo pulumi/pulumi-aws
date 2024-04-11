@@ -386,11 +386,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly caCertIdentifier!: pulumi.Output<string>;
     /**
-     * The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
-     * This can't be changed.
-     * See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
-     * [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-     * Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
+     * The character set name to use for DB
+     * encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+     * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
      */
     public readonly characterSetName!: pulumi.Output<string>;
     /**
@@ -966,11 +965,10 @@ export interface InstanceState {
      */
     caCertIdentifier?: pulumi.Input<string>;
     /**
-     * The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
-     * This can't be changed.
-     * See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
-     * [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-     * Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
+     * The character set name to use for DB
+     * encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+     * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
      */
     characterSetName?: pulumi.Input<string>;
     /**
@@ -1357,11 +1355,10 @@ export interface InstanceArgs {
      */
     caCertIdentifier?: pulumi.Input<string>;
     /**
-     * The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
-     * This can't be changed.
-     * See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
-     * [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-     * Cannot be set  with `replicateSourceDb`, `restoreToPointInTime`, `s3Import`, or `snapshotIdentifier`.
+     * The character set name to use for DB
+     * encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
+     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
+     * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
      */
     characterSetName?: pulumi.Input<string>;
     /**

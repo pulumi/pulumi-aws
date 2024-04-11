@@ -3303,14 +3303,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "devopsguru/serviceIntegration",
-  "fqn": "pulumi_aws.devopsguru",
-  "classes": {
-   "aws:devopsguru/serviceIntegration:ServiceIntegration": "ServiceIntegration"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "directconnect/bgpPeer",
   "fqn": "pulumi_aws.directconnect",
   "classes": {

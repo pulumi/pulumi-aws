@@ -365,20 +365,6 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.containerProperties);
     }
     /**
-     * When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-     * 
-     */
-    @Export(name="deregisterOnNewRevision", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> deregisterOnNewRevision;
-
-    /**
-     * @return When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-     * 
-     */
-    public Output<Optional<Boolean>> deregisterOnNewRevision() {
-        return Codegen.optional(this.deregisterOnNewRevision);
-    }
-    /**
      * A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */

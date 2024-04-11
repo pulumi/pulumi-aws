@@ -24,21 +24,12 @@ import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePrivateKey, err := tls.NewPrivateKey(ctx, "example", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
-//				RsaBits:   pulumi.Int(4096),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			exampleServer, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
 //				IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
 //				Tags: pulumi.StringMap{
@@ -90,11 +81,7 @@ import (
 //			_, err = transfer.NewSshKey(ctx, "example", &transfer.SshKeyArgs{
 //				ServerId: exampleServer.ID(),
 //				UserName: exampleUser.UserName,
-//				Body: std.TrimspaceOutput(ctx, std.TrimspaceOutputArgs{
-//					Input: examplePrivateKey.PublicKeyOpenssh,
-//				}, nil).ApplyT(func(invoke std.TrimspaceResult) (*string, error) {
-//					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput),
+//				Body:     pulumi.String("... SSH key ..."),
 //			})
 //			if err != nil {
 //				return err

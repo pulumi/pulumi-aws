@@ -1,0 +1,42 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Mon, 25 Sep 2023 15:22:30 -0400
+Subject: [PATCH 27/49] Restore S3ConnURICleaningDisabled
+
+
+diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
+index ada1079a05..4982003ad2 100644
+--- a/internal/conns/awsclient.go
++++ b/internal/conns/awsclient.go
+@@ -16,6 +16,8 @@ import (
+ 	s3_sdkv2 "github.com/aws/aws-sdk-go-v2/service/s3"
+ 	session_sdkv1 "github.com/aws/aws-sdk-go/aws/session"
+ 	apigatewayv2_sdkv1 "github.com/aws/aws-sdk-go/service/apigatewayv2"
++	mediaconvert_sdkv1 "github.com/aws/aws-sdk-go/service/mediaconvert"
++	s3_sdkv1 "github.com/aws/aws-sdk-go/service/s3"
+ 	baselogging "github.com/hashicorp/aws-sdk-go-base/v2/logging"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/errs"
+ 	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+@@ -99,6 +101,13 @@ func (c *AWSClient) S3UsePathStyle(context.Context) bool {
+ 	return c.s3UsePathStyle
+ }
+ 
++func (client *AWSClient) S3ConnURICleaningDisabled(ctx context.Context) *s3_sdkv1.S3 {
++	config := client.S3Conn(ctx).Config
++	config.DisableRestProtocolURICleaning = aws_sdkv2.Bool(true)
++
++	return s3_sdkv1.New(client.Session.Copy(&config))
++}
++
+ // SetHTTPClient sets the http.Client used for AWS API calls.
+ // To have effect it must be called before the AWS SDK v1 Session is created.
+ func (c *AWSClient) SetHTTPClient(_ context.Context, httpClient *http.Client) {
+@@ -164,7 +173,7 @@ func (c *AWSClient) DefaultKMSKeyPolicy(context.Context) string {
+ 			"Resource": "*"
+ 		}
+ 	]
+-}	
++}
+ `, c.Partition, c.AccountID)
+ }
+ 

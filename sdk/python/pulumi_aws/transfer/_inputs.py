@@ -16,7 +16,6 @@ __all__ = [
     'ConnectorSftpConfigArgs',
     'ServerEndpointDetailsArgs',
     'ServerProtocolDetailsArgs',
-    'ServerS3StorageOptionsArgs',
     'ServerWorkflowDetailsArgs',
     'ServerWorkflowDetailsOnPartialUploadArgs',
     'ServerWorkflowDetailsOnUploadArgs',
@@ -467,40 +466,13 @@ class ServerProtocolDetailsArgs:
 
 
 @pulumi.input_type
-class ServerS3StorageOptionsArgs:
-    def __init__(__self__, *,
-                 directory_listing_optimization: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] directory_listing_optimization: Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
-               
-               By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
-        """
-        if directory_listing_optimization is not None:
-            pulumi.set(__self__, "directory_listing_optimization", directory_listing_optimization)
-
-    @property
-    @pulumi.getter(name="directoryListingOptimization")
-    def directory_listing_optimization(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
-
-        By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
-        """
-        return pulumi.get(self, "directory_listing_optimization")
-
-    @directory_listing_optimization.setter
-    def directory_listing_optimization(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "directory_listing_optimization", value)
-
-
-@pulumi.input_type
 class ServerWorkflowDetailsArgs:
     def __init__(__self__, *,
                  on_partial_upload: Optional[pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs']] = None,
                  on_upload: Optional[pulumi.Input['ServerWorkflowDetailsOnUploadArgs']] = None):
         """
-        :param pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs'] on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
-        :param pulumi.Input['ServerWorkflowDetailsOnUploadArgs'] on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
+        :param pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs'] on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+        :param pulumi.Input['ServerWorkflowDetailsOnUploadArgs'] on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
         """
         if on_partial_upload is not None:
             pulumi.set(__self__, "on_partial_upload", on_partial_upload)
@@ -511,7 +483,7 @@ class ServerWorkflowDetailsArgs:
     @pulumi.getter(name="onPartialUpload")
     def on_partial_upload(self) -> Optional[pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs']]:
         """
-        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
+        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
         """
         return pulumi.get(self, "on_partial_upload")
 
@@ -523,7 +495,7 @@ class ServerWorkflowDetailsArgs:
     @pulumi.getter(name="onUpload")
     def on_upload(self) -> Optional[pulumi.Input['ServerWorkflowDetailsOnUploadArgs']]:
         """
-        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
+        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
         """
         return pulumi.get(self, "on_upload")
 

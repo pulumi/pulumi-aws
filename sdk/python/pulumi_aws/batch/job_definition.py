@@ -18,7 +18,6 @@ class JobDefinitionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  container_properties: Optional[pulumi.Input[str]] = None,
-                 deregister_on_new_revision: Optional[pulumi.Input[bool]] = None,
                  eks_properties: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_properties: Optional[pulumi.Input[str]] = None,
@@ -36,7 +35,6 @@ class JobDefinitionArgs:
                The following arguments are optional:
         :param pulumi.Input[str] container_properties: A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
                provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Specifies the name of the job definition.
         :param pulumi.Input[str] node_properties: A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -53,8 +51,6 @@ class JobDefinitionArgs:
         pulumi.set(__self__, "type", type)
         if container_properties is not None:
             pulumi.set(__self__, "container_properties", container_properties)
-        if deregister_on_new_revision is not None:
-            pulumi.set(__self__, "deregister_on_new_revision", deregister_on_new_revision)
         if eks_properties is not None:
             pulumi.set(__self__, "eks_properties", eks_properties)
         if name is not None:
@@ -102,18 +98,6 @@ class JobDefinitionArgs:
     @container_properties.setter
     def container_properties(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "container_properties", value)
-
-    @property
-    @pulumi.getter(name="deregisterOnNewRevision")
-    def deregister_on_new_revision(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-        """
-        return pulumi.get(self, "deregister_on_new_revision")
-
-    @deregister_on_new_revision.setter
-    def deregister_on_new_revision(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "deregister_on_new_revision", value)
 
     @property
     @pulumi.getter(name="eksProperties")
@@ -244,7 +228,6 @@ class _JobDefinitionState:
                  arn: Optional[pulumi.Input[str]] = None,
                  arn_prefix: Optional[pulumi.Input[str]] = None,
                  container_properties: Optional[pulumi.Input[str]] = None,
-                 deregister_on_new_revision: Optional[pulumi.Input[bool]] = None,
                  eks_properties: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_properties: Optional[pulumi.Input[str]] = None,
@@ -264,7 +247,6 @@ class _JobDefinitionState:
         :param pulumi.Input[str] arn_prefix: The ARN without the revision number.
         :param pulumi.Input[str] container_properties: A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
                provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Specifies the name of the job definition.
         :param pulumi.Input[str] node_properties: A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -289,8 +271,6 @@ class _JobDefinitionState:
             pulumi.set(__self__, "arn_prefix", arn_prefix)
         if container_properties is not None:
             pulumi.set(__self__, "container_properties", container_properties)
-        if deregister_on_new_revision is not None:
-            pulumi.set(__self__, "deregister_on_new_revision", deregister_on_new_revision)
         if eks_properties is not None:
             pulumi.set(__self__, "eks_properties", eks_properties)
         if name is not None:
@@ -357,18 +337,6 @@ class _JobDefinitionState:
     @container_properties.setter
     def container_properties(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "container_properties", value)
-
-    @property
-    @pulumi.getter(name="deregisterOnNewRevision")
-    def deregister_on_new_revision(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-        """
-        return pulumi.get(self, "deregister_on_new_revision")
-
-    @deregister_on_new_revision.setter
-    def deregister_on_new_revision(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "deregister_on_new_revision", value)
 
     @property
     @pulumi.getter(name="eksProperties")
@@ -540,7 +508,6 @@ class JobDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_properties: Optional[pulumi.Input[str]] = None,
-                 deregister_on_new_revision: Optional[pulumi.Input[bool]] = None,
                  eks_properties: Optional[pulumi.Input[pulumi.InputType['JobDefinitionEksPropertiesArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_properties: Optional[pulumi.Input[str]] = None,
@@ -751,7 +718,6 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_properties: A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
                provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['JobDefinitionEksPropertiesArgs']] eks_properties: A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Specifies the name of the job definition.
         :param pulumi.Input[str] node_properties: A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -984,7 +950,6 @@ class JobDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_properties: Optional[pulumi.Input[str]] = None,
-                 deregister_on_new_revision: Optional[pulumi.Input[bool]] = None,
                  eks_properties: Optional[pulumi.Input[pulumi.InputType['JobDefinitionEksPropertiesArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_properties: Optional[pulumi.Input[str]] = None,
@@ -1006,7 +971,6 @@ class JobDefinition(pulumi.CustomResource):
             __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
             __props__.__dict__["container_properties"] = container_properties
-            __props__.__dict__["deregister_on_new_revision"] = deregister_on_new_revision
             __props__.__dict__["eks_properties"] = eks_properties
             __props__.__dict__["name"] = name
             __props__.__dict__["node_properties"] = node_properties
@@ -1037,7 +1001,6 @@ class JobDefinition(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             arn_prefix: Optional[pulumi.Input[str]] = None,
             container_properties: Optional[pulumi.Input[str]] = None,
-            deregister_on_new_revision: Optional[pulumi.Input[bool]] = None,
             eks_properties: Optional[pulumi.Input[pulumi.InputType['JobDefinitionEksPropertiesArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_properties: Optional[pulumi.Input[str]] = None,
@@ -1062,7 +1025,6 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] arn_prefix: The ARN without the revision number.
         :param pulumi.Input[str] container_properties: A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
                provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
-        :param pulumi.Input[bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['JobDefinitionEksPropertiesArgs']] eks_properties: A valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Specifies the name of the job definition.
         :param pulumi.Input[str] node_properties: A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
@@ -1088,7 +1050,6 @@ class JobDefinition(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["arn_prefix"] = arn_prefix
         __props__.__dict__["container_properties"] = container_properties
-        __props__.__dict__["deregister_on_new_revision"] = deregister_on_new_revision
         __props__.__dict__["eks_properties"] = eks_properties
         __props__.__dict__["name"] = name
         __props__.__dict__["node_properties"] = node_properties
@@ -1128,14 +1089,6 @@ class JobDefinition(pulumi.CustomResource):
         provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         """
         return pulumi.get(self, "container_properties")
-
-    @property
-    @pulumi.getter(name="deregisterOnNewRevision")
-    def deregister_on_new_revision(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
-        """
-        return pulumi.get(self, "deregister_on_new_revision")
 
     @property
     @pulumi.getter(name="eksProperties")
