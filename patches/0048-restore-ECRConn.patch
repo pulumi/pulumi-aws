@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: corymhall <43035978+corymhall@users.noreply.github.com>
 Date: Wed, 10 Apr 2024 08:49:35 -0400
-Subject: [PATCH 48/50] restore ECRConn
+Subject: [PATCH 48/51] restore ECRConn
 
 
 diff --git a/internal/conns/awsclient_gen.go b/internal/conns/awsclient_gen.go

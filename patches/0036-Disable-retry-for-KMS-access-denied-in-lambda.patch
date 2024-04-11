@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Mon, 8 Jan 2024 16:58:44 -0500
-Subject: [PATCH 36/50] Disable retry for KMS access denied in lambda
+Subject: [PATCH 36/51] Disable retry for KMS access denied in lambda
 
 
 diff --git a/internal/service/lambda/service_package_extra.go b/internal/service/lambda/service_package_extra.go
