@@ -2837,17 +2837,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 
 			// MemoryDB
 			"aws_memorydb_cluster":         {Tok: awsResource(memoryDbMod, "Cluster")},
-			"aws_memorydb_parameter_group": {
-				Tok: awsResource(memoryDbMod, "ParameterGroup"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"apply_method" : {
-						// We set the default value in the overlay since
-						// we remove it in the TF schema in 
-						// provider/pkg/rds/parameter_group.go
-						Default: &tfbridge.DefaultInfo{Value: "immediate"},
-					},
-				},
-			},
+			"aws_memorydb_parameter_group": {Tok: awsResource(memoryDbMod, "ParameterGroup")},
 			"aws_memorydb_subnet_group":    {Tok: awsResource(memoryDbMod, "SubnetGroup")},
 			"aws_memorydb_user":            {Tok: awsResource(memoryDbMod, "User")},
 			"aws_memorydb_acl":             {Tok: awsResource(memoryDbMod, "Acl")},
@@ -3102,6 +3092,18 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"description": {
 						Default: managedByPulumi,
+					},
+					"parameter" : {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"apply_method": {
+									// We set the default value in the overlay since
+									// we remove it in the TF schema in 
+									// provider/pkg/rds/parameter_group.go
+									Default: &tfbridge.DefaultInfo{Value: "immediate"},
+								},
+							},
+						},
 					},
 				},
 				Docs: rds.ParameterGroupDocs("upstream"),
