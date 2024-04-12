@@ -63,6 +63,7 @@ func parameterGroupReconfigure(p *schema.Provider) {
 	}
 	// Need to mark apply_method as Computed so that the diff customizer is allowed to clear it.
 	parameterGroup.Schema["parameter"].Elem.(*schema.Resource).Schema["apply_method"].Computed = true
+	parameterGroup.Schema["parameter"].Elem.(*schema.Resource).Schema["apply_method"].Default = nil
 	// Need to exclude apply_method from the set hash.
 	oldSetFunc := parameterGroup.Schema["parameter"].Set
 	parameterGroup.Schema["parameter"].Set = parameterGroupParameterSetFunc(oldSetFunc)

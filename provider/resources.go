@@ -3093,6 +3093,18 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					"description": {
 						Default: managedByPulumi,
 					},
+					"parameter" : {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"apply_method": {
+									// We set the default value in the overlay since
+									// we remove it in the TF schema in 
+									// provider/pkg/rds/parameter_group.go
+									Default: &tfbridge.DefaultInfo{Value: "immediate"},
+								},
+							},
+						},
+					},
 				},
 				Docs: rds.ParameterGroupDocs("upstream"),
 			},

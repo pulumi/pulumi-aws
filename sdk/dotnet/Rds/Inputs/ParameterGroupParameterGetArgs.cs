@@ -34,6 +34,7 @@ namespace Pulumi.Aws.Rds.Inputs
 
         public ParameterGroupParameterGetArgs()
         {
+            ApplyMethod = "immediate";
         }
         public static new ParameterGroupParameterGetArgs Empty => new ParameterGroupParameterGetArgs();
     }
