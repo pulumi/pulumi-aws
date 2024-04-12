@@ -21,8 +21,14 @@ namespace Pulumi.Aws.AppStream.Inputs
         /// <summary>
         /// Desired number of streaming instances.
         /// </summary>
-        [Input("desiredInstances", required: true)]
-        public Input<int> DesiredInstances { get; set; } = null!;
+        [Input("desiredInstances")]
+        public Input<int>? DesiredInstances { get; set; }
+
+        /// <summary>
+        /// Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+        /// </summary>
+        [Input("desiredSessions")]
+        public Input<int>? DesiredSessions { get; set; }
 
         /// <summary>
         /// Number of instances in use for streaming.

@@ -674,20 +674,22 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.caCertIdentifier;
     }
     /**
-     * The character set name to use for DB
-     * encoding in Oracle and Microsoft SQL instances (collation). This can&#39;t be changed. See [Oracle Character Sets
-     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-     * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+     * The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
+     * This can&#39;t be changed.
+     * See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
+     * [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+     * Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
      * 
      */
     @Export(name="characterSetName", refs={String.class}, tree="[0]")
     private Output<String> characterSetName;
 
     /**
-     * @return The character set name to use for DB
-     * encoding in Oracle and Microsoft SQL instances (collation). This can&#39;t be changed. See [Oracle Character Sets
-     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-     * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+     * @return The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
+     * This can&#39;t be changed.
+     * See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or
+     * [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
+     * Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
      * 
      */
     public Output<String> characterSetName() {

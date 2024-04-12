@@ -28,6 +28,7 @@ class FleetArgs:
                  idle_disconnect_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  image_arn: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
+                 max_sessions_per_instance: Optional[pulumi.Input[int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
@@ -47,6 +48,7 @@ class FleetArgs:
         :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to 60 seconds.
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
+        :param pulumi.Input[int] max_sessions_per_instance: The maximum number of user sessions on an instance. This only applies to multi-session fleets.
         :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
         :param pulumi.Input[str] name: Unique name for the fleet.
                
@@ -77,6 +79,8 @@ class FleetArgs:
             pulumi.set(__self__, "image_arn", image_arn)
         if image_name is not None:
             pulumi.set(__self__, "image_name", image_name)
+        if max_sessions_per_instance is not None:
+            pulumi.set(__self__, "max_sessions_per_instance", max_sessions_per_instance)
         if max_user_duration_in_seconds is not None:
             pulumi.set(__self__, "max_user_duration_in_seconds", max_user_duration_in_seconds)
         if name is not None:
@@ -233,6 +237,18 @@ class FleetArgs:
         pulumi.set(self, "image_name", value)
 
     @property
+    @pulumi.getter(name="maxSessionsPerInstance")
+    def max_sessions_per_instance(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+        """
+        return pulumi.get(self, "max_sessions_per_instance")
+
+    @max_sessions_per_instance.setter
+    def max_sessions_per_instance(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_sessions_per_instance", value)
+
+    @property
     @pulumi.getter(name="maxUserDurationInSeconds")
     def max_user_duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
@@ -312,6 +328,7 @@ class _FleetState:
                  image_arn: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 max_sessions_per_instance: Optional[pulumi.Input[int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -335,6 +352,7 @@ class _FleetState:
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
         :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
+        :param pulumi.Input[int] max_sessions_per_instance: The maximum number of user sessions on an instance. This only applies to multi-session fleets.
         :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
         :param pulumi.Input[str] name: Unique name for the fleet.
                
@@ -372,6 +390,8 @@ class _FleetState:
             pulumi.set(__self__, "image_name", image_name)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if max_sessions_per_instance is not None:
+            pulumi.set(__self__, "max_sessions_per_instance", max_sessions_per_instance)
         if max_user_duration_in_seconds is not None:
             pulumi.set(__self__, "max_user_duration_in_seconds", max_user_duration_in_seconds)
         if name is not None:
@@ -559,6 +579,18 @@ class _FleetState:
         pulumi.set(self, "instance_type", value)
 
     @property
+    @pulumi.getter(name="maxSessionsPerInstance")
+    def max_sessions_per_instance(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+        """
+        return pulumi.get(self, "max_sessions_per_instance")
+
+    @max_sessions_per_instance.setter
+    def max_sessions_per_instance(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_sessions_per_instance", value)
+
+    @property
     @pulumi.getter(name="maxUserDurationInSeconds")
     def max_user_duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
@@ -662,6 +694,7 @@ class Fleet(pulumi.CustomResource):
                  image_arn: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 max_sessions_per_instance: Optional[pulumi.Input[int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
@@ -722,6 +755,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
         :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
+        :param pulumi.Input[int] max_sessions_per_instance: The maximum number of user sessions on an instance. This only applies to multi-session fleets.
         :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
         :param pulumi.Input[str] name: Unique name for the fleet.
                
@@ -803,6 +837,7 @@ class Fleet(pulumi.CustomResource):
                  image_arn: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 max_sessions_per_instance: Optional[pulumi.Input[int]] = None,
                  max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stream_view: Optional[pulumi.Input[str]] = None,
@@ -833,6 +868,7 @@ class Fleet(pulumi.CustomResource):
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
+            __props__.__dict__["max_sessions_per_instance"] = max_sessions_per_instance
             __props__.__dict__["max_user_duration_in_seconds"] = max_user_duration_in_seconds
             __props__.__dict__["name"] = name
             __props__.__dict__["stream_view"] = stream_view
@@ -866,6 +902,7 @@ class Fleet(pulumi.CustomResource):
             image_arn: Optional[pulumi.Input[str]] = None,
             image_name: Optional[pulumi.Input[str]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
+            max_sessions_per_instance: Optional[pulumi.Input[int]] = None,
             max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
@@ -894,6 +931,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
         :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
+        :param pulumi.Input[int] max_sessions_per_instance: The maximum number of user sessions on an instance. This only applies to multi-session fleets.
         :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
         :param pulumi.Input[str] name: Unique name for the fleet.
                
@@ -921,6 +959,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["image_arn"] = image_arn
         __props__.__dict__["image_name"] = image_name
         __props__.__dict__["instance_type"] = instance_type
+        __props__.__dict__["max_sessions_per_instance"] = max_sessions_per_instance
         __props__.__dict__["max_user_duration_in_seconds"] = max_user_duration_in_seconds
         __props__.__dict__["name"] = name
         __props__.__dict__["state"] = state
@@ -1041,6 +1080,14 @@ class Fleet(pulumi.CustomResource):
         Instance type to use when launching fleet instances.
         """
         return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="maxSessionsPerInstance")
+    def max_sessions_per_instance(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+        """
+        return pulumi.get(self, "max_sessions_per_instance")
 
     @property
     @pulumi.getter(name="maxUserDurationInSeconds")

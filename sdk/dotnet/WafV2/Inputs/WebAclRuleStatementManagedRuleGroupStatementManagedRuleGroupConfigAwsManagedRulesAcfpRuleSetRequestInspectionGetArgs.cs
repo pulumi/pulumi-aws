@@ -12,6 +12,15 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The names of the fields in the request payload that contain your customer's primary physical address. See `address_fields` for more details.
+        /// </summary>
+        [Input("addressFields")]
+        public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsGetArgs>? AddressFields { get; set; }
+
+        /// <summary>
+        /// The name of the field in the request payload that contains your customer's email. See `email_field` for more details.
+        /// </summary>
         [Input("emailField")]
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldGetArgs>? EmailField { get; set; }
 
@@ -26,6 +35,12 @@ namespace Pulumi.Aws.WafV2.Inputs
         /// </summary>
         [Input("payloadType", required: true)]
         public Input<string> PayloadType { get; set; } = null!;
+
+        /// <summary>
+        /// The names of the fields in the request payload that contain your customer's primary phone number. See `phone_number_fields` for more details.
+        /// </summary>
+        [Input("phoneNumberFields")]
+        public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFieldsGetArgs>? PhoneNumberFields { get; set; }
 
         /// <summary>
         /// Details about your login page username field. See `username_field` for more details.

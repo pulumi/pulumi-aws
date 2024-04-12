@@ -18,6 +18,9 @@ __all__ = [
     'ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs',
     'RepositoryEncryptionConfigurationArgs',
     'RepositoryImageScanningConfigurationArgs',
+    'GetLifecyclePolicyDocumentRuleArgs',
+    'GetLifecyclePolicyDocumentRuleActionArgs',
+    'GetLifecyclePolicyDocumentRuleSelectionArgs',
 ]
 
 @pulumi.input_type
@@ -277,5 +280,193 @@ class RepositoryImageScanningConfigurationArgs:
     @scan_on_push.setter
     def scan_on_push(self, value: pulumi.Input[bool]):
         pulumi.set(self, "scan_on_push", value)
+
+
+@pulumi.input_type
+class GetLifecyclePolicyDocumentRuleArgs:
+    def __init__(__self__, *,
+                 priority: int,
+                 action: Optional['GetLifecyclePolicyDocumentRuleActionArgs'] = None,
+                 description: Optional[str] = None,
+                 selection: Optional['GetLifecyclePolicyDocumentRuleSelectionArgs'] = None):
+        """
+        :param int priority: Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of any must have the highest value for `priority` and be evaluated last.
+        :param 'GetLifecyclePolicyDocumentRuleActionArgs' action: Specifies the action type.
+        :param str description: Describes the purpose of a rule within a lifecycle policy.
+        :param 'GetLifecyclePolicyDocumentRuleSelectionArgs' selection: Collects parameters describing the selection criteria for the ECR lifecycle policy:
+        """
+        pulumi.set(__self__, "priority", priority)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if selection is not None:
+            pulumi.set(__self__, "selection", selection)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of any must have the highest value for `priority` and be evaluated last.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: int):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['GetLifecyclePolicyDocumentRuleActionArgs']:
+        """
+        Specifies the action type.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional['GetLifecyclePolicyDocumentRuleActionArgs']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Describes the purpose of a rule within a lifecycle policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[str]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def selection(self) -> Optional['GetLifecyclePolicyDocumentRuleSelectionArgs']:
+        """
+        Collects parameters describing the selection criteria for the ECR lifecycle policy:
+        """
+        return pulumi.get(self, "selection")
+
+    @selection.setter
+    def selection(self, value: Optional['GetLifecyclePolicyDocumentRuleSelectionArgs']):
+        pulumi.set(self, "selection", value)
+
+
+@pulumi.input_type
+class GetLifecyclePolicyDocumentRuleActionArgs:
+    def __init__(__self__, *,
+                 type: str):
+        """
+        :param str type: The supported value is `expire`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The supported value is `expire`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class GetLifecyclePolicyDocumentRuleSelectionArgs:
+    def __init__(__self__, *,
+                 count_number: int,
+                 count_type: str,
+                 tag_status: str,
+                 count_unit: Optional[str] = None,
+                 tag_pattern_lists: Optional[Sequence[str]] = None,
+                 tag_prefix_lists: Optional[Sequence[str]] = None):
+        """
+        :param int count_number: Specify a count number. If the `count_type` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is sinceImagePushed, then the value is the maximum age limit for your images.
+        :param str count_type: Specify a count type to apply to the images. If `count_type` is set to imageCountMoreThan, you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to sinceImagePushed, you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
+        :param str tag_status: Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tag_prefix_list` value. If you specify untagged, then you must omit `tag_prefix_list`.
+        :param str count_unit: Specify a count unit of days to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
+        :param Sequence[str] tag_prefix_lists: You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+        """
+        pulumi.set(__self__, "count_number", count_number)
+        pulumi.set(__self__, "count_type", count_type)
+        pulumi.set(__self__, "tag_status", tag_status)
+        if count_unit is not None:
+            pulumi.set(__self__, "count_unit", count_unit)
+        if tag_pattern_lists is not None:
+            pulumi.set(__self__, "tag_pattern_lists", tag_pattern_lists)
+        if tag_prefix_lists is not None:
+            pulumi.set(__self__, "tag_prefix_lists", tag_prefix_lists)
+
+    @property
+    @pulumi.getter(name="countNumber")
+    def count_number(self) -> int:
+        """
+        Specify a count number. If the `count_type` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is sinceImagePushed, then the value is the maximum age limit for your images.
+        """
+        return pulumi.get(self, "count_number")
+
+    @count_number.setter
+    def count_number(self, value: int):
+        pulumi.set(self, "count_number", value)
+
+    @property
+    @pulumi.getter(name="countType")
+    def count_type(self) -> str:
+        """
+        Specify a count type to apply to the images. If `count_type` is set to imageCountMoreThan, you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to sinceImagePushed, you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
+        """
+        return pulumi.get(self, "count_type")
+
+    @count_type.setter
+    def count_type(self, value: str):
+        pulumi.set(self, "count_type", value)
+
+    @property
+    @pulumi.getter(name="tagStatus")
+    def tag_status(self) -> str:
+        """
+        Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tag_prefix_list` value. If you specify untagged, then you must omit `tag_prefix_list`.
+        """
+        return pulumi.get(self, "tag_status")
+
+    @tag_status.setter
+    def tag_status(self, value: str):
+        pulumi.set(self, "tag_status", value)
+
+    @property
+    @pulumi.getter(name="countUnit")
+    def count_unit(self) -> Optional[str]:
+        """
+        Specify a count unit of days to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
+        """
+        return pulumi.get(self, "count_unit")
+
+    @count_unit.setter
+    def count_unit(self, value: Optional[str]):
+        pulumi.set(self, "count_unit", value)
+
+    @property
+    @pulumi.getter(name="tagPatternLists")
+    def tag_pattern_lists(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "tag_pattern_lists")
+
+    @tag_pattern_lists.setter
+    def tag_pattern_lists(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "tag_pattern_lists", value)
+
+    @property
+    @pulumi.getter(name="tagPrefixLists")
+    def tag_prefix_lists(self) -> Optional[Sequence[str]]:
+        """
+        You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+        """
+        return pulumi.get(self, "tag_prefix_lists")
+
+    @tag_prefix_lists.setter
+    def tag_prefix_lists(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "tag_prefix_lists", value)
 
 

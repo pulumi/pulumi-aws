@@ -4,7 +4,6 @@
 package com.pulumi.aws.appstream.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,7 +20,12 @@ public final class FleetComputeCapacity {
      * @return Desired number of streaming instances.
      * 
      */
-    private Integer desiredInstances;
+    private @Nullable Integer desiredInstances;
+    /**
+     * @return Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+     * 
+     */
+    private @Nullable Integer desiredSessions;
     /**
      * @return Number of instances in use for streaming.
      * 
@@ -45,8 +49,15 @@ public final class FleetComputeCapacity {
      * @return Desired number of streaming instances.
      * 
      */
-    public Integer desiredInstances() {
-        return this.desiredInstances;
+    public Optional<Integer> desiredInstances() {
+        return Optional.ofNullable(this.desiredInstances);
+    }
+    /**
+     * @return Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+     * 
+     */
+    public Optional<Integer> desiredSessions() {
+        return Optional.ofNullable(this.desiredSessions);
     }
     /**
      * @return Number of instances in use for streaming.
@@ -73,7 +84,8 @@ public final class FleetComputeCapacity {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer available;
-        private Integer desiredInstances;
+        private @Nullable Integer desiredInstances;
+        private @Nullable Integer desiredSessions;
         private @Nullable Integer inUse;
         private @Nullable Integer running;
         public Builder() {}
@@ -81,6 +93,7 @@ public final class FleetComputeCapacity {
     	      Objects.requireNonNull(defaults);
     	      this.available = defaults.available;
     	      this.desiredInstances = defaults.desiredInstances;
+    	      this.desiredSessions = defaults.desiredSessions;
     	      this.inUse = defaults.inUse;
     	      this.running = defaults.running;
         }
@@ -92,11 +105,15 @@ public final class FleetComputeCapacity {
             return this;
         }
         @CustomType.Setter
-        public Builder desiredInstances(Integer desiredInstances) {
-            if (desiredInstances == null) {
-              throw new MissingRequiredPropertyException("FleetComputeCapacity", "desiredInstances");
-            }
+        public Builder desiredInstances(@Nullable Integer desiredInstances) {
+
             this.desiredInstances = desiredInstances;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder desiredSessions(@Nullable Integer desiredSessions) {
+
+            this.desiredSessions = desiredSessions;
             return this;
         }
         @CustomType.Setter
@@ -115,6 +132,7 @@ public final class FleetComputeCapacity {
             final var _resultValue = new FleetComputeCapacity();
             _resultValue.available = available;
             _resultValue.desiredInstances = desiredInstances;
+            _resultValue.desiredSessions = desiredSessions;
             _resultValue.inUse = inUse;
             _resultValue.running = running;
             return _resultValue;

@@ -22,9 +22,9 @@ import {LifecyclePolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.ecr.Repository("foo", {name: "bar"});
- * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
- *     repository: foo.name,
+ * const example = new aws.ecr.Repository("example", {name: "example-repo"});
+ * const exampleLifecyclePolicy = new aws.ecr.LifecyclePolicy("example", {
+ *     repository: example.name,
  *     policy: `{
  *     "rules": [
  *         {
@@ -54,9 +54,9 @@ import {LifecyclePolicyDocument} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.ecr.Repository("foo", {name: "bar"});
- * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
- *     repository: foo.name,
+ * const example = new aws.ecr.Repository("example", {name: "example-repo"});
+ * const exampleLifecyclePolicy = new aws.ecr.LifecyclePolicy("example", {
+ *     repository: example.name,
  *     policy: `{
  *     "rules": [
  *         {
@@ -116,7 +116,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
      */
     public readonly policy!: pulumi.Output<string>;
     /**
@@ -166,7 +166,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
  */
 export interface LifecyclePolicyState {
     /**
-     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
      */
     policy?: pulumi.Input<string | LifecyclePolicyDocument>;
     /**
@@ -184,7 +184,7 @@ export interface LifecyclePolicyState {
  */
 export interface LifecyclePolicyArgs {
     /**
-     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
+     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
      */
     policy: pulumi.Input<string | LifecyclePolicyDocument>;
     /**

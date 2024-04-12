@@ -13,6 +13,13 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection
     {
+        /// <summary>
+        /// The names of the fields in the request payload that contain your customer's primary physical address. See `address_fields` for more details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields? AddressFields;
+        /// <summary>
+        /// The name of the field in the request payload that contains your customer's email. See `email_field` for more details.
+        /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField? EmailField;
         /// <summary>
         /// Details about your login page password field. See `password_field` for more details.
@@ -23,23 +30,33 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string PayloadType;
         /// <summary>
+        /// The names of the fields in the request payload that contain your customer's primary phone number. See `phone_number_fields` for more details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields? PhoneNumberFields;
+        /// <summary>
         /// Details about your login page username field. See `username_field` for more details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField? UsernameField;
 
         [OutputConstructor]
         private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection(
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields? addressFields,
+
             Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField? emailField,
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField? passwordField,
 
             string payloadType,
 
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields? phoneNumberFields,
+
             Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField? usernameField)
         {
+            AddressFields = addressFields;
             EmailField = emailField;
             PasswordField = passwordField;
             PayloadType = payloadType;
+            PhoneNumberFields = phoneNumberFields;
             UsernameField = usernameField;
         }
     }

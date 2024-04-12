@@ -69,9 +69,7 @@ import (
 //			}
 //			_, err = s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
 //				Bucket: pulumi.String("example-bucket"),
-//				Tags: pulumi.StringMap{
-//					"awsApplication": example.Arn,
-//				},
+//				Tags:   example.ApplicationTag,
 //			})
 //			if err != nil {
 //				return err
@@ -93,6 +91,8 @@ import (
 type AppregistryApplication struct {
 	pulumi.CustomResourceState
 
+	// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
+	ApplicationTag pulumi.StringMapOutput `pulumi:"applicationTag"`
 	// ARN (Amazon Resource Name) of the application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the application.
@@ -133,6 +133,8 @@ func GetAppregistryApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppregistryApplication resources.
 type appregistryApplicationState struct {
+	// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
+	ApplicationTag map[string]string `pulumi:"applicationTag"`
 	// ARN (Amazon Resource Name) of the application.
 	Arn *string `pulumi:"arn"`
 	// Description of the application.
@@ -144,6 +146,8 @@ type appregistryApplicationState struct {
 }
 
 type AppregistryApplicationState struct {
+	// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
+	ApplicationTag pulumi.StringMapInput
 	// ARN (Amazon Resource Name) of the application.
 	Arn pulumi.StringPtrInput
 	// Description of the application.
@@ -262,6 +266,11 @@ func (o AppregistryApplicationOutput) ToAppregistryApplicationOutput() Appregist
 
 func (o AppregistryApplicationOutput) ToAppregistryApplicationOutputWithContext(ctx context.Context) AppregistryApplicationOutput {
 	return o
+}
+
+// A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
+func (o AppregistryApplicationOutput) ApplicationTag() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringMapOutput { return v.ApplicationTag }).(pulumi.StringMapOutput)
 }
 
 // ARN (Amazon Resource Name) of the application.

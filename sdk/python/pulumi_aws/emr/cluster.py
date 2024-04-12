@@ -45,6 +45,7 @@ class ClusterArgs:
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_protection: Optional[pulumi.Input[bool]] = None,
+                 unhealthy_node_replacement: Optional[pulumi.Input[bool]] = None,
                  visible_to_all_users: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -104,6 +105,7 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]] steps: List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
+        :param pulumi.Input[bool] unhealthy_node_replacement: Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
         """
         pulumi.set(__self__, "release_label", release_label)
@@ -162,6 +164,8 @@ class ClusterArgs:
             pulumi.set(__self__, "tags", tags)
         if termination_protection is not None:
             pulumi.set(__self__, "termination_protection", termination_protection)
+        if unhealthy_node_replacement is not None:
+            pulumi.set(__self__, "unhealthy_node_replacement", unhealthy_node_replacement)
         if visible_to_all_users is not None:
             pulumi.set(__self__, "visible_to_all_users", visible_to_all_users)
 
@@ -541,6 +545,18 @@ class ClusterArgs:
         pulumi.set(self, "termination_protection", value)
 
     @property
+    @pulumi.getter(name="unhealthyNodeReplacement")
+    def unhealthy_node_replacement(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
+        """
+        return pulumi.get(self, "unhealthy_node_replacement")
+
+    @unhealthy_node_replacement.setter
+    def unhealthy_node_replacement(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "unhealthy_node_replacement", value)
+
+    @property
     @pulumi.getter(name="visibleToAllUsers")
     def visible_to_all_users(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -589,6 +605,7 @@ class _ClusterState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_protection: Optional[pulumi.Input[bool]] = None,
+                 unhealthy_node_replacement: Optional[pulumi.Input[bool]] = None,
                  visible_to_all_users: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
@@ -651,6 +668,7 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
+        :param pulumi.Input[bool] unhealthy_node_replacement: Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
         """
         if additional_info is not None:
@@ -722,6 +740,8 @@ class _ClusterState:
             pulumi.set(__self__, "tags_all", tags_all)
         if termination_protection is not None:
             pulumi.set(__self__, "termination_protection", termination_protection)
+        if unhealthy_node_replacement is not None:
+            pulumi.set(__self__, "unhealthy_node_replacement", unhealthy_node_replacement)
         if visible_to_all_users is not None:
             pulumi.set(__self__, "visible_to_all_users", visible_to_all_users)
 
@@ -1149,6 +1169,18 @@ class _ClusterState:
         pulumi.set(self, "termination_protection", value)
 
     @property
+    @pulumi.getter(name="unhealthyNodeReplacement")
+    def unhealthy_node_replacement(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
+        """
+        return pulumi.get(self, "unhealthy_node_replacement")
+
+    @unhealthy_node_replacement.setter
+    def unhealthy_node_replacement(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "unhealthy_node_replacement", value)
+
+    @property
     @pulumi.getter(name="visibleToAllUsers")
     def visible_to_all_users(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1195,6 +1227,7 @@ class Cluster(pulumi.CustomResource):
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_protection: Optional[pulumi.Input[bool]] = None,
+                 unhealthy_node_replacement: Optional[pulumi.Input[bool]] = None,
                  visible_to_all_users: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -1531,6 +1564,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepArgs']]]] steps: List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
+        :param pulumi.Input[bool] unhealthy_node_replacement: Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
         """
         ...
@@ -1859,6 +1893,7 @@ class Cluster(pulumi.CustomResource):
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_protection: Optional[pulumi.Input[bool]] = None,
+                 unhealthy_node_replacement: Optional[pulumi.Input[bool]] = None,
                  visible_to_all_users: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1902,6 +1937,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["steps"] = steps
             __props__.__dict__["tags"] = tags
             __props__.__dict__["termination_protection"] = termination_protection
+            __props__.__dict__["unhealthy_node_replacement"] = unhealthy_node_replacement
             __props__.__dict__["visible_to_all_users"] = visible_to_all_users
             __props__.__dict__["arn"] = None
             __props__.__dict__["cluster_state"] = None
@@ -1950,6 +1986,7 @@ class Cluster(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             termination_protection: Optional[pulumi.Input[bool]] = None,
+            unhealthy_node_replacement: Optional[pulumi.Input[bool]] = None,
             visible_to_all_users: Optional[pulumi.Input[bool]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
@@ -2017,6 +2054,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
+        :param pulumi.Input[bool] unhealthy_node_replacement: Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -2056,6 +2094,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["termination_protection"] = termination_protection
+        __props__.__dict__["unhealthy_node_replacement"] = unhealthy_node_replacement
         __props__.__dict__["visible_to_all_users"] = visible_to_all_users
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
@@ -2349,6 +2388,14 @@ class Cluster(pulumi.CustomResource):
         Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         """
         return pulumi.get(self, "termination_protection")
+
+    @property
+    @pulumi.getter(name="unhealthyNodeReplacement")
+    def unhealthy_node_replacement(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
+        """
+        return pulumi.get(self, "unhealthy_node_replacement")
 
     @property
     @pulumi.getter(name="visibleToAllUsers")

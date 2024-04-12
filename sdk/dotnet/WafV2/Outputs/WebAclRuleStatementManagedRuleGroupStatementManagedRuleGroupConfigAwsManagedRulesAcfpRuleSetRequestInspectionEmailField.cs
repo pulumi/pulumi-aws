@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField
     {
         /// <summary>
-        /// The identifier for the value to match against in the JSON.
+        /// The name of the field in the request payload that contains your customer's email.
         /// </summary>
         public readonly string Identifier;
 

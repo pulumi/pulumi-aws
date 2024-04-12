@@ -138,7 +138,12 @@ class SshKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
+        import pulumi_tls as tls
 
+        example_private_key = tls.PrivateKey("example",
+            algorithm="RSA",
+            rsa_bits=4096)
         example_server = aws.transfer.Server("example",
             identity_provider_type="SERVICE_MANAGED",
             tags={
@@ -165,7 +170,7 @@ class SshKey(pulumi.CustomResource):
         example_ssh_key = aws.transfer.SshKey("example",
             server_id=example_server.id,
             user_name=example_user.user_name,
-            body="... SSH key ...")
+            body=std.trimspace_output(input=example_private_key.public_key_openssh).apply(lambda invoke: invoke.result))
         example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowFullAccesstoS3",
             effect="Allow",
@@ -208,7 +213,12 @@ class SshKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
+        import pulumi_std as std
+        import pulumi_tls as tls
 
+        example_private_key = tls.PrivateKey("example",
+            algorithm="RSA",
+            rsa_bits=4096)
         example_server = aws.transfer.Server("example",
             identity_provider_type="SERVICE_MANAGED",
             tags={
@@ -235,7 +245,7 @@ class SshKey(pulumi.CustomResource):
         example_ssh_key = aws.transfer.SshKey("example",
             server_id=example_server.id,
             user_name=example_user.user_name,
-            body="... SSH key ...")
+            body=std.trimspace_output(input=example_private_key.public_key_openssh).apply(lambda invoke: invoke.result))
         example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AllowFullAccesstoS3",
             effect="Allow",

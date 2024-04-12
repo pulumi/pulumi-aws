@@ -16,6 +16,11 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
      */
     private String catalogEncryptionMode;
     /**
+     * @return The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+     * 
+     */
+    private String catalogEncryptionServiceRole;
+    /**
      * @return ARN of the AWS KMS key to use for encryption at rest.
      * 
      */
@@ -28,6 +33,13 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
      */
     public String catalogEncryptionMode() {
         return this.catalogEncryptionMode;
+    }
+    /**
+     * @return The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+     * 
+     */
+    public String catalogEncryptionServiceRole() {
+        return this.catalogEncryptionServiceRole;
     }
     /**
      * @return ARN of the AWS KMS key to use for encryption at rest.
@@ -47,11 +59,13 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
     @CustomType.Builder
     public static final class Builder {
         private String catalogEncryptionMode;
+        private String catalogEncryptionServiceRole;
         private String sseAwsKmsKeyId;
         public Builder() {}
         public Builder(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogEncryptionMode = defaults.catalogEncryptionMode;
+    	      this.catalogEncryptionServiceRole = defaults.catalogEncryptionServiceRole;
     	      this.sseAwsKmsKeyId = defaults.sseAwsKmsKeyId;
         }
 
@@ -61,6 +75,14 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
               throw new MissingRequiredPropertyException("GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest", "catalogEncryptionMode");
             }
             this.catalogEncryptionMode = catalogEncryptionMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder catalogEncryptionServiceRole(String catalogEncryptionServiceRole) {
+            if (catalogEncryptionServiceRole == null) {
+              throw new MissingRequiredPropertyException("GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest", "catalogEncryptionServiceRole");
+            }
+            this.catalogEncryptionServiceRole = catalogEncryptionServiceRole;
             return this;
         }
         @CustomType.Setter
@@ -74,6 +96,7 @@ public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingE
         public GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest build() {
             final var _resultValue = new GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest();
             _resultValue.catalogEncryptionMode = catalogEncryptionMode;
+            _resultValue.catalogEncryptionServiceRole = catalogEncryptionServiceRole;
             _resultValue.sseAwsKmsKeyId = sseAwsKmsKeyId;
             return _resultValue;
         }

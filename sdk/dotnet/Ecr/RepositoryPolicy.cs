@@ -25,12 +25,12 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ecr.Repository("foo", new()
+    ///     var exampleRepository = new Aws.Ecr.Repository("example", new()
     ///     {
-    ///         Name = "bar",
+    ///         Name = "example-repo",
     ///     });
     /// 
-    ///     var foopolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -70,10 +70,10 @@ namespace Pulumi.Aws.Ecr
     ///         },
     ///     });
     /// 
-    ///     var foopolicyRepositoryPolicy = new Aws.Ecr.RepositoryPolicy("foopolicy", new()
+    ///     var exampleRepositoryPolicy = new Aws.Ecr.RepositoryPolicy("example", new()
     ///     {
-    ///         Repository = foo.Name,
-    ///         Policy = foopolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Repository = exampleRepository.Name,
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });

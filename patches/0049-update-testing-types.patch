@@ -1,0 +1,128 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: corymhall <43035978+corymhall@users.noreply.github.com>
+Date: Wed, 10 Apr 2024 08:50:03 -0400
+Subject: [PATCH 49/51] update testing types
+
+
+diff --git a/internal/service/ecr/credentials_data_source_test.go b/internal/service/ecr/credentials_data_source_test.go
+index f0f875399e..eef205d103 100644
+--- a/internal/service/ecr/credentials_data_source_test.go
++++ b/internal/service/ecr/credentials_data_source_test.go
+@@ -5,14 +5,16 @@ import (
+ 	"regexp"
+ 	"testing"
+ 
+-	"github.com/hashicorp/terraform-plugin-testing/helper/acctest"
++	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
+ 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
++	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+ )
+ 
+ func TestAccAWSEcrDataSource_ecrCredentials(t *testing.T) {
++	ctx := acctest.Context(t)
+ 	resource.Test(t, resource.TestCase{
+-		PreCheck:  func() { testAccPreCheck(t) },
+-		Providers: testAccProviders,
++		PreCheck:                 func() { acctest.PreCheck(ctx, t) },
++		ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
+ 		Steps: []resource.TestStep{
+ 			{
+ 				Config: testAccCheckAwsEcrCredentialsDataSourceConfig,
+@@ -34,4 +36,4 @@ resource "aws_ecr_repository" "default" {
+ data "aws_ecr_credentials" "default" {
+   registry_id = "${aws_ecr_repository.default.registry_id}"
+ }
+-`, acctest.RandInt())
++`, sdkacctest.RandInt())
+diff --git a/internal/service/gamelift/matchmaking_configuration_test.go b/internal/service/gamelift/matchmaking_configuration_test.go
+index 339f9dd6df..6453fa75a0 100644
+--- a/internal/service/gamelift/matchmaking_configuration_test.go
++++ b/internal/service/gamelift/matchmaking_configuration_test.go
+@@ -9,9 +9,10 @@ import (
+ 	"github.com/aws/aws-sdk-go/aws"
+ 	"github.com/aws/aws-sdk-go/service/gamelift"
+ 
++	"github.com/hashicorp/terraform-plugin-testing/terraform"
++
+ 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
+ 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
+-	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+ 	tfgamelift "github.com/hashicorp/terraform-provider-aws/internal/service/gamelift"
+@@ -31,7 +32,7 @@ func TestAccMatchmakingConfiguration_basic(t *testing.T) {
+ 
+ 	resource.ParallelTest(t, resource.TestCase{
+ 		PreCheck: func() {
+-			acctest.PreCheck(t)
++			acctest.PreCheck(ctx, t)
+ 			acctest.PreCheckPartitionHasService(t, gamelift.EndpointsID)
+ 			testAccPreCheck(ctx, t)
+ 		},
+@@ -76,7 +77,7 @@ func TestAccMatchmakingConfiguration_tags(t *testing.T) {
+ 
+ 	resource.ParallelTest(t, resource.TestCase{
+ 		PreCheck: func() {
+-			acctest.PreCheck(t)
++			acctest.PreCheck(ctx, t)
+ 			acctest.PreCheckPartitionHasService(t, gamelift.EndpointsID)
+ 			testAccPreCheck(ctx, t)
+ 		},
+@@ -122,7 +123,7 @@ func TestAccMatchmakingConfiguration_disappears(t *testing.T) {
+ 
+ 	resource.ParallelTest(t, resource.TestCase{
+ 		PreCheck: func() {
+-			acctest.PreCheck(t)
++			acctest.PreCheck(ctx, t)
+ 			acctest.PreCheckPartitionHasService(t, gamelift.EndpointsID)
+ 			testAccPreCheck(ctx, t)
+ 		},
+@@ -154,7 +155,7 @@ func testAccCheckMatchmakingConfigurationExists(ctx context.Context, n string, r
+ 			return fmt.Errorf("no Gamelift Matchmaking Configuration Name is set")
+ 		}
+ 
+-		conn := acctest.Provider.Meta().(*conns.AWSClient).GameLiftConn()
++		conn := acctest.Provider.Meta().(*conns.AWSClient).GameLiftConn(ctx)
+ 
+ 		name := rs.Primary.Attributes["name"]
+ 		out, err := conn.DescribeMatchmakingConfigurationsWithContext(ctx, &gamelift.DescribeMatchmakingConfigurationsInput{
+diff --git a/internal/service/gamelift/matchmaking_rule_set_test.go b/internal/service/gamelift/matchmaking_rule_set_test.go
+index 061e93f186..4295987ae6 100644
+--- a/internal/service/gamelift/matchmaking_rule_set_test.go
++++ b/internal/service/gamelift/matchmaking_rule_set_test.go
+@@ -10,7 +10,7 @@ import (
+ 	"github.com/aws/aws-sdk-go/service/gamelift"
+ 	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
+ 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
+-	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
++	"github.com/hashicorp/terraform-plugin-testing/terraform"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+ 	tfgamelift "github.com/hashicorp/terraform-provider-aws/internal/service/gamelift"
+@@ -27,7 +27,7 @@ func TestAccMatchmakingRuleSet_basic(t *testing.T) {
+ 
+ 	resource.Test(t, resource.TestCase{
+ 		PreCheck: func() {
+-			acctest.PreCheck(t)
++			acctest.PreCheck(ctx, t)
+ 			acctest.PreCheckPartitionHasService(t, gamelift.EndpointsID)
+ 			testAccPreCheck(ctx, t)
+ 		},
+@@ -65,7 +65,7 @@ func TestAccMatchmakingRuleSet_disappears(t *testing.T) {
+ 
+ 	resource.ParallelTest(t, resource.TestCase{
+ 		PreCheck: func() {
+-			acctest.PreCheck(t)
++			acctest.PreCheck(ctx, t)
+ 			acctest.PreCheckPartitionHasService(t, gamelift.EndpointsID)
+ 			testAccPreCheck(ctx, t)
+ 		},
+@@ -97,7 +97,7 @@ func testAccCheckMatchmakingRuleSetExists(ctx context.Context, n string, res *ga
+ 			return fmt.Errorf("no Gamelift Matchmaking Rule Set Name is set")
+ 		}
+ 
+-		conn := acctest.Provider.Meta().(*conns.AWSClient).GameLiftConn()
++		conn := acctest.Provider.Meta().(*conns.AWSClient).GameLiftConn(ctx)
+ 
+ 		name := rs.Primary.Attributes["name"]
+ 		out, err := conn.DescribeMatchmakingRuleSets(&gamelift.DescribeMatchmakingRuleSetsInput{

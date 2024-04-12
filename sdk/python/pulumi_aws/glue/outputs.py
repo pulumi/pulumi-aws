@@ -2300,6 +2300,8 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
         suggest = None
         if key == "catalogEncryptionMode":
             suggest = "catalog_encryption_mode"
+        elif key == "catalogEncryptionServiceRole":
+            suggest = "catalog_encryption_service_role"
         elif key == "sseAwsKmsKeyId":
             suggest = "sse_aws_kms_key_id"
 
@@ -2316,12 +2318,16 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
 
     def __init__(__self__, *,
                  catalog_encryption_mode: str,
+                 catalog_encryption_service_role: Optional[str] = None,
                  sse_aws_kms_key_id: Optional[str] = None):
         """
         :param str catalog_encryption_mode: The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
+        :param str catalog_encryption_service_role: The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
         :param str sse_aws_kms_key_id: The ARN of the AWS KMS key to use for encryption at rest.
         """
         pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
+        if catalog_encryption_service_role is not None:
+            pulumi.set(__self__, "catalog_encryption_service_role", catalog_encryption_service_role)
         if sse_aws_kms_key_id is not None:
             pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
 
@@ -2332,6 +2338,14 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
         The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
         """
         return pulumi.get(self, "catalog_encryption_mode")
+
+    @property
+    @pulumi.getter(name="catalogEncryptionServiceRole")
+    def catalog_encryption_service_role(self) -> Optional[str]:
+        """
+        The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+        """
+        return pulumi.get(self, "catalog_encryption_service_role")
 
     @property
     @pulumi.getter(name="sseAwsKmsKeyId")
@@ -4412,12 +4426,15 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPass
 class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult(dict):
     def __init__(__self__, *,
                  catalog_encryption_mode: str,
+                 catalog_encryption_service_role: str,
                  sse_aws_kms_key_id: str):
         """
         :param str catalog_encryption_mode: The encryption-at-rest mode for encrypting Data Catalog data.
+        :param str catalog_encryption_service_role: The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
         :param str sse_aws_kms_key_id: ARN of the AWS KMS key to use for encryption at rest.
         """
         pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
+        pulumi.set(__self__, "catalog_encryption_service_role", catalog_encryption_service_role)
         pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
 
     @property
@@ -4427,6 +4444,14 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRe
         The encryption-at-rest mode for encrypting Data Catalog data.
         """
         return pulumi.get(self, "catalog_encryption_mode")
+
+    @property
+    @pulumi.getter(name="catalogEncryptionServiceRole")
+    def catalog_encryption_service_role(self) -> str:
+        """
+        The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+        """
+        return pulumi.get(self, "catalog_encryption_service_role")
 
     @property
     @pulumi.getter(name="sseAwsKmsKeyId")

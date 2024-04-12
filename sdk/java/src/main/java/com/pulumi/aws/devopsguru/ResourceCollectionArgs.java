@@ -34,14 +34,14 @@ public final class ResourceCollectionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
+     * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<ResourceCollectionTagsArgs> tags;
 
     /**
-     * @return AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
+     * @return AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      * 
      */
     public Optional<Output<ResourceCollectionTagsArgs>> tags() {
@@ -115,7 +115,7 @@ public final class ResourceCollectionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
+         * @param tags AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class ResourceCollectionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags AWS tags used to filter the resources in the resource collection See `tags` below for additional details.
+         * @param tags AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
          * 
          * @return builder
          * 

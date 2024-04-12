@@ -18,6 +18,11 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
      */
     private String catalogEncryptionMode;
     /**
+     * @return The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+     * 
+     */
+    private @Nullable String catalogEncryptionServiceRole;
+    /**
      * @return The ARN of the AWS KMS key to use for encryption at rest.
      * 
      */
@@ -30,6 +35,13 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
      */
     public String catalogEncryptionMode() {
         return this.catalogEncryptionMode;
+    }
+    /**
+     * @return The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+     * 
+     */
+    public Optional<String> catalogEncryptionServiceRole() {
+        return Optional.ofNullable(this.catalogEncryptionServiceRole);
     }
     /**
      * @return The ARN of the AWS KMS key to use for encryption at rest.
@@ -49,11 +61,13 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
     @CustomType.Builder
     public static final class Builder {
         private String catalogEncryptionMode;
+        private @Nullable String catalogEncryptionServiceRole;
         private @Nullable String sseAwsKmsKeyId;
         public Builder() {}
         public Builder(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.catalogEncryptionMode = defaults.catalogEncryptionMode;
+    	      this.catalogEncryptionServiceRole = defaults.catalogEncryptionServiceRole;
     	      this.sseAwsKmsKeyId = defaults.sseAwsKmsKeyId;
         }
 
@@ -66,6 +80,12 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
             return this;
         }
         @CustomType.Setter
+        public Builder catalogEncryptionServiceRole(@Nullable String catalogEncryptionServiceRole) {
+
+            this.catalogEncryptionServiceRole = catalogEncryptionServiceRole;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sseAwsKmsKeyId(@Nullable String sseAwsKmsKeyId) {
 
             this.sseAwsKmsKeyId = sseAwsKmsKeyId;
@@ -74,6 +94,7 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
         public DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest build() {
             final var _resultValue = new DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest();
             _resultValue.catalogEncryptionMode = catalogEncryptionMode;
+            _resultValue.catalogEncryptionServiceRole = catalogEncryptionServiceRole;
             _resultValue.sseAwsKmsKeyId = sseAwsKmsKeyId;
             return _resultValue;
         }

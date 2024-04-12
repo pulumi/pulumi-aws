@@ -1,0 +1,32 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Daniel Bradley <daniel@pulumi.com>
+Date: Thu, 9 Mar 2023 14:50:51 +0000
+Subject: [PATCH 17/51] Fixup gamelift context
+
+
+diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
+index d8ee20dc65..e17f71e6b6 100644
+--- a/internal/service/gamelift/matchmaking_configuration.go
++++ b/internal/service/gamelift/matchmaking_configuration.go
+@@ -148,7 +148,7 @@ func ResourceMatchMakingConfiguration() *schema.Resource {
+ func resourceMatchmakingConfigurationCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn()
+ 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
+-	tags := defaultTagsConfig.MergeTags(tftags.New(context.Background(), d.Get("tags").(map[string]interface{})))
++	tags := defaultTagsConfig.MergeTags(tftags.New(ctx, d.Get("tags").(map[string]interface{})))
+ 
+ 	input := gamelift.CreateMatchmakingConfigurationInput{
+ 		AcceptanceRequired:    aws.Bool(d.Get("acceptance_required").(bool)),
+diff --git a/internal/service/gamelift/matchmaking_rule_set.go b/internal/service/gamelift/matchmaking_rule_set.go
+index 8c1189199f..254c96efc6 100644
+--- a/internal/service/gamelift/matchmaking_rule_set.go
++++ b/internal/service/gamelift/matchmaking_rule_set.go
+@@ -60,7 +60,7 @@ func ResourceMatchmakingRuleSet() *schema.Resource {
+ func resourceMatchmakingRuleSetCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
+ 	conn := meta.(*conns.AWSClient).GameLiftConn()
+ 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
+-	tags := defaultTagsConfig.MergeTags(tftags.New(context.Background(), d.Get("tags").(map[string]interface{})))
++	tags := defaultTagsConfig.MergeTags(tftags.New(ctx, d.Get("tags").(map[string]interface{})))
+ 
+ 	input := gamelift.CreateMatchmakingRuleSetInput{
+ 		Name:        aws.String(d.Get("name").(string)),
