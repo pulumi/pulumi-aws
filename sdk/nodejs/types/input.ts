@@ -6,6 +6,8 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 
+import * as utilities from "../utilities";
+
 import {RoutingRule} from "../s3";
 
 export interface GetAvailabilityZoneFilter {
@@ -60019,6 +60021,15 @@ export namespace rds {
          * The value of the DB parameter.
          */
         value: pulumi.Input<string>;
+    }
+    /**
+     * parameterGroupParameterProvideDefaults sets the appropriate defaults for ParameterGroupParameter
+     */
+    export function parameterGroupParameterProvideDefaults(val: ParameterGroupParameter): ParameterGroupParameter {
+        return {
+            ...val,
+            applyMethod: (val.applyMethod) ?? "immediate",
+        };
     }
 
     export interface ProxyAuth {

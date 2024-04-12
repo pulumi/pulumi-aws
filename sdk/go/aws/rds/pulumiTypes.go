@@ -2394,6 +2394,19 @@ type ParameterGroupParameter struct {
 	Value string `pulumi:"value"`
 }
 
+// Defaults sets the appropriate defaults for ParameterGroupParameter
+func (val *ParameterGroupParameter) Defaults() *ParameterGroupParameter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if tmp.ApplyMethod == nil {
+		applyMethod_ := "immediate"
+		tmp.ApplyMethod = &applyMethod_
+	}
+	return &tmp
+}
+
 // ParameterGroupParameterInput is an input type that accepts ParameterGroupParameterArgs and ParameterGroupParameterOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterInput` via:
 //
@@ -2416,6 +2429,17 @@ type ParameterGroupParameterArgs struct {
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
+// Defaults sets the appropriate defaults for ParameterGroupParameterArgs
+func (val *ParameterGroupParameterArgs) Defaults() *ParameterGroupParameterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if tmp.ApplyMethod == nil {
+		tmp.ApplyMethod = pulumi.StringPtr("immediate")
+	}
+	return &tmp
+}
 func (ParameterGroupParameterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ParameterGroupParameter)(nil)).Elem()
 }
