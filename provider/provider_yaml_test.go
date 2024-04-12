@@ -226,3 +226,41 @@ resources:
 		})
 	}
 }
+
+var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+
+func randSeq(n int) string {
+	b := make([]rune, n)
+	for i := range b {
+		b[i] = letters[rand.Intn(len(letters))]
+	}
+	return string(b)
+}
+
+func pulumiTest(t *testing.T, dir string) *pulumitest.PulumiTest {
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without AWS creds")
+		return nil
+	}
+	cwd, err := os.Getwd()
+	if err != nil {
+		t.Error(err)
+	}
+	ptest := pulumitest.NewPulumiTest(t, dir,
+		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+	)
+
+	return ptest
+}
+
+func TestNonIdempotentSnsTopic(t *testing.T) {
+	ptest := pulumiTest(t, filepath.Join("test-programs", "non-idempotent-sns-topic"))
+
+	ptest.InstallStack("test")
+	// generate random name
+	topic_name := randSeq(12)
+	ptest.SetConfig("snsTopicName", topic_name)
+
+	_, err := ptest.CurrentStack().Up(ptest.Context())
+	require.ErrorContains(t, err, "already exists")
+}
