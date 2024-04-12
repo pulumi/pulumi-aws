@@ -141,25 +141,9 @@ func TestRdsParameterGroupUnclearDiff(t *testing.T) {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
 	}
 
-	type testCase struct {
-		name          string
-		applyMethod1  string
-		value1        string
-		applyMethod2  string
-		value2        string
-		expectChanges bool
-	}
+	type yamlProgram string
 
-	testCases := []testCase{
-		{"changing only applyMethod", "immediate", "1", "pending-reboot", "1", false},
-		{"changing only value", "immediate", "1", "immediate", "0", true},
-		{"changing both applyMethod and value", "immediate", "1", "pending-reboot", "0", true},
-	}
-
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-
-	yaml := `
+	const yaml yamlProgram = `
 name: project
 runtime: yaml
 config:
@@ -184,13 +168,66 @@ resources:
           value: "1"
 `
 
+	const noApplyYaml yamlProgram = `
+name: project
+runtime: yaml
+config:
+  value:
+    type: string
+  randSuffix:
+    type: string
+resources:
+  default:
+    type: aws:rds/parameterGroup:ParameterGroup
+    properties:
+      name: securitygroup${randSuffix}
+      family: postgres14
+      parameters:
+        - name: track_io_timing
+          value: ${value}
+        - name: "log_checkpoints"
+          applyMethod: "pending-reboot"
+          value: "1"
+`
+
+	type applyMethod string
+
+	var immediate applyMethod = "immediate"
+	var pendingReboot applyMethod = "pending-reboot"
+
+	type testCase struct {
+		name          string
+		applyMethod1  *applyMethod
+		value1        string
+		file1         yamlProgram
+		applyMethod2  *applyMethod
+		value2        string
+		file2         yamlProgram
+		expectChanges bool
+	}
+
+	testCases := []testCase{
+		{"non-nil, apply method change", &immediate, "1", yaml, &pendingReboot, "1", yaml, false},
+		{"non-nil, value change", &immediate, "1", yaml, &immediate, "0", yaml, true},
+		{"non-nil, both change", &immediate, "1", yaml, &pendingReboot, "0", yaml, true},
+		{"non-nil to nil apply method, apply method change", &pendingReboot, "1", yaml, nil, "1", noApplyYaml, false},
+		{"non-nil to nil apply method, value change", &immediate, "1", yaml, nil, "0", noApplyYaml, true},
+		{"non-nil to nil apply method, both change", &immediate, "1", yaml, nil, "0", noApplyYaml, true},
+		{"nil to non-nil apply method, apply method change", nil, "1", noApplyYaml, &pendingReboot, "1", yaml, false},
+		{"nil to non-nil apply method, value change", nil, "1", noApplyYaml, &immediate, "0", yaml, true},
+		{"nil to non-nil apply method, both change", nil, "1", noApplyYaml, &immediate, "0", yaml, true},
+	}
+
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+
 	for _, tc := range testCases {
 		tc := tc
 
 		t.Run(tc.name, func(t *testing.T) {
 			workdir := t.TempDir()
 
-			err := os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), []byte(yaml), 0600)
+			err := os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), []byte(tc.file1), 0o600)
 			require.NoError(t, err)
 
 			pt := pulumitest.NewPulumiTest(t, workdir,
@@ -201,14 +238,24 @@ resources:
 
 			pt.SetConfig("randSuffix", fmt.Sprintf("%d-x", rand.Intn(1024*1024)))
 
-			pt.SetConfig("applyMethod", tc.applyMethod1)
+			if tc.applyMethod1 != nil {
+				pt.SetConfig("applyMethod", string(*tc.applyMethod1))
+			}
 			pt.SetConfig("value", tc.value1)
 
 			pt.Up()
 
 			assertpreview.HasNoChanges(t, pt.Preview())
 
-			pt.SetConfig("applyMethod", tc.applyMethod2)
+			err = os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), []byte(tc.file2), 0o600)
+			require.NoError(t, err)
+
+			if tc.applyMethod2 != nil {
+				if tc.file2 == noApplyYaml {
+					t.Errorf("WRONG FILE!")
+				}
+				pt.SetConfig("applyMethod", string(*tc.applyMethod2))
+			}
 			pt.SetConfig("value", tc.value2)
 
 			if tc.expectChanges {
