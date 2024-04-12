@@ -25,13 +25,15 @@ import * as utilities from "../utilities";
  *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
  *     locale: current.then(current => current.name),
  * });
- * const example = new aws.ec2.VpcIpamPoolCidrAllocation("example", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.20.0.0/24",
- * });
  * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("example", {
  *     ipamPoolId: exampleVpcIpamPool.id,
  *     cidr: "172.20.0.0/16",
+ * });
+ * const example = new aws.ec2.VpcIpamPoolCidrAllocation("example", {
+ *     ipamPoolId: exampleVpcIpamPool.id,
+ *     cidr: "172.20.0.0/24",
+ * }, {
+ *     dependsOn: [exampleVpcIpamPoolCidr],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -52,14 +54,16 @@ import * as utilities from "../utilities";
  *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
  *     locale: current.then(current => current.name),
  * });
+ * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("example", {
+ *     ipamPoolId: exampleVpcIpamPool.id,
+ *     cidr: "172.20.0.0/16",
+ * });
  * const example = new aws.ec2.VpcIpamPoolCidrAllocation("example", {
  *     ipamPoolId: exampleVpcIpamPool.id,
  *     netmaskLength: 28,
  *     disallowedCidrs: ["172.20.0.0/28"],
- * });
- * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("example", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.20.0.0/16",
+ * }, {
+ *     dependsOn: [exampleVpcIpamPoolCidr],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

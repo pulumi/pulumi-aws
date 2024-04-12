@@ -67,6 +67,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.organizations.OrganizationArgs;
  * import com.pulumi.aws.accessanalyzer.Analyzer;
  * import com.pulumi.aws.accessanalyzer.AnalyzerArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,7 +88,9 @@ import javax.annotation.Nullable;
  *         var exampleAnalyzer = new Analyzer(&#34;exampleAnalyzer&#34;, AnalyzerArgs.builder()        
  *             .analyzerName(&#34;example&#34;)
  *             .type(&#34;ORGANIZATION&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }

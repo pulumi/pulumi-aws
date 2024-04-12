@@ -19,46 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a version of a CloudFormation Type.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudformation.CloudFormationType;
- * import com.pulumi.aws.cloudformation.CloudFormationTypeArgs;
- * import com.pulumi.aws.cloudformation.inputs.CloudFormationTypeLoggingConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CloudFormationType(&#34;example&#34;, CloudFormationTypeArgs.builder()        
- *             .schemaHandlerPackage(String.format(&#34;s3://%s/%s&#34;, exampleAwsS3Object.bucket(),exampleAwsS3Object.key()))
- *             .type(&#34;RESOURCE&#34;)
- *             .typeName(&#34;ExampleCompany::ExampleService::ExampleResource&#34;)
- *             .loggingConfig(CloudFormationTypeLoggingConfigArgs.builder()
- *                 .logGroupName(exampleAwsCloudwatchLogGroup.name())
- *                 .logRoleArn(exampleAwsIamRole.arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:

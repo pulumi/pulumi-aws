@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Insight;
  * import com.pulumi.aws.securityhub.InsightArgs;
  * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,7 +62,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .groupByAttribute(&#34;AwsAccountId&#34;)
  *             .name(&#34;example-insight&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }
@@ -81,6 +84,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Insight;
  * import com.pulumi.aws.securityhub.InsightArgs;
  * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -107,7 +111,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .groupByAttribute(&#34;CreatedAt&#34;)
  *             .name(&#34;example-insight&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }
@@ -127,6 +133,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Insight;
  * import com.pulumi.aws.securityhub.InsightArgs;
  * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -150,7 +157,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .groupByAttribute(&#34;NetworkDestinationIpV4&#34;)
  *             .name(&#34;example-insight&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }
@@ -170,6 +179,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Insight;
  * import com.pulumi.aws.securityhub.InsightArgs;
  * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -193,7 +203,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .groupByAttribute(&#34;Confidence&#34;)
  *             .name(&#34;example-insight&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }
@@ -213,6 +225,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Insight;
  * import com.pulumi.aws.securityhub.InsightArgs;
  * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -238,7 +251,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .groupByAttribute(&#34;ResourceTags&#34;)
  *             .name(&#34;example-insight&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }

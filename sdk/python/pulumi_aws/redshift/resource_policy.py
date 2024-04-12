@@ -111,15 +111,15 @@ class ResourcePolicy(pulumi.CustomResource):
         example = aws.redshift.ResourcePolicy("example",
             resource_arn=example_aws_redshift_cluster["clusterNamespaceArn"],
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "effect": "Allow",
-                    "principal": {
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Principal": {
                         "AWS": "arn:aws:iam::12345678901:root",
                     },
-                    "action": "redshift:CreateInboundIntegration",
-                    "resource": example_aws_redshift_cluster["clusterNamespaceArn"],
-                    "sid": "",
+                    "Action": "redshift:CreateInboundIntegration",
+                    "Resource": example_aws_redshift_cluster["clusterNamespaceArn"],
+                    "Sid": "",
                 }],
             }))
         ```
@@ -158,15 +158,15 @@ class ResourcePolicy(pulumi.CustomResource):
         example = aws.redshift.ResourcePolicy("example",
             resource_arn=example_aws_redshift_cluster["clusterNamespaceArn"],
             policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "effect": "Allow",
-                    "principal": {
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Principal": {
                         "AWS": "arn:aws:iam::12345678901:root",
                     },
-                    "action": "redshift:CreateInboundIntegration",
-                    "resource": example_aws_redshift_cluster["clusterNamespaceArn"],
-                    "sid": "",
+                    "Action": "redshift:CreateInboundIntegration",
+                    "Resource": example_aws_redshift_cluster["clusterNamespaceArn"],
+                    "Sid": "",
                 }],
             }))
         ```

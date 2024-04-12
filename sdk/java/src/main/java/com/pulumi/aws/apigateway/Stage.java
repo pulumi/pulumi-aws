@@ -21,88 +21,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `aws.apigateway.Deployment` resource. Stages can be optionally managed further with the `aws.apigateway.BasePathMapping` resource, `aws.apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.RestApiArgs;
- * import com.pulumi.aws.apigateway.Deployment;
- * import com.pulumi.aws.apigateway.DeploymentArgs;
- * import com.pulumi.aws.apigateway.Stage;
- * import com.pulumi.aws.apigateway.StageArgs;
- * import com.pulumi.aws.apigateway.MethodSettings;
- * import com.pulumi.aws.apigateway.MethodSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RestApi(&#34;example&#34;, RestApiArgs.builder()        
- *             .body(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
- *                     jsonProperty(&#34;info&#34;, jsonObject(
- *                         jsonProperty(&#34;title&#34;, &#34;example&#34;),
- *                         jsonProperty(&#34;version&#34;, &#34;1.0&#34;)
- *                     )),
- *                     jsonProperty(&#34;paths&#34;, jsonObject(
- *                         jsonProperty(&#34;/path1&#34;, jsonObject(
- *                             jsonProperty(&#34;get&#34;, jsonObject(
- *                                 jsonProperty(&#34;x-amazon-apigateway-integration&#34;, jsonObject(
- *                                     jsonProperty(&#34;httpMethod&#34;, &#34;GET&#34;),
- *                                     jsonProperty(&#34;payloadFormatVersion&#34;, &#34;1.0&#34;),
- *                                     jsonProperty(&#34;type&#34;, &#34;HTTP_PROXY&#34;),
- *                                     jsonProperty(&#34;uri&#34;, &#34;https://ip-ranges.amazonaws.com/ip-ranges.json&#34;)
- *                                 ))
- *                             ))
- *                         ))
- *                     ))
- *                 )))
- *             .name(&#34;example&#34;)
- *             .build());
- * 
- *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .restApi(example.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
- *             .build());
- * 
- *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
- *             .deployment(exampleDeployment.id())
- *             .restApi(example.id())
- *             .stageName(&#34;example&#34;)
- *             .build());
- * 
- *         var exampleMethodSettings = new MethodSettings(&#34;exampleMethodSettings&#34;, MethodSettingsArgs.builder()        
- *             .restApi(example.id())
- *             .stageName(exampleStage.stageName())
- *             .methodPath(&#34;*{@literal /}*&#34;)
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .metricsEnabled(true)
- *                 .loggingLevel(&#34;INFO&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ### Managing the API Logging CloudWatch Log Group
  * 
  * API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `aws.cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
@@ -115,10 +33,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.Stage;
- * import com.pulumi.aws.apigateway.StageArgs;
  * import com.pulumi.aws.cloudwatch.LogGroup;
  * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.apigateway.Stage;
+ * import com.pulumi.aws.apigateway.StageArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -136,14 +55,16 @@ import javax.annotation.Nullable;
  *         final var stageName = config.get(&#34;stageName&#34;).orElse(&#34;example&#34;);
  *         var example = new RestApi(&#34;example&#34;);
  * 
- *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
- *             .stageName(stageName)
- *             .build());
- * 
  *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
  *             .name(example.id().applyValue(id -&gt; String.format(&#34;API-Gateway-Execution-Logs_%s/%s&#34;, id,stageName)))
  *             .retentionInDays(7)
  *             .build());
+ * 
+ *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
+ *             .stageName(stageName)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleLogGroup)
+ *                 .build());
  * 
  *     }
  * }

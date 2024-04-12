@@ -59,28 +59,28 @@ import javax.annotation.Nullable;
  *             .logGroupName(example.name())
  *             .policyDocument(exampleBucketV2.bucket().applyValue(bucket -&gt; serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;name&#34;, &#34;Example&#34;),
- *                     jsonProperty(&#34;version&#34;, &#34;2021-06-01&#34;),
- *                     jsonProperty(&#34;statement&#34;, jsonArray(
+ *                     jsonProperty(&#34;Name&#34;, &#34;Example&#34;),
+ *                     jsonProperty(&#34;Version&#34;, &#34;2021-06-01&#34;),
+ *                     jsonProperty(&#34;Statement&#34;, jsonArray(
  *                         jsonObject(
- *                             jsonProperty(&#34;sid&#34;, &#34;Audit&#34;),
- *                             jsonProperty(&#34;dataIdentifier&#34;, jsonArray(&#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;)),
- *                             jsonProperty(&#34;operation&#34;, jsonObject(
- *                                 jsonProperty(&#34;audit&#34;, jsonObject(
- *                                     jsonProperty(&#34;findingsDestination&#34;, jsonObject(
+ *                             jsonProperty(&#34;Sid&#34;, &#34;Audit&#34;),
+ *                             jsonProperty(&#34;DataIdentifier&#34;, jsonArray(&#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;)),
+ *                             jsonProperty(&#34;Operation&#34;, jsonObject(
+ *                                 jsonProperty(&#34;Audit&#34;, jsonObject(
+ *                                     jsonProperty(&#34;FindingsDestination&#34;, jsonObject(
  *                                         jsonProperty(&#34;S3&#34;, jsonObject(
- *                                             jsonProperty(&#34;bucket&#34;, bucket)
+ *                                             jsonProperty(&#34;Bucket&#34;, bucket)
  *                                         ))
  *                                     ))
  *                                 ))
  *                             ))
  *                         ), 
  *                         jsonObject(
- *                             jsonProperty(&#34;sid&#34;, &#34;Redact&#34;),
- *                             jsonProperty(&#34;dataIdentifier&#34;, jsonArray(&#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;)),
- *                             jsonProperty(&#34;operation&#34;, jsonObject(
- *                                 jsonProperty(&#34;deidentify&#34;, jsonObject(
- *                                     jsonProperty(&#34;maskConfig&#34;, jsonObject(
+ *                             jsonProperty(&#34;Sid&#34;, &#34;Redact&#34;),
+ *                             jsonProperty(&#34;DataIdentifier&#34;, jsonArray(&#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;)),
+ *                             jsonProperty(&#34;Operation&#34;, jsonObject(
+ *                                 jsonProperty(&#34;Deidentify&#34;, jsonObject(
+ *                                     jsonProperty(&#34;MaskConfig&#34;, jsonObject(
  * 
  *                                     ))
  *                                 ))

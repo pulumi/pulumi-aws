@@ -35,6 +35,8 @@ import * as utilities from "../utilities";
  *     },
  *     groupByAttribute: "AwsAccountId",
  *     name: "example-insight",
+ * }, {
+ *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -58,6 +60,8 @@ import * as utilities from "../utilities";
  *     },
  *     groupByAttribute: "CreatedAt",
  *     name: "example-insight",
+ * }, {
+ *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -78,6 +82,8 @@ import * as utilities from "../utilities";
  *     },
  *     groupByAttribute: "NetworkDestinationIpV4",
  *     name: "example-insight",
+ * }, {
+ *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -98,6 +104,8 @@ import * as utilities from "../utilities";
  *     },
  *     groupByAttribute: "Confidence",
  *     name: "example-insight",
+ * }, {
+ *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -120,6 +128,8 @@ import * as utilities from "../utilities";
  *     },
  *     groupByAttribute: "ResourceTags",
  *     name: "example-insight",
+ * }, {
+ *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

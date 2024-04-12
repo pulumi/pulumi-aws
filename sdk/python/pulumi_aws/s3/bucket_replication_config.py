@@ -257,7 +257,8 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     bucket=destination.arn,
                     storage_class="STANDARD",
                 ),
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[source_bucket_versioning_v2]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -294,7 +295,8 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     bucket=west.arn,
                     storage_class="STANDARD",
                 ),
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[east_bucket_versioning_v2]))
         west_to_east = aws.s3.BucketReplicationConfig("west_to_east",
             role=west_replication["arn"],
             bucket=west.id,
@@ -308,7 +310,8 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     bucket=east.arn,
                     storage_class="STANDARD",
                 ),
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[west_bucket_versioning_v2]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -423,7 +426,8 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     bucket=destination.arn,
                     storage_class="STANDARD",
                 ),
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[source_bucket_versioning_v2]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -460,7 +464,8 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     bucket=west.arn,
                     storage_class="STANDARD",
                 ),
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[east_bucket_versioning_v2]))
         west_to_east = aws.s3.BucketReplicationConfig("west_to_east",
             role=west_replication["arn"],
             bucket=west.id,
@@ -474,7 +479,8 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     bucket=east.arn,
                     storage_class="STANDARD",
                 ),
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[west_bucket_versioning_v2]))
         ```
         <!--End PulumiCodeChooser -->
 

@@ -14,102 +14,6 @@ import (
 
 // Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `apigateway.Deployment` resource. Stages can be optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `awsApiMethodSettings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
 //
-// ## Example Usage
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"openapi": "3.0.1",
-//				"info": map[string]interface{}{
-//					"title":   "example",
-//					"version": "1.0",
-//				},
-//				"paths": map[string]interface{}{
-//					"/path1": map[string]interface{}{
-//						"get": map[string]interface{}{
-//							"x-amazon-apigateway-integration": map[string]interface{}{
-//								"httpMethod":           "GET",
-//								"payloadFormatVersion": "1.0",
-//								"type":                 "HTTP_PROXY",
-//								"uri":                  "https://ip-ranges.amazonaws.com/ip-ranges.json",
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			example, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
-//				Body: pulumi.String(json0),
-//				Name: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDeployment, err := apigateway.NewDeployment(ctx, "example", &apigateway.DeploymentArgs{
-//				RestApi: example.ID(),
-//				Triggers: pulumi.StringMap{
-//					"redeployment": std.Sha1Output(ctx, std.Sha1OutputArgs{
-//						Input: example.Body.ApplyT(func(body *string) (pulumi.String, error) {
-//							var _zero pulumi.String
-//							tmpJSON1, err := json.Marshal(body)
-//							if err != nil {
-//								return _zero, err
-//							}
-//							json1 := string(tmpJSON1)
-//							return pulumi.String(json1), nil
-//						}).(pulumi.StringOutput),
-//					}, nil).ApplyT(func(invoke std.Sha1Result) (*string, error) {
-//						return invoke.Result, nil
-//					}).(pulumi.StringPtrOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleStage, err := apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
-//				Deployment: exampleDeployment.ID(),
-//				RestApi:    example.ID(),
-//				StageName:  pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewMethodSettings(ctx, "example", &apigateway.MethodSettingsArgs{
-//				RestApi:    example.ID(),
-//				StageName:  exampleStage.StageName,
-//				MethodPath: pulumi.String("*/*"),
-//				Settings: &apigateway.MethodSettingsSettingsArgs{
-//					MetricsEnabled: pulumi.Bool(true),
-//					LoggingLevel:   pulumi.String("INFO"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
 // ### Managing the API Logging CloudWatch Log Group
 //
 // API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
@@ -140,18 +44,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
-//				StageName: pulumi.String(stageName),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
 //				Name: example.ID().ApplyT(func(id string) (string, error) {
 //					return fmt.Sprintf("API-Gateway-Execution-Logs_%v/%v", id, stageName), nil
 //				}).(pulumi.StringOutput),
 //				RetentionInDays: pulumi.Int(7),
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
+//				StageName: pulumi.String(stageName),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleLogGroup,
+//			}))
 //			if err != nil {
 //				return err
 //			}

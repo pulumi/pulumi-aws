@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.shield.ProactiveEngagementArgs;
  * import com.pulumi.aws.shield.inputs.ProactiveEngagementEmergencyContactArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,8 +61,8 @@ import javax.annotation.Nullable;
  *             .name(awsShieldDrtAccessRoleArn)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
  *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
  *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
  *                         jsonProperty(&#34;Principal&#34;, jsonObject(
@@ -100,7 +101,9 @@ import javax.annotation.Nullable;
  *                     .emailAddress(&#34;test2@company.com&#34;)
  *                     .phoneNumber(&#34;+12358132134&#34;)
  *                     .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(testAwsShieldDrtAccessRoleArnAssociation)
+ *                 .build());
  * 
  *     }
  * }

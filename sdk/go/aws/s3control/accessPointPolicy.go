@@ -59,15 +59,15 @@ import (
 //				Policy: exampleAccessPoint.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"version": "2008-10-17",
-//						"statement": []map[string]interface{}{
+//						"Version": "2008-10-17",
+//						"Statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"effect": "Allow",
-//								"action": "s3:GetObjectTagging",
-//								"principal": map[string]interface{}{
+//								"Effect": "Allow",
+//								"Action": "s3:GetObjectTagging",
+//								"Principal": map[string]interface{}{
 //									"AWS": "*",
 //								},
-//								"resource": fmt.Sprintf("%v/object/*", arn),
+//								"Resource": fmt.Sprintf("%v/object/*", arn),
 //							},
 //						},
 //					})

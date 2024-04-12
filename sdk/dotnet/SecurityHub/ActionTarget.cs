@@ -30,6 +30,12 @@ namespace Pulumi.Aws.SecurityHub
     ///         Name = "Send notification to chat",
     ///         Identifier = "SendToChat",
     ///         Description = "This is custom action sends selected findings to chat",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });

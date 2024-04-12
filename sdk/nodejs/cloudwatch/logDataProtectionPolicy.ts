@@ -21,28 +21,28 @@ import * as utilities from "../utilities";
  * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("example", {
  *     logGroupName: example.name,
  *     policyDocument: pulumi.jsonStringify({
- *         name: "Example",
- *         version: "2021-06-01",
- *         statement: [
+ *         Name: "Example",
+ *         Version: "2021-06-01",
+ *         Statement: [
  *             {
- *                 sid: "Audit",
- *                 dataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
- *                 operation: {
- *                     audit: {
- *                         findingsDestination: {
+ *                 Sid: "Audit",
+ *                 DataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
+ *                 Operation: {
+ *                     Audit: {
+ *                         FindingsDestination: {
  *                             S3: {
- *                                 bucket: exampleBucketV2.bucket,
+ *                                 Bucket: exampleBucketV2.bucket,
  *                             },
  *                         },
  *                     },
  *                 },
  *             },
  *             {
- *                 sid: "Redact",
- *                 dataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
- *                 operation: {
- *                     deidentify: {
- *                         maskConfig: {},
+ *                 Sid: "Redact",
+ *                 DataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
+ *                 Operation: {
+ *                     Deidentify: {
+ *                         MaskConfig: {},
  *                     },
  *                 },
  *             },

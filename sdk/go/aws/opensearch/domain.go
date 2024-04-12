@@ -299,7 +299,7 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = iam.NewServiceLinkedRole(ctx, "example", &iam.ServiceLinkedRoleArgs{
+// exampleServiceLinkedRole, err := iam.NewServiceLinkedRole(ctx, "example", &iam.ServiceLinkedRoleArgs{
 // AwsServiceName: pulumi.String("opensearchservice.amazonaws.com"),
 // })
 // if err != nil {
@@ -352,7 +352,9 @@ import (
 // Tags: pulumi.StringMap{
 // "Domain": pulumi.String("TestDomain"),
 // },
-// })
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleServiceLinkedRole,
+// }))
 // if err != nil {
 // return err
 // }

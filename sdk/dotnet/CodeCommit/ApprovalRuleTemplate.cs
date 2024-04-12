@@ -30,18 +30,18 @@ namespace Pulumi.Aws.CodeCommit
     ///         Description = "This is an example approval rule template",
     ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2018-11-08",
-    ///             ["destinationReferences"] = new[]
+    ///             ["Version"] = "2018-11-08",
+    ///             ["DestinationReferences"] = new[]
     ///             {
     ///                 "refs/heads/master",
     ///             },
-    ///             ["statements"] = new[]
+    ///             ["Statements"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["type"] = "Approvers",
-    ///                     ["numberOfApprovalsNeeded"] = 2,
-    ///                     ["approvalPoolMembers"] = new[]
+    ///                     ["Type"] = "Approvers",
+    ///                     ["NumberOfApprovalsNeeded"] = 2,
+    ///                     ["ApprovalPoolMembers"] = new[]
     ///                     {
     ///                         "arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*",
     ///                     },

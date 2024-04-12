@@ -35,14 +35,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": []map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"action": "sts:AssumeRole",
-//						"effect": "Allow",
-//						"sid":    "",
-//						"principal": map[string]interface{}{
-//							"service": "grafana.amazonaws.com",
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Sid":    "",
+//						"Principal": map[string]interface{}{
+//							"Service": "grafana.amazonaws.com",
 //						},
 //					},
 //				},

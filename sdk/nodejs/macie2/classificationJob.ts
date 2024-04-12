@@ -27,6 +27,8 @@ import * as utilities from "../utilities";
  *             buckets: ["S3 BUCKET NAME"],
  *         }],
  *     },
+ * }, {
+ *     dependsOn: [test],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

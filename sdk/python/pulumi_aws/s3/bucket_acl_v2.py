@@ -190,7 +190,8 @@ class BucketAclV2(pulumi.CustomResource):
             ))
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
-            acl="private")
+            acl="private",
+            opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -218,7 +219,11 @@ class BucketAclV2(pulumi.CustomResource):
             restrict_public_buckets=False)
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
-            acl="public-read")
+            acl="public-read",
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_bucket_ownership_controls,
+                    example_bucket_public_access_block,
+                ]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -258,7 +263,8 @@ class BucketAclV2(pulumi.CustomResource):
                 owner=aws.s3.BucketAclV2AccessControlPolicyOwnerArgs(
                     id=current.id,
                 ),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -333,7 +339,8 @@ class BucketAclV2(pulumi.CustomResource):
             ))
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
-            acl="private")
+            acl="private",
+            opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -361,7 +368,11 @@ class BucketAclV2(pulumi.CustomResource):
             restrict_public_buckets=False)
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
-            acl="public-read")
+            acl="public-read",
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_bucket_ownership_controls,
+                    example_bucket_public_access_block,
+                ]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -401,7 +412,8 @@ class BucketAclV2(pulumi.CustomResource):
                 owner=aws.s3.BucketAclV2AccessControlPolicyOwnerArgs(
                     id=current.id,
                 ),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
         <!--End PulumiCodeChooser -->
 

@@ -55,6 +55,11 @@ import * as utilities from "../utilities";
  *             regionName: "us-west-2",
  *         },
  *     ],
+ * }, {
+ *     dependsOn: [
+ *         us_east_1,
+ *         us_west_2,
+ *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

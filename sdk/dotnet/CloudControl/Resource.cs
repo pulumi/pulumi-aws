@@ -29,13 +29,13 @@ namespace Pulumi.Aws.CloudControl
     ///         TypeName = "AWS::ECS::Cluster",
     ///         DesiredState = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["clusterName"] = "example",
-    ///             ["tags"] = new[]
+    ///             ["ClusterName"] = "example",
+    ///             ["Tags"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["key"] = "CostCenter",
-    ///                     ["value"] = "IT",
+    ///                     ["Key"] = "CostCenter",
+    ///                     ["Value"] = "IT",
     ///                 },
     ///             },
     ///         }),

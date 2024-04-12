@@ -43,15 +43,15 @@ namespace Pulumi.Aws.CodeBuild
     ///         ResourceArn = example.Arn,
     ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["id"] = "default",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Id"] = "default",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["sid"] = "default",
-    ///                     ["effect"] = "Allow",
-    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Sid"] = "default",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = Output.Tuple(current, currentGetCallerIdentity).Apply(values =&gt;
     ///                         {
@@ -60,14 +60,14 @@ namespace Pulumi.Aws.CodeBuild
     ///                             return $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
     ///                         }),
     ///                     },
-    ///                     ["action"] = new[]
+    ///                     ["Action"] = new[]
     ///                     {
     ///                         "codebuild:BatchGetReportGroups",
     ///                         "codebuild:BatchGetReports",
     ///                         "codebuild:ListReportsForReportGroup",
     ///                         "codebuild:DescribeTestCases",
     ///                     },
-    ///                     ["resource"] = example.Arn,
+    ///                     ["Resource"] = example.Arn,
     ///                 },
     ///             },
     ///         })),

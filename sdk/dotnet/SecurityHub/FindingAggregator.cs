@@ -32,6 +32,12 @@ namespace Pulumi.Aws.SecurityHub
     ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("example", new()
     ///     {
     ///         LinkingMode = "ALL_REGIONS",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -61,6 +67,12 @@ namespace Pulumi.Aws.SecurityHub
     ///             "eu-west-1",
     ///             "eu-west-2",
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -89,6 +101,12 @@ namespace Pulumi.Aws.SecurityHub
     ///         {
     ///             "eu-west-1",
     ///             "eu-west-2",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
     ///         },
     ///     });
     /// 

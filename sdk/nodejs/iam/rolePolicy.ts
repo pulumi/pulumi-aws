@@ -23,13 +23,13 @@ import {PolicyDocument, Role} from "./index";
  * const testRole = new aws.iam.Role("test_role", {
  *     name: "test_role",
  *     assumeRolePolicy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             action: "sts:AssumeRole",
- *             effect: "Allow",
- *             sid: "",
- *             principal: {
- *                 service: "ec2.amazonaws.com",
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Sid: "",
+ *             Principal: {
+ *                 Service: "ec2.amazonaws.com",
  *             },
  *         }],
  *     }),
@@ -38,11 +38,11 @@ import {PolicyDocument, Role} from "./index";
  *     name: "test_policy",
  *     role: testRole.id,
  *     policy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             action: ["ec2:Describe*"],
- *             effect: "Allow",
- *             resource: "*",
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: ["ec2:Describe*"],
+ *             Effect: "Allow",
+ *             Resource: "*",
  *         }],
  *     }),
  * });

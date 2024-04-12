@@ -31,16 +31,17 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.cfg.DeliveryChannel;
- * import com.pulumi.aws.cfg.DeliveryChannelArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.cfg.Recorder;
  * import com.pulumi.aws.cfg.RecorderArgs;
+ * import com.pulumi.aws.cfg.DeliveryChannel;
+ * import com.pulumi.aws.cfg.DeliveryChannelArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,11 +58,6 @@ import javax.annotation.Nullable;
  *         var b = new BucketV2(&#34;b&#34;, BucketV2Args.builder()        
  *             .bucket(&#34;example-awsconfig&#34;)
  *             .forceDestroy(true)
- *             .build());
- * 
- *         var foo = new DeliveryChannel(&#34;foo&#34;, DeliveryChannelArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .s3BucketName(b.bucket())
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -84,6 +80,13 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .roleArn(r.arn())
  *             .build());
+ * 
+ *         var foo = new DeliveryChannel(&#34;foo&#34;, DeliveryChannelArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .s3BucketName(b.bucket())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(fooRecorder)
+ *                 .build());
  * 
  *         final var p = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()

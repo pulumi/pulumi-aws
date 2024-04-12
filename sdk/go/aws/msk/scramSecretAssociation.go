@@ -68,15 +68,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = msk.NewScramSecretAssociation(ctx, "example", &msk.ScramSecretAssociationArgs{
-//				ClusterArn: exampleCluster.Arn,
-//				SecretArnLists: pulumi.StringArray{
-//					exampleSecret.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"username": "user",
 //				"password": "pass",
@@ -85,10 +76,21 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
+//			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
 //				SecretId:     exampleSecret.ID(),
 //				SecretString: pulumi.String(json0),
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = msk.NewScramSecretAssociation(ctx, "example", &msk.ScramSecretAssociationArgs{
+//				ClusterArn: exampleCluster.Arn,
+//				SecretArnLists: pulumi.StringArray{
+//					exampleSecret.Arn,
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSecretVersion,
+//			}))
 //			if err != nil {
 //				return err
 //			}

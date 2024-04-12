@@ -247,6 +247,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.opensearch.DomainArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainVpcOptionsArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -323,7 +324,9 @@ import javax.annotation.Nullable;
  *             .advancedOptions(Map.of(&#34;rest.action.multi.allow_explicit_index&#34;, &#34;true&#34;))
  *             .accessPolicies(exampleGetPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleServiceLinkedRole)
+ *                 .build());
  * 
  *     }
  * }

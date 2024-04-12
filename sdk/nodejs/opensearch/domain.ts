@@ -189,6 +189,8 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Domain: "TestDomain",
  *     },
+ * }, {
+ *     dependsOn: [exampleServiceLinkedRole],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

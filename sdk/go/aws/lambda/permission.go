@@ -35,14 +35,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": []map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"action": "sts:AssumeRole",
-//						"effect": "Allow",
-//						"sid":    "",
-//						"principal": map[string]interface{}{
-//							"service": "lambda.amazonaws.com",
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Sid":    "",
+//						"Principal": map[string]interface{}{
+//							"Service": "lambda.amazonaws.com",
 //						},
 //					},
 //				},
@@ -121,14 +121,14 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": []map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"action": "sts:AssumeRole",
-//						"effect": "Allow",
-//						"sid":    "",
-//						"principal": map[string]interface{}{
-//							"service": "lambda.amazonaws.com",
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Sid":    "",
+//						"Principal": map[string]interface{}{
+//							"Service": "lambda.amazonaws.com",
 //						},
 //					},
 //				},
@@ -286,7 +286,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewPermission(ctx, "logging", &lambda.PermissionArgs{
+//			logging, err := lambda.NewPermission(ctx, "logging", &lambda.PermissionArgs{
 //				Action:    pulumi.String("lambda:InvokeFunction"),
 //				Function:  loggingFunction.Name,
 //				Principal: pulumi.String("logs.eu-west-1.amazonaws.com"),
@@ -302,7 +302,9 @@ import (
 //				FilterPattern:  pulumi.String(""),
 //				LogGroup:       _default.Name,
 //				Name:           pulumi.String("logging_default"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				logging,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -341,39 +343,6 @@ import (
 //				Principal:           pulumi.String("arn:aws:iam::444455556666:role/example"),
 //				SourceAccount:       pulumi.String("444455556666"),
 //				FunctionUrlAuthType: pulumi.String("AWS_IAM"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// <!--End PulumiCodeChooser -->
-//
-// ### With `replaceTriggeredBy` Lifecycle Configuration
-//
-// If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
-//
-// <!--Start PulumiCodeChooser -->
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewPermission(ctx, "logging", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  pulumi.Any(example.FunctionName),
-//				Principal: pulumi.String("events.amazonaws.com"),
-//				SourceArn: pulumi.String("arn:aws:events:eu-west-1:111122223333:rule/RunDaily"),
 //			})
 //			if err != nil {
 //				return err

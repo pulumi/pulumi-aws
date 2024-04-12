@@ -37,6 +37,12 @@ namespace Pulumi.Aws.Dms
     ///         EndpointType = "target",
     ///         BucketName = "beckut_name",
     ///         ServiceAccessRoleArn = exampleAwsIamRole.Arn,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsIamRolePolicy, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Dms
     ///         UseCsvNoSupValue = false,
     ///         UseTaskStartTimeForFullLoadTimestamp = true,
     ///         GlueCatalogGeneration = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsIamRolePolicy, 
+    ///         },
     ///     });
     /// 
     /// });

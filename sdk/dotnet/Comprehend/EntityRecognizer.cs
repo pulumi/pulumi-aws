@@ -56,6 +56,12 @@ namespace Pulumi.Aws.Comprehend
     ///                 S3Uri = entities.Id.Apply(id =&gt; $"s3://{entitiesAwsS3Bucket.Bucket}/{id}"),
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             exampleAwsIamRolePolicy, 
+    ///         },
     ///     });
     /// 
     /// });

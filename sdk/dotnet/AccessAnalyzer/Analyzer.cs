@@ -57,6 +57,12 @@ namespace Pulumi.Aws.AccessAnalyzer
     ///     {
     ///         AnalyzerName = "example",
     ///         Type = "ORGANIZATION",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });

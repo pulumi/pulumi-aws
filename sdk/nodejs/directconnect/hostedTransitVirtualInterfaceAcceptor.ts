@@ -18,6 +18,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const accepter = aws.getCallerIdentity({});
+ * // Accepter's side of the VIF.
+ * const example = new aws.directconnect.Gateway("example", {
+ *     name: "tf-dxg-example",
+ *     amazonSideAsn: "64512",
+ * });
  * // Creator's side of the VIF
  * const creator = new aws.directconnect.HostedTransitVirtualInterface("creator", {
  *     connectionId: "dxcon-zzzzzzzz",
@@ -26,11 +31,8 @@ import * as utilities from "../utilities";
  *     vlan: 4094,
  *     addressFamily: "ipv4",
  *     bgpAsn: 65352,
- * });
- * // Accepter's side of the VIF.
- * const example = new aws.directconnect.Gateway("example", {
- *     name: "tf-dxg-example",
- *     amazonSideAsn: "64512",
+ * }, {
+ *     dependsOn: [example],
  * });
  * const accepterHostedTransitVirtualInterfaceAcceptor = new aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepter", {
  *     virtualInterfaceId: creator.id,

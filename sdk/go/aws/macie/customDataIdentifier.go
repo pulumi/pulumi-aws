@@ -44,7 +44,9 @@ import (
 //				IgnoreWords: pulumi.StringArray{
 //					pulumi.String("ignore"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				test,
+//			}))
 //			if err != nil {
 //				return err
 //			}

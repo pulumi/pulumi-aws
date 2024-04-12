@@ -110,8 +110,8 @@ import javax.annotation.Nullable;
  *                 .roleArn(exampleAwsIamRole.arn())
  *                 .input(example.url().applyValue(url -&gt; serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;messageBody&#34;, &#34;Greetings, programs!&#34;),
- *                         jsonProperty(&#34;queueUrl&#34;, url)
+ *                         jsonProperty(&#34;MessageBody&#34;, &#34;Greetings, programs!&#34;),
+ *                         jsonProperty(&#34;QueueUrl&#34;, url)
  *                     ))))
  *                 .build())
  *             .build());

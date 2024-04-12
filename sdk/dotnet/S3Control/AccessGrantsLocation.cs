@@ -32,6 +32,12 @@ namespace Pulumi.Aws.S3Control
     ///     {
     ///         IamRoleArn = exampleAwsIamRole.Arn,
     ///         LocationScope = "s3://",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });

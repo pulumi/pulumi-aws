@@ -119,11 +119,13 @@ import (
 // Options: &networkmanager.ConnectAttachmentOptionsArgs{
 // Protocol: pulumi.String("GRE"),
 // },
-// })
+// }, pulumi.DependsOn([]pulumi.Resource{
+// test,
+// }))
 // if err != nil {
 // return err
 // }
-// _, err = networkmanager.NewAttachmentAccepter(ctx, "example2", &networkmanager.AttachmentAccepterArgs{
+// example2, err := networkmanager.NewAttachmentAccepter(ctx, "example2", &networkmanager.AttachmentAccepterArgs{
 // AttachmentId: exampleConnectAttachment.ID(),
 // AttachmentType: exampleConnectAttachment.AttachmentType,
 // })
@@ -139,7 +141,9 @@ import (
 // InsideCidrBlocks: pulumi.StringArray{
 // pulumi.String("172.16.0.0/16"),
 // },
-// })
+// }, pulumi.DependsOn([]pulumi.Resource{
+// example2,
+// }))
 // if err != nil {
 // return err
 // }

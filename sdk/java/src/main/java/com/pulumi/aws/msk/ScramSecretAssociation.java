@@ -44,15 +44,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.secretsmanager.Secret;
  * import com.pulumi.aws.secretsmanager.SecretArgs;
- * import com.pulumi.aws.msk.ScramSecretAssociation;
- * import com.pulumi.aws.msk.ScramSecretAssociationArgs;
  * import com.pulumi.aws.secretsmanager.SecretVersion;
  * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
+ * import com.pulumi.aws.msk.ScramSecretAssociation;
+ * import com.pulumi.aws.msk.ScramSecretAssociationArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.secretsmanager.SecretPolicy;
  * import com.pulumi.aws.secretsmanager.SecretPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,11 +85,6 @@ import javax.annotation.Nullable;
  *             .kmsKeyId(exampleKey.keyId())
  *             .build());
  * 
- *         var exampleScramSecretAssociation = new ScramSecretAssociation(&#34;exampleScramSecretAssociation&#34;, ScramSecretAssociationArgs.builder()        
- *             .clusterArn(exampleCluster.arn())
- *             .secretArnLists(exampleSecret.arn())
- *             .build());
- * 
  *         var exampleSecretVersion = new SecretVersion(&#34;exampleSecretVersion&#34;, SecretVersionArgs.builder()        
  *             .secretId(exampleSecret.id())
  *             .secretString(serializeJson(
@@ -97,6 +93,13 @@ import javax.annotation.Nullable;
  *                     jsonProperty(&#34;password&#34;, &#34;pass&#34;)
  *                 )))
  *             .build());
+ * 
+ *         var exampleScramSecretAssociation = new ScramSecretAssociation(&#34;exampleScramSecretAssociation&#34;, ScramSecretAssociationArgs.builder()        
+ *             .clusterArn(exampleCluster.arn())
+ *             .secretArnLists(exampleSecret.arn())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleSecretVersion)
+ *                 .build());
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()

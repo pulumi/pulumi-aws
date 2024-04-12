@@ -650,13 +650,13 @@ class Workspace(pulumi.CustomResource):
         assume = aws.iam.Role("assume",
             name="grafana-assume",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": "sts:AssumeRole",
-                    "effect": "Allow",
-                    "sid": "",
-                    "principal": {
-                        "service": "grafana.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "grafana.amazonaws.com",
                     },
                 }],
             }))
@@ -719,13 +719,13 @@ class Workspace(pulumi.CustomResource):
         assume = aws.iam.Role("assume",
             name="grafana-assume",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": "sts:AssumeRole",
-                    "effect": "Allow",
-                    "sid": "",
-                    "principal": {
-                        "service": "grafana.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "grafana.amazonaws.com",
                     },
                 }],
             }))

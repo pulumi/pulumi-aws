@@ -32,8 +32,8 @@ namespace Pulumi.Aws.Shield
     ///         Name = awsShieldDrtAccessRoleArn,
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {

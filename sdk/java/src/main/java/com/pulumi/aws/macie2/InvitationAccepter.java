@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie2.MemberArgs;
  * import com.pulumi.aws.macie2.InvitationAccepter;
  * import com.pulumi.aws.macie2.InvitationAccepterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,11 +53,15 @@ import javax.annotation.Nullable;
  *             .email(&#34;EMAIL&#34;)
  *             .invite(true)
  *             .invitationMessage(&#34;Message of the invite&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(primary)
+ *                 .build());
  * 
  *         var memberInvitationAccepter = new InvitationAccepter(&#34;memberInvitationAccepter&#34;, InvitationAccepterArgs.builder()        
  *             .administratorAccountId(&#34;ADMINISTRATOR ACCOUNT ID&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(primaryMember)
+ *                 .build());
  * 
  *     }
  * }

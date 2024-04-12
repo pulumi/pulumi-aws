@@ -494,7 +494,8 @@ class ComputeEnvironment(pulumi.CustomResource):
                 type="EC2",
             ),
             service_role=aws_batch_service_role.arn,
-            type="MANAGED")
+            type="MANAGED",
+            opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -513,8 +514,9 @@ class ComputeEnvironment(pulumi.CustomResource):
                 subnets=[sample_aws_subnet["id"]],
                 type="FARGATE",
             ),
-            service_role=aws_batch_service_role["arn"],
-            type="MANAGED")
+            service_role=aws_batch_service_role_aws_iam_role["arn"],
+            type="MANAGED",
+            opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -648,7 +650,8 @@ class ComputeEnvironment(pulumi.CustomResource):
                 type="EC2",
             ),
             service_role=aws_batch_service_role.arn,
-            type="MANAGED")
+            type="MANAGED",
+            opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -667,8 +670,9 @@ class ComputeEnvironment(pulumi.CustomResource):
                 subnets=[sample_aws_subnet["id"]],
                 type="FARGATE",
             ),
-            service_role=aws_batch_service_role["arn"],
-            type="MANAGED")
+            service_role=aws_batch_service_role_aws_iam_role["arn"],
+            type="MANAGED",
+            opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role]))
         ```
         <!--End PulumiCodeChooser -->
 

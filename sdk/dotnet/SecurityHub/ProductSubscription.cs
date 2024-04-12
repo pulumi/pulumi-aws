@@ -30,6 +30,12 @@ namespace Pulumi.Aws.SecurityHub
     ///     var exampleProductSubscription = new Aws.SecurityHub.ProductSubscription("example", new()
     ///     {
     ///         ProductArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:733251395267:product/alertlogic/althreatmanagement",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });

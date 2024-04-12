@@ -97,6 +97,8 @@ import * as utilities from "../utilities";
  *     },
  *     serviceRole: awsBatchServiceRole.arn,
  *     type: "MANAGED",
+ * }, {
+ *     dependsOn: [awsBatchServiceRoleRolePolicyAttachment],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -116,8 +118,10 @@ import * as utilities from "../utilities";
  *         subnets: [sampleAwsSubnet.id],
  *         type: "FARGATE",
  *     },
- *     serviceRole: awsBatchServiceRole.arn,
+ *     serviceRole: awsBatchServiceRoleAwsIamRole.arn,
  *     type: "MANAGED",
+ * }, {
+ *     dependsOn: [awsBatchServiceRole],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

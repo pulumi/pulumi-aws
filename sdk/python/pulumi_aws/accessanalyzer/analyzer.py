@@ -238,7 +238,8 @@ class Analyzer(pulumi.CustomResource):
         example = aws.organizations.Organization("example", aws_service_access_principals=["access-analyzer.amazonaws.com"])
         example_analyzer = aws.accessanalyzer.Analyzer("example",
             analyzer_name="example",
-            type="ORGANIZATION")
+            type="ORGANIZATION",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -291,7 +292,8 @@ class Analyzer(pulumi.CustomResource):
         example = aws.organizations.Organization("example", aws_service_access_principals=["access-analyzer.amazonaws.com"])
         example_analyzer = aws.accessanalyzer.Analyzer("example",
             analyzer_name="example",
-            type="ORGANIZATION")
+            type="ORGANIZATION",
+            opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
         <!--End PulumiCodeChooser -->
 

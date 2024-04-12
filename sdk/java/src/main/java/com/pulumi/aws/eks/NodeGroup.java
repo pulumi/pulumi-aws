@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.eks.NodeGroupArgs;
  * import com.pulumi.aws.eks.inputs.NodeGroupScalingConfigArgs;
  * import com.pulumi.aws.eks.inputs.NodeGroupUpdateConfigArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -66,7 +67,12 @@ import javax.annotation.Nullable;
  *             .updateConfig(NodeGroupUpdateConfigArgs.builder()
  *                 .maxUnavailable(1)
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     example_AmazonEKSWorkerNodePolicy,
+ *                     example_AmazonEKSCNIPolicy,
+ *                     example_AmazonEC2ContainerRegistryReadOnly)
+ *                 .build());
  * 
  *     }
  * }
@@ -142,14 +148,14 @@ import javax.annotation.Nullable;
  *             .name(&#34;eks-node-group-example&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;principal&#34;, jsonObject(
- *                             jsonProperty(&#34;service&#34;, &#34;ec2.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;Principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;Service&#34;, &#34;ec2.amazonaws.com&#34;)
  *                         ))
  *                     ))),
- *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;)
+ *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
  *                 )))
  *             .build());
  * 

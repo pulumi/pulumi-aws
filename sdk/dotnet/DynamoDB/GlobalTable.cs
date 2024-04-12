@@ -77,6 +77,13 @@ namespace Pulumi.Aws.DynamoDB
     ///                 RegionName = "us-west-2",
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             us_east_1, 
+    ///             us_west_2, 
+    ///         },
     ///     });
     /// 
     /// });

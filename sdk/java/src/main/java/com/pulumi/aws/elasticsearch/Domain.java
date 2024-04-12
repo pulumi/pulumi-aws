@@ -222,6 +222,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticsearch.DomainArgs;
  * import com.pulumi.aws.elasticsearch.inputs.DomainClusterConfigArgs;
  * import com.pulumi.aws.elasticsearch.inputs.DomainVpcOptionsArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -298,7 +299,9 @@ import javax.annotation.Nullable;
  * }
  * &#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
  *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(esServiceLinkedRole)
+ *                 .build());
  * 
  *     }
  * }

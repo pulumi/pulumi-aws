@@ -228,7 +228,8 @@ class RealtimeLogConfig(pulumi.CustomResource):
                     role_arn=example_role.arn,
                     stream_arn=example_aws_kinesis_stream["arn"],
                 ),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -301,7 +302,8 @@ class RealtimeLogConfig(pulumi.CustomResource):
                     role_arn=example_role.arn,
                     stream_arn=example_aws_kinesis_stream["arn"],
                 ),
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
         ```
         <!--End PulumiCodeChooser -->
 

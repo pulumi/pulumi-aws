@@ -34,7 +34,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
+//			example, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
 //				AwsServiceAccessPrincipals: pulumi.StringArray{
 //					pulumi.String("config-multiaccountsetup.amazonaws.com"),
 //				},
@@ -46,7 +46,9 @@ import (
 //			_, err = cfg.NewOrganizationManagedRule(ctx, "example", &cfg.OrganizationManagedRuleArgs{
 //				Name:           pulumi.String("example"),
 //				RuleIdentifier: pulumi.String("IAM_PASSWORD_POLICY"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
 //			if err != nil {
 //				return err
 //			}

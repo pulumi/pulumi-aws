@@ -56,22 +56,22 @@ import (
 //				Policy: example.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"version": "2012-10-17",
-//						"id":      "default",
-//						"statement": []map[string]interface{}{
+//						"Version": "2012-10-17",
+//						"Id":      "default",
+//						"Statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"sid":    "default",
-//								"effect": "Allow",
-//								"principal": map[string]interface{}{
+//								"Sid":    "default",
+//								"Effect": "Allow",
+//								"Principal": map[string]interface{}{
 //									"AWS": fmt.Sprintf("arn:%v:iam::%v:root", current.Partition, currentGetCallerIdentity.AccountId),
 //								},
-//								"action": []string{
+//								"Action": []string{
 //									"codebuild:BatchGetReportGroups",
 //									"codebuild:BatchGetReports",
 //									"codebuild:ListReportsForReportGroup",
 //									"codebuild:DescribeTestCases",
 //								},
-//								"resource": arn,
+//								"Resource": arn,
 //							},
 //						},
 //					})

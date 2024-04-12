@@ -40,22 +40,22 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": []map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"action": []string{
+//						"Action": []string{
 //							"oam:CreateLink",
 //							"oam:UpdateLink",
 //						},
-//						"effect":   "Allow",
-//						"resource": "*",
-//						"principal": map[string]interface{}{
+//						"Effect":   "Allow",
+//						"Resource": "*",
+//						"Principal": map[string]interface{}{
 //							"AWS": []string{
 //								"1111111111111",
 //								"222222222222",
 //							},
 //						},
-//						"condition": map[string]interface{}{
+//						"Condition": map[string]interface{}{
 //							"ForAllValues:StringEquals": map[string]interface{}{
 //								"oam:ResourceTypes": []string{
 //									"AWS::CloudWatch::Metric",

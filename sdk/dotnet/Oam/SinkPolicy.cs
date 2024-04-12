@@ -36,19 +36,19 @@ namespace Pulumi.Aws.Oam
     ///         SinkIdentifier = example.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["action"] = new[]
+    ///                     ["Action"] = new[]
     ///                     {
     ///                         "oam:CreateLink",
     ///                         "oam:UpdateLink",
     ///                     },
-    ///                     ["effect"] = "Allow",
-    ///                     ["resource"] = "*",
-    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = "*",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = new[]
     ///                         {
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Oam
     ///                             "222222222222",
     ///                         },
     ///                     },
-    ///                     ["condition"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["ForAllValues:StringEquals"] = new Dictionary&lt;string, object?&gt;
     ///                         {

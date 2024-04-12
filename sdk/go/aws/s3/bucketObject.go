@@ -223,7 +223,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketVersioningV2(ctx, "example", &s3.BucketVersioningV2Args{
+//			exampleBucketVersioningV2, err := s3.NewBucketVersioningV2(ctx, "example", &s3.BucketVersioningV2Args{
 //				Bucket: examplebucket.ID(),
 //				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
@@ -240,7 +240,9 @@ import (
 //				ObjectLockMode:            pulumi.String("GOVERNANCE"),
 //				ObjectLockRetainUntilDate: pulumi.String("2021-12-31T23:59:60Z"),
 //				ForceDestroy:              pulumi.Bool(true),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketVersioningV2,
+//			}))
 //			if err != nil {
 //				return err
 //			}

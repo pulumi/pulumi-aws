@@ -21,13 +21,13 @@ import {Function} from "./index";
  * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
  *     name: "iam_for_lambda",
  *     assumeRolePolicy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             action: "sts:AssumeRole",
- *             effect: "Allow",
- *             sid: "",
- *             principal: {
- *                 service: "lambda.amazonaws.com",
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Sid: "",
+ *             Principal: {
+ *                 Service: "lambda.amazonaws.com",
  *             },
  *         }],
  *     }),
@@ -67,13 +67,13 @@ import {Function} from "./index";
  * const defaultRole = new aws.iam.Role("default", {
  *     name: "iam_for_lambda_with_sns",
  *     assumeRolePolicy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             action: "sts:AssumeRole",
- *             effect: "Allow",
- *             sid: "",
- *             principal: {
- *                 service: "lambda.amazonaws.com",
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Sid: "",
+ *             Principal: {
+ *                 Service: "lambda.amazonaws.com",
  *             },
  *         }],
  *     }),
@@ -161,6 +161,8 @@ import {Function} from "./index";
  *     filterPattern: "",
  *     logGroup: _default.name,
  *     name: "logging_default",
+ * }, {
+ *     dependsOn: [logging],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -182,24 +184,6 @@ import {Function} from "./index";
  *     principal: "arn:aws:iam::444455556666:role/example",
  *     sourceAccount: "444455556666",
  *     functionUrlAuthType: "AWS_IAM",
- * });
- * ```
- * <!--End PulumiCodeChooser -->
- *
- * ### With `replaceTriggeredBy` Lifecycle Configuration
- *
- * If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
- *
- * <!--Start PulumiCodeChooser -->
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const logging = new aws.lambda.Permission("logging", {
- *     action: "lambda:InvokeFunction",
- *     "function": example.functionName,
- *     principal: "events.amazonaws.com",
- *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

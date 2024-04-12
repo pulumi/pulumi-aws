@@ -35,13 +35,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": []map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"effect": "Allow",
-//						"action": "sts:AssumeRole",
-//						"principal": map[string]interface{}{
-//							"service": "quicksight.amazonaws.com",
+//						"Effect": "Allow",
+//						"Action": "sts:AssumeRole",
+//						"Principal": map[string]interface{}{
+//							"Service": "quicksight.amazonaws.com",
 //						},
 //					},
 //				},
@@ -51,18 +51,18 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": []map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"effect": "Allow",
-//						"action": []string{
+//						"Effect": "Allow",
+//						"Action": []string{
 //							"ec2:CreateNetworkInterface",
 //							"ec2:ModifyNetworkInterfaceAttribute",
 //							"ec2:DeleteNetworkInterface",
 //							"ec2:DescribeSubnets",
 //							"ec2:DescribeSecurityGroups",
 //						},
-//						"resource": []string{
+//						"Resource": []string{
 //							"*",
 //						},
 //					},

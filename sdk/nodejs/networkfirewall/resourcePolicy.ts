@@ -19,20 +19,20 @@ import * as utilities from "../utilities";
  * const example = new aws.networkfirewall.ResourcePolicy("example", {
  *     resourceArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
  *     policy: JSON.stringify({
- *         statement: [{
- *             action: [
+ *         Statement: [{
+ *             Action: [
  *                 "network-firewall:ListFirewallPolicies",
  *                 "network-firewall:CreateFirewall",
  *                 "network-firewall:UpdateFirewall",
  *                 "network-firewall:AssociateFirewallPolicy",
  *             ],
- *             effect: "Allow",
- *             resource: exampleAwsNetworkfirewallFirewallPolicy.arn,
- *             principal: {
+ *             Effect: "Allow",
+ *             Resource: exampleAwsNetworkfirewallFirewallPolicy.arn,
+ *             Principal: {
  *                 AWS: "arn:aws:iam::123456789012:root",
  *             },
  *         }],
- *         version: "2012-10-17",
+ *         Version: "2012-10-17",
  *     }),
  * });
  * ```
@@ -48,19 +48,19 @@ import * as utilities from "../utilities";
  * const example = new aws.networkfirewall.ResourcePolicy("example", {
  *     resourceArn: exampleAwsNetworkfirewallRuleGroup.arn,
  *     policy: JSON.stringify({
- *         statement: [{
- *             action: [
+ *         Statement: [{
+ *             Action: [
  *                 "network-firewall:ListRuleGroups",
  *                 "network-firewall:CreateFirewallPolicy",
  *                 "network-firewall:UpdateFirewallPolicy",
  *             ],
- *             effect: "Allow",
- *             resource: exampleAwsNetworkfirewallRuleGroup.arn,
- *             principal: {
+ *             Effect: "Allow",
+ *             Resource: exampleAwsNetworkfirewallRuleGroup.arn,
+ *             Principal: {
  *                 AWS: "arn:aws:iam::123456789012:root",
  *             },
  *         }],
- *         version: "2012-10-17",
+ *         Version: "2012-10-17",
  *     }),
  * });
  * ```

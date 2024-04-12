@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
+//			example, err := opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
 //				Name:   pulumi.String("example"),
 //				Type:   pulumi.String("encryption"),
 //				Policy: pulumi.String(json0),
@@ -61,7 +61,9 @@ import (
 //			}
 //			_, err = opensearch.NewServerlessCollection(ctx, "example", &opensearch.ServerlessCollectionArgs{
 //				Name: pulumi.String("example"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
 //			if err != nil {
 //				return err
 //			}

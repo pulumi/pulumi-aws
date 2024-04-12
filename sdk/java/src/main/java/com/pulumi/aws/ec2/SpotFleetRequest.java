@@ -107,6 +107,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.SpotFleetRequestArgs;
  * import com.pulumi.aws.ec2.inputs.SpotFleetRequestLaunchTemplateConfigArgs;
  * import com.pulumi.aws.ec2.inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -138,7 +139,9 @@ import javax.annotation.Nullable;
  *                     .version(foo.latestVersion())
  *                     .build())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(test_attach)
+ *                 .build());
  * 
  *     }
  * }
@@ -220,6 +223,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.SpotFleetRequestArgs;
  * import com.pulumi.aws.ec2.inputs.SpotFleetRequestLaunchTemplateConfigArgs;
  * import com.pulumi.aws.ec2.inputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -268,7 +272,9 @@ import javax.annotation.Nullable;
  *                         .subnetId(example.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[2]))
  *                         .build())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(test_attach)
+ *                 .build());
  * 
  *     }
  * }

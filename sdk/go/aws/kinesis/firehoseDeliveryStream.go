@@ -525,7 +525,9 @@ import (
 //						RoleArn: pulumi.Any(firehose.Arn),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				firehose_elasticsearchRolePolicy,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -710,7 +712,9 @@ import (
 //						RoleArn: pulumi.Any(firehose.Arn),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				firehose_opensearch,
+//			}))
 //			if err != nil {
 //				return err
 //			}

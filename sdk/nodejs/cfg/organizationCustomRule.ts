@@ -32,6 +32,11 @@ import * as utilities from "../utilities";
  *     lambdaFunctionArn: exampleAwsLambdaFunction.arn,
  *     name: "example",
  *     triggerTypes: ["ConfigurationItemChangeNotification"],
+ * }, {
+ *     dependsOn: [
+ *         example,
+ *         exampleOrganization,
+ *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

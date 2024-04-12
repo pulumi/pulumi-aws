@@ -41,26 +41,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version":     "2019-10-30",
-//				"startAction": "12345678-1234-1234-1234-123456789012",
-//				"actions": []interface{}{
+//				"Version":     "2019-10-30",
+//				"StartAction": "12345678-1234-1234-1234-123456789012",
+//				"Actions": []interface{}{
 //					map[string]interface{}{
-//						"identifier": "12345678-1234-1234-1234-123456789012",
-//						"type":       "MessageParticipant",
-//						"transitions": map[string]interface{}{
-//							"nextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//							"errors":     []interface{}{},
-//							"conditions": []interface{}{},
+//						"Identifier": "12345678-1234-1234-1234-123456789012",
+//						"Type":       "MessageParticipant",
+//						"Transitions": map[string]interface{}{
+//							"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//							"Errors":     []interface{}{},
+//							"Conditions": []interface{}{},
 //						},
-//						"parameters": map[string]interface{}{
-//							"text": "Thanks for calling the sample flow!",
+//						"Parameters": map[string]interface{}{
+//							"Text": "Thanks for calling the sample flow!",
 //						},
 //					},
 //					map[string]interface{}{
-//						"identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
-//						"type":        "DisconnectParticipant",
-//						"transitions": nil,
-//						"parameters":  nil,
+//						"Identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
+//						"Type":        "DisconnectParticipant",
+//						"Transitions": nil,
+//						"Parameters":  nil,
 //					},
 //				},
 //			})

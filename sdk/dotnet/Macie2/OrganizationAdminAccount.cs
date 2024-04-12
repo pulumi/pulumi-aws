@@ -28,6 +28,12 @@ namespace Pulumi.Aws.Macie2
     ///     var exampleOrganizationAdminAccount = new Aws.Macie2.OrganizationAdminAccount("example", new()
     ///     {
     ///         AdminAccountId = "ID OF THE ADMIN ACCOUNT",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });

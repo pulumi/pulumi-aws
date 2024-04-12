@@ -451,7 +451,8 @@ class AnomalySubscription(pulumi.CustomResource):
             subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
                 type="SNS",
                 address=cost_anomaly_updates.arn,
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[default]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -629,7 +630,8 @@ class AnomalySubscription(pulumi.CustomResource):
             subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
                 type="SNS",
                 address=cost_anomaly_updates.arn,
-            )])
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[default]))
         ```
         <!--End PulumiCodeChooser -->
 

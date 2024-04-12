@@ -32,19 +32,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": []map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"effect": "Allow",
-//						"principal": map[string]interface{}{
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
 //							"AWS": []string{
 //								"12345678901",
 //							},
 //						},
-//						"action": []string{
+//						"Action": []string{
 //							"redshift-serverless:RestoreFromSnapshot",
 //						},
-//						"sid": "",
+//						"Sid": "",
 //					},
 //				},
 //			})

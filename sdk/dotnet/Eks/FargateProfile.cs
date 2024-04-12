@@ -59,19 +59,19 @@ namespace Pulumi.Aws.Eks
     ///         Name = "eks-fargate-profile-example",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["statement"] = new[]
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["action"] = "sts:AssumeRole",
-    ///                     ["effect"] = "Allow",
-    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = "eks-fargate-pods.amazonaws.com",
+    ///                         ["Service"] = "eks-fargate-pods.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
-    ///             ["version"] = "2012-10-17",
+    ///             ["Version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 

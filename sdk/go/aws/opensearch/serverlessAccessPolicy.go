@@ -40,27 +40,27 @@ import (
 //			}
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
-//					"rules": []map[string]interface{}{
+//					"Rules": []map[string]interface{}{
 //						map[string]interface{}{
-//							"resourceType": "index",
-//							"resource": []string{
+//							"ResourceType": "index",
+//							"Resource": []string{
 //								"index/example-collection/*",
 //							},
-//							"permission": []string{
+//							"Permission": []string{
 //								"aoss:*",
 //							},
 //						},
 //						map[string]interface{}{
-//							"resourceType": "collection",
-//							"resource": []string{
+//							"ResourceType": "collection",
+//							"Resource": []string{
 //								"collection/example-collection",
 //							},
-//							"permission": []string{
+//							"Permission": []string{
 //								"aoss:*",
 //							},
 //						},
 //					},
-//					"principal": []*string{
+//					"Principal": []*string{
 //						current.Arn,
 //					},
 //				},
@@ -109,28 +109,28 @@ import (
 //			}
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
-//					"rules": []interface{}{
+//					"Rules": []interface{}{
 //						map[string]interface{}{
-//							"resourceType": "index",
-//							"resource": []string{
+//							"ResourceType": "index",
+//							"Resource": []string{
 //								"index/example-collection/*",
 //							},
-//							"permission": []string{
+//							"Permission": []string{
 //								"aoss:DescribeIndex",
 //								"aoss:ReadDocument",
 //							},
 //						},
 //						map[string]interface{}{
-//							"resourceType": "collection",
-//							"resource": []string{
+//							"ResourceType": "collection",
+//							"Resource": []string{
 //								"collection/example-collection",
 //							},
-//							"permission": []string{
+//							"Permission": []string{
 //								"aoss:DescribeCollectionItems",
 //							},
 //						},
 //					},
-//					"principal": []*string{
+//					"Principal": []*string{
 //						current.Arn,
 //					},
 //				},
@@ -174,27 +174,27 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
-//					"rules": []map[string]interface{}{
+//					"Rules": []map[string]interface{}{
 //						map[string]interface{}{
-//							"resourceType": "index",
-//							"resource": []string{
+//							"ResourceType": "index",
+//							"Resource": []string{
 //								"index/example-collection/*",
 //							},
-//							"permission": []string{
+//							"Permission": []string{
 //								"aoss:*",
 //							},
 //						},
 //						map[string]interface{}{
-//							"resourceType": "collection",
-//							"resource": []string{
+//							"ResourceType": "collection",
+//							"Resource": []string{
 //								"collection/example-collection",
 //							},
-//							"permission": []string{
+//							"Permission": []string{
 //								"aoss:*",
 //							},
 //						},
 //					},
-//					"principal": []string{
+//					"Principal": []string{
 //						"saml/123456789012/myprovider/user/Annie",
 //						"saml/123456789012/anotherprovider/group/Accounting",
 //					},

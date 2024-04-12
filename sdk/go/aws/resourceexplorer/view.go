@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := resourceexplorer.NewIndex(ctx, "example", &resourceexplorer.IndexArgs{
+//			example, err := resourceexplorer.NewIndex(ctx, "example", &resourceexplorer.IndexArgs{
 //				Type: pulumi.String("LOCAL"),
 //			})
 //			if err != nil {
@@ -44,7 +44,9 @@ import (
 //						Name: pulumi.String("tags"),
 //					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
 //			if err != nil {
 //				return err
 //			}

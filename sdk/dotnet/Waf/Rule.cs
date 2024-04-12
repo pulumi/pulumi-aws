@@ -49,6 +49,12 @@ namespace Pulumi.Aws.Waf
     ///                 Type = "IPMatch",
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             ipset, 
+    ///         },
     ///     });
     /// 
     /// });

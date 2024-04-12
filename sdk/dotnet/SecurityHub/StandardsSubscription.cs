@@ -30,11 +30,23 @@ namespace Pulumi.Aws.SecurityHub
     ///     var cis = new Aws.SecurityHub.StandardsSubscription("cis", new()
     ///     {
     ///         StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     ///     var pci321 = new Aws.SecurityHub.StandardsSubscription("pci_321", new()
     ///     {
     ///         StandardsArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}::standards/pci-dss/v/3.2.1",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });

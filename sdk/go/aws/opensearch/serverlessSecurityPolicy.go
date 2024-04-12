@@ -36,15 +36,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"rules": []map[string]interface{}{
+//				"Rules": []map[string]interface{}{
 //					map[string]interface{}{
-//						"resource": []string{
+//						"Resource": []string{
 //							"collection/example-collection",
 //						},
-//						"resourceType": "collection",
+//						"ResourceType": "collection",
 //					},
 //				},
-//				"aWSOwnedKey": true,
+//				"AWSOwnedKey": true,
 //			})
 //			if err != nil {
 //				return err
@@ -84,15 +84,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"rules": []map[string]interface{}{
+//				"Rules": []map[string]interface{}{
 //					map[string]interface{}{
-//						"resource": []string{
+//						"Resource": []string{
 //							"collection/example*",
 //						},
-//						"resourceType": "collection",
+//						"ResourceType": "collection",
 //					},
 //				},
-//				"aWSOwnedKey": true,
+//				"AWSOwnedKey": true,
 //			})
 //			if err != nil {
 //				return err
@@ -132,16 +132,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"rules": []map[string]interface{}{
+//				"Rules": []map[string]interface{}{
 //					map[string]interface{}{
-//						"resource": []string{
+//						"Resource": []string{
 //							"collection/customer-managed-key-collection",
 //						},
-//						"resourceType": "collection",
+//						"ResourceType": "collection",
 //					},
 //				},
-//				"aWSOwnedKey": false,
-//				"kmsARN":      "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
+//				"AWSOwnedKey": false,
+//				"KmsARN":      "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
 //			})
 //			if err != nil {
 //				return err
@@ -184,22 +184,22 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
-//					"description": "Public access to collection and Dashboards endpoint for example collection",
-//					"rules": []map[string]interface{}{
+//					"Description": "Public access to collection and Dashboards endpoint for example collection",
+//					"Rules": []map[string]interface{}{
 //						map[string]interface{}{
-//							"resourceType": "collection",
-//							"resource": []string{
+//							"ResourceType": "collection",
+//							"Resource": []string{
 //								"collection/example-collection",
 //							},
 //						},
 //						map[string]interface{}{
-//							"resourceType": "dashboard",
-//							"resource": []string{
+//							"ResourceType": "dashboard",
+//							"Resource": []string{
 //								"collection/example-collection",
 //							},
 //						},
 //					},
-//					"allowFromPublic": true,
+//					"AllowFromPublic": true,
 //				},
 //			})
 //			if err != nil {
@@ -241,23 +241,23 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal([]map[string]interface{}{
 //				map[string]interface{}{
-//					"description": "VPC access to collection and Dashboards endpoint for example collection",
-//					"rules": []map[string]interface{}{
+//					"Description": "VPC access to collection and Dashboards endpoint for example collection",
+//					"Rules": []map[string]interface{}{
 //						map[string]interface{}{
-//							"resourceType": "collection",
-//							"resource": []string{
+//							"ResourceType": "collection",
+//							"Resource": []string{
 //								"collection/example-collection",
 //							},
 //						},
 //						map[string]interface{}{
-//							"resourceType": "dashboard",
-//							"resource": []string{
+//							"ResourceType": "dashboard",
+//							"Resource": []string{
 //								"collection/example-collection",
 //							},
 //						},
 //					},
-//					"allowFromPublic": false,
-//					"sourceVPCEs": []string{
+//					"AllowFromPublic": false,
+//					"SourceVPCEs": []string{
 //						"vpce-050f79086ee71ac05",
 //					},
 //				},

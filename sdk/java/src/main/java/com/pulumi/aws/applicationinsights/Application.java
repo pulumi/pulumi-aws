@@ -52,10 +52,10 @@ import javax.annotation.Nullable;
  *             .resourceQuery(GroupResourceQueryArgs.builder()
  *                 .query(serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;resourceTypeFilters&#34;, jsonArray(&#34;AWS::EC2::Instance&#34;)),
- *                         jsonProperty(&#34;tagFilters&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;key&#34;, &#34;Stage&#34;),
- *                             jsonProperty(&#34;values&#34;, jsonArray(&#34;Test&#34;))
+ *                         jsonProperty(&#34;ResourceTypeFilters&#34;, jsonArray(&#34;AWS::EC2::Instance&#34;)),
+ *                         jsonProperty(&#34;TagFilters&#34;, jsonArray(jsonObject(
+ *                             jsonProperty(&#34;Key&#34;, &#34;Stage&#34;),
+ *                             jsonProperty(&#34;Values&#34;, jsonArray(&#34;Test&#34;))
  *                         )))
  *                     )))
  *                 .build())

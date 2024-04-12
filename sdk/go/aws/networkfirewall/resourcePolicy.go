@@ -34,22 +34,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"statement": []map[string]interface{}{
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"action": []string{
+//						"Action": []string{
 //							"network-firewall:ListFirewallPolicies",
 //							"network-firewall:CreateFirewall",
 //							"network-firewall:UpdateFirewall",
 //							"network-firewall:AssociateFirewallPolicy",
 //						},
-//						"effect":   "Allow",
-//						"resource": exampleAwsNetworkfirewallFirewallPolicy.Arn,
-//						"principal": map[string]interface{}{
+//						"Effect":   "Allow",
+//						"Resource": exampleAwsNetworkfirewallFirewallPolicy.Arn,
+//						"Principal": map[string]interface{}{
 //							"AWS": "arn:aws:iam::123456789012:root",
 //						},
 //					},
 //				},
-//				"version": "2012-10-17",
+//				"Version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err
@@ -87,21 +87,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"statement": []map[string]interface{}{
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"action": []string{
+//						"Action": []string{
 //							"network-firewall:ListRuleGroups",
 //							"network-firewall:CreateFirewallPolicy",
 //							"network-firewall:UpdateFirewallPolicy",
 //						},
-//						"effect":   "Allow",
-//						"resource": exampleAwsNetworkfirewallRuleGroup.Arn,
-//						"principal": map[string]interface{}{
+//						"Effect":   "Allow",
+//						"Resource": exampleAwsNetworkfirewallRuleGroup.Arn,
+//						"Principal": map[string]interface{}{
 //							"AWS": "arn:aws:iam::123456789012:root",
 //						},
 //					},
 //				},
-//				"version": "2012-10-17",
+//				"Version": "2012-10-17",
 //			})
 //			if err != nil {
 //				return err

@@ -412,7 +412,8 @@ class ConnectAttachment(pulumi.CustomResource):
             edge_location=example.edge_location,
             options=aws.networkmanager.ConnectAttachmentOptionsArgs(
                 protocol="GRE",
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[test]))
         example2 = aws.networkmanager.AttachmentAccepter("example2",
             attachment_id=example_connect_attachment.id,
             attachment_type=example_connect_attachment.attachment_type)
@@ -489,7 +490,8 @@ class ConnectAttachment(pulumi.CustomResource):
             edge_location=example.edge_location,
             options=aws.networkmanager.ConnectAttachmentOptionsArgs(
                 protocol="GRE",
-            ))
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[test]))
         example2 = aws.networkmanager.AttachmentAccepter("example2",
             attachment_id=example_connect_attachment.id,
             attachment_type=example_connect_attachment.attachment_type)

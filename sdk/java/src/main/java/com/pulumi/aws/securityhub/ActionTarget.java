@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.ActionTarget;
  * import com.pulumi.aws.securityhub.ActionTargetArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,7 +48,9 @@ import javax.annotation.Nullable;
  *             .name(&#34;Send notification to chat&#34;)
  *             .identifier(&#34;SendToChat&#34;)
  *             .description(&#34;This is custom action sends selected findings to chat&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }

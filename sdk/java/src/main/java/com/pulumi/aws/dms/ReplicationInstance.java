@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.dms.ReplicationInstance;
  * import com.pulumi.aws.dms.ReplicationInstanceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -115,7 +116,12 @@ import javax.annotation.Nullable;
  *             .replicationSubnetGroupId(test_dms_replication_subnet_group_tf.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
  *             .vpcSecurityGroupIds(&#34;sg-12345678&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
+ *                     dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole,
+ *                     dms_vpc_role_AmazonDMSVPCManagementRole)
+ *                 .build());
  * 
  *     }
  * }

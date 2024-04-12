@@ -84,6 +84,8 @@ import * as utilities from "../utilities";
  *             version: foo.latestVersion,
  *         },
  *     }],
+ * }, {
+ *     dependsOn: [test_attach],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -200,6 +202,8 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
+ * }, {
+ *     dependsOn: [test_attach],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

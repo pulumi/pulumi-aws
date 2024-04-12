@@ -76,14 +76,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": []map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"effect": "Allow",
-//						"principal": map[string]interface{}{
-//							"service": "dms.amazonaws.com",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "dms.amazonaws.com",
 //						},
-//						"action": "sts:AssumeRole",
+//						"Action": "sts:AssumeRole",
 //					},
 //				},
 //			})
@@ -99,7 +99,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
+//			example, err := iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
 //				Role:      dms_vpc_role.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole"),
 //			})
@@ -116,7 +116,9 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-id"),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
 //			if err != nil {
 //				return err
 //			}

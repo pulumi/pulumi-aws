@@ -398,7 +398,8 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version=example.engine_version,
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
-            db_subnet_group_name="default")
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondary",
             engine=example.engine,
             engine_version=example.engine_version,
@@ -443,7 +444,8 @@ class GlobalCluster(pulumi.CustomResource):
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
             skip_final_snapshot=True,
-            db_subnet_group_name="default")
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondary",
             engine=example.engine,
             engine_version=example.engine_version,
@@ -571,7 +573,8 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version=example.engine_version,
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
-            db_subnet_group_name="default")
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondary",
             engine=example.engine,
             engine_version=example.engine_version,
@@ -616,7 +619,8 @@ class GlobalCluster(pulumi.CustomResource):
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
             skip_final_snapshot=True,
-            db_subnet_group_name="default")
+            db_subnet_group_name="default",
+            opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondary",
             engine=example.engine,
             engine_version=example.engine_version,

@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.eks.Cluster;
  * import com.pulumi.aws.eks.ClusterArgs;
  * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,7 +62,11 @@ import javax.annotation.Nullable;
  *                     example1.id(),
  *                     example2.id())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     example_AmazonEKSClusterPolicy,
+ *                     example_AmazonEKSVPCResourceController)
+ *                 .build());
  * 
  *         ctx.export(&#34;endpoint&#34;, example.endpoint());
  *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.certificateAuthority().applyValue(certificateAuthority -&gt; certificateAuthority.data()));
@@ -144,10 +149,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.eks.Cluster;
- * import com.pulumi.aws.eks.ClusterArgs;
  * import com.pulumi.aws.cloudwatch.LogGroup;
  * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.eks.Cluster;
+ * import com.pulumi.aws.eks.ClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -163,17 +169,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var clusterName = config.get(&#34;clusterName&#34;).orElse(&#34;example&#34;);
+ *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
+ *             .name(String.format(&#34;/aws/eks/%s/cluster&#34;, clusterName))
+ *             .retentionInDays(7)
+ *             .build());
+ * 
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
  *             .enabledClusterLogTypes(            
  *                 &#34;api&#34;,
  *                 &#34;audit&#34;)
  *             .name(clusterName)
- *             .build());
- * 
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
- *             .name(String.format(&#34;/aws/eks/%s/cluster&#34;, clusterName))
- *             .retentionInDays(7)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleLogGroup)
+ *                 .build());
  * 
  *     }
  * }

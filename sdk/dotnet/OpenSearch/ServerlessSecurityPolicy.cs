@@ -35,18 +35,18 @@ namespace Pulumi.Aws.OpenSearch
     ///         Description = "encryption security policy for example-collection",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["rules"] = new[]
+    ///             ["Rules"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["resource"] = new[]
+    ///                     ["Resource"] = new[]
     ///                     {
     ///                         "collection/example-collection",
     ///                     },
-    ///                     ["resourceType"] = "collection",
+    ///                     ["ResourceType"] = "collection",
     ///                 },
     ///             },
-    ///             ["aWSOwnedKey"] = true,
+    ///             ["AWSOwnedKey"] = true,
     ///         }),
     ///     });
     /// 
@@ -73,18 +73,18 @@ namespace Pulumi.Aws.OpenSearch
     ///         Description = "encryption security policy for collections that begin with \"example\"",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["rules"] = new[]
+    ///             ["Rules"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["resource"] = new[]
+    ///                     ["Resource"] = new[]
     ///                     {
     ///                         "collection/example*",
     ///                     },
-    ///                     ["resourceType"] = "collection",
+    ///                     ["ResourceType"] = "collection",
     ///                 },
     ///             },
-    ///             ["aWSOwnedKey"] = true,
+    ///             ["AWSOwnedKey"] = true,
     ///         }),
     ///     });
     /// 
@@ -111,19 +111,19 @@ namespace Pulumi.Aws.OpenSearch
     ///         Description = "encryption security policy using customer KMS key",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["rules"] = new[]
+    ///             ["Rules"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["resource"] = new[]
+    ///                     ["Resource"] = new[]
     ///                     {
     ///                         "collection/customer-managed-key-collection",
     ///                     },
-    ///                     ["resourceType"] = "collection",
+    ///                     ["ResourceType"] = "collection",
     ///                 },
     ///             },
-    ///             ["aWSOwnedKey"] = false,
-    ///             ["kmsARN"] = "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
+    ///             ["AWSOwnedKey"] = false,
+    ///             ["KmsARN"] = "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
     ///         }),
     ///     });
     /// 
@@ -154,27 +154,27 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["description"] = "Public access to collection and Dashboards endpoint for example collection",
-    ///                 ["rules"] = new[]
+    ///                 ["Description"] = "Public access to collection and Dashboards endpoint for example collection",
+    ///                 ["Rules"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["resourceType"] = "collection",
-    ///                         ["resource"] = new[]
+    ///                         ["ResourceType"] = "collection",
+    ///                         ["Resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
     ///                     },
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["resourceType"] = "dashboard",
-    ///                         ["resource"] = new[]
+    ///                         ["ResourceType"] = "dashboard",
+    ///                         ["Resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
     ///                     },
     ///                 },
-    ///                 ["allowFromPublic"] = true,
+    ///                 ["AllowFromPublic"] = true,
     ///             },
     ///         }),
     ///     });
@@ -204,28 +204,28 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["description"] = "VPC access to collection and Dashboards endpoint for example collection",
-    ///                 ["rules"] = new[]
+    ///                 ["Description"] = "VPC access to collection and Dashboards endpoint for example collection",
+    ///                 ["Rules"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["resourceType"] = "collection",
-    ///                         ["resource"] = new[]
+    ///                         ["ResourceType"] = "collection",
+    ///                         ["Resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
     ///                     },
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["resourceType"] = "dashboard",
-    ///                         ["resource"] = new[]
+    ///                         ["ResourceType"] = "dashboard",
+    ///                         ["Resource"] = new[]
     ///                         {
     ///                             "collection/example-collection",
     ///                         },
     ///                     },
     ///                 },
-    ///                 ["allowFromPublic"] = false,
-    ///                 ["sourceVPCEs"] = new[]
+    ///                 ["AllowFromPublic"] = false,
+    ///                 ["SourceVPCEs"] = new[]
     ///                 {
     ///                     "vpce-050f79086ee71ac05",
     ///                 },

@@ -31,12 +31,6 @@ namespace Pulumi.Aws.Cfg
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var foo = new Aws.Cfg.DeliveryChannel("foo", new()
-    ///     {
-    ///         Name = "example",
-    ///         S3BucketName = b.Bucket,
-    ///     });
-    /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
@@ -73,6 +67,18 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         Name = "example",
     ///         RoleArn = r.Arn,
+    ///     });
+    /// 
+    ///     var foo = new Aws.Cfg.DeliveryChannel("foo", new()
+    ///     {
+    ///         Name = "example",
+    ///         S3BucketName = b.Bucket,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             fooRecorder, 
+    ///         },
     ///     });
     /// 
     ///     var p = Aws.Iam.GetPolicyDocument.Invoke(new()

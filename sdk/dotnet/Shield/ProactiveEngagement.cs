@@ -32,8 +32,8 @@ namespace Pulumi.Aws.Shield
     ///         Name = awsShieldDrtAccessRoleArn,
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
@@ -84,6 +84,12 @@ namespace Pulumi.Aws.Shield
     ///                 EmailAddress = "test2@company.com",
     ///                 PhoneNumber = "+12358132134",
     ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             testAwsShieldDrtAccessRoleArnAssociation, 
     ///         },
     ///     });
     /// 

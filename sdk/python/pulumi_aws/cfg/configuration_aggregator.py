@@ -252,15 +252,16 @@ class ConfigurationAggregator(pulumi.CustomResource):
         organization_role = aws.iam.Role("organization",
             name="example",
             assume_role_policy=assume_role.json)
+        organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organization",
+            role=organization_role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
         organization = aws.cfg.ConfigurationAggregator("organization",
             name="example",
             organization_aggregation_source=aws.cfg.ConfigurationAggregatorOrganizationAggregationSourceArgs(
                 all_regions=True,
                 role_arn=organization_role.arn,
-            ))
-        organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organization",
-            role=organization_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[organization_role_policy_attachment]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -326,15 +327,16 @@ class ConfigurationAggregator(pulumi.CustomResource):
         organization_role = aws.iam.Role("organization",
             name="example",
             assume_role_policy=assume_role.json)
+        organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organization",
+            role=organization_role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
         organization = aws.cfg.ConfigurationAggregator("organization",
             name="example",
             organization_aggregation_source=aws.cfg.ConfigurationAggregatorOrganizationAggregationSourceArgs(
                 all_regions=True,
                 role_arn=organization_role.arn,
-            ))
-        organization_role_policy_attachment = aws.iam.RolePolicyAttachment("organization",
-            role=organization_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[organization_role_policy_attachment]))
         ```
         <!--End PulumiCodeChooser -->
 

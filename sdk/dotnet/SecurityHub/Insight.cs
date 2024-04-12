@@ -47,6 +47,12 @@ namespace Pulumi.Aws.SecurityHub
     ///         },
     ///         GroupByAttribute = "AwsAccountId",
     ///         Name = "example-insight",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -84,6 +90,12 @@ namespace Pulumi.Aws.SecurityHub
     ///         },
     ///         GroupByAttribute = "CreatedAt",
     ///         Name = "example-insight",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -117,6 +129,12 @@ namespace Pulumi.Aws.SecurityHub
     ///         },
     ///         GroupByAttribute = "NetworkDestinationIpV4",
     ///         Name = "example-insight",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -150,6 +168,12 @@ namespace Pulumi.Aws.SecurityHub
     ///         },
     ///         GroupByAttribute = "Confidence",
     ///         Name = "example-insight",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });
@@ -185,6 +209,12 @@ namespace Pulumi.Aws.SecurityHub
     ///         },
     ///         GroupByAttribute = "ResourceTags",
     ///         Name = "example-insight",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example, 
+    ///         },
     ///     });
     /// 
     /// });

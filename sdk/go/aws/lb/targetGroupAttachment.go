@@ -84,7 +84,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lambda.NewPermission(ctx, "with_lb", &lambda.PermissionArgs{
+//			withLb, err := lambda.NewPermission(ctx, "with_lb", &lambda.PermissionArgs{
 //				StatementId: pulumi.String("AllowExecutionFromlb"),
 //				Action:      pulumi.String("lambda:InvokeFunction"),
 //				Function:    testFunction.Name,
@@ -97,7 +97,9 @@ import (
 //			_, err = lb.NewTargetGroupAttachment(ctx, "test", &lb.TargetGroupAttachmentArgs{
 //				TargetGroupArn: test.Arn,
 //				TargetId:       testFunction.Arn,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				withLb,
+//			}))
 //			if err != nil {
 //				return err
 //			}

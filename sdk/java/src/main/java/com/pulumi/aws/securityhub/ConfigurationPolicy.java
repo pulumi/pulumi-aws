@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.ConfigurationPolicyArgs;
  * import com.pulumi.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicyArgs;
  * import com.pulumi.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,7 +64,9 @@ import javax.annotation.Nullable;
  *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
  *                 .configurationType(&#34;CENTRAL&#34;)
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *         var exampleConfigurationPolicy = new ConfigurationPolicy(&#34;exampleConfigurationPolicy&#34;, ConfigurationPolicyArgs.builder()        
  *             .name(&#34;Example&#34;)
@@ -77,7 +80,9 @@ import javax.annotation.Nullable;
  *                     .disabledControlIdentifiers()
  *                     .build())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleOrganizationConfiguration)
+ *                 .build());
  * 
  *     }
  * }
@@ -96,6 +101,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.ConfigurationPolicy;
  * import com.pulumi.aws.securityhub.ConfigurationPolicyArgs;
  * import com.pulumi.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -116,7 +122,9 @@ import javax.annotation.Nullable;
  *                 .serviceEnabled(false)
  *                 .enabledStandardArns()
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }
@@ -136,6 +144,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.ConfigurationPolicyArgs;
  * import com.pulumi.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicyArgs;
  * import com.pulumi.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -192,7 +201,9 @@ import javax.annotation.Nullable;
  *                             .build())
  *                     .build())
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }

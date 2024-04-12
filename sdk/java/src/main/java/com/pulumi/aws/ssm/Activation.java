@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.ssm.Activation;
  * import com.pulumi.aws.ssm.ActivationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -76,7 +77,9 @@ import javax.annotation.Nullable;
  *             .description(&#34;Test&#34;)
  *             .iamRole(testRole.id())
  *             .registrationLimit(&#34;5&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(testAttach)
+ *                 .build());
  * 
  *     }
  * }

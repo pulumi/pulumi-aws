@@ -35,14 +35,14 @@ namespace Pulumi.Aws.Msk
     ///         ClusterArn = exampleAwsMskCluster.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["sid"] = "ExampleMskClusterPolicy",
-    ///                     ["effect"] = "Allow",
-    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Sid"] = "ExampleMskClusterPolicy",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
     ///                         {
@@ -51,14 +51,14 @@ namespace Pulumi.Aws.Msk
     ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
     ///                         }),
     ///                     },
-    ///                     ["action"] = new[]
+    ///                     ["Action"] = new[]
     ///                     {
     ///                         "kafka:Describe*",
     ///                         "kafka:Get*",
     ///                         "kafka:CreateVpcConnection",
     ///                         "kafka:GetBootstrapBrokers",
     ///                     },
-    ///                     ["resource"] = exampleAwsMskCluster.Arn,
+    ///                     ["Resource"] = exampleAwsMskCluster.Arn,
     ///                 },
     ///             },
     ///         }),

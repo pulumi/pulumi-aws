@@ -22,15 +22,15 @@ import {PolicyDocument} from "../iam";
  * const currentGetRegion = aws.getRegion({});
  * const currentGetPartition = aws.getPartition({});
  * const example = new aws.ecr.RegistryPolicy("example", {policy: JSON.stringify({
- *     version: "2012-10-17",
- *     statement: [{
- *         sid: "testpolicy",
- *         effect: "Allow",
- *         principal: {
+ *     Version: "2012-10-17",
+ *     Statement: [{
+ *         Sid: "testpolicy",
+ *         Effect: "Allow",
+ *         Principal: {
  *             AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
  *         },
- *         action: ["ecr:ReplicateImage"],
- *         resource: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:ecr:${currentGetRegion.name}:${current.accountId}:repository/*`)],
+ *         Action: ["ecr:ReplicateImage"],
+ *         Resource: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:ecr:${currentGetRegion.name}:${current.accountId}:repository/*`)],
  *     }],
  * })});
  * ```

@@ -51,26 +51,26 @@ import * as utilities from "../utilities";
  *     provisioningRoleArn: iotFleetProvisioning.arn,
  *     enabled: true,
  *     templateBody: pulumi.jsonStringify({
- *         parameters: {
- *             serialNumber: {
- *                 type: "String",
+ *         Parameters: {
+ *             SerialNumber: {
+ *                 Type: "String",
  *             },
  *         },
- *         resources: {
+ *         Resources: {
  *             certificate: {
- *                 properties: {
- *                     certificateId: {
- *                         ref: "AWS::IoT::Certificate::Id",
+ *                 Properties: {
+ *                     CertificateId: {
+ *                         Ref: "AWS::IoT::Certificate::Id",
  *                     },
- *                     status: "Active",
+ *                     Status: "Active",
  *                 },
- *                 type: "AWS::IoT::Certificate",
+ *                 Type: "AWS::IoT::Certificate",
  *             },
  *             policy: {
- *                 properties: {
- *                     policyName: devicePolicyPolicy.name,
+ *                 Properties: {
+ *                     PolicyName: devicePolicyPolicy.name,
  *                 },
- *                 type: "AWS::IoT::Policy",
+ *                 Type: "AWS::IoT::Policy",
  *             },
  *         },
  *     }),

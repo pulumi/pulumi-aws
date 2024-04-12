@@ -197,18 +197,18 @@ namespace Pulumi.Aws.Glue
     ///         Tags = tags,
     ///         Configuration = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["grouping"] = new Dictionary&lt;string, object?&gt;
+    ///             ["Grouping"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["tableGroupingPolicy"] = "CombineCompatibleSchemas",
+    ///                 ["TableGroupingPolicy"] = "CombineCompatibleSchemas",
     ///             },
-    ///             ["crawlerOutput"] = new Dictionary&lt;string, object?&gt;
+    ///             ["CrawlerOutput"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["partitions"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["Partitions"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["addOrUpdateBehavior"] = "InheritFromTable",
+    ///                     ["AddOrUpdateBehavior"] = "InheritFromTable",
     ///                 },
     ///             },
-    ///             ["version"] = 1,
+    ///             ["Version"] = 1,
     ///         }),
     ///         S3Targets = new[]
     ///         {

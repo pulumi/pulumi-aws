@@ -460,13 +460,13 @@ class ExportTask(pulumi.CustomResource):
         example_role = aws.iam.Role("example",
             name="example",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": "sts:AssumeRole",
-                    "effect": "Allow",
-                    "sid": "",
-                    "principal": {
-                        "service": "export.rds.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "export.rds.amazonaws.com",
                     },
                 }],
             }))
@@ -587,13 +587,13 @@ class ExportTask(pulumi.CustomResource):
         example_role = aws.iam.Role("example",
             name="example",
             assume_role_policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": "sts:AssumeRole",
-                    "effect": "Allow",
-                    "sid": "",
-                    "principal": {
-                        "service": "export.rds.amazonaws.com",
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "export.rds.amazonaws.com",
                     },
                 }],
             }))

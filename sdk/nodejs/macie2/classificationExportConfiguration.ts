@@ -22,7 +22,9 @@ import * as utilities from "../utilities";
  *     bucketName: exampleAwsS3Bucket.bucket,
  *     keyPrefix: "exampleprefix/",
  *     kmsKeyArn: exampleAwsKmsKey.arn,
- * }});
+ * }}, {
+ *     dependsOn: [example],
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  *

@@ -37,6 +37,13 @@ namespace Pulumi.Aws.Eks
     ///                 example2.Id,
     ///             },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example_AmazonEKSClusterPolicy, 
+    ///             example_AmazonEKSVPCResourceController, 
+    ///         },
     ///     });
     /// 
     ///     return new Dictionary&lt;string, object?&gt;
@@ -126,6 +133,12 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var config = new Config();
     ///     var clusterName = config.Get("clusterName") ?? "example";
+    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = $"/aws/eks/{clusterName}/cluster",
+    ///         RetentionInDays = 7,
+    ///     });
+    /// 
     ///     var example = new Aws.Eks.Cluster("example", new()
     ///     {
     ///         EnabledClusterLogTypes = new[]
@@ -134,12 +147,12 @@ namespace Pulumi.Aws.Eks
     ///             "audit",
     ///         },
     ///         Name = clusterName,
-    ///     });
-    /// 
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
+    ///     }, new CustomResourceOptions
     ///     {
-    ///         Name = $"/aws/eks/{clusterName}/cluster",
-    ///         RetentionInDays = 7,
+    ///         DependsOn =
+    ///         {
+    ///             exampleLogGroup, 
+    ///         },
     ///     });
     /// 
     /// });

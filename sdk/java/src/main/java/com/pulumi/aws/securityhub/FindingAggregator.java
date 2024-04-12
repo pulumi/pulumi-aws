@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.FindingAggregator;
  * import com.pulumi.aws.securityhub.FindingAggregatorArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,7 +52,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleFindingAggregator = new FindingAggregator(&#34;exampleFindingAggregator&#34;, FindingAggregatorArgs.builder()        
  *             .linkingMode(&#34;ALL_REGIONS&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }
@@ -72,6 +75,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.FindingAggregator;
  * import com.pulumi.aws.securityhub.FindingAggregatorArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -92,7 +96,9 @@ import javax.annotation.Nullable;
  *             .specifiedRegions(            
  *                 &#34;eu-west-1&#34;,
  *                 &#34;eu-west-2&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }
@@ -113,6 +119,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.Account;
  * import com.pulumi.aws.securityhub.FindingAggregator;
  * import com.pulumi.aws.securityhub.FindingAggregatorArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -133,7 +140,9 @@ import javax.annotation.Nullable;
  *             .specifiedRegions(            
  *                 &#34;eu-west-1&#34;,
  *                 &#34;eu-west-2&#34;)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
  * 
  *     }
  * }

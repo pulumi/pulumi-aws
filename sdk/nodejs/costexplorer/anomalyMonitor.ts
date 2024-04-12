@@ -37,15 +37,15 @@ import * as utilities from "../utilities";
  *     name: "AWSCustomAnomalyMonitor",
  *     monitorType: "CUSTOM",
  *     monitorSpecification: JSON.stringify({
- *         and: undefined,
- *         costCategories: undefined,
- *         dimensions: undefined,
- *         not: undefined,
- *         or: undefined,
- *         tags: {
- *             key: "CostCenter",
- *             matchOptions: undefined,
- *             values: ["10000"],
+ *         And: undefined,
+ *         CostCategories: undefined,
+ *         Dimensions: undefined,
+ *         Not: undefined,
+ *         Or: undefined,
+ *         Tags: {
+ *             Key: "CostCenter",
+ *             MatchOptions: undefined,
+ *             Values: ["10000"],
  *         },
  *     }),
  * });

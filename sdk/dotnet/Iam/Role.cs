@@ -37,17 +37,17 @@ namespace Pulumi.Aws.Iam
     ///         Name = "test_role",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["action"] = "sts:AssumeRole",
-    ///                     ["effect"] = "Allow",
-    ///                     ["sid"] = "",
-    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Sid"] = "",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["service"] = "ec2.amazonaws.com",
+    ///                         ["Service"] = "ec2.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
@@ -152,17 +152,17 @@ namespace Pulumi.Aws.Iam
     ///                 Name = "my_inline_policy",
     ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["version"] = "2012-10-17",
-    ///                     ["statement"] = new[]
+    ///                     ["Version"] = "2012-10-17",
+    ///                     ["Statement"] = new[]
     ///                     {
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["action"] = new[]
+    ///                             ["Action"] = new[]
     ///                             {
     ///                                 "ec2:Describe*",
     ///                             },
-    ///                             ["effect"] = "Allow",
-    ///                             ["resource"] = "*",
+    ///                             ["Effect"] = "Allow",
+    ///                             ["Resource"] = "*",
     ///                         },
     ///                     },
     ///                 }),
@@ -225,17 +225,17 @@ namespace Pulumi.Aws.Iam
     ///         Name = "policy-618033",
     ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["action"] = new[]
+    ///                     ["Action"] = new[]
     ///                     {
     ///                         "ec2:Describe*",
     ///                     },
-    ///                     ["effect"] = "Allow",
-    ///                     ["resource"] = "*",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = "*",
     ///                 },
     ///             },
     ///         }),
@@ -246,19 +246,19 @@ namespace Pulumi.Aws.Iam
     ///         Name = "policy-381966",
     ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["version"] = "2012-10-17",
-    ///             ["statement"] = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["action"] = new[]
+    ///                     ["Action"] = new[]
     ///                     {
     ///                         "s3:ListAllMyBuckets",
     ///                         "s3:ListBucket",
     ///                         "s3:HeadBucket",
     ///                     },
-    ///                     ["effect"] = "Allow",
-    ///                     ["resource"] = "*",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Resource"] = "*",
     ///                 },
     ///             },
     ///         }),

@@ -37,10 +37,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
  * import com.pulumi.aws.ec2.VpcIpamPool;
  * import com.pulumi.aws.ec2.VpcIpamPoolArgs;
- * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
- * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
  * import com.pulumi.aws.ec2.VpcIpamPoolCidr;
  * import com.pulumi.aws.ec2.VpcIpamPoolCidrArgs;
+ * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
+ * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,15 +69,17 @@ import javax.annotation.Nullable;
  *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *             .build());
  * 
- *         var example = new VpcIpamPoolCidrAllocation(&#34;example&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
- *             .ipamPoolId(exampleVpcIpamPool.id())
- *             .cidr(&#34;172.20.0.0/24&#34;)
- *             .build());
- * 
  *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;exampleVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(exampleVpcIpamPool.id())
  *             .cidr(&#34;172.20.0.0/16&#34;)
  *             .build());
+ * 
+ *         var example = new VpcIpamPoolCidrAllocation(&#34;example&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
+ *             .ipamPoolId(exampleVpcIpamPool.id())
+ *             .cidr(&#34;172.20.0.0/24&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleVpcIpamPoolCidr)
+ *                 .build());
  * 
  *     }
  * }
@@ -99,10 +102,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
  * import com.pulumi.aws.ec2.VpcIpamPool;
  * import com.pulumi.aws.ec2.VpcIpamPoolArgs;
- * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
- * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
  * import com.pulumi.aws.ec2.VpcIpamPoolCidr;
  * import com.pulumi.aws.ec2.VpcIpamPoolCidrArgs;
+ * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
+ * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -130,16 +134,18 @@ import javax.annotation.Nullable;
  *             .locale(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *             .build());
  * 
- *         var example = new VpcIpamPoolCidrAllocation(&#34;example&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
- *             .ipamPoolId(exampleVpcIpamPool.id())
- *             .netmaskLength(28)
- *             .disallowedCidrs(&#34;172.20.0.0/28&#34;)
- *             .build());
- * 
  *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;exampleVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(exampleVpcIpamPool.id())
  *             .cidr(&#34;172.20.0.0/16&#34;)
  *             .build());
+ * 
+ *         var example = new VpcIpamPoolCidrAllocation(&#34;example&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
+ *             .ipamPoolId(exampleVpcIpamPool.id())
+ *             .netmaskLength(28)
+ *             .disallowedCidrs(&#34;172.20.0.0/28&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleVpcIpamPoolCidr)
+ *                 .build());
  * 
  *     }
  * }

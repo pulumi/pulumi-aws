@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.waf.inputs.WebAclDefaultActionArgs;
  * import com.pulumi.aws.waf.inputs.WebAclRuleArgs;
  * import com.pulumi.aws.waf.inputs.WebAclRuleActionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -73,7 +74,9 @@ import javax.annotation.Nullable;
  *                 .negated(false)
  *                 .type(&#34;IPMatch&#34;)
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(ipset)
+ *                 .build());
  * 
  *         var wafAcl = new WebAcl(&#34;wafAcl&#34;, WebAclArgs.builder()        
  *             .name(&#34;tfWebACL&#34;)
@@ -89,7 +92,11 @@ import javax.annotation.Nullable;
  *                 .ruleId(wafrule.id())
  *                 .type(&#34;REGULAR&#34;)
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     ipset,
+ *                     wafrule)
+ *                 .build());
  * 
  *     }
  * }

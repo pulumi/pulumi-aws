@@ -178,14 +178,14 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         example_object_lambda_access_point_policy = aws.s3control.ObjectLambdaAccessPointPolicy("example",
             name=example_object_lambda_access_point.name,
             policy=pulumi.Output.json_dumps({
-                "version": "2008-10-17",
-                "statement": [{
-                    "effect": "Allow",
-                    "action": "s3-object-lambda:GetObject",
-                    "principal": {
+                "Version": "2008-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Action": "s3-object-lambda:GetObject",
+                    "Principal": {
                         "AWS": current["accountId"],
                     },
-                    "resource": example_object_lambda_access_point.arn,
+                    "Resource": example_object_lambda_access_point.arn,
                 }],
             }))
         ```
@@ -242,14 +242,14 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         example_object_lambda_access_point_policy = aws.s3control.ObjectLambdaAccessPointPolicy("example",
             name=example_object_lambda_access_point.name,
             policy=pulumi.Output.json_dumps({
-                "version": "2008-10-17",
-                "statement": [{
-                    "effect": "Allow",
-                    "action": "s3-object-lambda:GetObject",
-                    "principal": {
+                "Version": "2008-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Action": "s3-object-lambda:GetObject",
+                    "Principal": {
                         "AWS": current["accountId"],
                     },
-                    "resource": example_object_lambda_access_point.arn,
+                    "Resource": example_object_lambda_access_point.arn,
                 }],
             }))
         ```

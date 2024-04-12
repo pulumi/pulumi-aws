@@ -192,6 +192,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketNotification;
  * import com.pulumi.aws.s3.BucketNotificationArgs;
  * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileArchive;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -250,7 +251,9 @@ import javax.annotation.Nullable;
  *                 .filterPrefix(&#34;AWSLogs/&#34;)
  *                 .filterSuffix(&#34;.log&#34;)
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(allowBucket)
+ *                 .build());
  * 
  *     }
  * }
@@ -279,6 +282,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketNotification;
  * import com.pulumi.aws.s3.BucketNotificationArgs;
  * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileArchive;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -359,7 +363,11 @@ import javax.annotation.Nullable;
  *                     .filterPrefix(&#34;OtherLogs/&#34;)
  *                     .filterSuffix(&#34;.log&#34;)
  *                     .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     allowBucket1,
+ *                     allowBucket2)
+ *                 .build());
  * 
  *     }
  * }

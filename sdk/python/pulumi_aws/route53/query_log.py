@@ -152,7 +152,8 @@ class QueryLog(pulumi.CustomResource):
             policy_name="route53-query-logging-policy")
         example_com_query_log = aws.route53.QueryLog("example_com",
             cloudwatch_log_group_arn=aws_route53_example_com.arn,
-            zone_id=example_com.zone_id)
+            zone_id=example_com.zone_id,
+            opts=pulumi.ResourceOptions(depends_on=[route53_query_logging_policy_log_resource_policy]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -214,7 +215,8 @@ class QueryLog(pulumi.CustomResource):
             policy_name="route53-query-logging-policy")
         example_com_query_log = aws.route53.QueryLog("example_com",
             cloudwatch_log_group_arn=aws_route53_example_com.arn,
-            zone_id=example_com.zone_id)
+            zone_id=example_com.zone_id,
+            opts=pulumi.ResourceOptions(depends_on=[route53_query_logging_policy_log_resource_policy]))
         ```
         <!--End PulumiCodeChooser -->
 

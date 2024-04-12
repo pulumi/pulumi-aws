@@ -95,20 +95,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			organizationRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "organization", &iam.RolePolicyAttachmentArgs{
+//				Role:      organizationRole.Name,
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = cfg.NewConfigurationAggregator(ctx, "organization", &cfg.ConfigurationAggregatorArgs{
 //				Name: pulumi.String("example"),
 //				OrganizationAggregationSource: &cfg.ConfigurationAggregatorOrganizationAggregationSourceArgs{
 //					AllRegions: pulumi.Bool(true),
 //					RoleArn:    organizationRole.Arn,
 //				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "organization", &iam.RolePolicyAttachmentArgs{
-//				Role:      organizationRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations"),
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				organizationRolePolicyAttachment,
+//			}))
 //			if err != nil {
 //				return err
 //			}

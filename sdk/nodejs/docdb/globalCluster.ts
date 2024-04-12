@@ -47,12 +47,16 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: "test-secondary-cluster",
  *     globalClusterIdentifier: example.id,
  *     dbSubnetGroupName: "default",
+ * }, {
+ *     dependsOn: [primary],
  * });
  * const secondaryClusterInstance = new aws.docdb.ClusterInstance("secondary", {
  *     engine: example.engine,
  *     identifier: "test-secondary-cluster-instance",
  *     clusterIdentifier: secondary.id,
  *     instanceClass: "db.r5.large",
+ * }, {
+ *     dependsOn: [primaryClusterInstance],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

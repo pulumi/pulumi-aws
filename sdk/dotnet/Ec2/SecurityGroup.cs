@@ -194,63 +194,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Despite these sticky problems, below are some ways to improve your experience when you find it necessary to recreate a security group.
     /// 
-    /// ### `create_before_destroy`
-    /// 
-    /// (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
-    /// 
-    /// Normally, the provider first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won't succeed. You can invert the default behavior using the `create_before_destroy` meta argument:
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
-    ///     {
-    ///         Name = "changeable-name",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
-    /// ### `replace_triggered_by`
-    /// 
-    /// (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
-    /// 
-    /// To replace a resource when a security group changes, use the `replace_triggered_by` meta argument. Note that in this example, the `aws.ec2.Instance` will be destroyed and created again when the `aws.ec2.SecurityGroup` changes.
-    /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
-    ///     {
-    ///         Name = "sg",
-    ///     });
-    /// 
-    ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
-    ///     {
-    ///         InstanceType = Aws.Ec2.InstanceType.T3_Small,
-    ///         VpcSecurityGroupIds = new[]
-    ///         {
-    ///             test.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
-    /// 
     /// ### Shorter timeout
     /// 
     /// (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)

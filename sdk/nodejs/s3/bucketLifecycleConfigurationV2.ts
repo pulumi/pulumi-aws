@@ -335,6 +335,8 @@ import * as utilities from "../utilities";
  *         ],
  *         status: "Enabled",
  *     }],
+ * }, {
+ *     dependsOn: [versioning],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

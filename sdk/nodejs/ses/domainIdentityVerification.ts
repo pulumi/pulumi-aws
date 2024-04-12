@@ -28,7 +28,9 @@ import * as utilities from "../utilities";
  *     ttl: 600,
  *     records: [example.verificationToken],
  * });
- * const exampleVerification = new aws.ses.DomainIdentityVerification("example_verification", {domain: example.id});
+ * const exampleVerification = new aws.ses.DomainIdentityVerification("example_verification", {domain: example.id}, {
+ *     dependsOn: [exampleAmazonsesVerificationRecord],
+ * });
  * ```
  * <!--End PulumiCodeChooser -->
  */

@@ -47,7 +47,9 @@ import (
 //						return fmt.Sprintf("s3://%v/%v", test.Bucket, id), nil
 //					}).(pulumi.StringOutput),
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsIamRolePolicy,
+//			}))
 //			if err != nil {
 //				return err
 //			}

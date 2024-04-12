@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssmincidents.ResponsePlan;
  * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
  * import com.pulumi.aws.ssmincidents.inputs.ResponsePlanIncidentTemplateArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,7 +57,9 @@ import javax.annotation.Nullable;
  *                 .impact(&#34;3&#34;)
  *                 .build())
  *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
+ *                 .build());
  * 
  *     }
  * }
@@ -77,6 +80,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssmincidents.inputs.ResponsePlanIncidentTemplateArgs;
  * import com.pulumi.aws.ssmincidents.inputs.ResponsePlanActionArgs;
  * import com.pulumi.aws.ssmincidents.inputs.ResponsePlanIntegrationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -140,7 +144,9 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
+ *                 .build());
  * 
  *     }
  * }
