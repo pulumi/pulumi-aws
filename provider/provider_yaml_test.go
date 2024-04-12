@@ -207,16 +207,16 @@ resources:
 	}
 
 	testCases := []testCase{
-		{"non-nil, apply method change", &immediate, "1", yaml, &pendingReboot, "1", yaml, false},
-		{"non-nil, value change", &immediate, "1", yaml, &immediate, "0", yaml, true},
-		{"non-nil, both change", &immediate, "1", yaml, &pendingReboot, "0", yaml, true},
+		{"non-nil apply method, apply method change", &immediate, "1", yaml, &pendingReboot, "1", yaml, false},
+		{"non-nil apply method, value change", &immediate, "1", yaml, &immediate, "0", yaml, true},
+		{"non-nil apply method, both change", &immediate, "1", yaml, &pendingReboot, "0", yaml, true},
 		{"non-nil to nil apply method, apply method change", &pendingReboot, "1", yaml, nil, "1", noApplyYaml, false},
 		{"non-nil to nil apply method, value change", &immediate, "1", yaml, nil, "0", noApplyYaml, true},
 		{"non-nil to nil apply method, both change", &immediate, "1", yaml, nil, "0", noApplyYaml, true},
 		{"nil to non-nil apply method, apply method change", nil, "1", noApplyYaml, &pendingReboot, "1", yaml, false},
 		{"nil to non-nil apply method, value change", nil, "1", noApplyYaml, &immediate, "0", yaml, true},
 		{"nil to non-nil apply method, both change", nil, "1", noApplyYaml, &immediate, "0", yaml, true},
-		{"nil, value change", nil, "1", noApplyYaml, nil, "0", noApplyYaml, true},
+		{"nil apply method, value change", nil, "1", noApplyYaml, nil, "0", noApplyYaml, true},
 	}
 
 	cwd, err := os.Getwd()
