@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.waf.Rule;
  * import com.pulumi.aws.waf.RuleArgs;
  * import com.pulumi.aws.waf.inputs.RulePredicateArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,9 +64,7 @@ import javax.annotation.Nullable;
  *                 .negated(false)
  *                 .type(&#34;IPMatch&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(ipset)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

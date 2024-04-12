@@ -32,15 +32,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2018-11-08",
-//				"DestinationReferences": []string{
+//				"version": "2018-11-08",
+//				"destinationReferences": []string{
 //					"refs/heads/master",
 //				},
-//				"Statements": []map[string]interface{}{
+//				"statements": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Type":                    "Approvers",
-//						"NumberOfApprovalsNeeded": 2,
-//						"ApprovalPoolMembers": []string{
+//						"type":                    "Approvers",
+//						"numberOfApprovalsNeeded": 2,
+//						"approvalPoolMembers": []string{
 //							"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*",
 //						},
 //					},

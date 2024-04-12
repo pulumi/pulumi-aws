@@ -56,8 +56,8 @@ import * as utilities from "../utilities";
  *         arn: "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
  *         roleArn: exampleAwsIamRole.arn,
  *         input: pulumi.jsonStringify({
- *             MessageBody: "Greetings, programs!",
- *             QueueUrl: example.url,
+ *             messageBody: "Greetings, programs!",
+ *             queueUrl: example.url,
  *         }),
  *     },
  * });

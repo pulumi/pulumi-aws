@@ -104,6 +104,62 @@ class WebAclAssociation(pulumi.CustomResource):
 
         [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.apigateway.RestApi("example",
+            body=json.dumps({
+                "openapi": "3.0.1",
+                "info": {
+                    "title": "example",
+                    "version": "1.0",
+                },
+                "paths": {
+                    "/path1": {
+                        "get": {
+                            "x-amazon-apigateway-integration": {
+                                "httpMethod": "GET",
+                                "payloadFormatVersion": "1.0",
+                                "type": "HTTP_PROXY",
+                                "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                            },
+                        },
+                    },
+                },
+            }),
+            name="example")
+        example_deployment = aws.apigateway.Deployment("example",
+            rest_api=example.id,
+            triggers={
+                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps(example.body)).apply(lambda invoke: invoke.result),
+            })
+        example_stage = aws.apigateway.Stage("example",
+            deployment=example_deployment.id,
+            rest_api=example.id,
+            stage_name="example")
+        example_web_acl = aws.wafv2.WebAcl("example",
+            name="web-acl-association-example",
+            scope="REGIONAL",
+            default_action=aws.wafv2.WebAclDefaultActionArgs(
+                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
+            ),
+            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
+                cloudwatch_metrics_enabled=False,
+                metric_name="friendly-metric-name",
+                sampled_requests_enabled=False,
+            ))
+        example_web_acl_association = aws.wafv2.WebAclAssociation("example",
+            resource_arn=example_stage.arn,
+            web_acl_arn=example_web_acl.arn)
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import WAFv2 Web ACL Association using `WEB_ACL_ARN,RESOURCE_ARN`. For example:
@@ -129,6 +185,62 @@ class WebAclAssociation(pulumi.CustomResource):
         > **NOTE on associating a WAFv2 Web ACL with a Cloudfront distribution:** Do not use this resource to associate a WAFv2 Web ACL with a Cloudfront Distribution. The [AWS API call backing this resource](https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html) notes that you should use the `web_acl_id` property on the `cloudfront_distribution` instead.
 
         [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
+
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.apigateway.RestApi("example",
+            body=json.dumps({
+                "openapi": "3.0.1",
+                "info": {
+                    "title": "example",
+                    "version": "1.0",
+                },
+                "paths": {
+                    "/path1": {
+                        "get": {
+                            "x-amazon-apigateway-integration": {
+                                "httpMethod": "GET",
+                                "payloadFormatVersion": "1.0",
+                                "type": "HTTP_PROXY",
+                                "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                            },
+                        },
+                    },
+                },
+            }),
+            name="example")
+        example_deployment = aws.apigateway.Deployment("example",
+            rest_api=example.id,
+            triggers={
+                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps(example.body)).apply(lambda invoke: invoke.result),
+            })
+        example_stage = aws.apigateway.Stage("example",
+            deployment=example_deployment.id,
+            rest_api=example.id,
+            stage_name="example")
+        example_web_acl = aws.wafv2.WebAcl("example",
+            name="web-acl-association-example",
+            scope="REGIONAL",
+            default_action=aws.wafv2.WebAclDefaultActionArgs(
+                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
+            ),
+            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
+                cloudwatch_metrics_enabled=False,
+                metric_name="friendly-metric-name",
+                sampled_requests_enabled=False,
+            ))
+        example_web_acl_association = aws.wafv2.WebAclAssociation("example",
+            resource_arn=example_stage.arn,
+            web_acl_arn=example_web_acl.arn)
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

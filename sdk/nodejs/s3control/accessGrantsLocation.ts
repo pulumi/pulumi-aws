@@ -21,8 +21,6 @@ import * as utilities from "../utilities";
  * const exampleAccessGrantsLocation = new aws.s3control.AccessGrantsLocation("example", {
  *     iamRoleArn: exampleAwsIamRole.arn,
  *     locationScope: "s3://",
- * }, {
- *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

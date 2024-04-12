@@ -65,18 +65,18 @@ namespace Pulumi.Aws.Transcribe
     ///         Role = exampleRole.Id,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "s3:GetObject",
     ///                         "s3:ListBucket",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = new[]
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = new[]
     ///                     {
     ///                         "*",
     ///                     },

@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  *     inputDataConfig: {
  *         s3Uri: pulumi.interpolate`s3://${test.bucket}/${documents.id}`,
  *     },
- * }, {
- *     dependsOn: [exampleAwsIamRolePolicy],
  * });
  * const entities = new aws.s3.BucketObjectv2("entities", {});
  * ```

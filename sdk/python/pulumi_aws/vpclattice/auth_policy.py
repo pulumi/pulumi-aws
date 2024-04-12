@@ -150,14 +150,14 @@ class AuthPolicy(pulumi.CustomResource):
         example_auth_policy = aws.vpclattice.AuthPolicy("example",
             resource_identifier=example.arn,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "*",
-                    "Effect": "Allow",
-                    "Principal": "*",
-                    "Resource": "*",
-                    "Condition": {
-                        "StringNotEqualsIgnoreCase": {
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "*",
+                    "effect": "Allow",
+                    "principal": "*",
+                    "resource": "*",
+                    "condition": {
+                        "stringNotEqualsIgnoreCase": {
                             "aws:PrincipalType": "anonymous",
                         },
                     },
@@ -206,14 +206,14 @@ class AuthPolicy(pulumi.CustomResource):
         example_auth_policy = aws.vpclattice.AuthPolicy("example",
             resource_identifier=example.arn,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "*",
-                    "Effect": "Allow",
-                    "Principal": "*",
-                    "Resource": "*",
-                    "Condition": {
-                        "StringNotEqualsIgnoreCase": {
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "*",
+                    "effect": "Allow",
+                    "principal": "*",
+                    "resource": "*",
+                    "condition": {
+                        "stringNotEqualsIgnoreCase": {
                             "aws:PrincipalType": "anonymous",
                         },
                     },

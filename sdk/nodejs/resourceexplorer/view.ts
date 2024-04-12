@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     includedProperties: [{
  *         name: "tags",
  *     }],
- * }, {
- *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

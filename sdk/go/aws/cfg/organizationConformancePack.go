@@ -33,16 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewOrganizationConformancePack(ctx, "example", &cfg.OrganizationConformancePackArgs{
+//			_, err := cfg.NewOrganizationConformancePack(ctx, "example", &cfg.OrganizationConformancePackArgs{
 //				Name: pulumi.String("example"),
 //				InputParameters: cfg.OrganizationConformancePackInputParameterArray{
 //					&cfg.OrganizationConformancePackInputParameterArgs{
@@ -66,10 +57,16 @@ import (
 //
 // `),
 //
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsConfigConfigurationRecorder,
-//				exampleOrganization,
-//			}))
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
+//				AwsServiceAccessPrincipals: pulumi.StringArray{
+//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
+//				},
+//				FeatureSet: pulumi.String("ALL"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -99,15 +96,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
 //				Bucket: pulumi.String("example"),
 //			})
@@ -139,10 +127,16 @@ import (
 //					key := _args[1].(string)
 //					return fmt.Sprintf("s3://%v/%v", bucket, key), nil
 //				}).(pulumi.StringOutput),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsConfigConfigurationRecorder,
-//				exampleOrganization,
-//			}))
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
+//				AwsServiceAccessPrincipals: pulumi.StringArray{
+//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
+//				},
+//				FeatureSet: pulumi.String("ALL"),
+//			})
 //			if err != nil {
 //				return err
 //			}

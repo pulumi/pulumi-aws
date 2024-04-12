@@ -348,9 +348,7 @@ import (
 //						},
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSecretsmanagerSecretVersion,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -526,9 +524,7 @@ import (
 //						},
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSecretsmanagerSecretVersion,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

@@ -19,17 +19,17 @@ import * as utilities from "../utilities";
  * const example = new aws.s3control.BucketPolicy("example", {
  *     bucket: exampleAwsS3controlBucket.arn,
  *     policy: JSON.stringify({
- *         Id: "testBucketPolicy",
- *         Statement: [{
- *             Action: "s3-outposts:PutBucketLifecycleConfiguration",
- *             Effect: "Deny",
- *             Principal: {
+ *         id: "testBucketPolicy",
+ *         statement: [{
+ *             action: "s3-outposts:PutBucketLifecycleConfiguration",
+ *             effect: "Deny",
+ *             principal: {
  *                 AWS: "*",
  *             },
- *             Resource: exampleAwsS3controlBucket.arn,
- *             Sid: "statement1",
+ *             resource: exampleAwsS3controlBucket.arn,
+ *             sid: "statement1",
  *         }],
- *         Version: "2012-10-17",
+ *         version: "2012-10-17",
  *     }),
  * });
  * ```

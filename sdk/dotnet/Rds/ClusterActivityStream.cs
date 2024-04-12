@@ -65,12 +65,6 @@ namespace Pulumi.Aws.Rds
     ///         ResourceArn = @default.Arn,
     ///         Mode = "async",
     ///         KmsKeyId = defaultKey.KeyId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             defaultClusterInstance, 
-    ///         },
     ///     });
     /// 
     /// });

@@ -37,18 +37,16 @@ import * as utilities from "../utilities";
  *     name: "AmazonMSK_example",
  *     kmsKeyId: exampleKey.keyId,
  * });
+ * const exampleScramSecretAssociation = new aws.msk.ScramSecretAssociation("example", {
+ *     clusterArn: exampleCluster.arn,
+ *     secretArnLists: [exampleSecret.arn],
+ * });
  * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("example", {
  *     secretId: exampleSecret.id,
  *     secretString: JSON.stringify({
  *         username: "user",
  *         password: "pass",
  *     }),
- * });
- * const exampleScramSecretAssociation = new aws.msk.ScramSecretAssociation("example", {
- *     clusterArn: exampleCluster.arn,
- *     secretArnLists: [exampleSecret.arn],
- * }, {
- *     dependsOn: [exampleSecretVersion],
  * });
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{

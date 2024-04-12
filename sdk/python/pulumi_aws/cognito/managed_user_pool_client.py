@@ -817,6 +817,9 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_user_pool = aws.cognito.UserPool("example", name="example")
+        example_managed_user_pool_client = aws.cognito.ManagedUserPoolClient("example",
+            name_prefix="AmazonOpenSearchService-example",
+            user_pool_id=example_user_pool.id)
         example_identity_pool = aws.cognito.IdentityPool("example", identity_pool_name="example")
         current = aws.get_partition()
         example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -832,9 +835,6 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             name="example-role",
             path="/service-role/",
             assume_role_policy=example.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example_role.name,
-            policy_arn=f"arn:{current.partition}:iam::aws:policy/AmazonESCognitoAccess")
         example_domain = aws.opensearch.Domain("example",
             domain_name="example",
             cognito_options=aws.opensearch.DomainCognitoOptionsArgs(
@@ -846,15 +846,10 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             ebs_options=aws.opensearch.DomainEbsOptionsArgs(
                 ebs_enabled=True,
                 volume_size=10,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_aws_cognito_user_pool_domain,
-                    example_role_policy_attachment,
-                ]))
-        example_managed_user_pool_client = aws.cognito.ManagedUserPoolClient("example",
-            name_prefix="AmazonOpenSearchService-example",
-            user_pool_id=example_user_pool.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_domain]))
+            ))
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            role=example_role.name,
+            policy_arn=f"arn:{current.partition}:iam::aws:policy/AmazonESCognitoAccess")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -916,6 +911,9 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_user_pool = aws.cognito.UserPool("example", name="example")
+        example_managed_user_pool_client = aws.cognito.ManagedUserPoolClient("example",
+            name_prefix="AmazonOpenSearchService-example",
+            user_pool_id=example_user_pool.id)
         example_identity_pool = aws.cognito.IdentityPool("example", identity_pool_name="example")
         current = aws.get_partition()
         example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
@@ -931,9 +929,6 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             name="example-role",
             path="/service-role/",
             assume_role_policy=example.json)
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example_role.name,
-            policy_arn=f"arn:{current.partition}:iam::aws:policy/AmazonESCognitoAccess")
         example_domain = aws.opensearch.Domain("example",
             domain_name="example",
             cognito_options=aws.opensearch.DomainCognitoOptionsArgs(
@@ -945,15 +940,10 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             ebs_options=aws.opensearch.DomainEbsOptionsArgs(
                 ebs_enabled=True,
                 volume_size=10,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_aws_cognito_user_pool_domain,
-                    example_role_policy_attachment,
-                ]))
-        example_managed_user_pool_client = aws.cognito.ManagedUserPoolClient("example",
-            name_prefix="AmazonOpenSearchService-example",
-            user_pool_id=example_user_pool.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_domain]))
+            ))
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            role=example_role.name,
+            policy_arn=f"arn:{current.partition}:iam::aws:policy/AmazonESCognitoAccess")
         ```
         <!--End PulumiCodeChooser -->
 

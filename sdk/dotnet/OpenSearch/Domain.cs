@@ -331,12 +331,6 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             { "Domain", "TestDomain" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleServiceLinkedRole, 
-    ///         },
     ///     });
     /// 
     /// });

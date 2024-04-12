@@ -40,12 +40,6 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         Name = "example",
     ///         RuleIdentifier = "IAM_PASSWORD_POLICY",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
-    ///         },
     ///     });
     /// 
     /// });

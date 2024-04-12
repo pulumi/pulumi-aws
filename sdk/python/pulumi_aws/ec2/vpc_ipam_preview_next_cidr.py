@@ -167,14 +167,13 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
             address_family="ipv4",
             ipam_scope_id=example_vpc_ipam.private_default_scope_id,
             locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
         example = aws.ec2.VpcIpamPreviewNextCidr("example",
             ipam_pool_id=example_vpc_ipam_pool.id,
             netmask_length=28,
-            disallowed_cidrs=["172.2.0.0/32"],
-            opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
+            disallowed_cidrs=["172.2.0.0/32"])
+        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
+            ipam_pool_id=example_vpc_ipam_pool.id,
+            cidr="172.20.0.0/16")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -210,14 +209,13 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
             address_family="ipv4",
             ipam_scope_id=example_vpc_ipam.private_default_scope_id,
             locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
         example = aws.ec2.VpcIpamPreviewNextCidr("example",
             ipam_pool_id=example_vpc_ipam_pool.id,
             netmask_length=28,
-            disallowed_cidrs=["172.2.0.0/32"],
-            opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
+            disallowed_cidrs=["172.2.0.0/32"])
+        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("example",
+            ipam_pool_id=example_vpc_ipam_pool.id,
+            cidr="172.20.0.0/16")
         ```
         <!--End PulumiCodeChooser -->
 

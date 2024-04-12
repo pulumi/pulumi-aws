@@ -58,7 +58,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.batch.ComputeEnvironment;
  * import com.pulumi.aws.batch.ComputeEnvironmentArgs;
  * import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -157,9 +156,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .serviceRole(awsBatchServiceRole.arn())
  *             .type(&#34;MANAGED&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(awsBatchServiceRoleRolePolicyAttachment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -178,7 +175,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.batch.ComputeEnvironment;
  * import com.pulumi.aws.batch.ComputeEnvironmentArgs;
  * import com.pulumi.aws.batch.inputs.ComputeEnvironmentComputeResourcesArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -200,11 +196,9 @@ import javax.annotation.Nullable;
  *                 .subnets(sampleAwsSubnet.id())
  *                 .type(&#34;FARGATE&#34;)
  *                 .build())
- *             .serviceRole(awsBatchServiceRoleAwsIamRole.arn())
+ *             .serviceRole(awsBatchServiceRole.arn())
  *             .type(&#34;MANAGED&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(awsBatchServiceRole)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

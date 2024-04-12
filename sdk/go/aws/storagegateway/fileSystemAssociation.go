@@ -80,10 +80,7 @@ import (
 //					testAwsSecurityGroup.Id,
 //				},
 //				SubnetId: pulumi.Any(testAwsSubnet[0].Id),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testAwsRoute,
-//				testAwsVpcDhcpOptionsAssociation,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

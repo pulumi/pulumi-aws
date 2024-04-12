@@ -37,21 +37,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			memberMember, err := guardduty.NewMember(ctx, "member", &guardduty.MemberArgs{
+//			_, err = guardduty.NewInviteAccepter(ctx, "member", &guardduty.InviteAccepterArgs{
+//				DetectorId:      memberDetector.ID(),
+//				MasterAccountId: primary.AccountId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = guardduty.NewMember(ctx, "member", &guardduty.MemberArgs{
 //				AccountId:  memberDetector.AccountId,
 //				DetectorId: primary.ID(),
 //				Email:      pulumi.String("required@example.com"),
 //				Invite:     pulumi.Bool(true),
 //			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewInviteAccepter(ctx, "member", &guardduty.InviteAccepterArgs{
-//				DetectorId:      memberDetector.ID(),
-//				MasterAccountId: primary.AccountId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				memberMember,
-//			}))
 //			if err != nil {
 //				return err
 //			}

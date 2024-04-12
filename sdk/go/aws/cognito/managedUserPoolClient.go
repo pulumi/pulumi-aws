@@ -46,6 +46,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = cognito.NewManagedUserPoolClient(ctx, "example", &cognito.ManagedUserPoolClientArgs{
+//				NamePrefix: pulumi.String("AmazonOpenSearchService-example"),
+//				UserPoolId: exampleUserPool.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			exampleIdentityPool, err := cognito.NewIdentityPool(ctx, "example", &cognito.IdentityPoolArgs{
 //				IdentityPoolName: pulumi.String("example"),
 //			})
@@ -86,14 +93,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				Role:      exampleRole.Name,
-//				PolicyArn: pulumi.String(fmt.Sprintf("arn:%v:iam::aws:policy/AmazonESCognitoAccess", current.Partition)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDomain, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
+//			_, err = opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
 //				DomainName: pulumi.String("example"),
 //				CognitoOptions: &opensearch.DomainCognitoOptionsArgs{
 //					Enabled:        pulumi.Bool(true),
@@ -105,19 +105,14 @@ import (
 //					EbsEnabled: pulumi.Bool(true),
 //					VolumeSize: pulumi.Int(10),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsCognitoUserPoolDomain,
-//				exampleRolePolicyAttachment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognito.NewManagedUserPoolClient(ctx, "example", &cognito.ManagedUserPoolClientArgs{
-//				NamePrefix: pulumi.String("AmazonOpenSearchService-example"),
-//				UserPoolId: exampleUserPool.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleDomain,
-//			}))
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
+//				Role:      exampleRole.Name,
+//				PolicyArn: pulumi.String(fmt.Sprintf("arn:%v:iam::aws:policy/AmazonESCognitoAccess", current.Partition)),
+//			})
 //			if err != nil {
 //				return err
 //			}

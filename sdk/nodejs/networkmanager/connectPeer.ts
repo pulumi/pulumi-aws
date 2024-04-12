@@ -66,8 +66,6 @@ import * as utilities from "../utilities";
  *     options: {
  *         protocol: "GRE",
  *     },
- * }, {
- *     dependsOn: [test],
  * });
  * const example2 = new aws.networkmanager.AttachmentAccepter("example2", {
  *     attachmentId: exampleConnectAttachment.id,
@@ -80,8 +78,6 @@ import * as utilities from "../utilities";
  *         peerAsn: 65500,
  *     },
  *     insideCidrBlocks: ["172.16.0.0/16"],
- * }, {
- *     dependsOn: [example2],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

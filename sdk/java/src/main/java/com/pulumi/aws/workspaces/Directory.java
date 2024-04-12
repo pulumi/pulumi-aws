@@ -40,18 +40,17 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.directoryservice.Directory;
  * import com.pulumi.aws.directoryservice.DirectoryArgs;
  * import com.pulumi.aws.directoryservice.inputs.DirectoryVpcSettingsArgs;
+ * import com.pulumi.aws.workspaces.Directory;
+ * import com.pulumi.aws.workspaces.DirectoryArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceCreationPropertiesArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.workspaces.Directory;
- * import com.pulumi.aws.workspaces.DirectoryArgs;
- * import com.pulumi.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
- * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
- * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceCreationPropertiesArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -91,31 +90,6 @@ import javax.annotation.Nullable;
  *                     exampleA.id(),
  *                     exampleB.id())
  *                 .build())
- *             .build());
- * 
- *         final var workspaces = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;workspaces.amazonaws.com&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var workspacesDefault = new Role(&#34;workspacesDefault&#34;, RoleArgs.builder()        
- *             .name(&#34;workspaces_DefaultRole&#34;)
- *             .assumeRolePolicy(workspaces.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var workspacesDefaultServiceAccess = new RolePolicyAttachment(&#34;workspacesDefaultServiceAccess&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(workspacesDefault.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess&#34;)
- *             .build());
- * 
- *         var workspacesDefaultSelfServiceAccess = new RolePolicyAttachment(&#34;workspacesDefaultSelfServiceAccess&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(workspacesDefault.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess&#34;)
  *             .build());
  * 
  *         var exampleC = new Subnet(&#34;exampleC&#34;, SubnetArgs.builder()        
@@ -160,11 +134,32 @@ import javax.annotation.Nullable;
  *                 .enableMaintenanceMode(true)
  *                 .userEnabledAsLocalAdministrator(true)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     workspacesDefaultServiceAccess,
- *                     workspacesDefaultSelfServiceAccess)
- *                 .build());
+ *             .build());
+ * 
+ *         final var workspaces = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions(&#34;sts:AssumeRole&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;workspaces.amazonaws.com&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var workspacesDefault = new Role(&#34;workspacesDefault&#34;, RoleArgs.builder()        
+ *             .name(&#34;workspaces_DefaultRole&#34;)
+ *             .assumeRolePolicy(workspaces.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         var workspacesDefaultServiceAccess = new RolePolicyAttachment(&#34;workspacesDefaultServiceAccess&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .role(workspacesDefault.name())
+ *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess&#34;)
+ *             .build());
+ * 
+ *         var workspacesDefaultSelfServiceAccess = new RolePolicyAttachment(&#34;workspacesDefaultSelfServiceAccess&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .role(workspacesDefault.name())
+ *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess&#34;)
+ *             .build());
  * 
  *     }
  * }

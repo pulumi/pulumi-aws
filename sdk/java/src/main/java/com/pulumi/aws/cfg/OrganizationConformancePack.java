@@ -32,12 +32,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.Organization;
- * import com.pulumi.aws.organizations.OrganizationArgs;
  * import com.pulumi.aws.cfg.OrganizationConformancePack;
  * import com.pulumi.aws.cfg.OrganizationConformancePackArgs;
  * import com.pulumi.aws.cfg.inputs.OrganizationConformancePackInputParameterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.aws.organizations.Organization;
+ * import com.pulumi.aws.organizations.OrganizationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,11 +50,6 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
- *             .build());
- * 
  *         var example = new OrganizationConformancePack(&#34;example&#34;, OrganizationConformancePackArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .inputParameters(OrganizationConformancePackInputParameterArgs.builder()
@@ -75,11 +69,12 @@ import javax.annotation.Nullable;
  *         SourceIdentifier: IAM_PASSWORD_POLICY
  *     Type: AWS::Config::ConfigRule
  *             &#34;&#34;&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleAwsConfigConfigurationRecorder,
- *                     exampleOrganization)
- *                 .build());
+ *             .build());
+ * 
+ *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
+ *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
+ *             .featureSet(&#34;ALL&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -95,15 +90,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.Organization;
- * import com.pulumi.aws.organizations.OrganizationArgs;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.cfg.OrganizationConformancePack;
  * import com.pulumi.aws.cfg.OrganizationConformancePackArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.aws.organizations.Organization;
+ * import com.pulumi.aws.organizations.OrganizationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -117,11 +111,6 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
- *             .build());
- * 
  *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
  *             .bucket(&#34;example&#34;)
  *             .build());
@@ -148,11 +137,12 @@ import javax.annotation.Nullable;
  *                 var key = values.t2;
  *                 return String.format(&#34;s3://%s/%s&#34;, bucket,key);
  *             }))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleAwsConfigConfigurationRecorder,
- *                     exampleOrganization)
- *                 .build());
+ *             .build());
+ * 
+ *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
+ *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
+ *             .featureSet(&#34;ALL&#34;)
+ *             .build());
  * 
  *     }
  * }

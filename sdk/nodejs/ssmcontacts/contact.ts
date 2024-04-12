@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  * const example = new aws.ssmcontacts.Contact("example", {
  *     alias: "alias",
  *     type: "PERSONAL",
- * }, {
- *     dependsOn: [exampleAwsSsmincidentsReplicationSet],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -39,8 +37,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         key: "value",
  *     },
- * }, {
- *     dependsOn: [exampleAwsSsmincidentsReplicationSet],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

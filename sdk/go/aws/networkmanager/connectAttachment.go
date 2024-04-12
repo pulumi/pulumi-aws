@@ -106,9 +106,7 @@ import (
 // Options: &networkmanager.ConnectAttachmentOptionsArgs{
 // Protocol: pulumi.String("GRE"),
 // },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// test,
-// }))
+// })
 // if err != nil {
 // return err
 // }

@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  *     endpointType: "target",
  *     bucketName: "beckut_name",
  *     serviceAccessRoleArn: exampleAwsIamRole.arn,
- * }, {
- *     dependsOn: [exampleAwsIamRolePolicy],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -90,8 +88,6 @@ import * as utilities from "../utilities";
  *     useCsvNoSupValue: false,
  *     useTaskStartTimeForFullLoadTimestamp: true,
  *     glueCatalogGeneration: true,
- * }, {
- *     dependsOn: [exampleAwsIamRolePolicy],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

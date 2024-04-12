@@ -30,13 +30,13 @@ import {PolicyDocument} from "./index";
  * const testRole = new aws.iam.Role("test_role", {
  *     name: "test_role",
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "sts:AssumeRole",
- *             Effect: "Allow",
- *             Sid: "",
- *             Principal: {
- *                 Service: "ec2.amazonaws.com",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             sid: "",
+ *             principal: {
+ *                 service: "ec2.amazonaws.com",
  *             },
  *         }],
  *     }),
@@ -93,11 +93,11 @@ import {PolicyDocument} from "./index";
  *         {
  *             name: "my_inline_policy",
  *             policy: JSON.stringify({
- *                 Version: "2012-10-17",
- *                 Statement: [{
- *                     Action: ["ec2:Describe*"],
- *                     Effect: "Allow",
- *                     Resource: "*",
+ *                 version: "2012-10-17",
+ *                 statement: [{
+ *                     action: ["ec2:Describe*"],
+ *                     effect: "Allow",
+ *                     resource: "*",
  *                 }],
  *             }),
  *         },
@@ -139,26 +139,26 @@ import {PolicyDocument} from "./index";
  * const policyOne = new aws.iam.Policy("policy_one", {
  *     name: "policy-618033",
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: ["ec2:Describe*"],
- *             Effect: "Allow",
- *             Resource: "*",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: ["ec2:Describe*"],
+ *             effect: "Allow",
+ *             resource: "*",
  *         }],
  *     }),
  * });
  * const policyTwo = new aws.iam.Policy("policy_two", {
  *     name: "policy-381966",
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: [
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: [
  *                 "s3:ListAllMyBuckets",
  *                 "s3:ListBucket",
  *                 "s3:HeadBucket",
  *             ],
- *             Effect: "Allow",
- *             Resource: "*",
+ *             effect: "Allow",
+ *             resource: "*",
  *         }],
  *     }),
  * });

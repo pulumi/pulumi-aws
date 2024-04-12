@@ -40,12 +40,6 @@ namespace Pulumi.Aws.SecurityHub
     ///         {
     ///             ConfigurationType = "CENTRAL",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
-    ///         },
     ///     });
     /// 
     ///     var exampleConfigurationPolicy = new Aws.SecurityHub.ConfigurationPolicy("example", new()
@@ -64,12 +58,6 @@ namespace Pulumi.Aws.SecurityHub
     ///             {
     ///                 DisabledControlIdentifiers = new() { },
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleOrganizationConfiguration, 
     ///         },
     ///     });
     /// 
@@ -96,12 +84,6 @@ namespace Pulumi.Aws.SecurityHub
     ///         {
     ///             ServiceEnabled = false,
     ///             EnabledStandardArns = new() { },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
     ///         },
     ///     });
     /// 
@@ -184,12 +166,6 @@ namespace Pulumi.Aws.SecurityHub
     ///                     },
     ///                 },
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
     ///         },
     ///     });
     /// 

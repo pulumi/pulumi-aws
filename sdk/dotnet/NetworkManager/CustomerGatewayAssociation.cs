@@ -61,12 +61,6 @@ namespace Pulumi.Aws.NetworkManager
     ///     {
     ///         GlobalNetworkId = example.Id,
     ///         TransitGatewayArn = exampleTransitGateway.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleVpnConnection, 
-    ///         },
     ///     });
     /// 
     ///     var exampleCustomerGatewayAssociation = new Aws.NetworkManager.CustomerGatewayAssociation("example", new()
@@ -74,12 +68,6 @@ namespace Pulumi.Aws.NetworkManager
     ///         GlobalNetworkId = example.Id,
     ///         CustomerGatewayArn = exampleCustomerGateway.Arn,
     ///         DeviceId = exampleDevice.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleTransitGatewayRegistration, 
-    ///         },
     ///     });
     /// 
     /// });

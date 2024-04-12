@@ -77,10 +77,7 @@ import (
 //						RegionName: pulumi.String("us-west-2"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				us_east_1,
-//				us_west_2,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

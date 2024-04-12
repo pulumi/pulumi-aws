@@ -227,8 +227,7 @@ class Contact(pulumi.CustomResource):
 
         example = aws.ssmcontacts.Contact("example",
             alias="alias",
-            type="PERSONAL",
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            type="PERSONAL")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -245,8 +244,7 @@ class Contact(pulumi.CustomResource):
             type="ESCALATION",
             tags={
                 "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -288,8 +286,7 @@ class Contact(pulumi.CustomResource):
 
         example = aws.ssmcontacts.Contact("example",
             alias="alias",
-            type="PERSONAL",
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            type="PERSONAL")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -306,8 +303,7 @@ class Contact(pulumi.CustomResource):
             type="ESCALATION",
             tags={
                 "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 

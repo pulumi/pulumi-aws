@@ -18,6 +18,286 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// ### OpenAPI Specification
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
+    ///     {
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///         Name = "example",
+    ///         EndpointConfiguration = new Aws.ApiGateway.Inputs.RestApiEndpointConfigurationArgs
+    ///         {
+    ///             Types = "REGIONAL",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
+    ///     {
+    ///         RestApi = example.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = example.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### OpenAPI Specification with Private Endpoints
+    /// 
+    /// Using `put_rest_api_mode` = `merge` when importing the OpenAPI Specification, the AWS control plane will not delete all existing literal properties that are not explicitly set in the OpenAPI definition. Impacted API Gateway properties: ApiKeySourceType, BinaryMediaTypes, Description, EndpointConfiguration, MinimumCompressionSize, Name, Policy).
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         State = "available",
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
+    ///             {
+    ///                 Name = "opt-in-status",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "opt-in-not-required",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var example = new Aws.Ec2.Vpc("example", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///         EnableDnsSupport = true,
+    ///         EnableDnsHostnames = true,
+    ///     });
+    /// 
+    ///     var exampleDefaultSecurityGroup = new Aws.Ec2.DefaultSecurityGroup("example", new()
+    ///     {
+    ///         VpcId = example.Id,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
+    ///     {
+    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
+    ///         CidrBlock = example.CidrBlock.Apply(cidrBlock =&gt; Std.Cidrsubnet.Invoke(new()
+    ///         {
+    ///             Input = cidrBlock,
+    ///             Newbits = 8,
+    ///             Netnum = 0,
+    ///         })).Apply(invoke =&gt; invoke.Result),
+    ///         VpcId = example.Id,
+    ///     });
+    /// 
+    ///     var exampleVpcEndpoint = new List&lt;Aws.Ec2.VpcEndpoint&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         exampleVpcEndpoint.Add(new Aws.Ec2.VpcEndpoint($"example-{range.Value}", new()
+    ///         {
+    ///             PrivateDnsEnabled = false,
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 exampleDefaultSecurityGroup.Id,
+    ///             },
+    ///             ServiceName = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.execute-api",
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 exampleSubnet.Id,
+    ///             },
+    ///             VpcEndpointType = "Interface",
+    ///             VpcId = example.Id,
+    ///         }));
+    ///     }
+    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("example", new()
+    ///     {
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///         Name = "example",
+    ///         PutRestApiMode = "merge",
+    ///         EndpointConfiguration = new Aws.ApiGateway.Inputs.RestApiEndpointConfigurationArgs
+    ///         {
+    ///             Types = "PRIVATE",
+    ///             VpcEndpointIds = new[]
+    ///             {
+    ///                 exampleVpcEndpoint[0].Id,
+    ///                 exampleVpcEndpoint[1].Id,
+    ///                 exampleVpcEndpoint[2].Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
+    ///     {
+    ///         RestApi = exampleRestApi.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(exampleRestApi.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = exampleRestApi.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Resources
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleResource = new Aws.ApiGateway.Resource("example", new()
+    ///     {
+    ///         ParentId = example.RootResourceId,
+    ///         PathPart = "example",
+    ///         RestApi = example.Id,
+    ///     });
+    /// 
+    ///     var exampleMethod = new Aws.ApiGateway.Method("example", new()
+    ///     {
+    ///         Authorization = "NONE",
+    ///         HttpMethod = "GET",
+    ///         ResourceId = exampleResource.Id,
+    ///         RestApi = example.Id,
+    ///     });
+    /// 
+    ///     var exampleIntegration = new Aws.ApiGateway.Integration("example", new()
+    ///     {
+    ///         HttpMethod = exampleMethod.HttpMethod,
+    ///         ResourceId = exampleResource.Id,
+    ///         RestApi = example.Id,
+    ///         Type = "MOCK",
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
+    ///     {
+    ///         RestApi = example.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(new[]
+    ///                 {
+    ///                     exampleResource.Id,
+    ///                     exampleMethod.Id,
+    ///                     exampleIntegration.Id,
+    ///                 })),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = example.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:

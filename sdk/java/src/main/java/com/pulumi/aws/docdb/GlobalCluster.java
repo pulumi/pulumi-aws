@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.docdb.ClusterArgs;
  * import com.pulumi.aws.docdb.ClusterInstance;
  * import com.pulumi.aws.docdb.ClusterInstanceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -82,18 +81,14 @@ import javax.annotation.Nullable;
  *             .clusterIdentifier(&#34;test-secondary-cluster&#34;)
  *             .globalClusterIdentifier(example.id())
  *             .dbSubnetGroupName(&#34;default&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primary)
- *                 .build());
+ *             .build());
  * 
  *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        
  *             .engine(example.engine())
  *             .identifier(&#34;test-secondary-cluster-instance&#34;)
  *             .clusterIdentifier(secondary.id())
  *             .instanceClass(&#34;db.r5.large&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primaryClusterInstance)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

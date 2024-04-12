@@ -51,12 +51,6 @@ namespace Pulumi.Aws.WafRegional
     ///                 Type = "IPMatch",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             ipset, 
-    ///         },
     ///     });
     /// 
     /// });

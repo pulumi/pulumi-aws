@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs;
  * import com.pulumi.aws.securityhub.ConfigurationPolicyAssociation;
  * import com.pulumi.aws.securityhub.ConfigurationPolicyAssociationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,9 +61,7 @@ import javax.annotation.Nullable;
  *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
  *                 .configurationType(&#34;CENTRAL&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
  * 
  *         var exampleConfigurationPolicy = new ConfigurationPolicy(&#34;exampleConfigurationPolicy&#34;, ConfigurationPolicyArgs.builder()        
  *             .name(&#34;Example&#34;)
@@ -78,9 +75,7 @@ import javax.annotation.Nullable;
  *                     .disabledControlIdentifiers()
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleOrganizationConfiguration)
- *                 .build());
+ *             .build());
  * 
  *         var accountExample = new ConfigurationPolicyAssociation(&#34;accountExample&#34;, ConfigurationPolicyAssociationArgs.builder()        
  *             .targetId(&#34;123456789012&#34;)

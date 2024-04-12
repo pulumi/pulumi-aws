@@ -70,8 +70,6 @@ import * as utilities from "../utilities";
  *     vpcId: _default.id,
  *     cidrBlock: "10.0.0.0/24",
  *     mapPublicIpOnLaunch: true,
- * }, {
- *     dependsOn: [gw],
  * });
  * const foo = new aws.ec2.Instance("foo", {
  *     ami: "ami-5189a661",
@@ -83,8 +81,6 @@ import * as utilities from "../utilities";
  *     domain: "vpc",
  *     instance: foo.id,
  *     associateWithPrivateIp: "10.0.0.12",
- * }, {
- *     dependsOn: [gw],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

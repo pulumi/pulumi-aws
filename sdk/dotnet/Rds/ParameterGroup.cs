@@ -61,6 +61,47 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// ### `create_before_destroy` Lifecycle Configuration
+    /// 
+    /// The `create_before_destroy`
+    /// lifecycle configuration is necessary for modifications that force re-creation of an existing,
+    /// in-use parameter group. This includes common situations like changing the group `name` or
+    /// bumping the `family` version during a major version upgrade. This configuration will prevent destruction
+    /// of the deposed parameter group while still in use by the database during upgrade.
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Rds.ParameterGroup("example", new()
+    ///     {
+    ///         Name = "my-pg",
+    ///         Family = "postgres13",
+    ///         Parameters = new[]
+    ///         {
+    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "log_connections",
+    ///                 Value = "1",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleInstance = new Aws.Rds.Instance("example", new()
+    ///     {
+    ///         ParameterGroupName = example.Name,
+    ///         ApplyImmediately = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB Parameter groups using the `name`. For example:

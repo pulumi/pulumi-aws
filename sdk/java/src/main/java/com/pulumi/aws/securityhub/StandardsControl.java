@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.StandardsSubscriptionArgs;
  * import com.pulumi.aws.securityhub.StandardsControl;
  * import com.pulumi.aws.securityhub.StandardsControlArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,17 +52,13 @@ import javax.annotation.Nullable;
  * 
  *         var cisAwsFoundationsBenchmark = new StandardsSubscription(&#34;cisAwsFoundationsBenchmark&#34;, StandardsSubscriptionArgs.builder()        
  *             .standardsArn(&#34;arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
  * 
  *         var ensureIamPasswordPolicyPreventsPasswordReuse = new StandardsControl(&#34;ensureIamPasswordPolicyPreventsPasswordReuse&#34;, StandardsControlArgs.builder()        
  *             .standardsControlArn(&#34;arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10&#34;)
  *             .controlStatus(&#34;DISABLED&#34;)
  *             .disabledReason(&#34;We handle password policies within Okta&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(cisAwsFoundationsBenchmark)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

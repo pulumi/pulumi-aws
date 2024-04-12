@@ -213,8 +213,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
             source_arn=test.arn)
         test_target_group_attachment = aws.lb.TargetGroupAttachment("test",
             target_group_arn=test.arn,
-            target_id=test_function.arn,
-            opts=pulumi.ResourceOptions(depends_on=[with_lb]))
+            target_id=test_function.arn)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -302,8 +301,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
             source_arn=test.arn)
         test_target_group_attachment = aws.lb.TargetGroupAttachment("test",
             target_group_arn=test.arn,
-            target_id=test_function.arn,
-            opts=pulumi.ResourceOptions(depends_on=[with_lb]))
+            target_id=test_function.arn)
         ```
         <!--End PulumiCodeChooser -->
 

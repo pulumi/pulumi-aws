@@ -122,7 +122,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lightsail.DistributionArgs;
  * import com.pulumi.aws.lightsail.inputs.DistributionOriginArgs;
  * import com.pulumi.aws.lightsail.inputs.DistributionDefaultCacheBehaviorArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -170,9 +169,7 @@ import javax.annotation.Nullable;
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .behavior(&#34;cache&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(test)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -202,7 +199,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lightsail.DistributionArgs;
  * import com.pulumi.aws.lightsail.inputs.DistributionOriginArgs;
  * import com.pulumi.aws.lightsail.inputs.DistributionDefaultCacheBehaviorArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -253,9 +249,7 @@ import javax.annotation.Nullable;
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .behavior(&#34;cache&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testLbAttachment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

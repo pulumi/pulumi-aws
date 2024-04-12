@@ -129,8 +129,6 @@ import {Bucket} from "./index";
  *     objectLockMode: "GOVERNANCE",
  *     objectLockRetainUntilDate: "2021-12-31T23:59:60Z",
  *     forceDestroy: true,
- * }, {
- *     dependsOn: [exampleBucketVersioningV2],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

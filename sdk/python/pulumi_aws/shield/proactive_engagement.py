@@ -117,8 +117,8 @@ class ProactiveEngagement(pulumi.CustomResource):
         example = aws.iam.Role("example",
             name=aws_shield_drt_access_role_arn,
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
+                "version": "2012-10-17",
+                "statement": [{
                     "Sid": "",
                     "Effect": "Allow",
                     "Principal": {
@@ -148,8 +148,7 @@ class ProactiveEngagement(pulumi.CustomResource):
                     email_address="test2@company.com",
                     phone_number="+12358132134",
                 ),
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[test_aws_shield_drt_access_role_arn_association]))
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -189,8 +188,8 @@ class ProactiveEngagement(pulumi.CustomResource):
         example = aws.iam.Role("example",
             name=aws_shield_drt_access_role_arn,
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
+                "version": "2012-10-17",
+                "statement": [{
                     "Sid": "",
                     "Effect": "Allow",
                     "Principal": {
@@ -220,8 +219,7 @@ class ProactiveEngagement(pulumi.CustomResource):
                     email_address="test2@company.com",
                     phone_number="+12358132134",
                 ),
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[test_aws_shield_drt_access_role_arn_association]))
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

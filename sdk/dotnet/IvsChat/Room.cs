@@ -34,6 +34,48 @@ namespace Pulumi.Aws.IvsChat
     /// ```
     /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// ## Usage with Logging Configuration to S3 Bucket
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     {
+    ///         BucketPrefix = "tf-ivschat-logging-bucket-",
+    ///         ForceDestroy = true,
+    ///     });
+    /// 
+    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("example", new()
+    ///     {
+    ///         Name = "tf-ivschat-loggingconfiguration",
+    ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
+    ///         {
+    ///             S3 = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationS3Args
+    ///             {
+    ///                 BucketName = example.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRoom = new Aws.IvsChat.Room("example", new()
+    ///     {
+    ///         Name = "tf-ivschat-room",
+    ///         LoggingConfigurationIdentifiers = new[]
+    ///         {
+    ///             exampleLoggingConfiguration.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:

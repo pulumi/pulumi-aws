@@ -388,8 +388,7 @@ class Member(pulumi.CustomResource):
             email="EMAIL",
             invite=True,
             invitation_message="Message of the invitation",
-            invitation_disable_email_notification=True,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            invitation_disable_email_notification=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -433,8 +432,7 @@ class Member(pulumi.CustomResource):
             email="EMAIL",
             invite=True,
             invitation_message="Message of the invitation",
-            invitation_disable_email_notification=True,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            invitation_disable_email_notification=True)
         ```
         <!--End PulumiCodeChooser -->
 

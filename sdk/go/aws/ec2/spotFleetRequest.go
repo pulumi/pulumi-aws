@@ -118,9 +118,7 @@ import (
 //						},
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				test_attach,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -241,9 +239,7 @@ import (
 // },
 // },
 // },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// test_attach,
-// }))
+// })
 // if err != nil {
 // return err
 // }

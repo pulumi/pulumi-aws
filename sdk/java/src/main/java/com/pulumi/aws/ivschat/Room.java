@@ -56,6 +56,60 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## Usage with Logging Configuration to S3 Bucket
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.ivschat.LoggingConfiguration;
+ * import com.pulumi.aws.ivschat.LoggingConfigurationArgs;
+ * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationArgs;
+ * import com.pulumi.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationS3Args;
+ * import com.pulumi.aws.ivschat.Room;
+ * import com.pulumi.aws.ivschat.RoomArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new BucketV2(&#34;example&#34;, BucketV2Args.builder()        
+ *             .bucketPrefix(&#34;tf-ivschat-logging-bucket-&#34;)
+ *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var exampleLoggingConfiguration = new LoggingConfiguration(&#34;exampleLoggingConfiguration&#34;, LoggingConfigurationArgs.builder()        
+ *             .name(&#34;tf-ivschat-loggingconfiguration&#34;)
+ *             .destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs.builder()
+ *                 .s3(LoggingConfigurationDestinationConfigurationS3Args.builder()
+ *                     .bucketName(example.id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleRoom = new Room(&#34;exampleRoom&#34;, RoomArgs.builder()        
+ *             .name(&#34;tf-ivschat-room&#34;)
+ *             .loggingConfigurationIdentifiers(exampleLoggingConfiguration.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:

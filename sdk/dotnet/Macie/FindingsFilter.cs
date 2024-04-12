@@ -45,12 +45,6 @@ namespace Pulumi.Aws.Macie
     ///                 },
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             testAwsMacie2Account, 
-    ///         },
     ///     });
     /// 
     /// });

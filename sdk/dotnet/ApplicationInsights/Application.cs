@@ -31,16 +31,16 @@ namespace Pulumi.Aws.ApplicationInsights
     ///         {
     ///             Query = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["ResourceTypeFilters"] = new[]
+    ///                 ["resourceTypeFilters"] = new[]
     ///                 {
     ///                     "AWS::EC2::Instance",
     ///                 },
-    ///                 ["TagFilters"] = new[]
+    ///                 ["tagFilters"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Key"] = "Stage",
-    ///                         ["Values"] = new[]
+    ///                         ["key"] = "Stage",
+    ///                         ["values"] = new[]
     ///                         {
     ///                             "Test",
     ///                         },

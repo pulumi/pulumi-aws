@@ -63,7 +63,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
+//			_, err = ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
 //				CustomerGatewayId: exampleCustomerGateway.ID(),
 //				TransitGatewayId:  exampleTransitGateway.ID(),
 //				Type:              exampleCustomerGateway.Type,
@@ -72,12 +72,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleTransitGatewayRegistration, err := networkmanager.NewTransitGatewayRegistration(ctx, "example", &networkmanager.TransitGatewayRegistrationArgs{
+//			_, err = networkmanager.NewTransitGatewayRegistration(ctx, "example", &networkmanager.TransitGatewayRegistrationArgs{
 //				GlobalNetworkId:   example.ID(),
 //				TransitGatewayArn: exampleTransitGateway.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleVpnConnection,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -85,9 +83,7 @@ import (
 //				GlobalNetworkId:    example.ID(),
 //				CustomerGatewayArn: exampleCustomerGateway.Arn,
 //				DeviceId:           exampleDevice.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleTransitGatewayRegistration,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

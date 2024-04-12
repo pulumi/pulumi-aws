@@ -51,32 +51,32 @@ import (
 //				PolicyDocument: exampleBucketV2.Bucket.ApplyT(func(bucket string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Name":    "Example",
-//						"Version": "2021-06-01",
-//						"Statement": []interface{}{
+//						"name":    "Example",
+//						"version": "2021-06-01",
+//						"statement": []interface{}{
 //							map[string]interface{}{
-//								"Sid": "Audit",
-//								"DataIdentifier": []string{
+//								"sid": "Audit",
+//								"dataIdentifier": []string{
 //									"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
 //								},
-//								"Operation": map[string]interface{}{
-//									"Audit": map[string]interface{}{
-//										"FindingsDestination": map[string]interface{}{
+//								"operation": map[string]interface{}{
+//									"audit": map[string]interface{}{
+//										"findingsDestination": map[string]interface{}{
 //											"S3": map[string]interface{}{
-//												"Bucket": bucket,
+//												"bucket": bucket,
 //											},
 //										},
 //									},
 //								},
 //							},
 //							map[string]interface{}{
-//								"Sid": "Redact",
-//								"DataIdentifier": []string{
+//								"sid": "Redact",
+//								"dataIdentifier": []string{
 //									"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
 //								},
-//								"Operation": map[string]interface{}{
-//									"Deidentify": map[string]interface{}{
-//										"MaskConfig": nil,
+//								"operation": map[string]interface{}{
+//									"deidentify": map[string]interface{}{
+//										"maskConfig": nil,
 //									},
 //								},
 //							},

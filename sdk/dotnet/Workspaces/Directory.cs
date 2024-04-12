@@ -60,49 +60,6 @@ namespace Pulumi.Aws.Workspaces
     ///         },
     ///     });
     /// 
-    ///     var workspaces = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "workspaces.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var workspacesDefault = new Aws.Iam.Role("workspaces_default", new()
-    ///     {
-    ///         Name = "workspaces_DefaultRole",
-    ///         AssumeRolePolicy = workspaces.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var workspacesDefaultServiceAccess = new Aws.Iam.RolePolicyAttachment("workspaces_default_service_access", new()
-    ///     {
-    ///         Role = workspacesDefault.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess",
-    ///     });
-    /// 
-    ///     var workspacesDefaultSelfServiceAccess = new Aws.Iam.RolePolicyAttachment("workspaces_default_self_service_access", new()
-    ///     {
-    ///         Role = workspacesDefault.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess",
-    ///     });
-    /// 
     ///     var exampleC = new Aws.Ec2.Subnet("example_c", new()
     ///     {
     ///         VpcId = exampleVpc.Id,
@@ -156,13 +113,49 @@ namespace Pulumi.Aws.Workspaces
     ///             EnableMaintenanceMode = true,
     ///             UserEnabledAsLocalAdministrator = true,
     ///         },
-    ///     }, new CustomResourceOptions
+    ///     });
+    /// 
+    ///     var workspaces = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
-    ///         DependsOn =
+    ///         Statements = new[]
     ///         {
-    ///             workspacesDefaultServiceAccess, 
-    ///             workspacesDefaultSelfServiceAccess, 
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "workspaces.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
+    ///     });
+    /// 
+    ///     var workspacesDefault = new Aws.Iam.Role("workspaces_default", new()
+    ///     {
+    ///         Name = "workspaces_DefaultRole",
+    ///         AssumeRolePolicy = workspaces.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var workspacesDefaultServiceAccess = new Aws.Iam.RolePolicyAttachment("workspaces_default_service_access", new()
+    ///     {
+    ///         Role = workspacesDefault.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess",
+    ///     });
+    /// 
+    ///     var workspacesDefaultSelfServiceAccess = new Aws.Iam.RolePolicyAttachment("workspaces_default_self_service_access", new()
+    ///     {
+    ///         Role = workspacesDefault.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess",
     ///     });
     /// 
     /// });

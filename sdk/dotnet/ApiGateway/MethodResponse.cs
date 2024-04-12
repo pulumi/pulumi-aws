@@ -120,7 +120,7 @@ namespace Pulumi.Aws.ApiGateway
     ///             ["type"] = "object",
     ///             ["properties"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["Message"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["message"] = new Dictionary&lt;string, object?&gt;
     ///                 {
     ///                     ["type"] = "string",
     ///                 },

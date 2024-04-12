@@ -516,12 +516,6 @@ namespace Pulumi.Aws.Kinesis
     ///                 RoleArn = firehose.Arn,
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             firehose_elasticsearchRolePolicy, 
-    ///         },
     ///     });
     /// 
     /// });
@@ -696,12 +690,6 @@ namespace Pulumi.Aws.Kinesis
     ///                 },
     ///                 RoleArn = firehose.Arn,
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             firehose_opensearch, 
     ///         },
     ///     });
     /// 

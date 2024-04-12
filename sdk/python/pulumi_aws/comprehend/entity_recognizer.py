@@ -497,8 +497,7 @@ class EntityRecognizer(pulumi.CustomResource):
                 entity_list=aws.comprehend.EntityRecognizerInputDataConfigEntityListArgs(
                     s3_uri=entities.id.apply(lambda id: f"s3://{entities_aws_s3_bucket['bucket']}/{id}"),
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -578,8 +577,7 @@ class EntityRecognizer(pulumi.CustomResource):
                 entity_list=aws.comprehend.EntityRecognizerInputDataConfigEntityListArgs(
                     s3_uri=entities.id.apply(lambda id: f"s3://{entities_aws_s3_bucket['bucket']}/{id}"),
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

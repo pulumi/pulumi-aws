@@ -45,12 +45,6 @@ namespace Pulumi.Aws.SecurityHub
     ///     var exampleOrganizationAdminAccount = new Aws.SecurityHub.OrganizationAdminAccount("example", new()
     ///     {
     ///         AdminAccountId = "123456789012",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
-    ///         },
     ///     });
     /// 
     ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("example", new()
@@ -76,23 +70,11 @@ namespace Pulumi.Aws.SecurityHub
     ///     var example = new Aws.SecurityHub.OrganizationAdminAccount("example", new()
     ///     {
     ///         AdminAccountId = "123456789012",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsOrganizationsOrganization, 
-    ///         },
     ///     });
     /// 
     ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("example", new()
     ///     {
     ///         LinkingMode = "ALL_REGIONS",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
-    ///         },
     ///     });
     /// 
     ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("example", new()
@@ -102,12 +84,6 @@ namespace Pulumi.Aws.SecurityHub
     ///         OrganizationConfigurationDetails = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
     ///         {
     ///             ConfigurationType = "CENTRAL",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleFindingAggregator, 
     ///         },
     ///     });
     /// 

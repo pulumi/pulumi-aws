@@ -57,6 +57,15 @@ namespace Pulumi.Aws.Msk
     ///         KmsKeyId = exampleKey.KeyId,
     ///     });
     /// 
+    ///     var exampleScramSecretAssociation = new Aws.Msk.ScramSecretAssociation("example", new()
+    ///     {
+    ///         ClusterArn = exampleCluster.Arn,
+    ///         SecretArnLists = new[]
+    ///         {
+    ///             exampleSecret.Arn,
+    ///         },
+    ///     });
+    /// 
     ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
     ///     {
     ///         SecretId = exampleSecret.Id,
@@ -65,21 +74,6 @@ namespace Pulumi.Aws.Msk
     ///             ["username"] = "user",
     ///             ["password"] = "pass",
     ///         }),
-    ///     });
-    /// 
-    ///     var exampleScramSecretAssociation = new Aws.Msk.ScramSecretAssociation("example", new()
-    ///     {
-    ///         ClusterArn = exampleCluster.Arn,
-    ///         SecretArnLists = new[]
-    ///         {
-    ///             exampleSecret.Arn,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleSecretVersion, 
-    ///         },
     ///     });
     /// 
     ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()

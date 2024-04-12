@@ -55,8 +55,6 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: secondary.id,
  *     instanceClass: "db.r5.large",
  *     neptuneSubnetGroupName: "default",
- * }, {
- *     dependsOn: [primaryClusterInstance],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

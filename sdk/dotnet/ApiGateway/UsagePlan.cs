@@ -12,6 +12,110 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides an API Gateway Usage Plan.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
+    ///     {
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
+    ///     {
+    ///         RestApi = example.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///         },
+    ///     });
+    /// 
+    ///     var development = new Aws.ApiGateway.Stage("development", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = example.Id,
+    ///         StageName = "development",
+    ///     });
+    /// 
+    ///     var production = new Aws.ApiGateway.Stage("production", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = example.Id,
+    ///         StageName = "production",
+    ///     });
+    /// 
+    ///     var exampleUsagePlan = new Aws.ApiGateway.UsagePlan("example", new()
+    ///     {
+    ///         Name = "my-usage-plan",
+    ///         Description = "my description",
+    ///         ProductCode = "MYCODE",
+    ///         ApiStages = new[]
+    ///         {
+    ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
+    ///             {
+    ///                 ApiId = example.Id,
+    ///                 Stage = development.StageName,
+    ///             },
+    ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
+    ///             {
+    ///                 ApiId = example.Id,
+    ///                 Stage = production.StageName,
+    ///             },
+    ///         },
+    ///         QuotaSettings = new Aws.ApiGateway.Inputs.UsagePlanQuotaSettingsArgs
+    ///         {
+    ///             Limit = 20,
+    ///             Offset = 2,
+    ///             Period = "WEEK",
+    ///         },
+    ///         ThrottleSettings = new Aws.ApiGateway.Inputs.UsagePlanThrottleSettingsArgs
+    ///         {
+    ///             BurstLimit = 5,
+    ///             RateLimit = 10,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:

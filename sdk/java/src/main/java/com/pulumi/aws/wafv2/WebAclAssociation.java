@@ -20,6 +20,100 @@ import javax.annotation.Nullable;
  * 
  * [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
  * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.apigateway.Deployment;
+ * import com.pulumi.aws.apigateway.DeploymentArgs;
+ * import com.pulumi.aws.apigateway.Stage;
+ * import com.pulumi.aws.apigateway.StageArgs;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.WebAclAssociation;
+ * import com.pulumi.aws.wafv2.WebAclAssociationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RestApi(&#34;example&#34;, RestApiArgs.builder()        
+ *             .body(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
+ *                     jsonProperty(&#34;info&#34;, jsonObject(
+ *                         jsonProperty(&#34;title&#34;, &#34;example&#34;),
+ *                         jsonProperty(&#34;version&#34;, &#34;1.0&#34;)
+ *                     )),
+ *                     jsonProperty(&#34;paths&#34;, jsonObject(
+ *                         jsonProperty(&#34;/path1&#34;, jsonObject(
+ *                             jsonProperty(&#34;get&#34;, jsonObject(
+ *                                 jsonProperty(&#34;x-amazon-apigateway-integration&#34;, jsonObject(
+ *                                     jsonProperty(&#34;httpMethod&#34;, &#34;GET&#34;),
+ *                                     jsonProperty(&#34;payloadFormatVersion&#34;, &#34;1.0&#34;),
+ *                                     jsonProperty(&#34;type&#34;, &#34;HTTP_PROXY&#34;),
+ *                                     jsonProperty(&#34;uri&#34;, &#34;https://ip-ranges.amazonaws.com/ip-ranges.json&#34;)
+ *                                 ))
+ *                             ))
+ *                         ))
+ *                     ))
+ *                 )))
+ *             .name(&#34;example&#34;)
+ *             .build());
+ * 
+ *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
+ *             .restApi(example.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
+ *             .build());
+ * 
+ *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
+ *             .deployment(exampleDeployment.id())
+ *             .restApi(example.id())
+ *             .stageName(&#34;example&#34;)
+ *             .build());
+ * 
+ *         var exampleWebAcl = new WebAcl(&#34;exampleWebAcl&#34;, WebAclArgs.builder()        
+ *             .name(&#34;web-acl-association-example&#34;)
+ *             .scope(&#34;REGIONAL&#34;)
+ *             .defaultAction(WebAclDefaultActionArgs.builder()
+ *                 .allow()
+ *                 .build())
+ *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
+ *                 .cloudwatchMetricsEnabled(false)
+ *                 .metricName(&#34;friendly-metric-name&#34;)
+ *                 .sampledRequestsEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleWebAclAssociation = new WebAclAssociation(&#34;exampleWebAclAssociation&#34;, WebAclAssociationArgs.builder()        
+ *             .resourceArn(exampleStage.arn())
+ *             .webAclArn(exampleWebAcl.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import WAFv2 Web ACL Association using `WEB_ACL_ARN,RESOURCE_ARN`. For example:

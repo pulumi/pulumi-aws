@@ -43,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.OrganizationAdminAccountArgs;
  * import com.pulumi.aws.securityhub.OrganizationConfiguration;
  * import com.pulumi.aws.securityhub.OrganizationConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,9 +63,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleOrganizationAdminAccount = new OrganizationAdminAccount(&#34;exampleOrganizationAdminAccount&#34;, OrganizationAdminAccountArgs.builder()        
  *             .adminAccountId(&#34;123456789012&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
  * 
  *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
  *             .autoEnable(true)
@@ -93,7 +90,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.OrganizationConfiguration;
  * import com.pulumi.aws.securityhub.OrganizationConfigurationArgs;
  * import com.pulumi.aws.securityhub.inputs.OrganizationConfigurationOrganizationConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -109,15 +105,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new OrganizationAdminAccount(&#34;example&#34;, OrganizationAdminAccountArgs.builder()        
  *             .adminAccountId(&#34;123456789012&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsOrganizationsOrganization)
- *                 .build());
+ *             .build());
  * 
  *         var exampleFindingAggregator = new FindingAggregator(&#34;exampleFindingAggregator&#34;, FindingAggregatorArgs.builder()        
  *             .linkingMode(&#34;ALL_REGIONS&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
  * 
  *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
  *             .autoEnable(false)
@@ -125,9 +117,7 @@ import javax.annotation.Nullable;
  *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
  *                 .configurationType(&#34;CENTRAL&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleFindingAggregator)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

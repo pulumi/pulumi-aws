@@ -46,13 +46,13 @@ import * as utilities from "../utilities";
  *     name: "dms-vpc-role",
  *     description: "Allows DMS to manage VPC",
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Principal: {
- *                 Service: "dms.amazonaws.com",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             principal: {
+ *                 service: "dms.amazonaws.com",
  *             },
- *             Action: "sts:AssumeRole",
+ *             action: "sts:AssumeRole",
  *         }],
  *     }),
  * });
@@ -70,8 +70,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Name: "example-id",
  *     },
- * }, {
- *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -94,12 +94,6 @@ namespace Pulumi.Aws.NetworkManager
     ///         {
     ///             Protocol = "GRE",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             test, 
-    ///         },
     ///     });
     /// 
     ///     var example2 = new Aws.NetworkManager.AttachmentAccepter("example2", new()
@@ -119,12 +113,6 @@ namespace Pulumi.Aws.NetworkManager
     ///         InsideCidrBlocks = new[]
     ///         {
     ///             "172.16.0.0/16",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example2, 
     ///         },
     ///     });
     /// 

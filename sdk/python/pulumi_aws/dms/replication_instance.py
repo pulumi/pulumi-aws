@@ -729,12 +729,7 @@ class ReplicationInstance(pulumi.CustomResource):
             tags={
                 "Name": "test",
             },
-            vpc_security_group_ids=["sg-12345678"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    dms_access_for_endpoint__amazon_dms_redshift_s3_role,
-                    dms_cloudwatch_logs_role__amazon_dms_cloud_watch_logs_role,
-                    dms_vpc_role__amazon_dmsvpc_management_role,
-                ]))
+            vpc_security_group_ids=["sg-12345678"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -841,12 +836,7 @@ class ReplicationInstance(pulumi.CustomResource):
             tags={
                 "Name": "test",
             },
-            vpc_security_group_ids=["sg-12345678"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    dms_access_for_endpoint__amazon_dms_redshift_s3_role,
-                    dms_cloudwatch_logs_role__amazon_dms_cloud_watch_logs_role,
-                    dms_vpc_role__amazon_dmsvpc_management_role,
-                ]))
+            vpc_security_group_ids=["sg-12345678"])
         ```
         <!--End PulumiCodeChooser -->
 

@@ -43,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.guardduty.PublishingDestination;
  * import com.pulumi.aws.guardduty.PublishingDestinationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -134,9 +133,7 @@ import javax.annotation.Nullable;
  *             .detectorId(testGd.id())
  *             .destinationArn(gdBucket.arn())
  *             .kmsKeyArn(gdKey.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(gdBucketPolicy)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

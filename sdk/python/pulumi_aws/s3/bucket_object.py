@@ -1000,8 +1000,7 @@ class BucketObject(pulumi.CustomResource):
             object_lock_legal_hold_status="ON",
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
-            force_destroy=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
+            force_destroy=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1165,8 +1164,7 @@ class BucketObject(pulumi.CustomResource):
             object_lock_legal_hold_status="ON",
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
-            force_destroy=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
+            force_destroy=True)
         ```
         <!--End PulumiCodeChooser -->
 

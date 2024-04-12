@@ -37,12 +37,6 @@ namespace Pulumi.Aws.GuardDuty
     ///     var exampleOrganizationAdminAccount = new Aws.GuardDuty.OrganizationAdminAccount("example", new()
     ///     {
     ///         AdminAccountId = "123456789012",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
-    ///         },
     ///     });
     /// 
     /// });

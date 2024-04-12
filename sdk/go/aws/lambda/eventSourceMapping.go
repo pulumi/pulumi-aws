@@ -211,7 +211,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"body": map[string]interface{}{
-//					"Temperature": []map[string]interface{}{
+//					"temperature": []map[string]interface{}{
 //						map[string]interface{}{
 //							"numeric": []interface{}{
 //								">",
@@ -221,7 +221,7 @@ import (
 //							},
 //						},
 //					},
-//					"Location": []string{
+//					"location": []string{
 //						"New York",
 //					},
 //				},

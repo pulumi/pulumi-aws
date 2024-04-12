@@ -915,15 +915,15 @@ class Crawler(pulumi.CustomResource):
             role=glue_role["arn"],
             tags=tags,
             configuration=json.dumps({
-                "Grouping": {
-                    "TableGroupingPolicy": "CombineCompatibleSchemas",
+                "grouping": {
+                    "tableGroupingPolicy": "CombineCompatibleSchemas",
                 },
-                "CrawlerOutput": {
-                    "Partitions": {
-                        "AddOrUpdateBehavior": "InheritFromTable",
+                "crawlerOutput": {
+                    "partitions": {
+                        "addOrUpdateBehavior": "InheritFromTable",
                     },
                 },
-                "Version": 1,
+                "version": 1,
             }),
             s3_targets=[aws.glue.CrawlerS3TargetArgs(
                 path=f"s3://{data_lake_bucket['bucket']}",
@@ -1088,15 +1088,15 @@ class Crawler(pulumi.CustomResource):
             role=glue_role["arn"],
             tags=tags,
             configuration=json.dumps({
-                "Grouping": {
-                    "TableGroupingPolicy": "CombineCompatibleSchemas",
+                "grouping": {
+                    "tableGroupingPolicy": "CombineCompatibleSchemas",
                 },
-                "CrawlerOutput": {
-                    "Partitions": {
-                        "AddOrUpdateBehavior": "InheritFromTable",
+                "crawlerOutput": {
+                    "partitions": {
+                        "addOrUpdateBehavior": "InheritFromTable",
                     },
                 },
-                "Version": 1,
+                "version": 1,
             }),
             s3_targets=[aws.glue.CrawlerS3TargetArgs(
                 path=f"s3://{data_lake_bucket['bucket']}",

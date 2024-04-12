@@ -42,15 +42,15 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action":    "*",
-//						"Effect":    "Allow",
-//						"Principal": "*",
-//						"Resource":  "*",
-//						"Condition": map[string]interface{}{
-//							"StringNotEqualsIgnoreCase": map[string]interface{}{
+//						"action":    "*",
+//						"effect":    "Allow",
+//						"principal": "*",
+//						"resource":  "*",
+//						"condition": map[string]interface{}{
+//							"stringNotEqualsIgnoreCase": map[string]interface{}{
 //								"aws:PrincipalType": "anonymous",
 //							},
 //						},

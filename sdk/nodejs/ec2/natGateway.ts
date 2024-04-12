@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Name: "gw NAT",
  *     },
- * }, {
- *     dependsOn: [exampleAwsInternetGateway],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

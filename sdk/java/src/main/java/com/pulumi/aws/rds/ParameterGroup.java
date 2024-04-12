@@ -79,6 +79,58 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### `create_before_destroy` Lifecycle Configuration
+ * 
+ * The `create_before_destroy`
+ * lifecycle configuration is necessary for modifications that force re-creation of an existing,
+ * in-use parameter group. This includes common situations like changing the group `name` or
+ * bumping the `family` version during a major version upgrade. This configuration will prevent destruction
+ * of the deposed parameter group while still in use by the database during upgrade.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.ParameterGroup;
+ * import com.pulumi.aws.rds.ParameterGroupArgs;
+ * import com.pulumi.aws.rds.inputs.ParameterGroupParameterArgs;
+ * import com.pulumi.aws.rds.Instance;
+ * import com.pulumi.aws.rds.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ParameterGroup(&#34;example&#34;, ParameterGroupArgs.builder()        
+ *             .name(&#34;my-pg&#34;)
+ *             .family(&#34;postgres13&#34;)
+ *             .parameters(ParameterGroupParameterArgs.builder()
+ *                 .name(&#34;log_connections&#34;)
+ *                 .value(&#34;1&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
+ *             .parameterGroupName(example.name())
+ *             .applyImmediately(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import DB Parameter groups using the `name`. For example:

@@ -489,8 +489,7 @@ class ClassificationJob(pulumi.CustomResource):
                     account_id="ACCOUNT ID",
                     buckets=["S3 BUCKET NAME"],
                 )],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -541,8 +540,7 @@ class ClassificationJob(pulumi.CustomResource):
                     account_id="ACCOUNT ID",
                     buckets=["S3 BUCKET NAME"],
                 )],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

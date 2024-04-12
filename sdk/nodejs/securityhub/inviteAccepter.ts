@@ -23,9 +23,7 @@ import * as utilities from "../utilities";
  *     invite: true,
  * });
  * const invitee = new aws.securityhub.Account("invitee", {});
- * const inviteeInviteAccepter = new aws.securityhub.InviteAccepter("invitee", {masterId: exampleMember.masterId}, {
- *     dependsOn: [invitee],
- * });
+ * const inviteeInviteAccepter = new aws.securityhub.InviteAccepter("invitee", {masterId: exampleMember.masterId});
  * ```
  * <!--End PulumiCodeChooser -->
  *

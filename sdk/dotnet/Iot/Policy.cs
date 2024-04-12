@@ -31,17 +31,17 @@ namespace Pulumi.Aws.Iot
     ///         Name = "PubSubToAnyTopic",
     ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "iot:*",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = "*",
     ///                 },
     ///             },
     ///         }),

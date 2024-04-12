@@ -26,11 +26,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.guardduty.Detector;
- * import com.pulumi.aws.guardduty.Member;
- * import com.pulumi.aws.guardduty.MemberArgs;
  * import com.pulumi.aws.guardduty.InviteAccepter;
  * import com.pulumi.aws.guardduty.InviteAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.aws.guardduty.Member;
+ * import com.pulumi.aws.guardduty.MemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,19 +47,17 @@ import javax.annotation.Nullable;
  * 
  *         var memberDetector = new Detector(&#34;memberDetector&#34;);
  * 
+ *         var member = new InviteAccepter(&#34;member&#34;, InviteAccepterArgs.builder()        
+ *             .detectorId(memberDetector.id())
+ *             .masterAccountId(primary.accountId())
+ *             .build());
+ * 
  *         var memberMember = new Member(&#34;memberMember&#34;, MemberArgs.builder()        
  *             .accountId(memberDetector.accountId())
  *             .detectorId(primary.id())
  *             .email(&#34;required@example.com&#34;)
  *             .invite(true)
  *             .build());
- * 
- *         var member = new InviteAccepter(&#34;member&#34;, InviteAccepterArgs.builder()        
- *             .detectorId(memberDetector.id())
- *             .masterAccountId(primary.accountId())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(memberMember)
- *                 .build());
  * 
  *     }
  * }

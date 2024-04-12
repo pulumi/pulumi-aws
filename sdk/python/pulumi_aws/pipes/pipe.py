@@ -495,15 +495,15 @@ class Pipe(pulumi.CustomResource):
 
         main = aws.get_caller_identity()
         example = aws.iam.Role("example", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": {
-                "Effect": "Allow",
-                "Action": "sts:AssumeRole",
-                "Principal": {
-                    "Service": "pipes.amazonaws.com",
+            "version": "2012-10-17",
+            "statement": {
+                "effect": "Allow",
+                "action": "sts:AssumeRole",
+                "principal": {
+                    "service": "pipes.amazonaws.com",
                 },
-                "Condition": {
-                    "StringEquals": {
+                "condition": {
+                    "stringEquals": {
                         "aws:SourceAccount": main.account_id,
                     },
                 },
@@ -513,37 +513,33 @@ class Pipe(pulumi.CustomResource):
         source = aws.iam.RolePolicy("source",
             role=example.id,
             policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": [
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": [
                         "sqs:DeleteMessage",
                         "sqs:GetQueueAttributes",
                         "sqs:ReceiveMessage",
                     ],
-                    "Resource": [source_queue.arn],
+                    "resource": [source_queue.arn],
                 }],
             }))
         target_queue = aws.sqs.Queue("target")
         target = aws.iam.RolePolicy("target",
             role=example.id,
             policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": ["sqs:SendMessage"],
-                    "Resource": [target_queue.arn],
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": ["sqs:SendMessage"],
+                    "resource": [target_queue.arn],
                 }],
             }))
         example_pipe = aws.pipes.Pipe("example",
             name="example-pipe",
             role_arn=example.arn,
             source=source_queue.arn,
-            target=target_queue.arn,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    source,
-                    target,
-                ]))
+            target=target_queue.arn)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -653,15 +649,15 @@ class Pipe(pulumi.CustomResource):
 
         main = aws.get_caller_identity()
         example = aws.iam.Role("example", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": {
-                "Effect": "Allow",
-                "Action": "sts:AssumeRole",
-                "Principal": {
-                    "Service": "pipes.amazonaws.com",
+            "version": "2012-10-17",
+            "statement": {
+                "effect": "Allow",
+                "action": "sts:AssumeRole",
+                "principal": {
+                    "service": "pipes.amazonaws.com",
                 },
-                "Condition": {
-                    "StringEquals": {
+                "condition": {
+                    "stringEquals": {
                         "aws:SourceAccount": main.account_id,
                     },
                 },
@@ -671,37 +667,33 @@ class Pipe(pulumi.CustomResource):
         source = aws.iam.RolePolicy("source",
             role=example.id,
             policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": [
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": [
                         "sqs:DeleteMessage",
                         "sqs:GetQueueAttributes",
                         "sqs:ReceiveMessage",
                     ],
-                    "Resource": [source_queue.arn],
+                    "resource": [source_queue.arn],
                 }],
             }))
         target_queue = aws.sqs.Queue("target")
         target = aws.iam.RolePolicy("target",
             role=example.id,
             policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": ["sqs:SendMessage"],
-                    "Resource": [target_queue.arn],
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "action": ["sqs:SendMessage"],
+                    "resource": [target_queue.arn],
                 }],
             }))
         example_pipe = aws.pipes.Pipe("example",
             name="example-pipe",
             role_arn=example.arn,
             source=source_queue.arn,
-            target=target_queue.arn,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    source,
-                    target,
-                ]))
+            target=target_queue.arn)
         ```
         <!--End PulumiCodeChooser -->
 

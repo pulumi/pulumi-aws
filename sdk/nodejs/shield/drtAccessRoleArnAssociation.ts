@@ -23,8 +23,8 @@ import * as utilities from "../utilities";
  * const test = new aws.iam.Role("test", {
  *     name: awsShieldDrtAccessRoleArn,
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
+ *         version: "2012-10-17",
+ *         statement: [{
  *             Sid: "",
  *             Effect: "Allow",
  *             Principal: {

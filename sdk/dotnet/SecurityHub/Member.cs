@@ -30,12 +30,6 @@ namespace Pulumi.Aws.SecurityHub
     ///         AccountId = "123456789012",
     ///         Email = "example@example.com",
     ///         Invite = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
-    ///         },
     ///     });
     /// 
     /// });

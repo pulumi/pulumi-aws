@@ -353,12 +353,12 @@ class Pipeline(pulumi.CustomResource):
             pipeline_display_name="example",
             role_arn=example_aws_iam_role["arn"],
             pipeline_definition=json.dumps({
-                "Version": "2020-12-01",
-                "Steps": [{
-                    "Name": "Test",
-                    "Type": "Fail",
-                    "Arguments": {
-                        "ErrorMessage": "test",
+                "version": "2020-12-01",
+                "steps": [{
+                    "name": "Test",
+                    "type": "Fail",
+                    "arguments": {
+                        "errorMessage": "test",
                     },
                 }],
             }))
@@ -408,12 +408,12 @@ class Pipeline(pulumi.CustomResource):
             pipeline_display_name="example",
             role_arn=example_aws_iam_role["arn"],
             pipeline_definition=json.dumps({
-                "Version": "2020-12-01",
-                "Steps": [{
-                    "Name": "Test",
-                    "Type": "Fail",
-                    "Arguments": {
-                        "ErrorMessage": "test",
+                "version": "2020-12-01",
+                "steps": [{
+                    "name": "Test",
+                    "type": "Fail",
+                    "arguments": {
+                        "errorMessage": "test",
                     },
                 }],
             }))

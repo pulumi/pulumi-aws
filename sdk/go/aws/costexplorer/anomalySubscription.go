@@ -290,9 +290,7 @@ import (
 // Address: costAnomalyUpdates.Arn,
 // },
 // },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// _default,
-// }))
+// })
 // if err != nil {
 // return err
 // }

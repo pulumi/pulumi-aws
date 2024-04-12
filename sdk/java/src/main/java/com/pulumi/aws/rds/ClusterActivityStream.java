@@ -43,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.rds.ClusterActivityStream;
  * import com.pulumi.aws.rds.ClusterActivityStreamArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -85,9 +84,7 @@ import javax.annotation.Nullable;
  *             .resourceArn(default_.arn())
  *             .mode(&#34;async&#34;)
  *             .kmsKeyId(defaultKey.keyId())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(defaultClusterInstance)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

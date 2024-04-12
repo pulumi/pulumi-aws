@@ -483,8 +483,7 @@ class GameServerGroup(pulumi.CustomResource):
             ),
             max_size=1,
             min_size=1,
-            role_arn=example_aws_iam_role["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
+            role_arn=example_aws_iam_role["arn"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -528,8 +527,7 @@ class GameServerGroup(pulumi.CustomResource):
             vpc_subnets=[
                 "subnet-12345678",
                 "subnet-23456789",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -621,8 +619,7 @@ class GameServerGroup(pulumi.CustomResource):
             ),
             max_size=1,
             min_size=1,
-            role_arn=example_aws_iam_role["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
+            role_arn=example_aws_iam_role["arn"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -666,8 +663,7 @@ class GameServerGroup(pulumi.CustomResource):
             vpc_subnets=[
                 "subnet-12345678",
                 "subnet-23456789",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

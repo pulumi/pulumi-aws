@@ -33,32 +33,32 @@ namespace Pulumi.Aws.CloudFormation
     ///         },
     ///         TemplateBody = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///             ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["VPCCidr"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["vPCCidr"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Type"] = "String",
-    ///                     ["Default"] = "10.0.0.0/16",
-    ///                     ["Description"] = "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
+    ///                     ["type"] = "String",
+    ///                     ["default"] = "10.0.0.0/16",
+    ///                     ["description"] = "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
     ///                 },
     ///             },
-    ///             ["Resources"] = new Dictionary&lt;string, object?&gt;
+    ///             ["resources"] = new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 ["myVpc"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Type"] = "AWS::EC2::VPC",
-    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["type"] = "AWS::EC2::VPC",
+    ///                     ["properties"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["CidrBlock"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["cidrBlock"] = new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["Ref"] = "VPCCidr",
     ///                         },
-    ///                         ["Tags"] = new[]
+    ///                         ["tags"] = new[]
     ///                         {
     ///                             new Dictionary&lt;string, object?&gt;
     ///                             {
-    ///                                 ["Key"] = "Name",
-    ///                                 ["Value"] = "Primary_CF_VPC",
+    ///                                 ["key"] = "Name",
+    ///                                 ["value"] = "Primary_CF_VPC",
     ///                             },
     ///                         },
     ///                     },

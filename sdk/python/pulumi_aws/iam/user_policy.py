@@ -183,11 +183,11 @@ class UserPolicy(pulumi.CustomResource):
             name="test",
             user=lb.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
         lb_access_key = aws.iam.AccessKey("lb", user=lb.name)
@@ -235,11 +235,11 @@ class UserPolicy(pulumi.CustomResource):
             name="test",
             user=lb.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
         lb_access_key = aws.iam.AccessKey("lb", user=lb.name)

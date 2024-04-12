@@ -19,9 +19,7 @@ import * as utilities from "../utilities";
  *     featureSet: "ALL",
  * });
  * const exampleAccount = new aws.securityhub.Account("example", {});
- * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("example", {adminAccountId: "123456789012"}, {
- *     dependsOn: [example],
- * });
+ * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("example", {adminAccountId: "123456789012"});
  * // Auto enable security hub in organization member accounts
  * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("example", {autoEnable: true});
  * ```

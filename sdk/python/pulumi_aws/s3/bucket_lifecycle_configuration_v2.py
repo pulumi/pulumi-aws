@@ -446,8 +446,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     ),
                 ],
                 status="Enabled",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[versioning]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -794,8 +793,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     ),
                 ],
                 status="Enabled",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[versioning]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

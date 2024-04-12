@@ -320,12 +320,6 @@ namespace Pulumi.Aws.Kendra
     ///                 },
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsSecretsmanagerSecretVersion, 
-    ///         },
     ///     });
     /// 
     /// });
@@ -490,12 +484,6 @@ namespace Pulumi.Aws.Kendra
     ///                     },
     ///                 },
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsSecretsmanagerSecretVersion, 
     ///         },
     ///     });
     /// 

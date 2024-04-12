@@ -128,7 +128,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.InstanceArgs;
  * import com.pulumi.aws.ec2.Eip;
  * import com.pulumi.aws.ec2.EipArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -155,9 +154,7 @@ import javax.annotation.Nullable;
  *             .vpcId(default_.id())
  *             .cidrBlock(&#34;10.0.0.0/24&#34;)
  *             .mapPublicIpOnLaunch(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(gw)
- *                 .build());
+ *             .build());
  * 
  *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.builder()        
  *             .ami(&#34;ami-5189a661&#34;)
@@ -170,9 +167,7 @@ import javax.annotation.Nullable;
  *             .domain(&#34;vpc&#34;)
  *             .instance(foo.id())
  *             .associateWithPrivateIp(&#34;10.0.0.12&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(gw)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

@@ -41,8 +41,6 @@ import * as utilities from "../utilities";
  *             s3Uri: pulumi.interpolate`s3://${entitiesAwsS3Bucket.bucket}/${entities.id}`,
  *         },
  *     },
- * }, {
- *     dependsOn: [exampleAwsIamRolePolicy],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -30,14 +30,14 @@ import * as utilities from "../utilities";
  * const exampleAccessPointPolicy = new aws.s3control.AccessPointPolicy("example", {
  *     accessPointArn: exampleAccessPoint.arn,
  *     policy: pulumi.jsonStringify({
- *         Version: "2008-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: "s3:GetObjectTagging",
- *             Principal: {
+ *         version: "2008-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             action: "s3:GetObjectTagging",
+ *             principal: {
  *                 AWS: "*",
  *             },
- *             Resource: pulumi.interpolate`${exampleAccessPoint.arn}/object/*`,
+ *             resource: pulumi.interpolate`${exampleAccessPoint.arn}/object/*`,
  *         }],
  *     }),
  * });

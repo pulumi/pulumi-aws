@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.detective.MemberArgs;
  * import com.pulumi.aws.detective.InvitationAccepter;
  * import com.pulumi.aws.detective.InvitationAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,9 +54,7 @@ import javax.annotation.Nullable;
  * 
  *         var member = new InvitationAccepter(&#34;member&#34;, InvitationAccepterArgs.builder()        
  *             .graphArn(primary.graphArn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primaryMember)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

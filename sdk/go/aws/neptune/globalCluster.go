@@ -51,7 +51,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			primaryClusterInstance, err := neptune.NewClusterInstance(ctx, "primary", &neptune.ClusterInstanceArgs{
+//			_, err = neptune.NewClusterInstance(ctx, "primary", &neptune.ClusterInstanceArgs{
 //				Engine:                 example.Engine,
 //				EngineVersion:          example.EngineVersion,
 //				Identifier:             pulumi.String("test-primary-cluster-instance"),
@@ -79,9 +79,7 @@ import (
 //				ClusterIdentifier:      secondary.ID(),
 //				InstanceClass:          pulumi.String("db.r5.large"),
 //				NeptuneSubnetGroupName: pulumi.String("default"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				primaryClusterInstance,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

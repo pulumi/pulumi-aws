@@ -42,9 +42,7 @@ import (
 //				EndpointType:         pulumi.String("target"),
 //				BucketName:           pulumi.String("beckut_name"),
 //				ServiceAccessRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsIamRolePolicy,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -120,9 +118,7 @@ import (
 //				UseCsvNoSupValue:                     pulumi.Bool(false),
 //				UseTaskStartTimeForFullLoadTimestamp: pulumi.Bool(true),
 //				GlueCatalogGeneration:                pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsIamRolePolicy,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

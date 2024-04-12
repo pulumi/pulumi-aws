@@ -364,8 +364,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
             description="DESCRIPTION",
             maximum_match_distance=10,
             keywords=["keyword"],
-            ignore_words=["ignore"],
-            opts=pulumi.ResourceOptions(depends_on=[test]))
+            ignore_words=["ignore"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -411,8 +410,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
             description="DESCRIPTION",
             maximum_match_distance=10,
             keywords=["keyword"],
-            ignore_words=["ignore"],
-            opts=pulumi.ResourceOptions(depends_on=[test]))
+            ignore_words=["ignore"])
         ```
         <!--End PulumiCodeChooser -->
 

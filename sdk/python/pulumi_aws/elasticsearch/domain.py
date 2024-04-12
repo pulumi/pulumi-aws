@@ -813,8 +813,7 @@ class Domain(pulumi.CustomResource):
         \"\"\",
             tags={
                 "Domain": "TestDomain",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[es_service_linked_role]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1009,8 +1008,7 @@ class Domain(pulumi.CustomResource):
         \"\"\",
             tags={
                 "Domain": "TestDomain",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[es_service_linked_role]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 

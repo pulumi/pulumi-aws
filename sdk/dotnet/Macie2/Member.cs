@@ -32,12 +32,6 @@ namespace Pulumi.Aws.Macie2
     ///         Invite = true,
     ///         InvitationMessage = "Message of the invitation",
     ///         InvitationDisableEmailNotification = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
-    ///         },
     ///     });
     /// 
     /// });

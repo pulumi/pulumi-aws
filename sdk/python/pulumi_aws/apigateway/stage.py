@@ -556,6 +556,56 @@ class Stage(pulumi.CustomResource):
         """
         Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `apigateway.Deployment` resource. Stages can be optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.apigateway.RestApi("example",
+            body=json.dumps({
+                "openapi": "3.0.1",
+                "info": {
+                    "title": "example",
+                    "version": "1.0",
+                },
+                "paths": {
+                    "/path1": {
+                        "get": {
+                            "x-amazon-apigateway-integration": {
+                                "httpMethod": "GET",
+                                "payloadFormatVersion": "1.0",
+                                "type": "HTTP_PROXY",
+                                "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                            },
+                        },
+                    },
+                },
+            }),
+            name="example")
+        example_deployment = aws.apigateway.Deployment("example",
+            rest_api=example.id,
+            triggers={
+                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps(example.body)).apply(lambda invoke: invoke.result),
+            })
+        example_stage = aws.apigateway.Stage("example",
+            deployment=example_deployment.id,
+            rest_api=example.id,
+            stage_name="example")
+        example_method_settings = aws.apigateway.MethodSettings("example",
+            rest_api=example.id,
+            stage_name=example_stage.stage_name,
+            method_path="*/*",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                metrics_enabled=True,
+                logging_level="INFO",
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Managing the API Logging CloudWatch Log Group
 
         API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
@@ -570,11 +620,10 @@ class Stage(pulumi.CustomResource):
         if stage_name is None:
             stage_name = "example"
         example = aws.apigateway.RestApi("example")
+        example_stage = aws.apigateway.Stage("example", stage_name=stage_name)
         example_log_group = aws.cloudwatch.LogGroup("example",
             name=example.id.apply(lambda id: f"API-Gateway-Execution-Logs_{id}/{stage_name}"),
             retention_in_days=7)
-        example_stage = aws.apigateway.Stage("example", stage_name=stage_name,
-        opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -611,6 +660,56 @@ class Stage(pulumi.CustomResource):
         """
         Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `apigateway.Deployment` resource. Stages can be optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
 
+        ## Example Usage
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.apigateway.RestApi("example",
+            body=json.dumps({
+                "openapi": "3.0.1",
+                "info": {
+                    "title": "example",
+                    "version": "1.0",
+                },
+                "paths": {
+                    "/path1": {
+                        "get": {
+                            "x-amazon-apigateway-integration": {
+                                "httpMethod": "GET",
+                                "payloadFormatVersion": "1.0",
+                                "type": "HTTP_PROXY",
+                                "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                            },
+                        },
+                    },
+                },
+            }),
+            name="example")
+        example_deployment = aws.apigateway.Deployment("example",
+            rest_api=example.id,
+            triggers={
+                "redeployment": std.sha1_output(input=pulumi.Output.json_dumps(example.body)).apply(lambda invoke: invoke.result),
+            })
+        example_stage = aws.apigateway.Stage("example",
+            deployment=example_deployment.id,
+            rest_api=example.id,
+            stage_name="example")
+        example_method_settings = aws.apigateway.MethodSettings("example",
+            rest_api=example.id,
+            stage_name=example_stage.stage_name,
+            method_path="*/*",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                metrics_enabled=True,
+                logging_level="INFO",
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ### Managing the API Logging CloudWatch Log Group
 
         API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
@@ -625,11 +724,10 @@ class Stage(pulumi.CustomResource):
         if stage_name is None:
             stage_name = "example"
         example = aws.apigateway.RestApi("example")
+        example_stage = aws.apigateway.Stage("example", stage_name=stage_name)
         example_log_group = aws.cloudwatch.LogGroup("example",
             name=example.id.apply(lambda id: f"API-Gateway-Execution-Logs_{id}/{stage_name}"),
             retention_in_days=7)
-        example_stage = aws.apigateway.Stage("example", stage_name=stage_name,
-        opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
         ```
         <!--End PulumiCodeChooser -->
 

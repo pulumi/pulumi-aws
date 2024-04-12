@@ -61,9 +61,7 @@ import (
 //
 // `),
 //
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsConfigConfigurationRecorder,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -123,9 +121,7 @@ import (
 //					key := _args[1].(string)
 //					return fmt.Sprintf("s3://%v/%v", bucket, key), nil
 //				}).(pulumi.StringOutput),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsConfigConfigurationRecorder,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

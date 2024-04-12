@@ -23,6 +23,10 @@ import * as utilities from "../utilities";
  *     bucket: "example-awsconfig",
  *     forceDestroy: true,
  * });
+ * const foo = new aws.cfg.DeliveryChannel("foo", {
+ *     name: "example",
+ *     s3BucketName: b.bucket,
+ * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -40,12 +44,6 @@ import * as utilities from "../utilities";
  * const fooRecorder = new aws.cfg.Recorder("foo", {
  *     name: "example",
  *     roleArn: r.arn,
- * });
- * const foo = new aws.cfg.DeliveryChannel("foo", {
- *     name: "example",
- *     s3BucketName: b.bucket,
- * }, {
- *     dependsOn: [fooRecorder],
  * });
  * const p = aws.iam.getPolicyDocumentOutput({
  *     statements: [{

@@ -116,19 +116,19 @@ class ResourcePolicy(pulumi.CustomResource):
         example_resource_policy = aws.vpclattice.ResourcePolicy("example",
             resource_arn=example.arn,
             policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "test-pol-principals-6",
-                    "Effect": "Allow",
-                    "Principal": {
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "test-pol-principals-6",
+                    "effect": "Allow",
+                    "principal": {
                         "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                     },
-                    "Action": [
+                    "action": [
                         "vpc-lattice:CreateServiceNetworkVpcAssociation",
                         "vpc-lattice:CreateServiceNetworkServiceAssociation",
                         "vpc-lattice:GetServiceNetwork",
                     ],
-                    "Resource": example.arn,
+                    "resource": example.arn,
                 }],
             }))
         ```
@@ -172,19 +172,19 @@ class ResourcePolicy(pulumi.CustomResource):
         example_resource_policy = aws.vpclattice.ResourcePolicy("example",
             resource_arn=example.arn,
             policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "test-pol-principals-6",
-                    "Effect": "Allow",
-                    "Principal": {
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "test-pol-principals-6",
+                    "effect": "Allow",
+                    "principal": {
                         "AWS": f"arn:{current_get_partition.partition}:iam::{current.account_id}:root",
                     },
-                    "Action": [
+                    "action": [
                         "vpc-lattice:CreateServiceNetworkVpcAssociation",
                         "vpc-lattice:CreateServiceNetworkServiceAssociation",
                         "vpc-lattice:GetServiceNetwork",
                     ],
-                    "Resource": example.arn,
+                    "resource": example.arn,
                 }],
             }))
         ```

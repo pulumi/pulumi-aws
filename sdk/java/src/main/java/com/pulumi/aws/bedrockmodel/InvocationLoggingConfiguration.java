@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.bedrockmodel.InvocationLoggingConfiguration;
  * import com.pulumi.aws.bedrockmodel.InvocationLoggingConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -100,9 +99,7 @@ import javax.annotation.Nullable;
  *                     .keyPrefix(&#34;bedrock&#34;)
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketPolicy)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

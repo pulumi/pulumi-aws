@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.securityhub.ProductSubscription;
  * import com.pulumi.aws.securityhub.ProductSubscriptionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,9 +49,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleProductSubscription = new ProductSubscription(&#34;exampleProductSubscription&#34;, ProductSubscriptionArgs.builder()        
  *             .productArn(String.format(&#34;arn:aws:securityhub:%s:733251395267:product/alertlogic/althreatmanagement&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

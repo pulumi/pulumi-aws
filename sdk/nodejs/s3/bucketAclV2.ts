@@ -33,8 +33,6 @@ import * as utilities from "../utilities";
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: example.id,
  *     acl: "private",
- * }, {
- *     dependsOn: [exampleBucketOwnershipControls],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -66,11 +64,6 @@ import * as utilities from "../utilities";
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: example.id,
  *     acl: "public-read",
- * }, {
- *     dependsOn: [
- *         exampleBucketOwnershipControls,
- *         exampleBucketPublicAccessBlock,
- *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -113,8 +106,6 @@ import * as utilities from "../utilities";
  *             id: current.then(current => current.id),
  *         },
  *     },
- * }, {
- *     dependsOn: [exampleBucketOwnershipControls],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

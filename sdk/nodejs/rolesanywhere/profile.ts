@@ -18,18 +18,18 @@ import * as utilities from "../utilities";
  *     name: "test",
  *     path: "/",
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: [
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: [
  *                 "sts:AssumeRole",
  *                 "sts:TagSession",
  *                 "sts:SetSourceIdentity",
  *             ],
- *             Principal: {
- *                 Service: "rolesanywhere.amazonaws.com",
+ *             principal: {
+ *                 service: "rolesanywhere.amazonaws.com",
  *             },
- *             Effect: "Allow",
- *             Sid: "",
+ *             effect: "Allow",
+ *             sid: "",
  *         }],
  *     }),
  * });

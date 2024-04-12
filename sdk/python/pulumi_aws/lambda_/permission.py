@@ -441,13 +441,13 @@ class Permission(pulumi.CustomResource):
         iam_for_lambda = aws.iam.Role("iam_for_lambda",
             name="iam_for_lambda",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "lambda.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "lambda.amazonaws.com",
                     },
                 }],
             }))
@@ -484,13 +484,13 @@ class Permission(pulumi.CustomResource):
         default_role = aws.iam.Role("default",
             name="iam_for_lambda_with_sns",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "lambda.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "lambda.amazonaws.com",
                     },
                 }],
             }))
@@ -566,8 +566,7 @@ class Permission(pulumi.CustomResource):
             destination_arn=logging_function.arn,
             filter_pattern="",
             log_group=default.name,
-            name="logging_default",
-            opts=pulumi.ResourceOptions(depends_on=[logging]))
+            name="logging_default")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -587,6 +586,23 @@ class Permission(pulumi.CustomResource):
             principal="arn:aws:iam::444455556666:role/example",
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### With `replace_triggered_by` Lifecycle Configuration
+
+        If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        logging = aws.lambda_.Permission("logging",
+            action="lambda:InvokeFunction",
+            function=example["functionName"],
+            principal="events.amazonaws.com",
+            source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -645,13 +661,13 @@ class Permission(pulumi.CustomResource):
         iam_for_lambda = aws.iam.Role("iam_for_lambda",
             name="iam_for_lambda",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "lambda.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "lambda.amazonaws.com",
                     },
                 }],
             }))
@@ -688,13 +704,13 @@ class Permission(pulumi.CustomResource):
         default_role = aws.iam.Role("default",
             name="iam_for_lambda_with_sns",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "lambda.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "lambda.amazonaws.com",
                     },
                 }],
             }))
@@ -770,8 +786,7 @@ class Permission(pulumi.CustomResource):
             destination_arn=logging_function.arn,
             filter_pattern="",
             log_group=default.name,
-            name="logging_default",
-            opts=pulumi.ResourceOptions(depends_on=[logging]))
+            name="logging_default")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -791,6 +806,23 @@ class Permission(pulumi.CustomResource):
             principal="arn:aws:iam::444455556666:role/example",
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### With `replace_triggered_by` Lifecycle Configuration
+
+        If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        logging = aws.lambda_.Permission("logging",
+            action="lambda:InvokeFunction",
+            function=example["functionName"],
+            principal="events.amazonaws.com",
+            source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
         ```
         <!--End PulumiCodeChooser -->
 

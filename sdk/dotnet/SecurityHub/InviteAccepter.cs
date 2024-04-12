@@ -39,12 +39,6 @@ namespace Pulumi.Aws.SecurityHub
     ///     var inviteeInviteAccepter = new Aws.SecurityHub.InviteAccepter("invitee", new()
     ///     {
     ///         MasterId = exampleMember.MasterId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             invitee, 
-    ///         },
     ///     });
     /// 
     /// });

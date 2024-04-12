@@ -69,12 +69,6 @@ namespace Pulumi.Aws.Iam
         ///     var example = new Aws.S3.BucketObject("example", new()
         ///     {
         ///         Bucket = "my-test-bucket",
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn =
-        ///         {
-        ///             s3ObjectAccess, 
-        ///         },
         ///     });
         /// 
         /// });
@@ -113,14 +107,14 @@ namespace Pulumi.Aws.Iam
         ///         User = example.Name,
         ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             ["Version"] = "2012-10-17",
-        ///             ["Statement"] = new[]
+        ///             ["version"] = "2012-10-17",
+        ///             ["statement"] = new[]
         ///             {
         ///                 new Dictionary&lt;string, object?&gt;
         ///                 {
-        ///                     ["Action"] = "s3:GetObject",
-        ///                     ["Effect"] = "Allow",
-        ///                     ["Resource"] = exampleBucketV2.Arn,
+        ///                     ["action"] = "s3:GetObject",
+        ///                     ["effect"] = "Allow",
+        ///                     ["resource"] = exampleBucketV2.Arn,
         ///                 },
         ///             },
         ///         })),
@@ -131,18 +125,18 @@ namespace Pulumi.Aws.Iam
         ///         Bucket = exampleBucketV2.Bucket,
         ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             ["Version"] = "2012-10-17",
-        ///             ["Statement"] = new[]
+        ///             ["version"] = "2012-10-17",
+        ///             ["statement"] = new[]
         ///             {
         ///                 new Dictionary&lt;string, object?&gt;
         ///                 {
-        ///                     ["Action"] = "s3:*",
-        ///                     ["Effect"] = "Allow",
-        ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+        ///                     ["action"] = "s3:*",
+        ///                     ["effect"] = "Allow",
+        ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
         ///                     {
         ///                         ["AWS"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
         ///                     },
-        ///                     ["Resource"] = new[]
+        ///                     ["resource"] = new[]
         ///                     {
         ///                         exampleBucketV2.Arn,
         ///                         exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/*"),
@@ -233,12 +227,6 @@ namespace Pulumi.Aws.Iam
         ///     var example = new Aws.S3.BucketObject("example", new()
         ///     {
         ///         Bucket = "my-test-bucket",
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn =
-        ///         {
-        ///             s3ObjectAccess, 
-        ///         },
         ///     });
         /// 
         /// });
@@ -277,14 +265,14 @@ namespace Pulumi.Aws.Iam
         ///         User = example.Name,
         ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             ["Version"] = "2012-10-17",
-        ///             ["Statement"] = new[]
+        ///             ["version"] = "2012-10-17",
+        ///             ["statement"] = new[]
         ///             {
         ///                 new Dictionary&lt;string, object?&gt;
         ///                 {
-        ///                     ["Action"] = "s3:GetObject",
-        ///                     ["Effect"] = "Allow",
-        ///                     ["Resource"] = exampleBucketV2.Arn,
+        ///                     ["action"] = "s3:GetObject",
+        ///                     ["effect"] = "Allow",
+        ///                     ["resource"] = exampleBucketV2.Arn,
         ///                 },
         ///             },
         ///         })),
@@ -295,18 +283,18 @@ namespace Pulumi.Aws.Iam
         ///         Bucket = exampleBucketV2.Bucket,
         ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
         ///         {
-        ///             ["Version"] = "2012-10-17",
-        ///             ["Statement"] = new[]
+        ///             ["version"] = "2012-10-17",
+        ///             ["statement"] = new[]
         ///             {
         ///                 new Dictionary&lt;string, object?&gt;
         ///                 {
-        ///                     ["Action"] = "s3:*",
-        ///                     ["Effect"] = "Allow",
-        ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+        ///                     ["action"] = "s3:*",
+        ///                     ["effect"] = "Allow",
+        ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
         ///                     {
         ///                         ["AWS"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
         ///                     },
-        ///                     ["Resource"] = new[]
+        ///                     ["resource"] = new[]
         ///                     {
         ///                         exampleBucketV2.Arn,
         ///                         exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/*"),

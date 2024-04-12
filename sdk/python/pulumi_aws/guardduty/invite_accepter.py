@@ -109,15 +109,14 @@ class InviteAccepter(pulumi.CustomResource):
 
         primary = aws.guardduty.Detector("primary")
         member_detector = aws.guardduty.Detector("member")
+        member = aws.guardduty.InviteAccepter("member",
+            detector_id=member_detector.id,
+            master_account_id=primary.account_id)
         member_member = aws.guardduty.Member("member",
             account_id=member_detector.account_id,
             detector_id=primary.id,
             email="required@example.com",
             invite=True)
-        member = aws.guardduty.InviteAccepter("member",
-            detector_id=member_detector.id,
-            master_account_id=primary.account_id,
-            opts=pulumi.ResourceOptions(depends_on=[member_member]))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -152,15 +151,14 @@ class InviteAccepter(pulumi.CustomResource):
 
         primary = aws.guardduty.Detector("primary")
         member_detector = aws.guardduty.Detector("member")
+        member = aws.guardduty.InviteAccepter("member",
+            detector_id=member_detector.id,
+            master_account_id=primary.account_id)
         member_member = aws.guardduty.Member("member",
             account_id=member_detector.account_id,
             detector_id=primary.id,
             email="required@example.com",
             invite=True)
-        member = aws.guardduty.InviteAccepter("member",
-            detector_id=member_detector.id,
-            master_account_id=primary.account_id,
-            opts=pulumi.ResourceOptions(depends_on=[member_member]))
         ```
         <!--End PulumiCodeChooser -->
 

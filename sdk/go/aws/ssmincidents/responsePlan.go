@@ -40,9 +40,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSsmincidentsReplicationSet,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -135,9 +133,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsSsmincidentsReplicationSet,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

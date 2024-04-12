@@ -245,8 +245,7 @@ class TrustAnchor(pulumi.CustomResource):
                     acm_pca_arn=example.arn,
                 ),
                 source_type="AWS_ACM_PCA",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -312,8 +311,7 @@ class TrustAnchor(pulumi.CustomResource):
                     acm_pca_arn=example.arn,
                 ),
                 source_type="AWS_ACM_PCA",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.gamelift.GameServerGroupArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,9 +64,7 @@ import javax.annotation.Nullable;
  *             .maxSize(1)
  *             .minSize(1)
  *             .roleArn(exampleAwsIamRole.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsIamRolePolicyAttachment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -89,7 +86,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -133,9 +129,7 @@ import javax.annotation.Nullable;
  *             .vpcSubnets(            
  *                 &#34;subnet-12345678&#34;,
  *                 &#34;subnet-23456789&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsIamRolePolicyAttachment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

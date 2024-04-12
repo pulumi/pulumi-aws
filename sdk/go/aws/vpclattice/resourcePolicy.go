@@ -54,20 +54,20 @@ import (
 //				Policy: example.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
+//						"version": "2012-10-17",
+//						"statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"Sid":    "test-pol-principals-6",
-//								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
+//								"sid":    "test-pol-principals-6",
+//								"effect": "Allow",
+//								"principal": map[string]interface{}{
 //									"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
 //								},
-//								"Action": []string{
+//								"action": []string{
 //									"vpc-lattice:CreateServiceNetworkVpcAssociation",
 //									"vpc-lattice:CreateServiceNetworkServiceAssociation",
 //									"vpc-lattice:GetServiceNetwork",
 //								},
-//								"Resource": arn,
+//								"resource": arn,
 //							},
 //						},
 //					})

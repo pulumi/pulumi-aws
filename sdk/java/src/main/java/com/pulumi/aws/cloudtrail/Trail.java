@@ -43,6 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.cloudtrail.Trail;
+ * import com.pulumi.aws.cloudtrail.TrailArgs;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetPartitionArgs;
@@ -51,9 +53,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
- * import com.pulumi.aws.cloudtrail.Trail;
- * import com.pulumi.aws.cloudtrail.TrailArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -70,6 +69,13 @@ import javax.annotation.Nullable;
  *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
  *             .bucket(&#34;my-test-trail&#34;)
  *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var exampleTrail = new Trail(&#34;exampleTrail&#34;, TrailArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .s3BucketName(exampleBucketV2.id())
+ *             .s3KeyPrefix(&#34;prefix&#34;)
+ *             .includeGlobalServiceEvents(false)
  *             .build());
  * 
  *         final var current = AwsFunctions.getCallerIdentity();
@@ -122,15 +128,6 @@ import javax.annotation.Nullable;
  *             .bucket(exampleBucketV2.id())
  *             .policy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(example -&gt; example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
- * 
- *         var exampleTrail = new Trail(&#34;exampleTrail&#34;, TrailArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .s3BucketName(exampleBucketV2.id())
- *             .s3KeyPrefix(&#34;prefix&#34;)
- *             .includeGlobalServiceEvents(false)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketPolicy)
- *                 .build());
  * 
  *     }
  * }

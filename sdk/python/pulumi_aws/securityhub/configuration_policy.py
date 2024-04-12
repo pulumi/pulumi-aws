@@ -165,8 +165,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
             auto_enable_standards="NONE",
             organization_configuration=aws.securityhub.OrganizationConfigurationOrganizationConfigurationArgs(
                 configuration_type="CENTRAL",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            ))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
             name="Example",
             description="This is an example configuration policy",
@@ -179,8 +178,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
                 security_controls_configuration=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs(
                     disabled_control_identifiers=[],
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -197,8 +195,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
             configuration_policy=aws.securityhub.ConfigurationPolicyConfigurationPolicyArgs(
                 service_enabled=False,
                 enabled_standard_arns=[],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -255,8 +252,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
                         ),
                     ],
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -300,8 +296,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
             auto_enable_standards="NONE",
             organization_configuration=aws.securityhub.OrganizationConfigurationOrganizationConfigurationArgs(
                 configuration_type="CENTRAL",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            ))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
             name="Example",
             description="This is an example configuration policy",
@@ -314,8 +309,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
                 security_controls_configuration=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs(
                     disabled_control_identifiers=[],
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -332,8 +326,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
             configuration_policy=aws.securityhub.ConfigurationPolicyConfigurationPolicyArgs(
                 service_enabled=False,
                 enabled_standard_arns=[],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -390,8 +383,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
                         ),
                     ],
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

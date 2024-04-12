@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.securityhub.StandardsSubscription;
  * import com.pulumi.aws.securityhub.StandardsSubscriptionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,15 +49,11 @@ import javax.annotation.Nullable;
  * 
  *         var cis = new StandardsSubscription(&#34;cis&#34;, StandardsSubscriptionArgs.builder()        
  *             .standardsArn(&#34;arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
  * 
  *         var pci321 = new StandardsSubscription(&#34;pci321&#34;, StandardsSubscriptionArgs.builder()        
  *             .standardsArn(String.format(&#34;arn:aws:securityhub:%s::standards/pci-dss/v/3.2.1&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

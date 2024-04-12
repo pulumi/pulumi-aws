@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.MemberArgs;
  * import com.pulumi.aws.securityhub.InviteAccepter;
  * import com.pulumi.aws.securityhub.InviteAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,9 +57,7 @@ import javax.annotation.Nullable;
  * 
  *         var inviteeInviteAccepter = new InviteAccepter(&#34;inviteeInviteAccepter&#34;, InviteAccepterArgs.builder()        
  *             .masterId(exampleMember.masterId())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(invitee)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

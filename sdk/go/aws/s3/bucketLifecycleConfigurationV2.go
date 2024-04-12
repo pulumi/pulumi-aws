@@ -489,7 +489,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			versioning, err := s3.NewBucketVersioningV2(ctx, "versioning", &s3.BucketVersioningV2Args{
+//			_, err = s3.NewBucketVersioningV2(ctx, "versioning", &s3.BucketVersioningV2Args{
 //				Bucket: versioningBucket.ID(),
 //				VersioningConfiguration: &s3.BucketVersioningV2VersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
@@ -522,9 +522,7 @@ import (
 //						Status: pulumi.String("Enabled"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				versioning,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

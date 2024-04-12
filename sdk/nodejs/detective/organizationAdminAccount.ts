@@ -18,9 +18,7 @@ import * as utilities from "../utilities";
  *     awsServiceAccessPrincipals: ["detective.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleOrganizationAdminAccount = new aws.detective.OrganizationAdminAccount("example", {accountId: "123456789012"}, {
- *     dependsOn: [example],
- * });
+ * const exampleOrganizationAdminAccount = new aws.detective.OrganizationAdminAccount("example", {accountId: "123456789012"});
  * ```
  * <!--End PulumiCodeChooser -->
  *

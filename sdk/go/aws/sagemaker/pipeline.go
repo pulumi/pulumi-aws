@@ -34,13 +34,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2020-12-01",
-//				"Steps": []map[string]interface{}{
+//				"version": "2020-12-01",
+//				"steps": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Name": "Test",
-//						"Type": "Fail",
-//						"Arguments": map[string]interface{}{
-//							"ErrorMessage": "test",
+//						"name": "Test",
+//						"type": "Fail",
+//						"arguments": map[string]interface{}{
+//							"errorMessage": "test",
 //						},
 //					},
 //				},

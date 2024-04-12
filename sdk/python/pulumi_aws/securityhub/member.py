@@ -177,8 +177,7 @@ class Member(pulumi.CustomResource):
         example_member = aws.securityhub.Member("example",
             account_id="123456789012",
             email="example@example.com",
-            invite=True,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            invite=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -216,8 +215,7 @@ class Member(pulumi.CustomResource):
         example_member = aws.securityhub.Member("example",
             account_id="123456789012",
             email="example@example.com",
-            invite=True,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            invite=True)
         ```
         <!--End PulumiCodeChooser -->
 

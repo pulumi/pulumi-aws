@@ -451,8 +451,7 @@ class ConnectPeer(pulumi.CustomResource):
             edge_location=example.edge_location,
             options=aws.networkmanager.ConnectAttachmentOptionsArgs(
                 protocol="GRE",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test]))
+            ))
         example2 = aws.networkmanager.AttachmentAccepter("example2",
             attachment_id=example_connect_attachment.id,
             attachment_type=example_connect_attachment.attachment_type)
@@ -462,8 +461,7 @@ class ConnectPeer(pulumi.CustomResource):
             bgp_options=aws.networkmanager.ConnectPeerBgpOptionsArgs(
                 peer_asn=65500,
             ),
-            inside_cidr_blocks=["172.16.0.0/16"],
-            opts=pulumi.ResourceOptions(depends_on=[example2]))
+            inside_cidr_blocks=["172.16.0.0/16"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -574,8 +572,7 @@ class ConnectPeer(pulumi.CustomResource):
             edge_location=example.edge_location,
             options=aws.networkmanager.ConnectAttachmentOptionsArgs(
                 protocol="GRE",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test]))
+            ))
         example2 = aws.networkmanager.AttachmentAccepter("example2",
             attachment_id=example_connect_attachment.id,
             attachment_type=example_connect_attachment.attachment_type)
@@ -585,8 +582,7 @@ class ConnectPeer(pulumi.CustomResource):
             bgp_options=aws.networkmanager.ConnectPeerBgpOptionsArgs(
                 peer_asn=65500,
             ),
-            inside_cidr_blocks=["172.16.0.0/16"],
-            opts=pulumi.ResourceOptions(depends_on=[example2]))
+            inside_cidr_blocks=["172.16.0.0/16"])
         ```
         <!--End PulumiCodeChooser -->
 

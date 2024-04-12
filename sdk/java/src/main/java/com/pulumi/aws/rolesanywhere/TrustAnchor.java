@@ -44,7 +44,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.rolesanywhere.TrustAnchorArgs;
  * import com.pulumi.aws.rolesanywhere.inputs.TrustAnchorSourceArgs;
  * import com.pulumi.aws.rolesanywhere.inputs.TrustAnchorSourceSourceDataArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -97,9 +96,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .sourceType(&#34;AWS_ACM_PCA&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleCertificateAuthorityCertificate)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

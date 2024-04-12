@@ -97,26 +97,26 @@ import (
 //				TemplateBody: devicePolicyPolicy.Name.ApplyT(func(name string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Parameters": map[string]interface{}{
-//							"SerialNumber": map[string]interface{}{
-//								"Type": "String",
+//						"parameters": map[string]interface{}{
+//							"serialNumber": map[string]interface{}{
+//								"type": "String",
 //							},
 //						},
-//						"Resources": map[string]interface{}{
+//						"resources": map[string]interface{}{
 //							"certificate": map[string]interface{}{
-//								"Properties": map[string]interface{}{
-//									"CertificateId": map[string]interface{}{
-//										"Ref": "AWS::IoT::Certificate::Id",
+//								"properties": map[string]interface{}{
+//									"certificateId": map[string]interface{}{
+//										"ref": "AWS::IoT::Certificate::Id",
 //									},
-//									"Status": "Active",
+//									"status": "Active",
 //								},
-//								"Type": "AWS::IoT::Certificate",
+//								"type": "AWS::IoT::Certificate",
 //							},
 //							"policy": map[string]interface{}{
-//								"Properties": map[string]interface{}{
-//									"PolicyName": name,
+//								"properties": map[string]interface{}{
+//									"policyName": name,
 //								},
-//								"Type": "AWS::IoT::Policy",
+//								"type": "AWS::IoT::Policy",
 //							},
 //						},
 //					})

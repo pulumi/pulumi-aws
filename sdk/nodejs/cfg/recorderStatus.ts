@@ -16,11 +16,6 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const b = new aws.s3.BucketV2("b", {bucket: "awsconfig-example"});
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("foo", {
- *     name: "example",
- *     s3BucketName: b.bucket,
- * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -42,12 +37,15 @@ import * as utilities from "../utilities";
  * const foo = new aws.cfg.RecorderStatus("foo", {
  *     name: fooRecorder.name,
  *     isEnabled: true,
- * }, {
- *     dependsOn: [fooDeliveryChannel],
  * });
  * const a = new aws.iam.RolePolicyAttachment("a", {
  *     role: r.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole",
+ * });
+ * const b = new aws.s3.BucketV2("b", {bucket: "awsconfig-example"});
+ * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("foo", {
+ *     name: "example",
+ *     s3BucketName: b.bucket,
  * });
  * const p = aws.iam.getPolicyDocumentOutput({
  *     statements: [{

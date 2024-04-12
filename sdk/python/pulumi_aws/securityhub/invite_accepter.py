@@ -99,8 +99,7 @@ class InviteAccepter(pulumi.CustomResource):
             email="example@example.com",
             invite=True)
         invitee = aws.securityhub.Account("invitee")
-        invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id,
-        opts=pulumi.ResourceOptions(depends_on=[invitee]))
+        invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -140,8 +139,7 @@ class InviteAccepter(pulumi.CustomResource):
             email="example@example.com",
             invite=True)
         invitee = aws.securityhub.Account("invitee")
-        invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id,
-        opts=pulumi.ResourceOptions(depends_on=[invitee]))
+        invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id)
         ```
         <!--End PulumiCodeChooser -->
 

@@ -66,9 +66,7 @@ import (
 //						}).(pulumi.StringOutput),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAwsIamRolePolicy,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

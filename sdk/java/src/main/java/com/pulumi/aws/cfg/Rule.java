@@ -37,18 +37,17 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cfg.Rule;
+ * import com.pulumi.aws.cfg.RuleArgs;
+ * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.cfg.Recorder;
  * import com.pulumi.aws.cfg.RecorderArgs;
- * import com.pulumi.aws.cfg.Rule;
- * import com.pulumi.aws.cfg.RuleArgs;
- * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -62,6 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         var r = new Rule(&#34;r&#34;, RuleArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .source(RuleSourceArgs.builder()
+ *                 .owner(&#34;AWS&#34;)
+ *                 .sourceIdentifier(&#34;S3_BUCKET_VERSIONING_ENABLED&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
@@ -82,16 +89,6 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .roleArn(rRole.arn())
  *             .build());
- * 
- *         var r = new Rule(&#34;r&#34;, RuleArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .source(RuleSourceArgs.builder()
- *                 .owner(&#34;AWS&#34;)
- *                 .sourceIdentifier(&#34;S3_BUCKET_VERSIONING_ENABLED&#34;)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(foo)
- *                 .build());
  * 
  *         final var p = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -130,7 +127,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cfg.Rule;
  * import com.pulumi.aws.cfg.RuleArgs;
  * import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -160,11 +156,7 @@ import javax.annotation.Nullable;
  *                 .owner(&#34;CUSTOM_LAMBDA&#34;)
  *                 .sourceIdentifier(exampleFunction.arn())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     example,
- *                     examplePermission)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

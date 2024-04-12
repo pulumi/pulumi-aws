@@ -78,6 +78,195 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## Using with AutoScaling Groups
+ * 
+ * Launch Configurations cannot be updated after creation with the Amazon
+ * Web Service API. In order to update a Launch Configuration, this provider will
+ * destroy the existing resource and create a replacement. In order to effectively
+ * use a Launch Configuration resource with an AutoScaling Group resource,
+ * it&#39;s recommended to specify `create_before_destroy` in a lifecycle block.
+ * Either omit the Launch Configuration `name` attribute, or specify a partial name
+ * with `name_prefix`.  Example:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.LaunchConfiguration;
+ * import com.pulumi.aws.ec2.LaunchConfigurationArgs;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
+ *             .mostRecent(true)
+ *             .filters(            
+ *                 GetAmiFilterArgs.builder()
+ *                     .name(&#34;name&#34;)
+ *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*&#34;)
+ *                     .build(),
+ *                 GetAmiFilterArgs.builder()
+ *                     .name(&#34;virtualization-type&#34;)
+ *                     .values(&#34;hvm&#34;)
+ *                     .build())
+ *             .owners(&#34;099720109477&#34;)
+ *             .build());
+ * 
+ *         var asConf = new LaunchConfiguration(&#34;asConf&#34;, LaunchConfigurationArgs.builder()        
+ *             .namePrefix(&#34;lc-example-&#34;)
+ *             .imageId(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
+ *             .instanceType(&#34;t2.micro&#34;)
+ *             .build());
+ * 
+ *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
+ *             .name(&#34;asg-example&#34;)
+ *             .launchConfiguration(asConf.name())
+ *             .minSize(1)
+ *             .maxSize(2)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * With this setup this provider generates a unique name for your Launch
+ * Configuration and can then update the AutoScaling Group without conflict before
+ * destroying the previous Launch Configuration.
+ * 
+ * ## Using with Spot Instances
+ * 
+ * Launch configurations can set the spot instance pricing to be used for the
+ * Auto Scaling Group to reserve instances. Simply specifying the `spot_price`
+ * parameter will set the price on the Launch Configuration which will attempt to
+ * reserve your instances at this price.  See the [AWS Spot Instance
+ * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+ * for more information or how to launch [Spot Instances][3] with this provider.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.LaunchConfiguration;
+ * import com.pulumi.aws.ec2.LaunchConfigurationArgs;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
+ *             .mostRecent(true)
+ *             .filters(            
+ *                 GetAmiFilterArgs.builder()
+ *                     .name(&#34;name&#34;)
+ *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*&#34;)
+ *                     .build(),
+ *                 GetAmiFilterArgs.builder()
+ *                     .name(&#34;virtualization-type&#34;)
+ *                     .values(&#34;hvm&#34;)
+ *                     .build())
+ *             .owners(&#34;099720109477&#34;)
+ *             .build());
+ * 
+ *         var asConf = new LaunchConfiguration(&#34;asConf&#34;, LaunchConfigurationArgs.builder()        
+ *             .imageId(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
+ *             .instanceType(&#34;m4.large&#34;)
+ *             .spotPrice(&#34;0.001&#34;)
+ *             .build());
+ * 
+ *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
+ *             .name(&#34;asg-example&#34;)
+ *             .launchConfiguration(asConf.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Block devices
+ * 
+ * Each of the `*_block_device` attributes controls a portion of the AWS
+ * Launch Configuration&#39;s &#34;Block Device Mapping&#34;. It&#39;s a good idea to familiarize yourself with [AWS&#39;s Block Device
+ * Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
+ * to understand the implications of using these attributes.
+ * 
+ * Each AWS Instance type has a different set of Instance Store block devices
+ * available for attachment. AWS [publishes a
+ * list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
+ * of which ephemeral devices are available on each type. The devices are always
+ * identified by the `virtual_name` in the format `ephemeral{0..N}`.
+ * 
+ * &gt; **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
+ * cannot currently be detected by this provider. After updating to block device
+ * configuration, resource recreation can be manually triggered by using the
+ * [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
+ * 
+ * ### ebs_block_device
+ * 
+ * Modifying any of the `ebs_block_device` settings requires resource replacement.
+ * 
+ * * `device_name` - (Required) The name of the device to mount.
+ * * `snapshot_id` - (Optional) The Snapshot ID to mount.
+ * * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+ * * `volume_size` - (Optional) The size of the volume in gigabytes.
+ * * `iops` - (Optional) The amount of provisioned
+ *   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+ *   This must be set with a `volume_type` of `&#34;io1&#34;`.
+ * * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
+ * * `delete_on_termination` - (Optional) Whether the volume should be destroyed
+ *   on instance termination (Default: `true`).
+ * * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
+ * * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+ * 
+ * ### ephemeral_block_device
+ * 
+ * * `device_name` - (Required) The name of the block device to mount on the instance.
+ * * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
+ * * `virtual_name` - (Optional) The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
+ * 
+ * ### root_block_device
+ * 
+ * &gt; Modifying any of the `root_block_device` settings requires resource replacement.
+ * 
+ * * `delete_on_termination` - (Optional) Whether the volume should be destroyed on instance termination. Defaults to `true`.
+ * * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
+ * * `iops` - (Optional) The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volume_type` of `io1`.
+ * * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
+ * * `volume_size` - (Optional) The size of the volume in gigabytes.
+ * * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import launch configurations using the `name`. For example:

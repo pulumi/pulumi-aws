@@ -56,15 +56,15 @@ import javax.annotation.Nullable;
  *         var example = new RegistryPolicy(&#34;example&#34;, RegistryPolicyArgs.builder()        
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;testpolicy&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;sid&#34;, &#34;testpolicy&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
  *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ecr:ReplicateImage&#34;)),
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(String.format(&#34;arn:%s:ecr:%s:%s:repository/*&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))))
+ *                         jsonProperty(&#34;action&#34;, jsonArray(&#34;ecr:ReplicateImage&#34;)),
+ *                         jsonProperty(&#34;resource&#34;, jsonArray(String.format(&#34;arn:%s:ecr:%s:%s:repository/*&#34;, currentGetPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))))
  *                     )))
  *                 )))
  *             .build());

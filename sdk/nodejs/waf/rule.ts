@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *         negated: false,
  *         type: "IPMatch",
  *     }],
- * }, {
- *     dependsOn: [ipset],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

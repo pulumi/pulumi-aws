@@ -21,8 +21,6 @@ import * as utilities from "../utilities";
  *     invite: true,
  *     invitationMessage: "Message of the invitation",
  *     invitationDisableEmailNotification: true,
- * }, {
- *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *             .description(&#34;This is an example approval rule template&#34;)
  *             .content(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2018-11-08&#34;),
- *                     jsonProperty(&#34;DestinationReferences&#34;, jsonArray(&#34;refs/heads/master&#34;)),
- *                     jsonProperty(&#34;Statements&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Type&#34;, &#34;Approvers&#34;),
- *                         jsonProperty(&#34;NumberOfApprovalsNeeded&#34;, 2),
- *                         jsonProperty(&#34;ApprovalPoolMembers&#34;, jsonArray(&#34;arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*&#34;))
+ *                     jsonProperty(&#34;version&#34;, &#34;2018-11-08&#34;),
+ *                     jsonProperty(&#34;destinationReferences&#34;, jsonArray(&#34;refs/heads/master&#34;)),
+ *                     jsonProperty(&#34;statements&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;type&#34;, &#34;Approvers&#34;),
+ *                         jsonProperty(&#34;numberOfApprovalsNeeded&#34;, 2),
+ *                         jsonProperty(&#34;approvalPoolMembers&#34;, jsonArray(&#34;arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*&#34;))
  *                     )))
  *                 )))
  *             .build());

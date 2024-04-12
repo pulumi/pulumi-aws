@@ -16,17 +16,15 @@ import * as utilities from "../utilities";
  *
  * const primary = new aws.guardduty.Detector("primary", {});
  * const memberDetector = new aws.guardduty.Detector("member", {});
+ * const member = new aws.guardduty.InviteAccepter("member", {
+ *     detectorId: memberDetector.id,
+ *     masterAccountId: primary.accountId,
+ * });
  * const memberMember = new aws.guardduty.Member("member", {
  *     accountId: memberDetector.accountId,
  *     detectorId: primary.id,
  *     email: "required@example.com",
  *     invite: true,
- * });
- * const member = new aws.guardduty.InviteAccepter("member", {
- *     detectorId: memberDetector.id,
- *     masterAccountId: primary.accountId,
- * }, {
- *     dependsOn: [memberMember],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

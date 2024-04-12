@@ -586,8 +586,7 @@ class MLTransform(pulumi.CustomResource):
                 find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArgs(
                     primary_key_column_name="my_column_1",
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_aws_iam_role_policy_attachment]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -708,8 +707,7 @@ class MLTransform(pulumi.CustomResource):
                 find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArgs(
                     primary_key_column_name="my_column_1",
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_aws_iam_role_policy_attachment]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

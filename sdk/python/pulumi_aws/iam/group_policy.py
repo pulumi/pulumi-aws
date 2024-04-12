@@ -191,11 +191,11 @@ class GroupPolicy(pulumi.CustomResource):
             name="my_developer_policy",
             group=my_developers.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
         ```
@@ -244,11 +244,11 @@ class GroupPolicy(pulumi.CustomResource):
             name="my_developer_policy",
             group=my_developers.name,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
         ```

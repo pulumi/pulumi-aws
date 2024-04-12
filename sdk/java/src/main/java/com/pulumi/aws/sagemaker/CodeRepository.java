@@ -75,7 +75,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.CodeRepositoryArgs;
  * import com.pulumi.aws.sagemaker.inputs.CodeRepositoryGitConfigArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -108,9 +107,7 @@ import javax.annotation.Nullable;
  *                 .repositoryUrl(&#34;https://github.com/github/docs.git&#34;)
  *                 .secretArn(example.arn())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleSecretVersion)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

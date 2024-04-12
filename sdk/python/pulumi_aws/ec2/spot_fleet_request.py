@@ -1094,8 +1094,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                     id=foo.id,
                     version=foo.latest_version,
                 ),
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1205,8 +1204,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                         subnet_id=example.ids[2],
                     ),
                 ],
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1354,8 +1352,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                     id=foo.id,
                     version=foo.latest_version,
                 ),
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1465,8 +1462,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                         subnet_id=example.ids[2],
                     ),
                 ],
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

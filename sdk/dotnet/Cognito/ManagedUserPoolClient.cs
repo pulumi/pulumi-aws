@@ -34,6 +34,12 @@ namespace Pulumi.Aws.Cognito
     ///         Name = "example",
     ///     });
     /// 
+    ///     var exampleManagedUserPoolClient = new Aws.Cognito.ManagedUserPoolClient("example", new()
+    ///     {
+    ///         NamePrefix = "AmazonOpenSearchService-example",
+    ///         UserPoolId = exampleUserPool.Id,
+    ///     });
+    /// 
     ///     var exampleIdentityPool = new Aws.Cognito.IdentityPool("example", new()
     ///     {
     ///         IdentityPoolName = "example",
@@ -75,12 +81,6 @@ namespace Pulumi.Aws.Cognito
     ///         AssumeRolePolicy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
-    ///     {
-    ///         Role = exampleRole.Name,
-    ///         PolicyArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::aws:policy/AmazonESCognitoAccess",
-    ///     });
-    /// 
     ///     var exampleDomain = new Aws.OpenSearch.Domain("example", new()
     ///     {
     ///         DomainName = "example",
@@ -96,25 +96,12 @@ namespace Pulumi.Aws.Cognito
     ///             EbsEnabled = true,
     ///             VolumeSize = 10,
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsCognitoUserPoolDomain, 
-    ///             exampleRolePolicyAttachment, 
-    ///         },
     ///     });
     /// 
-    ///     var exampleManagedUserPoolClient = new Aws.Cognito.ManagedUserPoolClient("example", new()
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
     ///     {
-    ///         NamePrefix = "AmazonOpenSearchService-example",
-    ///         UserPoolId = exampleUserPool.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleDomain, 
-    ///         },
+    ///         Role = exampleRole.Name,
+    ///         PolicyArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::aws:policy/AmazonESCognitoAccess",
     ///     });
     /// 
     /// });

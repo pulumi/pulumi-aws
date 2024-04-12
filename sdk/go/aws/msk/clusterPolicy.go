@@ -44,21 +44,21 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Sid":    "ExampleMskClusterPolicy",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"sid":    "ExampleMskClusterPolicy",
+//						"effect": "Allow",
+//						"principal": map[string]interface{}{
 //							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
 //						},
-//						"Action": []string{
+//						"action": []string{
 //							"kafka:Describe*",
 //							"kafka:Get*",
 //							"kafka:CreateVpcConnection",
 //							"kafka:GetBootstrapBrokers",
 //						},
-//						"Resource": exampleAwsMskCluster.Arn,
+//						"resource": exampleAwsMskCluster.Arn,
 //					},
 //				},
 //			})

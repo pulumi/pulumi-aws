@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.resourceexplorer.ViewArgs;
  * import com.pulumi.aws.resourceexplorer.inputs.ViewFiltersArgs;
  * import com.pulumi.aws.resourceexplorer.inputs.ViewIncludedPropertyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,9 +62,7 @@ import javax.annotation.Nullable;
  *             .includedProperties(ViewIncludedPropertyArgs.builder()
  *                 .name(&#34;tags&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

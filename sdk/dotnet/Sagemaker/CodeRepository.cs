@@ -73,12 +73,6 @@ namespace Pulumi.Aws.Sagemaker
     ///             RepositoryUrl = "https://github.com/github/docs.git",
     ///             SecretArn = example.Arn,
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleSecretVersion, 
-    ///         },
     ///     });
     /// 
     /// });

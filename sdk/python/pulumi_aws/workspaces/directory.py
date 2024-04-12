@@ -447,22 +447,6 @@ class Directory(pulumi.CustomResource):
                     example_b.id,
                 ],
             ))
-        workspaces = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["workspaces.amazonaws.com"],
-            )],
-        )])
-        workspaces_default = aws.iam.Role("workspaces_default",
-            name="workspaces_DefaultRole",
-            assume_role_policy=workspaces.json)
-        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspaces_default_service_access",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
-        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspaces_default_self_service_access",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
         example_c = aws.ec2.Subnet("example_c",
             vpc_id=example_vpc.id,
             availability_zone="us-east-1c",
@@ -503,11 +487,23 @@ class Directory(pulumi.CustomResource):
                 enable_internet_access=True,
                 enable_maintenance_mode=True,
                 user_enabled_as_local_administrator=True,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    workspaces_default_service_access,
-                    workspaces_default_self_service_access,
-                ]))
+            ))
+        workspaces = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["workspaces.amazonaws.com"],
+            )],
+        )])
+        workspaces_default = aws.iam.Role("workspaces_default",
+            name="workspaces_DefaultRole",
+            assume_role_policy=workspaces.json)
+        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspaces_default_service_access",
+            role=workspaces_default.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
+        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspaces_default_self_service_access",
+            role=workspaces_default.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -581,22 +577,6 @@ class Directory(pulumi.CustomResource):
                     example_b.id,
                 ],
             ))
-        workspaces = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["workspaces.amazonaws.com"],
-            )],
-        )])
-        workspaces_default = aws.iam.Role("workspaces_default",
-            name="workspaces_DefaultRole",
-            assume_role_policy=workspaces.json)
-        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspaces_default_service_access",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
-        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspaces_default_self_service_access",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
         example_c = aws.ec2.Subnet("example_c",
             vpc_id=example_vpc.id,
             availability_zone="us-east-1c",
@@ -637,11 +617,23 @@ class Directory(pulumi.CustomResource):
                 enable_internet_access=True,
                 enable_maintenance_mode=True,
                 user_enabled_as_local_administrator=True,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    workspaces_default_service_access,
-                    workspaces_default_self_service_access,
-                ]))
+            ))
+        workspaces = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["workspaces.amazonaws.com"],
+            )],
+        )])
+        workspaces_default = aws.iam.Role("workspaces_default",
+            name="workspaces_DefaultRole",
+            assume_role_policy=workspaces.json)
+        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspaces_default_service_access",
+            role=workspaces_default.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
+        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspaces_default_self_service_access",
+            role=workspaces_default.name,
+            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
         ```
         <!--End PulumiCodeChooser -->
 

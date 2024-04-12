@@ -33,30 +33,30 @@ namespace Pulumi.Aws.Route53
     ///         KeyUsage = "SIGN_VERIFY",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Statement"] = new[]
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "kms:DescribeKey",
     ///                         "kms:GetPublicKey",
     ///                         "kms:Sign",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "dnssec-route53.amazonaws.com",
+    ///                         ["service"] = "dnssec-route53.amazonaws.com",
     ///                     },
-    ///                     ["Sid"] = "Allow Route 53 DNSSEC Service",
-    ///                     ["Resource"] = "*",
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["sid"] = "Allow Route 53 DNSSEC Service",
+    ///                     ["resource"] = "*",
+    ///                     ["condition"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["StringEquals"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["stringEquals"] = new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["aws:SourceAccount"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
-    ///                         ["ArnLike"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["arnLike"] = new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["aws:SourceArn"] = "arn:aws:route53:::hostedzone/*",
     ///                         },
@@ -64,17 +64,17 @@ namespace Pulumi.Aws.Route53
     ///                 },
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "kms:CreateGrant",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "kms:CreateGrant",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "dnssec-route53.amazonaws.com",
+    ///                         ["service"] = "dnssec-route53.amazonaws.com",
     ///                     },
-    ///                     ["Sid"] = "Allow Route 53 DNSSEC Service to CreateGrant",
-    ///                     ["Resource"] = "*",
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["sid"] = "Allow Route 53 DNSSEC Service to CreateGrant",
+    ///                     ["resource"] = "*",
+    ///                     ["condition"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Bool"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["bool"] = new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["kms:GrantIsForAWSResource"] = "true",
     ///                         },
@@ -82,17 +82,17 @@ namespace Pulumi.Aws.Route53
     ///                 },
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "kms:*",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "kms:*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
     ///                     },
-    ///                     ["Resource"] = "*",
-    ///                     ["Sid"] = "Enable IAM User Permissions",
+    ///                     ["resource"] = "*",
+    ///                     ["sid"] = "Enable IAM User Permissions",
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 
@@ -111,12 +111,6 @@ namespace Pulumi.Aws.Route53
     ///     var exampleHostedZoneDnsSec = new Aws.Route53.HostedZoneDnsSec("example", new()
     ///     {
     ///         HostedZoneId = exampleKeySigningKey.HostedZoneId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleKeySigningKey, 
-    ///         },
     ///     });
     /// 
     /// });

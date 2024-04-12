@@ -168,12 +168,6 @@ namespace Pulumi.Aws.GuardDuty
     ///         DetectorId = testGd.Id,
     ///         DestinationArn = gdBucket.Arn,
     ///         KmsKeyArn = gdKey.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             gdBucketPolicy, 
-    ///         },
     ///     });
     /// 
     /// });

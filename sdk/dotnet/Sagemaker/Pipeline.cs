@@ -33,16 +33,16 @@ namespace Pulumi.Aws.Sagemaker
     ///         RoleArn = exampleAwsIamRole.Arn,
     ///         PipelineDefinition = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2020-12-01",
-    ///             ["Steps"] = new[]
+    ///             ["version"] = "2020-12-01",
+    ///             ["steps"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Name"] = "Test",
-    ///                     ["Type"] = "Fail",
-    ///                     ["Arguments"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["name"] = "Test",
+    ///                     ["type"] = "Fail",
+    ///                     ["arguments"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["ErrorMessage"] = "test",
+    ///                         ["errorMessage"] = "test",
     ///                     },
     ///                 },
     ///             },

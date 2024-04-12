@@ -38,18 +38,18 @@ namespace Pulumi.Aws.VpcLattice
     ///         ResourceIdentifier = example.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "*",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = "*",
-    ///                     ["Resource"] = "*",
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = "*",
+    ///                     ["resource"] = "*",
+    ///                     ["condition"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["StringNotEqualsIgnoreCase"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["stringNotEqualsIgnoreCase"] = new Dictionary&lt;string, object?&gt;
     ///                         {
     ///                             ["aws:PrincipalType"] = "anonymous",
     ///                         },

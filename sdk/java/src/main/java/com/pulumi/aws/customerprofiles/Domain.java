@@ -92,14 +92,14 @@ import javax.annotation.Nullable;
  *             .name(&#34;example&#34;)
  *             .policy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;Customer Profiles SQS policy&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;sqs:SendMessage&#34;)),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;profile.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;sid&#34;, &#34;Customer Profiles SQS policy&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;action&#34;, jsonArray(&#34;sqs:SendMessage&#34;)),
+ *                         jsonProperty(&#34;resource&#34;, &#34;*&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;profile.amazonaws.com&#34;)
  *                         ))
  *                     )))
  *                 )))
@@ -122,21 +122,21 @@ import javax.annotation.Nullable;
  *                 var exampleBucketV2Arn1 = values.t2;
  *                 return serializeJson(
  *                     jsonObject(
- *                         jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                         jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                             jsonProperty(&#34;Sid&#34;, &#34;Customer Profiles S3 policy&#34;),
- *                             jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                             jsonProperty(&#34;Action&#34;, jsonArray(
+ *                         jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                         jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                             jsonProperty(&#34;sid&#34;, &#34;Customer Profiles S3 policy&#34;),
+ *                             jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                             jsonProperty(&#34;action&#34;, jsonArray(
  *                                 &#34;s3:GetObject&#34;, 
  *                                 &#34;s3:PutObject&#34;, 
  *                                 &#34;s3:ListBucket&#34;
  *                             )),
- *                             jsonProperty(&#34;Resource&#34;, jsonArray(
+ *                             jsonProperty(&#34;resource&#34;, jsonArray(
  *                                 exampleBucketV2Arn, 
  *                                 String.format(&#34;%s/*&#34;, exampleBucketV2Arn1)
  *                             )),
- *                             jsonProperty(&#34;Principal&#34;, jsonObject(
- *                                 jsonProperty(&#34;Service&#34;, &#34;profile.amazonaws.com&#34;)
+ *                             jsonProperty(&#34;principal&#34;, jsonObject(
+ *                                 jsonProperty(&#34;service&#34;, &#34;profile.amazonaws.com&#34;)
  *                             ))
  *                         )))
  *                     ));

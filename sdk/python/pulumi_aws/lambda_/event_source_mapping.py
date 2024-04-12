@@ -1001,7 +1001,7 @@ class EventSourceMapping(pulumi.CustomResource):
                 filters=[aws.lambda_.EventSourceMappingFilterCriteriaFilterArgs(
                     pattern=json.dumps({
                         "body": {
-                            "Temperature": [{
+                            "temperature": [{
                                 "numeric": [
                                     ">",
                                     0,
@@ -1009,7 +1009,7 @@ class EventSourceMapping(pulumi.CustomResource):
                                     100,
                                 ],
                             }],
-                            "Location": ["New York"],
+                            "location": ["New York"],
                         },
                     }),
                 )],
@@ -1215,7 +1215,7 @@ class EventSourceMapping(pulumi.CustomResource):
                 filters=[aws.lambda_.EventSourceMappingFilterCriteriaFilterArgs(
                     pattern=json.dumps({
                         "body": {
-                            "Temperature": [{
+                            "temperature": [{
                                 "numeric": [
                                     ">",
                                     0,
@@ -1223,7 +1223,7 @@ class EventSourceMapping(pulumi.CustomResource):
                                     100,
                                 ],
                             }],
-                            "Location": ["New York"],
+                            "location": ["New York"],
                         },
                     }),
                 )],

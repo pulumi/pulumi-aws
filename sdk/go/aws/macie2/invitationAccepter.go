@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primary, err := macie2.NewAccount(ctx, "primary", nil)
+//			_, err := macie2.NewAccount(ctx, "primary", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -37,22 +37,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			primaryMember, err := macie2.NewMember(ctx, "primary", &macie2.MemberArgs{
+//			_, err = macie2.NewMember(ctx, "primary", &macie2.MemberArgs{
 //				AccountId:         pulumi.String("ACCOUNT ID"),
 //				Email:             pulumi.String("EMAIL"),
 //				Invite:            pulumi.Bool(true),
 //				InvitationMessage: pulumi.String("Message of the invite"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				primary,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = macie2.NewInvitationAccepter(ctx, "member", &macie2.InvitationAccepterArgs{
 //				AdministratorAccountId: pulumi.String("ADMINISTRATOR ACCOUNT ID"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				primaryMember,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

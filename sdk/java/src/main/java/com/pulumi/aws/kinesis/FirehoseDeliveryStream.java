@@ -446,7 +446,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -529,9 +528,7 @@ import javax.annotation.Nullable;
  *                     .roleArn(firehose.arn())
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(firehose_elasticsearchRolePolicy)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -624,7 +621,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -718,9 +714,7 @@ import javax.annotation.Nullable;
  *                     .roleArn(firehose.arn())
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(firehose_opensearch)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

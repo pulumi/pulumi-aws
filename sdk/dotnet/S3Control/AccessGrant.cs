@@ -31,12 +31,6 @@ namespace Pulumi.Aws.S3Control
     ///     {
     ///         IamRoleArn = exampleAwsIamRole.Arn,
     ///         LocationScope = $"s3://{exampleAwsS3Bucket.Bucket}/prefixA*",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
-    ///         },
     ///     });
     /// 
     ///     var exampleAccessGrant = new Aws.S3Control.AccessGrant("example", new()

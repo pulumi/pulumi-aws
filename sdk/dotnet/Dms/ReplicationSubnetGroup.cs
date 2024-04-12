@@ -67,17 +67,17 @@ namespace Pulumi.Aws.Dms
     ///         Description = "Allows DMS to manage VPC",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "dms.amazonaws.com",
+    ///                         ["service"] = "dms.amazonaws.com",
     ///                     },
-    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["action"] = "sts:AssumeRole",
     ///                 },
     ///             },
     ///         }),
@@ -101,12 +101,6 @@ namespace Pulumi.Aws.Dms
     ///         Tags = 
     ///         {
     ///             { "Name", "example-id" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
     ///         },
     ///     });
     /// 

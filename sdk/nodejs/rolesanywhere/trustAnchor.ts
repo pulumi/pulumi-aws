@@ -52,8 +52,6 @@ import * as utilities from "../utilities";
  *         },
  *         sourceType: "AWS_ACM_PCA",
  *     },
- * }, {
- *     dependsOn: [exampleCertificateAuthorityCertificate],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

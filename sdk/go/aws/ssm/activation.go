@@ -58,7 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testAttach, err := iam.NewRolePolicyAttachment(ctx, "test_attach", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "test_attach", &iam.RolePolicyAttachmentArgs{
 //				Role:      testRole.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"),
 //			})
@@ -70,9 +70,7 @@ import (
 //				Description:       pulumi.String("Test"),
 //				IamRole:           testRole.ID(),
 //				RegistrationLimit: pulumi.Int(5),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testAttach,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

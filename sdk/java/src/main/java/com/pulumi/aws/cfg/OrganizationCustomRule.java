@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.organizations.OrganizationArgs;
  * import com.pulumi.aws.cfg.OrganizationCustomRule;
  * import com.pulumi.aws.cfg.OrganizationCustomRuleArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,11 +66,7 @@ import javax.annotation.Nullable;
  *             .lambdaFunctionArn(exampleAwsLambdaFunction.arn())
  *             .name(&#34;example&#34;)
  *             .triggerTypes(&#34;ConfigurationItemChangeNotification&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     example,
- *                     exampleOrganization)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

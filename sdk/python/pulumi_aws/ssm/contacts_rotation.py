@@ -298,8 +298,7 @@ class ContactsRotation(pulumi.CustomResource):
                     minute_of_hour=0,
                 )],
             ),
-            time_zone_id="Australia/Sydney",
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            time_zone_id="Australia/Sydney")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -351,8 +350,7 @@ class ContactsRotation(pulumi.CustomResource):
             tags={
                 "key1": "tag1",
                 "key2": "tag2",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -386,8 +384,7 @@ class ContactsRotation(pulumi.CustomResource):
                     ),
                 ],
             ),
-            time_zone_id="Australia/Sydney",
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            time_zone_id="Australia/Sydney")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -437,8 +434,7 @@ class ContactsRotation(pulumi.CustomResource):
                     minute_of_hour=0,
                 )],
             ),
-            time_zone_id="Australia/Sydney",
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            time_zone_id="Australia/Sydney")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -490,8 +486,7 @@ class ContactsRotation(pulumi.CustomResource):
             tags={
                 "key1": "tag1",
                 "key2": "tag2",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -525,8 +520,7 @@ class ContactsRotation(pulumi.CustomResource):
                     ),
                 ],
             ),
-            time_zone_id="Australia/Sydney",
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            time_zone_id="Australia/Sydney")
         ```
         <!--End PulumiCodeChooser -->
 

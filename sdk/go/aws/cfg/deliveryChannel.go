@@ -42,6 +42,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = cfg.NewDeliveryChannel(ctx, "foo", &cfg.DeliveryChannelArgs{
+//				Name:         pulumi.String("example"),
+//				S3BucketName: b.Bucket,
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
@@ -70,19 +77,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fooRecorder, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
+//			_, err = cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
 //				Name:    pulumi.String("example"),
 //				RoleArn: r.Arn,
 //			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewDeliveryChannel(ctx, "foo", &cfg.DeliveryChannelArgs{
-//				Name:         pulumi.String("example"),
-//				S3BucketName: b.Bucket,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				fooRecorder,
-//			}))
 //			if err != nil {
 //				return err
 //			}

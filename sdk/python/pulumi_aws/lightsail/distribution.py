@@ -626,8 +626,7 @@ class Distribution(pulumi.CustomResource):
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -669,8 +668,7 @@ class Distribution(pulumi.CustomResource):
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -784,8 +782,7 @@ class Distribution(pulumi.CustomResource):
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -827,8 +824,7 @@ class Distribution(pulumi.CustomResource):
             ),
             default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
                 behavior="cache",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

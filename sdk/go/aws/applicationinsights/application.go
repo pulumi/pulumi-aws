@@ -33,13 +33,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"ResourceTypeFilters": []string{
+//				"resourceTypeFilters": []string{
 //					"AWS::EC2::Instance",
 //				},
-//				"TagFilters": []map[string]interface{}{
+//				"tagFilters": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Key": "Stage",
-//						"Values": []string{
+//						"key": "Stage",
+//						"values": []string{
 //							"Test",
 //						},
 //					},

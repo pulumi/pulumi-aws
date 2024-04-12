@@ -35,19 +35,6 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			b, err := s3.NewBucketV2(ctx, "b", &s3.BucketV2Args{
-//				Bucket: pulumi.String("awsconfig-example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooDeliveryChannel, err := cfg.NewDeliveryChannel(ctx, "foo", &cfg.DeliveryChannelArgs{
-//				Name:         pulumi.String("example"),
-//				S3BucketName: b.Bucket,
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
@@ -86,15 +73,26 @@ import (
 //			_, err = cfg.NewRecorderStatus(ctx, "foo", &cfg.RecorderStatusArgs{
 //				Name:      fooRecorder.Name,
 //				IsEnabled: pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				fooDeliveryChannel,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "a", &iam.RolePolicyAttachmentArgs{
 //				Role:      r.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			b, err := s3.NewBucketV2(ctx, "b", &s3.BucketV2Args{
+//				Bucket: pulumi.String("awsconfig-example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cfg.NewDeliveryChannel(ctx, "foo", &cfg.DeliveryChannelArgs{
+//				Name:         pulumi.String("example"),
+//				S3BucketName: b.Bucket,
 //			})
 //			if err != nil {
 //				return err

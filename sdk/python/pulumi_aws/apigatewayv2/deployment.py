@@ -155,6 +155,19 @@ class Deployment(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.Deployment("example",
+            api_id=example_aws_apigatewayv2_api["id"],
+            description="Example deployment")
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:
@@ -183,6 +196,19 @@ class Deployment(pulumi.CustomResource):
         > **Note:** Creating a deployment for an API requires at least one `apigatewayv2.Route` resource associated with that API. To avoid race conditions when all resources are being created together, you need to add implicit resource references via the `triggers` argument or explicit resource references using the [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
 
         ## Example Usage
+
+        ### Basic
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.apigatewayv2.Deployment("example",
+            api_id=example_aws_apigatewayv2_api["id"],
+            description="Example deployment")
+        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

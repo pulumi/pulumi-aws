@@ -10,6 +10,25 @@ import * as utilities from "../utilities";
 /**
  * Manages a version of a CloudFormation Type.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudformation.CloudFormationType("example", {
+ *     schemaHandlerPackage: `s3://${exampleAwsS3Object.bucket}/${exampleAwsS3Object.key}`,
+ *     type: "RESOURCE",
+ *     typeName: "ExampleCompany::ExampleService::ExampleResource",
+ *     loggingConfig: {
+ *         logGroupName: exampleAwsCloudwatchLogGroup.name,
+ *         logRoleArn: exampleAwsIamRole.arn,
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:

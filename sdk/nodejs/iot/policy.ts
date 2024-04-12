@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * const pubsub = new aws.iot.Policy("pubsub", {
  *     name: "PubSubToAnyTopic",
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: ["iot:*"],
- *             Effect: "Allow",
- *             Resource: "*",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: ["iot:*"],
+ *             effect: "Allow",
+ *             resource: "*",
  *         }],
  *     }),
  * });

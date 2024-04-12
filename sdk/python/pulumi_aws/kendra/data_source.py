@@ -687,8 +687,7 @@ class DataSource(pulumi.CustomResource):
                         ),
                     ),
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_secretsmanager_secret_version]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -792,8 +791,7 @@ class DataSource(pulumi.CustomResource):
                         ),
                     ),
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_secretsmanager_secret_version]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1050,8 +1048,7 @@ class DataSource(pulumi.CustomResource):
                         ),
                     ),
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_secretsmanager_secret_version]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1155,8 +1152,7 @@ class DataSource(pulumi.CustomResource):
                         ),
                     ),
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_secretsmanager_secret_version]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

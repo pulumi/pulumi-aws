@@ -172,8 +172,6 @@ import {PolicyDocument} from "../iam";
  *     tags: {
  *         Domain: "TestDomain",
  *     },
- * }, {
- *     dependsOn: [esServiceLinkedRole],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

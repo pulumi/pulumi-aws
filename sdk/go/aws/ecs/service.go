@@ -46,7 +46,7 @@ import (
 //				},
 //				LoadBalancers: ecs.ServiceLoadBalancerArray{
 //					&ecs.ServiceLoadBalancerArgs{
-//						TargetGroupArn: pulumi.Any(fooAwsLbTargetGroup.Arn),
+//						TargetGroupArn: pulumi.Any(foo.Arn),
 //						ContainerName:  pulumi.String("mongo"),
 //						ContainerPort:  pulumi.Int(8080),
 //					},
@@ -57,9 +57,7 @@ import (
 //						Expression: pulumi.String("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				foo,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

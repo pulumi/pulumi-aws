@@ -294,8 +294,7 @@ class WebAcl(pulumi.CustomResource):
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
+            )])
         waf_acl = aws.waf.WebAcl("waf_acl",
             name="tfWebACL",
             metric_name="tfWebACL",
@@ -309,11 +308,7 @@ class WebAcl(pulumi.CustomResource):
                 priority=1,
                 rule_id=wafrule.id,
                 type="REGULAR",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    ipset,
-                    wafrule,
-                ]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -391,8 +386,7 @@ class WebAcl(pulumi.CustomResource):
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
+            )])
         waf_acl = aws.waf.WebAcl("waf_acl",
             name="tfWebACL",
             metric_name="tfWebACL",
@@ -406,11 +400,7 @@ class WebAcl(pulumi.CustomResource):
                 priority=1,
                 rule_id=wafrule.id,
                 type="REGULAR",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    ipset,
-                    wafrule,
-                ]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

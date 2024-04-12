@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigArgs;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigDocumentsArgs;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigEntityListArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,9 +73,7 @@ import javax.annotation.Nullable;
  *                     .s3Uri(entities.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, entitiesAwsS3Bucket.bucket(),id)))
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsIamRolePolicy)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

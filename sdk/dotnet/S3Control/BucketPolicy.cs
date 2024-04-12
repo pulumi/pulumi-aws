@@ -31,22 +31,22 @@ namespace Pulumi.Aws.S3Control
     ///         Bucket = exampleAwsS3controlBucket.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Id"] = "testBucketPolicy",
-    ///             ["Statement"] = new[]
+    ///             ["id"] = "testBucketPolicy",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "s3-outposts:PutBucketLifecycleConfiguration",
-    ///                     ["Effect"] = "Deny",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "s3-outposts:PutBucketLifecycleConfiguration",
+    ///                     ["effect"] = "Deny",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "*",
     ///                     },
-    ///                     ["Resource"] = exampleAwsS3controlBucket.Arn,
-    ///                     ["Sid"] = "statement1",
+    ///                     ["resource"] = exampleAwsS3controlBucket.Arn,
+    ///                     ["sid"] = "statement1",
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 

@@ -319,8 +319,7 @@ class FindingsFilter(pulumi.CustomResource):
                     field="region",
                     eqs=[current["name"]],
                 )],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_aws_macie2_account]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -369,8 +368,7 @@ class FindingsFilter(pulumi.CustomResource):
                     field="region",
                     eqs=[current["name"]],
                 )],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[test_aws_macie2_account]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

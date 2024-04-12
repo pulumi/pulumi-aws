@@ -225,8 +225,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.efs.FileSystem;
  * import com.pulumi.aws.efs.FileSystemArgs;
- * import com.pulumi.aws.efs.MountTarget;
- * import com.pulumi.aws.efs.MountTargetArgs;
  * import com.pulumi.aws.efs.AccessPoint;
  * import com.pulumi.aws.efs.AccessPointArgs;
  * import com.pulumi.aws.efs.inputs.AccessPointRootDirectoryArgs;
@@ -236,7 +234,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.FunctionArgs;
  * import com.pulumi.aws.lambda.inputs.FunctionFileSystemConfigArgs;
  * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.aws.efs.MountTarget;
+ * import com.pulumi.aws.efs.MountTargetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -253,13 +252,6 @@ import javax.annotation.Nullable;
  *         // EFS file system
  *         var efsForLambda = new FileSystem(&#34;efsForLambda&#34;, FileSystemArgs.builder()        
  *             .tags(Map.of(&#34;Name&#34;, &#34;efs_for_lambda&#34;))
- *             .build());
- * 
- *         // Mount target connects the file system to the subnet
- *         var alpha = new MountTarget(&#34;alpha&#34;, MountTargetArgs.builder()        
- *             .fileSystemId(efsForLambda.id())
- *             .subnetId(subnetForLambda.id())
- *             .securityGroups(sgForLambda.id())
  *             .build());
  * 
  *         // EFS access point used by lambda file system
@@ -289,9 +281,14 @@ import javax.annotation.Nullable;
  *                 .subnetIds(subnetForLambda.id())
  *                 .securityGroupIds(sgForLambda.id())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(alpha)
- *                 .build());
+ *             .build());
+ * 
+ *         // Mount target connects the file system to the subnet
+ *         var alpha = new MountTarget(&#34;alpha&#34;, MountTargetArgs.builder()        
+ *             .fileSystemId(efsForLambda.id())
+ *             .subnetId(subnetForLambda.id())
+ *             .securityGroups(sgForLambda.id())
+ *             .build());
  * 
  *     }
  * }
@@ -313,6 +310,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionLoggingConfigArgs;
  * import com.pulumi.aws.cloudwatch.LogGroup;
  * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -321,10 +321,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionLoggingConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -340,6 +336,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var lambdaFunctionName = config.get(&#34;lambdaFunctionName&#34;).orElse(&#34;lambda_function_name&#34;);
+ *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
+ *             .name(lambdaFunctionName)
+ *             .loggingConfig(FunctionLoggingConfigArgs.builder()
+ *                 .logFormat(&#34;Text&#34;)
+ *                 .build())
+ *             .build());
+ * 
  *         // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
  *         // If skipping this resource configuration, also add &#34;logs:CreateLogGroup&#34; to the IAM policy below.
  *         var example = new LogGroup(&#34;example&#34;, LogGroupArgs.builder()        
@@ -370,17 +373,6 @@ import javax.annotation.Nullable;
  *             .role(iamForLambda.name())
  *             .policyArn(lambdaLoggingPolicy.arn())
  *             .build());
- * 
- *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
- *             .name(lambdaFunctionName)
- *             .loggingConfig(FunctionLoggingConfigArgs.builder()
- *                 .logFormat(&#34;Text&#34;)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     lambdaLogs,
- *                     example)
- *                 .build());
  * 
  *     }
  * }

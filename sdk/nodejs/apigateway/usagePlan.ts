@@ -10,6 +10,81 @@ import * as utilities from "../utilities";
 /**
  * Provides an API Gateway Usage Plan.
  *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.apigateway.RestApi("example", {
+ *     body: JSON.stringify({
+ *         openapi: "3.0.1",
+ *         info: {
+ *             title: "example",
+ *             version: "1.0",
+ *         },
+ *         paths: {
+ *             "/path1": {
+ *                 get: {
+ *                     "x-amazon-apigateway-integration": {
+ *                         httpMethod: "GET",
+ *                         payloadFormatVersion: "1.0",
+ *                         type: "HTTP_PROXY",
+ *                         uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *     }),
+ *     name: "example",
+ * });
+ * const exampleDeployment = new aws.apigateway.Deployment("example", {
+ *     restApi: example.id,
+ *     triggers: {
+ *         redeployment: std.sha1Output({
+ *             input: pulumi.jsonStringify(example.body),
+ *         }).apply(invoke => invoke.result),
+ *     },
+ * });
+ * const development = new aws.apigateway.Stage("development", {
+ *     deployment: exampleDeployment.id,
+ *     restApi: example.id,
+ *     stageName: "development",
+ * });
+ * const production = new aws.apigateway.Stage("production", {
+ *     deployment: exampleDeployment.id,
+ *     restApi: example.id,
+ *     stageName: "production",
+ * });
+ * const exampleUsagePlan = new aws.apigateway.UsagePlan("example", {
+ *     name: "my-usage-plan",
+ *     description: "my description",
+ *     productCode: "MYCODE",
+ *     apiStages: [
+ *         {
+ *             apiId: example.id,
+ *             stage: development.stageName,
+ *         },
+ *         {
+ *             apiId: example.id,
+ *             stage: production.stageName,
+ *         },
+ *     ],
+ *     quotaSettings: {
+ *         limit: 20,
+ *         offset: 2,
+ *         period: "WEEK",
+ *     },
+ *     throttleSettings: {
+ *         burstLimit: 5,
+ *         rateLimit: 10,
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:

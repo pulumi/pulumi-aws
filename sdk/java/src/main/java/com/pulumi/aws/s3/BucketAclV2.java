@@ -40,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,9 +67,7 @@ import javax.annotation.Nullable;
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
  *             .bucket(example.id())
  *             .acl(&#34;private&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketOwnershipControls)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -98,7 +95,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketPublicAccessBlockArgs;
  * import com.pulumi.aws.s3.BucketAclV2;
  * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -134,11 +130,7 @@ import javax.annotation.Nullable;
  *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
  *             .bucket(example.id())
  *             .acl(&#34;public-read&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleBucketOwnershipControls,
- *                     exampleBucketPublicAccessBlock)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -164,7 +156,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketAclV2Args;
  * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
  * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -213,9 +204,7 @@ import javax.annotation.Nullable;
  *                     .id(current.applyValue(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketOwnershipControls)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

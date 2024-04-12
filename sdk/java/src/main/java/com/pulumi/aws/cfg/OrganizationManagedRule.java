@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.organizations.OrganizationArgs;
  * import com.pulumi.aws.cfg.OrganizationManagedRule;
  * import com.pulumi.aws.cfg.OrganizationManagedRuleArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,9 +56,7 @@ import javax.annotation.Nullable;
  *         var exampleOrganizationManagedRule = new OrganizationManagedRule(&#34;exampleOrganizationManagedRule&#34;, OrganizationManagedRuleArgs.builder()        
  *             .name(&#34;example&#34;)
  *             .ruleIdentifier(&#34;IAM_PASSWORD_POLICY&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

@@ -74,12 +74,6 @@ namespace Pulumi.Aws.Alb
     ///     {
     ///         TargetGroupArn = test.Arn,
     ///         TargetId = testFunction.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             withLb, 
-    ///         },
     ///     });
     /// 
     /// });

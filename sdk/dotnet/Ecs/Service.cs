@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ecs
     ///         {
     ///             new Aws.Ecs.Inputs.ServiceLoadBalancerArgs
     ///             {
-    ///                 TargetGroupArn = fooAwsLbTargetGroup.Arn,
+    ///                 TargetGroupArn = foo.Arn,
     ///                 ContainerName = "mongo",
     ///                 ContainerPort = 8080,
     ///             },
@@ -58,12 +58,6 @@ namespace Pulumi.Aws.Ecs
     ///                 Type = "memberOf",
     ///                 Expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             foo, 
     ///         },
     ///     });
     /// 

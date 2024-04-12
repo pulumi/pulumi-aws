@@ -342,8 +342,7 @@ class ServerlessCollection(pulumi.CustomResource):
                 }],
                 "AWSOwnedKey": True,
             }))
-        example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -398,8 +397,7 @@ class ServerlessCollection(pulumi.CustomResource):
                 }],
                 "AWSOwnedKey": True,
             }))
-        example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example")
         ```
         <!--End PulumiCodeChooser -->
 

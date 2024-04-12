@@ -336,14 +336,14 @@ class Domain(pulumi.CustomResource):
         example = aws.sqs.Queue("example",
             name="example",
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Customer Profiles SQS policy",
-                    "Effect": "Allow",
-                    "Action": ["sqs:SendMessage"],
-                    "Resource": "*",
-                    "Principal": {
-                        "Service": "profile.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "Customer Profiles SQS policy",
+                    "effect": "Allow",
+                    "action": ["sqs:SendMessage"],
+                    "resource": "*",
+                    "principal": {
+                        "service": "profile.amazonaws.com",
                     },
                 }],
             }))
@@ -356,21 +356,21 @@ class Domain(pulumi.CustomResource):
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket_v2.id,
             policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Customer Profiles S3 policy",
-                    "Effect": "Allow",
-                    "Action": [
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "Customer Profiles S3 policy",
+                    "effect": "Allow",
+                    "action": [
                         "s3:GetObject",
                         "s3:PutObject",
                         "s3:ListBucket",
                     ],
-                    "Resource": [
+                    "resource": [
                         example_bucket_v2.arn,
                         example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
                     ],
-                    "Principal": {
-                        "Service": "profile.amazonaws.com",
+                    "principal": {
+                        "service": "profile.amazonaws.com",
                     },
                 }],
             }))
@@ -434,14 +434,14 @@ class Domain(pulumi.CustomResource):
         example = aws.sqs.Queue("example",
             name="example",
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Customer Profiles SQS policy",
-                    "Effect": "Allow",
-                    "Action": ["sqs:SendMessage"],
-                    "Resource": "*",
-                    "Principal": {
-                        "Service": "profile.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "Customer Profiles SQS policy",
+                    "effect": "Allow",
+                    "action": ["sqs:SendMessage"],
+                    "resource": "*",
+                    "principal": {
+                        "service": "profile.amazonaws.com",
                     },
                 }],
             }))
@@ -454,21 +454,21 @@ class Domain(pulumi.CustomResource):
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket_v2.id,
             policy=pulumi.Output.json_dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "Customer Profiles S3 policy",
-                    "Effect": "Allow",
-                    "Action": [
+                "version": "2012-10-17",
+                "statement": [{
+                    "sid": "Customer Profiles S3 policy",
+                    "effect": "Allow",
+                    "action": [
                         "s3:GetObject",
                         "s3:PutObject",
                         "s3:ListBucket",
                     ],
-                    "Resource": [
+                    "resource": [
                         example_bucket_v2.arn,
                         example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
                     ],
-                    "Principal": {
-                        "Service": "profile.amazonaws.com",
+                    "principal": {
+                        "service": "profile.amazonaws.com",
                     },
                 }],
             }))

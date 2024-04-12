@@ -28,13 +28,13 @@ import * as utilities from "../utilities";
  *     name: "example_role",
  *     managedPolicyArns: [test.arn],
  *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "sts:AssumeRole",
- *             Effect: "Allow",
- *             Sid: "",
- *             Principal: {
- *                 Service: "ec2.amazonaws.com",
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "sts:AssumeRole",
+ *             effect: "Allow",
+ *             sid: "",
+ *             principal: {
+ *                 service: "ec2.amazonaws.com",
  *             },
  *         }],
  *     }),

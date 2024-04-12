@@ -54,12 +54,6 @@ namespace Pulumi.Aws.OpenSearch
     ///     var exampleServerlessCollection = new Aws.OpenSearch.ServerlessCollection("example", new()
     ///     {
     ///         Name = "example",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
-    ///         },
     ///     });
     /// 
     /// });

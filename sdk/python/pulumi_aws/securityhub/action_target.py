@@ -160,8 +160,7 @@ class ActionTarget(pulumi.CustomResource):
         example_action_target = aws.securityhub.ActionTarget("example",
             name="Send notification to chat",
             identifier="SendToChat",
-            description="This is custom action sends selected findings to chat",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            description="This is custom action sends selected findings to chat")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -199,8 +198,7 @@ class ActionTarget(pulumi.CustomResource):
         example_action_target = aws.securityhub.ActionTarget("example",
             name="Send notification to chat",
             identifier="SendToChat",
-            description="This is custom action sends selected findings to chat",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            description="This is custom action sends selected findings to chat")
         ```
         <!--End PulumiCodeChooser -->
 

@@ -94,26 +94,26 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .templateBody(devicePolicyPolicy.name().applyValue(name -&gt; serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Parameters&#34;, jsonObject(
- *                         jsonProperty(&#34;SerialNumber&#34;, jsonObject(
- *                             jsonProperty(&#34;Type&#34;, &#34;String&#34;)
+ *                     jsonProperty(&#34;parameters&#34;, jsonObject(
+ *                         jsonProperty(&#34;serialNumber&#34;, jsonObject(
+ *                             jsonProperty(&#34;type&#34;, &#34;String&#34;)
  *                         ))
  *                     )),
- *                     jsonProperty(&#34;Resources&#34;, jsonObject(
+ *                     jsonProperty(&#34;resources&#34;, jsonObject(
  *                         jsonProperty(&#34;certificate&#34;, jsonObject(
- *                             jsonProperty(&#34;Properties&#34;, jsonObject(
- *                                 jsonProperty(&#34;CertificateId&#34;, jsonObject(
- *                                     jsonProperty(&#34;Ref&#34;, &#34;AWS::IoT::Certificate::Id&#34;)
+ *                             jsonProperty(&#34;properties&#34;, jsonObject(
+ *                                 jsonProperty(&#34;certificateId&#34;, jsonObject(
+ *                                     jsonProperty(&#34;ref&#34;, &#34;AWS::IoT::Certificate::Id&#34;)
  *                                 )),
- *                                 jsonProperty(&#34;Status&#34;, &#34;Active&#34;)
+ *                                 jsonProperty(&#34;status&#34;, &#34;Active&#34;)
  *                             )),
- *                             jsonProperty(&#34;Type&#34;, &#34;AWS::IoT::Certificate&#34;)
+ *                             jsonProperty(&#34;type&#34;, &#34;AWS::IoT::Certificate&#34;)
  *                         )),
  *                         jsonProperty(&#34;policy&#34;, jsonObject(
- *                             jsonProperty(&#34;Properties&#34;, jsonObject(
- *                                 jsonProperty(&#34;PolicyName&#34;, name)
+ *                             jsonProperty(&#34;properties&#34;, jsonObject(
+ *                                 jsonProperty(&#34;policyName&#34;, name)
  *                             )),
- *                             jsonProperty(&#34;Type&#34;, &#34;AWS::IoT::Policy&#34;)
+ *                             jsonProperty(&#34;type&#34;, &#34;AWS::IoT::Policy&#34;)
  *                         ))
  *                     ))
  *                 ))))

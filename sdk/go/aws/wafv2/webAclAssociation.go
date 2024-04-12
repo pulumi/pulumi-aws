@@ -16,6 +16,113 @@ import (
 //
 // > **NOTE on associating a WAFv2 Web ACL with a Cloudfront distribution:** Do not use this resource to associate a WAFv2 Web ACL with a Cloudfront Distribution. The [AWS API call backing this resource](https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html) notes that you should use the `webAclId` property on the `cloudfrontDistribution` instead.
 //
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"openapi": "3.0.1",
+//				"info": map[string]interface{}{
+//					"title":   "example",
+//					"version": "1.0",
+//				},
+//				"paths": map[string]interface{}{
+//					"/path1": map[string]interface{}{
+//						"get": map[string]interface{}{
+//							"x-amazon-apigateway-integration": map[string]interface{}{
+//								"httpMethod":           "GET",
+//								"payloadFormatVersion": "1.0",
+//								"type":                 "HTTP_PROXY",
+//								"uri":                  "https://ip-ranges.amazonaws.com/ip-ranges.json",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			example, err := apigateway.NewRestApi(ctx, "example", &apigateway.RestApiArgs{
+//				Body: pulumi.String(json0),
+//				Name: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDeployment, err := apigateway.NewDeployment(ctx, "example", &apigateway.DeploymentArgs{
+//				RestApi: example.ID(),
+//				Triggers: pulumi.StringMap{
+//					"redeployment": std.Sha1Output(ctx, std.Sha1OutputArgs{
+//						Input: example.Body.ApplyT(func(body *string) (pulumi.String, error) {
+//							var _zero pulumi.String
+//							tmpJSON1, err := json.Marshal(body)
+//							if err != nil {
+//								return _zero, err
+//							}
+//							json1 := string(tmpJSON1)
+//							return pulumi.String(json1), nil
+//						}).(pulumi.StringOutput),
+//					}, nil).ApplyT(func(invoke std.Sha1Result) (*string, error) {
+//						return invoke.Result, nil
+//					}).(pulumi.StringPtrOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleStage, err := apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
+//				Deployment: exampleDeployment.ID(),
+//				RestApi:    example.ID(),
+//				StageName:  pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWebAcl, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
+//				Name:  pulumi.String("web-acl-association-example"),
+//				Scope: pulumi.String("REGIONAL"),
+//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
+//					Allow: nil,
+//				},
+//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = wafv2.NewWebAclAssociation(ctx, "example", &wafv2.WebAclAssociationArgs{
+//				ResourceArn: exampleStage.Arn,
+//				WebAclArn:   exampleWebAcl.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import WAFv2 Web ACL Association using `WEB_ACL_ARN,RESOURCE_ARN`. For example:

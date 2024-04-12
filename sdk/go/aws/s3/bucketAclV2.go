@@ -41,7 +41,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
+//			_, err = s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
 //				Bucket: example.ID(),
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
@@ -53,9 +53,7 @@ import (
 //			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
 //				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketOwnershipControls,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -90,7 +88,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
+//			_, err = s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
 //				Bucket: example.ID(),
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
@@ -99,7 +97,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketPublicAccessBlock, err := s3.NewBucketPublicAccessBlock(ctx, "example", &s3.BucketPublicAccessBlockArgs{
+//			_, err = s3.NewBucketPublicAccessBlock(ctx, "example", &s3.BucketPublicAccessBlockArgs{
 //				Bucket:                example.ID(),
 //				BlockPublicAcls:       pulumi.Bool(false),
 //				BlockPublicPolicy:     pulumi.Bool(false),
@@ -112,10 +110,7 @@ import (
 //			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
 //				Bucket: example.ID(),
 //				Acl:    pulumi.String("public-read"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketOwnershipControls,
-//				exampleBucketPublicAccessBlock,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -151,7 +146,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
+//			_, err = s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
 //				Bucket: example.ID(),
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
@@ -183,9 +178,7 @@ import (
 //						Id: pulumi.String(current.Id),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketOwnershipControls,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

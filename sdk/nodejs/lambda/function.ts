@@ -126,12 +126,6 @@ import {ARN} from "..";
  * const efsForLambda = new aws.efs.FileSystem("efs_for_lambda", {tags: {
  *     Name: "efs_for_lambda",
  * }});
- * // Mount target connects the file system to the subnet
- * const alpha = new aws.efs.MountTarget("alpha", {
- *     fileSystemId: efsForLambda.id,
- *     subnetId: subnetForLambda.id,
- *     securityGroups: [sgForLambda.id],
- * });
  * // EFS access point used by lambda file system
  * const accessPointForLambda = new aws.efs.AccessPoint("access_point_for_lambda", {
  *     fileSystemId: efsForLambda.id,
@@ -158,8 +152,12 @@ import {ARN} from "..";
  *         subnetIds: [subnetForLambda.id],
  *         securityGroupIds: [sgForLambda.id],
  *     },
- * }, {
- *     dependsOn: [alpha],
+ * });
+ * // Mount target connects the file system to the subnet
+ * const alpha = new aws.efs.MountTarget("alpha", {
+ *     fileSystemId: efsForLambda.id,
+ *     subnetId: subnetForLambda.id,
+ *     securityGroups: [sgForLambda.id],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -179,6 +177,12 @@ import {ARN} from "..";
  *
  * const config = new pulumi.Config();
  * const lambdaFunctionName = config.get("lambdaFunctionName") || "lambda_function_name";
+ * const testLambda = new aws.lambda.Function("test_lambda", {
+ *     name: lambdaFunctionName,
+ *     loggingConfig: {
+ *         logFormat: "Text",
+ *     },
+ * });
  * // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
  * // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
  * const example = new aws.cloudwatch.LogGroup("example", {
@@ -206,17 +210,6 @@ import {ARN} from "..";
  * const lambdaLogs = new aws.iam.RolePolicyAttachment("lambda_logs", {
  *     role: iamForLambda.name,
  *     policyArn: lambdaLoggingPolicy.arn,
- * });
- * const testLambda = new aws.lambda.Function("test_lambda", {
- *     name: lambdaFunctionName,
- *     loggingConfig: {
- *         logFormat: "Text",
- *     },
- * }, {
- *     dependsOn: [
- *         lambdaLogs,
- *         example,
- *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

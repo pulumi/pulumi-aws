@@ -30,12 +30,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
- * import com.pulumi.aws.ec2.VpnGateway;
  * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterface;
  * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterfaceArgs;
+ * import com.pulumi.aws.ec2.VpnGateway;
  * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterfaceAccepter;
  * import com.pulumi.aws.directconnect.HostedPrivateVirtualInterfaceAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,9 +50,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var accepter = AwsFunctions.getCallerIdentity();
  * 
- *         // Accepter&#39;s side of the VIF.
- *         var vpnGw = new VpnGateway(&#34;vpnGw&#34;);
- * 
  *         // Creator&#39;s side of the VIF
  *         var creator = new HostedPrivateVirtualInterface(&#34;creator&#34;, HostedPrivateVirtualInterfaceArgs.builder()        
  *             .connectionId(&#34;dxcon-zzzzzzzz&#34;)
@@ -62,9 +58,10 @@ import javax.annotation.Nullable;
  *             .vlan(4094)
  *             .addressFamily(&#34;ipv4&#34;)
  *             .bgpAsn(65352)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(vpnGw)
- *                 .build());
+ *             .build());
+ * 
+ *         // Accepter&#39;s side of the VIF.
+ *         var vpnGw = new VpnGateway(&#34;vpnGw&#34;);
  * 
  *         var accepterHostedPrivateVirtualInterfaceAccepter = new HostedPrivateVirtualInterfaceAccepter(&#34;accepterHostedPrivateVirtualInterfaceAccepter&#34;, HostedPrivateVirtualInterfaceAccepterArgs.builder()        
  *             .virtualInterfaceId(creator.id())

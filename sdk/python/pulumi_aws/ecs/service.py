@@ -1014,15 +1014,14 @@ class Service(pulumi.CustomResource):
                 field="cpu",
             )],
             load_balancers=[aws.ecs.ServiceLoadBalancerArgs(
-                target_group_arn=foo_aws_lb_target_group["arn"],
+                target_group_arn=foo["arn"],
                 container_name="mongo",
                 container_port=8080,
             )],
             placement_constraints=[aws.ecs.ServicePlacementConstraintArgs(
                 type="memberOf",
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[foo]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1160,15 +1159,14 @@ class Service(pulumi.CustomResource):
                 field="cpu",
             )],
             load_balancers=[aws.ecs.ServiceLoadBalancerArgs(
-                target_group_arn=foo_aws_lb_target_group["arn"],
+                target_group_arn=foo["arn"],
                 container_name="mongo",
                 container_port=8080,
             )],
             placement_constraints=[aws.ecs.ServicePlacementConstraintArgs(
                 type="memberOf",
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[foo]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

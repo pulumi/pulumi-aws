@@ -64,12 +64,6 @@ namespace Pulumi.Aws.Rds
     ///         ClusterIdentifier = "test-secondary-cluster",
     ///         GlobalClusterIdentifier = example.Id,
     ///         DbSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             primaryClusterInstance, 
-    ///         },
     ///     });
     /// 
     ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondary", new()
@@ -135,12 +129,6 @@ namespace Pulumi.Aws.Rds
     ///         GlobalClusterIdentifier = example.Id,
     ///         SkipFinalSnapshot = true,
     ///         DbSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             primaryClusterInstance, 
-    ///         },
     ///     });
     /// 
     ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondary", new()

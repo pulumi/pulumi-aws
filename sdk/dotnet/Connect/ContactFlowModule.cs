@@ -40,62 +40,62 @@ namespace Pulumi.Aws.Connect
     ///         Description = "Example Contact Flow Module Description",
     ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2019-10-30",
-    ///             ["StartAction"] = "12345678-1234-1234-1234-123456789012",
-    ///             ["Actions"] = new[]
+    ///             ["version"] = "2019-10-30",
+    ///             ["startAction"] = "12345678-1234-1234-1234-123456789012",
+    ///             ["actions"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Identifier"] = "12345678-1234-1234-1234-123456789012",
-    ///                     ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["identifier"] = "12345678-1234-1234-1234-123456789012",
+    ///                     ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Text"] = "Hello contact flow module",
+    ///                         ["text"] = "Hello contact flow module",
     ///                     },
-    ///                     ["Transitions"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["transitions"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["NextAction"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
-    ///                         ["Errors"] = new[]
+    ///                         ["nextAction"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
+    ///                         ["errors"] = new[]
     ///                         {
     ///                         },
-    ///                         ["Conditions"] = new[]
+    ///                         ["conditions"] = new[]
     ///                         {
     ///                         },
     ///                     },
-    ///                     ["Type"] = "MessageParticipant",
+    ///                     ["type"] = "MessageParticipant",
     ///                 },
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Identifier"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
-    ///                     ["Type"] = "DisconnectParticipant",
-    ///                     ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["identifier"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
+    ///                     ["type"] = "DisconnectParticipant",
+    ///                     ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                     },
-    ///                     ["Transitions"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["transitions"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                     },
     ///                 },
     ///             },
-    ///             ["Settings"] = new Dictionary&lt;string, object?&gt;
+    ///             ["settings"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["InputParameters"] = new[]
+    ///                 ["inputParameters"] = new[]
     ///                 {
     ///                 },
-    ///                 ["OutputParameters"] = new[]
+    ///                 ["outputParameters"] = new[]
     ///                 {
     ///                 },
-    ///                 ["Transitions"] = new[]
+    ///                 ["transitions"] = new[]
     ///                 {
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["DisplayName"] = "Success",
-    ///                         ["ReferenceName"] = "Success",
-    ///                         ["Description"] = "",
+    ///                         ["displayName"] = "Success",
+    ///                         ["referenceName"] = "Success",
+    ///                         ["description"] = "",
     ///                     },
     ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["DisplayName"] = "Error",
-    ///                         ["ReferenceName"] = "Error",
-    ///                         ["Description"] = "",
+    ///                         ["displayName"] = "Error",
+    ///                         ["referenceName"] = "Error",
+    ///                         ["description"] = "",
     ///                     },
     ///                 },
     ///             },

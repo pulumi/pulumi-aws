@@ -91,9 +91,7 @@ import (
 //			_, err = route53.NewQueryLog(ctx, "example_com", &route53.QueryLogArgs{
 //				CloudwatchLogGroupArn: awsRoute53ExampleCom.Arn,
 //				ZoneId:                exampleCom.ZoneId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				route53_query_logging_policyLogResourcePolicy,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

@@ -270,12 +270,6 @@ namespace Pulumi.Aws.S3
     ///                 FilterSuffix = ".log",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             allowBucket, 
-    ///         },
     ///     });
     /// 
     /// });
@@ -390,13 +384,6 @@ namespace Pulumi.Aws.S3
     ///                 FilterPrefix = "OtherLogs/",
     ///                 FilterSuffix = ".log",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             allowBucket1, 
-    ///             allowBucket2, 
     ///         },
     ///     });
     /// 

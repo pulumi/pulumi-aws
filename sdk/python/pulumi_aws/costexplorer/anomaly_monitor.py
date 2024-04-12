@@ -268,15 +268,15 @@ class AnomalyMonitor(pulumi.CustomResource):
             name="AWSCustomAnomalyMonitor",
             monitor_type="CUSTOM",
             monitor_specification=json.dumps({
-                "And": None,
-                "CostCategories": None,
-                "Dimensions": None,
-                "Not": None,
-                "Or": None,
-                "Tags": {
-                    "Key": "CostCenter",
-                    "MatchOptions": None,
-                    "Values": ["10000"],
+                "and": None,
+                "costCategories": None,
+                "dimensions": None,
+                "not": None,
+                "or": None,
+                "tags": {
+                    "key": "CostCenter",
+                    "matchOptions": None,
+                    "values": ["10000"],
                 },
             }))
         ```
@@ -337,15 +337,15 @@ class AnomalyMonitor(pulumi.CustomResource):
             name="AWSCustomAnomalyMonitor",
             monitor_type="CUSTOM",
             monitor_specification=json.dumps({
-                "And": None,
-                "CostCategories": None,
-                "Dimensions": None,
-                "Not": None,
-                "Or": None,
-                "Tags": {
-                    "Key": "CostCenter",
-                    "MatchOptions": None,
-                    "Values": ["10000"],
+                "and": None,
+                "costCategories": None,
+                "dimensions": None,
+                "not": None,
+                "or": None,
+                "tags": {
+                    "key": "CostCenter",
+                    "matchOptions": None,
+                    "values": ["10000"],
                 },
             }))
         ```

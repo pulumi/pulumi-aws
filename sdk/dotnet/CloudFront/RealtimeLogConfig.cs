@@ -102,12 +102,6 @@ namespace Pulumi.Aws.CloudFront
     ///                 StreamArn = exampleAwsKinesisStream.Arn,
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleRolePolicy, 
-    ///         },
     ///     });
     /// 
     /// });

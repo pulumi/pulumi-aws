@@ -85,7 +85,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkmanager.ConnectAttachment;
  * import com.pulumi.aws.networkmanager.ConnectAttachmentArgs;
  * import com.pulumi.aws.networkmanager.inputs.ConnectAttachmentOptionsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -117,9 +116,7 @@ import javax.annotation.Nullable;
  *             .options(ConnectAttachmentOptionsArgs.builder()
  *                 .protocol(&#34;GRE&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(test)
- *                 .build());
+ *             .build());
  * 
  *         var example2 = new AttachmentAccepter(&#34;example2&#34;, AttachmentAccepterArgs.builder()        
  *             .attachmentId(exampleConnectAttachment.id())

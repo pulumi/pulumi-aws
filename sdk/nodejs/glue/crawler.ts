@@ -129,15 +129,15 @@ import * as utilities from "../utilities";
  *     role: glueRole.arn,
  *     tags: tags,
  *     configuration: JSON.stringify({
- *         Grouping: {
- *             TableGroupingPolicy: "CombineCompatibleSchemas",
+ *         grouping: {
+ *             tableGroupingPolicy: "CombineCompatibleSchemas",
  *         },
- *         CrawlerOutput: {
- *             Partitions: {
- *                 AddOrUpdateBehavior: "InheritFromTable",
+ *         crawlerOutput: {
+ *             partitions: {
+ *                 addOrUpdateBehavior: "InheritFromTable",
  *             },
  *         },
- *         Version: 1,
+ *         version: 1,
  *     }),
  *     s3Targets: [{
  *         path: `s3://${dataLakeBucket.bucket}`,

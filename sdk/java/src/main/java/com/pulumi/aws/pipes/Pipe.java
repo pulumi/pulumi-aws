@@ -48,7 +48,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.pipes.Pipe;
  * import com.pulumi.aws.pipes.PipeArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,15 +66,15 @@ import javax.annotation.Nullable;
  *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;pipes.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonObject(
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;pipes.amazonaws.com&#34;)
  *                         )),
- *                         jsonProperty(&#34;Condition&#34;, jsonObject(
- *                             jsonProperty(&#34;StringEquals&#34;, jsonObject(
+ *                         jsonProperty(&#34;condition&#34;, jsonObject(
+ *                             jsonProperty(&#34;stringEquals&#34;, jsonObject(
  *                                 jsonProperty(&#34;aws:SourceAccount&#34;, main.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *                             ))
  *                         ))
@@ -89,15 +88,15 @@ import javax.annotation.Nullable;
  *             .role(example.id())
  *             .policy(sourceQueue.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;action&#34;, jsonArray(
  *                             &#34;sqs:DeleteMessage&#34;, 
  *                             &#34;sqs:GetQueueAttributes&#34;, 
  *                             &#34;sqs:ReceiveMessage&#34;
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(arn))
+ *                         jsonProperty(&#34;resource&#34;, jsonArray(arn))
  *                     )))
  *                 ))))
  *             .build());
@@ -108,11 +107,11 @@ import javax.annotation.Nullable;
  *             .role(example.id())
  *             .policy(targetQueue.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;sqs:SendMessage&#34;)),
- *                         jsonProperty(&#34;Resource&#34;, jsonArray(arn))
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;action&#34;, jsonArray(&#34;sqs:SendMessage&#34;)),
+ *                         jsonProperty(&#34;resource&#34;, jsonArray(arn))
  *                     )))
  *                 ))))
  *             .build());
@@ -122,11 +121,7 @@ import javax.annotation.Nullable;
  *             .roleArn(example.arn())
  *             .source(sourceQueue.arn())
  *             .target(targetQueue.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     source,
- *                     target)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

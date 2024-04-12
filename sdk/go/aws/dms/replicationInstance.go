@@ -120,11 +120,7 @@ import (
 //				VpcSecurityGroupIds: pulumi.StringArray{
 //					pulumi.String("sg-12345678"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
-//				dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole,
-//				dms_vpc_role_AmazonDMSVPCManagementRole,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

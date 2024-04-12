@@ -107,8 +107,6 @@ import * as utilities from "../utilities";
  *             storageClass: "STANDARD",
  *         },
  *     }],
- * }, {
- *     dependsOn: [sourceBucketVersioningV2],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -149,8 +147,6 @@ import * as utilities from "../utilities";
  *             storageClass: "STANDARD",
  *         },
  *     }],
- * }, {
- *     dependsOn: [eastBucketVersioningV2],
  * });
  * const westToEast = new aws.s3.BucketReplicationConfig("west_to_east", {
  *     role: westReplication.arn,
@@ -166,8 +162,6 @@ import * as utilities from "../utilities";
  *             storageClass: "STANDARD",
  *         },
  *     }],
- * }, {
- *     dependsOn: [westBucketVersioningV2],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

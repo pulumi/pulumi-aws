@@ -44,8 +44,6 @@ import * as utilities from "../utilities";
  *         SourceIdentifier: IAM_PASSWORD_POLICY
  *     Type: AWS::Config::ConfigRule
  * `,
- * }, {
- *     dependsOn: [exampleAwsConfigConfigurationRecorder],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -74,8 +72,6 @@ import * as utilities from "../utilities";
  * const example = new aws.cfg.ConformancePack("example", {
  *     name: "example",
  *     templateS3Uri: pulumi.interpolate`s3://${exampleBucketV2.bucket}/${exampleBucketObjectv2.key}`,
- * }, {
- *     dependsOn: [exampleAwsConfigConfigurationRecorder],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -39,8 +39,6 @@ import * as utilities from "../utilities";
  *         username: "test",
  *         password: "test!",
  *     }],
- * }, {
- *     dependsOn: [defaultVoiceConnectorTermination],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

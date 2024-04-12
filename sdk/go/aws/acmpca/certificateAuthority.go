@@ -140,7 +140,7 @@ import (
 //					},
 //				},
 //			}, nil)
-//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
+//			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 //				Bucket: example.ID(),
 //				Policy: acmpcaBucketAccess.ApplyT(func(acmpcaBucketAccess iam.GetPolicyDocumentResult) (*string, error) {
 //					return &acmpcaBucketAccess.Json, nil
@@ -166,9 +166,7 @@ import (
 //						S3ObjectAcl:      pulumi.String("BUCKET_OWNER_FULL_CONTROL"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketPolicy,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

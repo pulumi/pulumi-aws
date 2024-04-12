@@ -280,8 +280,7 @@ class Vocabulary(pulumi.CustomResource):
             tags={
                 "tag1": "value1",
                 "tag2": "value3",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[object]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -335,8 +334,7 @@ class Vocabulary(pulumi.CustomResource):
             tags={
                 "tag1": "value1",
                 "tag2": "value3",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[object]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 

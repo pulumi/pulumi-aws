@@ -277,12 +277,6 @@ namespace Pulumi.Aws.ElasticSearch
     ///         {
     ///             { "Domain", "TestDomain" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             esServiceLinkedRole, 
-    ///         },
     ///     });
     /// 
     /// });

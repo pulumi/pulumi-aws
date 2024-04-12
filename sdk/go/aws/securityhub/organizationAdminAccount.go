@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
+//			_, err := organizations.NewOrganization(ctx, "example", &organizations.OrganizationArgs{
 //				AwsServiceAccessPrincipals: pulumi.StringArray{
 //					pulumi.String("securityhub.amazonaws.com"),
 //				},
@@ -45,9 +45,7 @@ import (
 //			}
 //			_, err = securityhub.NewOrganizationAdminAccount(ctx, "example", &securityhub.OrganizationAdminAccountArgs{
 //				AdminAccountId: pulumi.String("123456789012"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

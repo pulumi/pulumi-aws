@@ -27,6 +27,284 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### OpenAPI Specification
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.apigateway.inputs.RestApiEndpointConfigurationArgs;
+ * import com.pulumi.aws.apigateway.Deployment;
+ * import com.pulumi.aws.apigateway.DeploymentArgs;
+ * import com.pulumi.aws.apigateway.Stage;
+ * import com.pulumi.aws.apigateway.StageArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RestApi(&#34;example&#34;, RestApiArgs.builder()        
+ *             .body(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
+ *                     jsonProperty(&#34;info&#34;, jsonObject(
+ *                         jsonProperty(&#34;title&#34;, &#34;example&#34;),
+ *                         jsonProperty(&#34;version&#34;, &#34;1.0&#34;)
+ *                     )),
+ *                     jsonProperty(&#34;paths&#34;, jsonObject(
+ *                         jsonProperty(&#34;/path1&#34;, jsonObject(
+ *                             jsonProperty(&#34;get&#34;, jsonObject(
+ *                                 jsonProperty(&#34;x-amazon-apigateway-integration&#34;, jsonObject(
+ *                                     jsonProperty(&#34;httpMethod&#34;, &#34;GET&#34;),
+ *                                     jsonProperty(&#34;payloadFormatVersion&#34;, &#34;1.0&#34;),
+ *                                     jsonProperty(&#34;type&#34;, &#34;HTTP_PROXY&#34;),
+ *                                     jsonProperty(&#34;uri&#34;, &#34;https://ip-ranges.amazonaws.com/ip-ranges.json&#34;)
+ *                                 ))
+ *                             ))
+ *                         ))
+ *                     ))
+ *                 )))
+ *             .name(&#34;example&#34;)
+ *             .endpointConfiguration(RestApiEndpointConfigurationArgs.builder()
+ *                 .types(&#34;REGIONAL&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
+ *             .restApi(example.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
+ *             .build());
+ * 
+ *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
+ *             .deployment(exampleDeployment.id())
+ *             .restApi(example.id())
+ *             .stageName(&#34;example&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### OpenAPI Specification with Private Endpoints
+ * 
+ * Using `put_rest_api_mode` = `merge` when importing the OpenAPI Specification, the AWS control plane will not delete all existing literal properties that are not explicitly set in the OpenAPI definition. Impacted API Gateway properties: ApiKeySourceType, BinaryMediaTypes, Description, EndpointConfiguration, MinimumCompressionSize, Name, Policy).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.DefaultSecurityGroup;
+ * import com.pulumi.aws.ec2.DefaultSecurityGroupArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.apigateway.inputs.RestApiEndpointConfigurationArgs;
+ * import com.pulumi.aws.apigateway.Deployment;
+ * import com.pulumi.aws.apigateway.DeploymentArgs;
+ * import com.pulumi.aws.apigateway.Stage;
+ * import com.pulumi.aws.apigateway.StageArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .state(&#34;available&#34;)
+ *             .filters(GetAvailabilityZonesFilterArgs.builder()
+ *                 .name(&#34;opt-in-status&#34;)
+ *                 .values(&#34;opt-in-not-required&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         final var current = AwsFunctions.getRegion();
+ * 
+ *         var example = new Vpc(&#34;example&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.0.0.0/16&#34;)
+ *             .enableDnsSupport(true)
+ *             .enableDnsHostnames(true)
+ *             .build());
+ * 
+ *         var exampleDefaultSecurityGroup = new DefaultSecurityGroup(&#34;exampleDefaultSecurityGroup&#34;, DefaultSecurityGroupArgs.builder()        
+ *             .vpcId(example.id())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+ *             .cidrBlock(example.cidrBlock().applyValue(cidrBlock -&gt; StdFunctions.cidrsubnet()).applyValue(invoke -&gt; invoke.result()))
+ *             .vpcId(example.id())
+ *             .build());
+ * 
+ *         for (var i = 0; i &lt; 3; i++) {
+ *             new VpcEndpoint(&#34;exampleVpcEndpoint-&#34; + i, VpcEndpointArgs.builder()            
+ *                 .privateDnsEnabled(false)
+ *                 .securityGroupIds(exampleDefaultSecurityGroup.id())
+ *                 .serviceName(String.format(&#34;com.amazonaws.%s.execute-api&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+ *                 .subnetIds(exampleSubnet.id())
+ *                 .vpcEndpointType(&#34;Interface&#34;)
+ *                 .vpcId(example.id())
+ *                 .build());
+ * 
+ *         
+ * }
+ *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
+ *             .body(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
+ *                     jsonProperty(&#34;info&#34;, jsonObject(
+ *                         jsonProperty(&#34;title&#34;, &#34;example&#34;),
+ *                         jsonProperty(&#34;version&#34;, &#34;1.0&#34;)
+ *                     )),
+ *                     jsonProperty(&#34;paths&#34;, jsonObject(
+ *                         jsonProperty(&#34;/path1&#34;, jsonObject(
+ *                             jsonProperty(&#34;get&#34;, jsonObject(
+ *                                 jsonProperty(&#34;x-amazon-apigateway-integration&#34;, jsonObject(
+ *                                     jsonProperty(&#34;httpMethod&#34;, &#34;GET&#34;),
+ *                                     jsonProperty(&#34;payloadFormatVersion&#34;, &#34;1.0&#34;),
+ *                                     jsonProperty(&#34;type&#34;, &#34;HTTP_PROXY&#34;),
+ *                                     jsonProperty(&#34;uri&#34;, &#34;https://ip-ranges.amazonaws.com/ip-ranges.json&#34;)
+ *                                 ))
+ *                             ))
+ *                         ))
+ *                     ))
+ *                 )))
+ *             .name(&#34;example&#34;)
+ *             .putRestApiMode(&#34;merge&#34;)
+ *             .endpointConfiguration(RestApiEndpointConfigurationArgs.builder()
+ *                 .types(&#34;PRIVATE&#34;)
+ *                 .vpcEndpointIds(                
+ *                     exampleVpcEndpoint[0].id(),
+ *                     exampleVpcEndpoint[1].id(),
+ *                     exampleVpcEndpoint[2].id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
+ *             .restApi(exampleRestApi.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
+ *             .build());
+ * 
+ *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
+ *             .deployment(exampleDeployment.id())
+ *             .restApi(exampleRestApi.id())
+ *             .stageName(&#34;example&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Resources
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.apigateway.Resource;
+ * import com.pulumi.aws.apigateway.ResourceArgs;
+ * import com.pulumi.aws.apigateway.Method;
+ * import com.pulumi.aws.apigateway.MethodArgs;
+ * import com.pulumi.aws.apigateway.Integration;
+ * import com.pulumi.aws.apigateway.IntegrationArgs;
+ * import com.pulumi.aws.apigateway.Deployment;
+ * import com.pulumi.aws.apigateway.DeploymentArgs;
+ * import com.pulumi.aws.apigateway.Stage;
+ * import com.pulumi.aws.apigateway.StageArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RestApi(&#34;example&#34;, RestApiArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .build());
+ * 
+ *         var exampleResource = new Resource(&#34;exampleResource&#34;, ResourceArgs.builder()        
+ *             .parentId(example.rootResourceId())
+ *             .pathPart(&#34;example&#34;)
+ *             .restApi(example.id())
+ *             .build());
+ * 
+ *         var exampleMethod = new Method(&#34;exampleMethod&#34;, MethodArgs.builder()        
+ *             .authorization(&#34;NONE&#34;)
+ *             .httpMethod(&#34;GET&#34;)
+ *             .resourceId(exampleResource.id())
+ *             .restApi(example.id())
+ *             .build());
+ * 
+ *         var exampleIntegration = new Integration(&#34;exampleIntegration&#34;, IntegrationArgs.builder()        
+ *             .httpMethod(exampleMethod.httpMethod())
+ *             .resourceId(exampleResource.id())
+ *             .restApi(example.id())
+ *             .type(&#34;MOCK&#34;)
+ *             .build());
+ * 
+ *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
+ *             .restApi(example.id())
+ *             .triggers(Map.of(&#34;redeployment&#34;, StdFunctions.sha1().applyValue(invoke -&gt; invoke.result())))
+ *             .build());
+ * 
+ *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
+ *             .deployment(exampleDeployment.id())
+ *             .restApi(example.id())
+ *             .stageName(&#34;example&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:

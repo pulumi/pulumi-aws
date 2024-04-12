@@ -133,6 +133,40 @@ import * as utilities from "../utilities";
  *
  * Despite these sticky problems, below are some ways to improve your experience when you find it necessary to recreate a security group.
  *
+ * ### `createBeforeDestroy`
+ *
+ * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
+ *
+ * Normally, the provider first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won't succeed. You can invert the default behavior using the `createBeforeDestroy` meta argument:
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.SecurityGroup("example", {name: "changeable-name"});
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### `replaceTriggeredBy`
+ *
+ * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
+ *
+ * To replace a resource when a security group changes, use the `replaceTriggeredBy` meta argument. Note that in this example, the `aws.ec2.Instance` will be destroyed and created again when the `aws.ec2.SecurityGroup` changes.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.SecurityGroup("example", {name: "sg"});
+ * const exampleInstance = new aws.ec2.Instance("example", {
+ *     instanceType: aws.ec2.InstanceType.T3_Small,
+ *     vpcSecurityGroupIds: [test.id],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Shorter timeout
  *
  * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)

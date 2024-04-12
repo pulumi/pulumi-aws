@@ -39,6 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cognito.UserPool;
  * import com.pulumi.aws.cognito.UserPoolArgs;
+ * import com.pulumi.aws.cognito.ManagedUserPoolClient;
+ * import com.pulumi.aws.cognito.ManagedUserPoolClientArgs;
  * import com.pulumi.aws.cognito.IdentityPool;
  * import com.pulumi.aws.cognito.IdentityPoolArgs;
  * import com.pulumi.aws.AwsFunctions;
@@ -47,15 +49,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.opensearch.DomainArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainCognitoOptionsArgs;
  * import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
- * import com.pulumi.aws.cognito.ManagedUserPoolClient;
- * import com.pulumi.aws.cognito.ManagedUserPoolClientArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,6 +70,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleUserPool = new UserPool(&#34;exampleUserPool&#34;, UserPoolArgs.builder()        
  *             .name(&#34;example&#34;)
+ *             .build());
+ * 
+ *         var exampleManagedUserPoolClient = new ManagedUserPoolClient(&#34;exampleManagedUserPoolClient&#34;, ManagedUserPoolClientArgs.builder()        
+ *             .namePrefix(&#34;AmazonOpenSearchService-example&#34;)
+ *             .userPoolId(exampleUserPool.id())
  *             .build());
  * 
  *         var exampleIdentityPool = new IdentityPool(&#34;exampleIdentityPool&#34;, IdentityPoolArgs.builder()        
@@ -97,11 +101,6 @@ import javax.annotation.Nullable;
  *             .assumeRolePolicy(example.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(exampleRole.name())
- *             .policyArn(String.format(&#34;arn:%s:iam::aws:policy/AmazonESCognitoAccess&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
- *             .build());
- * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
  *             .domainName(&#34;example&#34;)
  *             .cognitoOptions(DomainCognitoOptionsArgs.builder()
@@ -114,18 +113,12 @@ import javax.annotation.Nullable;
  *                 .ebsEnabled(true)
  *                 .volumeSize(10)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleAwsCognitoUserPoolDomain,
- *                     exampleRolePolicyAttachment)
- *                 .build());
+ *             .build());
  * 
- *         var exampleManagedUserPoolClient = new ManagedUserPoolClient(&#34;exampleManagedUserPoolClient&#34;, ManagedUserPoolClientArgs.builder()        
- *             .namePrefix(&#34;AmazonOpenSearchService-example&#34;)
- *             .userPoolId(exampleUserPool.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleDomain)
- *                 .build());
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .role(exampleRole.name())
+ *             .policyArn(String.format(&#34;arn:%s:iam::aws:policy/AmazonESCognitoAccess&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition())))
+ *             .build());
  * 
  *     }
  * }

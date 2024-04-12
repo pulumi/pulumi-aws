@@ -33,17 +33,17 @@ namespace Pulumi.Aws.Iam
     ///         Description = "My test policy",
     ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "ec2:Describe*",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = "*",
     ///                 },
     ///             },
     ///         }),

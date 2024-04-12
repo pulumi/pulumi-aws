@@ -109,7 +109,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			awsBatchServiceRoleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "aws_batch_service_role", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "aws_batch_service_role", &iam.RolePolicyAttachmentArgs{
 //				Role:      awsBatchServiceRole.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole"),
 //			})
@@ -172,9 +172,7 @@ import (
 //				},
 //				ServiceRole: awsBatchServiceRole.Arn,
 //				Type:        pulumi.String("MANAGED"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				awsBatchServiceRoleRolePolicyAttachment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -212,11 +210,9 @@ import (
 //					},
 //					Type: pulumi.String("FARGATE"),
 //				},
-//				ServiceRole: pulumi.Any(awsBatchServiceRoleAwsIamRole.Arn),
+//				ServiceRole: pulumi.Any(awsBatchServiceRole.Arn),
 //				Type:        pulumi.String("MANAGED"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				awsBatchServiceRole,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

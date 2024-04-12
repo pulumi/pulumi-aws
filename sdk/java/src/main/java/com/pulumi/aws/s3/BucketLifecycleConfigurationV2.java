@@ -481,7 +481,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketVersioningV2Args;
  * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
  * import com.pulumi.aws.s3.inputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -581,9 +580,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                 .status(&#34;Enabled&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(versioning)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

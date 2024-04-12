@@ -54,7 +54,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleArgs;
  * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleFilterArgs;
  * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleDestinationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -162,9 +161,7 @@ import javax.annotation.Nullable;
  *                     .storageClass(&#34;STANDARD&#34;)
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(sourceBucketVersioningV2)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -190,7 +187,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleArgs;
  * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleFilterArgs;
  * import com.pulumi.aws.s3.inputs.BucketReplicationConfigRuleDestinationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -241,9 +237,7 @@ import javax.annotation.Nullable;
  *                     .storageClass(&#34;STANDARD&#34;)
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(eastBucketVersioningV2)
- *                 .build());
+ *             .build());
  * 
  *         var westToEast = new BucketReplicationConfig(&#34;westToEast&#34;, BucketReplicationConfigArgs.builder()        
  *             .role(westReplication.arn())
@@ -259,9 +253,7 @@ import javax.annotation.Nullable;
  *                     .storageClass(&#34;STANDARD&#34;)
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(westBucketVersioningV2)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

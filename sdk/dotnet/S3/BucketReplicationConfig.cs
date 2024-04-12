@@ -176,12 +176,6 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             sourceBucketVersioningV2, 
-    ///         },
     ///     });
     /// 
     /// });
@@ -249,12 +243,6 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             eastBucketVersioningV2, 
-    ///         },
     ///     });
     /// 
     ///     var westToEast = new Aws.S3.BucketReplicationConfig("west_to_east", new()
@@ -277,12 +265,6 @@ namespace Pulumi.Aws.S3
     ///                     StorageClass = "STANDARD",
     ///                 },
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             westBucketVersioningV2, 
     ///         },
     ///     });
     /// 

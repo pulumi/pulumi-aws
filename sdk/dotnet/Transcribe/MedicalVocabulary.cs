@@ -53,12 +53,6 @@ namespace Pulumi.Aws.Transcribe
     ///             { "tag1", "value1" },
     ///             { "tag2", "value3" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             @object, 
-    ///         },
     ///     });
     /// 
     /// });

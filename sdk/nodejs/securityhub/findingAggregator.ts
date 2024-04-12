@@ -19,9 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securityhub.Account("example", {});
- * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("example", {linkingMode: "ALL_REGIONS"}, {
- *     dependsOn: [example],
- * });
+ * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("example", {linkingMode: "ALL_REGIONS"});
  * ```
  * <!--End PulumiCodeChooser -->
  *
@@ -41,8 +39,6 @@ import * as utilities from "../utilities";
  *         "eu-west-1",
  *         "eu-west-2",
  *     ],
- * }, {
- *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -63,8 +59,6 @@ import * as utilities from "../utilities";
  *         "eu-west-1",
  *         "eu-west-2",
  *     ],
- * }, {
- *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

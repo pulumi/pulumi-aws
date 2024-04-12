@@ -66,15 +66,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"And":            nil,
-//				"CostCategories": nil,
-//				"Dimensions":     nil,
-//				"Not":            nil,
-//				"Or":             nil,
-//				"Tags": map[string]interface{}{
-//					"Key":          "CostCenter",
-//					"MatchOptions": nil,
-//					"Values": []string{
+//				"and":            nil,
+//				"costCategories": nil,
+//				"dimensions":     nil,
+//				"not":            nil,
+//				"or":             nil,
+//				"tags": map[string]interface{}{
+//					"key":          "CostCenter",
+//					"matchOptions": nil,
+//					"values": []string{
 //						"10000",
 //					},
 //				},

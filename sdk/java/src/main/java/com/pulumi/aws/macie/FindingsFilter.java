@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie.FindingsFilter;
  * import com.pulumi.aws.macie.FindingsFilterArgs;
  * import com.pulumi.aws.macie.inputs.FindingsFilterFindingCriteriaArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,9 +59,7 @@ import javax.annotation.Nullable;
  *                     .eqs(current.name())
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testAwsMacie2Account)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

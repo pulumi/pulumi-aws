@@ -49,8 +49,6 @@ import * as utilities from "../utilities";
  *         repositoryUrl: "https://github.com/github/docs.git",
  *         secretArn: example.arn,
  *     },
- * }, {
- *     dependsOn: [exampleSecretVersion],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

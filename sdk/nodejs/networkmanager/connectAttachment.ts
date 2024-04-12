@@ -58,8 +58,6 @@ import * as utilities from "../utilities";
  *     options: {
  *         protocol: "GRE",
  *     },
- * }, {
- *     dependsOn: [test],
  * });
  * const example2 = new aws.networkmanager.AttachmentAccepter("example2", {
  *     attachmentId: exampleConnectAttachment.id,

@@ -307,7 +307,7 @@ class MethodResponse(pulumi.CustomResource):
                 "title": "MyDemoResponse",
                 "type": "object",
                 "properties": {
-                    "Message": {
+                    "message": {
                         "type": "string",
                     },
                 },
@@ -424,7 +424,7 @@ class MethodResponse(pulumi.CustomResource):
                 "title": "MyDemoResponse",
                 "type": "object",
                 "properties": {
-                    "Message": {
+                    "message": {
                         "type": "string",
                     },
                 },

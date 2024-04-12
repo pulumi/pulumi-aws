@@ -53,9 +53,7 @@ import (
 //						Type:    pulumi.String("IPMatch"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				ipset,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -75,10 +73,7 @@ import (
 //						Type:     pulumi.String("REGULAR"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				ipset,
-//				wafrule,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

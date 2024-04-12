@@ -214,8 +214,6 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         accepter = aws.get_caller_identity()
-        # Accepter's side of the VIF.
-        vpn_gw = aws.ec2.VpnGateway("vpn_gw")
         # Creator's side of the VIF
         creator = aws.directconnect.HostedPrivateVirtualInterface("creator",
             connection_id="dxcon-zzzzzzzz",
@@ -223,8 +221,9 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
             name="vif-foo",
             vlan=4094,
             address_family="ipv4",
-            bgp_asn=65352,
-            opts=pulumi.ResourceOptions(depends_on=[vpn_gw]))
+            bgp_asn=65352)
+        # Accepter's side of the VIF.
+        vpn_gw = aws.ec2.VpnGateway("vpn_gw")
         accepter_hosted_private_virtual_interface_accepter = aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepter",
             virtual_interface_id=creator.id,
             vpn_gateway_id=vpn_gw.id,
@@ -267,8 +266,6 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         accepter = aws.get_caller_identity()
-        # Accepter's side of the VIF.
-        vpn_gw = aws.ec2.VpnGateway("vpn_gw")
         # Creator's side of the VIF
         creator = aws.directconnect.HostedPrivateVirtualInterface("creator",
             connection_id="dxcon-zzzzzzzz",
@@ -276,8 +273,9 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
             name="vif-foo",
             vlan=4094,
             address_family="ipv4",
-            bgp_asn=65352,
-            opts=pulumi.ResourceOptions(depends_on=[vpn_gw]))
+            bgp_asn=65352)
+        # Accepter's side of the VIF.
+        vpn_gw = aws.ec2.VpnGateway("vpn_gw")
         accepter_hosted_private_virtual_interface_accepter = aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepter",
             virtual_interface_id=creator.id,
             vpn_gateway_id=vpn_gw.id,

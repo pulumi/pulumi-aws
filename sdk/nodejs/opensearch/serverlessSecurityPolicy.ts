@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *     type: "encryption",
  *     description: "encryption security policy for example-collection",
  *     policy: JSON.stringify({
- *         Rules: [{
- *             Resource: ["collection/example-collection"],
- *             ResourceType: "collection",
+ *         rules: [{
+ *             resource: ["collection/example-collection"],
+ *             resourceType: "collection",
  *         }],
- *         AWSOwnedKey: true,
+ *         aWSOwnedKey: true,
  *     }),
  * });
  * ```
@@ -45,11 +45,11 @@ import * as utilities from "../utilities";
  *     type: "encryption",
  *     description: "encryption security policy for collections that begin with \"example\"",
  *     policy: JSON.stringify({
- *         Rules: [{
- *             Resource: ["collection/example*"],
- *             ResourceType: "collection",
+ *         rules: [{
+ *             resource: ["collection/example*"],
+ *             resourceType: "collection",
  *         }],
- *         AWSOwnedKey: true,
+ *         aWSOwnedKey: true,
  *     }),
  * });
  * ```
@@ -67,12 +67,12 @@ import * as utilities from "../utilities";
  *     type: "encryption",
  *     description: "encryption security policy using customer KMS key",
  *     policy: JSON.stringify({
- *         Rules: [{
- *             Resource: ["collection/customer-managed-key-collection"],
- *             ResourceType: "collection",
+ *         rules: [{
+ *             resource: ["collection/customer-managed-key-collection"],
+ *             resourceType: "collection",
  *         }],
- *         AWSOwnedKey: false,
- *         KmsARN: "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
+ *         aWSOwnedKey: false,
+ *         kmsARN: "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
  *     }),
  * });
  * ```
@@ -92,18 +92,18 @@ import * as utilities from "../utilities";
  *     type: "network",
  *     description: "Public access",
  *     policy: JSON.stringify([{
- *         Description: "Public access to collection and Dashboards endpoint for example collection",
- *         Rules: [
+ *         description: "Public access to collection and Dashboards endpoint for example collection",
+ *         rules: [
  *             {
- *                 ResourceType: "collection",
- *                 Resource: ["collection/example-collection"],
+ *                 resourceType: "collection",
+ *                 resource: ["collection/example-collection"],
  *             },
  *             {
- *                 ResourceType: "dashboard",
- *                 Resource: ["collection/example-collection"],
+ *                 resourceType: "dashboard",
+ *                 resource: ["collection/example-collection"],
  *             },
  *         ],
- *         AllowFromPublic: true,
+ *         allowFromPublic: true,
  *     }]),
  * });
  * ```
@@ -121,19 +121,19 @@ import * as utilities from "../utilities";
  *     type: "network",
  *     description: "VPC access",
  *     policy: JSON.stringify([{
- *         Description: "VPC access to collection and Dashboards endpoint for example collection",
- *         Rules: [
+ *         description: "VPC access to collection and Dashboards endpoint for example collection",
+ *         rules: [
  *             {
- *                 ResourceType: "collection",
- *                 Resource: ["collection/example-collection"],
+ *                 resourceType: "collection",
+ *                 resource: ["collection/example-collection"],
  *             },
  *             {
- *                 ResourceType: "dashboard",
- *                 Resource: ["collection/example-collection"],
+ *                 resourceType: "dashboard",
+ *                 resource: ["collection/example-collection"],
  *             },
  *         ],
- *         AllowFromPublic: false,
- *         SourceVPCEs: ["vpce-050f79086ee71ac05"],
+ *         allowFromPublic: false,
+ *         sourceVPCEs: ["vpce-050f79086ee71ac05"],
  *     }]),
  * });
  * ```

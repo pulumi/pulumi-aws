@@ -34,9 +34,7 @@ import * as utilities from "../utilities";
  *         AWSOwnedKey: true,
  *     }),
  * });
- * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("example", {name: "example"}, {
- *     dependsOn: [example],
- * });
+ * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("example", {name: "example"});
  * ```
  * <!--End PulumiCodeChooser -->
  *

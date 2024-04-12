@@ -668,8 +668,7 @@ class Vpc(pulumi.CustomResource):
             cidr="172.20.0.0/16")
         test_vpc = aws.ec2.Vpc("test",
             ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
-            ipv4_netmask_length=28,
-            opts=pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
+            ipv4_netmask_length=28)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -755,8 +754,7 @@ class Vpc(pulumi.CustomResource):
             cidr="172.20.0.0/16")
         test_vpc = aws.ec2.Vpc("test",
             ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
-            ipv4_netmask_length=28,
-            opts=pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
+            ipv4_netmask_length=28)
         ```
         <!--End PulumiCodeChooser -->
 

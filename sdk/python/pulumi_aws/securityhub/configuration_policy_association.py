@@ -115,8 +115,7 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
             auto_enable_standards="NONE",
             organization_configuration=aws.securityhub.OrganizationConfigurationOrganizationConfigurationArgs(
                 configuration_type="CENTRAL",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            ))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
             name="Example",
             description="This is an example configuration policy",
@@ -129,8 +128,7 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
                 security_controls_configuration=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs(
                     disabled_control_identifiers=[],
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
+            ))
         account_example = aws.securityhub.ConfigurationPolicyAssociation("account_example",
             target_id="123456789012",
             policy_id=example_configuration_policy.id)
@@ -180,8 +178,7 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
             auto_enable_standards="NONE",
             organization_configuration=aws.securityhub.OrganizationConfigurationOrganizationConfigurationArgs(
                 configuration_type="CENTRAL",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            ))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
             name="Example",
             description="This is an example configuration policy",
@@ -194,8 +191,7 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
                 security_controls_configuration=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs(
                     disabled_control_identifiers=[],
                 ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
+            ))
         account_example = aws.securityhub.ConfigurationPolicyAssociation("account_example",
             target_id="123456789012",
             policy_id=example_configuration_policy.id)

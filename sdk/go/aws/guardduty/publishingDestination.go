@@ -144,7 +144,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			gdBucketPolicy, err := s3.NewBucketPolicy(ctx, "gd_bucket_policy", &s3.BucketPolicyArgs{
+//			_, err = s3.NewBucketPolicy(ctx, "gd_bucket_policy", &s3.BucketPolicyArgs{
 //				Bucket: gdBucket.ID(),
 //				Policy: bucketPol.ApplyT(func(bucketPol iam.GetPolicyDocumentResult) (*string, error) {
 //					return &bucketPol.Json, nil
@@ -165,9 +165,7 @@ import (
 //				DetectorId:     testGd.ID(),
 //				DestinationArn: gdBucket.Arn,
 //				KmsKeyArn:      gdKey.Arn,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				gdBucketPolicy,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

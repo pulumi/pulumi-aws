@@ -44,12 +44,6 @@ namespace Pulumi.Aws.GameLift
     ///         MaxSize = 1,
     ///         MinSize = 1,
     ///         RoleArn = exampleAwsIamRole.Arn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsIamRolePolicyAttachment, 
-    ///         },
     ///     });
     /// 
     /// });
@@ -109,12 +103,6 @@ namespace Pulumi.Aws.GameLift
     ///         {
     ///             "subnet-12345678",
     ///             "subnet-23456789",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleAwsIamRolePolicyAttachment, 
     ///         },
     ///     });
     /// 

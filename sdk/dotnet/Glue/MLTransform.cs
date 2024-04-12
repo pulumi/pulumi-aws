@@ -142,12 +142,6 @@ namespace Pulumi.Aws.Glue
     ///                 PrimaryKeyColumnName = "my_column_1",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             testAwsIamRolePolicyAttachment, 
-    ///         },
     ///     });
     /// 
     /// });

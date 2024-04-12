@@ -613,8 +613,7 @@ class Eip(pulumi.CustomResource):
         my_test_subnet = aws.ec2.Subnet("my_test_subnet",
             vpc_id=default.id,
             cidr_block="10.0.0.0/24",
-            map_public_ip_on_launch=True,
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            map_public_ip_on_launch=True)
         foo = aws.ec2.Instance("foo",
             ami="ami-5189a661",
             instance_type=aws.ec2.InstanceType.T2_MICRO,
@@ -623,8 +622,7 @@ class Eip(pulumi.CustomResource):
         bar = aws.ec2.Eip("bar",
             domain="vpc",
             instance=foo.id,
-            associate_with_private_ip="10.0.0.12",
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            associate_with_private_ip="10.0.0.12")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -735,8 +733,7 @@ class Eip(pulumi.CustomResource):
         my_test_subnet = aws.ec2.Subnet("my_test_subnet",
             vpc_id=default.id,
             cidr_block="10.0.0.0/24",
-            map_public_ip_on_launch=True,
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            map_public_ip_on_launch=True)
         foo = aws.ec2.Instance("foo",
             ami="ami-5189a661",
             instance_type=aws.ec2.InstanceType.T2_MICRO,
@@ -745,8 +742,7 @@ class Eip(pulumi.CustomResource):
         bar = aws.ec2.Eip("bar",
             domain="vpc",
             instance=foo.id,
-            associate_with_private_ip="10.0.0.12",
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            associate_with_private_ip="10.0.0.12")
         ```
         <!--End PulumiCodeChooser -->
 

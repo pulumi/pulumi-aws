@@ -173,12 +173,6 @@ namespace Pulumi.Aws.Batch
     ///         },
     ///         ServiceRole = awsBatchServiceRole.Arn,
     ///         Type = "MANAGED",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             awsBatchServiceRoleRolePolicyAttachment, 
-    ///         },
     ///     });
     /// 
     /// });
@@ -212,14 +206,8 @@ namespace Pulumi.Aws.Batch
     ///             },
     ///             Type = "FARGATE",
     ///         },
-    ///         ServiceRole = awsBatchServiceRoleAwsIamRole.Arn,
+    ///         ServiceRole = awsBatchServiceRole.Arn,
     ///         Type = "MANAGED",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             awsBatchServiceRole, 
-    ///         },
     ///     });
     /// 
     /// });

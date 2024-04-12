@@ -21,20 +21,20 @@ import * as utilities from "../utilities";
  * const example = new aws.msk.ClusterPolicy("example", {
  *     clusterArn: exampleAwsMskCluster.arn,
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "ExampleMskClusterPolicy",
- *             Effect: "Allow",
- *             Principal: {
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             sid: "ExampleMskClusterPolicy",
+ *             effect: "Allow",
+ *             principal: {
  *                 AWS: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:root`),
  *             },
- *             Action: [
+ *             action: [
  *                 "kafka:Describe*",
  *                 "kafka:Get*",
  *                 "kafka:CreateVpcConnection",
  *                 "kafka:GetBootstrapBrokers",
  *             ],
- *             Resource: exampleAwsMskCluster.arn,
+ *             resource: exampleAwsMskCluster.arn,
  *         }],
  *     }),
  * });

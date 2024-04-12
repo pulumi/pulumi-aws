@@ -31,26 +31,26 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         ResourceArn = exampleAwsNetworkfirewallFirewallPolicy.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Statement"] = new[]
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "network-firewall:ListFirewallPolicies",
     ///                         "network-firewall:CreateFirewall",
     ///                         "network-firewall:UpdateFirewall",
     ///                         "network-firewall:AssociateFirewallPolicy",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = exampleAwsNetworkfirewallFirewallPolicy.Arn,
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = exampleAwsNetworkfirewallFirewallPolicy.Arn,
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "arn:aws:iam::123456789012:root",
     ///                     },
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 
@@ -75,25 +75,25 @@ namespace Pulumi.Aws.NetworkFirewall
     ///         ResourceArn = exampleAwsNetworkfirewallRuleGroup.Arn,
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Statement"] = new[]
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "network-firewall:ListRuleGroups",
     ///                         "network-firewall:CreateFirewallPolicy",
     ///                         "network-firewall:UpdateFirewallPolicy",
     ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = exampleAwsNetworkfirewallRuleGroup.Arn,
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["resource"] = exampleAwsNetworkfirewallRuleGroup.Arn,
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "arn:aws:iam::123456789012:root",
     ///                     },
     ///                 },
     ///             },
-    ///             ["Version"] = "2012-10-17",
+    ///             ["version"] = "2012-10-17",
     ///         }),
     ///     });
     /// 

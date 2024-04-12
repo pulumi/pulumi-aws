@@ -121,6 +121,59 @@ import javax.annotation.Nullable;
  * to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
  * dependant resources before attempting to destroy the old version.
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.ServerCertificate;
+ * import com.pulumi.aws.iam.ServerCertificateArgs;
+ * import com.pulumi.aws.elb.LoadBalancer;
+ * import com.pulumi.aws.elb.LoadBalancerArgs;
+ * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testCert = new ServerCertificate(&#34;testCert&#34;, ServerCertificateArgs.builder()        
+ *             .namePrefix(&#34;example-cert&#34;)
+ *             .certificateBody(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;self-ca-cert.pem&#34;)
+ *                 .build()).result())
+ *             .privateKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;test-key.pem&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *         var ourapp = new LoadBalancer(&#34;ourapp&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;asg-deployment-example&#34;)
+ *             .availabilityZones(&#34;us-west-2a&#34;)
+ *             .crossZoneLoadBalancing(true)
+ *             .listeners(LoadBalancerListenerArgs.builder()
+ *                 .instancePort(8000)
+ *                 .instanceProtocol(&#34;http&#34;)
+ *                 .lbPort(443)
+ *                 .lbProtocol(&#34;https&#34;)
+ *                 .sslCertificateId(testCert.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM Server Certificates using the `name`. For example:

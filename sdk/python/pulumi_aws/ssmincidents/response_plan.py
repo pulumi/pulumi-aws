@@ -348,8 +348,7 @@ class ResponsePlan(pulumi.CustomResource):
             ),
             tags={
                 "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -416,8 +415,7 @@ class ResponsePlan(pulumi.CustomResource):
             ),
             tags={
                 "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -465,8 +463,7 @@ class ResponsePlan(pulumi.CustomResource):
             ),
             tags={
                 "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -533,8 +530,7 @@ class ResponsePlan(pulumi.CustomResource):
             ),
             tags={
                 "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 

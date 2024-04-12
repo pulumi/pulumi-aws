@@ -41,37 +41,37 @@ namespace Pulumi.Aws.Connect
     ///         Type = "CONTACT_FLOW",
     ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2019-10-30",
-    ///             ["StartAction"] = "12345678-1234-1234-1234-123456789012",
-    ///             ["Actions"] = new[]
+    ///             ["version"] = "2019-10-30",
+    ///             ["startAction"] = "12345678-1234-1234-1234-123456789012",
+    ///             ["actions"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Identifier"] = "12345678-1234-1234-1234-123456789012",
-    ///                     ["Type"] = "MessageParticipant",
-    ///                     ["Transitions"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["identifier"] = "12345678-1234-1234-1234-123456789012",
+    ///                     ["type"] = "MessageParticipant",
+    ///                     ["transitions"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["NextAction"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
-    ///                         ["Errors"] = new[]
+    ///                         ["nextAction"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
+    ///                         ["errors"] = new[]
     ///                         {
     ///                         },
-    ///                         ["Conditions"] = new[]
+    ///                         ["conditions"] = new[]
     ///                         {
     ///                         },
     ///                     },
-    ///                     ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Text"] = "Thanks for calling the sample flow!",
+    ///                         ["text"] = "Thanks for calling the sample flow!",
     ///                     },
     ///                 },
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Identifier"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
-    ///                     ["Type"] = "DisconnectParticipant",
-    ///                     ["Transitions"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["identifier"] = "abcdef-abcd-abcd-abcd-abcdefghijkl",
+    ///                     ["type"] = "DisconnectParticipant",
+    ///                     ["transitions"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                     },
-    ///                     ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                     },
     ///                 },

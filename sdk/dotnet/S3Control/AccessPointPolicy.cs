@@ -49,18 +49,18 @@ namespace Pulumi.Aws.S3Control
     ///         AccessPointArn = exampleAccessPoint.Arn,
     ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2008-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2008-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = "s3:GetObjectTagging",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["effect"] = "Allow",
+    ///                     ["action"] = "s3:GetObjectTagging",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = "*",
     ///                     },
-    ///                     ["Resource"] = exampleAccessPoint.Arn.Apply(arn =&gt; $"{arn}/object/*"),
+    ///                     ["resource"] = exampleAccessPoint.Arn.Apply(arn =&gt; $"{arn}/object/*"),
     ///                 },
     ///             },
     ///         })),

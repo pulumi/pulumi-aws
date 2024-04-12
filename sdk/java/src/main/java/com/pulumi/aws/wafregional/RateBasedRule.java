@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafregional.RateBasedRule;
  * import com.pulumi.aws.wafregional.RateBasedRuleArgs;
  * import com.pulumi.aws.wafregional.inputs.RateBasedRulePredicateArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,9 +67,7 @@ import javax.annotation.Nullable;
  *                 .negated(false)
  *                 .type(&#34;IPMatch&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(ipset)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

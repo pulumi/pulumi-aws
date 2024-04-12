@@ -110,7 +110,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcIpamPoolCidrArgs;
  * import com.pulumi.aws.ec2.Vpc;
  * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -146,9 +145,7 @@ import javax.annotation.Nullable;
  *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
  *             .ipv4IpamPoolId(testVpcIpamPool.id())
  *             .ipv4NetmaskLength(28)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testVpcIpamPoolCidr)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

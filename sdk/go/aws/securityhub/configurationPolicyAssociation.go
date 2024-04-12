@@ -31,21 +31,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
+//			_, err := securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
 //				LinkingMode: pulumi.String("ALL_REGIONS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleOrganizationConfiguration, err := securityhub.NewOrganizationConfiguration(ctx, "example", &securityhub.OrganizationConfigurationArgs{
+//			_, err = securityhub.NewOrganizationConfiguration(ctx, "example", &securityhub.OrganizationConfigurationArgs{
 //				AutoEnable:          pulumi.Bool(false),
 //				AutoEnableStandards: pulumi.String("NONE"),
 //				OrganizationConfiguration: &securityhub.OrganizationConfigurationOrganizationConfigurationArgs{
 //					ConfigurationType: pulumi.String("CENTRAL"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -62,9 +60,7 @@ import (
 //						DisabledControlIdentifiers: pulumi.StringArray{},
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleOrganizationConfiguration,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

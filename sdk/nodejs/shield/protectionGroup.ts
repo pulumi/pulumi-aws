@@ -45,8 +45,6 @@ import * as utilities from "../utilities";
  *     aggregation: "MEAN",
  *     pattern: "ARBITRARY",
  *     members: [pulumi.all([current, currentGetCallerIdentity, example.id]).apply(([current, currentGetCallerIdentity, id]) => `arn:aws:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`)],
- * }, {
- *     dependsOn: [exampleProtection],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

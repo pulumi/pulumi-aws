@@ -133,12 +133,6 @@ namespace Pulumi.Aws.LightSail
     ///         {
     ///             Behavior = "cache",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             test, 
-    ///         },
     ///     });
     /// 
     /// });
@@ -211,12 +205,6 @@ namespace Pulumi.Aws.LightSail
     ///         DefaultCacheBehavior = new Aws.LightSail.Inputs.DistributionDefaultCacheBehaviorArgs
     ///         {
     ///             Behavior = "cache",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             testLbAttachment, 
     ///         },
     ///     });
     /// 

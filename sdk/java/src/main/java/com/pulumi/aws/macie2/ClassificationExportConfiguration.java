@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie2.ClassificationExportConfiguration;
  * import com.pulumi.aws.macie2.ClassificationExportConfigurationArgs;
  * import com.pulumi.aws.macie2.inputs.ClassificationExportConfigurationS3DestinationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,9 +51,7 @@ import javax.annotation.Nullable;
  *                 .keyPrefix(&#34;exampleprefix/&#34;)
  *                 .kmsKeyArn(exampleAwsKmsKey.arn())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

@@ -71,47 +71,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			workspaces, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"workspaces.amazonaws.com",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			workspacesDefault, err := iam.NewRole(ctx, "workspaces_default", &iam.RoleArgs{
-//				Name:             pulumi.String("workspaces_DefaultRole"),
-//				AssumeRolePolicy: pulumi.String(workspaces.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			workspacesDefaultServiceAccess, err := iam.NewRolePolicyAttachment(ctx, "workspaces_default_service_access", &iam.RolePolicyAttachmentArgs{
-//				Role:      workspacesDefault.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			workspacesDefaultSelfServiceAccess, err := iam.NewRolePolicyAttachment(ctx, "workspaces_default_self_service_access", &iam.RolePolicyAttachmentArgs{
-//				Role:      workspacesDefault.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess"),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			exampleC, err := ec2.NewSubnet(ctx, "example_c", &ec2.SubnetArgs{
 //				VpcId:            exampleVpc.ID(),
 //				AvailabilityZone: pulumi.String("us-east-1c"),
@@ -161,10 +120,48 @@ import (
 //					EnableMaintenanceMode:           pulumi.Bool(true),
 //					UserEnabledAsLocalAdministrator: pulumi.Bool(true),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				workspacesDefaultServiceAccess,
-//				workspacesDefaultSelfServiceAccess,
-//			}))
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			workspaces, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"workspaces.amazonaws.com",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			workspacesDefault, err := iam.NewRole(ctx, "workspaces_default", &iam.RoleArgs{
+//				Name:             pulumi.String("workspaces_DefaultRole"),
+//				AssumeRolePolicy: pulumi.String(workspaces.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "workspaces_default_service_access", &iam.RolePolicyAttachmentArgs{
+//				Role:      workspacesDefault.Name,
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "workspaces_default_self_service_access", &iam.RolePolicyAttachmentArgs{
+//				Role:      workspacesDefault.Name,
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess"),
+//			})
 //			if err != nil {
 //				return err
 //			}

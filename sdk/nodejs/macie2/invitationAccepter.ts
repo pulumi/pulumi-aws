@@ -21,12 +21,8 @@ import * as utilities from "../utilities";
  *     email: "EMAIL",
  *     invite: true,
  *     invitationMessage: "Message of the invite",
- * }, {
- *     dependsOn: [primary],
  * });
- * const memberInvitationAccepter = new aws.macie2.InvitationAccepter("member", {administratorAccountId: "ADMINISTRATOR ACCOUNT ID"}, {
- *     dependsOn: [primaryMember],
- * });
+ * const memberInvitationAccepter = new aws.macie2.InvitationAccepter("member", {administratorAccountId: "ADMINISTRATOR ACCOUNT ID"});
  * ```
  * <!--End PulumiCodeChooser -->
  *

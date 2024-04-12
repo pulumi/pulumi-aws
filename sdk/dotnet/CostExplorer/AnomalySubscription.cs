@@ -294,12 +294,6 @@ namespace Pulumi.Aws.CostExplorer
     ///                 Address = costAnomalyUpdates.Arn,
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             @default, 
-    ///         },
     ///     });
     /// 
     /// });

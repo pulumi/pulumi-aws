@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *         field: "cpu",
  *     }],
  *     loadBalancers: [{
- *         targetGroupArn: fooAwsLbTargetGroup.arn,
+ *         targetGroupArn: foo.arn,
  *         containerName: "mongo",
  *         containerPort: 8080,
  *     }],
@@ -40,8 +40,6 @@ import * as utilities from "../utilities";
  *         type: "memberOf",
  *         expression: "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
  *     }],
- * }, {
- *     dependsOn: [foo],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

@@ -340,8 +340,6 @@ import * as utilities from "../utilities";
  *             roleArn: firehose.arn,
  *         },
  *     },
- * }, {
- *     dependsOn: [firehose_elasticsearchRolePolicy],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -465,8 +463,6 @@ import * as utilities from "../utilities";
  *             roleArn: firehose.arn,
  *         },
  *     },
- * }, {
- *     dependsOn: [firehose_opensearch],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

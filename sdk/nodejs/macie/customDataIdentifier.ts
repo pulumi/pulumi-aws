@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  *     maximumMatchDistance: 10,
  *     keywords: ["keyword"],
  *     ignoreWords: ["ignore"],
- * }, {
- *     dependsOn: [test],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

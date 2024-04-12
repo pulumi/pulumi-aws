@@ -46,8 +46,6 @@ import * as utilities from "../utilities";
  *     resourceArn: _default.arn,
  *     mode: "async",
  *     kmsKeyId: defaultKey.keyId,
- * }, {
- *     dependsOn: [defaultClusterInstance],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

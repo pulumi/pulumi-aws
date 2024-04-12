@@ -368,6 +368,12 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        r = aws.cfg.Rule("r",
+            name="example",
+            source=aws.cfg.RuleSourceArgs(
+                owner="AWS",
+                source_identifier="S3_BUCKET_VERSIONING_ENABLED",
+            ))
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -382,13 +388,6 @@ class Rule(pulumi.CustomResource):
         foo = aws.cfg.Recorder("foo",
             name="example",
             role_arn=r_role.arn)
-        r = aws.cfg.Rule("r",
-            name="example",
-            source=aws.cfg.RuleSourceArgs(
-                owner="AWS",
-                source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[foo]))
         p = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["config:Put*"],
@@ -420,11 +419,7 @@ class Rule(pulumi.CustomResource):
         example_rule = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArgs(
             owner="CUSTOM_LAMBDA",
             source_identifier=example_function.arn,
-        ),
-        opts=pulumi.ResourceOptions(depends_on=[
-                example,
-                example_permission,
-            ]))
+        ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -501,6 +496,12 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        r = aws.cfg.Rule("r",
+            name="example",
+            source=aws.cfg.RuleSourceArgs(
+                owner="AWS",
+                source_identifier="S3_BUCKET_VERSIONING_ENABLED",
+            ))
         assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
@@ -515,13 +516,6 @@ class Rule(pulumi.CustomResource):
         foo = aws.cfg.Recorder("foo",
             name="example",
             role_arn=r_role.arn)
-        r = aws.cfg.Rule("r",
-            name="example",
-            source=aws.cfg.RuleSourceArgs(
-                owner="AWS",
-                source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[foo]))
         p = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["config:Put*"],
@@ -553,11 +547,7 @@ class Rule(pulumi.CustomResource):
         example_rule = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArgs(
             owner="CUSTOM_LAMBDA",
             source_identifier=example_function.arn,
-        ),
-        opts=pulumi.ResourceOptions(depends_on=[
-                example,
-                example_permission,
-            ]))
+        ))
         ```
         <!--End PulumiCodeChooser -->
 

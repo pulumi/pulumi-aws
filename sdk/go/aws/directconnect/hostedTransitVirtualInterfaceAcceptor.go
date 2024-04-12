@@ -37,14 +37,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Accepter's side of the VIF.
-//			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
-//				Name:          pulumi.String("tf-dxg-example"),
-//				AmazonSideAsn: pulumi.String("64512"),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			// Creator's side of the VIF
 //			creator, err := directconnect.NewHostedTransitVirtualInterface(ctx, "creator", &directconnect.HostedTransitVirtualInterfaceArgs{
 //				ConnectionId:   pulumi.String("dxcon-zzzzzzzz"),
@@ -53,9 +45,15 @@ import (
 //				Vlan:           pulumi.Int(4094),
 //				AddressFamily:  pulumi.String("ipv4"),
 //				BgpAsn:         pulumi.Int(65352),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Accepter's side of the VIF.
+//			example, err := directconnect.NewGateway(ctx, "example", &directconnect.GatewayArgs{
+//				Name:          pulumi.String("tf-dxg-example"),
+//				AmazonSideAsn: pulumi.String("64512"),
+//			})
 //			if err != nil {
 //				return err
 //			}

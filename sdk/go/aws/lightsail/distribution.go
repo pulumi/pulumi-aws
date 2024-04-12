@@ -124,7 +124,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			test, err := lightsail.NewStaticIpAttachment(ctx, "test", &lightsail.StaticIpAttachmentArgs{
+//			_, err = lightsail.NewStaticIpAttachment(ctx, "test", &lightsail.StaticIpAttachmentArgs{
 //				StaticIpName: testStaticIp.Name,
 //				InstanceName: testInstance.Name,
 //			})
@@ -141,9 +141,7 @@ import (
 //				DefaultCacheBehavior: &lightsail.DistributionDefaultCacheBehaviorArgs{
 //					Behavior: pulumi.String("cache"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				test,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -206,7 +204,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			testLbAttachment, err := lightsail.NewLbAttachment(ctx, "test", &lightsail.LbAttachmentArgs{
+//			_, err = lightsail.NewLbAttachment(ctx, "test", &lightsail.LbAttachmentArgs{
 //				LbName:       test.Name,
 //				InstanceName: testInstance.Name,
 //			})
@@ -223,9 +221,7 @@ import (
 //				DefaultCacheBehavior: &lightsail.DistributionDefaultCacheBehaviorArgs{
 //					Behavior: pulumi.String("cache"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testLbAttachment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

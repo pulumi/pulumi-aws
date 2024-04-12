@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  *     accountId: "123456789012",
  *     email: "example@example.com",
  *     invite: true,
- * }, {
- *     dependsOn: [example],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

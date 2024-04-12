@@ -80,9 +80,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucketObject(ctx, "example", &s3.BucketObjectArgs{
 //				Bucket: pulumi.Any("my-test-bucket"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				s3ObjectAccess,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -137,12 +135,12 @@ import (
 //				Policy: exampleBucketV2.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
+//						"version": "2012-10-17",
+//						"statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"Action":   "s3:GetObject",
-//								"Effect":   "Allow",
-//								"Resource": arn,
+//								"action":   "s3:GetObject",
+//								"effect":   "Allow",
+//								"resource": arn,
 //							},
 //						},
 //					})
@@ -163,15 +161,15 @@ import (
 //					exampleBucketV2Arn1 := _args[1].(string)
 //					var _zero string
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
+//						"version": "2012-10-17",
+//						"statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"Action": "s3:*",
-//								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
+//								"action": "s3:*",
+//								"effect": "Allow",
+//								"principal": map[string]interface{}{
 //									"AWS": current.AccountId,
 //								},
-//								"Resource": []string{
+//								"resource": []string{
 //									exampleBucketV2Arn,
 //									fmt.Sprintf("%v/*", exampleBucketV2Arn1),
 //								},

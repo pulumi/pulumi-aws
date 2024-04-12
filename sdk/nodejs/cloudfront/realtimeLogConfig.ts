@@ -62,8 +62,6 @@ import * as utilities from "../utilities";
  *             streamArn: exampleAwsKinesisStream.arn,
  *         },
  *     },
- * }, {
- *     dependsOn: [exampleRolePolicy],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

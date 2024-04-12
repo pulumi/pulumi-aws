@@ -42,27 +42,6 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  * });
- * const workspaces = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["workspaces.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const workspacesDefault = new aws.iam.Role("workspaces_default", {
- *     name: "workspaces_DefaultRole",
- *     assumeRolePolicy: workspaces.then(workspaces => workspaces.json),
- * });
- * const workspacesDefaultServiceAccess = new aws.iam.RolePolicyAttachment("workspaces_default_service_access", {
- *     role: workspacesDefault.name,
- *     policyArn: "arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess",
- * });
- * const workspacesDefaultSelfServiceAccess = new aws.iam.RolePolicyAttachment("workspaces_default_self_service_access", {
- *     role: workspacesDefault.name,
- *     policyArn: "arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess",
- * });
  * const exampleC = new aws.ec2.Subnet("example_c", {
  *     vpcId: exampleVpc.id,
  *     availabilityZone: "us-east-1c",
@@ -106,11 +85,27 @@ import * as utilities from "../utilities";
  *         enableMaintenanceMode: true,
  *         userEnabledAsLocalAdministrator: true,
  *     },
- * }, {
- *     dependsOn: [
- *         workspacesDefaultServiceAccess,
- *         workspacesDefaultSelfServiceAccess,
- *     ],
+ * });
+ * const workspaces = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["workspaces.amazonaws.com"],
+ *         }],
+ *     }],
+ * });
+ * const workspacesDefault = new aws.iam.Role("workspaces_default", {
+ *     name: "workspaces_DefaultRole",
+ *     assumeRolePolicy: workspaces.then(workspaces => workspaces.json),
+ * });
+ * const workspacesDefaultServiceAccess = new aws.iam.RolePolicyAttachment("workspaces_default_service_access", {
+ *     role: workspacesDefault.name,
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess",
+ * });
+ * const workspacesDefaultSelfServiceAccess = new aws.iam.RolePolicyAttachment("workspaces_default_self_service_access", {
+ *     role: workspacesDefault.name,
+ *     policyArn: "arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess",
  * });
  * ```
  * <!--End PulumiCodeChooser -->

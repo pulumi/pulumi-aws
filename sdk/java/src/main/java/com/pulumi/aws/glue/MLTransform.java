@@ -46,7 +46,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.glue.inputs.MLTransformInputRecordTableArgs;
  * import com.pulumi.aws.glue.inputs.MLTransformParametersArgs;
  * import com.pulumi.aws.glue.inputs.MLTransformParametersFindMatchesParametersArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -134,9 +133,7 @@ import javax.annotation.Nullable;
  *                     .primaryKeyColumnName(&#34;my_column_1&#34;)
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testAwsIamRolePolicyAttachment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

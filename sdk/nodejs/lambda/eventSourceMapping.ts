@@ -123,7 +123,7 @@ import * as utilities from "../utilities";
  *         filters: [{
  *             pattern: JSON.stringify({
  *                 body: {
- *                     Temperature: [{
+ *                     temperature: [{
  *                         numeric: [
  *                             ">",
  *                             0,
@@ -131,7 +131,7 @@ import * as utilities from "../utilities";
  *                             100,
  *                         ],
  *                     }],
- *                     Location: ["New York"],
+ *                     location: ["New York"],
  *                 },
  *             }),
  *         }],

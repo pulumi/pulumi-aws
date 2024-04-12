@@ -63,21 +63,21 @@ import javax.annotation.Nullable;
  *             .resourceArn(example.arn())
  *             .policy(example.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Id&#34;, &#34;default&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Sid&#34;, &#34;default&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;id&#34;, &#34;default&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;sid&#34;, &#34;default&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
  *                             jsonProperty(&#34;AWS&#34;, String.format(&#34;arn:%s:iam::%s:root&#34;, current.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
  *                         )),
- *                         jsonProperty(&#34;Action&#34;, jsonArray(
+ *                         jsonProperty(&#34;action&#34;, jsonArray(
  *                             &#34;codebuild:BatchGetReportGroups&#34;, 
  *                             &#34;codebuild:BatchGetReports&#34;, 
  *                             &#34;codebuild:ListReportsForReportGroup&#34;, 
  *                             &#34;codebuild:DescribeTestCases&#34;
  *                         )),
- *                         jsonProperty(&#34;Resource&#34;, arn)
+ *                         jsonProperty(&#34;resource&#34;, arn)
  *                     )))
  *                 ))))
  *             .build());

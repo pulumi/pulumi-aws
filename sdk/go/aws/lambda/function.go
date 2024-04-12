@@ -227,17 +227,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Mount target connects the file system to the subnet
-//			alpha, err := efs.NewMountTarget(ctx, "alpha", &efs.MountTargetArgs{
-//				FileSystemId: efsForLambda.ID(),
-//				SubnetId:     pulumi.Any(subnetForLambda.Id),
-//				SecurityGroups: pulumi.StringArray{
-//					sgForLambda.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			// EFS access point used by lambda file system
 //			accessPointForLambda, err := efs.NewAccessPoint(ctx, "access_point_for_lambda", &efs.AccessPointArgs{
 //				FileSystemId: efsForLambda.ID(),
@@ -271,9 +260,18 @@ import (
 //						sgForLambda.Id,
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				alpha,
-//			}))
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Mount target connects the file system to the subnet
+//			_, err = efs.NewMountTarget(ctx, "alpha", &efs.MountTargetArgs{
+//				FileSystemId: efsForLambda.ID(),
+//				SubnetId:     pulumi.Any(subnetForLambda.Id),
+//				SecurityGroups: pulumi.StringArray{
+//					sgForLambda.Id,
+//				},
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -315,9 +313,18 @@ import (
 //			if param := cfg.Get("lambdaFunctionName"); param != "" {
 //				lambdaFunctionName = param
 //			}
+//			_, err := lambda.NewFunction(ctx, "test_lambda", &lambda.FunctionArgs{
+//				Name: pulumi.String(lambdaFunctionName),
+//				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
+//					LogFormat: pulumi.String("Text"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			// This is to optionally manage the CloudWatch Log Group for the Lambda Function.
 //			// If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
-//			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//			_, err = cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
 //				Name:            pulumi.String(fmt.Sprintf("/aws/lambda/%v", lambdaFunctionName)),
 //				RetentionInDays: pulumi.Int(14),
 //			})
@@ -352,22 +359,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			lambdaLogs, err := iam.NewRolePolicyAttachment(ctx, "lambda_logs", &iam.RolePolicyAttachmentArgs{
+//			_, err = iam.NewRolePolicyAttachment(ctx, "lambda_logs", &iam.RolePolicyAttachmentArgs{
 //				Role:      pulumi.Any(iamForLambda.Name),
 //				PolicyArn: lambdaLoggingPolicy.Arn,
 //			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewFunction(ctx, "test_lambda", &lambda.FunctionArgs{
-//				Name: pulumi.String(lambdaFunctionName),
-//				LoggingConfig: &lambda.FunctionLoggingConfigArgs{
-//					LogFormat: pulumi.String("Text"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				lambdaLogs,
-//				example,
-//			}))
 //			if err != nil {
 //				return err
 //			}

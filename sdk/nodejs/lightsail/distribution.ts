@@ -92,8 +92,6 @@ import * as utilities from "../utilities";
  *     defaultCacheBehavior: {
  *         behavior: "cache",
  *     },
- * }, {
- *     dependsOn: [test],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -142,8 +140,6 @@ import * as utilities from "../utilities";
  *     defaultCacheBehavior: {
  *         behavior: "cache",
  *     },
- * }, {
- *     dependsOn: [testLbAttachment],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

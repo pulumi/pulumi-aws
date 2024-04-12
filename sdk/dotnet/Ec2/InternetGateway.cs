@@ -78,15 +78,7 @@ namespace Pulumi.Aws.Ec2
         ///         VpcId = main.Id,
         ///     });
         /// 
-        ///     var foo = new Aws.Ec2.Instance("foo", new()
-        ///     {
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn =
-        ///         {
-        ///             gw, 
-        ///         },
-        ///     });
+        ///     var foo = new Aws.Ec2.Instance("foo");
         /// 
         /// });
         /// ```
@@ -175,15 +167,7 @@ namespace Pulumi.Aws.Ec2
         ///         VpcId = main.Id,
         ///     });
         /// 
-        ///     var foo = new Aws.Ec2.Instance("foo", new()
-        ///     {
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn =
-        ///         {
-        ///             gw, 
-        ///         },
-        ///     });
+        ///     var foo = new Aws.Ec2.Instance("foo");
         /// 
         /// });
         /// ```
@@ -243,15 +227,7 @@ namespace Pulumi.Aws.Ec2
         ///         VpcId = main.Id,
         ///     });
         /// 
-        ///     var foo = new Aws.Ec2.Instance("foo", new()
-        ///     {
-        ///     }, new CustomResourceOptions
-        ///     {
-        ///         DependsOn =
-        ///         {
-        ///             gw, 
-        ///         },
-        ///     });
+        ///     var foo = new Aws.Ec2.Instance("foo");
         /// 
         /// });
         /// ```

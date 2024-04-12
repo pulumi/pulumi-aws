@@ -45,22 +45,16 @@ namespace Pulumi.Aws.Ec2
     ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///     });
     /// 
-    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("example", new()
-    ///     {
-    ///         IpamPoolId = exampleVpcIpamPool.Id,
-    ///         Cidr = "172.20.0.0/16",
-    ///     });
-    /// 
     ///     var example = new Aws.Ec2.VpcIpamPoolCidrAllocation("example", new()
     ///     {
     ///         IpamPoolId = exampleVpcIpamPool.Id,
     ///         Cidr = "172.20.0.0/24",
-    ///     }, new CustomResourceOptions
+    ///     });
+    /// 
+    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("example", new()
     ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleVpcIpamPoolCidr, 
-    ///         },
+    ///         IpamPoolId = exampleVpcIpamPool.Id,
+    ///         Cidr = "172.20.0.0/16",
     ///     });
     /// 
     /// });
@@ -98,12 +92,6 @@ namespace Pulumi.Aws.Ec2
     ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///     });
     /// 
-    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("example", new()
-    ///     {
-    ///         IpamPoolId = exampleVpcIpamPool.Id,
-    ///         Cidr = "172.20.0.0/16",
-    ///     });
-    /// 
     ///     var example = new Aws.Ec2.VpcIpamPoolCidrAllocation("example", new()
     ///     {
     ///         IpamPoolId = exampleVpcIpamPool.Id,
@@ -112,12 +100,12 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             "172.20.0.0/28",
     ///         },
-    ///     }, new CustomResourceOptions
+    ///     });
+    /// 
+    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("example", new()
     ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleVpcIpamPoolCidr, 
-    ///         },
+    ///         IpamPoolId = exampleVpcIpamPool.Id,
+    ///         Cidr = "172.20.0.0/16",
     ///     });
     /// 
     /// });

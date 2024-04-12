@@ -28,13 +28,6 @@ namespace Pulumi.Aws.DirectConnect
     /// {
     ///     var accepter = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     // Accepter's side of the VIF.
-    ///     var example = new Aws.DirectConnect.Gateway("example", new()
-    ///     {
-    ///         Name = "tf-dxg-example",
-    ///         AmazonSideAsn = "64512",
-    ///     });
-    /// 
     ///     // Creator's side of the VIF
     ///     var creator = new Aws.DirectConnect.HostedTransitVirtualInterface("creator", new()
     ///     {
@@ -44,12 +37,13 @@ namespace Pulumi.Aws.DirectConnect
     ///         Vlan = 4094,
     ///         AddressFamily = "ipv4",
     ///         BgpAsn = 65352,
-    ///     }, new CustomResourceOptions
+    ///     });
+    /// 
+    ///     // Accepter's side of the VIF.
+    ///     var example = new Aws.DirectConnect.Gateway("example", new()
     ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
-    ///         },
+    ///         Name = "tf-dxg-example",
+    ///         AmazonSideAsn = "64512",
     ///     });
     /// 
     ///     var accepterHostedTransitVirtualInterfaceAcceptor = new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptor("accepter", new()

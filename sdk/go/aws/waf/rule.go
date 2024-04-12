@@ -51,9 +51,7 @@ import (
 //						Type:    pulumi.String("IPMatch"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				ipset,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

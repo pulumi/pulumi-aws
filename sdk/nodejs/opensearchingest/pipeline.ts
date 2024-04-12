@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "osis-pipelines.amazonaws.com",
+ *     version: "2012-10-17",
+ *     statement: [{
+ *         action: "sts:AssumeRole",
+ *         effect: "Allow",
+ *         sid: "",
+ *         principal: {
+ *             service: "osis-pipelines.amazonaws.com",
  *         },
  *     }],
  * })});

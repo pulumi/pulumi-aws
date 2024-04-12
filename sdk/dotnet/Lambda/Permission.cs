@@ -31,17 +31,17 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "iam_for_lambda",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "lambda.amazonaws.com",
+    ///                         ["service"] = "lambda.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
@@ -101,17 +101,17 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "iam_for_lambda_with_sns",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["action"] = "sts:AssumeRole",
+    ///                     ["effect"] = "Allow",
+    ///                     ["sid"] = "",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "lambda.amazonaws.com",
+    ///                         ["service"] = "lambda.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
@@ -248,12 +248,6 @@ namespace Pulumi.Aws.Lambda
     ///         FilterPattern = "",
     ///         LogGroup = @default.Name,
     ///         Name = "logging_default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             logging, 
-    ///         },
     ///     });
     /// 
     /// });
@@ -284,6 +278,31 @@ namespace Pulumi.Aws.Lambda
     ///         Principal = "arn:aws:iam::444455556666:role/example",
     ///         SourceAccount = "444455556666",
     ///         FunctionUrlAuthType = "AWS_IAM",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### With `replace_triggered_by` Lifecycle Configuration
+    /// 
+    /// If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var logging = new Aws.Lambda.Permission("logging", new()
+    ///     {
+    ///         Action = "lambda:InvokeFunction",
+    ///         Function = example.FunctionName,
+    ///         Principal = "events.amazonaws.com",
+    ///         SourceArn = "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
     ///     });
     /// 
     /// });

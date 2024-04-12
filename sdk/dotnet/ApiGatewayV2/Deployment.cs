@@ -17,6 +17,27 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ApiGatewayV2.Deployment("example", new()
+    ///     {
+    ///         ApiId = exampleAwsApigatewayv2Api.Id,
+    ///         Description = "Example deployment",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:

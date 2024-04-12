@@ -66,15 +66,15 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Action": []string{
+//						"action": []string{
 //							"s3:GetObject",
 //							"s3:ListBucket",
 //						},
-//						"Effect": "Allow",
-//						"Resource": []string{
+//						"effect": "Allow",
+//						"resource": []string{
 //							"*",
 //						},
 //					},

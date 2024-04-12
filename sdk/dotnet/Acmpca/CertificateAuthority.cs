@@ -152,12 +152,6 @@ namespace Pulumi.Aws.Acmpca
     ///                 S3ObjectAcl = "BUCKET_OWNER_FULL_CONTROL",
     ///             },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleBucketPolicy, 
-    ///         },
     ///     });
     /// 
     /// });

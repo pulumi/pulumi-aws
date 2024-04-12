@@ -26,21 +26,21 @@ import * as utilities from "../utilities";
  * const exampleResourcePolicy = new aws.codebuild.ResourcePolicy("example", {
  *     resourceArn: example.arn,
  *     policy: pulumi.jsonStringify({
- *         Version: "2012-10-17",
- *         Id: "default",
- *         Statement: [{
- *             Sid: "default",
- *             Effect: "Allow",
- *             Principal: {
+ *         version: "2012-10-17",
+ *         id: "default",
+ *         statement: [{
+ *             sid: "default",
+ *             effect: "Allow",
+ *             principal: {
  *                 AWS: Promise.all([current, currentGetCallerIdentity]).then(([current, currentGetCallerIdentity]) => `arn:${current.partition}:iam::${currentGetCallerIdentity.accountId}:root`),
  *             },
- *             Action: [
+ *             action: [
  *                 "codebuild:BatchGetReportGroups",
  *                 "codebuild:BatchGetReports",
  *                 "codebuild:ListReportsForReportGroup",
  *                 "codebuild:DescribeTestCases",
  *             ],
- *             Resource: example.arn,
+ *             resource: example.arn,
  *         }],
  *     }),
  * });

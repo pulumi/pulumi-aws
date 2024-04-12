@@ -236,7 +236,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
  * import com.pulumi.aws.s3.BucketObject;
  * import com.pulumi.aws.s3.BucketObjectArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileAsset;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -276,9 +275,7 @@ import javax.annotation.Nullable;
  *             .objectLockMode(&#34;GOVERNANCE&#34;)
  *             .objectLockRetainUntilDate(&#34;2021-12-31T23:59:60Z&#34;)
  *             .forceDestroy(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketVersioningV2)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

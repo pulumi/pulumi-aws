@@ -239,8 +239,7 @@ class PublishingDestination(pulumi.CustomResource):
         test = aws.guardduty.PublishingDestination("test",
             detector_id=test_gd.id,
             destination_arn=gd_bucket.arn,
-            kms_key_arn=gd_key.arn,
-            opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
+            kms_key_arn=gd_key.arn)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -338,8 +337,7 @@ class PublishingDestination(pulumi.CustomResource):
         test = aws.guardduty.PublishingDestination("test",
             detector_id=test_gd.id,
             destination_arn=gd_bucket.arn,
-            kms_key_arn=gd_key.arn,
-            opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
+            kms_key_arn=gd_key.arn)
         ```
         <!--End PulumiCodeChooser -->
 

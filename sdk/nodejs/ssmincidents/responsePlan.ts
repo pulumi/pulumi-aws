@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         key: "value",
  *     },
- * }, {
- *     dependsOn: [exampleAwsSsmincidentsReplicationSet],
  * });
  * ```
  * <!--End PulumiCodeChooser -->
@@ -98,8 +96,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         key: "value",
  *     },
- * }, {
- *     dependsOn: [exampleAwsSsmincidentsReplicationSet],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

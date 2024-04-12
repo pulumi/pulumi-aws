@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.comprehend.DocumentClassifier;
  * import com.pulumi.aws.comprehend.DocumentClassifierArgs;
  * import com.pulumi.aws.comprehend.inputs.DocumentClassifierInputDataConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,9 +58,7 @@ import javax.annotation.Nullable;
  *             .inputDataConfig(DocumentClassifierInputDataConfigArgs.builder()
  *                 .s3Uri(documents.id().applyValue(id -&gt; String.format(&#34;s3://%s/%s&#34;, test.bucket(),id)))
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsIamRolePolicy)
- *                 .build());
+ *             .build());
  * 
  *         var entities = new BucketObjectv2(&#34;entities&#34;);
  * 

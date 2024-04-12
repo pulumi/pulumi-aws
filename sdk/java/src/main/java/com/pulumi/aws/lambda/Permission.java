@@ -55,13 +55,13 @@ import javax.annotation.Nullable;
  *             .name(&#34;iam_for_lambda&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;lambda.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;sid&#34;, &#34;&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;lambda.amazonaws.com&#34;)
  *                         ))
  *                     )))
  *                 )))
@@ -138,13 +138,13 @@ import javax.annotation.Nullable;
  *             .name(&#34;iam_for_lambda_with_sns&#34;)
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;lambda.amazonaws.com&#34;)
+ *                     jsonProperty(&#34;version&#34;, &#34;2012-10-17&#34;),
+ *                     jsonProperty(&#34;statement&#34;, jsonArray(jsonObject(
+ *                         jsonProperty(&#34;action&#34;, &#34;sts:AssumeRole&#34;),
+ *                         jsonProperty(&#34;effect&#34;, &#34;Allow&#34;),
+ *                         jsonProperty(&#34;sid&#34;, &#34;&#34;),
+ *                         jsonProperty(&#34;principal&#34;, jsonObject(
+ *                             jsonProperty(&#34;service&#34;, &#34;lambda.amazonaws.com&#34;)
  *                         ))
  *                     )))
  *                 )))
@@ -242,7 +242,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.PermissionArgs;
  * import com.pulumi.aws.cloudwatch.LogSubscriptionFilter;
  * import com.pulumi.aws.cloudwatch.LogSubscriptionFilterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileArchive;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -297,9 +296,7 @@ import javax.annotation.Nullable;
  *             .filterPattern(&#34;&#34;)
  *             .logGroup(default_.name())
  *             .name(&#34;logging_default&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(logging)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -343,6 +340,44 @@ import javax.annotation.Nullable;
  *             .principal(&#34;arn:aws:iam::444455556666:role/example&#34;)
  *             .sourceAccount(&#34;444455556666&#34;)
  *             .functionUrlAuthType(&#34;AWS_IAM&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### With `replace_triggered_by` Lifecycle Configuration
+ * 
+ * If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Permission;
+ * import com.pulumi.aws.lambda.PermissionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var logging = new Permission(&#34;logging&#34;, PermissionArgs.builder()        
+ *             .action(&#34;lambda:InvokeFunction&#34;)
+ *             .function(example.functionName())
+ *             .principal(&#34;events.amazonaws.com&#34;)
+ *             .sourceArn(&#34;arn:aws:events:eu-west-1:111122223333:rule/RunDaily&#34;)
  *             .build());
  * 
  *     }

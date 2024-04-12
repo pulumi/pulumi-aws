@@ -37,12 +37,6 @@ namespace Pulumi.Aws.SecurityHub
     ///     var exampleOrganizationAdminAccount = new Aws.SecurityHub.OrganizationAdminAccount("example", new()
     ///     {
     ///         AdminAccountId = "123456789012",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             example, 
-    ///         },
     ///     });
     /// 
     ///     // Auto enable security hub in organization member accounts

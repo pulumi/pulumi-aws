@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.dynamodb.GlobalTable;
  * import com.pulumi.aws.dynamodb.GlobalTableArgs;
  * import com.pulumi.aws.dynamodb.inputs.GlobalTableReplicaArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -86,11 +85,7 @@ import javax.annotation.Nullable;
  *                 GlobalTableReplicaArgs.builder()
  *                     .regionName(&#34;us-west-2&#34;)
  *                     .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     us_east_1,
- *                     us_west_2)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

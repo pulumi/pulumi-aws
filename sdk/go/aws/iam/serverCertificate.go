@@ -107,6 +107,67 @@ import (
 // to create a new, updated `iam.ServerCertificate` resource and replace it in
 // dependant resources before attempting to destroy the old version.
 //
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "self-ca-cert.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "test-key.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			testCert, err := iam.NewServerCertificate(ctx, "test_cert", &iam.ServerCertificateArgs{
+//				NamePrefix:      pulumi.String("example-cert"),
+//				CertificateBody: invokeFile.Result,
+//				PrivateKey:      invokeFile1.Result,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elb.NewLoadBalancer(ctx, "ourapp", &elb.LoadBalancerArgs{
+//				Name: pulumi.String("asg-deployment-example"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-west-2a"),
+//				},
+//				CrossZoneLoadBalancing: pulumi.Bool(true),
+//				Listeners: elb.LoadBalancerListenerArray{
+//					&elb.LoadBalancerListenerArgs{
+//						InstancePort:     pulumi.Int(8000),
+//						InstanceProtocol: pulumi.String("http"),
+//						LbPort:           pulumi.Int(443),
+//						LbProtocol:       pulumi.String("https"),
+//						SslCertificateId: testCert.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import IAM Server Certificates using the `name`. For example:

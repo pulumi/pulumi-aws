@@ -34,8 +34,6 @@ import * as utilities from "../utilities";
  *         negated: false,
  *         type: "IPMatch",
  *     }],
- * }, {
- *     dependsOn: [ipset],
  * });
  * const wafAcl = new aws.waf.WebAcl("waf_acl", {
  *     name: "tfWebACL",
@@ -51,11 +49,6 @@ import * as utilities from "../utilities";
  *         ruleId: wafrule.id,
  *         type: "REGULAR",
  *     }],
- * }, {
- *     dependsOn: [
- *         ipset,
- *         wafrule,
- *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

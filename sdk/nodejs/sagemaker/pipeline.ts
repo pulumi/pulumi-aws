@@ -24,12 +24,12 @@ import * as utilities from "../utilities";
  *     pipelineDisplayName: "example",
  *     roleArn: exampleAwsIamRole.arn,
  *     pipelineDefinition: JSON.stringify({
- *         Version: "2020-12-01",
- *         Steps: [{
- *             Name: "Test",
- *             Type: "Fail",
- *             Arguments: {
- *                 ErrorMessage: "test",
+ *         version: "2020-12-01",
+ *         steps: [{
+ *             name: "Test",
+ *             type: "Fail",
+ *             arguments: {
+ *                 errorMessage: "test",
  *             },
  *         }],
  *     }),

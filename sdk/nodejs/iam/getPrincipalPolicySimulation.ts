@@ -46,9 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketObject("example", {bucket: "my-test-bucket"}, {
- *     dependsOn: [s3ObjectAccess],
- * });
+ * const example = new aws.s3.BucketObject("example", {bucket: "my-test-bucket"});
  * ```
  * <!--End PulumiCodeChooser -->
  *
@@ -68,25 +66,25 @@ import * as utilities from "../utilities";
  *     name: "example_s3_access",
  *     user: example.name,
  *     policy: pulumi.jsonStringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "s3:GetObject",
- *             Effect: "Allow",
- *             Resource: exampleBucketV2.arn,
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "s3:GetObject",
+ *             effect: "Allow",
+ *             resource: exampleBucketV2.arn,
  *         }],
  *     }),
  * });
  * const accountAccess = new aws.s3.BucketPolicy("account_access", {
  *     bucket: exampleBucketV2.bucket,
  *     policy: pulumi.jsonStringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "s3:*",
- *             Effect: "Allow",
- *             Principal: {
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "s3:*",
+ *             effect: "Allow",
+ *             principal: {
  *                 AWS: current.then(current => current.accountId),
  *             },
- *             Resource: [
+ *             resource: [
  *                 exampleBucketV2.arn,
  *                 pulumi.interpolate`${exampleBucketV2.arn}/*`,
  *             ],
@@ -244,9 +242,7 @@ export interface GetPrincipalPolicySimulationResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketObject("example", {bucket: "my-test-bucket"}, {
- *     dependsOn: [s3ObjectAccess],
- * });
+ * const example = new aws.s3.BucketObject("example", {bucket: "my-test-bucket"});
  * ```
  * <!--End PulumiCodeChooser -->
  *
@@ -266,25 +262,25 @@ export interface GetPrincipalPolicySimulationResult {
  *     name: "example_s3_access",
  *     user: example.name,
  *     policy: pulumi.jsonStringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "s3:GetObject",
- *             Effect: "Allow",
- *             Resource: exampleBucketV2.arn,
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "s3:GetObject",
+ *             effect: "Allow",
+ *             resource: exampleBucketV2.arn,
  *         }],
  *     }),
  * });
  * const accountAccess = new aws.s3.BucketPolicy("account_access", {
  *     bucket: exampleBucketV2.bucket,
  *     policy: pulumi.jsonStringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "s3:*",
- *             Effect: "Allow",
- *             Principal: {
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: "s3:*",
+ *             effect: "Allow",
+ *             principal: {
  *                 AWS: current.then(current => current.accountId),
  *             },
- *             Resource: [
+ *             resource: [
  *                 exampleBucketV2.arn,
  *                 pulumi.interpolate`${exampleBucketV2.arn}/*`,
  *             ],

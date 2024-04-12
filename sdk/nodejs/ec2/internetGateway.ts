@@ -78,9 +78,7 @@ export class InternetGateway extends pulumi.CustomResource {
      * import * as aws from "@pulumi/aws";
      *
      * const gw = new aws.ec2.InternetGateway("gw", {vpcId: main.id});
-     * const foo = new aws.ec2.Instance("foo", {}, {
-     *     dependsOn: [gw],
-     * });
+     * const foo = new aws.ec2.Instance("foo", {});
      * ```
      * <!--End PulumiCodeChooser -->
      */
@@ -150,9 +148,7 @@ export interface InternetGatewayState {
      * import * as aws from "@pulumi/aws";
      *
      * const gw = new aws.ec2.InternetGateway("gw", {vpcId: main.id});
-     * const foo = new aws.ec2.Instance("foo", {}, {
-     *     dependsOn: [gw],
-     * });
+     * const foo = new aws.ec2.Instance("foo", {});
      * ```
      * <!--End PulumiCodeChooser -->
      */
@@ -184,9 +180,7 @@ export interface InternetGatewayArgs {
      * import * as aws from "@pulumi/aws";
      *
      * const gw = new aws.ec2.InternetGateway("gw", {vpcId: main.id});
-     * const foo = new aws.ec2.Instance("foo", {}, {
-     *     dependsOn: [gw],
-     * });
+     * const foo = new aws.ec2.Instance("foo", {});
      * ```
      * <!--End PulumiCodeChooser -->
      */

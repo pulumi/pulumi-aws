@@ -97,10 +97,8 @@ class InvitationAccepter(pulumi.CustomResource):
             account_id="ACCOUNT ID",
             email="EMAIL",
             invite=True,
-            invitation_message="Message of the invite",
-            opts=pulumi.ResourceOptions(depends_on=[primary]))
-        member_invitation_accepter = aws.macie2.InvitationAccepter("member", administrator_account_id="ADMINISTRATOR ACCOUNT ID",
-        opts=pulumi.ResourceOptions(depends_on=[primary_member]))
+            invitation_message="Message of the invite")
+        member_invitation_accepter = aws.macie2.InvitationAccepter("member", administrator_account_id="ADMINISTRATOR ACCOUNT ID")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -138,10 +136,8 @@ class InvitationAccepter(pulumi.CustomResource):
             account_id="ACCOUNT ID",
             email="EMAIL",
             invite=True,
-            invitation_message="Message of the invite",
-            opts=pulumi.ResourceOptions(depends_on=[primary]))
-        member_invitation_accepter = aws.macie2.InvitationAccepter("member", administrator_account_id="ADMINISTRATOR ACCOUNT ID",
-        opts=pulumi.ResourceOptions(depends_on=[primary_member]))
+            invitation_message="Message of the invite")
+        member_invitation_accepter = aws.macie2.InvitationAccepter("member", administrator_account_id="ADMINISTRATOR ACCOUNT ID")
         ```
         <!--End PulumiCodeChooser -->
 

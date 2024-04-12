@@ -50,21 +50,21 @@ namespace Pulumi.Aws.CustomerProfiles
     ///         Name = "example",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Sid"] = "Customer Profiles SQS policy",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = new[]
+    ///                     ["sid"] = "Customer Profiles SQS policy",
+    ///                     ["effect"] = "Allow",
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "sqs:SendMessage",
     ///                     },
-    ///                     ["Resource"] = "*",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["resource"] = "*",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "profile.amazonaws.com",
+    ///                         ["service"] = "profile.amazonaws.com",
     ///                     },
     ///                 },
     ///             },
@@ -88,27 +88,27 @@ namespace Pulumi.Aws.CustomerProfiles
     ///         Bucket = exampleBucketV2.Id,
     ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Sid"] = "Customer Profiles S3 policy",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Action"] = new[]
+    ///                     ["sid"] = "Customer Profiles S3 policy",
+    ///                     ["effect"] = "Allow",
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "s3:GetObject",
     ///                         "s3:PutObject",
     ///                         "s3:ListBucket",
     ///                     },
-    ///                     ["Resource"] = new[]
+    ///                     ["resource"] = new[]
     ///                     {
     ///                         exampleBucketV2.Arn,
     ///                         exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/*"),
     ///                     },
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["Service"] = "profile.amazonaws.com",
+    ///                         ["service"] = "profile.amazonaws.com",
     ///                     },
     ///                 },
     ///             },

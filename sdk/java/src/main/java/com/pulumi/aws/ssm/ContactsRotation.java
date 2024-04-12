@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssm.ContactsRotation;
  * import com.pulumi.aws.ssm.ContactsRotationArgs;
  * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,9 +57,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .timeZoneId(&#34;Australia/Sydney&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -79,7 +76,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssm.ContactsRotation;
  * import com.pulumi.aws.ssm.ContactsRotationArgs;
  * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -134,9 +130,7 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;key1&#34;, &#34;tag1&#34;),
  *                 Map.entry(&#34;key2&#34;, &#34;tag2&#34;)
  *             ))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -155,7 +149,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssm.ContactsRotation;
  * import com.pulumi.aws.ssm.ContactsRotationArgs;
  * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -192,9 +185,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                 .build())
  *             .timeZoneId(&#34;Australia/Sydney&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

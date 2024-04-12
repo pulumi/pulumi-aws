@@ -109,8 +109,8 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         test = aws.iam.Role("test",
             name=aws_shield_drt_access_role_arn,
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
+                "version": "2012-10-17",
+                "statement": [{
                     "Sid": "",
                     "Effect": "Allow",
                     "Principal": {
@@ -161,8 +161,8 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         test = aws.iam.Role("test",
             name=aws_shield_drt_access_role_arn,
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
+                "version": "2012-10-17",
+                "statement": [{
                     "Sid": "",
                     "Effect": "Allow",
                     "Principal": {

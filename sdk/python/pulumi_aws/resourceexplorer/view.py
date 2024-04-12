@@ -256,8 +256,7 @@ class View(pulumi.CustomResource):
             ),
             included_properties=[aws.resourceexplorer.ViewIncludedPropertyArgs(
                 name="tags",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -301,8 +300,7 @@ class View(pulumi.CustomResource):
             ),
             included_properties=[aws.resourceexplorer.ViewIncludedPropertyArgs(
                 name="tags",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

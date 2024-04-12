@@ -94,34 +94,34 @@ namespace Pulumi.Aws.Iot
     ///         Enabled = true,
     ///         TemplateBody = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Parameters"] = new Dictionary&lt;string, object?&gt;
+    ///             ["parameters"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["SerialNumber"] = new Dictionary&lt;string, object?&gt;
+    ///                 ["serialNumber"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Type"] = "String",
+    ///                     ["type"] = "String",
     ///                 },
     ///             },
-    ///             ["Resources"] = new Dictionary&lt;string, object?&gt;
+    ///             ["resources"] = new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 ["certificate"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["properties"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["CertificateId"] = new Dictionary&lt;string, object?&gt;
+    ///                         ["certificateId"] = new Dictionary&lt;string, object?&gt;
     ///                         {
-    ///                             ["Ref"] = "AWS::IoT::Certificate::Id",
+    ///                             ["ref"] = "AWS::IoT::Certificate::Id",
     ///                         },
-    ///                         ["Status"] = "Active",
+    ///                         ["status"] = "Active",
     ///                     },
-    ///                     ["Type"] = "AWS::IoT::Certificate",
+    ///                     ["type"] = "AWS::IoT::Certificate",
     ///                 },
     ///                 ["policy"] = new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["properties"] = new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         ["PolicyName"] = devicePolicyPolicy.Name,
+    ///                         ["policyName"] = devicePolicyPolicy.Name,
     ///                     },
-    ///                     ["Type"] = "AWS::IoT::Policy",
+    ///                     ["type"] = "AWS::IoT::Policy",
     ///                 },
     ///             },
     ///         })),

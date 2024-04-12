@@ -21,9 +21,7 @@ import * as utilities from "../utilities";
  *     graphArn: primary.id,
  *     message: "Message of the invite",
  * });
- * const member = new aws.detective.InvitationAccepter("member", {graphArn: primary.graphArn}, {
- *     dependsOn: [primaryMember],
- * });
+ * const member = new aws.detective.InvitationAccepter("member", {graphArn: primary.graphArn});
  * ```
  * <!--End PulumiCodeChooser -->
  *

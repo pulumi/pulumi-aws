@@ -61,8 +61,6 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      * import com.pulumi.aws.ec2.InternetGateway;
      * import com.pulumi.aws.ec2.InternetGatewayArgs;
      * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -80,9 +78,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      *             .vpcId(main.id())
      *             .build());
      * 
-     *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.Empty, CustomResourceOptions.builder()
-     *             .dependsOn(gw)
-     *             .build());
+     *         var foo = new Instance(&#34;foo&#34;);
      * 
      *     }
      * }
@@ -108,8 +104,6 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      * import com.pulumi.aws.ec2.InternetGateway;
      * import com.pulumi.aws.ec2.InternetGatewayArgs;
      * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -127,9 +121,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      *             .vpcId(main.id())
      *             .build());
      * 
-     *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.Empty, CustomResourceOptions.builder()
-     *             .dependsOn(gw)
-     *             .build());
+     *         var foo = new Instance(&#34;foo&#34;);
      * 
      *     }
      * }
@@ -264,8 +256,6 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          * import com.pulumi.aws.ec2.InternetGateway;
          * import com.pulumi.aws.ec2.InternetGatewayArgs;
          * import com.pulumi.aws.ec2.Instance;
-         * import com.pulumi.aws.ec2.InstanceArgs;
-         * import com.pulumi.resources.CustomResourceOptions;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -283,9 +273,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          *             .vpcId(main.id())
          *             .build());
          * 
-         *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.Empty, CustomResourceOptions.builder()
-         *             .dependsOn(gw)
-         *             .build());
+         *         var foo = new Instance(&#34;foo&#34;);
          * 
          *     }
          * }
@@ -315,8 +303,6 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          * import com.pulumi.aws.ec2.InternetGateway;
          * import com.pulumi.aws.ec2.InternetGatewayArgs;
          * import com.pulumi.aws.ec2.Instance;
-         * import com.pulumi.aws.ec2.InstanceArgs;
-         * import com.pulumi.resources.CustomResourceOptions;
          * import java.util.List;
          * import java.util.ArrayList;
          * import java.util.Map;
@@ -334,9 +320,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          *             .vpcId(main.id())
          *             .build());
          * 
-         *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.Empty, CustomResourceOptions.builder()
-         *             .dependsOn(gw)
-         *             .build());
+         *         var foo = new Instance(&#34;foo&#34;);
          * 
          *     }
          * }

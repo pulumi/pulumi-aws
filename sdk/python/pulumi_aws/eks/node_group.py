@@ -758,12 +758,7 @@ class NodeGroup(pulumi.CustomResource):
             ),
             update_config=aws.eks.NodeGroupUpdateConfigArgs(
                 max_unavailable=1,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example__amazon_eks_worker_node_policy,
-                    example__amazon_ekscni_policy,
-                    example__amazon_ec2_container_registry_read_only,
-                ]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -793,14 +788,14 @@ class NodeGroup(pulumi.CustomResource):
         example = aws.iam.Role("example",
             name="eks-node-group-example",
             assume_role_policy=json.dumps({
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "principal": {
+                        "service": "ec2.amazonaws.com",
                     },
                 }],
-                "Version": "2012-10-17",
+                "version": "2012-10-17",
             }))
         example__amazon_eks_worker_node_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
@@ -894,12 +889,7 @@ class NodeGroup(pulumi.CustomResource):
             ),
             update_config=aws.eks.NodeGroupUpdateConfigArgs(
                 max_unavailable=1,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example__amazon_eks_worker_node_policy,
-                    example__amazon_ekscni_policy,
-                    example__amazon_ec2_container_registry_read_only,
-                ]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -929,14 +919,14 @@ class NodeGroup(pulumi.CustomResource):
         example = aws.iam.Role("example",
             name="eks-node-group-example",
             assume_role_policy=json.dumps({
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "principal": {
+                        "service": "ec2.amazonaws.com",
                     },
                 }],
-                "Version": "2012-10-17",
+                "version": "2012-10-17",
             }))
         example__amazon_eks_worker_node_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSWorkerNodePolicy",
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",

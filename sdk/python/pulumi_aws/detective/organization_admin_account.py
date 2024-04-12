@@ -78,8 +78,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         example = aws.organizations.Organization("example",
             aws_service_access_principals=["detective.amazonaws.com"],
             feature_set="ALL")
-        example_organization_admin_account = aws.detective.OrganizationAdminAccount("example", account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        example_organization_admin_account = aws.detective.OrganizationAdminAccount("example", account_id="123456789012")
         ```
         <!--End PulumiCodeChooser -->
 
@@ -114,8 +113,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         example = aws.organizations.Organization("example",
             aws_service_access_principals=["detective.amazonaws.com"],
             feature_set="ALL")
-        example_organization_admin_account = aws.detective.OrganizationAdminAccount("example", account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        example_organization_admin_account = aws.detective.OrganizationAdminAccount("example", account_id="123456789012")
         ```
         <!--End PulumiCodeChooser -->
 

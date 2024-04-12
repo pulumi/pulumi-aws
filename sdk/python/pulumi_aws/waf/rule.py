@@ -227,8 +227,7 @@ class Rule(pulumi.CustomResource):
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -276,8 +275,7 @@ class Rule(pulumi.CustomResource):
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 

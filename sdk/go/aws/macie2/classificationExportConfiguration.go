@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := macie2.NewAccount(ctx, "example", nil)
+//			_, err := macie2.NewAccount(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -38,9 +38,7 @@ import (
 //					KeyPrefix:  pulumi.String("exampleprefix/"),
 //					KmsKeyArn:  pulumi.Any(exampleAwsKmsKey.Arn),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

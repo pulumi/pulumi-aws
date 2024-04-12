@@ -42,7 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkmanager.TransitGatewayRegistrationArgs;
  * import com.pulumi.aws.networkmanager.CustomerGatewayAssociation;
  * import com.pulumi.aws.networkmanager.CustomerGatewayAssociationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -87,17 +86,13 @@ import javax.annotation.Nullable;
  *         var exampleTransitGatewayRegistration = new TransitGatewayRegistration(&#34;exampleTransitGatewayRegistration&#34;, TransitGatewayRegistrationArgs.builder()        
  *             .globalNetworkId(example.id())
  *             .transitGatewayArn(exampleTransitGateway.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleVpnConnection)
- *                 .build());
+ *             .build());
  * 
  *         var exampleCustomerGatewayAssociation = new CustomerGatewayAssociation(&#34;exampleCustomerGatewayAssociation&#34;, CustomerGatewayAssociationArgs.builder()        
  *             .globalNetworkId(example.id())
  *             .customerGatewayArn(exampleCustomerGateway.arn())
  *             .deviceId(exampleDevice.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleTransitGatewayRegistration)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

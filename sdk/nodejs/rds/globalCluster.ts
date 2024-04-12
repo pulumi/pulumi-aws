@@ -51,8 +51,6 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: "test-secondary-cluster",
  *     globalClusterIdentifier: example.id,
  *     dbSubnetGroupName: "default",
- * }, {
- *     dependsOn: [primaryClusterInstance],
  * });
  * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondary", {
  *     engine: example.engine,
@@ -103,8 +101,6 @@ import * as utilities from "../utilities";
  *     globalClusterIdentifier: example.id,
  *     skipFinalSnapshot: true,
  *     dbSubnetGroupName: "default",
- * }, {
- *     dependsOn: [primaryClusterInstance],
  * });
  * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondary", {
  *     engine: example.engine,

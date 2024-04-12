@@ -113,17 +113,17 @@ class BucketPolicy(pulumi.CustomResource):
         example = aws.s3control.BucketPolicy("example",
             bucket=example_aws_s3control_bucket["arn"],
             policy=json.dumps({
-                "Id": "testBucketPolicy",
-                "Statement": [{
-                    "Action": "s3-outposts:PutBucketLifecycleConfiguration",
-                    "Effect": "Deny",
-                    "Principal": {
+                "id": "testBucketPolicy",
+                "statement": [{
+                    "action": "s3-outposts:PutBucketLifecycleConfiguration",
+                    "effect": "Deny",
+                    "principal": {
                         "AWS": "*",
                     },
-                    "Resource": example_aws_s3control_bucket["arn"],
-                    "Sid": "statement1",
+                    "resource": example_aws_s3control_bucket["arn"],
+                    "sid": "statement1",
                 }],
-                "Version": "2012-10-17",
+                "version": "2012-10-17",
             }))
         ```
         <!--End PulumiCodeChooser -->
@@ -163,17 +163,17 @@ class BucketPolicy(pulumi.CustomResource):
         example = aws.s3control.BucketPolicy("example",
             bucket=example_aws_s3control_bucket["arn"],
             policy=json.dumps({
-                "Id": "testBucketPolicy",
-                "Statement": [{
-                    "Action": "s3-outposts:PutBucketLifecycleConfiguration",
-                    "Effect": "Deny",
-                    "Principal": {
+                "id": "testBucketPolicy",
+                "statement": [{
+                    "action": "s3-outposts:PutBucketLifecycleConfiguration",
+                    "effect": "Deny",
+                    "principal": {
                         "AWS": "*",
                     },
-                    "Resource": example_aws_s3control_bucket["arn"],
-                    "Sid": "statement1",
+                    "resource": example_aws_s3control_bucket["arn"],
+                    "sid": "statement1",
                 }],
-                "Version": "2012-10-17",
+                "version": "2012-10-17",
             }))
         ```
         <!--End PulumiCodeChooser -->

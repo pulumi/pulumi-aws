@@ -33,23 +33,11 @@ namespace Pulumi.Aws.Macie2
     ///         Email = "EMAIL",
     ///         Invite = true,
     ///         InvitationMessage = "Message of the invite",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             primary, 
-    ///         },
     ///     });
     /// 
     ///     var memberInvitationAccepter = new Aws.Macie2.InvitationAccepter("member", new()
     ///     {
     ///         AdministratorAccountId = "ADMINISTRATOR ACCOUNT ID",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             primaryMember, 
-    ///         },
     ///     });
     /// 
     /// });

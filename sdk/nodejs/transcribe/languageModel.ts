@@ -38,14 +38,14 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     role: exampleRole.id,
  *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: [
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             action: [
  *                 "s3:GetObject",
  *                 "s3:ListBucket",
  *             ],
- *             Effect: "Allow",
- *             Resource: ["*"],
+ *             effect: "Allow",
+ *             resource: ["*"],
  *         }],
  *     }),
  * });

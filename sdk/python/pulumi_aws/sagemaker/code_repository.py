@@ -210,8 +210,7 @@ class CodeRepository(pulumi.CustomResource):
             git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
                 repository_url="https://github.com/github/docs.git",
                 secret_arn=example.arn,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
@@ -275,8 +274,7 @@ class CodeRepository(pulumi.CustomResource):
             git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
                 repository_url="https://github.com/github/docs.git",
                 secret_arn=example.arn,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

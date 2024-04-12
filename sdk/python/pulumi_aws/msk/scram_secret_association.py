@@ -129,16 +129,15 @@ class ScramSecretAssociation(pulumi.CustomResource):
         example_secret = aws.secretsmanager.Secret("example",
             name="AmazonMSK_example",
             kms_key_id=example_key.key_id)
+        example_scram_secret_association = aws.msk.ScramSecretAssociation("example",
+            cluster_arn=example_cluster.arn,
+            secret_arn_lists=[example_secret.arn])
         example_secret_version = aws.secretsmanager.SecretVersion("example",
             secret_id=example_secret.id,
             secret_string=json.dumps({
                 "username": "user",
                 "password": "pass",
             }))
-        example_scram_secret_association = aws.msk.ScramSecretAssociation("example",
-            cluster_arn=example_cluster.arn,
-            secret_arn_lists=[example_secret.arn],
-            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
         example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AWSKafkaResourcePolicy",
             effect="Allow",
@@ -206,16 +205,15 @@ class ScramSecretAssociation(pulumi.CustomResource):
         example_secret = aws.secretsmanager.Secret("example",
             name="AmazonMSK_example",
             kms_key_id=example_key.key_id)
+        example_scram_secret_association = aws.msk.ScramSecretAssociation("example",
+            cluster_arn=example_cluster.arn,
+            secret_arn_lists=[example_secret.arn])
         example_secret_version = aws.secretsmanager.SecretVersion("example",
             secret_id=example_secret.id,
             secret_string=json.dumps({
                 "username": "user",
                 "password": "pass",
             }))
-        example_scram_secret_association = aws.msk.ScramSecretAssociation("example",
-            cluster_arn=example_cluster.arn,
-            secret_arn_lists=[example_secret.arn],
-            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
         example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AWSKafkaResourcePolicy",
             effect="Allow",

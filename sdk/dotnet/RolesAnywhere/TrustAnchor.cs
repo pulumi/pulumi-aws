@@ -71,12 +71,6 @@ namespace Pulumi.Aws.RolesAnywhere
     ///             },
     ///             SourceType = "AWS_ACM_PCA",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             exampleCertificateAuthorityCertificate, 
-    ///         },
     ///     });
     /// 
     /// });

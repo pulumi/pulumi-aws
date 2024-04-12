@@ -217,8 +217,7 @@ class ClusterActivityStream(pulumi.CustomResource):
         default_cluster_activity_stream = aws.rds.ClusterActivityStream("default",
             resource_arn=default.arn,
             mode="async",
-            kms_key_id=default_key.key_id,
-            opts=pulumi.ResourceOptions(depends_on=[default_cluster_instance]))
+            kms_key_id=default_key.key_id)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -282,8 +281,7 @@ class ClusterActivityStream(pulumi.CustomResource):
         default_cluster_activity_stream = aws.rds.ClusterActivityStream("default",
             resource_arn=default.arn,
             mode="async",
-            kms_key_id=default_key.key_id,
-            opts=pulumi.ResourceOptions(depends_on=[default_cluster_instance]))
+            kms_key_id=default_key.key_id)
         ```
         <!--End PulumiCodeChooser -->
 

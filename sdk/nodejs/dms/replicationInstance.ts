@@ -73,12 +73,6 @@ import * as utilities from "../utilities";
  *         Name: "test",
  *     },
  *     vpcSecurityGroupIds: ["sg-12345678"],
- * }, {
- *     dependsOn: [
- *         dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
- *         dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole,
- *         dms_vpc_role_AmazonDMSVPCManagementRole,
- *     ],
  * });
  * ```
  * <!--End PulumiCodeChooser -->

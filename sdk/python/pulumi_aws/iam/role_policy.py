@@ -189,13 +189,13 @@ class RolePolicy(pulumi.CustomResource):
         test_role = aws.iam.Role("test_role",
             name="test_role",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "ec2.amazonaws.com",
                     },
                 }],
             }))
@@ -203,11 +203,11 @@ class RolePolicy(pulumi.CustomResource):
             name="test_policy",
             role=test_role.id,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
         ```
@@ -254,13 +254,13 @@ class RolePolicy(pulumi.CustomResource):
         test_role = aws.iam.Role("test_role",
             name="test_role",
             assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": "sts:AssumeRole",
+                    "effect": "Allow",
+                    "sid": "",
+                    "principal": {
+                        "service": "ec2.amazonaws.com",
                     },
                 }],
             }))
@@ -268,11 +268,11 @@ class RolePolicy(pulumi.CustomResource):
             name="test_policy",
             role=test_role.id,
             policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": ["ec2:Describe*"],
-                    "Effect": "Allow",
-                    "Resource": "*",
+                "version": "2012-10-17",
+                "statement": [{
+                    "action": ["ec2:Describe*"],
+                    "effect": "Allow",
+                    "resource": "*",
                 }],
             }))
         ```

@@ -39,12 +39,6 @@ namespace Pulumi.Aws.Macie
     ///         {
     ///             "ignore",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             test, 
-    ///         },
     ///     });
     /// 
     /// });

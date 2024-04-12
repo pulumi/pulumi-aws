@@ -324,8 +324,7 @@ class BucketNotification(pulumi.CustomResource):
                 events=["s3:ObjectCreated:*"],
                 filter_prefix="AWSLogs/",
                 filter_suffix=".log",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[allow_bucket]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -386,11 +385,7 @@ class BucketNotification(pulumi.CustomResource):
                     filter_prefix="OtherLogs/",
                     filter_suffix=".log",
                 ),
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    allow_bucket1,
-                    allow_bucket2,
-                ]))
+            ])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -595,8 +590,7 @@ class BucketNotification(pulumi.CustomResource):
                 events=["s3:ObjectCreated:*"],
                 filter_prefix="AWSLogs/",
                 filter_suffix=".log",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[allow_bucket]))
+            )])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -657,11 +651,7 @@ class BucketNotification(pulumi.CustomResource):
                     filter_prefix="OtherLogs/",
                     filter_suffix=".log",
                 ),
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    allow_bucket1,
-                    allow_bucket2,
-                ]))
+            ])
         ```
         <!--End PulumiCodeChooser -->
 

@@ -70,12 +70,6 @@ namespace Pulumi.Aws.Neptune
     ///         ClusterIdentifier = secondary.Id,
     ///         InstanceClass = "db.r5.large",
     ///         NeptuneSubnetGroupName = "default",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn =
-    ///         {
-    ///             primaryClusterInstance, 
-    ///         },
     ///     });
     /// 
     /// });

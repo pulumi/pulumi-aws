@@ -40,14 +40,14 @@ namespace Pulumi.Aws.VpcLattice
     ///         ResourceArn = example.Arn,
     ///         Policy = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     ["Sid"] = "test-pol-principals-6",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     ["sid"] = "test-pol-principals-6",
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["AWS"] = Output.Tuple(currentGetPartition, current).Apply(values =&gt;
     ///                         {
@@ -56,13 +56,13 @@ namespace Pulumi.Aws.VpcLattice
     ///                             return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root";
     ///                         }),
     ///                     },
-    ///                     ["Action"] = new[]
+    ///                     ["action"] = new[]
     ///                     {
     ///                         "vpc-lattice:CreateServiceNetworkVpcAssociation",
     ///                         "vpc-lattice:CreateServiceNetworkServiceAssociation",
     ///                         "vpc-lattice:GetServiceNetwork",
     ///                     },
-    ///                     ["Resource"] = example.Arn,
+    ///                     ["resource"] = example.Arn,
     ///                 },
     ///             },
     ///         })),

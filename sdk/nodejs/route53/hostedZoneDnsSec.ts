@@ -24,32 +24,32 @@ import * as utilities from "../utilities";
  *     deletionWindowInDays: 7,
  *     keyUsage: "SIGN_VERIFY",
  *     policy: JSON.stringify({
- *         Statement: [
+ *         statement: [
  *             {
- *                 Action: [
+ *                 action: [
  *                     "kms:DescribeKey",
  *                     "kms:GetPublicKey",
  *                     "kms:Sign",
  *                     "kms:Verify",
  *                 ],
- *                 Effect: "Allow",
- *                 Principal: {
- *                     Service: "dnssec-route53.amazonaws.com",
+ *                 effect: "Allow",
+ *                 principal: {
+ *                     service: "dnssec-route53.amazonaws.com",
  *                 },
- *                 Resource: "*",
- *                 Sid: "Allow Route 53 DNSSEC Service",
+ *                 resource: "*",
+ *                 sid: "Allow Route 53 DNSSEC Service",
  *             },
  *             {
- *                 Action: "kms:*",
- *                 Effect: "Allow",
- *                 Principal: {
+ *                 action: "kms:*",
+ *                 effect: "Allow",
+ *                 principal: {
  *                     AWS: current.then(current => `arn:aws:iam::${current.accountId}:root`),
  *                 },
- *                 Resource: "*",
- *                 Sid: "Enable IAM User Permissions",
+ *                 resource: "*",
+ *                 sid: "Enable IAM User Permissions",
  *             },
  *         ],
- *         Version: "2012-10-17",
+ *         version: "2012-10-17",
  *     }),
  * });
  * const exampleZone = new aws.route53.Zone("example", {name: "example.com"});
@@ -58,9 +58,7 @@ import * as utilities from "../utilities";
  *     keyManagementServiceArn: example.arn,
  *     name: "example",
  * });
- * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("example", {hostedZoneId: exampleKeySigningKey.hostedZoneId}, {
- *     dependsOn: [exampleKeySigningKey],
- * });
+ * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("example", {hostedZoneId: exampleKeySigningKey.hostedZoneId});
  * ```
  * <!--End PulumiCodeChooser -->
  *

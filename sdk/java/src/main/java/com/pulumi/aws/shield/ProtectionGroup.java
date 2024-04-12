@@ -76,7 +76,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.shield.ProtectionArgs;
  * import com.pulumi.aws.shield.ProtectionGroup;
  * import com.pulumi.aws.shield.ProtectionGroupArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -108,9 +107,7 @@ import javax.annotation.Nullable;
  *             .aggregation(&#34;MEAN&#34;)
  *             .pattern(&#34;ARBITRARY&#34;)
  *             .members(example.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleProtection)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

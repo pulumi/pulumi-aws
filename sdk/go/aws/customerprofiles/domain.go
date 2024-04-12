@@ -66,17 +66,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
+//				"version": "2012-10-17",
+//				"statement": []map[string]interface{}{
 //					map[string]interface{}{
-//						"Sid":    "Customer Profiles SQS policy",
-//						"Effect": "Allow",
-//						"Action": []string{
+//						"sid":    "Customer Profiles SQS policy",
+//						"effect": "Allow",
+//						"action": []string{
 //							"sqs:SendMessage",
 //						},
-//						"Resource": "*",
-//						"Principal": map[string]interface{}{
-//							"Service": "profile.amazonaws.com",
+//						"resource": "*",
+//						"principal": map[string]interface{}{
+//							"service": "profile.amazonaws.com",
 //						},
 //					},
 //				},
@@ -113,22 +113,22 @@ import (
 //					exampleBucketV2Arn1 := _args[1].(string)
 //					var _zero string
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
+//						"version": "2012-10-17",
+//						"statement": []map[string]interface{}{
 //							map[string]interface{}{
-//								"Sid":    "Customer Profiles S3 policy",
-//								"Effect": "Allow",
-//								"Action": []string{
+//								"sid":    "Customer Profiles S3 policy",
+//								"effect": "Allow",
+//								"action": []string{
 //									"s3:GetObject",
 //									"s3:PutObject",
 //									"s3:ListBucket",
 //								},
-//								"Resource": []string{
+//								"resource": []string{
 //									exampleBucketV2Arn,
 //									fmt.Sprintf("%v/*", exampleBucketV2Arn1),
 //								},
-//								"Principal": map[string]interface{}{
-//									"Service": "profile.amazonaws.com",
+//								"principal": map[string]interface{}{
+//									"service": "profile.amazonaws.com",
 //								},
 //							},
 //						},

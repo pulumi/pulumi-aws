@@ -18,6 +18,100 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ### End-to-end
     /// 
+    /// ### Basic Usage
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ApiGateway.RestApi("example", new()
+    ///     {
+    ///         Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["openapi"] = "3.0.1",
+    ///             ["info"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["title"] = "example",
+    ///                 ["version"] = "1.0",
+    ///             },
+    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["/path1"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["get"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["x-amazon-apigateway-integration"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["httpMethod"] = "GET",
+    ///                             ["payloadFormatVersion"] = "1.0",
+    ///                             ["type"] = "HTTP_PROXY",
+    ///                             ["uri"] = "https://ip-ranges.amazonaws.com/ip-ranges.json",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Aws.ApiGateway.Deployment("example", new()
+    ///     {
+    ///         RestApi = example.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "redeployment", Std.Sha1.Invoke(new()
+    ///             {
+    ///                 Input = Output.JsonSerialize(Output.Create(example.Body)),
+    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStage = new Aws.ApiGateway.Stage("example", new()
+    ///     {
+    ///         Deployment = exampleDeployment.Id,
+    ///         RestApi = example.Id,
+    ///         StageName = "example",
+    ///     });
+    /// 
+    ///     var all = new Aws.ApiGateway.MethodSettings("all", new()
+    ///     {
+    ///         RestApi = example.Id,
+    ///         StageName = exampleStage.StageName,
+    ///         MethodPath = "*/*",
+    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         {
+    ///             MetricsEnabled = true,
+    ///             LoggingLevel = "ERROR",
+    ///         },
+    ///     });
+    /// 
+    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
+    ///     {
+    ///         RestApi = example.Id,
+    ///         StageName = exampleStage.StageName,
+    ///         MethodPath = "path1/GET",
+    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         {
+    ///             MetricsEnabled = true,
+    ///             LoggingLevel = "INFO",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### CloudWatch Logging and Tracing
+    /// 
+    /// The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+    /// 
     /// ### Off
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;

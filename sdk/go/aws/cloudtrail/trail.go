@@ -50,6 +50,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
+//				Name:                       pulumi.String("example"),
+//				S3BucketName:               exampleBucketV2.ID(),
+//				S3KeyPrefix:                pulumi.String("prefix"),
+//				IncludeGlobalServiceEvents: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			current, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
@@ -129,23 +138,12 @@ import (
 //					},
 //				},
 //			}, nil)
-//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
+//			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 //				Bucket: exampleBucketV2.ID(),
 //				Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
 //					return &example.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
-//				Name:                       pulumi.String("example"),
-//				S3BucketName:               exampleBucketV2.ID(),
-//				S3KeyPrefix:                pulumi.String("prefix"),
-//				IncludeGlobalServiceEvents: pulumi.Bool(false),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleBucketPolicy,
-//			}))
 //			if err != nil {
 //				return err
 //			}

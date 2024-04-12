@@ -1729,8 +1729,7 @@ class S3Endpoint(pulumi.CustomResource):
             endpoint_id="donnedtipi",
             endpoint_type="target",
             bucket_name="beckut_name",
-            service_access_role_arn=example_aws_iam_role["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
+            service_access_role_arn=example_aws_iam_role["arn"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1790,8 +1789,7 @@ class S3Endpoint(pulumi.CustomResource):
             timestamp_column_name="tx_commit_time",
             use_csv_no_sup_value=False,
             use_task_start_time_for_full_load_timestamp=True,
-            glue_catalog_generation=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
+            glue_catalog_generation=True)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1884,8 +1882,7 @@ class S3Endpoint(pulumi.CustomResource):
             endpoint_id="donnedtipi",
             endpoint_type="target",
             bucket_name="beckut_name",
-            service_access_role_arn=example_aws_iam_role["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
+            service_access_role_arn=example_aws_iam_role["arn"])
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1945,8 +1942,7 @@ class S3Endpoint(pulumi.CustomResource):
             timestamp_column_name="tx_commit_time",
             use_csv_no_sup_value=False,
             use_task_start_time_for_full_load_timestamp=True,
-            glue_catalog_generation=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
+            glue_catalog_generation=True)
         ```
         <!--End PulumiCodeChooser -->
 

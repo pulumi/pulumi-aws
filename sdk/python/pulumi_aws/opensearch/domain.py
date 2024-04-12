@@ -924,8 +924,7 @@ class Domain(pulumi.CustomResource):
             access_policies=example_get_policy_document.json,
             tags={
                 "Domain": "TestDomain",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 
@@ -1223,8 +1222,7 @@ class Domain(pulumi.CustomResource):
             access_policies=example_get_policy_document.json,
             tags={
                 "Domain": "TestDomain",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
+            })
         ```
         <!--End PulumiCodeChooser -->
 
