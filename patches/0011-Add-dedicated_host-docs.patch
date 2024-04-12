@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 15 Nov 2022 10:08:05 +0000
-Subject: [PATCH 11/51] Add dedicated_host docs
+Subject: [PATCH 11/52] Add dedicated_host docs
 
 
 diff --git a/website/docs/d/dedicated_host.html.markdown b/website/docs/d/dedicated_host.html.markdown
