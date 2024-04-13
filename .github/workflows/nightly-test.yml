@@ -217,9 +217,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         comment_tag: schemaCheck
         message: >+
-          ### Does the PR have any schema changes?
-
-
           ${{ env.SCHEMA_CHANGES }}
 
 
