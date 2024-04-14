@@ -257,7 +257,7 @@ class InstanceType(str, Enum):
     M5AD_4_X_LARGE = "m5ad.4xlarge"
     M5AD_8_X_LARGE = "m5ad.8xlarge"
     M5AD_LARGE = "m5ad.large"
-    M5AS_X_LARGE = "m5ad.xlarge"
+    M5AD_X_LARGE = "m5ad.xlarge"
     M5D_12_X_LARGE = "m5d.12xlarge"
     M5D_16_X_LARGE = "m5d.16xlarge"
     M5D_24_X_LARGE = "m5d.24xlarge"
@@ -517,6 +517,7 @@ class InstanceType(str, Enum):
     U_6TB1_METAL = "u-6tb1.metal"
     U_9TB1_METAL = "u-9tb1.metal"
     HS1_8_X_LARGE = "hs1.8xlarge"
+    M5AS_X_LARGE = "m5ad.xlarge"
 
 
 class PlacementStrategy(str, Enum):
