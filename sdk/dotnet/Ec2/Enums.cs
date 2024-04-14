@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Ec2
         public static InstanceType M5ad_4XLarge { get; } = new InstanceType("m5ad.4xlarge");
         public static InstanceType M5ad_8XLarge { get; } = new InstanceType("m5ad.8xlarge");
         public static InstanceType M5ad_Large { get; } = new InstanceType("m5ad.large");
-        public static InstanceType M5as_XLarge { get; } = new InstanceType("m5ad.xlarge");
+        public static InstanceType M5ad_XLarge { get; } = new InstanceType("m5ad.xlarge");
         public static InstanceType M5d_12XLarge { get; } = new InstanceType("m5d.12xlarge");
         public static InstanceType M5d_16XLarge { get; } = new InstanceType("m5d.16xlarge");
         public static InstanceType M5d_24XLarge { get; } = new InstanceType("m5d.24xlarge");
@@ -547,6 +547,8 @@ namespace Pulumi.Aws.Ec2
         public static InstanceType U_9tb1Metal { get; } = new InstanceType("u-9tb1.metal");
         [Obsolete(@"This instancetype has been deprecated")]
         public static InstanceType Hs1_8XLarge { get; } = new InstanceType("hs1.8xlarge");
+        [Obsolete(@"Has a typo, use M5ad_XLarge instead")]
+        public static InstanceType M5as_XLarge { get; } = new InstanceType("m5ad.xlarge");
 
         public static bool operator ==(InstanceType left, InstanceType right) => left.Equals(right);
         public static bool operator !=(InstanceType left, InstanceType right) => !left.Equals(right);

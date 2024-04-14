@@ -248,7 +248,7 @@ export const InstanceType = {
     M5ad_4XLarge: "m5ad.4xlarge",
     M5ad_8XLarge: "m5ad.8xlarge",
     M5ad_Large: "m5ad.large",
-    M5as_XLarge: "m5ad.xlarge",
+    M5ad_XLarge: "m5ad.xlarge",
     M5d_12XLarge: "m5d.12xlarge",
     M5d_16XLarge: "m5d.16xlarge",
     M5d_24XLarge: "m5d.24xlarge",
@@ -520,6 +520,10 @@ export const InstanceType = {
      * @deprecated This instancetype has been deprecated
      */
     Hs1_8XLarge: "hs1.8xlarge",
+    /**
+     * @deprecated Has a typo, use M5ad_XLarge instead
+     */
+    M5as_XLarge: "m5ad.xlarge",
 } as const;
 
 export type InstanceType = (typeof InstanceType)[keyof typeof InstanceType];

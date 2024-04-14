@@ -422,7 +422,7 @@ const (
 	InstanceType_M5ad_4XLarge  = InstanceType("m5ad.4xlarge")
 	InstanceType_M5ad_8XLarge  = InstanceType("m5ad.8xlarge")
 	InstanceType_M5ad_Large    = InstanceType("m5ad.large")
-	InstanceType_M5as_XLarge   = InstanceType("m5ad.xlarge")
+	InstanceType_M5ad_XLarge   = InstanceType("m5ad.xlarge")
 	InstanceType_M5d_12XLarge  = InstanceType("m5d.12xlarge")
 	InstanceType_M5d_16XLarge  = InstanceType("m5d.16xlarge")
 	InstanceType_M5d_24XLarge  = InstanceType("m5d.24xlarge")
@@ -686,6 +686,8 @@ const (
 	InstanceType_U_9tb1Metal = InstanceType("u-9tb1.metal")
 	// Deprecated: This instancetype has been deprecated
 	InstanceType_Hs1_8XLarge = InstanceType("hs1.8xlarge")
+	// Deprecated: Has a typo, use M5ad_XLarge instead
+	InstanceType_M5as_XLarge = InstanceType("m5ad.xlarge")
 )
 
 func (InstanceType) ElementType() reflect.Type {
@@ -1042,7 +1044,7 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_M5ad_4XLarge
 //	InstanceType_M5ad_8XLarge
 //	InstanceType_M5ad_Large
-//	InstanceType_M5as_XLarge
+//	InstanceType_M5ad_XLarge
 //	InstanceType_M5d_12XLarge
 //	InstanceType_M5d_16XLarge
 //	InstanceType_M5d_24XLarge
