@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Ec2
         public static InstanceType C7a_24XLarge { get; } = new InstanceType("c7a.24xlarge");
         public static InstanceType C7a_32XLarge { get; } = new InstanceType("c7a.32xlarge");
         public static InstanceType C7a_48XLarge { get; } = new InstanceType("c7a.48xlarge");
-        public static InstanceType C7a_Metal { get; } = new InstanceType("c7a.metal-48xl");
+        public static InstanceType C7a_Metal_48xl { get; } = new InstanceType("c7a.metal-48xl");
         public static InstanceType Cc2_8XLarge { get; } = new InstanceType("cc2.8xlarge");
         public static InstanceType D2_2XLarge { get; } = new InstanceType("d2.2xlarge");
         public static InstanceType D2_4XLarge { get; } = new InstanceType("d2.4xlarge");
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Ec2
         public static InstanceType M7a_24XLarge { get; } = new InstanceType("m7a.24xlarge");
         public static InstanceType M7a_32XLarge { get; } = new InstanceType("m7a.32xlarge");
         public static InstanceType M7a_48XLarge { get; } = new InstanceType("m7a.48xlarge");
-        public static InstanceType M7a_Metal { get; } = new InstanceType("m7a.metal-48xl");
+        public static InstanceType M7a_Metal_48xl { get; } = new InstanceType("m7a.metal-48xl");
         public static InstanceType Mac1_Metal { get; } = new InstanceType("mac1.metal");
         public static InstanceType P2_16XLarge { get; } = new InstanceType("p2.16xlarge");
         public static InstanceType P2_8XLarge { get; } = new InstanceType("p2.8xlarge");
@@ -549,6 +549,10 @@ namespace Pulumi.Aws.Ec2
         public static InstanceType Hs1_8XLarge { get; } = new InstanceType("hs1.8xlarge");
         [Obsolete(@"Has a typo, use M5ad_XLarge instead")]
         public static InstanceType M5as_XLarge { get; } = new InstanceType("m5ad.xlarge");
+        [Obsolete(@"Use C7a_Metal_48xl instead")]
+        public static InstanceType C7a_Metal { get; } = new InstanceType("c7a.metal-48xl");
+        [Obsolete(@"Use M7a_Metal_48xl instead")]
+        public static InstanceType M7a_Metal { get; } = new InstanceType("m7a.metal-48xl");
 
         public static bool operator ==(InstanceType left, InstanceType right) => left.Equals(right);
         public static bool operator !=(InstanceType left, InstanceType right) => !left.Equals(right);
