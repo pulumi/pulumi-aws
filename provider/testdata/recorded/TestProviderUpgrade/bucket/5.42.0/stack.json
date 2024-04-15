@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2023-10-05T17:01:10.660615-04:00",
-      "magic": "cdb46f20d3397474c4b7038ce63a3c40fb0da4b95458ef275b6ce689aec88d17",
-      "version": "v3.86.0"
+      "time": "2024-04-15T15:24:34.499732-04:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:VgKUAy5Wzyc=:v1:vKZX5kpTs6mIib2Q:OrWSRl7hJNOeVXFajgiyu91YLTLyMg=="
+        "salt": "v1:MqVKdrDbI+0=:v1:s/d7m10m1iUi1A+u:y9PttpxuUIRGxtKCZRq7+DBpDRYDQA=="
       }
     },
     "resources": [
@@ -17,31 +17,39 @@
         "urn": "urn:pulumi:test::test::pulumi:pulumi:Stack::test-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2023-10-05T21:01:05.291861Z",
-        "modified": "2023-10-05T21:01:05.291861Z"
+        "created": "2024-04-15T19:24:27.537569Z",
+        "modified": "2024-04-15T19:24:27.537569Z"
       },
       {
         "urn": "urn:pulumi:test::test::pulumi:providers:aws::provider",
         "custom": true,
-        "id": "3844c049-dd3a-4d9a-b4db-f476d1680642",
+        "id": "263eab09-759e-4d0c-8767-a00401d0c200",
         "type": "pulumi:providers:aws",
         "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true",
           "version": "5.42.0"
         },
         "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true",
           "version": "5.42.0"
         },
         "parent": "urn:pulumi:test::test::pulumi:pulumi:Stack::test-test",
         "propertyDependencies": {
           "version": []
         },
-        "created": "2023-10-05T21:01:06.742806Z",
-        "modified": "2023-10-05T21:01:06.742806Z"
+        "created": "2024-04-15T19:24:30.866127Z",
+        "modified": "2024-04-15T19:24:30.866127Z"
       },
       {
         "urn": "urn:pulumi:test::test::aws:s3/bucket:Bucket::tested-resource",
         "custom": true,
-        "id": "testbucket-test",
+        "id": "pulumiawstestbucket-test",
         "type": "aws:s3/bucket:Bucket",
         "inputs": {
           "__defaults": [
@@ -49,21 +57,21 @@
             "forceDestroy"
           ],
           "acl": "private",
-          "bucket": "testbucket-test",
+          "bucket": "pulumiawstestbucket-test",
           "forceDestroy": false
         },
         "outputs": {
           "accelerationStatus": "",
           "acl": "private",
-          "arn": "arn:aws:s3:::testbucket-test",
-          "bucket": "testbucket-test",
-          "bucketDomainName": "testbucket-test.s3.amazonaws.com",
-          "bucketRegionalDomainName": "testbucket-test.s3.us-west-2.amazonaws.com",
+          "arn": "arn:aws:s3:::pulumiawstestbucket-test",
+          "bucket": "pulumiawstestbucket-test",
+          "bucketDomainName": "pulumiawstestbucket-test.s3.amazonaws.com",
+          "bucketRegionalDomainName": "pulumiawstestbucket-test.s3.us-west-2.amazonaws.com",
           "corsRules": [],
           "forceDestroy": false,
           "grants": [],
           "hostedZoneId": "Z3BJ6K6RIION7M",
-          "id": "testbucket-test",
+          "id": "pulumiawstestbucket-test",
           "lifecycleRules": [],
           "loggings": [],
           "objectLockConfiguration": null,
@@ -79,8 +87,6 @@
               "bucketKeyEnabled": false
             }
           },
-          "tags": {},
-          "tagsAll": {},
           "versioning": {
             "enabled": false,
             "mfaDelete": false
@@ -88,12 +94,12 @@
           "website": null
         },
         "parent": "urn:pulumi:test::test::pulumi:pulumi:Stack::test-test",
-        "provider": "urn:pulumi:test::test::pulumi:providers:aws::provider::3844c049-dd3a-4d9a-b4db-f476d1680642",
+        "provider": "urn:pulumi:test::test::pulumi:providers:aws::provider::263eab09-759e-4d0c-8767-a00401d0c200",
         "propertyDependencies": {
-          "bucket": null
+          "bucket": []
         },
-        "created": "2023-10-05T21:01:10.660574Z",
-        "modified": "2023-10-05T21:01:10.660574Z"
+        "created": "2024-04-15T19:24:34.499496Z",
+        "modified": "2024-04-15T19:24:34.499496Z"
       }
     ]
   }

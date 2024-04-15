@@ -13,6 +13,6 @@ resources:
   tested-resource:
     type: aws:s3/bucket:Bucket
     properties:
-      bucket: testbucket-${pulumi.stack}
+      bucket: pulumiawstestbucket-${pulumi.stack}
     options:
       provider: ${provider}
