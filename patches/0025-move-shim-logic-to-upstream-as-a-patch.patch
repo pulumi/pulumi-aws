@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Guinevere Saenger <guinevere@pulumi.com>
 Date: Wed, 6 Sep 2023 10:43:30 -0700
-Subject: [PATCH 25/52] move shim logic to upstream as a patch
+Subject: [PATCH 25/53] move shim logic to upstream as a patch
 
 
 diff --git a/shim/shim.go b/shim/shim.go

@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Venelin <venelin@pulumi.com>
 Date: Wed, 28 Feb 2024 16:06:02 +0000
-Subject: [PATCH 44/52] fix legacy bucket context
+Subject: [PATCH 44/53] fix legacy bucket context
 
 
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
