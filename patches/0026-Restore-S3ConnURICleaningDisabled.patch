@@ -5,7 +5,7 @@ Subject: [PATCH 26/52] Restore S3ConnURICleaningDisabled
 
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index bef13bbc88..73b2147f73 100644
+index e993e6bbb1..f56a96f41c 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
 @@ -23,6 +23,7 @@ import (
