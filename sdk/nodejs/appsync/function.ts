@@ -56,14 +56,14 @@ import * as utilities from "../utilities";
  *     "method": "GET",
  *     "resourcePath": "/",
  *     "params":{
- *         "headers": $utils.http.copyheaders($ctx.request.headers)
+ *         "headers": utils.http.copyheaders(ctx.request.headers)
  *     }
  * }
  * `,
- *     responseMappingTemplate: `#if($ctx.result.statusCode == 200)
- *     $ctx.result.body
+ *     responseMappingTemplate: `#if(ctx.result.statusCode == 200)
+ *     ctx.result.body
  * #else
- *     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
+ *     utils.appendError(ctx.result.body, ctx.result.statusCode)
  * #end
  * `,
  * });
