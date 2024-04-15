@@ -172,7 +172,7 @@ namespace Pulumi.Aws.GuardDuty
     ///     {
     ///         DependsOn =
     ///         {
-    ///             gdBucketPolicy, 
+    ///             gdBucketPolicy,
     ///         },
     ///     });
     /// 

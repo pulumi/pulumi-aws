@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Chime
     ///     {
     ///         DependsOn =
     ///         {
-    ///             defaultVoiceConnectorTermination, 
+    ///             defaultVoiceConnectorTermination,
     ///         },
     ///     });
     /// 

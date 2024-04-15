@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primaryClusterInstance, 
+    ///             primaryClusterInstance,
     ///         },
     ///     });
     /// 
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primaryClusterInstance, 
+    ///             primaryClusterInstance,
     ///         },
     ///     });
     /// 

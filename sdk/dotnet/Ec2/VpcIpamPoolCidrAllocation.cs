@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleVpcIpamPoolCidr, 
+    ///             exampleVpcIpamPoolCidr,
     ///         },
     ///     });
     /// 
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleVpcIpamPoolCidr, 
+    ///             exampleVpcIpamPoolCidr,
     ///         },
     ///     });
     /// 

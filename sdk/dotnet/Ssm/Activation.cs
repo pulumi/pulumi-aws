@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testAttach, 
+    ///             testAttach,
     ///         },
     ///     });
     /// 

@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Detective
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primaryMember, 
+    ///             primaryMember,
     ///         },
     ///     });
     /// 

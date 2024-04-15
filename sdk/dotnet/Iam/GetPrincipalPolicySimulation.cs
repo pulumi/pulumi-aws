@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Iam
         ///     {
         ///         DependsOn =
         ///         {
-        ///             s3ObjectAccess, 
+        ///             s3ObjectAccess,
         ///         },
         ///     });
         /// 
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Iam
         ///     {
         ///         DependsOn =
         ///         {
-        ///             s3ObjectAccess, 
+        ///             s3ObjectAccess,
         ///         },
         ///     });
         /// 

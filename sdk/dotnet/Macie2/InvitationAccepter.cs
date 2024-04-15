@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Macie2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primary, 
+    ///             primary,
     ///         },
     ///     });
     /// 
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Macie2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primaryMember, 
+    ///             primaryMember,
     ///         },
     ///     });
     /// 

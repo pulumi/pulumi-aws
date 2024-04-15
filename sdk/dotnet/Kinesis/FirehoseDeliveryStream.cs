@@ -520,7 +520,7 @@ namespace Pulumi.Aws.Kinesis
     ///     {
     ///         DependsOn =
     ///         {
-    ///             firehose_elasticsearchRolePolicy, 
+    ///             firehose_elasticsearchRolePolicy,
     ///         },
     ///     });
     /// 
@@ -701,7 +701,7 @@ namespace Pulumi.Aws.Kinesis
     ///     {
     ///         DependsOn =
     ///         {
-    ///             firehose_opensearch, 
+    ///             firehose_opensearch,
     ///         },
     ///     });
     /// 
