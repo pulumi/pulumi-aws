@@ -95,7 +95,6 @@ namespace Pulumi.Aws.SecurityHub
     ///         ConfigurationPolicyDetails = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
     ///         {
     ///             ServiceEnabled = false,
-    ///             EnabledStandardArns = new() { },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

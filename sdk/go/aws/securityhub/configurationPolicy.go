@@ -96,8 +96,7 @@ import (
 //				Name:        pulumi.String("Disabled"),
 //				Description: pulumi.String("This is an example of disabled configuration policy"),
 //				ConfigurationPolicy: &securityhub.ConfigurationPolicyConfigurationPolicyArgs{
-//					ServiceEnabled:      pulumi.Bool(false),
-//					EnabledStandardArns: pulumi.StringArray{},
+//					ServiceEnabled: pulumi.Bool(false),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,

@@ -18,14 +18,14 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
     public static final PolicyAttachmentArgs Empty = new PolicyAttachmentArgs();
 
     /**
-     * The group(s) the policy should be applied to
+     * Group(s) the policy should be applied to.
      * 
      */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
     /**
-     * @return The group(s) the policy should be applied to
+     * @return Group(s) the policy should be applied to.
      * 
      */
     public Optional<Output<List<String>>> groups() {
@@ -33,14 +33,14 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the attachment. This cannot be an empty string.
+     * Name of the attachment. This cannot be an empty string.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the attachment. This cannot be an empty string.
+     * @return Name of the attachment. This cannot be an empty string.
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,14 +48,14 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ARN of the policy you want to apply
+     * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      * 
      */
     @Import(name="policyArn", required=true)
     private Output<String> policyArn;
 
     /**
-     * @return The ARN of the policy you want to apply
+     * @return ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      * 
      */
     public Output<String> policyArn() {
@@ -63,14 +63,14 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The role(s) the policy should be applied to
+     * Role(s) the policy should be applied to.
      * 
      */
     @Import(name="roles")
     private @Nullable Output<List<String>> roles;
 
     /**
-     * @return The role(s) the policy should be applied to
+     * @return Role(s) the policy should be applied to.
      * 
      */
     public Optional<Output<List<String>>> roles() {
@@ -78,14 +78,14 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The user(s) the policy should be applied to
+     * User(s) the policy should be applied to.
      * 
      */
     @Import(name="users")
     private @Nullable Output<List<String>> users;
 
     /**
-     * @return The user(s) the policy should be applied to
+     * @return User(s) the policy should be applied to.
      * 
      */
     public Optional<Output<List<String>>> users() {
@@ -121,7 +121,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groups The group(s) the policy should be applied to
+         * @param groups Group(s) the policy should be applied to.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groups The group(s) the policy should be applied to
+         * @param groups Group(s) the policy should be applied to.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param groups The group(s) the policy should be applied to
+         * @param groups Group(s) the policy should be applied to.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the attachment. This cannot be an empty string.
+         * @param name Name of the attachment. This cannot be an empty string.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the attachment. This cannot be an empty string.
+         * @param name Name of the attachment. This cannot be an empty string.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policyArn The ARN of the policy you want to apply
+         * @param policyArn ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param policyArn The ARN of the policy you want to apply
+         * @param policyArn ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param roles The role(s) the policy should be applied to
+         * @param roles Role(s) the policy should be applied to.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param roles The role(s) the policy should be applied to
+         * @param roles Role(s) the policy should be applied to.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param roles The role(s) the policy should be applied to
+         * @param roles Role(s) the policy should be applied to.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param users The user(s) the policy should be applied to
+         * @param users User(s) the policy should be applied to.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param users The user(s) the policy should be applied to
+         * @param users User(s) the policy should be applied to.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param users The user(s) the policy should be applied to
+         * @param users User(s) the policy should be applied to.
          * 
          * @return builder
          * 

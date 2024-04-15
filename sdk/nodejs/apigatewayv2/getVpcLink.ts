@@ -72,7 +72,7 @@ export interface GetVpcLinkResult {
     /**
      * VPC Link Tags.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     readonly vpcLinkId: string;
 }
 /**

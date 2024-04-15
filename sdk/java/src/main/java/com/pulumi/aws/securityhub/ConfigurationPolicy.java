@@ -120,7 +120,6 @@ import javax.annotation.Nullable;
  *             .description(&#34;This is an example of disabled configuration policy&#34;)
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
  *                 .serviceEnabled(false)
- *                 .enabledStandardArns()
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)

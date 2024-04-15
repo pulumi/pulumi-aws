@@ -148,7 +148,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// VPC Link Tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcLinkId;
 
         [OutputConstructor]
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             string vpcLinkId)
         {

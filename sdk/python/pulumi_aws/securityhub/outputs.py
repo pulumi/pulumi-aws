@@ -2544,10 +2544,10 @@ class ConfigurationPolicyConfigurationPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "enabledStandardArns":
-            suggest = "enabled_standard_arns"
-        elif key == "serviceEnabled":
+        if key == "serviceEnabled":
             suggest = "service_enabled"
+        elif key == "enabledStandardArns":
+            suggest = "enabled_standard_arns"
         elif key == "securityControlsConfiguration":
             suggest = "security_controls_configuration"
 
@@ -2563,26 +2563,19 @@ class ConfigurationPolicyConfigurationPolicy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enabled_standard_arns: Sequence[str],
                  service_enabled: bool,
+                 enabled_standard_arns: Optional[Sequence[str]] = None,
                  security_controls_configuration: Optional['outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration'] = None):
         """
-        :param Sequence[str] enabled_standard_arns: A list that defines which security standards are enabled in the configuration policy.
         :param bool service_enabled: Indicates whether Security Hub is enabled in the policy.
+        :param Sequence[str] enabled_standard_arns: A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
         :param 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs' security_controls_configuration: Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
         """
-        pulumi.set(__self__, "enabled_standard_arns", enabled_standard_arns)
         pulumi.set(__self__, "service_enabled", service_enabled)
+        if enabled_standard_arns is not None:
+            pulumi.set(__self__, "enabled_standard_arns", enabled_standard_arns)
         if security_controls_configuration is not None:
             pulumi.set(__self__, "security_controls_configuration", security_controls_configuration)
-
-    @property
-    @pulumi.getter(name="enabledStandardArns")
-    def enabled_standard_arns(self) -> Sequence[str]:
-        """
-        A list that defines which security standards are enabled in the configuration policy.
-        """
-        return pulumi.get(self, "enabled_standard_arns")
 
     @property
     @pulumi.getter(name="serviceEnabled")
@@ -2591,6 +2584,14 @@ class ConfigurationPolicyConfigurationPolicy(dict):
         Indicates whether Security Hub is enabled in the policy.
         """
         return pulumi.get(self, "service_enabled")
+
+    @property
+    @pulumi.getter(name="enabledStandardArns")
+    def enabled_standard_arns(self) -> Optional[Sequence[str]]:
+        """
+        A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
+        """
+        return pulumi.get(self, "enabled_standard_arns")
 
     @property
     @pulumi.getter(name="securityControlsConfiguration")

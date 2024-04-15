@@ -8,14 +8,6 @@ import {ARN} from "..";
 import {Group, Role, User} from "./index";
 
 /**
- * Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
- *
- * !> **WARNING:** The aws.iam.PolicyAttachment resource creates **exclusive** attachments of IAM policies. Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single aws.iam.PolicyAttachment resource. This means that even any users/roles/groups that have the attached policy via any other mechanism (including other resources managed by this provider) will have that attached policy revoked by this resource. Consider `aws.iam.RolePolicyAttachment`, `aws.iam.UserPolicyAttachment`, or `aws.iam.GroupPolicyAttachment` instead. These resources do not enforce exclusive attachment of an IAM policy.
- *
- * > **NOTE:** The usage of this resource conflicts with the `aws.iam.GroupPolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.UserPolicyAttachment` resources and will permanently show a difference if both are defined.
- *
- * > **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `managedPolicyArns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
- *
  * ## Example Usage
  *
  * <!--Start PulumiCodeChooser -->
@@ -90,23 +82,23 @@ export class PolicyAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The group(s) the policy should be applied to
+     * Group(s) the policy should be applied to.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
-     * The name of the attachment. This cannot be an empty string.
+     * Name of the attachment. This cannot be an empty string.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ARN of the policy you want to apply
+     * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      */
     public readonly policyArn!: pulumi.Output<ARN>;
     /**
-     * The role(s) the policy should be applied to
+     * Role(s) the policy should be applied to.
      */
     public readonly roles!: pulumi.Output<string[] | undefined>;
     /**
-     * The user(s) the policy should be applied to
+     * User(s) the policy should be applied to.
      */
     public readonly users!: pulumi.Output<string[] | undefined>;
 
@@ -149,23 +141,23 @@ export class PolicyAttachment extends pulumi.CustomResource {
  */
 export interface PolicyAttachmentState {
     /**
-     * The group(s) the policy should be applied to
+     * Group(s) the policy should be applied to.
      */
     groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
     /**
-     * The name of the attachment. This cannot be an empty string.
+     * Name of the attachment. This cannot be an empty string.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ARN of the policy you want to apply
+     * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      */
     policyArn?: pulumi.Input<ARN>;
     /**
-     * The role(s) the policy should be applied to
+     * Role(s) the policy should be applied to.
      */
     roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
     /**
-     * The user(s) the policy should be applied to
+     * User(s) the policy should be applied to.
      */
     users?: pulumi.Input<pulumi.Input<string | User>[]>;
 }
@@ -175,23 +167,23 @@ export interface PolicyAttachmentState {
  */
 export interface PolicyAttachmentArgs {
     /**
-     * The group(s) the policy should be applied to
+     * Group(s) the policy should be applied to.
      */
     groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
     /**
-     * The name of the attachment. This cannot be an empty string.
+     * Name of the attachment. This cannot be an empty string.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ARN of the policy you want to apply
+     * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      */
     policyArn: pulumi.Input<ARN>;
     /**
-     * The role(s) the policy should be applied to
+     * Role(s) the policy should be applied to.
      */
     roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
     /**
-     * The user(s) the policy should be applied to
+     * User(s) the policy should be applied to.
      */
     users?: pulumi.Input<pulumi.Input<string | User>[]>;
 }

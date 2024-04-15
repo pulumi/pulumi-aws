@@ -95,6 +95,11 @@ export type HsmConfiguration = import("./hsmConfiguration").HsmConfiguration;
 export const HsmConfiguration: typeof import("./hsmConfiguration").HsmConfiguration = null as any;
 utilities.lazyLoad(exports, ["HsmConfiguration"], () => require("./hsmConfiguration"));
 
+export { LoggingArgs, LoggingState } from "./logging";
+export type Logging = import("./logging").Logging;
+export const Logging: typeof import("./logging").Logging = null as any;
+utilities.lazyLoad(exports, ["Logging"], () => require("./logging"));
+
 export { ParameterGroupArgs, ParameterGroupState } from "./parameterGroup";
 export type ParameterGroup = import("./parameterGroup").ParameterGroup;
 export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
@@ -114,6 +119,11 @@ export { ScheduledActionArgs, ScheduledActionState } from "./scheduledAction";
 export type ScheduledAction = import("./scheduledAction").ScheduledAction;
 export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
 utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
+
+export { SnapshotCopyArgs, SnapshotCopyState } from "./snapshotCopy";
+export type SnapshotCopy = import("./snapshotCopy").SnapshotCopy;
+export const SnapshotCopy: typeof import("./snapshotCopy").SnapshotCopy = null as any;
+utilities.lazyLoad(exports, ["SnapshotCopy"], () => require("./snapshotCopy"));
 
 export { SnapshotCopyGrantArgs, SnapshotCopyGrantState } from "./snapshotCopyGrant";
 export type SnapshotCopyGrant = import("./snapshotCopyGrant").SnapshotCopyGrant;
@@ -167,6 +177,8 @@ const _module = {
                 return new HsmClientCertificate(name, <any>undefined, { urn })
             case "aws:redshift/hsmConfiguration:HsmConfiguration":
                 return new HsmConfiguration(name, <any>undefined, { urn })
+            case "aws:redshift/logging:Logging":
+                return new Logging(name, <any>undefined, { urn })
             case "aws:redshift/parameterGroup:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
             case "aws:redshift/partner:Partner":
@@ -175,6 +187,8 @@ const _module = {
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws:redshift/scheduledAction:ScheduledAction":
                 return new ScheduledAction(name, <any>undefined, { urn })
+            case "aws:redshift/snapshotCopy:SnapshotCopy":
+                return new SnapshotCopy(name, <any>undefined, { urn })
             case "aws:redshift/snapshotCopyGrant:SnapshotCopyGrant":
                 return new SnapshotCopyGrant(name, <any>undefined, { urn })
             case "aws:redshift/snapshotSchedule:SnapshotSchedule":
@@ -201,10 +215,12 @@ pulumi.runtime.registerResourceModule("aws", "redshift/endpointAuthorization", _
 pulumi.runtime.registerResourceModule("aws", "redshift/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/hsmClientCertificate", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/hsmConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/logging", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/partner", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/scheduledAction", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/snapshotCopy", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotCopyGrant", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotSchedule", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotScheduleAssociation", _module)

@@ -1101,8 +1101,9 @@ func (o ResolverEndpointIpAddressArrayOutput) Index(i pulumi.IntInput) ResolverE
 type ResolverRuleTargetIp struct {
 	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
 	Ip string `pulumi:"ip"`
-	// The port at `ip` that you want to forward DNS queries to. Default value is `53`
-	Port     *int    `pulumi:"port"`
+	// The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+	Port *int `pulumi:"port"`
+	// The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -1120,8 +1121,9 @@ type ResolverRuleTargetIpInput interface {
 type ResolverRuleTargetIpArgs struct {
 	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
 	Ip pulumi.StringInput `pulumi:"ip"`
-	// The port at `ip` that you want to forward DNS queries to. Default value is `53`
-	Port     pulumi.IntPtrInput    `pulumi:"port"`
+	// The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -1181,11 +1183,12 @@ func (o ResolverRuleTargetIpOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverRuleTargetIp) string { return v.Ip }).(pulumi.StringOutput)
 }
 
-// The port at `ip` that you want to forward DNS queries to. Default value is `53`
+// The port at `ip` that you want to forward DNS queries to. Default value is `53`.
 func (o ResolverRuleTargetIpOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResolverRuleTargetIp) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
 func (o ResolverRuleTargetIpOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverRuleTargetIp) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }

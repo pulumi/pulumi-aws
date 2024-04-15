@@ -9,7 +9,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpcLinkResult {
@@ -42,7 +41,7 @@ public final class GetVpcLinkResult {
      * @return VPC Link Tags.
      * 
      */
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
     private String vpcLinkId;
 
     private GetVpcLinkResult() {}
@@ -86,7 +85,7 @@ public final class GetVpcLinkResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
     public String vpcLinkId() {
         return this.vpcLinkId;
@@ -106,7 +105,7 @@ public final class GetVpcLinkResult {
         private String name;
         private List<String> securityGroupIds;
         private List<String> subnetIds;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         private String vpcLinkId;
         public Builder() {}
         public Builder(GetVpcLinkResult defaults) {
@@ -167,8 +166,10 @@ public final class GetVpcLinkResult {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "tags");
+            }
             this.tags = tags;
             return this;
         }

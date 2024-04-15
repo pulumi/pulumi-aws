@@ -263,6 +263,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    bcmdataexports?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     beanstalk?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -884,6 +888,10 @@ export interface ProviderEndpoint {
      * Use this to override the default service endpoint URL
      */
     neptune?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
+    neptunegraph?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
      */
@@ -59759,7 +59767,7 @@ export namespace rds {
         /**
          * Version of the source engine used to make the backup
          *
-         * This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+         * This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
          */
         sourceEngineVersion: pulumi.Input<string>;
     }
@@ -59782,7 +59790,7 @@ export namespace rds {
          */
         secondsUntilAutoPause?: pulumi.Input<number>;
         /**
-         * Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
+         * Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v1.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
          */
         timeoutAction?: pulumi.Input<string>;
     }
@@ -61170,9 +61178,12 @@ export namespace route53 {
          */
         ip: pulumi.Input<string>;
         /**
-         * The port at `ip` that you want to forward DNS queries to. Default value is `53`
+         * The port at `ip` that you want to forward DNS queries to. Default value is `53`.
          */
         port?: pulumi.Input<number>;
+        /**
+         * The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+         */
         protocol?: pulumi.Input<string>;
     }
 
@@ -67500,9 +67511,9 @@ export namespace securityhub {
 
     export interface ConfigurationPolicyConfigurationPolicy {
         /**
-         * A list that defines which security standards are enabled in the configuration policy.
+         * A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
          */
-        enabledStandardArns: pulumi.Input<pulumi.Input<string>[]>;
+        enabledStandardArns?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
          */

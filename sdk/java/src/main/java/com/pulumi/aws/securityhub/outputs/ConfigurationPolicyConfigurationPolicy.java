@@ -16,10 +16,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationPolicyConfigurationPolicy {
     /**
-     * @return A list that defines which security standards are enabled in the configuration policy.
+     * @return A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
      * 
      */
-    private List<String> enabledStandardArns;
+    private @Nullable List<String> enabledStandardArns;
     /**
      * @return Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
      * 
@@ -33,11 +33,11 @@ public final class ConfigurationPolicyConfigurationPolicy {
 
     private ConfigurationPolicyConfigurationPolicy() {}
     /**
-     * @return A list that defines which security standards are enabled in the configuration policy.
+     * @return A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
      * 
      */
     public List<String> enabledStandardArns() {
-        return this.enabledStandardArns;
+        return this.enabledStandardArns == null ? List.of() : this.enabledStandardArns;
     }
     /**
      * @return Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
@@ -63,7 +63,7 @@ public final class ConfigurationPolicyConfigurationPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> enabledStandardArns;
+        private @Nullable List<String> enabledStandardArns;
         private @Nullable ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration securityControlsConfiguration;
         private Boolean serviceEnabled;
         public Builder() {}
@@ -75,10 +75,8 @@ public final class ConfigurationPolicyConfigurationPolicy {
         }
 
         @CustomType.Setter
-        public Builder enabledStandardArns(List<String> enabledStandardArns) {
-            if (enabledStandardArns == null) {
-              throw new MissingRequiredPropertyException("ConfigurationPolicyConfigurationPolicy", "enabledStandardArns");
-            }
+        public Builder enabledStandardArns(@Nullable List<String> enabledStandardArns) {
+
             this.enabledStandardArns = enabledStandardArns;
             return this;
         }

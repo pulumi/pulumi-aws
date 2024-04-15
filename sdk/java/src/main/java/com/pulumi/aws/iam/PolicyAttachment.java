@@ -16,14 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
- * 
- * !&gt; **WARNING:** The aws.iam.PolicyAttachment resource creates **exclusive** attachments of IAM policies. Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single aws.iam.PolicyAttachment resource. This means that even any users/roles/groups that have the attached policy via any other mechanism (including other resources managed by this provider) will have that attached policy revoked by this resource. Consider `aws.iam.RolePolicyAttachment`, `aws.iam.UserPolicyAttachment`, or `aws.iam.GroupPolicyAttachment` instead. These resources do not enforce exclusive attachment of an IAM policy.
- * 
- * &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.GroupPolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.UserPolicyAttachment` resources and will permanently show a difference if both are defined.
- * 
- * &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role&#39;s managed policy attachments and the provider will show a permanent difference.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -113,70 +105,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:iam/policyAttachment:PolicyAttachment")
 public class PolicyAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * The group(s) the policy should be applied to
+     * Group(s) the policy should be applied to.
      * 
      */
     @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groups;
 
     /**
-     * @return The group(s) the policy should be applied to
+     * @return Group(s) the policy should be applied to.
      * 
      */
     public Output<Optional<List<String>>> groups() {
         return Codegen.optional(this.groups);
     }
     /**
-     * The name of the attachment. This cannot be an empty string.
+     * Name of the attachment. This cannot be an empty string.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the attachment. This cannot be an empty string.
+     * @return Name of the attachment. This cannot be an empty string.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The ARN of the policy you want to apply
+     * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      * 
      */
     @Export(name="policyArn", refs={String.class}, tree="[0]")
     private Output<String> policyArn;
 
     /**
-     * @return The ARN of the policy you want to apply
+     * @return ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      * 
      */
     public Output<String> policyArn() {
         return this.policyArn;
     }
     /**
-     * The role(s) the policy should be applied to
+     * Role(s) the policy should be applied to.
      * 
      */
     @Export(name="roles", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> roles;
 
     /**
-     * @return The role(s) the policy should be applied to
+     * @return Role(s) the policy should be applied to.
      * 
      */
     public Output<Optional<List<String>>> roles() {
         return Codegen.optional(this.roles);
     }
     /**
-     * The user(s) the policy should be applied to
+     * User(s) the policy should be applied to.
      * 
      */
     @Export(name="users", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> users;
 
     /**
-     * @return The user(s) the policy should be applied to
+     * @return User(s) the policy should be applied to.
      * 
      */
     public Output<Optional<List<String>>> users() {

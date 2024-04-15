@@ -155,6 +155,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String bcmdataexports;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String beanstalk;
     /**
      * @return Use this to override the default service endpoint URL
@@ -935,6 +940,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String neptunegraph;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String networkfirewall;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1588,6 +1598,13 @@ public final class Endpoints {
      */
     public Optional<String> batch() {
         return Optional.ofNullable(this.batch);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> bcmdataexports() {
+        return Optional.ofNullable(this.bcmdataexports);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -2685,6 +2702,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> neptunegraph() {
+        return Optional.ofNullable(this.neptunegraph);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> networkfirewall() {
         return Optional.ofNullable(this.networkfirewall);
     }
@@ -3363,6 +3387,7 @@ public final class Endpoints {
         private @Nullable String autoscalingplans;
         private @Nullable String backup;
         private @Nullable String batch;
+        private @Nullable String bcmdataexports;
         private @Nullable String beanstalk;
         private @Nullable String bedrock;
         private @Nullable String bedrockagent;
@@ -3519,6 +3544,7 @@ public final class Endpoints {
         private @Nullable String msk;
         private @Nullable String mwaa;
         private @Nullable String neptune;
+        private @Nullable String neptunegraph;
         private @Nullable String networkfirewall;
         private @Nullable String networkmanager;
         private @Nullable String oam;
@@ -3642,6 +3668,7 @@ public final class Endpoints {
     	      this.autoscalingplans = defaults.autoscalingplans;
     	      this.backup = defaults.backup;
     	      this.batch = defaults.batch;
+    	      this.bcmdataexports = defaults.bcmdataexports;
     	      this.beanstalk = defaults.beanstalk;
     	      this.bedrock = defaults.bedrock;
     	      this.bedrockagent = defaults.bedrockagent;
@@ -3798,6 +3825,7 @@ public final class Endpoints {
     	      this.msk = defaults.msk;
     	      this.mwaa = defaults.mwaa;
     	      this.neptune = defaults.neptune;
+    	      this.neptunegraph = defaults.neptunegraph;
     	      this.networkfirewall = defaults.networkfirewall;
     	      this.networkmanager = defaults.networkmanager;
     	      this.oam = defaults.oam;
@@ -4058,6 +4086,12 @@ public final class Endpoints {
         public Builder batch(@Nullable String batch) {
 
             this.batch = batch;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bcmdataexports(@Nullable String bcmdataexports) {
+
+            this.bcmdataexports = bcmdataexports;
             return this;
         }
         @CustomType.Setter
@@ -4997,6 +5031,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder neptunegraph(@Nullable String neptunegraph) {
+
+            this.neptunegraph = neptunegraph;
+            return this;
+        }
+        @CustomType.Setter
         public Builder networkfirewall(@Nullable String networkfirewall) {
 
             this.networkfirewall = networkfirewall;
@@ -5578,6 +5618,7 @@ public final class Endpoints {
             _resultValue.autoscalingplans = autoscalingplans;
             _resultValue.backup = backup;
             _resultValue.batch = batch;
+            _resultValue.bcmdataexports = bcmdataexports;
             _resultValue.beanstalk = beanstalk;
             _resultValue.bedrock = bedrock;
             _resultValue.bedrockagent = bedrockagent;
@@ -5734,6 +5775,7 @@ public final class Endpoints {
             _resultValue.msk = msk;
             _resultValue.mwaa = mwaa;
             _resultValue.neptune = neptune;
+            _resultValue.neptunegraph = neptunegraph;
             _resultValue.networkfirewall = networkfirewall;
             _resultValue.networkmanager = networkmanager;
             _resultValue.oam = oam;

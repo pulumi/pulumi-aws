@@ -241,7 +241,7 @@ namespace Pulumi.Aws.RedShift
         /// Logging, documented below.
         /// </summary>
         [Output("logging")]
-        public Output<Outputs.ClusterLogging?> Logging { get; private set; } = null!;
+        public Output<Outputs.ClusterLogging> Logging { get; private set; } = null!;
 
         /// <summary>
         /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.RedShift
         /// Configuration of automatic copy of snapshots from one region to another. Documented below.
         /// </summary>
         [Output("snapshotCopy")]
-        public Output<Outputs.ClusterSnapshotCopy?> SnapshotCopy { get; private set; } = null!;
+        public Output<Outputs.ClusterSnapshotCopy> SnapshotCopy { get; private set; } = null!;
 
         /// <summary>
         /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.

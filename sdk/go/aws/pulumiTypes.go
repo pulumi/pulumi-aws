@@ -740,6 +740,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Batch *string `pulumi:"batch"`
 	// Use this to override the default service endpoint URL
+	Bcmdataexports *string `pulumi:"bcmdataexports"`
+	// Use this to override the default service endpoint URL
 	Beanstalk *string `pulumi:"beanstalk"`
 	// Use this to override the default service endpoint URL
 	Bedrock *string `pulumi:"bedrock"`
@@ -1052,6 +1054,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Neptune *string `pulumi:"neptune"`
 	// Use this to override the default service endpoint URL
+	Neptunegraph *string `pulumi:"neptunegraph"`
+	// Use this to override the default service endpoint URL
 	Networkfirewall *string `pulumi:"networkfirewall"`
 	// Use this to override the default service endpoint URL
 	Networkmanager *string `pulumi:"networkmanager"`
@@ -1305,6 +1309,8 @@ type ProviderEndpointArgs struct {
 	Backup pulumi.StringPtrInput `pulumi:"backup"`
 	// Use this to override the default service endpoint URL
 	Batch pulumi.StringPtrInput `pulumi:"batch"`
+	// Use this to override the default service endpoint URL
+	Bcmdataexports pulumi.StringPtrInput `pulumi:"bcmdataexports"`
 	// Use this to override the default service endpoint URL
 	Beanstalk pulumi.StringPtrInput `pulumi:"beanstalk"`
 	// Use this to override the default service endpoint URL
@@ -1617,6 +1623,8 @@ type ProviderEndpointArgs struct {
 	Mwaa pulumi.StringPtrInput `pulumi:"mwaa"`
 	// Use this to override the default service endpoint URL
 	Neptune pulumi.StringPtrInput `pulumi:"neptune"`
+	// Use this to override the default service endpoint URL
+	Neptunegraph pulumi.StringPtrInput `pulumi:"neptunegraph"`
 	// Use this to override the default service endpoint URL
 	Networkfirewall pulumi.StringPtrInput `pulumi:"networkfirewall"`
 	// Use this to override the default service endpoint URL
@@ -1992,6 +2000,11 @@ func (o ProviderEndpointOutput) Backup() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Batch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Batch }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Bcmdataexports() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Bcmdataexports }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL
@@ -2772,6 +2785,11 @@ func (o ProviderEndpointOutput) Mwaa() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Neptune() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Neptune }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Neptunegraph() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Neptunegraph }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

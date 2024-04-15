@@ -19,10 +19,14 @@ public final class ResolverRuleTargetIp {
      */
     private String ip;
     /**
-     * @return The port at `ip` that you want to forward DNS queries to. Default value is `53`
+     * @return The port at `ip` that you want to forward DNS queries to. Default value is `53`.
      * 
      */
     private @Nullable Integer port;
+    /**
+     * @return The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+     * 
+     */
     private @Nullable String protocol;
 
     private ResolverRuleTargetIp() {}
@@ -34,12 +38,16 @@ public final class ResolverRuleTargetIp {
         return this.ip;
     }
     /**
-     * @return The port at `ip` that you want to forward DNS queries to. Default value is `53`
+     * @return The port at `ip` that you want to forward DNS queries to. Default value is `53`.
      * 
      */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
+    /**
+     * @return The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+     * 
+     */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }

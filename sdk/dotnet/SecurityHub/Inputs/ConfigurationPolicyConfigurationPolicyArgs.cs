@@ -12,11 +12,11 @@ namespace Pulumi.Aws.SecurityHub.Inputs
 
     public sealed class ConfigurationPolicyConfigurationPolicyArgs : global::Pulumi.ResourceArgs
     {
-        [Input("enabledStandardArns", required: true)]
+        [Input("enabledStandardArns")]
         private InputList<string>? _enabledStandardArns;
 
         /// <summary>
-        /// A list that defines which security standards are enabled in the configuration policy.
+        /// A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
         /// </summary>
         public InputList<string> EnabledStandardArns
         {
