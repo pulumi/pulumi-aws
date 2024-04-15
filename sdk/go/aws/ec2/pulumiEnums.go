@@ -249,17 +249,17 @@ const (
 	InstanceType_C5n_Large      = InstanceType("c5n.large")
 	InstanceType_C5n_Metal      = InstanceType("c5n.metal")
 	InstanceType_C5n_XLarge     = InstanceType("c5n.xlarge")
-	InstanceType_C6a_Large      = InstanceType("c6a.large")
-	InstanceType_C6a_Metal      = InstanceType("c6a.metal")
-	InstanceType_C6a_XLarge     = InstanceType("c6a.xlarge")
-	InstanceType_C6a_2XLarge    = InstanceType("c6a.2xlarge")
-	InstanceType_C6a_4XLarge    = InstanceType("c6a.4xlarge")
-	InstanceType_C6a_8XLarge    = InstanceType("c6a.8xlarge")
 	InstanceType_C6a_12XLarge   = InstanceType("c6a.12xlarge")
 	InstanceType_C6a_16XLarge   = InstanceType("c6a.16xlarge")
 	InstanceType_C6a_24XLarge   = InstanceType("c6a.24xlarge")
+	InstanceType_C6a_2XLarge    = InstanceType("c6a.2xlarge")
 	InstanceType_C6a_32XLarge   = InstanceType("c6a.32xlarge")
 	InstanceType_C6a_48XLarge   = InstanceType("c6a.48xlarge")
+	InstanceType_C6a_4XLarge    = InstanceType("c6a.4xlarge")
+	InstanceType_C6a_8XLarge    = InstanceType("c6a.8xlarge")
+	InstanceType_C6a_Large      = InstanceType("c6a.large")
+	InstanceType_C6a_Metal      = InstanceType("c6a.metal")
+	InstanceType_C6a_XLarge     = InstanceType("c6a.xlarge")
 	InstanceType_C6g_12XLarge   = InstanceType("c6g.12xlarge")
 	InstanceType_C6g_16XLarge   = InstanceType("c6g.16xlarge")
 	InstanceType_C6g_2XLarge    = InstanceType("c6g.2xlarge")
@@ -278,38 +278,38 @@ const (
 	InstanceType_C6gd_Medium    = InstanceType("c6gd.medium")
 	InstanceType_C6gd_Metal     = InstanceType("c6gd.metal")
 	InstanceType_C6gd_XLarge    = InstanceType("c6gd.xlarge")
-	InstanceType_C6i_Large      = InstanceType("c6i.large")
-	InstanceType_C6i_XLarge     = InstanceType("c6i.xlarge")
-	InstanceType_C6i_2XLarge    = InstanceType("c6i.2xlarge")
-	InstanceType_C6i_4XLarge    = InstanceType("c6i.4xlarge")
-	InstanceType_C6i_8XLarge    = InstanceType("c6i.8xlarge")
 	InstanceType_C6i_12XLarge   = InstanceType("c6i.12xlarge")
 	InstanceType_C6i_16XLarge   = InstanceType("c6i.16xlarge")
 	InstanceType_C6i_24XLarge   = InstanceType("c6i.24xlarge")
+	InstanceType_C6i_2XLarge    = InstanceType("c6i.2xlarge")
 	InstanceType_C6i_32XLarge   = InstanceType("c6i.32xlarge")
+	InstanceType_C6i_4XLarge    = InstanceType("c6i.4xlarge")
+	InstanceType_C6i_8XLarge    = InstanceType("c6i.8xlarge")
+	InstanceType_C6i_Large      = InstanceType("c6i.large")
 	InstanceType_C6i_Metal      = InstanceType("c6i.metal")
-	InstanceType_C6id_Large     = InstanceType("c6id.large")
-	InstanceType_C6id_XLarge    = InstanceType("c6id.xlarge")
-	InstanceType_C6id_2XLarge   = InstanceType("c6id.2xlarge")
-	InstanceType_C6id_4XLarge   = InstanceType("c6id.4xlarge")
-	InstanceType_C6id_8XLarge   = InstanceType("c6id.8xlarge")
+	InstanceType_C6i_XLarge     = InstanceType("c6i.xlarge")
 	InstanceType_C6id_12XLarge  = InstanceType("c6id.12xlarge")
 	InstanceType_C6id_16XLarge  = InstanceType("c6id.16xlarge")
 	InstanceType_C6id_24XLarge  = InstanceType("c6id.24xlarge")
+	InstanceType_C6id_2XLarge   = InstanceType("c6id.2xlarge")
 	InstanceType_C6id_32XLarge  = InstanceType("c6id.32xlarge")
+	InstanceType_C6id_4XLarge   = InstanceType("c6id.4xlarge")
+	InstanceType_C6id_8XLarge   = InstanceType("c6id.8xlarge")
+	InstanceType_C6id_Large     = InstanceType("c6id.large")
 	InstanceType_C6id_Metal     = InstanceType("c6id.metal")
-	InstanceType_C7a_Medium     = InstanceType("c7a.medium")
-	InstanceType_C7a_Large      = InstanceType("c7a.large")
-	InstanceType_C7a_XLarge     = InstanceType("c7a.xlarge")
-	InstanceType_C7a_2XLarge    = InstanceType("c7a.2xlarge")
-	InstanceType_C7a_4XLarge    = InstanceType("c7a.4xlarge")
-	InstanceType_C7a_8XLarge    = InstanceType("c7a.8xlarge")
+	InstanceType_C6id_XLarge    = InstanceType("c6id.xlarge")
 	InstanceType_C7a_12XLarge   = InstanceType("c7a.12xlarge")
 	InstanceType_C7a_16XLarge   = InstanceType("c7a.16xlarge")
 	InstanceType_C7a_24XLarge   = InstanceType("c7a.24xlarge")
+	InstanceType_C7a_2XLarge    = InstanceType("c7a.2xlarge")
 	InstanceType_C7a_32XLarge   = InstanceType("c7a.32xlarge")
 	InstanceType_C7a_48XLarge   = InstanceType("c7a.48xlarge")
+	InstanceType_C7a_4XLarge    = InstanceType("c7a.4xlarge")
+	InstanceType_C7a_8XLarge    = InstanceType("c7a.8xlarge")
+	InstanceType_C7a_Large      = InstanceType("c7a.large")
+	InstanceType_C7a_Medium     = InstanceType("c7a.medium")
 	InstanceType_C7a_Metal_48xl = InstanceType("c7a.metal-48xl")
+	InstanceType_C7a_XLarge     = InstanceType("c7a.xlarge")
 	InstanceType_Cc2_8XLarge    = InstanceType("cc2.8xlarge")
 	InstanceType_D2_2XLarge     = InstanceType("d2.2xlarge")
 	InstanceType_D2_4XLarge     = InstanceType("d2.4xlarge")
@@ -335,10 +335,10 @@ const (
 	InstanceType_G3_8XLarge     = InstanceType("g3.8xlarge")
 	InstanceType_G3s_XLarge     = InstanceType("g3s.xlarge")
 	InstanceType_G4ad_16XLarge  = InstanceType("g4ad.16xlarge")
-	InstanceType_G4ad_XLarge    = InstanceType("g4ad.xlarge")
 	InstanceType_G4ad_2XLarge   = InstanceType("g4ad.2xlarge")
 	InstanceType_G4ad_4XLarge   = InstanceType("g4ad.4xlarge")
 	InstanceType_G4ad_8XLarge   = InstanceType("g4ad.8xlarge")
+	InstanceType_G4ad_XLarge    = InstanceType("g4ad.xlarge")
 	InstanceType_G4dn_12XLarge  = InstanceType("g4dn.12xlarge")
 	InstanceType_G4dn_16XLarge  = InstanceType("g4dn.16xlarge")
 	InstanceType_G4dn_2XLarge   = InstanceType("g4dn.2xlarge")
@@ -346,14 +346,14 @@ const (
 	InstanceType_G4dn_8XLarge   = InstanceType("g4dn.8xlarge")
 	InstanceType_G4dn_Metal     = InstanceType("g4dn.metal")
 	InstanceType_G4dn_XLarge    = InstanceType("g4dn.xlarge")
-	InstanceType_G5_XLarge      = InstanceType("g5.xlarge")
-	InstanceType_G5_2XLarge     = InstanceType("g5.2xlarge")
-	InstanceType_G5_4XLarge     = InstanceType("g5.4xlarge")
-	InstanceType_G5_8XLarge     = InstanceType("g5.8xlarge")
 	InstanceType_G5_12XLarge    = InstanceType("g5.12xlarge")
 	InstanceType_G5_16XLarge    = InstanceType("g5.16xlarge")
 	InstanceType_G5_24XLarge    = InstanceType("g5.24xlarge")
+	InstanceType_G5_2XLarge     = InstanceType("g5.2xlarge")
 	InstanceType_G5_48XLarge    = InstanceType("g5.48xlarge")
+	InstanceType_G5_4XLarge     = InstanceType("g5.4xlarge")
+	InstanceType_G5_8XLarge     = InstanceType("g5.8xlarge")
+	InstanceType_G5_XLarge      = InstanceType("g5.xlarge")
 	InstanceType_H1_16XLarge    = InstanceType("h1.16xlarge")
 	InstanceType_H1_2XLarge     = InstanceType("h1.2xlarge")
 	InstanceType_H1_4XLarge     = InstanceType("h1.4xlarge")
@@ -367,8 +367,8 @@ const (
 	InstanceType_I3_4XLarge     = InstanceType("i3.4xlarge")
 	InstanceType_I3_8XLarge     = InstanceType("i3.8xlarge")
 	InstanceType_I3_Large       = InstanceType("i3.large")
-	InstanceType_I3_XLarge      = InstanceType("i3.xlarge")
 	InstanceType_I3_Metal       = InstanceType("i3.metal")
+	InstanceType_I3_XLarge      = InstanceType("i3.xlarge")
 	InstanceType_I3en_12XLarge  = InstanceType("i3en.12xlarge")
 	InstanceType_I3en_24XLarge  = InstanceType("i3en.24xlarge")
 	InstanceType_I3en_2XLarge   = InstanceType("i3en.2xlarge")
@@ -455,17 +455,17 @@ const (
 	InstanceType_M5zn_Large     = InstanceType("m5zn.large")
 	InstanceType_M5zn_Metal     = InstanceType("m5zn.metal")
 	InstanceType_M5zn_XLarge    = InstanceType("m5zn.xlarge")
-	InstanceType_M6a_Large      = InstanceType("m6a.large")
-	InstanceType_M6a_Metal      = InstanceType("m6a.metal")
-	InstanceType_M6a_XLarge     = InstanceType("m6a.xlarge")
-	InstanceType_M6a_2XLarge    = InstanceType("m6a.2xlarge")
-	InstanceType_M6a_4XLarge    = InstanceType("m6a.4xlarge")
-	InstanceType_M6a_8XLarge    = InstanceType("m6a.8xlarge")
 	InstanceType_M6a_12XLarge   = InstanceType("m6a.12xlarge")
 	InstanceType_M6a_16XLarge   = InstanceType("m6a.16xlarge")
 	InstanceType_M6a_24XLarge   = InstanceType("m6a.24xlarge")
+	InstanceType_M6a_2XLarge    = InstanceType("m6a.2xlarge")
 	InstanceType_M6a_32XLarge   = InstanceType("m6a.32xlarge")
 	InstanceType_M6a_48XLarge   = InstanceType("m6a.48xlarge")
+	InstanceType_M6a_4XLarge    = InstanceType("m6a.4xlarge")
+	InstanceType_M6a_8XLarge    = InstanceType("m6a.8xlarge")
+	InstanceType_M6a_Large      = InstanceType("m6a.large")
+	InstanceType_M6a_Metal      = InstanceType("m6a.metal")
+	InstanceType_M6a_XLarge     = InstanceType("m6a.xlarge")
 	InstanceType_M6g_12XLarge   = InstanceType("m6g.12xlarge")
 	InstanceType_M6g_16XLarge   = InstanceType("m6g.16xlarge")
 	InstanceType_M6g_2XLarge    = InstanceType("m6g.2xlarge")
@@ -484,38 +484,38 @@ const (
 	InstanceType_M6gd_Medium    = InstanceType("m6gd.medium")
 	InstanceType_M6gd_Metal     = InstanceType("m6gd.metal")
 	InstanceType_M6gd_XLarge    = InstanceType("m6gd.xlarge")
-	InstanceType_M6i_Large      = InstanceType("m6i.large")
-	InstanceType_M6i_XLarge     = InstanceType("m6i.xlarge")
-	InstanceType_M6i_2XLarge    = InstanceType("m6i.2xlarge")
-	InstanceType_M6i_4XLarge    = InstanceType("m6i.4xlarge")
-	InstanceType_M6i_8XLarge    = InstanceType("m6i.8xlarge")
 	InstanceType_M6i_12XLarge   = InstanceType("m6i.12xlarge")
 	InstanceType_M6i_16XLarge   = InstanceType("m6i.16xlarge")
 	InstanceType_M6i_24XLarge   = InstanceType("m6i.24xlarge")
+	InstanceType_M6i_2XLarge    = InstanceType("m6i.2xlarge")
 	InstanceType_M6i_32XLarge   = InstanceType("m6i.32xlarge")
+	InstanceType_M6i_4XLarge    = InstanceType("m6i.4xlarge")
+	InstanceType_M6i_8XLarge    = InstanceType("m6i.8xlarge")
+	InstanceType_M6i_Large      = InstanceType("m6i.large")
 	InstanceType_M6i_Metal      = InstanceType("m6i.metal")
-	InstanceType_M6id_Large     = InstanceType("m6id.large")
-	InstanceType_M6id_XLarge    = InstanceType("m6id.xlarge")
-	InstanceType_M6id_2XLarge   = InstanceType("m6id.2xlarge")
-	InstanceType_M6id_4XLarge   = InstanceType("m6id.4xlarge")
-	InstanceType_M6id_8XLarge   = InstanceType("m6id.8xlarge")
+	InstanceType_M6i_XLarge     = InstanceType("m6i.xlarge")
 	InstanceType_M6id_12XLarge  = InstanceType("m6id.12xlarge")
 	InstanceType_M6id_16XLarge  = InstanceType("m6id.16xlarge")
 	InstanceType_M6id_24XLarge  = InstanceType("m6id.24xlarge")
+	InstanceType_M6id_2XLarge   = InstanceType("m6id.2xlarge")
 	InstanceType_M6id_32XLarge  = InstanceType("m6id.32xlarge")
+	InstanceType_M6id_4XLarge   = InstanceType("m6id.4xlarge")
+	InstanceType_M6id_8XLarge   = InstanceType("m6id.8xlarge")
+	InstanceType_M6id_Large     = InstanceType("m6id.large")
 	InstanceType_M6id_Metal     = InstanceType("m6id.metal")
-	InstanceType_M7a_Medium     = InstanceType("m7a.medium")
-	InstanceType_M7a_Large      = InstanceType("m7a.large")
-	InstanceType_M7a_XLarge     = InstanceType("m7a.xlarge")
-	InstanceType_M7a_2XLarge    = InstanceType("m7a.2xlarge")
-	InstanceType_M7a_4XLarge    = InstanceType("m7a.4xlarge")
-	InstanceType_M7a_8XLarge    = InstanceType("m7a.8xlarge")
+	InstanceType_M6id_XLarge    = InstanceType("m6id.xlarge")
 	InstanceType_M7a_12XLarge   = InstanceType("m7a.12xlarge")
 	InstanceType_M7a_16XLarge   = InstanceType("m7a.16xlarge")
 	InstanceType_M7a_24XLarge   = InstanceType("m7a.24xlarge")
+	InstanceType_M7a_2XLarge    = InstanceType("m7a.2xlarge")
 	InstanceType_M7a_32XLarge   = InstanceType("m7a.32xlarge")
 	InstanceType_M7a_48XLarge   = InstanceType("m7a.48xlarge")
+	InstanceType_M7a_4XLarge    = InstanceType("m7a.4xlarge")
+	InstanceType_M7a_8XLarge    = InstanceType("m7a.8xlarge")
+	InstanceType_M7a_Large      = InstanceType("m7a.large")
+	InstanceType_M7a_Medium     = InstanceType("m7a.medium")
 	InstanceType_M7a_Metal_48xl = InstanceType("m7a.metal-48xl")
+	InstanceType_M7a_XLarge     = InstanceType("m7a.xlarge")
 	InstanceType_Mac1_Metal     = InstanceType("mac1.metal")
 	InstanceType_P2_16XLarge    = InstanceType("p2.16xlarge")
 	InstanceType_P2_8XLarge     = InstanceType("p2.8xlarge")
@@ -586,8 +586,8 @@ const (
 	InstanceType_R5dn_4XLarge   = InstanceType("r5dn.4xlarge")
 	InstanceType_R5dn_8XLarge   = InstanceType("r5dn.8xlarge")
 	InstanceType_R5dn_Large     = InstanceType("r5dn.large")
-	InstanceType_R5dn_XLarge    = InstanceType("r5dn.xlarge")
 	InstanceType_R5dn_Metal     = InstanceType("r5dn.metal")
+	InstanceType_R5dn_XLarge    = InstanceType("r5dn.xlarge")
 	InstanceType_R5n_12XLarge   = InstanceType("r5n.12xlarge")
 	InstanceType_R5n_16XLarge   = InstanceType("r5n.16xlarge")
 	InstanceType_R5n_24XLarge   = InstanceType("r5n.24xlarge")
@@ -614,26 +614,26 @@ const (
 	InstanceType_R6gd_Medium    = InstanceType("r6gd.medium")
 	InstanceType_R6gd_Metal     = InstanceType("r6gd.metal")
 	InstanceType_R6gd_XLarge    = InstanceType("r6gd.xlarge")
-	InstanceType_R6i_Large      = InstanceType("r6i.large")
-	InstanceType_R6i_XLarge     = InstanceType("r6i.xlarge")
-	InstanceType_R6i_2XLarge    = InstanceType("r6i.2xlarge")
-	InstanceType_R6i_4XLarge    = InstanceType("r6i.4xlarge")
-	InstanceType_R6i_8XLarge    = InstanceType("r6i.8xlarge")
 	InstanceType_R6i_12XLarge   = InstanceType("r6i.12xlarge")
 	InstanceType_R6i_16XLarge   = InstanceType("r6i.16xlarge")
 	InstanceType_R6i_24XLarge   = InstanceType("r6i.24xlarge")
+	InstanceType_R6i_2XLarge    = InstanceType("r6i.2xlarge")
 	InstanceType_R6i_32XLarge   = InstanceType("r6i.32xlarge")
+	InstanceType_R6i_4XLarge    = InstanceType("r6i.4xlarge")
+	InstanceType_R6i_8XLarge    = InstanceType("r6i.8xlarge")
+	InstanceType_R6i_Large      = InstanceType("r6i.large")
 	InstanceType_R6i_Metal      = InstanceType("r6i.metal")
-	InstanceType_R6id_Large     = InstanceType("r6id.large")
-	InstanceType_R6id_XLarge    = InstanceType("r6id.xlarge")
-	InstanceType_R6id_2XLarge   = InstanceType("r6id.2xlarge")
-	InstanceType_R6id_4XLarge   = InstanceType("r6id.4xlarge")
-	InstanceType_R6id_8XLarge   = InstanceType("r6id.8xlarge")
+	InstanceType_R6i_XLarge     = InstanceType("r6i.xlarge")
 	InstanceType_R6id_12XLarge  = InstanceType("r6id.12xlarge")
 	InstanceType_R6id_16XLarge  = InstanceType("r6id.16xlarge")
 	InstanceType_R6id_24XLarge  = InstanceType("r6id.24xlarge")
+	InstanceType_R6id_2XLarge   = InstanceType("r6id.2xlarge")
 	InstanceType_R6id_32XLarge  = InstanceType("r6id.32xlarge")
+	InstanceType_R6id_4XLarge   = InstanceType("r6id.4xlarge")
+	InstanceType_R6id_8XLarge   = InstanceType("r6id.8xlarge")
+	InstanceType_R6id_Large     = InstanceType("r6id.large")
 	InstanceType_R6id_Metal     = InstanceType("r6id.metal")
+	InstanceType_R6id_XLarge    = InstanceType("r6id.xlarge")
 	InstanceType_T1_Micro       = InstanceType("t1.micro")
 	InstanceType_T2_2XLarge     = InstanceType("t2.2xlarge")
 	InstanceType_T2_Large       = InstanceType("t2.large")
@@ -875,17 +875,17 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_C5n_Large
 //	InstanceType_C5n_Metal
 //	InstanceType_C5n_XLarge
-//	InstanceType_C6a_Large
-//	InstanceType_C6a_Metal
-//	InstanceType_C6a_XLarge
-//	InstanceType_C6a_2XLarge
-//	InstanceType_C6a_4XLarge
-//	InstanceType_C6a_8XLarge
 //	InstanceType_C6a_12XLarge
 //	InstanceType_C6a_16XLarge
 //	InstanceType_C6a_24XLarge
+//	InstanceType_C6a_2XLarge
 //	InstanceType_C6a_32XLarge
 //	InstanceType_C6a_48XLarge
+//	InstanceType_C6a_4XLarge
+//	InstanceType_C6a_8XLarge
+//	InstanceType_C6a_Large
+//	InstanceType_C6a_Metal
+//	InstanceType_C6a_XLarge
 //	InstanceType_C6g_12XLarge
 //	InstanceType_C6g_16XLarge
 //	InstanceType_C6g_2XLarge
@@ -904,38 +904,38 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_C6gd_Medium
 //	InstanceType_C6gd_Metal
 //	InstanceType_C6gd_XLarge
-//	InstanceType_C6i_Large
-//	InstanceType_C6i_XLarge
-//	InstanceType_C6i_2XLarge
-//	InstanceType_C6i_4XLarge
-//	InstanceType_C6i_8XLarge
 //	InstanceType_C6i_12XLarge
 //	InstanceType_C6i_16XLarge
 //	InstanceType_C6i_24XLarge
+//	InstanceType_C6i_2XLarge
 //	InstanceType_C6i_32XLarge
+//	InstanceType_C6i_4XLarge
+//	InstanceType_C6i_8XLarge
+//	InstanceType_C6i_Large
 //	InstanceType_C6i_Metal
-//	InstanceType_C6id_Large
-//	InstanceType_C6id_XLarge
-//	InstanceType_C6id_2XLarge
-//	InstanceType_C6id_4XLarge
-//	InstanceType_C6id_8XLarge
+//	InstanceType_C6i_XLarge
 //	InstanceType_C6id_12XLarge
 //	InstanceType_C6id_16XLarge
 //	InstanceType_C6id_24XLarge
+//	InstanceType_C6id_2XLarge
 //	InstanceType_C6id_32XLarge
+//	InstanceType_C6id_4XLarge
+//	InstanceType_C6id_8XLarge
+//	InstanceType_C6id_Large
 //	InstanceType_C6id_Metal
-//	InstanceType_C7a_Medium
-//	InstanceType_C7a_Large
-//	InstanceType_C7a_XLarge
-//	InstanceType_C7a_2XLarge
-//	InstanceType_C7a_4XLarge
-//	InstanceType_C7a_8XLarge
+//	InstanceType_C6id_XLarge
 //	InstanceType_C7a_12XLarge
 //	InstanceType_C7a_16XLarge
 //	InstanceType_C7a_24XLarge
+//	InstanceType_C7a_2XLarge
 //	InstanceType_C7a_32XLarge
 //	InstanceType_C7a_48XLarge
+//	InstanceType_C7a_4XLarge
+//	InstanceType_C7a_8XLarge
+//	InstanceType_C7a_Large
+//	InstanceType_C7a_Medium
 //	InstanceType_C7a_Metal_48xl
+//	InstanceType_C7a_XLarge
 //	InstanceType_Cc2_8XLarge
 //	InstanceType_D2_2XLarge
 //	InstanceType_D2_4XLarge
@@ -961,10 +961,10 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_G3_8XLarge
 //	InstanceType_G3s_XLarge
 //	InstanceType_G4ad_16XLarge
-//	InstanceType_G4ad_XLarge
 //	InstanceType_G4ad_2XLarge
 //	InstanceType_G4ad_4XLarge
 //	InstanceType_G4ad_8XLarge
+//	InstanceType_G4ad_XLarge
 //	InstanceType_G4dn_12XLarge
 //	InstanceType_G4dn_16XLarge
 //	InstanceType_G4dn_2XLarge
@@ -972,14 +972,14 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_G4dn_8XLarge
 //	InstanceType_G4dn_Metal
 //	InstanceType_G4dn_XLarge
-//	InstanceType_G5_XLarge
-//	InstanceType_G5_2XLarge
-//	InstanceType_G5_4XLarge
-//	InstanceType_G5_8XLarge
 //	InstanceType_G5_12XLarge
 //	InstanceType_G5_16XLarge
 //	InstanceType_G5_24XLarge
+//	InstanceType_G5_2XLarge
 //	InstanceType_G5_48XLarge
+//	InstanceType_G5_4XLarge
+//	InstanceType_G5_8XLarge
+//	InstanceType_G5_XLarge
 //	InstanceType_H1_16XLarge
 //	InstanceType_H1_2XLarge
 //	InstanceType_H1_4XLarge
@@ -993,8 +993,8 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_I3_4XLarge
 //	InstanceType_I3_8XLarge
 //	InstanceType_I3_Large
-//	InstanceType_I3_XLarge
 //	InstanceType_I3_Metal
+//	InstanceType_I3_XLarge
 //	InstanceType_I3en_12XLarge
 //	InstanceType_I3en_24XLarge
 //	InstanceType_I3en_2XLarge
@@ -1081,17 +1081,17 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_M5zn_Large
 //	InstanceType_M5zn_Metal
 //	InstanceType_M5zn_XLarge
-//	InstanceType_M6a_Large
-//	InstanceType_M6a_Metal
-//	InstanceType_M6a_XLarge
-//	InstanceType_M6a_2XLarge
-//	InstanceType_M6a_4XLarge
-//	InstanceType_M6a_8XLarge
 //	InstanceType_M6a_12XLarge
 //	InstanceType_M6a_16XLarge
 //	InstanceType_M6a_24XLarge
+//	InstanceType_M6a_2XLarge
 //	InstanceType_M6a_32XLarge
 //	InstanceType_M6a_48XLarge
+//	InstanceType_M6a_4XLarge
+//	InstanceType_M6a_8XLarge
+//	InstanceType_M6a_Large
+//	InstanceType_M6a_Metal
+//	InstanceType_M6a_XLarge
 //	InstanceType_M6g_12XLarge
 //	InstanceType_M6g_16XLarge
 //	InstanceType_M6g_2XLarge
@@ -1110,38 +1110,38 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_M6gd_Medium
 //	InstanceType_M6gd_Metal
 //	InstanceType_M6gd_XLarge
-//	InstanceType_M6i_Large
-//	InstanceType_M6i_XLarge
-//	InstanceType_M6i_2XLarge
-//	InstanceType_M6i_4XLarge
-//	InstanceType_M6i_8XLarge
 //	InstanceType_M6i_12XLarge
 //	InstanceType_M6i_16XLarge
 //	InstanceType_M6i_24XLarge
+//	InstanceType_M6i_2XLarge
 //	InstanceType_M6i_32XLarge
+//	InstanceType_M6i_4XLarge
+//	InstanceType_M6i_8XLarge
+//	InstanceType_M6i_Large
 //	InstanceType_M6i_Metal
-//	InstanceType_M6id_Large
-//	InstanceType_M6id_XLarge
-//	InstanceType_M6id_2XLarge
-//	InstanceType_M6id_4XLarge
-//	InstanceType_M6id_8XLarge
+//	InstanceType_M6i_XLarge
 //	InstanceType_M6id_12XLarge
 //	InstanceType_M6id_16XLarge
 //	InstanceType_M6id_24XLarge
+//	InstanceType_M6id_2XLarge
 //	InstanceType_M6id_32XLarge
+//	InstanceType_M6id_4XLarge
+//	InstanceType_M6id_8XLarge
+//	InstanceType_M6id_Large
 //	InstanceType_M6id_Metal
-//	InstanceType_M7a_Medium
-//	InstanceType_M7a_Large
-//	InstanceType_M7a_XLarge
-//	InstanceType_M7a_2XLarge
-//	InstanceType_M7a_4XLarge
-//	InstanceType_M7a_8XLarge
+//	InstanceType_M6id_XLarge
 //	InstanceType_M7a_12XLarge
 //	InstanceType_M7a_16XLarge
 //	InstanceType_M7a_24XLarge
+//	InstanceType_M7a_2XLarge
 //	InstanceType_M7a_32XLarge
 //	InstanceType_M7a_48XLarge
+//	InstanceType_M7a_4XLarge
+//	InstanceType_M7a_8XLarge
+//	InstanceType_M7a_Large
+//	InstanceType_M7a_Medium
 //	InstanceType_M7a_Metal_48xl
+//	InstanceType_M7a_XLarge
 //	InstanceType_Mac1_Metal
 //	InstanceType_P2_16XLarge
 //	InstanceType_P2_8XLarge
@@ -1212,8 +1212,8 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_R5dn_4XLarge
 //	InstanceType_R5dn_8XLarge
 //	InstanceType_R5dn_Large
-//	InstanceType_R5dn_XLarge
 //	InstanceType_R5dn_Metal
+//	InstanceType_R5dn_XLarge
 //	InstanceType_R5n_12XLarge
 //	InstanceType_R5n_16XLarge
 //	InstanceType_R5n_24XLarge
@@ -1240,26 +1240,26 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_R6gd_Medium
 //	InstanceType_R6gd_Metal
 //	InstanceType_R6gd_XLarge
-//	InstanceType_R6i_Large
-//	InstanceType_R6i_XLarge
-//	InstanceType_R6i_2XLarge
-//	InstanceType_R6i_4XLarge
-//	InstanceType_R6i_8XLarge
 //	InstanceType_R6i_12XLarge
 //	InstanceType_R6i_16XLarge
 //	InstanceType_R6i_24XLarge
+//	InstanceType_R6i_2XLarge
 //	InstanceType_R6i_32XLarge
+//	InstanceType_R6i_4XLarge
+//	InstanceType_R6i_8XLarge
+//	InstanceType_R6i_Large
 //	InstanceType_R6i_Metal
-//	InstanceType_R6id_Large
-//	InstanceType_R6id_XLarge
-//	InstanceType_R6id_2XLarge
-//	InstanceType_R6id_4XLarge
-//	InstanceType_R6id_8XLarge
+//	InstanceType_R6i_XLarge
 //	InstanceType_R6id_12XLarge
 //	InstanceType_R6id_16XLarge
 //	InstanceType_R6id_24XLarge
+//	InstanceType_R6id_2XLarge
 //	InstanceType_R6id_32XLarge
+//	InstanceType_R6id_4XLarge
+//	InstanceType_R6id_8XLarge
+//	InstanceType_R6id_Large
 //	InstanceType_R6id_Metal
+//	InstanceType_R6id_XLarge
 //	InstanceType_T1_Micro
 //	InstanceType_T2_2XLarge
 //	InstanceType_T2_Large
