@@ -23,7 +23,7 @@ const aliasAutoPrefixedWithAlias = new aws.kms.Alias("should-be-prefixed", {targ
 
 const aliasWithDedicatedName = new aws.kms.Alias("wont-be-autonamed", {
     targetKeyId: key.keyId,
-    name: "alias/my-decicated-name"
+    namePrefix: "alias/my-decicated-name-"
 }, providerOpts);
 
 export const autonamedAlias = aliasAutoPrefixedWithAlias.name;
