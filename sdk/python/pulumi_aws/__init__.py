@@ -8687,6 +8687,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "redshift/logging",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/logging:Logging": "Logging"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "redshift/parameterGroup",
   "fqn": "pulumi_aws.redshift",
   "classes": {
@@ -8715,6 +8723,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/scheduledAction:ScheduledAction": "ScheduledAction"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/snapshotCopy",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/snapshotCopy:SnapshotCopy": "SnapshotCopy"
   }
  },
  {

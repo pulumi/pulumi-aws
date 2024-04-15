@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HsmClientCertificate{}
 	case "aws:redshift/hsmConfiguration:HsmConfiguration":
 		r = &HsmConfiguration{}
+	case "aws:redshift/logging:Logging":
+		r = &Logging{}
 	case "aws:redshift/parameterGroup:ParameterGroup":
 		r = &ParameterGroup{}
 	case "aws:redshift/partner:Partner":
@@ -51,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResourcePolicy{}
 	case "aws:redshift/scheduledAction:ScheduledAction":
 		r = &ScheduledAction{}
+	case "aws:redshift/snapshotCopy:SnapshotCopy":
+		r = &SnapshotCopy{}
 	case "aws:redshift/snapshotCopyGrant:SnapshotCopyGrant":
 		r = &SnapshotCopyGrant{}
 	case "aws:redshift/snapshotSchedule:SnapshotSchedule":
@@ -131,6 +135,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"redshift/logging",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"redshift/parameterGroup",
 		&module{version},
 	)
@@ -147,6 +156,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"redshift/scheduledAction",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"redshift/snapshotCopy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

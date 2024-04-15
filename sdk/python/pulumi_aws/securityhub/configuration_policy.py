@@ -196,7 +196,6 @@ class ConfigurationPolicy(pulumi.CustomResource):
             description="This is an example of disabled configuration policy",
             configuration_policy=aws.securityhub.ConfigurationPolicyConfigurationPolicyArgs(
                 service_enabled=False,
-                enabled_standard_arns=[],
             ),
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
@@ -331,7 +330,6 @@ class ConfigurationPolicy(pulumi.CustomResource):
             description="This is an example of disabled configuration policy",
             configuration_policy=aws.securityhub.ConfigurationPolicyConfigurationPolicyArgs(
                 service_enabled=False,
-                enabled_standard_arns=[],
             ),
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```

@@ -183,6 +183,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("bcmdataexports")]
+        public Input<string>? Bcmdataexports { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("beanstalk")]
         public Input<string>? Beanstalk { get; set; }
 
@@ -1115,6 +1121,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("neptune")]
         public Input<string>? Neptune { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("neptunegraph")]
+        public Input<string>? Neptunegraph { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

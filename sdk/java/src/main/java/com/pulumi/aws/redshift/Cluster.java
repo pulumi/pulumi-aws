@@ -494,16 +494,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * Logging, documented below.
      * 
+     * @deprecated
+     * Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
+     * 
      */
+    @Deprecated /* Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
     @Export(name="logging", refs={ClusterLogging.class}, tree="[0]")
-    private Output</* @Nullable */ ClusterLogging> logging;
+    private Output<ClusterLogging> logging;
 
     /**
      * @return Logging, documented below.
      * 
      */
-    public Output<Optional<ClusterLogging>> logging() {
-        return Codegen.optional(this.logging);
+    public Output<ClusterLogging> logging() {
+        return this.logging;
     }
     /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
@@ -766,16 +770,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
      * 
+     * @deprecated
+     * Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+     * 
      */
+    @Deprecated /* Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
     @Export(name="snapshotCopy", refs={ClusterSnapshotCopy.class}, tree="[0]")
-    private Output</* @Nullable */ ClusterSnapshotCopy> snapshotCopy;
+    private Output<ClusterSnapshotCopy> snapshotCopy;
 
     /**
      * @return Configuration of automatic copy of snapshots from one region to another. Documented below.
      * 
      */
-    public Output<Optional<ClusterSnapshotCopy>> snapshotCopy() {
-        return Codegen.optional(this.snapshotCopy);
+    public Output<ClusterSnapshotCopy> snapshotCopy() {
+        return this.snapshotCopy;
     }
     /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.

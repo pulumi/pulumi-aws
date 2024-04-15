@@ -439,6 +439,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="bcmdataexports")
+    private @Nullable Output<String> bcmdataexports;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> bcmdataexports() {
+        return Optional.ofNullable(this.bcmdataexports);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="beanstalk")
     private @Nullable Output<String> beanstalk;
 
@@ -2779,6 +2794,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="neptunegraph")
+    private @Nullable Output<String> neptunegraph;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> neptunegraph() {
+        return Optional.ofNullable(this.neptunegraph);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="networkfirewall")
     private @Nullable Output<String> networkfirewall;
 
@@ -4186,6 +4216,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.autoscalingplans = $.autoscalingplans;
         this.backup = $.backup;
         this.batch = $.batch;
+        this.bcmdataexports = $.bcmdataexports;
         this.beanstalk = $.beanstalk;
         this.bedrock = $.bedrock;
         this.bedrockagent = $.bedrockagent;
@@ -4342,6 +4373,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.msk = $.msk;
         this.mwaa = $.mwaa;
         this.neptune = $.neptune;
+        this.neptunegraph = $.neptunegraph;
         this.networkfirewall = $.networkfirewall;
         this.networkmanager = $.networkmanager;
         this.oam = $.oam;
@@ -5040,6 +5072,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder batch(String batch) {
             return batch(Output.of(batch));
+        }
+
+        /**
+         * @param bcmdataexports Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bcmdataexports(@Nullable Output<String> bcmdataexports) {
+            $.bcmdataexports = bcmdataexports;
+            return this;
+        }
+
+        /**
+         * @param bcmdataexports Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bcmdataexports(String bcmdataexports) {
+            return bcmdataexports(Output.of(bcmdataexports));
         }
 
         /**
@@ -8316,6 +8369,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder neptune(String neptune) {
             return neptune(Output.of(neptune));
+        }
+
+        /**
+         * @param neptunegraph Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder neptunegraph(@Nullable Output<String> neptunegraph) {
+            $.neptunegraph = neptunegraph;
+            return this;
+        }
+
+        /**
+         * @param neptunegraph Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder neptunegraph(String neptunegraph) {
+            return neptunegraph(Output.of(neptunegraph));
         }
 
         /**

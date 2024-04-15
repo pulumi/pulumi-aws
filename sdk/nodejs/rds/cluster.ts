@@ -8,22 +8,18 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `aws.rds.ClusterInstance` resource. To manage non-Aurora databases (e.g., MySQL, PostgreSQL, SQL Server, etc.), see the `aws.rds.Instance` resource.
+ * Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Aurora.html) or a [RDS Multi-AZ DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `aws.rds.ClusterInstance` resource. To manage non-Aurora DB instances (e.g., MySQL, PostgreSQL, SQL Server, etc.), see the `aws.rds.Instance` resource.
  *
- * For information on the difference between the available Aurora MySQL engines
- * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
- * in the Amazon RDS User Guide.
+ * For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
  *
- * Changes to an RDS Cluster can occur when you manually change a
- * parameter, such as `port`, and are reflected in the next maintenance
- * window. Because of this, this provider may report a difference in its planning
- * phase because a modification has not yet taken place. You can use the
- * `applyImmediately` flag to instruct the service to apply the change immediately
- * (see documentation below).
+ * Changes to an RDS Cluster can occur when you manually change a parameter, such as `port`, and are reflected in the next maintenance window. Because of this, this provider may report a difference in its planning phase because a modification has not yet taken place. You can use the `applyImmediately` flag to instruct the service to apply the change immediately (see documentation below).
  *
- * > **Note:** using `applyImmediately` can result in a
- * brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html)
- * for more information.
+ * > **Note:** Multi-AZ DB clusters are supported only for the MySQL and PostgreSQL DB engines.
+ *
+ * > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html) for more information.
+ *
+ * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
+ * **NOTE on RDS Clusters and RDS Cluster Role Associations:** Pulumi provides both a standalone RDS Cluster Role Association - (an association between an RDS Cluster and a single IAM Role) and an RDS Cluster resource with `iamRoles` attributes. Use one resource or the other to associate IAM Roles and RDS Clusters. Not doing so will cause a conflict of associations and will result in the association being overwritten.
  *
  * ## Example Usage
  *
@@ -320,7 +316,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
     /**
-     * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+     * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
@@ -387,7 +383,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string>;
     /**
-     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     public readonly engineMode!: pulumi.Output<string | undefined>;
     /**
@@ -431,7 +427,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly manageMasterUserPassword!: pulumi.Output<boolean | undefined>;
     /**
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     public readonly masterPassword!: pulumi.Output<string | undefined>;
     /**
@@ -443,7 +439,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly masterUserSecrets!: pulumi.Output<outputs.rds.ClusterMasterUserSecret[]>;
     /**
-     * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+     * Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     public readonly masterUsername!: pulumi.Output<string>;
     /**
@@ -472,7 +468,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+     * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
      */
     public readonly restoreToPointInTime!: pulumi.Output<outputs.rds.ClusterRestoreToPointInTime | undefined>;
     public readonly s3Import!: pulumi.Output<outputs.rds.ClusterS3Import | undefined>;
@@ -723,7 +719,7 @@ export interface ClusterState {
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
-     * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+     * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      */
     databaseName?: pulumi.Input<string>;
     /**
@@ -790,7 +786,7 @@ export interface ClusterState {
      */
     engine?: pulumi.Input<string | enums.rds.EngineType>;
     /**
-     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
     /**
@@ -834,7 +830,7 @@ export interface ClusterState {
      */
     manageMasterUserPassword?: pulumi.Input<boolean>;
     /**
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     masterPassword?: pulumi.Input<string>;
     /**
@@ -846,7 +842,7 @@ export interface ClusterState {
      */
     masterUserSecrets?: pulumi.Input<pulumi.Input<inputs.rds.ClusterMasterUserSecret>[]>;
     /**
-     * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+     * Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     masterUsername?: pulumi.Input<string>;
     /**
@@ -875,7 +871,7 @@ export interface ClusterState {
      */
     replicationSourceIdentifier?: pulumi.Input<string>;
     /**
-     * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+     * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
      */
     restoreToPointInTime?: pulumi.Input<inputs.rds.ClusterRestoreToPointInTime>;
     s3Import?: pulumi.Input<inputs.rds.ClusterS3Import>;
@@ -971,7 +967,7 @@ export interface ClusterArgs {
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
-     * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
+     * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      */
     databaseName?: pulumi.Input<string>;
     /**
@@ -1034,7 +1030,7 @@ export interface ClusterArgs {
      */
     engine: pulumi.Input<string | enums.rds.EngineType>;
     /**
-     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
     /**
@@ -1070,7 +1066,7 @@ export interface ClusterArgs {
      */
     manageMasterUserPassword?: pulumi.Input<boolean>;
     /**
-     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
      */
     masterPassword?: pulumi.Input<string>;
     /**
@@ -1078,7 +1074,7 @@ export interface ClusterArgs {
      */
     masterUserSecretKmsKeyId?: pulumi.Input<string>;
     /**
-     * Username for the master DB user. Please refer to the [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
+     * Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      */
     masterUsername?: pulumi.Input<string>;
     /**
@@ -1102,7 +1098,7 @@ export interface ClusterArgs {
      */
     replicationSourceIdentifier?: pulumi.Input<string>;
     /**
-     * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PIT.html). More details below.
+     * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
      */
     restoreToPointInTime?: pulumi.Input<inputs.rds.ClusterRestoreToPointInTime>;
     s3Import?: pulumi.Input<inputs.rds.ClusterS3Import>;

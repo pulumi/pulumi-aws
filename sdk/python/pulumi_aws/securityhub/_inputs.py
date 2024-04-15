@@ -2929,30 +2929,19 @@ class AutomationRuleCriteriaWorkflowStatusArgs:
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicyArgs:
     def __init__(__self__, *,
-                 enabled_standard_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  service_enabled: pulumi.Input[bool],
+                 enabled_standard_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_controls_configuration: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_standard_arns: A list that defines which security standards are enabled in the configuration policy.
         :param pulumi.Input[bool] service_enabled: Indicates whether Security Hub is enabled in the policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_standard_arns: A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
         :param pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs'] security_controls_configuration: Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
         """
-        pulumi.set(__self__, "enabled_standard_arns", enabled_standard_arns)
         pulumi.set(__self__, "service_enabled", service_enabled)
+        if enabled_standard_arns is not None:
+            pulumi.set(__self__, "enabled_standard_arns", enabled_standard_arns)
         if security_controls_configuration is not None:
             pulumi.set(__self__, "security_controls_configuration", security_controls_configuration)
-
-    @property
-    @pulumi.getter(name="enabledStandardArns")
-    def enabled_standard_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list that defines which security standards are enabled in the configuration policy.
-        """
-        return pulumi.get(self, "enabled_standard_arns")
-
-    @enabled_standard_arns.setter
-    def enabled_standard_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "enabled_standard_arns", value)
 
     @property
     @pulumi.getter(name="serviceEnabled")
@@ -2965,6 +2954,18 @@ class ConfigurationPolicyConfigurationPolicyArgs:
     @service_enabled.setter
     def service_enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "service_enabled", value)
+
+    @property
+    @pulumi.getter(name="enabledStandardArns")
+    def enabled_standard_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
+        """
+        return pulumi.get(self, "enabled_standard_arns")
+
+    @enabled_standard_arns.setter
+    def enabled_standard_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "enabled_standard_arns", value)
 
     @property
     @pulumi.getter(name="securityControlsConfiguration")

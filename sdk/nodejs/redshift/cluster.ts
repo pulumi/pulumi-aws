@@ -198,8 +198,10 @@ export class Cluster extends pulumi.CustomResource {
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Logging, documented below.
+     *
+     * @deprecated Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
      */
-    public readonly logging!: pulumi.Output<outputs.redshift.ClusterLogging | undefined>;
+    public readonly logging!: pulumi.Output<outputs.redshift.ClusterLogging>;
     /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
      */
@@ -280,8 +282,10 @@ export class Cluster extends pulumi.CustomResource {
     public readonly snapshotClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
+     *
+     * @deprecated Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
      */
-    public readonly snapshotCopy!: pulumi.Output<outputs.redshift.ClusterSnapshotCopy | undefined>;
+    public readonly snapshotCopy!: pulumi.Output<outputs.redshift.ClusterSnapshotCopy>;
     /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      */
@@ -544,6 +548,8 @@ export interface ClusterState {
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Logging, documented below.
+     *
+     * @deprecated Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
      */
     logging?: pulumi.Input<inputs.redshift.ClusterLogging>;
     /**
@@ -626,6 +632,8 @@ export interface ClusterState {
     snapshotClusterIdentifier?: pulumi.Input<string>;
     /**
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
+     *
+     * @deprecated Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
      */
     snapshotCopy?: pulumi.Input<inputs.redshift.ClusterSnapshotCopy>;
     /**
@@ -748,6 +756,8 @@ export interface ClusterArgs {
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Logging, documented below.
+     *
+     * @deprecated Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
      */
     logging?: pulumi.Input<inputs.redshift.ClusterLogging>;
     /**
@@ -826,6 +836,8 @@ export interface ClusterArgs {
     snapshotClusterIdentifier?: pulumi.Input<string>;
     /**
      * Configuration of automatic copy of snapshots from one region to another. Documented below.
+     *
+     * @deprecated Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
      */
     snapshotCopy?: pulumi.Input<inputs.redshift.ClusterSnapshotCopy>;
     /**

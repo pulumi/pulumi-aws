@@ -6752,7 +6752,7 @@ func (o AutomationRuleCriteriaWorkflowStatusArrayOutput) Index(i pulumi.IntInput
 }
 
 type ConfigurationPolicyConfigurationPolicy struct {
-	// A list that defines which security standards are enabled in the configuration policy.
+	// A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
 	EnabledStandardArns []string `pulumi:"enabledStandardArns"`
 	// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
 	SecurityControlsConfiguration *ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration `pulumi:"securityControlsConfiguration"`
@@ -6772,7 +6772,7 @@ type ConfigurationPolicyConfigurationPolicyInput interface {
 }
 
 type ConfigurationPolicyConfigurationPolicyArgs struct {
-	// A list that defines which security standards are enabled in the configuration policy.
+	// A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
 	EnabledStandardArns pulumi.StringArrayInput `pulumi:"enabledStandardArns"`
 	// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
 	SecurityControlsConfiguration ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrInput `pulumi:"securityControlsConfiguration"`
@@ -6857,7 +6857,7 @@ func (o ConfigurationPolicyConfigurationPolicyOutput) ToConfigurationPolicyConfi
 	}).(ConfigurationPolicyConfigurationPolicyPtrOutput)
 }
 
-// A list that defines which security standards are enabled in the configuration policy.
+// A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
 func (o ConfigurationPolicyConfigurationPolicyOutput) EnabledStandardArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicy) []string { return v.EnabledStandardArns }).(pulumi.StringArrayOutput)
 }
@@ -6898,7 +6898,7 @@ func (o ConfigurationPolicyConfigurationPolicyPtrOutput) Elem() ConfigurationPol
 	}).(ConfigurationPolicyConfigurationPolicyOutput)
 }
 
-// A list that defines which security standards are enabled in the configuration policy.
+// A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
 func (o ConfigurationPolicyConfigurationPolicyPtrOutput) EnabledStandardArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicy) []string {
 		if v == nil {

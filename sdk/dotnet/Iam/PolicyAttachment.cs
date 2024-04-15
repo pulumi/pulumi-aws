@@ -10,14 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam
 {
     /// <summary>
-    /// Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
-    /// 
-    /// !&gt; **WARNING:** The aws.iam.PolicyAttachment resource creates **exclusive** attachments of IAM policies. Across the entire AWS account, all of the users/roles/groups to which a single policy is attached must be declared by a single aws.iam.PolicyAttachment resource. This means that even any users/roles/groups that have the attached policy via any other mechanism (including other resources managed by this provider) will have that attached policy revoked by this resource. Consider `aws.iam.RolePolicyAttachment`, `aws.iam.UserPolicyAttachment`, or `aws.iam.GroupPolicyAttachment` instead. These resources do not enforce exclusive attachment of an IAM policy.
-    /// 
-    /// &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.GroupPolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.UserPolicyAttachment` resources and will permanently show a difference if both are defined.
-    /// 
-    /// &gt; **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and the provider will show a permanent difference.
-    /// 
     /// ## Example Usage
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;
@@ -123,31 +115,31 @@ namespace Pulumi.Aws.Iam
     public partial class PolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The group(s) the policy should be applied to
+        /// Group(s) the policy should be applied to.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the attachment. This cannot be an empty string.
+        /// Name of the attachment. This cannot be an empty string.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the policy you want to apply
+        /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         /// </summary>
         [Output("policyArn")]
         public Output<string> PolicyArn { get; private set; } = null!;
 
         /// <summary>
-        /// The role(s) the policy should be applied to
+        /// Role(s) the policy should be applied to.
         /// </summary>
         [Output("roles")]
         public Output<ImmutableArray<string>> Roles { get; private set; } = null!;
 
         /// <summary>
-        /// The user(s) the policy should be applied to
+        /// User(s) the policy should be applied to.
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<string>> Users { get; private set; } = null!;
@@ -202,7 +194,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _groups;
 
         /// <summary>
-        /// The group(s) the policy should be applied to
+        /// Group(s) the policy should be applied to.
         /// </summary>
         public InputList<string> Groups
         {
@@ -211,13 +203,13 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The name of the attachment. This cannot be an empty string.
+        /// Name of the attachment. This cannot be an empty string.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ARN of the policy you want to apply
+        /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         /// </summary>
         [Input("policyArn", required: true)]
         public Input<string> PolicyArn { get; set; } = null!;
@@ -226,7 +218,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _roles;
 
         /// <summary>
-        /// The role(s) the policy should be applied to
+        /// Role(s) the policy should be applied to.
         /// </summary>
         public InputList<string> Roles
         {
@@ -238,7 +230,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _users;
 
         /// <summary>
-        /// The user(s) the policy should be applied to
+        /// User(s) the policy should be applied to.
         /// </summary>
         public InputList<string> Users
         {
@@ -258,7 +250,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _groups;
 
         /// <summary>
-        /// The group(s) the policy should be applied to
+        /// Group(s) the policy should be applied to.
         /// </summary>
         public InputList<string> Groups
         {
@@ -267,13 +259,13 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The name of the attachment. This cannot be an empty string.
+        /// Name of the attachment. This cannot be an empty string.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ARN of the policy you want to apply
+        /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         /// </summary>
         [Input("policyArn")]
         public Input<string>? PolicyArn { get; set; }
@@ -282,7 +274,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _roles;
 
         /// <summary>
-        /// The role(s) the policy should be applied to
+        /// Role(s) the policy should be applied to.
         /// </summary>
         public InputList<string> Roles
         {
@@ -294,7 +286,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _users;
 
         /// <summary>
-        /// The user(s) the policy should be applied to
+        /// User(s) the policy should be applied to.
         /// </summary>
         public InputList<string> Users
         {

@@ -337,6 +337,7 @@ class ProviderEndpointArgs:
                  autoscalingplans: Optional[pulumi.Input[str]] = None,
                  backup: Optional[pulumi.Input[str]] = None,
                  batch: Optional[pulumi.Input[str]] = None,
+                 bcmdataexports: Optional[pulumi.Input[str]] = None,
                  beanstalk: Optional[pulumi.Input[str]] = None,
                  bedrock: Optional[pulumi.Input[str]] = None,
                  bedrockagent: Optional[pulumi.Input[str]] = None,
@@ -493,6 +494,7 @@ class ProviderEndpointArgs:
                  msk: Optional[pulumi.Input[str]] = None,
                  mwaa: Optional[pulumi.Input[str]] = None,
                  neptune: Optional[pulumi.Input[str]] = None,
+                 neptunegraph: Optional[pulumi.Input[str]] = None,
                  networkfirewall: Optional[pulumi.Input[str]] = None,
                  networkmanager: Optional[pulumi.Input[str]] = None,
                  oam: Optional[pulumi.Input[str]] = None,
@@ -614,6 +616,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] autoscalingplans: Use this to override the default service endpoint URL
         :param pulumi.Input[str] backup: Use this to override the default service endpoint URL
         :param pulumi.Input[str] batch: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] bcmdataexports: Use this to override the default service endpoint URL
         :param pulumi.Input[str] beanstalk: Use this to override the default service endpoint URL
         :param pulumi.Input[str] bedrock: Use this to override the default service endpoint URL
         :param pulumi.Input[str] bedrockagent: Use this to override the default service endpoint URL
@@ -770,6 +773,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] msk: Use this to override the default service endpoint URL
         :param pulumi.Input[str] mwaa: Use this to override the default service endpoint URL
         :param pulumi.Input[str] neptune: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] neptunegraph: Use this to override the default service endpoint URL
         :param pulumi.Input[str] networkfirewall: Use this to override the default service endpoint URL
         :param pulumi.Input[str] networkmanager: Use this to override the default service endpoint URL
         :param pulumi.Input[str] oam: Use this to override the default service endpoint URL
@@ -919,6 +923,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "backup", backup)
         if batch is not None:
             pulumi.set(__self__, "batch", batch)
+        if bcmdataexports is not None:
+            pulumi.set(__self__, "bcmdataexports", bcmdataexports)
         if beanstalk is not None:
             pulumi.set(__self__, "beanstalk", beanstalk)
         if bedrock is not None:
@@ -1231,6 +1237,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "mwaa", mwaa)
         if neptune is not None:
             pulumi.set(__self__, "neptune", neptune)
+        if neptunegraph is not None:
+            pulumi.set(__self__, "neptunegraph", neptunegraph)
         if networkfirewall is not None:
             pulumi.set(__self__, "networkfirewall", networkfirewall)
         if networkmanager is not None:
@@ -1751,6 +1759,18 @@ class ProviderEndpointArgs:
     @batch.setter
     def batch(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "batch", value)
+
+    @property
+    @pulumi.getter
+    def bcmdataexports(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "bcmdataexports")
+
+    @bcmdataexports.setter
+    def bcmdataexports(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bcmdataexports", value)
 
     @property
     @pulumi.getter
@@ -3623,6 +3643,18 @@ class ProviderEndpointArgs:
     @neptune.setter
     def neptune(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "neptune", value)
+
+    @property
+    @pulumi.getter
+    def neptunegraph(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "neptunegraph")
+
+    @neptunegraph.setter
+    def neptunegraph(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "neptunegraph", value)
 
     @property
     @pulumi.getter

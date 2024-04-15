@@ -10,7 +10,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDomainNameResult {
@@ -84,7 +83,7 @@ public final class GetDomainNameResult {
      * @return Key-value map of tags for the resource.
      * 
      */
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
 
     private GetDomainNameResult() {}
     /**
@@ -186,7 +185,7 @@ public final class GetDomainNameResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
 
     public static Builder builder() {
@@ -212,7 +211,7 @@ public final class GetDomainNameResult {
         private String regionalDomainName;
         private String regionalZoneId;
         private String securityPolicy;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetDomainNameResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -349,8 +348,10 @@ public final class GetDomainNameResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "tags");
+            }
             this.tags = tags;
             return this;
         }

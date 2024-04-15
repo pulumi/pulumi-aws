@@ -177,7 +177,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Key-value map of tags for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetDomainNameResult(
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.ApiGateway
 
             string securityPolicy,
 
-            ImmutableDictionary<string, string>? tags)
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             CertificateArn = certificateArn;

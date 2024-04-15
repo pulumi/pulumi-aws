@@ -554,6 +554,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Bcmdataexports { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Beanstalk { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
@@ -1175,6 +1179,10 @@ namespace Pulumi.Aws
             /// Use this to override the default service endpoint URL
             /// </summary>
                 public string? Neptune { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
+                public string? Neptunegraph { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>

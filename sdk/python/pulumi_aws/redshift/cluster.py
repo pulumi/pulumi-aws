@@ -167,6 +167,9 @@ class ClusterArgs:
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if logging is not None:
+            warnings.warn("""Use the redshift.Logging resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""logging is deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
+        if logging is not None:
             pulumi.set(__self__, "logging", logging)
         if maintenance_track_name is not None:
             pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
@@ -198,6 +201,9 @@ class ClusterArgs:
             pulumi.set(__self__, "snapshot_arn", snapshot_arn)
         if snapshot_cluster_identifier is not None:
             pulumi.set(__self__, "snapshot_cluster_identifier", snapshot_cluster_identifier)
+        if snapshot_copy is not None:
+            warnings.warn("""Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""snapshot_copy is deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
         if snapshot_copy is not None:
             pulumi.set(__self__, "snapshot_copy", snapshot_copy)
         if snapshot_identifier is not None:
@@ -496,6 +502,9 @@ class ClusterArgs:
         """
         Logging, documented below.
         """
+        warnings.warn("""Use the redshift.Logging resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
+        pulumi.log.warn("""logging is deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
+
         return pulumi.get(self, "logging")
 
     @logging.setter
@@ -698,6 +707,9 @@ class ClusterArgs:
         """
         Configuration of automatic copy of snapshots from one region to another. Documented below.
         """
+        warnings.warn("""Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
+        pulumi.log.warn("""snapshot_copy is deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
+
         return pulumi.get(self, "snapshot_copy")
 
     @snapshot_copy.setter
@@ -915,6 +927,9 @@ class _ClusterState:
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if logging is not None:
+            warnings.warn("""Use the redshift.Logging resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""logging is deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
+        if logging is not None:
             pulumi.set(__self__, "logging", logging)
         if maintenance_track_name is not None:
             pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
@@ -950,6 +965,9 @@ class _ClusterState:
             pulumi.set(__self__, "snapshot_arn", snapshot_arn)
         if snapshot_cluster_identifier is not None:
             pulumi.set(__self__, "snapshot_cluster_identifier", snapshot_cluster_identifier)
+        if snapshot_copy is not None:
+            warnings.warn("""Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
+            pulumi.log.warn("""snapshot_copy is deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
         if snapshot_copy is not None:
             pulumi.set(__self__, "snapshot_copy", snapshot_copy)
         if snapshot_identifier is not None:
@@ -1289,6 +1307,9 @@ class _ClusterState:
         """
         Logging, documented below.
         """
+        warnings.warn("""Use the redshift.Logging resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
+        pulumi.log.warn("""logging is deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
+
         return pulumi.get(self, "logging")
 
     @logging.setter
@@ -1515,6 +1536,9 @@ class _ClusterState:
         """
         Configuration of automatic copy of snapshots from one region to another. Documented below.
         """
+        warnings.warn("""Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
+        pulumi.log.warn("""snapshot_copy is deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
+
         return pulumi.get(self, "snapshot_copy")
 
     @snapshot_copy.setter
@@ -2310,10 +2334,13 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def logging(self) -> pulumi.Output[Optional['outputs.ClusterLogging']]:
+    def logging(self) -> pulumi.Output['outputs.ClusterLogging']:
         """
         Logging, documented below.
         """
+        warnings.warn("""Use the redshift.Logging resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
+        pulumi.log.warn("""logging is deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
+
         return pulumi.get(self, "logging")
 
     @property
@@ -2464,10 +2491,13 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotCopy")
-    def snapshot_copy(self) -> pulumi.Output[Optional['outputs.ClusterSnapshotCopy']]:
+    def snapshot_copy(self) -> pulumi.Output['outputs.ClusterSnapshotCopy']:
         """
         Configuration of automatic copy of snapshots from one region to another. Documented below.
         """
+        warnings.warn("""Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
+        pulumi.log.warn("""snapshot_copy is deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
+
         return pulumi.get(self, "snapshot_copy")
 
     @property

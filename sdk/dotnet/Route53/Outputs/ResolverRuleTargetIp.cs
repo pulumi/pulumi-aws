@@ -18,9 +18,12 @@ namespace Pulumi.Aws.Route53.Outputs
         /// </summary>
         public readonly string Ip;
         /// <summary>
-        /// The port at `ip` that you want to forward DNS queries to. Default value is `53`
+        /// The port at `ip` that you want to forward DNS queries to. Default value is `53`.
         /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+        /// </summary>
         public readonly string? Protocol;
 
         [OutputConstructor]

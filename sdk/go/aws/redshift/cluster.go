@@ -153,7 +153,9 @@ type Cluster struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Logging, documented below.
-	Logging ClusterLoggingPtrOutput `pulumi:"logging"`
+	//
+	// Deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.
+	Logging ClusterLoggingOutput `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrOutput `pulumi:"maintenanceTrackName"`
 	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
@@ -199,7 +201,9 @@ type Cluster struct {
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier pulumi.StringPtrOutput `pulumi:"snapshotClusterIdentifier"`
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
-	SnapshotCopy ClusterSnapshotCopyPtrOutput `pulumi:"snapshotCopy"`
+	//
+	// Deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+	SnapshotCopy ClusterSnapshotCopyOutput `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -314,6 +318,8 @@ type clusterState struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Logging, documented below.
+	//
+	// Deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.
 	Logging *ClusterLogging `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
@@ -360,6 +366,8 @@ type clusterState struct {
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier *string `pulumi:"snapshotClusterIdentifier"`
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
+	//
+	// Deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
 	SnapshotCopy *ClusterSnapshotCopy `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
@@ -433,6 +441,8 @@ type ClusterState struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
 	// Logging, documented below.
+	//
+	// Deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.
 	Logging ClusterLoggingPtrInput
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrInput
@@ -479,6 +489,8 @@ type ClusterState struct {
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier pulumi.StringPtrInput
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
+	//
+	// Deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
 	SnapshotCopy ClusterSnapshotCopyPtrInput
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrInput
@@ -548,6 +560,8 @@ type clusterArgs struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Logging, documented below.
+	//
+	// Deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.
 	Logging *ClusterLogging `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
@@ -592,6 +606,8 @@ type clusterArgs struct {
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier *string `pulumi:"snapshotClusterIdentifier"`
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
+	//
+	// Deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
 	SnapshotCopy *ClusterSnapshotCopy `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
@@ -654,6 +670,8 @@ type ClusterArgs struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
 	// Logging, documented below.
+	//
+	// Deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.
 	Logging ClusterLoggingPtrInput
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrInput
@@ -698,6 +716,8 @@ type ClusterArgs struct {
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier pulumi.StringPtrInput
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
+	//
+	// Deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
 	SnapshotCopy ClusterSnapshotCopyPtrInput
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrInput
@@ -931,8 +951,10 @@ func (o ClusterOutput) KmsKeyId() pulumi.StringOutput {
 }
 
 // Logging, documented below.
-func (o ClusterOutput) Logging() ClusterLoggingPtrOutput {
-	return o.ApplyT(func(v *Cluster) ClusterLoggingPtrOutput { return v.Logging }).(ClusterLoggingPtrOutput)
+//
+// Deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.
+func (o ClusterOutput) Logging() ClusterLoggingOutput {
+	return o.ApplyT(func(v *Cluster) ClusterLoggingOutput { return v.Logging }).(ClusterLoggingOutput)
 }
 
 // The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
@@ -1031,8 +1053,10 @@ func (o ClusterOutput) SnapshotClusterIdentifier() pulumi.StringPtrOutput {
 }
 
 // Configuration of automatic copy of snapshots from one region to another. Documented below.
-func (o ClusterOutput) SnapshotCopy() ClusterSnapshotCopyPtrOutput {
-	return o.ApplyT(func(v *Cluster) ClusterSnapshotCopyPtrOutput { return v.SnapshotCopy }).(ClusterSnapshotCopyPtrOutput)
+//
+// Deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
+func (o ClusterOutput) SnapshotCopy() ClusterSnapshotCopyOutput {
+	return o.ApplyT(func(v *Cluster) ClusterSnapshotCopyOutput { return v.SnapshotCopy }).(ClusterSnapshotCopyOutput)
 }
 
 // The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.

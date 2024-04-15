@@ -62,7 +62,6 @@ import * as utilities from "../utilities";
  *     description: "This is an example of disabled configuration policy",
  *     configurationPolicy: {
  *         serviceEnabled: false,
- *         enabledStandardArns: [],
  *     },
  * }, {
  *     dependsOn: [example],

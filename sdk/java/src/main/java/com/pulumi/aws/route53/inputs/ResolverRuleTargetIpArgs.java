@@ -33,23 +33,31 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The port at `ip` that you want to forward DNS queries to. Default value is `53`
+     * The port at `ip` that you want to forward DNS queries to. Default value is `53`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port at `ip` that you want to forward DNS queries to. Default value is `53`
+     * @return The port at `ip` that you want to forward DNS queries to. Default value is `53`.
      * 
      */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
+    /**
+     * The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+     * 
+     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
+    /**
+     * @return The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+     * 
+     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
@@ -102,7 +110,7 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param port The port at `ip` that you want to forward DNS queries to. Default value is `53`
+         * @param port The port at `ip` that you want to forward DNS queries to. Default value is `53`.
          * 
          * @return builder
          * 
@@ -113,7 +121,7 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param port The port at `ip` that you want to forward DNS queries to. Default value is `53`
+         * @param port The port at `ip` that you want to forward DNS queries to. Default value is `53`.
          * 
          * @return builder
          * 
@@ -122,11 +130,23 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
             return port(Output.of(port));
         }
 
+        /**
+         * @param protocol The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
+        /**
+         * @param protocol The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }

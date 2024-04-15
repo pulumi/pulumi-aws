@@ -23,10 +23,12 @@ from .get_service_account import *
 from .get_subnet_group import *
 from .hsm_client_certificate import *
 from .hsm_configuration import *
+from .logging import *
 from .parameter_group import *
 from .partner import *
 from .resource_policy import *
 from .scheduled_action import *
+from .snapshot_copy import *
 from .snapshot_copy_grant import *
 from .snapshot_schedule import *
 from .snapshot_schedule_association import *

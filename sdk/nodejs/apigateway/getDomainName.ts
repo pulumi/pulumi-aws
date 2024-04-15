@@ -106,7 +106,7 @@ export interface GetDomainNameResult {
     /**
      * Key-value map of tags for the resource.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
 }
 /**
  * Use this data source to get the custom domain name for use with AWS API Gateway.

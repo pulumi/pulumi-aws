@@ -265,6 +265,7 @@ class Endpoints(dict):
                  autoscalingplans: Optional[str] = None,
                  backup: Optional[str] = None,
                  batch: Optional[str] = None,
+                 bcmdataexports: Optional[str] = None,
                  beanstalk: Optional[str] = None,
                  bedrock: Optional[str] = None,
                  bedrockagent: Optional[str] = None,
@@ -421,6 +422,7 @@ class Endpoints(dict):
                  msk: Optional[str] = None,
                  mwaa: Optional[str] = None,
                  neptune: Optional[str] = None,
+                 neptunegraph: Optional[str] = None,
                  networkfirewall: Optional[str] = None,
                  networkmanager: Optional[str] = None,
                  oam: Optional[str] = None,
@@ -542,6 +544,7 @@ class Endpoints(dict):
         :param str autoscalingplans: Use this to override the default service endpoint URL
         :param str backup: Use this to override the default service endpoint URL
         :param str batch: Use this to override the default service endpoint URL
+        :param str bcmdataexports: Use this to override the default service endpoint URL
         :param str beanstalk: Use this to override the default service endpoint URL
         :param str bedrock: Use this to override the default service endpoint URL
         :param str bedrockagent: Use this to override the default service endpoint URL
@@ -698,6 +701,7 @@ class Endpoints(dict):
         :param str msk: Use this to override the default service endpoint URL
         :param str mwaa: Use this to override the default service endpoint URL
         :param str neptune: Use this to override the default service endpoint URL
+        :param str neptunegraph: Use this to override the default service endpoint URL
         :param str networkfirewall: Use this to override the default service endpoint URL
         :param str networkmanager: Use this to override the default service endpoint URL
         :param str oam: Use this to override the default service endpoint URL
@@ -847,6 +851,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "backup", backup)
         if batch is not None:
             pulumi.set(__self__, "batch", batch)
+        if bcmdataexports is not None:
+            pulumi.set(__self__, "bcmdataexports", bcmdataexports)
         if beanstalk is not None:
             pulumi.set(__self__, "beanstalk", beanstalk)
         if bedrock is not None:
@@ -1159,6 +1165,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "mwaa", mwaa)
         if neptune is not None:
             pulumi.set(__self__, "neptune", neptune)
+        if neptunegraph is not None:
+            pulumi.set(__self__, "neptunegraph", neptunegraph)
         if networkfirewall is not None:
             pulumi.set(__self__, "networkfirewall", networkfirewall)
         if networkmanager is not None:
@@ -1567,6 +1575,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "batch")
+
+    @property
+    @pulumi.getter
+    def bcmdataexports(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "bcmdataexports")
 
     @property
     @pulumi.getter
@@ -2815,6 +2831,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "neptune")
+
+    @property
+    @pulumi.getter
+    def neptunegraph(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "neptunegraph")
 
     @property
     @pulumi.getter
