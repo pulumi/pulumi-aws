@@ -1621,6 +1621,10 @@
     {
       "old": "[3]: /docs/providers/aws/r/rds_cluster_instance.html",
       "new": ""
+    },
+    {
+      "old": "~> **NOTE on RDS Clusters and RDS Cluster Role Associations:** Terraform provides both a standalone RDS Cluster Role Association - (an association between an RDS Cluster and a single IAM Role) and an RDS Cluster resource with `iam_roles` attributes. Use one resource or the other to associate IAM Roles and RDS Clusters. Not doing so will cause a conflict of associations and will result in the association being overwritten.\n",
+      "new": "~> **NOTE on RDS Clusters and RDS Cluster Role Associations:** Pulumi provides both a standalone RDS Cluster Role Association - (an association between an RDS Cluster and a single IAM Role) and an RDS Cluster resource with `iam_roles` attributes. Use one resource or the other to associate IAM Roles and RDS Clusters. Not doing so will cause a conflict of associations and will result in the association being overwritten.\n"
     }
   ],
   "rds_cluster_activity_stream.html.markdown": [
