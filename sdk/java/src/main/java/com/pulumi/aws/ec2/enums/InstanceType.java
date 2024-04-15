@@ -129,7 +129,7 @@ import java.util.StringJoiner;
         C7a_24XLarge("c7a.24xlarge"),
         C7a_32XLarge("c7a.32xlarge"),
         C7a_48XLarge("c7a.48xlarge"),
-        C7a_Metal("c7a.metal-48xl"),
+        C7a_Metal_48xl("c7a.metal-48xl"),
         Cc2_8XLarge("cc2.8xlarge"),
         D2_2XLarge("d2.2xlarge"),
         D2_4XLarge("d2.4xlarge"),
@@ -335,7 +335,7 @@ import java.util.StringJoiner;
         M7a_24XLarge("m7a.24xlarge"),
         M7a_32XLarge("m7a.32xlarge"),
         M7a_48XLarge("m7a.48xlarge"),
-        M7a_Metal("m7a.metal-48xl"),
+        M7a_Metal_48xl("m7a.metal-48xl"),
         Mac1_Metal("mac1.metal"),
         P2_16XLarge("p2.16xlarge"),
         P2_8XLarge("p2.8xlarge"),
@@ -527,7 +527,19 @@ import java.util.StringJoiner;
          * Has a typo, use M5ad_XLarge instead
          */
         @Deprecated /* Has a typo, use M5ad_XLarge instead */
-        M5as_XLarge("m5ad.xlarge");
+        M5as_XLarge("m5ad.xlarge"),
+        /**
+         * @deprecated
+         * Use C7a_Metal_48xl instead
+         */
+        @Deprecated /* Use C7a_Metal_48xl instead */
+        C7a_Metal("c7a.metal-48xl"),
+        /**
+         * @deprecated
+         * Use M7a_Metal_48xl instead
+         */
+        @Deprecated /* Use M7a_Metal_48xl instead */
+        M7a_Metal("m7a.metal-48xl");
 
         private final String value;
 

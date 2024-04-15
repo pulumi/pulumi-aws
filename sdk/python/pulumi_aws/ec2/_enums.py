@@ -144,7 +144,7 @@ class InstanceType(str, Enum):
     C7A_24_X_LARGE = "c7a.24xlarge"
     C7A_32_X_LARGE = "c7a.32xlarge"
     C7A_48_X_LARGE = "c7a.48xlarge"
-    C7A_METAL = "c7a.metal-48xl"
+    C7A_METAL_48XL = "c7a.metal-48xl"
     CC2_8_X_LARGE = "cc2.8xlarge"
     D2_2_X_LARGE = "d2.2xlarge"
     D2_4_X_LARGE = "d2.4xlarge"
@@ -350,7 +350,7 @@ class InstanceType(str, Enum):
     M7A_24_X_LARGE = "m7a.24xlarge"
     M7A_32_X_LARGE = "m7a.32xlarge"
     M7A_48_X_LARGE = "m7a.48xlarge"
-    M7A_METAL = "m7a.metal-48xl"
+    M7A_METAL_48XL = "m7a.metal-48xl"
     MAC1_METAL = "mac1.metal"
     P2_16_X_LARGE = "p2.16xlarge"
     P2_8_X_LARGE = "p2.8xlarge"
@@ -518,6 +518,8 @@ class InstanceType(str, Enum):
     U_9TB1_METAL = "u-9tb1.metal"
     HS1_8_X_LARGE = "hs1.8xlarge"
     M5AS_X_LARGE = "m5ad.xlarge"
+    C7A_METAL = "c7a.metal-48xl"
+    M7A_METAL = "m7a.metal-48xl"
 
 
 class PlacementStrategy(str, Enum):

@@ -20,9 +20,10 @@ func TestInstanceTypeName(t *testing.T) {
 		{Name: "C6a_Large", Value: "c6a.large"},
 		{Name: "C7g_Medium", Value: "c7g.medium"},
 		{Name: "M1_Small", Value: "m1.small"},
-		{Name: "M7a_Metal", Value: "m7a.metal-48xl"},
+		{Name: "M7a_Metal_48xl", Value: "m7a.metal-48xl"},
 		{Name: "T1_Micro", Value: "t1.micro"},
 		{Name: "T2_Nano", Value: "t2.nano"},
+		{Name: "U_24tb1_112XLarge", Value: "u-24tb1.112xlarge"},
 	}
 
 	for _, tc := range testCases {
@@ -35,7 +36,6 @@ func TestInstanceTypeName(t *testing.T) {
 func TestInstanceTypeNameErr(t *testing.T) {
 	testCases := []string{
 		"a1.metal.pc",
-		"m7a.metal-96xl",
 	}
 
 	for _, tc := range testCases {

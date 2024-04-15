@@ -12,9 +12,8 @@ import (
 )
 
 var replacer = strings.NewReplacer(
-	// It's a bit suspicious to drop this suffix but that's what we did manually.
-	// There is a panic below in case we find some other -xxx suffix.
-	"-48xl", "",
+	// Replace dashes with underscores.
+	"-", "_",
 	// Xlarge would be a wrong capitalization, and also we have 2xlarge etc.
 	// So we capitalize with a replacement.
 	"xlarge", "XLarge",
@@ -22,14 +21,9 @@ var replacer = strings.NewReplacer(
 
 func instanceTypeName(value string) (string, error) {
 	replaced := replacer.Replace(value)
-	if strings.Contains(replaced, "-") {
-		// Error on any dash except for the -48xl suffix
-		return "", fmt.Errorf("unexpected dash in %q", value)
-	}
-
 	parts := strings.Split(replaced, ".")
 	if len(parts) != 2 {
-		// Error on 2+ underscores (like T4g_Nano_Odd)
+		// Error on 2+ dots (like t4g.nano.odd)
 		return "", fmt.Errorf("too many dots in %q", value)
 	}
 	for i, part := range parts {
@@ -62,6 +56,8 @@ func instanceTypes() []schema.EnumValueSpec {
 	results = append(results, schema.EnumValueSpec{Name: "U_9tb1Metal", Value: "u-9tb1.metal", DeprecationMessage: "This instancetype has been deprecated"})
 	results = append(results, schema.EnumValueSpec{Name: "Hs1_8XLarge", Value: "hs1.8xlarge", DeprecationMessage: "This instancetype has been deprecated"})
 	results = append(results, schema.EnumValueSpec{Name: "M5as_XLarge", Value: "m5ad.xlarge", DeprecationMessage: "Has a typo, use M5ad_XLarge instead"})
+	results = append(results, schema.EnumValueSpec{Name: "C7a_Metal", Value: "c7a.metal-48xl", DeprecationMessage: "Use C7a_Metal_48xl instead"})
+	results = append(results, schema.EnumValueSpec{Name: "M7a_Metal", Value: "m7a.metal-48xl", DeprecationMessage: "Use M7a_Metal_48xl instead"})
 
 	return results
 }
