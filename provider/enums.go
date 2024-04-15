@@ -58,6 +58,9 @@ func instanceTypes() []schema.EnumValueSpec {
 	results = append(results, schema.EnumValueSpec{Name: "M5as_XLarge", Value: "m5ad.xlarge", DeprecationMessage: "Has a typo, use M5ad_XLarge instead"})
 	results = append(results, schema.EnumValueSpec{Name: "C7a_Metal", Value: "c7a.metal-48xl", DeprecationMessage: "Use C7a_Metal_48xl instead"})
 	results = append(results, schema.EnumValueSpec{Name: "M7a_Metal", Value: "m7a.metal-48xl", DeprecationMessage: "Use M7a_Metal_48xl instead"})
+	results = append(results, schema.EnumValueSpec{Name: "Cc2_8XLarge", Value: "cc2.8xlarge", DeprecationMessage: "This instancetype has been deprecated"})
+	results = append(results, schema.EnumValueSpec{Name: "G2_2XLarge", Value: "g2.2xlarge", DeprecationMessage: "This instancetype has been deprecated"})
+	results = append(results, schema.EnumValueSpec{Name: "G2_8XLarge", Value: "g2.8xlarge", DeprecationMessage: "This instancetype has been deprecated"})
 
 	return results
 }
