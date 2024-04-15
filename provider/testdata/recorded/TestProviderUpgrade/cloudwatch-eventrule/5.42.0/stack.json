@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2023-11-10T17:24:33.792311-05:00",
-      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
-      "version": "v3.92.0"
+      "time": "2024-04-15T15:46:59.21774-04:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:08cv8WVAcYA=:v1:wE9PdlmTZZqjr2s9:b3uqSHHyE/7EVaniUFyjB5JvKoXihg=="
+        "salt": "v1:zC/tEy/3rV4=:v1:B8GvVd3s0trmxH69:6+hSDtyscWcNunUIxY472JXfOXS+6g=="
       }
     },
     "resources": [
@@ -17,16 +17,28 @@
         "urn": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:pulumi:Stack::aws_cloudwatch_eventRule_EventRule_1-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2023-11-10T22:24:29.613316Z",
-        "modified": "2023-11-10T22:24:29.613316Z"
+        "created": "2024-04-15T19:46:52.935193Z",
+        "modified": "2024-04-15T19:46:52.935193Z"
       },
       {
         "urn": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:providers:aws::default",
         "custom": true,
-        "id": "1bfcf61f-8ebf-4444-bd17-6314fdaa6a19",
+        "id": "7929d749-7891-44fd-8d6a-eddcd7eb86ad",
         "type": "pulumi:providers:aws",
-        "created": "2023-11-10T22:24:31.066316Z",
-        "modified": "2023-11-10T22:24:31.066316Z"
+        "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true"
+        },
+        "created": "2024-04-15T19:46:56.640897Z",
+        "modified": "2024-04-15T19:46:56.640897Z"
       },
       {
         "urn": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:cloudwatch/eventRule:EventRule::console",
@@ -35,16 +47,15 @@
         "type": "aws:cloudwatch/eventRule:EventRule",
         "inputs": {
           "__defaults": [
-            "eventBusName",
-            "isEnabled"
+            "eventBusName"
           ],
           "description": "Capture each AWS Console Sign In",
           "eventBusName": "default",
           "eventPattern": "{\"detail-type\":[\"AWS Console Sign In via CloudTrail\"]}",
-          "isEnabled": true,
           "name": "capture-aws-sign-in"
         },
         "outputs": {
+          "__meta": "{\"schema_version\":\"1\"}",
           "arn": "arn:aws:events:us-west-2:616138583583:rule/capture-aws-sign-in",
           "description": "Capture each AWS Console Sign In",
           "eventBusName": "default",
@@ -55,18 +66,19 @@
           "namePrefix": "",
           "roleArn": "",
           "scheduleExpression": "",
+          "state": "ENABLED",
           "tags": {},
           "tagsAll": {}
         },
         "parent": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:pulumi:Stack::aws_cloudwatch_eventRule_EventRule_1-test",
-        "provider": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:providers:aws::default::1bfcf61f-8ebf-4444-bd17-6314fdaa6a19",
+        "provider": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:providers:aws::default::7929d749-7891-44fd-8d6a-eddcd7eb86ad",
         "propertyDependencies": {
-          "description": null,
-          "eventPattern": null,
-          "name": null
+          "description": [],
+          "eventPattern": [],
+          "name": []
         },
-        "created": "2023-11-10T22:24:33.060135Z",
-        "modified": "2023-11-10T22:24:33.060135Z"
+        "created": "2024-04-15T19:46:58.386523Z",
+        "modified": "2024-04-15T19:46:58.386523Z"
       },
       {
         "urn": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:sns/topic:Topic::aws_logins",
@@ -86,7 +98,9 @@
           "applicationFailureFeedbackRoleArn": "",
           "applicationSuccessFeedbackRoleArn": "",
           "applicationSuccessFeedbackSampleRate": 0,
+          "archivePolicy": "",
           "arn": "arn:aws:sns:us-west-2:616138583583:aws-console-logins",
+          "beginningArchiveTime": "",
           "contentBasedDeduplication": false,
           "deliveryPolicy": "",
           "displayName": "",
@@ -115,44 +129,12 @@
           "tracingConfig": ""
         },
         "parent": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:pulumi:Stack::aws_cloudwatch_eventRule_EventRule_1-test",
-        "provider": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:providers:aws::default::1bfcf61f-8ebf-4444-bd17-6314fdaa6a19",
+        "provider": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:providers:aws::default::7929d749-7891-44fd-8d6a-eddcd7eb86ad",
         "propertyDependencies": {
-          "name": null
+          "name": []
         },
-        "created": "2023-11-10T22:24:33.547564Z",
-        "modified": "2023-11-10T22:24:33.547564Z"
-      },
-      {
-        "urn": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:sns/topicPolicy:TopicPolicy::default",
-        "custom": true,
-        "id": "arn:aws:sns:us-west-2:616138583583:aws-console-logins",
-        "type": "aws:sns/topicPolicy:TopicPolicy",
-        "inputs": {
-          "__defaults": [],
-          "arn": "arn:aws:sns:us-west-2:616138583583:aws-console-logins",
-          "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Action\": \"SNS:Publish\",\n      \"Resource\": \"arn:aws:sns:us-west-2:616138583583:aws-console-logins\",\n      \"Principal\": {\n        \"Service\": \"events.amazonaws.com\"\n      }\n    }\n  ]\n}"
-        },
-        "outputs": {
-          "arn": "arn:aws:sns:us-west-2:616138583583:aws-console-logins",
-          "id": "arn:aws:sns:us-west-2:616138583583:aws-console-logins",
-          "owner": "616138583583",
-          "policy": "{\"Statement\":[{\"Action\":\"SNS:Publish\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"events.amazonaws.com\"},\"Resource\":\"arn:aws:sns:us-west-2:616138583583:aws-console-logins\",\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}"
-        },
-        "parent": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:pulumi:Stack::aws_cloudwatch_eventRule_EventRule_1-test",
-        "dependencies": [
-          "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:sns/topic:Topic::aws_logins"
-        ],
-        "provider": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:providers:aws::default::1bfcf61f-8ebf-4444-bd17-6314fdaa6a19",
-        "propertyDependencies": {
-          "arn": [
-            "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:sns/topic:Topic::aws_logins"
-          ],
-          "policy": [
-            "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:sns/topic:Topic::aws_logins"
-          ]
-        },
-        "created": "2023-11-10T22:24:33.788164Z",
-        "modified": "2023-11-10T22:24:33.788164Z"
+        "created": "2024-04-15T19:46:58.984084Z",
+        "modified": "2024-04-15T19:46:58.984084Z"
       },
       {
         "urn": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:cloudwatch/eventTarget:EventTarget::sns",
@@ -185,7 +167,7 @@
           "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:cloudwatch/eventRule:EventRule::console",
           "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:sns/topic:Topic::aws_logins"
         ],
-        "provider": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:providers:aws::default::1bfcf61f-8ebf-4444-bd17-6314fdaa6a19",
+        "provider": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:providers:aws::default::7929d749-7891-44fd-8d6a-eddcd7eb86ad",
         "propertyDependencies": {
           "arn": [
             "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:sns/topic:Topic::aws_logins"
@@ -193,10 +175,42 @@
           "rule": [
             "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:cloudwatch/eventRule:EventRule::console"
           ],
-          "targetId": null
+          "targetId": []
         },
-        "created": "2023-11-10T22:24:33.791653Z",
-        "modified": "2023-11-10T22:24:33.791653Z"
+        "created": "2024-04-15T19:46:59.209835Z",
+        "modified": "2024-04-15T19:46:59.209835Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:sns/topicPolicy:TopicPolicy::default",
+        "custom": true,
+        "id": "arn:aws:sns:us-west-2:616138583583:aws-console-logins",
+        "type": "aws:sns/topicPolicy:TopicPolicy",
+        "inputs": {
+          "__defaults": [],
+          "arn": "arn:aws:sns:us-west-2:616138583583:aws-console-logins",
+          "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": \"SNS:Publish\",\n      \"Resource\": \"arn:aws:sns:us-west-2:616138583583:aws-console-logins\",\n      \"Principal\": {\n        \"Service\": \"events.amazonaws.com\"\n      }\n    }\n  ]\n}"
+        },
+        "outputs": {
+          "arn": "arn:aws:sns:us-west-2:616138583583:aws-console-logins",
+          "id": "arn:aws:sns:us-west-2:616138583583:aws-console-logins",
+          "owner": "616138583583",
+          "policy": "{\"Statement\":[{\"Action\":\"SNS:Publish\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"events.amazonaws.com\"},\"Resource\":\"arn:aws:sns:us-west-2:616138583583:aws-console-logins\"}],\"Version\":\"2012-10-17\"}"
+        },
+        "parent": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:pulumi:Stack::aws_cloudwatch_eventRule_EventRule_1-test",
+        "dependencies": [
+          "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:sns/topic:Topic::aws_logins"
+        ],
+        "provider": "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::pulumi:providers:aws::default::7929d749-7891-44fd-8d6a-eddcd7eb86ad",
+        "propertyDependencies": {
+          "arn": [
+            "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:sns/topic:Topic::aws_logins"
+          ],
+          "policy": [
+            "urn:pulumi:test::aws_cloudwatch_eventRule_EventRule_1::aws:sns/topic:Topic::aws_logins"
+          ]
+        },
+        "created": "2024-04-15T19:46:59.217619Z",
+        "modified": "2024-04-15T19:46:59.217619Z"
       }
     ]
   }

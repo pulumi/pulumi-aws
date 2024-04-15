@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2023-11-10T17:23:45.501178-05:00",
-      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
-      "version": "v3.92.0"
+      "time": "2024-04-15T15:45:21.047606-04:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:VNQibGisLgo=:v1:YDNWvbCY7UDtxu3V:p8GRd3WZT1bzy6PttoGyn803R6/08A=="
+        "salt": "v1:oEgrqhfxPmU=:v1:Tg+uOMqs/m9nsKov:sRvdVsx+BbURQbU5uX/EMExsOocf1A=="
       }
     },
     "resources": [
@@ -17,95 +17,105 @@
         "urn": "urn:pulumi:test::aws_apigateway_resource_Resource_1::pulumi:pulumi:Stack::aws_apigateway_resource_Resource_1-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2023-11-10T22:23:41.032446Z",
-        "modified": "2023-11-10T22:23:41.032446Z"
+        "created": "2024-04-15T19:45:15.455059Z",
+        "modified": "2024-04-15T19:45:15.455059Z"
       },
       {
         "urn": "urn:pulumi:test::aws_apigateway_resource_Resource_1::pulumi:providers:aws::default",
         "custom": true,
-        "id": "c4fe7209-5c84-4dac-a340-fe52d0c0c7ee",
+        "id": "897bbb8c-e4ef-4c0f-922e-154031cc8836",
         "type": "pulumi:providers:aws",
-        "created": "2023-11-10T22:23:42.869571Z",
-        "modified": "2023-11-10T22:23:42.869571Z"
+        "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true"
+        },
+        "created": "2024-04-15T19:45:18.751104Z",
+        "modified": "2024-04-15T19:45:18.751104Z"
       },
       {
         "urn": "urn:pulumi:test::aws_apigateway_resource_Resource_1::aws:apigateway/restApi:RestApi::MyDemoAPI",
         "custom": true,
-        "id": "v28mh7azfa",
+        "id": "je6p47b3bf",
         "type": "aws:apigateway/restApi:RestApi",
         "inputs": {
           "__defaults": [
-            "minimumCompressionSize",
             "putRestApiMode"
           ],
           "description": "This is my API for demonstration purposes",
-          "minimumCompressionSize": -1,
           "name": "MyDemoAPI",
           "putRestApiMode": "overwrite"
         },
         "outputs": {
           "apiKeySource": "HEADER",
-          "arn": "arn:aws:apigateway:us-west-2::/restapis/v28mh7azfa",
+          "arn": "arn:aws:apigateway:us-west-2::/restapis/je6p47b3bf",
           "binaryMediaTypes": [],
-          "createdDate": "2023-11-10T22:23:44Z",
+          "createdDate": "2024-04-15T19:45:20Z",
           "description": "This is my API for demonstration purposes",
           "disableExecuteApiEndpoint": false,
           "endpointConfiguration": {
             "types": "EDGE",
             "vpcEndpointIds": []
           },
-          "executionArn": "arn:aws:execute-api:us-west-2:616138583583:v28mh7azfa",
-          "id": "v28mh7azfa",
-          "minimumCompressionSize": -1,
+          "executionArn": "arn:aws:execute-api:us-west-2:616138583583:je6p47b3bf",
+          "id": "je6p47b3bf",
+          "minimumCompressionSize": "",
           "name": "MyDemoAPI",
           "policy": "",
-          "rootResourceId": "6rjd786lw0",
+          "rootResourceId": "mblw35rpka",
           "tags": {},
           "tagsAll": {}
         },
         "parent": "urn:pulumi:test::aws_apigateway_resource_Resource_1::pulumi:pulumi:Stack::aws_apigateway_resource_Resource_1-test",
-        "provider": "urn:pulumi:test::aws_apigateway_resource_Resource_1::pulumi:providers:aws::default::c4fe7209-5c84-4dac-a340-fe52d0c0c7ee",
+        "provider": "urn:pulumi:test::aws_apigateway_resource_Resource_1::pulumi:providers:aws::default::897bbb8c-e4ef-4c0f-922e-154031cc8836",
         "propertyDependencies": {
-          "description": null,
-          "name": null
+          "description": [],
+          "name": []
         },
-        "created": "2023-11-10T22:23:45.212076Z",
-        "modified": "2023-11-10T22:23:45.212076Z"
+        "created": "2024-04-15T19:45:20.750286Z",
+        "modified": "2024-04-15T19:45:20.750286Z"
       },
       {
         "urn": "urn:pulumi:test::aws_apigateway_resource_Resource_1::aws:apigateway/resource:Resource::MyDemoResource",
         "custom": true,
-        "id": "jxh625",
+        "id": "5xymxv",
         "type": "aws:apigateway/resource:Resource",
         "inputs": {
           "__defaults": [],
-          "parentId": "6rjd786lw0",
+          "parentId": "mblw35rpka",
           "pathPart": "mydemoresource",
-          "restApi": "v28mh7azfa"
+          "restApi": "je6p47b3bf"
         },
         "outputs": {
-          "id": "jxh625",
-          "parentId": "6rjd786lw0",
+          "id": "5xymxv",
+          "parentId": "mblw35rpka",
           "path": "/mydemoresource",
           "pathPart": "mydemoresource",
-          "restApi": "v28mh7azfa"
+          "restApi": "je6p47b3bf"
         },
         "parent": "urn:pulumi:test::aws_apigateway_resource_Resource_1::pulumi:pulumi:Stack::aws_apigateway_resource_Resource_1-test",
         "dependencies": [
           "urn:pulumi:test::aws_apigateway_resource_Resource_1::aws:apigateway/restApi:RestApi::MyDemoAPI"
         ],
-        "provider": "urn:pulumi:test::aws_apigateway_resource_Resource_1::pulumi:providers:aws::default::c4fe7209-5c84-4dac-a340-fe52d0c0c7ee",
+        "provider": "urn:pulumi:test::aws_apigateway_resource_Resource_1::pulumi:providers:aws::default::897bbb8c-e4ef-4c0f-922e-154031cc8836",
         "propertyDependencies": {
           "parentId": [
             "urn:pulumi:test::aws_apigateway_resource_Resource_1::aws:apigateway/restApi:RestApi::MyDemoAPI"
           ],
-          "pathPart": null,
+          "pathPart": [],
           "restApi": [
             "urn:pulumi:test::aws_apigateway_resource_Resource_1::aws:apigateway/restApi:RestApi::MyDemoAPI"
           ]
         },
-        "created": "2023-11-10T22:23:45.501024Z",
-        "modified": "2023-11-10T22:23:45.501024Z"
+        "created": "2024-04-15T19:45:21.047527Z",
+        "modified": "2024-04-15T19:45:21.047527Z"
       }
     ]
   }

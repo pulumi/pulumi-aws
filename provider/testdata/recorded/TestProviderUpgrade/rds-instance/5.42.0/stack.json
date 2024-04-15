@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2023-10-05T17:29:38.81181-04:00",
-      "magic": "cdb46f20d3397474c4b7038ce63a3c40fb0da4b95458ef275b6ce689aec88d17",
-      "version": "v3.86.0"
+      "time": "2024-04-15T16:35:21.374352-04:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:Hk+ms9bN1YM=:v1:CIGk8tObiTPyv9Ha:L+3V/xNuuUra9OA23fTUIUqf8uozAA=="
+        "salt": "v1:6XgxLDM7BDk=:v1:Sm3V9Aa5qDTQWbES:aZ7q5RcuHDJlhSQjtmuVayIxQagurA=="
       }
     },
     "resources": [
@@ -17,31 +17,39 @@
         "urn": "urn:pulumi:test::test::pulumi:pulumi:Stack::test-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2023-10-05T21:25:30.251254Z",
-        "modified": "2023-10-05T21:25:30.251254Z"
+        "created": "2024-04-15T20:32:01.10131Z",
+        "modified": "2024-04-15T20:32:01.10131Z"
       },
       {
         "urn": "urn:pulumi:test::test::pulumi:providers:aws::provider",
         "custom": true,
-        "id": "03d1a41e-932c-43a8-85fc-43521503ab53",
+        "id": "ce9183ce-05cf-4da6-b0a6-b8d30f1e0675",
         "type": "pulumi:providers:aws",
         "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true",
           "version": "5.42.0"
         },
         "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true",
           "version": "5.42.0"
         },
         "parent": "urn:pulumi:test::test::pulumi:pulumi:Stack::test-test",
         "propertyDependencies": {
           "version": []
         },
-        "created": "2023-10-05T21:25:31.781545Z",
-        "modified": "2023-10-05T21:25:31.781545Z"
+        "created": "2024-04-15T20:32:04.843195Z",
+        "modified": "2024-04-15T20:32:04.843195Z"
       },
       {
         "urn": "urn:pulumi:test::test::aws:rds/instance:Instance::tested-resource",
         "custom": true,
-        "id": "tested-resource32446a6",
+        "id": "db-HJWLLMMDLQTHLXROK5STL3GTEU",
         "type": "aws:rds/instance:Instance",
         "inputs": {
           "__defaults": [
@@ -58,29 +66,33 @@
           "applyImmediately": false,
           "autoMinorVersionUpgrade": true,
           "copyTagsToSnapshot": false,
+          "dbName": "mydbname",
           "deleteAutomatedBackups": true,
           "engine": "postgres",
-          "identifier": "tested-resource32446a6",
+          "identifier": "tested-resource029681f",
           "instanceClass": "db.t4g.micro",
           "monitoringInterval": 0,
-          "name": "mydbname",
-          "password": "mypassword",
+          "password": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"mypassword\""
+          },
           "performanceInsightsEnabled": false,
           "publiclyAccessible": false,
           "skipFinalSnapshot": true,
           "username": "mydbuser"
         },
         "outputs": {
-          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":2400000000000,\"delete\":3600000000000,\"update\":4800000000000},\"schema_version\":\"1\"}",
-          "address": "tested-resource32446a6.chuqccm8uxqx.us-west-2.rds.amazonaws.com",
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":2400000000000,\"delete\":3600000000000,\"update\":4800000000000},\"schema_version\":\"2\"}",
+          "address": "tested-resource029681f.chuqccm8uxqx.us-west-2.rds.amazonaws.com",
           "allocatedStorage": 30,
           "applyImmediately": false,
-          "arn": "arn:aws:rds:us-west-2:616138583583:db:tested-resource32446a6",
+          "arn": "arn:aws:rds:us-west-2:616138583583:db:tested-resource029681f",
           "autoMinorVersionUpgrade": true,
-          "availabilityZone": "us-west-2a",
+          "availabilityZone": "us-west-2b",
           "backupRetentionPeriod": 0,
-          "backupWindow": "06:08-06:38",
-          "caCertIdentifier": "rds-ca-2019",
+          "backupTarget": "region",
+          "backupWindow": "12:31-13:01",
+          "caCertIdentifier": "rds-ca-rsa2048-g1",
           "characterSetName": "",
           "copyTagsToSnapshot": false,
           "customIamInstanceProfile": "",
@@ -90,16 +102,20 @@
           "deleteAutomatedBackups": true,
           "deletionProtection": false,
           "domain": "",
+          "domainAuthSecretArn": "",
+          "domainDnsIps": [],
+          "domainFqdn": "",
           "domainIamRoleName": "",
+          "domainOu": "",
           "enabledCloudwatchLogsExports": [],
-          "endpoint": "tested-resource32446a6.chuqccm8uxqx.us-west-2.rds.amazonaws.com:5432",
+          "endpoint": "tested-resource029681f.chuqccm8uxqx.us-west-2.rds.amazonaws.com:5432",
           "engine": "postgres",
-          "engineVersion": "15.3",
-          "engineVersionActual": "15.3",
+          "engineVersion": "16.1",
+          "engineVersionActual": "16.1",
           "hostedZoneId": "Z1PVIF0B656C1W",
           "iamDatabaseAuthenticationEnabled": false,
-          "id": "tested-resource32446a6",
-          "identifier": "tested-resource32446a6",
+          "id": "db-HJWLLMMDLQTHLXROK5STL3GTEU",
+          "identifier": "tested-resource029681f",
           "identifierPrefix": "",
           "instanceClass": "db.t4g.micro",
           "iops": 0,
@@ -107,20 +123,19 @@
           "latestRestorableTime": "",
           "licenseModel": "postgresql-license",
           "listenerEndpoints": [],
-          "maintenanceWindow": "sat:10:36-sat:11:06",
+          "maintenanceWindow": "thu:08:34-thu:09:04",
           "masterUserSecrets": [],
           "maxAllocatedStorage": 0,
           "monitoringInterval": 0,
           "monitoringRoleArn": "",
           "multiAz": false,
-          "name": "mydbname",
           "ncharCharacterSetName": "",
           "networkType": "IPV4",
-          "optionGroupName": "default:postgres-15",
-          "parameterGroupName": "default.postgres15",
+          "optionGroupName": "default:postgres-16",
+          "parameterGroupName": "default.postgres16",
           "password": {
             "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "ciphertext": "v1:mUAfQWw621puT5mf:d3VHy2+9FGGmsJpJ76Taw5/LXkPweZaek5Gp4g=="
+            "plaintext": "\"mypassword\""
           },
           "performanceInsightsEnabled": false,
           "performanceInsightsKmsKeyId": "",
@@ -130,8 +145,7 @@
           "replicaMode": "",
           "replicas": [],
           "replicateSourceDb": "",
-          "resourceId": "db-APHDYQXAWC6637KYGRJPNEN5Y4",
-          "securityGroupNames": [],
+          "resourceId": "db-HJWLLMMDLQTHLXROK5STL3GTEU",
           "skipFinalSnapshot": true,
           "status": "available",
           "storageEncrypted": false,
@@ -146,18 +160,21 @@
           ]
         },
         "parent": "urn:pulumi:test::test::pulumi:pulumi:Stack::test-test",
-        "provider": "urn:pulumi:test::test::pulumi:providers:aws::provider::03d1a41e-932c-43a8-85fc-43521503ab53",
+        "provider": "urn:pulumi:test::test::pulumi:providers:aws::provider::ce9183ce-05cf-4da6-b0a6-b8d30f1e0675",
         "propertyDependencies": {
-          "allocatedStorage": null,
-          "engine": null,
-          "instanceClass": null,
-          "name": null,
-          "password": null,
-          "skipFinalSnapshot": null,
-          "username": null
+          "allocatedStorage": [],
+          "engine": [],
+          "instanceClass": [],
+          "name": [],
+          "password": [],
+          "skipFinalSnapshot": [],
+          "username": []
         },
-        "created": "2023-10-05T21:29:38.811725Z",
-        "modified": "2023-10-05T21:29:38.811725Z"
+        "additionalSecretOutputs": [
+          "password"
+        ],
+        "created": "2024-04-15T20:35:21.373981Z",
+        "modified": "2024-04-15T20:35:21.373981Z"
       }
     ]
   }

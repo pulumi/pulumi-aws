@@ -1,7 +1,7 @@
 
 name: "aws_iam_instanceProfile_InstanceProfile_1"
 runtime: yaml
-    
+
 resources:
   test_profile:
     type: aws:iam:InstanceProfile
@@ -11,14 +11,14 @@ resources:
   role:
     type: aws:iam:Role
     properties:
-      name: test_role
+      name: pulumi_aws_test_role_${pulumi.stack}
       path: /
       assumeRolePolicy: ${assumeRole.json}
 variables:
   assumeRole:
     fn::invoke:
-      Function: aws:iam:getPolicyDocument
-      Arguments:
+      function: aws:iam:getPolicyDocument
+      arguments:
         statements:
           - effect: Allow
             principals:
