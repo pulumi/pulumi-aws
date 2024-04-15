@@ -54,10 +54,10 @@ require (
 	github.com/atotto/clipboard v0.1.4 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.26.1 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.6.2 // indirect
-	github.com/aws/aws-sdk-go-v2/config v1.27.10 // indirect
-	github.com/aws/aws-sdk-go-v2/credentials v1.17.10 // indirect
+	github.com/aws/aws-sdk-go-v2/config v1.27.11 // indirect
+	github.com/aws/aws-sdk-go-v2/credentials v1.17.11 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.1 // indirect
-	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.16.14 // indirect
+	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.16.15 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/configsources v1.3.5 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.5 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/ini v1.8.0 // indirect
@@ -147,7 +147,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/kendra v1.50.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/keyspaces v1.10.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/kinesis v1.27.4 // indirect
-	github.com/aws/aws-sdk-go-v2/service/kms v1.27.5 // indirect
+	github.com/aws/aws-sdk-go-v2/service/kms v1.30.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/lakeformation v1.31.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/lambda v1.54.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/launchwizard v1.3.4 // indirect
@@ -201,7 +201,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ssmcontacts v1.22.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssmincidents v1.30.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssmsap v1.12.4 // indirect
-	github.com/aws/aws-sdk-go-v2/service/sso v1.20.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sso v1.20.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssoadmin v1.25.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.23.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.28.6 // indirect
@@ -406,3 +406,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
 )
+
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.112.1-0.20240415093554-751f772f4cb8
+
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.112.1-0.20240415093554-751f772f4cb8
