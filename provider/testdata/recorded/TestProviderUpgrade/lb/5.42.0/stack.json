@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-03-12T14:57:07.844325Z",
-      "magic": "4fa6a6dae0ccab3589c700b0790a52fa47015f8ec72d37a2e10816857250b8c2",
-      "version": "v3.108.1"
+      "time": "2024-04-15T16:31:04.894776-04:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:ShryTD2jbxc=:v1:N1Ury7KT+hPHUjFr:szSKaSwOkoQPNvytYRXeN3EcWiuqrw=="
+        "salt": "v1:tRA9O6K/pD8=:v1:SwtRnot09SYoqQ52:40EHI3d1TxbPDjuJcQL/jb2umwBCdg=="
       }
     },
     "resources": [
@@ -17,111 +17,118 @@
         "urn": "urn:pulumi:test::lb::pulumi:pulumi:Stack::lb-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-03-12T14:53:50.395891Z",
-        "modified": "2024-03-12T14:53:50.395891Z"
+        "created": "2024-04-15T20:27:49.64946Z",
+        "modified": "2024-04-15T20:27:49.64946Z"
       },
       {
         "urn": "urn:pulumi:test::lb::pulumi:providers:aws::default",
         "custom": true,
-        "id": "14890eae-be82-431f-a869-18247d7cf8ff",
+        "id": "96edb686-4663-482a-b209-e43321f1ad32",
         "type": "pulumi:providers:aws",
-        "created": "2024-03-12T14:53:52.051105Z",
-        "modified": "2024-03-12T14:53:52.051105Z"
+        "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true"
+        },
+        "created": "2024-04-15T20:27:52.978072Z",
+        "modified": "2024-04-15T20:27:52.978072Z"
       },
       {
         "urn": "urn:pulumi:test::lb::aws:ec2/internetGateway:InternetGateway::myInternetGateway",
         "custom": true,
-        "id": "igw-07d9e8352ca8b47ae",
+        "id": "igw-025dd14c9377101d5",
         "type": "aws:ec2/internetGateway:InternetGateway",
         "inputs": {
           "__defaults": []
         },
         "outputs": {
           "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1200000000000,\"delete\":1200000000000,\"update\":1200000000000}}",
-          "arn": "arn:aws:ec2:us-west-2:616138583583:internet-gateway/igw-07d9e8352ca8b47ae",
-          "id": "igw-07d9e8352ca8b47ae",
+          "arn": "arn:aws:ec2:us-west-2:616138583583:internet-gateway/igw-025dd14c9377101d5",
+          "id": "igw-025dd14c9377101d5",
           "ownerId": "616138583583",
           "tags": {},
           "tagsAll": {},
           "vpcId": ""
         },
         "parent": "urn:pulumi:test::lb::pulumi:pulumi:Stack::lb-test",
-        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::14890eae-be82-431f-a869-18247d7cf8ff",
-        "created": "2024-03-12T14:53:54.647659Z",
-        "modified": "2024-03-12T14:53:54.647659Z"
+        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::96edb686-4663-482a-b209-e43321f1ad32",
+        "created": "2024-04-15T20:27:54.582393Z",
+        "modified": "2024-04-15T20:27:54.582393Z"
       },
       {
         "urn": "urn:pulumi:test::lb::aws:ec2/vpc:Vpc::exampleVpc",
         "custom": true,
-        "id": "vpc-0c99ce9c17a0eaf74",
+        "id": "vpc-0d1dd87c576ab3d89",
         "type": "aws:ec2/vpc:Vpc",
         "inputs": {
-          "__defaults": [
-            "instanceTenancy"
-          ],
+          "__defaults": [],
           "cidrBlock": "10.0.0.0/16",
           "enableDnsHostnames": true,
-          "enableDnsSupport": true,
-          "instanceTenancy": "default"
+          "enableDnsSupport": true
         },
         "outputs": {
           "__meta": "{\"schema_version\":\"1\"}",
-          "arn": "arn:aws:ec2:us-west-2:616138583583:vpc/vpc-0c99ce9c17a0eaf74",
+          "arn": "arn:aws:ec2:us-west-2:616138583583:vpc/vpc-0d1dd87c576ab3d89",
           "assignGeneratedIpv6CidrBlock": false,
           "cidrBlock": "10.0.0.0/16",
-          "defaultNetworkAclId": "acl-004261483060189e0",
-          "defaultRouteTableId": "rtb-06f1a9c767a8761fd",
-          "defaultSecurityGroupId": "sg-0dc5d594267b7ac59",
+          "defaultNetworkAclId": "acl-0400770d28101a2f1",
+          "defaultRouteTableId": "rtb-077a9a6089acaf6fb",
+          "defaultSecurityGroupId": "sg-0589e40c944610cf0",
           "dhcpOptionsId": "dopt-1649d26e",
-          "enableClassiclink": false,
-          "enableClassiclinkDnsSupport": false,
           "enableDnsHostnames": true,
           "enableDnsSupport": true,
           "enableNetworkAddressUsageMetrics": false,
-          "id": "vpc-0c99ce9c17a0eaf74",
+          "id": "vpc-0d1dd87c576ab3d89",
           "instanceTenancy": "default",
           "ipv6AssociationId": "",
           "ipv6CidrBlock": "",
           "ipv6CidrBlockNetworkBorderGroup": "",
           "ipv6IpamPoolId": "",
           "ipv6NetmaskLength": 0,
-          "mainRouteTableId": "rtb-06f1a9c767a8761fd",
+          "mainRouteTableId": "rtb-077a9a6089acaf6fb",
           "ownerId": "616138583583",
           "tags": {},
           "tagsAll": {}
         },
         "parent": "urn:pulumi:test::lb::pulumi:pulumi:Stack::lb-test",
-        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::14890eae-be82-431f-a869-18247d7cf8ff",
+        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::96edb686-4663-482a-b209-e43321f1ad32",
         "propertyDependencies": {
-          "cidrBlock": null,
-          "enableDnsHostnames": null,
-          "enableDnsSupport": null
+          "cidrBlock": [],
+          "enableDnsHostnames": [],
+          "enableDnsSupport": []
         },
-        "created": "2024-03-12T14:54:07.594243Z",
-        "modified": "2024-03-12T14:54:07.594243Z"
+        "created": "2024-04-15T20:28:06.683235Z",
+        "modified": "2024-04-15T20:28:06.683235Z"
       },
       {
         "urn": "urn:pulumi:test::lb::aws:ec2/internetGatewayAttachment:InternetGatewayAttachment::myVPCGatewayAttachment",
         "custom": true,
-        "id": "igw-07d9e8352ca8b47ae:vpc-0c99ce9c17a0eaf74",
+        "id": "igw-025dd14c9377101d5:vpc-0d1dd87c576ab3d89",
         "type": "aws:ec2/internetGatewayAttachment:InternetGatewayAttachment",
         "inputs": {
           "__defaults": [],
-          "internetGatewayId": "igw-07d9e8352ca8b47ae",
-          "vpcId": "vpc-0c99ce9c17a0eaf74"
+          "internetGatewayId": "igw-025dd14c9377101d5",
+          "vpcId": "vpc-0d1dd87c576ab3d89"
         },
         "outputs": {
           "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1200000000000,\"delete\":1200000000000}}",
-          "id": "igw-07d9e8352ca8b47ae:vpc-0c99ce9c17a0eaf74",
-          "internetGatewayId": "igw-07d9e8352ca8b47ae",
-          "vpcId": "vpc-0c99ce9c17a0eaf74"
+          "id": "igw-025dd14c9377101d5:vpc-0d1dd87c576ab3d89",
+          "internetGatewayId": "igw-025dd14c9377101d5",
+          "vpcId": "vpc-0d1dd87c576ab3d89"
         },
         "parent": "urn:pulumi:test::lb::pulumi:pulumi:Stack::lb-test",
         "dependencies": [
           "urn:pulumi:test::lb::aws:ec2/internetGateway:InternetGateway::myInternetGateway",
           "urn:pulumi:test::lb::aws:ec2/vpc:Vpc::exampleVpc"
         ],
-        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::14890eae-be82-431f-a869-18247d7cf8ff",
+        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::96edb686-4663-482a-b209-e43321f1ad32",
         "propertyDependencies": {
           "internetGatewayId": [
             "urn:pulumi:test::lb::aws:ec2/internetGateway:InternetGateway::myInternetGateway"
@@ -130,13 +137,13 @@
             "urn:pulumi:test::lb::aws:ec2/vpc:Vpc::exampleVpc"
           ]
         },
-        "created": "2024-03-12T14:54:08.53787Z",
-        "modified": "2024-03-12T14:54:08.53787Z"
+        "created": "2024-04-15T20:28:07.477036Z",
+        "modified": "2024-04-15T20:28:07.477036Z"
       },
       {
         "urn": "urn:pulumi:test::lb::aws:ec2/subnet:Subnet::exampleSubnet1",
         "custom": true,
-        "id": "subnet-04fc9e30e1df99dcc",
+        "id": "subnet-04fef6cc5c0a1a873",
         "type": "aws:ec2/subnet:Subnet",
         "inputs": {
           "__defaults": [
@@ -155,11 +162,11 @@
           "enableResourceNameDnsAaaaRecordOnLaunch": false,
           "ipv6Native": false,
           "mapPublicIpOnLaunch": false,
-          "vpcId": "vpc-0c99ce9c17a0eaf74"
+          "vpcId": "vpc-0d1dd87c576ab3d89"
         },
         "outputs": {
           "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
-          "arn": "arn:aws:ec2:us-west-2:616138583583:subnet/subnet-04fc9e30e1df99dcc",
+          "arn": "arn:aws:ec2:us-west-2:616138583583:subnet/subnet-04fef6cc5c0a1a873",
           "assignIpv6AddressOnCreation": false,
           "availabilityZone": "us-west-2a",
           "availabilityZoneId": "usw2-az2",
@@ -169,7 +176,7 @@
           "enableLniAtDeviceIndex": 0,
           "enableResourceNameDnsARecordOnLaunch": false,
           "enableResourceNameDnsAaaaRecordOnLaunch": false,
-          "id": "subnet-04fc9e30e1df99dcc",
+          "id": "subnet-04fef6cc5c0a1a873",
           "ipv6CidrBlock": "",
           "ipv6CidrBlockAssociationId": "",
           "ipv6Native": false,
@@ -180,27 +187,27 @@
           "privateDnsHostnameTypeOnLaunch": "ip-name",
           "tags": {},
           "tagsAll": {},
-          "vpcId": "vpc-0c99ce9c17a0eaf74"
+          "vpcId": "vpc-0d1dd87c576ab3d89"
         },
         "parent": "urn:pulumi:test::lb::pulumi:pulumi:Stack::lb-test",
         "dependencies": [
           "urn:pulumi:test::lb::aws:ec2/vpc:Vpc::exampleVpc"
         ],
-        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::14890eae-be82-431f-a869-18247d7cf8ff",
+        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::96edb686-4663-482a-b209-e43321f1ad32",
         "propertyDependencies": {
-          "availabilityZone": null,
-          "cidrBlock": null,
+          "availabilityZone": [],
+          "cidrBlock": [],
           "vpcId": [
             "urn:pulumi:test::lb::aws:ec2/vpc:Vpc::exampleVpc"
           ]
         },
-        "created": "2024-03-12T14:54:08.70224Z",
-        "modified": "2024-03-12T14:54:08.70224Z"
+        "created": "2024-04-15T20:28:07.583681Z",
+        "modified": "2024-04-15T20:28:07.583681Z"
       },
       {
         "urn": "urn:pulumi:test::lb::aws:ec2/subnet:Subnet::exampleSubnet2",
         "custom": true,
-        "id": "subnet-0c90fdea73c1e6595",
+        "id": "subnet-0bf8fd0b6048cf304",
         "type": "aws:ec2/subnet:Subnet",
         "inputs": {
           "__defaults": [
@@ -219,11 +226,11 @@
           "enableResourceNameDnsAaaaRecordOnLaunch": false,
           "ipv6Native": false,
           "mapPublicIpOnLaunch": false,
-          "vpcId": "vpc-0c99ce9c17a0eaf74"
+          "vpcId": "vpc-0d1dd87c576ab3d89"
         },
         "outputs": {
           "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
-          "arn": "arn:aws:ec2:us-west-2:616138583583:subnet/subnet-0c90fdea73c1e6595",
+          "arn": "arn:aws:ec2:us-west-2:616138583583:subnet/subnet-0bf8fd0b6048cf304",
           "assignIpv6AddressOnCreation": false,
           "availabilityZone": "us-west-2b",
           "availabilityZoneId": "usw2-az1",
@@ -233,7 +240,7 @@
           "enableLniAtDeviceIndex": 0,
           "enableResourceNameDnsARecordOnLaunch": false,
           "enableResourceNameDnsAaaaRecordOnLaunch": false,
-          "id": "subnet-0c90fdea73c1e6595",
+          "id": "subnet-0bf8fd0b6048cf304",
           "ipv6CidrBlock": "",
           "ipv6CidrBlockAssociationId": "",
           "ipv6Native": false,
@@ -244,37 +251,35 @@
           "privateDnsHostnameTypeOnLaunch": "ip-name",
           "tags": {},
           "tagsAll": {},
-          "vpcId": "vpc-0c99ce9c17a0eaf74"
+          "vpcId": "vpc-0d1dd87c576ab3d89"
         },
         "parent": "urn:pulumi:test::lb::pulumi:pulumi:Stack::lb-test",
         "dependencies": [
           "urn:pulumi:test::lb::aws:ec2/vpc:Vpc::exampleVpc"
         ],
-        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::14890eae-be82-431f-a869-18247d7cf8ff",
+        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::96edb686-4663-482a-b209-e43321f1ad32",
         "propertyDependencies": {
-          "availabilityZone": null,
-          "cidrBlock": null,
+          "availabilityZone": [],
+          "cidrBlock": [],
           "vpcId": [
             "urn:pulumi:test::lb::aws:ec2/vpc:Vpc::exampleVpc"
           ]
         },
-        "created": "2024-03-12T14:54:08.778271Z",
-        "modified": "2024-03-12T14:54:08.778271Z"
+        "created": "2024-04-15T20:28:07.829543Z",
+        "modified": "2024-04-15T20:28:07.829543Z"
       },
       {
         "urn": "urn:pulumi:test::lb::aws:lb/targetGroup:TargetGroup::exampleTargetGroup",
         "custom": true,
-        "id": "arn:aws:elasticloadbalancing:us-west-2:616138583583:targetgroup/example-target-group/25fcc37f8bb38bf4",
+        "id": "arn:aws:elasticloadbalancing:us-west-2:616138583583:targetgroup/example-target-group/d678aa565cc57857",
         "type": "aws:lb/targetGroup:TargetGroup",
         "inputs": {
           "__defaults": [
-            "connectionTermination",
             "lambdaMultiValueHeadersEnabled",
             "proxyProtocolV2",
             "slowStart",
             "targetType"
           ],
-          "connectionTermination": false,
           "lambdaMultiValueHeadersEnabled": false,
           "name": "example-target-group",
           "port": 80,
@@ -282,12 +287,11 @@
           "proxyProtocolV2": false,
           "slowStart": 0,
           "targetType": "instance",
-          "vpcId": "vpc-0c99ce9c17a0eaf74"
+          "vpcId": "vpc-0d1dd87c576ab3d89"
         },
         "outputs": {
-          "arn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:targetgroup/example-target-group/25fcc37f8bb38bf4",
-          "arnSuffix": "targetgroup/example-target-group/25fcc37f8bb38bf4",
-          "connectionTermination": false,
+          "arn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:targetgroup/example-target-group/d678aa565cc57857",
+          "arnSuffix": "targetgroup/example-target-group/d678aa565cc57857",
           "deregistrationDelay": 300,
           "healthCheck": {
             "enabled": true,
@@ -300,12 +304,15 @@
             "timeout": 5,
             "unhealthyThreshold": 2
           },
-          "id": "arn:aws:elasticloadbalancing:us-west-2:616138583583:targetgroup/example-target-group/25fcc37f8bb38bf4",
+          "id": "arn:aws:elasticloadbalancing:us-west-2:616138583583:targetgroup/example-target-group/d678aa565cc57857",
           "ipAddressType": "ipv4",
           "lambdaMultiValueHeadersEnabled": false,
+          "loadBalancerArns": [],
           "loadBalancingAlgorithmType": "round_robin",
+          "loadBalancingAnomalyMitigation": "off",
           "loadBalancingCrossZoneEnabled": "use_load_balancer_configuration",
           "name": "example-target-group",
+          "namePrefix": "",
           "port": 80,
           "protocol": "HTTP",
           "protocolVersion": "HTTP1",
@@ -320,29 +327,30 @@
           "tags": {},
           "tagsAll": {},
           "targetFailovers": [],
+          "targetHealthStates": [],
           "targetType": "instance",
-          "vpcId": "vpc-0c99ce9c17a0eaf74"
+          "vpcId": "vpc-0d1dd87c576ab3d89"
         },
         "parent": "urn:pulumi:test::lb::pulumi:pulumi:Stack::lb-test",
         "dependencies": [
           "urn:pulumi:test::lb::aws:ec2/vpc:Vpc::exampleVpc"
         ],
-        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::14890eae-be82-431f-a869-18247d7cf8ff",
+        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::96edb686-4663-482a-b209-e43321f1ad32",
         "propertyDependencies": {
-          "name": null,
-          "port": null,
-          "protocol": null,
+          "name": [],
+          "port": [],
+          "protocol": [],
           "vpcId": [
             "urn:pulumi:test::lb::aws:ec2/vpc:Vpc::exampleVpc"
           ]
         },
-        "created": "2024-03-12T14:54:10.310464Z",
-        "modified": "2024-03-12T14:54:10.310464Z"
+        "created": "2024-04-15T20:28:08.572081Z",
+        "modified": "2024-04-15T20:28:08.572081Z"
       },
       {
         "urn": "urn:pulumi:test::lb::aws:ec2/securityGroup:SecurityGroup::exampleSecurityGroup",
         "custom": true,
-        "id": "sg-050483f973da37d41",
+        "id": "sg-00a9bdcc05bcc6fcc",
         "type": "aws:ec2/securityGroup:SecurityGroup",
         "inputs": {
           "__defaults": [
@@ -379,11 +387,11 @@
           ],
           "name": "example-security-group",
           "revokeRulesOnDelete": false,
-          "vpcId": "vpc-0c99ce9c17a0eaf74"
+          "vpcId": "vpc-0d1dd87c576ab3d89"
         },
         "outputs": {
           "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":900000000000},\"schema_version\":\"1\"}",
-          "arn": "arn:aws:ec2:us-west-2:616138583583:security-group/sg-050483f973da37d41",
+          "arn": "arn:aws:ec2:us-west-2:616138583583:security-group/sg-00a9bdcc05bcc6fcc",
           "description": "Managed by Pulumi",
           "egress": [
             {
@@ -400,7 +408,7 @@
               "toPort": 0
             }
           ],
-          "id": "sg-050483f973da37d41",
+          "id": "sg-00a9bdcc05bcc6fcc",
           "ingress": [
             {
               "cidrBlocks": [
@@ -422,33 +430,34 @@
           "revokeRulesOnDelete": false,
           "tags": {},
           "tagsAll": {},
-          "vpcId": "vpc-0c99ce9c17a0eaf74"
+          "vpcId": "vpc-0d1dd87c576ab3d89"
         },
         "parent": "urn:pulumi:test::lb::pulumi:pulumi:Stack::lb-test",
         "dependencies": [
           "urn:pulumi:test::lb::aws:ec2/vpc:Vpc::exampleVpc"
         ],
-        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::14890eae-be82-431f-a869-18247d7cf8ff",
+        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::96edb686-4663-482a-b209-e43321f1ad32",
         "propertyDependencies": {
-          "description": null,
-          "egress": null,
-          "ingress": null,
-          "name": null,
+          "description": [],
+          "egress": [],
+          "ingress": [],
+          "name": [],
           "vpcId": [
             "urn:pulumi:test::lb::aws:ec2/vpc:Vpc::exampleVpc"
           ]
         },
-        "created": "2024-03-12T14:54:11.507832Z",
-        "modified": "2024-03-12T14:54:11.507832Z"
+        "created": "2024-04-15T20:28:09.924706Z",
+        "modified": "2024-04-15T20:28:09.924706Z"
       },
       {
         "urn": "urn:pulumi:test::lb::aws:lb/loadBalancer:LoadBalancer::exampleLoadBalancer",
         "custom": true,
-        "id": "arn:aws:elasticloadbalancing:us-west-2:616138583583:loadbalancer/app/example-load-balancer/3ce0ba59bd351b07",
+        "id": "arn:aws:elasticloadbalancing:us-west-2:616138583583:loadbalancer/app/example-load-balancer/3c44c044f8c9111d",
         "type": "aws:lb/loadBalancer:LoadBalancer",
         "inputs": {
           "__defaults": [
             "desyncMitigationMode",
+            "dnsRecordClientRoutingPolicy",
             "dropInvalidHeaderFields",
             "enableCrossZoneLoadBalancing",
             "enableDeletionProtection",
@@ -461,6 +470,7 @@
             "xffHeaderProcessingMode"
           ],
           "desyncMitigationMode": "defensive",
+          "dnsRecordClientRoutingPolicy": "any_availability_zone",
           "dropInvalidHeaderFields": false,
           "enableCrossZoneLoadBalancing": false,
           "enableDeletionProtection": false,
@@ -474,11 +484,11 @@
           "name": "example-load-balancer",
           "preserveHostHeader": false,
           "securityGroups": [
-            "sg-050483f973da37d41"
+            "sg-00a9bdcc05bcc6fcc"
           ],
           "subnets": [
-            "subnet-04fc9e30e1df99dcc",
-            "subnet-0c90fdea73c1e6595"
+            "subnet-04fef6cc5c0a1a873",
+            "subnet-0bf8fd0b6048cf304"
           ],
           "xffHeaderProcessingMode": "append"
         },
@@ -489,11 +499,16 @@
             "enabled": false,
             "prefix": ""
           },
-          "arn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:loadbalancer/app/example-load-balancer/3ce0ba59bd351b07",
-          "arnSuffix": "app/example-load-balancer/3ce0ba59bd351b07",
+          "arn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:loadbalancer/app/example-load-balancer/3c44c044f8c9111d",
+          "arnSuffix": "app/example-load-balancer/3c44c044f8c9111d",
+          "connectionLogs": {
+            "bucket": "",
+            "enabled": false,
+            "prefix": ""
+          },
           "customerOwnedIpv4Pool": "",
           "desyncMitigationMode": "defensive",
-          "dnsName": "example-load-balancer-1596252727.us-west-2.elb.amazonaws.com",
+          "dnsName": "example-load-balancer-1381069576.us-west-2.elb.amazonaws.com",
           "dropInvalidHeaderFields": false,
           "enableCrossZoneLoadBalancing": true,
           "enableDeletionProtection": false,
@@ -501,15 +516,17 @@
           "enableTlsVersionAndCipherSuiteHeaders": false,
           "enableWafFailOpen": false,
           "enableXffClientPort": false,
-          "id": "arn:aws:elasticloadbalancing:us-west-2:616138583583:loadbalancer/app/example-load-balancer/3ce0ba59bd351b07",
+          "enforceSecurityGroupInboundRulesOnPrivateLinkTraffic": "",
+          "id": "arn:aws:elasticloadbalancing:us-west-2:616138583583:loadbalancer/app/example-load-balancer/3c44c044f8c9111d",
           "idleTimeout": 60,
           "internal": false,
           "ipAddressType": "ipv4",
           "loadBalancerType": "application",
           "name": "example-load-balancer",
+          "namePrefix": "",
           "preserveHostHeader": false,
           "securityGroups": [
-            "sg-050483f973da37d41"
+            "sg-00a9bdcc05bcc6fcc"
           ],
           "subnetMappings": [
             {
@@ -517,23 +534,23 @@
               "ipv6Address": "",
               "outpostId": "",
               "privateIpv4Address": "",
-              "subnetId": "subnet-0c90fdea73c1e6595"
+              "subnetId": "subnet-0bf8fd0b6048cf304"
             },
             {
               "allocationId": "",
               "ipv6Address": "",
               "outpostId": "",
               "privateIpv4Address": "",
-              "subnetId": "subnet-04fc9e30e1df99dcc"
+              "subnetId": "subnet-04fef6cc5c0a1a873"
             }
           ],
           "subnets": [
-            "subnet-0c90fdea73c1e6595",
-            "subnet-04fc9e30e1df99dcc"
+            "subnet-0bf8fd0b6048cf304",
+            "subnet-04fef6cc5c0a1a873"
           ],
           "tags": {},
           "tagsAll": {},
-          "vpcId": "vpc-0c99ce9c17a0eaf74",
+          "vpcId": "vpc-0d1dd87c576ab3d89",
           "xffHeaderProcessingMode": "append",
           "zoneId": "Z1H1FL5HABSF5"
         },
@@ -543,11 +560,11 @@
           "urn:pulumi:test::lb::aws:ec2/subnet:Subnet::exampleSubnet1",
           "urn:pulumi:test::lb::aws:ec2/subnet:Subnet::exampleSubnet2"
         ],
-        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::14890eae-be82-431f-a869-18247d7cf8ff",
+        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::96edb686-4663-482a-b209-e43321f1ad32",
         "propertyDependencies": {
-          "internal": null,
-          "loadBalancerType": null,
-          "name": null,
+          "internal": [],
+          "loadBalancerType": [],
+          "name": [],
           "securityGroups": [
             "urn:pulumi:test::lb::aws:ec2/securityGroup:SecurityGroup::exampleSecurityGroup"
           ],
@@ -556,30 +573,30 @@
             "urn:pulumi:test::lb::aws:ec2/subnet:Subnet::exampleSubnet2"
           ]
         },
-        "created": "2024-03-12T14:57:06.923834Z",
-        "modified": "2024-03-12T14:57:06.923834Z"
+        "created": "2024-04-15T20:31:03.936247Z",
+        "modified": "2024-04-15T20:31:03.936247Z"
       },
       {
         "urn": "urn:pulumi:test::lb::aws:lb/listener:Listener::exampleListener",
         "custom": true,
-        "id": "arn:aws:elasticloadbalancing:us-west-2:616138583583:listener/app/example-load-balancer/3ce0ba59bd351b07/29ea7ffb381d82b3",
+        "id": "arn:aws:elasticloadbalancing:us-west-2:616138583583:listener/app/example-load-balancer/3c44c044f8c9111d/5786a0b06738ff5a",
         "type": "aws:lb/listener:Listener",
         "inputs": {
           "__defaults": [],
           "defaultActions": [
             {
               "__defaults": [],
-              "targetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:targetgroup/example-target-group/25fcc37f8bb38bf4",
+              "targetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:targetgroup/example-target-group/d678aa565cc57857",
               "type": "forward"
             }
           ],
-          "loadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:loadbalancer/app/example-load-balancer/3ce0ba59bd351b07",
+          "loadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:loadbalancer/app/example-load-balancer/3c44c044f8c9111d",
           "port": 80,
           "protocol": "HTTP"
         },
         "outputs": {
-          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"read\":600000000000}}",
-          "arn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:listener/app/example-load-balancer/3ce0ba59bd351b07/29ea7ffb381d82b3",
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":300000000000,\"update\":300000000000}}",
+          "arn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:listener/app/example-load-balancer/3c44c044f8c9111d/5786a0b06738ff5a",
           "defaultActions": [
             {
               "authenticateCognito": null,
@@ -588,12 +605,13 @@
               "forward": null,
               "order": 1,
               "redirect": null,
-              "targetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:targetgroup/example-target-group/25fcc37f8bb38bf4",
+              "targetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:targetgroup/example-target-group/d678aa565cc57857",
               "type": "forward"
             }
           ],
-          "id": "arn:aws:elasticloadbalancing:us-west-2:616138583583:listener/app/example-load-balancer/3ce0ba59bd351b07/29ea7ffb381d82b3",
-          "loadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:loadbalancer/app/example-load-balancer/3ce0ba59bd351b07",
+          "id": "arn:aws:elasticloadbalancing:us-west-2:616138583583:listener/app/example-load-balancer/3c44c044f8c9111d/5786a0b06738ff5a",
+          "loadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:616138583583:loadbalancer/app/example-load-balancer/3c44c044f8c9111d",
+          "mutualAuthentication": null,
           "port": 80,
           "protocol": "HTTP",
           "sslPolicy": "",
@@ -605,7 +623,7 @@
           "urn:pulumi:test::lb::aws:lb/loadBalancer:LoadBalancer::exampleLoadBalancer",
           "urn:pulumi:test::lb::aws:lb/targetGroup:TargetGroup::exampleTargetGroup"
         ],
-        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::14890eae-be82-431f-a869-18247d7cf8ff",
+        "provider": "urn:pulumi:test::lb::pulumi:providers:aws::default::96edb686-4663-482a-b209-e43321f1ad32",
         "propertyDependencies": {
           "defaultActions": [
             "urn:pulumi:test::lb::aws:lb/targetGroup:TargetGroup::exampleTargetGroup"
@@ -613,11 +631,11 @@
           "loadBalancerArn": [
             "urn:pulumi:test::lb::aws:lb/loadBalancer:LoadBalancer::exampleLoadBalancer"
           ],
-          "port": null,
-          "protocol": null
+          "port": [],
+          "protocol": []
         },
-        "created": "2024-03-12T14:57:07.843779Z",
-        "modified": "2024-03-12T14:57:07.843779Z"
+        "created": "2024-04-15T20:31:04.894613Z",
+        "modified": "2024-04-15T20:31:04.894613Z"
       }
     ]
   }

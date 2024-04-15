@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2023-11-10T17:24:52.29672-05:00",
-      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
-      "version": "v3.92.0"
+      "time": "2024-04-15T15:47:46.985459-04:00",
+      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
+      "version": "v3.111.1"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:ZayQNed0iQU=:v1:H6kCBKDPFhwfbHSQ:YjolxFZ6IlxQBtqQDdMEgp4o64n0Nw=="
+        "salt": "v1:MiNheSq5DkQ=:v1:uqWT5e7+TY4ms4OM:R/sZVHKm1MuCKQl+eLMTF0+ulCpIOw=="
       }
     },
     "resources": [
@@ -17,16 +17,28 @@
         "urn": "urn:pulumi:test::aws_cloudwatch_logGroup_LogGroup_1::pulumi:pulumi:Stack::aws_cloudwatch_logGroup_LogGroup_1-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2023-11-10T22:24:48.90178Z",
-        "modified": "2023-11-10T22:24:48.90178Z"
+        "created": "2024-04-15T19:47:41.717605Z",
+        "modified": "2024-04-15T19:47:41.717605Z"
       },
       {
         "urn": "urn:pulumi:test::aws_cloudwatch_logGroup_LogGroup_1::pulumi:providers:aws::default",
         "custom": true,
-        "id": "32c3abb7-4395-4129-a204-c84f1ebd1004",
+        "id": "1eb43cf1-9fa3-4125-8371-21c7a051f75c",
         "type": "pulumi:providers:aws",
-        "created": "2023-11-10T22:24:50.425896Z",
-        "modified": "2023-11-10T22:24:50.425896Z"
+        "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipMetadataApiCheck": "true",
+          "skipRegionValidation": "true"
+        },
+        "created": "2024-04-15T19:47:45.318407Z",
+        "modified": "2024-04-15T19:47:45.318407Z"
       },
       {
         "urn": "urn:pulumi:test::aws_cloudwatch_logGroup_LogGroup_1::aws:cloudwatch/logGroup:LogGroup::yada",
@@ -42,7 +54,10 @@
           "retentionInDays": 0,
           "skipDestroy": false,
           "tags": {
-            "__defaults": [],
+            "application": "serviceA",
+            "environment": "production"
+          },
+          "tagsAll": {
             "application": "serviceA",
             "environment": "production"
           }
@@ -51,6 +66,7 @@
           "arn": "arn:aws:logs:us-west-2:616138583583:log-group:Yada",
           "id": "Yada",
           "kmsKeyId": "",
+          "logGroupClass": "STANDARD",
           "name": "Yada",
           "namePrefix": "",
           "retentionInDays": 0,
@@ -65,13 +81,13 @@
           }
         },
         "parent": "urn:pulumi:test::aws_cloudwatch_logGroup_LogGroup_1::pulumi:pulumi:Stack::aws_cloudwatch_logGroup_LogGroup_1-test",
-        "provider": "urn:pulumi:test::aws_cloudwatch_logGroup_LogGroup_1::pulumi:providers:aws::default::32c3abb7-4395-4129-a204-c84f1ebd1004",
+        "provider": "urn:pulumi:test::aws_cloudwatch_logGroup_LogGroup_1::pulumi:providers:aws::default::1eb43cf1-9fa3-4125-8371-21c7a051f75c",
         "propertyDependencies": {
-          "name": null,
-          "tags": null
+          "name": [],
+          "tags": []
         },
-        "created": "2023-11-10T22:24:52.296479Z",
-        "modified": "2023-11-10T22:24:52.296479Z"
+        "created": "2024-04-15T19:47:46.985325Z",
+        "modified": "2024-04-15T19:47:46.985325Z"
       }
     ]
   }
