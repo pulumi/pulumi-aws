@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Comprehend
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsIamRolePolicy, 
+    ///             exampleAwsIamRolePolicy,
     ///         },
     ///     });
     /// 

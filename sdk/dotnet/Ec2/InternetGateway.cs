@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         DependsOn =
         ///         {
-        ///             gw, 
+        ///             gw,
         ///         },
         ///     });
         /// 
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         DependsOn =
         ///         {
-        ///             gw, 
+        ///             gw,
         ///         },
         ///     });
         /// 
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Ec2
         ///     {
         ///         DependsOn =
         ///         {
-        ///             gw, 
+        ///             gw,
         ///         },
         ///     });
         /// 

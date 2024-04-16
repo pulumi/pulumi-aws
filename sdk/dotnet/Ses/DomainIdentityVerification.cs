@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ses
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAmazonsesVerificationRecord, 
+    ///             exampleAmazonsesVerificationRecord,
     ///         },
     ///     });
     /// 

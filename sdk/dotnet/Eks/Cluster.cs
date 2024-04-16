@@ -41,8 +41,8 @@ namespace Pulumi.Aws.Eks
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example_AmazonEKSClusterPolicy, 
-    ///             example_AmazonEKSVPCResourceController, 
+    ///             example_AmazonEKSClusterPolicy,
+    ///             example_AmazonEKSVPCResourceController,
     ///         },
     ///     });
     /// 
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Eks
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleLogGroup, 
+    ///             exampleLogGroup,
     ///         },
     ///     });
     /// 

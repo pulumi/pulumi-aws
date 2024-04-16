@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Shield
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleProtection, 
+    ///             exampleProtection,
     ///         },
     ///     });
     /// 

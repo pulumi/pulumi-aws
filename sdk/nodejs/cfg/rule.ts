@@ -110,16 +110,16 @@ import * as utilities from "../utilities";
  *         }],
  *         customPolicyDetails: {
  *             policyRuntime: "guard-2.x.x",
- *             policyText: `	  rule tableisactive when
- * 		  resourceType == "AWS::DynamoDB::Table" {
- * 		  configuration.tableStatus == ['ACTIVE']
- * 	  }
- * 	  
- * 	  rule checkcompliance when
- * 		  resourceType == "AWS::DynamoDB::Table"
- * 		  tableisactive {
- * 			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
- * 	  }
+ *             policyText: `\x09  rule tableisactive when
+ * \x09\x09  resourceType == "AWS::DynamoDB::Table" {
+ * \x09\x09  configuration.tableStatus == ['ACTIVE']
+ * \x09  }
+ * \x09  
+ * \x09  rule checkcompliance when
+ * \x09\x09  resourceType == "AWS::DynamoDB::Table"
+ * \x09\x09  tableisactive {
+ * \x09\x09\x09  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
+ * \x09  }
  * `,
  *         },
  *     },

@@ -47,7 +47,7 @@ namespace Pulumi.Aws.ApiGateway
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleDocumentationPart, 
+    ///             exampleDocumentationPart,
     ///         },
     ///     });
     /// 

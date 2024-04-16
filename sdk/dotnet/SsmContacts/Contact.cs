@@ -33,7 +33,7 @@ namespace Pulumi.Aws.SsmContacts
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///             exampleAwsSsmincidentsReplicationSet,
     ///         },
     ///     });
     /// 
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.SsmContacts
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///             exampleAwsSsmincidentsReplicationSet,
     ///         },
     ///     });
     /// 

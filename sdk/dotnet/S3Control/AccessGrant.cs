@@ -35,7 +35,7 @@ namespace Pulumi.Aws.S3Control
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 

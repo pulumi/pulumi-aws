@@ -160,8 +160,8 @@ namespace Pulumi.Aws.Workspaces
     ///     {
     ///         DependsOn =
     ///         {
-    ///             workspacesDefaultServiceAccess, 
-    ///             workspacesDefaultSelfServiceAccess, 
+    ///             workspacesDefaultServiceAccess,
+    ///             workspacesDefaultSelfServiceAccess,
     ///         },
     ///     });
     /// 

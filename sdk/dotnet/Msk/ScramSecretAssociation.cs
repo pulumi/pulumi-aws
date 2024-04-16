@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Msk
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleSecretVersion, 
+    ///             exampleSecretVersion,
     ///         },
     ///     });
     /// 
