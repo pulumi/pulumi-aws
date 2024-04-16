@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 from .. import _utilities
 
 __all__ = ['TemplateArgs', 'Template']
@@ -195,7 +200,7 @@ class Template(pulumi.CustomResource):
             name="MyTemplate",
             subject="Greetings, {{name}}!",
             html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
-            text=\"\"\"Hello {{name}},
+            text=\"\"\"Hello {{name}},\\x0d
         Your favorite animal is {{favoriteanimal}}.\"\"\")
         ```
         <!--End PulumiCodeChooser -->
@@ -235,7 +240,7 @@ class Template(pulumi.CustomResource):
             name="MyTemplate",
             subject="Greetings, {{name}}!",
             html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
-            text=\"\"\"Hello {{name}},
+            text=\"\"\"Hello {{name}},\\x0d
         Your favorite animal is {{favoriteanimal}}.\"\"\")
         ```
         <!--End PulumiCodeChooser -->

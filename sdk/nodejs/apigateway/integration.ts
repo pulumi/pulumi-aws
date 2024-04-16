@@ -47,7 +47,7 @@ import {RestApi} from "./index";
  *     },
  *     requestTemplates: {
  *         "application/xml": `{
- *    "body" : $input.json('$')
+ *    "body" : input.json('')
  * }
  * `,
  *     },
@@ -164,7 +164,7 @@ import {RestApi} from "./index";
  *     httpMethod: testMethod.httpMethod,
  *     requestTemplates: {
  *         "application/json": "",
- *         "application/xml": `#set($inputRoot = $input.path('$'))
+ *         "application/xml": `#set(inputRoot = input.path(''))
  * { }`,
  *     },
  *     requestParameters: {
