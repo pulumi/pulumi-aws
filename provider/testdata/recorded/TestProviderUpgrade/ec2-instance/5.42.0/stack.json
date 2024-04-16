@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-04-15T15:49:58.436662-04:00",
-      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
-      "version": "v3.111.1"
+      "time": "2024-03-12T15:49:53.046918Z",
+      "magic": "4fa6a6dae0ccab3589c700b0790a52fa47015f8ec72d37a2e10816857250b8c2",
+      "version": "v3.108.1"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:+xhaQWdQ21o=:v1:a0A+hKk7mAP6PJxJ:BdBMSpuR3doysc4FD6s9zttY2UGuww=="
+        "salt": "v1:8yUB6sYzrlI=:v1:/K0mS2j40MUllkyx:LsWmONelhOE2JOw8CT/xqHyn+kLCLQ=="
       }
     },
     "resources": [
@@ -17,33 +17,21 @@
         "urn": "urn:pulumi:test::ec2-instance::pulumi:pulumi:Stack::ec2-instance-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-04-15T19:49:30.758215Z",
-        "modified": "2024-04-15T19:49:30.758215Z"
+        "created": "2024-03-12T15:49:25.123219Z",
+        "modified": "2024-03-12T15:49:25.123219Z"
       },
       {
         "urn": "urn:pulumi:test::ec2-instance::pulumi:providers:aws::default",
         "custom": true,
-        "id": "db49da03-c0e8-4a5f-ac1d-47fcad50dfce",
+        "id": "69f9eb7e-8d61-4d14-8bb1-0b4e1c1169b4",
         "type": "pulumi:providers:aws",
-        "inputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "outputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "created": "2024-04-15T19:49:34.439774Z",
-        "modified": "2024-04-15T19:49:34.439774Z"
+        "created": "2024-03-12T15:49:26.841042Z",
+        "modified": "2024-03-12T15:49:26.841042Z"
       },
       {
         "urn": "urn:pulumi:test::ec2-instance::aws:ec2/instance:Instance::my-ec2-instance",
         "custom": true,
-        "id": "i-08d2a6803bc9e22e9",
+        "id": "i-0ecb41f78d825dd80",
         "type": "aws:ec2/instance:Instance",
         "inputs": {
           "__defaults": [
@@ -58,9 +46,9 @@
           "userDataReplaceOnChange": false
         },
         "outputs": {
-          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000,\"read\":900000000000,\"update\":600000000000},\"schema_version\":\"1\"}",
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000,\"update\":600000000000},\"schema_version\":\"1\"}",
           "ami": "ami-a0cfeed8",
-          "arn": "arn:aws:ec2:us-west-2:616138583583:instance/i-08d2a6803bc9e22e9",
+          "arn": "arn:aws:ec2:us-west-2:616138583583:instance/i-0ecb41f78d825dd80",
           "associatePublicIpAddress": true,
           "availabilityZone": "us-west-2b",
           "capacityReservationSpecification": {
@@ -89,10 +77,8 @@
           "hibernation": false,
           "hostId": "",
           "iamInstanceProfile": "",
-          "id": "i-08d2a6803bc9e22e9",
+          "id": "i-0ecb41f78d825dd80",
           "instanceInitiatedShutdownBehavior": "stop",
-          "instanceLifecycle": "",
-          "instanceMarketOptions": null,
           "instanceState": "running",
           "instanceType": "t2.micro",
           "ipv6AddressCount": 0,
@@ -104,7 +90,6 @@
           },
           "metadataOptions": {
             "httpEndpoint": "enabled",
-            "httpProtocolIpv6": "disabled",
             "httpPutResponseHopLimit": 1,
             "httpTokens": "optional",
             "instanceMetadataTags": "disabled"
@@ -115,16 +100,16 @@
           "passwordData": "",
           "placementGroup": "",
           "placementPartitionNumber": 0,
-          "primaryNetworkInterfaceId": "eni-0ff803889eb1a1f66",
-          "privateDns": "ip-172-31-24-214.us-west-2.compute.internal",
+          "primaryNetworkInterfaceId": "eni-07e423ae588f4603d",
+          "privateDns": "ip-172-31-17-30.us-west-2.compute.internal",
           "privateDnsNameOptions": {
             "enableResourceNameDnsARecord": false,
             "enableResourceNameDnsAaaaRecord": false,
             "hostnameType": "ip-name"
           },
-          "privateIp": "172.31.24.214",
-          "publicDns": "ec2-35-90-21-124.us-west-2.compute.amazonaws.com",
-          "publicIp": "35.90.21.124",
+          "privateIp": "172.31.17.30",
+          "publicDns": "ec2-35-87-117-102.us-west-2.compute.amazonaws.com",
+          "publicIp": "35.87.117.102",
           "rootBlockDevice": {
             "deleteOnTermination": true,
             "deviceName": "/dev/xvda",
@@ -132,9 +117,8 @@
             "iops": 100,
             "kmsKeyId": "",
             "tags": {},
-            "tagsAll": {},
             "throughput": 0,
-            "volumeId": "vol-02406ff5e993d48a2",
+            "volumeId": "vol-0f2ad9480c0f04bad",
             "volumeSize": 8,
             "volumeType": "gp2"
           },
@@ -143,7 +127,6 @@
             "default"
           ],
           "sourceDestCheck": true,
-          "spotInstanceRequestId": "",
           "subnetId": "subnet-c7d926bf",
           "tags": {},
           "tagsAll": {},
@@ -154,13 +137,13 @@
           ]
         },
         "parent": "urn:pulumi:test::ec2-instance::pulumi:pulumi:Stack::ec2-instance-test",
-        "provider": "urn:pulumi:test::ec2-instance::pulumi:providers:aws::default::db49da03-c0e8-4a5f-ac1d-47fcad50dfce",
+        "provider": "urn:pulumi:test::ec2-instance::pulumi:providers:aws::default::69f9eb7e-8d61-4d14-8bb1-0b4e1c1169b4",
         "propertyDependencies": {
-          "ami": [],
-          "instanceType": []
+          "ami": null,
+          "instanceType": null
         },
-        "created": "2024-04-15T19:49:58.436243Z",
-        "modified": "2024-04-15T19:49:58.436243Z"
+        "created": "2024-03-12T15:49:53.046292Z",
+        "modified": "2024-03-12T15:49:53.046292Z"
       }
     ]
   }

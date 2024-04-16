@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-04-15T15:48:46.213495-04:00",
-      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
-      "version": "v3.111.1"
+      "time": "2023-11-10T17:25:34.429157-05:00",
+      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+      "version": "v3.92.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:4D/HLAEfFL8=:v1:mEFEPT+We9a9OxA8:+08tG2Dfn1xY3DBrEiGIhIFw2CykHw=="
+        "salt": "v1:2M1q459VsZw=:v1:0xBa7u3UP0AANw0F:1yXC+mhS/LB6M/mT/rdG216WLQWySw=="
       }
     },
     "resources": [
@@ -17,28 +17,16 @@
         "urn": "urn:pulumi:test::aws_dynamodb_table_Table_1::pulumi:pulumi:Stack::aws_dynamodb_table_Table_1-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-04-15T19:48:27.70208Z",
-        "modified": "2024-04-15T19:48:27.70208Z"
+        "created": "2023-11-10T22:25:07.207847Z",
+        "modified": "2023-11-10T22:25:07.207847Z"
       },
       {
         "urn": "urn:pulumi:test::aws_dynamodb_table_Table_1::pulumi:providers:aws::default",
         "custom": true,
-        "id": "01983d17-35e0-4fe2-8080-6ed5b3240967",
+        "id": "abc0e33d-0d06-4113-9383-a8375d8e3ab3",
         "type": "pulumi:providers:aws",
-        "inputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "outputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "created": "2024-04-15T19:48:30.957845Z",
-        "modified": "2024-04-15T19:48:30.957845Z"
+        "created": "2023-11-10T22:25:08.698334Z",
+        "modified": "2023-11-10T22:25:08.698334Z"
       },
       {
         "urn": "urn:pulumi:test::aws_dynamodb_table_Table_1::aws:dynamodb/table:Table::basic-dynamodb-table",
@@ -87,10 +75,7 @@
           "readCapacity": 20,
           "tableClass": "STANDARD",
           "tags": {
-            "environment": "production",
-            "name": "dynamodb-table-1"
-          },
-          "tagsAll": {
+            "__defaults": [],
             "environment": "production",
             "name": "dynamodb-table-1"
           },
@@ -164,21 +149,21 @@
           "writeCapacity": 20
         },
         "parent": "urn:pulumi:test::aws_dynamodb_table_Table_1::pulumi:pulumi:Stack::aws_dynamodb_table_Table_1-test",
-        "provider": "urn:pulumi:test::aws_dynamodb_table_Table_1::pulumi:providers:aws::default::01983d17-35e0-4fe2-8080-6ed5b3240967",
+        "provider": "urn:pulumi:test::aws_dynamodb_table_Table_1::pulumi:providers:aws::default::abc0e33d-0d06-4113-9383-a8375d8e3ab3",
         "propertyDependencies": {
-          "attributes": [],
-          "billingMode": [],
-          "globalSecondaryIndexes": [],
-          "hashKey": [],
-          "name": [],
-          "rangeKey": [],
-          "readCapacity": [],
-          "tags": [],
-          "ttl": [],
-          "writeCapacity": []
+          "attributes": null,
+          "billingMode": null,
+          "globalSecondaryIndexes": null,
+          "hashKey": null,
+          "name": null,
+          "rangeKey": null,
+          "readCapacity": null,
+          "tags": null,
+          "ttl": null,
+          "writeCapacity": null
         },
-        "created": "2024-04-15T19:48:46.213016Z",
-        "modified": "2024-04-15T19:48:46.213016Z"
+        "created": "2023-11-10T22:25:34.428735Z",
+        "modified": "2023-11-10T22:25:34.428735Z"
       }
     ]
   }
