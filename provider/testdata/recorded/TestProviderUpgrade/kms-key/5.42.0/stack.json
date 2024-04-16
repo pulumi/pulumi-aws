@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-04-15T16:27:10.274597-04:00",
-      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
-      "version": "v3.111.1"
+      "time": "2023-11-10T17:27:06.788819-05:00",
+      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+      "version": "v3.92.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:DwjtMwSgrBo=:v1:xjACSwMBFL1tOC6E:KVXKS/JrcmFYQwuCyIpWkqK4XtT3aw=="
+        "salt": "v1:sMVhdCR06iA=:v1:IX6donHbT39biNIQ:oL5Py4dnnUdPoQAY+D4M6gHKJf9YXw=="
       }
     },
     "resources": [
@@ -17,33 +17,21 @@
         "urn": "urn:pulumi:test::aws_kms_key_Key_1::pulumi:pulumi:Stack::aws_kms_key_Key_1-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-04-15T20:27:05.087473Z",
-        "modified": "2024-04-15T20:27:05.087473Z"
+        "created": "2023-11-10T22:27:03.210982Z",
+        "modified": "2023-11-10T22:27:03.210982Z"
       },
       {
         "urn": "urn:pulumi:test::aws_kms_key_Key_1::pulumi:providers:aws::default",
         "custom": true,
-        "id": "39300846-44f9-432d-a85c-2cb84df3fa93",
+        "id": "0670132b-1108-4834-b319-b67eebdfeb7c",
         "type": "pulumi:providers:aws",
-        "inputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "outputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "created": "2024-04-15T20:27:08.339652Z",
-        "modified": "2024-04-15T20:27:08.339652Z"
+        "created": "2023-11-10T22:27:04.726522Z",
+        "modified": "2023-11-10T22:27:04.726522Z"
       },
       {
         "urn": "urn:pulumi:test::aws_kms_key_Key_1::aws:kms/key:Key::a",
         "custom": true,
-        "id": "2b80b577-7bb9-45d4-9511-3336e0cd9117",
+        "id": "7085f966-4bed-4480-a64b-bc3c91773751",
         "type": "aws:kms/key:Key",
         "inputs": {
           "__defaults": [
@@ -62,32 +50,30 @@
           "keyUsage": "ENCRYPT_DECRYPT"
         },
         "outputs": {
-          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":120000000000}}",
-          "arn": "arn:aws:kms:us-west-2:616138583583:key/2b80b577-7bb9-45d4-9511-3336e0cd9117",
+          "arn": "arn:aws:kms:us-west-2:616138583583:key/7085f966-4bed-4480-a64b-bc3c91773751",
           "bypassPolicyLockoutSafetyCheck": false,
           "customKeyStoreId": "",
           "customerMasterKeySpec": "SYMMETRIC_DEFAULT",
           "deletionWindowInDays": 10,
           "description": "KMS key 1",
           "enableKeyRotation": false,
-          "id": "2b80b577-7bb9-45d4-9511-3336e0cd9117",
+          "id": "7085f966-4bed-4480-a64b-bc3c91773751",
           "isEnabled": true,
-          "keyId": "2b80b577-7bb9-45d4-9511-3336e0cd9117",
+          "keyId": "7085f966-4bed-4480-a64b-bc3c91773751",
           "keyUsage": "ENCRYPT_DECRYPT",
           "multiRegion": false,
           "policy": "{\"Id\":\"key-default-1\",\"Statement\":[{\"Action\":\"kms:*\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::616138583583:root\"},\"Resource\":\"*\",\"Sid\":\"Enable IAM User Permissions\"}],\"Version\":\"2012-10-17\"}",
           "tags": {},
-          "tagsAll": {},
-          "xksKeyId": ""
+          "tagsAll": {}
         },
         "parent": "urn:pulumi:test::aws_kms_key_Key_1::pulumi:pulumi:Stack::aws_kms_key_Key_1-test",
-        "provider": "urn:pulumi:test::aws_kms_key_Key_1::pulumi:providers:aws::default::39300846-44f9-432d-a85c-2cb84df3fa93",
+        "provider": "urn:pulumi:test::aws_kms_key_Key_1::pulumi:providers:aws::default::0670132b-1108-4834-b319-b67eebdfeb7c",
         "propertyDependencies": {
-          "deletionWindowInDays": [],
-          "description": []
+          "deletionWindowInDays": null,
+          "description": null
         },
-        "created": "2024-04-15T20:27:10.274413Z",
-        "modified": "2024-04-15T20:27:10.274413Z"
+        "created": "2023-11-10T22:27:06.788636Z",
+        "modified": "2023-11-10T22:27:06.788636Z"
       }
     ]
   }

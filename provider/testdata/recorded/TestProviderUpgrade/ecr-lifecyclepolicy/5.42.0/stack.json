@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-04-15T16:17:50.203631-04:00",
-      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
-      "version": "v3.111.1"
+      "time": "2023-11-10T17:25:53.390036-05:00",
+      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+      "version": "v3.92.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:6UiHvBcR/KY=:v1:ZSAwfPx+TMoxQGg4:576zqTl9JT7lzRIOCp0gewGunKKNTQ=="
+        "salt": "v1:WXU3xi726Qg=:v1:GEF3rcxKA15HpUC/:ZSFjVbw+/l3nSEViLy7EVYiMKumUVw=="
       }
     },
     "resources": [
@@ -17,28 +17,16 @@
         "urn": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:pulumi:Stack::aws_ecr_lifecyclePolicy_LifecyclePolicy_1-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-04-15T20:17:44.786697Z",
-        "modified": "2024-04-15T20:17:44.786697Z"
+        "created": "2023-11-10T22:25:49.722947Z",
+        "modified": "2023-11-10T22:25:49.722947Z"
       },
       {
         "urn": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:providers:aws::default",
         "custom": true,
-        "id": "2d8f550d-fa5d-43ad-8e3c-b53ba7941ecb",
+        "id": "450b84e8-ec86-46bd-ab1b-75692953325c",
         "type": "pulumi:providers:aws",
-        "inputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "outputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "created": "2024-04-15T20:17:48.235627Z",
-        "modified": "2024-04-15T20:17:48.235627Z"
+        "created": "2023-11-10T22:25:51.23072Z",
+        "modified": "2023-11-10T22:25:51.23072Z"
       },
       {
         "urn": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::aws:ecr/repository:Repository::foo",
@@ -73,12 +61,12 @@
           "tagsAll": {}
         },
         "parent": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:pulumi:Stack::aws_ecr_lifecyclePolicy_LifecyclePolicy_1-test",
-        "provider": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:providers:aws::default::2d8f550d-fa5d-43ad-8e3c-b53ba7941ecb",
+        "provider": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:providers:aws::default::450b84e8-ec86-46bd-ab1b-75692953325c",
         "propertyDependencies": {
-          "name": []
+          "name": null
         },
-        "created": "2024-04-15T20:17:49.962784Z",
-        "modified": "2024-04-15T20:17:49.962784Z"
+        "created": "2023-11-10T22:25:53.145685Z",
+        "modified": "2023-11-10T22:25:53.145685Z"
       },
       {
         "urn": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::aws:ecr/lifecyclePolicy:LifecyclePolicy::foopolicy",
@@ -100,15 +88,15 @@
         "dependencies": [
           "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::aws:ecr/repository:Repository::foo"
         ],
-        "provider": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:providers:aws::default::2d8f550d-fa5d-43ad-8e3c-b53ba7941ecb",
+        "provider": "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:providers:aws::default::450b84e8-ec86-46bd-ab1b-75692953325c",
         "propertyDependencies": {
-          "policy": [],
+          "policy": null,
           "repository": [
             "urn:pulumi:test::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::aws:ecr/repository:Repository::foo"
           ]
         },
-        "created": "2024-04-15T20:17:50.203535Z",
-        "modified": "2024-04-15T20:17:50.203535Z"
+        "created": "2023-11-10T22:25:53.389892Z",
+        "modified": "2023-11-10T22:25:53.389892Z"
       }
     ]
   }

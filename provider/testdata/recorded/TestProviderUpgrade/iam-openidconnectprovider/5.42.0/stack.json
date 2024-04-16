@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-04-15T16:26:25.816131-04:00",
-      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
-      "version": "v3.111.1"
+      "time": "2023-11-10T17:26:48.602617-05:00",
+      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+      "version": "v3.92.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:S9/rxpJX9DU=:v1:mZw5jitWO1pgOOm5:qn/VSlb4X3noshoxHmzxRWi597OaoQ=="
+        "salt": "v1:MHGqEl1/fuo=:v1:MdIa+p5lC1ImVBqL:ZlGEAqlybNoeJKChi8Fg2jTx8YwoaQ=="
       }
     },
     "resources": [
@@ -17,28 +17,16 @@
         "urn": "urn:pulumi:test::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1::pulumi:pulumi:Stack::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-04-15T20:26:21.071797Z",
-        "modified": "2024-04-15T20:26:21.071797Z"
+        "created": "2023-11-10T22:26:45.816809Z",
+        "modified": "2023-11-10T22:26:45.816809Z"
       },
       {
         "urn": "urn:pulumi:test::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1::pulumi:providers:aws::default",
         "custom": true,
-        "id": "a07fe493-2d5a-4140-a9b0-eb6051502a6f",
+        "id": "d7c3a849-dfc5-493d-84f3-38c7af13170c",
         "type": "pulumi:providers:aws",
-        "inputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "outputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "created": "2024-04-15T20:26:24.686509Z",
-        "modified": "2024-04-15T20:26:24.686509Z"
+        "created": "2023-11-10T22:26:47.30172Z",
+        "modified": "2023-11-10T22:26:47.30172Z"
       },
       {
         "urn": "urn:pulumi:test::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1::aws:iam/openIdConnectProvider:OpenIdConnectProvider::default",
@@ -69,14 +57,14 @@
           "url": "accounts.google.com"
         },
         "parent": "urn:pulumi:test::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1::pulumi:pulumi:Stack::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1-test",
-        "provider": "urn:pulumi:test::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1::pulumi:providers:aws::default::a07fe493-2d5a-4140-a9b0-eb6051502a6f",
+        "provider": "urn:pulumi:test::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1::pulumi:providers:aws::default::d7c3a849-dfc5-493d-84f3-38c7af13170c",
         "propertyDependencies": {
-          "clientIdLists": [],
-          "thumbprintLists": [],
-          "url": []
+          "clientIdLists": null,
+          "thumbprintLists": null,
+          "url": null
         },
-        "created": "2024-04-15T20:26:25.816017Z",
-        "modified": "2024-04-15T20:26:25.816017Z"
+        "created": "2023-11-10T22:26:48.602488Z",
+        "modified": "2023-11-10T22:26:48.602488Z"
       }
     ]
   }

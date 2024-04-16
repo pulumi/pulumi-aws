@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-04-15T16:18:37.139149-04:00",
-      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
-      "version": "v3.111.1"
+      "time": "2023-11-10T17:26:12.374823-05:00",
+      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+      "version": "v3.92.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:i1hWS9zbH/c=:v1:bl3rFkH40rBk93z8:UlwMguR8iFtRiw0KoIeGvd53GGETxg=="
+        "salt": "v1:dZghmHy8hWE=:v1:88Q0xVK9mtvtr/NT:FR9upeyrqFjuvdrd/J0eMi6qSVJn3g=="
       }
     },
     "resources": [
@@ -17,28 +17,16 @@
         "urn": "urn:pulumi:test::aws_ecr_repository_Repository_1::pulumi:pulumi:Stack::aws_ecr_repository_Repository_1-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-04-15T20:18:31.572942Z",
-        "modified": "2024-04-15T20:18:31.572942Z"
+        "created": "2023-11-10T22:26:08.939438Z",
+        "modified": "2023-11-10T22:26:08.939438Z"
       },
       {
         "urn": "urn:pulumi:test::aws_ecr_repository_Repository_1::pulumi:providers:aws::default",
         "custom": true,
-        "id": "47214430-7ebb-4b0d-a33d-fb700f0f13c2",
+        "id": "dccdccee-08ec-44d4-a247-0a526e7ed38c",
         "type": "pulumi:providers:aws",
-        "inputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "outputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "created": "2024-04-15T20:18:35.411695Z",
-        "modified": "2024-04-15T20:18:35.411695Z"
+        "created": "2023-11-10T22:26:10.521168Z",
+        "modified": "2023-11-10T22:26:10.521168Z"
       },
       {
         "urn": "urn:pulumi:test::aws_ecr_repository_Repository_1::aws:ecr/repository:Repository::foo",
@@ -75,14 +63,14 @@
           "tagsAll": {}
         },
         "parent": "urn:pulumi:test::aws_ecr_repository_Repository_1::pulumi:pulumi:Stack::aws_ecr_repository_Repository_1-test",
-        "provider": "urn:pulumi:test::aws_ecr_repository_Repository_1::pulumi:providers:aws::default::47214430-7ebb-4b0d-a33d-fb700f0f13c2",
+        "provider": "urn:pulumi:test::aws_ecr_repository_Repository_1::pulumi:providers:aws::default::dccdccee-08ec-44d4-a247-0a526e7ed38c",
         "propertyDependencies": {
-          "imageScanningConfiguration": [],
-          "imageTagMutability": [],
-          "name": []
+          "imageScanningConfiguration": null,
+          "imageTagMutability": null,
+          "name": null
         },
-        "created": "2024-04-15T20:18:37.139012Z",
-        "modified": "2024-04-15T20:18:37.139012Z"
+        "created": "2023-11-10T22:26:12.374647Z",
+        "modified": "2023-11-10T22:26:12.374647Z"
       }
     ]
   }

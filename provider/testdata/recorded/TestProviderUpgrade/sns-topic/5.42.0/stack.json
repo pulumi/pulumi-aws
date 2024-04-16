@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-04-15T16:43:39.960504-04:00",
-      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
-      "version": "v3.111.1"
+      "time": "2023-11-10T17:11:33.785172-05:00",
+      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+      "version": "v3.92.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:W6F3Nq62pjY=:v1:FIW/A4PnBiuLdTv4:x36H/bKhbN8Dp2Rr9Y0UdL+WWpYhrw=="
+        "salt": "v1:Cx6ieij5EqY=:v1:LJeGMAp3VdD0YgVz:38zfOWNeuSJ2yAJpkoPDD9C+Opnvww=="
       }
     },
     "resources": [
@@ -17,28 +17,16 @@
         "urn": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:pulumi:Stack::aws_sns_topic_Topic_1-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-04-15T20:43:33.789995Z",
-        "modified": "2024-04-15T20:43:33.789995Z"
+        "created": "2023-11-10T22:11:29.729964Z",
+        "modified": "2023-11-10T22:11:29.729964Z"
       },
       {
         "urn": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:providers:aws::default",
         "custom": true,
-        "id": "88e5c713-b8eb-4473-bf6c-9fa78fdfce6c",
+        "id": "b8ee8ff4-c33b-406f-b91d-2da0765a912d",
         "type": "pulumi:providers:aws",
-        "inputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "outputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "created": "2024-04-15T20:43:37.606441Z",
-        "modified": "2024-04-15T20:43:37.606441Z"
+        "created": "2023-11-10T22:11:31.300023Z",
+        "modified": "2023-11-10T22:11:31.300023Z"
       },
       {
         "urn": "urn:pulumi:test::aws_sns_topic_Topic_1::aws:sns/topic:Topic::user_updates",
@@ -58,9 +46,7 @@
           "applicationFailureFeedbackRoleArn": "",
           "applicationSuccessFeedbackRoleArn": "",
           "applicationSuccessFeedbackSampleRate": 0,
-          "archivePolicy": "",
           "arn": "arn:aws:sns:us-west-2:616138583583:user-updates-topic",
-          "beginningArchiveTime": "",
           "contentBasedDeduplication": false,
           "deliveryPolicy": "",
           "displayName": "",
@@ -89,12 +75,12 @@
           "tracingConfig": ""
         },
         "parent": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:pulumi:Stack::aws_sns_topic_Topic_1-test",
-        "provider": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:providers:aws::default::88e5c713-b8eb-4473-bf6c-9fa78fdfce6c",
+        "provider": "urn:pulumi:test::aws_sns_topic_Topic_1::pulumi:providers:aws::default::b8ee8ff4-c33b-406f-b91d-2da0765a912d",
         "propertyDependencies": {
-          "name": []
+          "name": null
         },
-        "created": "2024-04-15T20:43:39.960255Z",
-        "modified": "2024-04-15T20:43:39.960255Z"
+        "created": "2023-11-10T22:11:33.784938Z",
+        "modified": "2023-11-10T22:11:33.784938Z"
       }
     ]
   }

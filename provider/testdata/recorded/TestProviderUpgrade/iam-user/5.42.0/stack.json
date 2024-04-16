@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-04-15T16:19:23.992374-04:00",
-      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
-      "version": "v3.111.1"
+      "time": "2024-03-12T14:47:35.443204Z",
+      "magic": "4fa6a6dae0ccab3589c700b0790a52fa47015f8ec72d37a2e10816857250b8c2",
+      "version": "v3.108.1"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:BWpmAxRDyso=:v1:HQ93gnzyHmAMPpNy:LjfCtL2YO7oSPXhUAS+kx9fYhWbWGA=="
+        "salt": "v1:DN08DEtyd9E=:v1:+drRQQ0Gq/2hsA8m:/yL+6WieOo57HsbOgLCguCvtjXX+yQ=="
       }
     },
     "resources": [
@@ -17,28 +17,16 @@
         "urn": "urn:pulumi:test::iam-user::pulumi:pulumi:Stack::iam-user-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-04-15T20:19:19.431946Z",
-        "modified": "2024-04-15T20:19:19.431946Z"
+        "created": "2024-03-12T14:47:31.415448Z",
+        "modified": "2024-03-12T14:47:31.415448Z"
       },
       {
         "urn": "urn:pulumi:test::iam-user::pulumi:providers:aws::default",
         "custom": true,
-        "id": "1de279c4-a1af-4729-b0bc-f4a6b72bd813",
+        "id": "fdec30a7-3752-4c4b-86e9-64dc3ebe0dee",
         "type": "pulumi:providers:aws",
-        "inputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "outputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "created": "2024-04-15T20:19:22.795456Z",
-        "modified": "2024-04-15T20:19:22.795456Z"
+        "created": "2024-03-12T14:47:33.125779Z",
+        "modified": "2024-03-12T14:47:33.125779Z"
       },
       {
         "urn": "urn:pulumi:test::iam-user::aws:iam/user:User::awsUserResource",
@@ -60,18 +48,17 @@
           "id": "example-user",
           "name": "example-user",
           "path": "/",
-          "permissionsBoundary": "",
           "tags": {},
           "tagsAll": {},
-          "uniqueId": "AIDAY65FYVYPTVG6RK36M"
+          "uniqueId": "AIDAY65FYVYP5WXXCKWS3"
         },
         "parent": "urn:pulumi:test::iam-user::pulumi:pulumi:Stack::iam-user-test",
-        "provider": "urn:pulumi:test::iam-user::pulumi:providers:aws::default::1de279c4-a1af-4729-b0bc-f4a6b72bd813",
+        "provider": "urn:pulumi:test::iam-user::pulumi:providers:aws::default::fdec30a7-3752-4c4b-86e9-64dc3ebe0dee",
         "propertyDependencies": {
-          "name": []
+          "name": null
         },
-        "created": "2024-04-15T20:19:23.878123Z",
-        "modified": "2024-04-15T20:19:23.878123Z"
+        "created": "2024-03-12T14:47:35.246666Z",
+        "modified": "2024-03-12T14:47:35.246666Z"
       },
       {
         "urn": "urn:pulumi:test::iam-user::aws:iam/policy:Policy::awsUserPolicyResource",
@@ -95,19 +82,19 @@
           "namePrefix": "",
           "path": "/",
           "policy": "{\"Statement\":[{\"Action\":\"s3:*\",\"Effect\":\"Allow\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}",
-          "policyId": "ANPAY65FYVYP5OZU4UYA4",
+          "policyId": "ANPAY65FYVYPVIZUMVXCE",
           "tags": {},
           "tagsAll": {}
         },
         "parent": "urn:pulumi:test::iam-user::pulumi:pulumi:Stack::iam-user-test",
-        "provider": "urn:pulumi:test::iam-user::pulumi:providers:aws::default::1de279c4-a1af-4729-b0bc-f4a6b72bd813",
+        "provider": "urn:pulumi:test::iam-user::pulumi:providers:aws::default::fdec30a7-3752-4c4b-86e9-64dc3ebe0dee",
         "propertyDependencies": {
-          "description": [],
-          "name": [],
-          "policy": []
+          "description": null,
+          "name": null,
+          "policy": null
         },
-        "created": "2024-04-15T20:19:23.992238Z",
-        "modified": "2024-04-15T20:19:23.992238Z"
+        "created": "2024-03-12T14:47:35.442998Z",
+        "modified": "2024-03-12T14:47:35.442998Z"
       }
     ]
   }

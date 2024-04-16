@@ -2,14 +2,14 @@
   "version": 3,
   "deployment": {
     "manifest": {
-      "time": "2024-04-15T17:48:35.189134-04:00",
-      "magic": "0e109972342b6ebd571fa6d2cffefcb95394f9c4f7bdd855463082d16126072c",
-      "version": "v3.111.1"
+      "time": "2023-11-10T17:26:30.931018-05:00",
+      "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+      "version": "v3.92.0"
     },
     "secrets_providers": {
       "type": "passphrase",
       "state": {
-        "salt": "v1:xT3gJJ2taaU=:v1:sJN0K0Lj+QAsDq0P:dApWQVGzz7xFi4Jxcqt4zTU2bqjkhA=="
+        "salt": "v1:ufSh5lhkv6E=:v1:phCwIb2QLTtvRtBg:RZQJVHkZCHAG+gl30RixsfFkUFh4/g=="
       }
     },
     "resources": [
@@ -17,72 +17,65 @@
         "urn": "urn:pulumi:test::aws_iam_instanceProfile_InstanceProfile_1::pulumi:pulumi:Stack::aws_iam_instanceProfile_InstanceProfile_1-test",
         "custom": false,
         "type": "pulumi:pulumi:Stack",
-        "created": "2024-04-15T21:48:29.94225Z",
-        "modified": "2024-04-15T21:48:29.94225Z"
+        "created": "2023-11-10T22:26:27.472646Z",
+        "modified": "2023-11-10T22:26:27.472646Z"
       },
       {
         "urn": "urn:pulumi:test::aws_iam_instanceProfile_InstanceProfile_1::pulumi:providers:aws::default",
         "custom": true,
-        "id": "ea8b13ed-7073-4b18-b8b8-c428747139c4",
+        "id": "956fecda-d7e6-4e6f-8500-076e2b71fef9",
         "type": "pulumi:providers:aws",
-        "inputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "outputs": {
-          "region": "us-west-2",
-          "skipCredentialsValidation": "false",
-          "skipMetadataApiCheck": "true",
-          "skipRegionValidation": "true"
-        },
-        "created": "2024-04-15T21:48:33.441179Z",
-        "modified": "2024-04-15T21:48:33.441179Z"
+        "created": "2023-11-10T22:26:29.219638Z",
+        "modified": "2023-11-10T22:26:29.219638Z"
       },
       {
         "urn": "urn:pulumi:test::aws_iam_instanceProfile_InstanceProfile_1::aws:iam/role:Role::role",
         "custom": true,
-        "id": "pulumi_aws_test_role_test",
+        "id": "test_role",
         "type": "aws:iam/role:Role",
         "inputs": {
           "__defaults": [
             "forceDetachPolicies",
             "maxSessionDuration"
           ],
-          "assumeRolePolicy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      }\n    }\n  ]\n}",
+          "assumeRolePolicy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      }\n    }\n  ]\n}",
           "forceDetachPolicies": false,
           "maxSessionDuration": 3600,
-          "name": "pulumi_aws_test_role_test",
+          "name": "test_role",
           "path": "/"
         },
         "outputs": {
-          "arn": "arn:aws:iam::616138583583:role/pulumi_aws_test_role_test",
-          "assumeRolePolicy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
-          "createDate": "2024-04-15T21:48:34Z",
+          "arn": "arn:aws:iam::616138583583:role/test_role",
+          "assumeRolePolicy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}",
+          "createDate": "2023-11-10T22:26:30Z",
           "description": "",
           "forceDetachPolicies": false,
-          "id": "pulumi_aws_test_role_test",
+          "id": "test_role",
           "inlinePolicies": [],
           "managedPolicyArns": [],
           "maxSessionDuration": 3600,
-          "name": "pulumi_aws_test_role_test",
+          "name": "test_role",
           "namePrefix": "",
           "path": "/",
-          "permissionsBoundary": "",
+          "roleLastUseds": [
+            {
+              "lastUsedDate": "",
+              "region": ""
+            }
+          ],
           "tags": {},
           "tagsAll": {},
-          "uniqueId": "AROAY65FYVYPWM73A5WNK"
+          "uniqueId": "AROAY65FYVYP6H42EP77F"
         },
         "parent": "urn:pulumi:test::aws_iam_instanceProfile_InstanceProfile_1::pulumi:pulumi:Stack::aws_iam_instanceProfile_InstanceProfile_1-test",
-        "provider": "urn:pulumi:test::aws_iam_instanceProfile_InstanceProfile_1::pulumi:providers:aws::default::ea8b13ed-7073-4b18-b8b8-c428747139c4",
+        "provider": "urn:pulumi:test::aws_iam_instanceProfile_InstanceProfile_1::pulumi:providers:aws::default::956fecda-d7e6-4e6f-8500-076e2b71fef9",
         "propertyDependencies": {
-          "assumeRolePolicy": [],
-          "name": [],
-          "path": []
+          "assumeRolePolicy": null,
+          "name": null,
+          "path": null
         },
-        "created": "2024-04-15T21:48:34.781645Z",
-        "modified": "2024-04-15T21:48:34.781645Z"
+        "created": "2023-11-10T22:26:30.651393Z",
+        "modified": "2023-11-10T22:26:30.651393Z"
       },
       {
         "urn": "urn:pulumi:test::aws_iam_instanceProfile_InstanceProfile_1::aws:iam/instanceProfile:InstanceProfile::test_profile",
@@ -95,33 +88,33 @@
           ],
           "name": "test_profile",
           "path": "/",
-          "role": "pulumi_aws_test_role_test"
+          "role": "test_role"
         },
         "outputs": {
           "arn": "arn:aws:iam::616138583583:instance-profile/test_profile",
-          "createDate": "2024-04-15T21:48:34Z",
+          "createDate": "2023-11-10T22:26:30Z",
           "id": "test_profile",
           "name": "test_profile",
           "namePrefix": "",
           "path": "/",
-          "role": "pulumi_aws_test_role_test",
+          "role": "test_role",
           "tags": {},
           "tagsAll": {},
-          "uniqueId": "AIPAY65FYVYP34AOSJ6B2"
+          "uniqueId": "AIPAY65FYVYPZOVJFUPAX"
         },
         "parent": "urn:pulumi:test::aws_iam_instanceProfile_InstanceProfile_1::pulumi:pulumi:Stack::aws_iam_instanceProfile_InstanceProfile_1-test",
         "dependencies": [
           "urn:pulumi:test::aws_iam_instanceProfile_InstanceProfile_1::aws:iam/role:Role::role"
         ],
-        "provider": "urn:pulumi:test::aws_iam_instanceProfile_InstanceProfile_1::pulumi:providers:aws::default::ea8b13ed-7073-4b18-b8b8-c428747139c4",
+        "provider": "urn:pulumi:test::aws_iam_instanceProfile_InstanceProfile_1::pulumi:providers:aws::default::956fecda-d7e6-4e6f-8500-076e2b71fef9",
         "propertyDependencies": {
-          "name": [],
+          "name": null,
           "role": [
             "urn:pulumi:test::aws_iam_instanceProfile_InstanceProfile_1::aws:iam/role:Role::role"
           ]
         },
-        "created": "2024-04-15T21:48:35.189024Z",
-        "modified": "2024-04-15T21:48:35.189024Z"
+        "created": "2023-11-10T22:26:30.930817Z",
+        "modified": "2023-11-10T22:26:30.930817Z"
       }
     ]
   }
