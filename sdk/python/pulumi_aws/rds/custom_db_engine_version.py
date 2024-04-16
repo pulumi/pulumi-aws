@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 from .. import _utilities
 
 __all__ = ['CustomDbEngineVersionArgs', 'CustomDbEngineVersion']
@@ -565,7 +570,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="19.cdb_cev1",
             kms_key_id=example.arn,
             manifest=\"\"\"  {
-        	"databaseInstallationFileNames":["V982063-01.zip"]
+        \\x09"databaseInstallationFileNames":["V982063-01.zip"]
           }
         \"\"\",
             tags={
@@ -683,7 +688,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="19.cdb_cev1",
             kms_key_id=example.arn,
             manifest=\"\"\"  {
-        	"databaseInstallationFileNames":["V982063-01.zip"]
+        \\x09"databaseInstallationFileNames":["V982063-01.zip"]
           }
         \"\"\",
             tags={
