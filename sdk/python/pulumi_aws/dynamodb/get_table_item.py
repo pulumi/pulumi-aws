@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict
+else:
+    from typing_extensions import NotRequired, TypedDict
 from .. import _utilities
 
 __all__ = [
@@ -115,7 +120,7 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
         },
         projection_expression="#P",
         key=\"\"\"{
-    	"hashKey": {"S": "example"}
+    \\x09"hashKey": {"S": "example"}
     }
     \"\"\")
     ```
@@ -171,7 +176,7 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
         },
         projection_expression="#P",
         key=\"\"\"{
-    	"hashKey": {"S": "example"}
+    \\x09"hashKey": {"S": "example"}
     }
     \"\"\")
     ```
