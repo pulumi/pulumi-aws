@@ -27,6 +27,8 @@ export module ManagedPolicies {
     export const AWSApplicationDiscoveryAgentAccess: ARN = "arn:aws:iam::aws:policy/AWSApplicationDiscoveryAgentAccess";
     /** Use ManagedPolicy.AWSApplicationDiscoveryServiceFullAccess instead. */
     export const AWSApplicationDiscoveryServiceFullAccess: ARN = "arn:aws:iam::aws:policy/AWSApplicationDiscoveryServiceFullAccess";
+    /** Use ManagedPolicy.AWSBackupServiceRolePolicyForBackup */
+    export const AWSBackupServiceRolePolicyForBackup: ARN = "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup";
     /** Use ManagedPolicy.AWSBatchFullAccess instead. */
     export const AWSBatchFullAccess: ARN = "arn:aws:iam::aws:policy/AWSBatchFullAccess";
     /** Use ManagedPolicy.AWSBatchServiceRole instead. */
