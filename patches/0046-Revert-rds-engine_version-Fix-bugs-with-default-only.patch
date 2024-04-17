@@ -1,8 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: corymhall <43035978+corymhall@users.noreply.github.com>
 Date: Fri, 29 Mar 2024 10:29:15 -0400
-Subject: [PATCH 46/53] Revert "rds/engine_version: Fix bugs with default only
- flag"
+Subject: [PATCH] Revert "rds/engine_version: Fix bugs with default only flag"
 
 
 diff --git a/internal/service/rds/engine_version_data_source.go b/internal/service/rds/engine_version_data_source.go
