@@ -491,21 +491,21 @@ class Resolver(pulumi.CustomResource):
             authentication_type="API_KEY",
             name="tf-example",
             schema=\"\"\"type Mutation {
-        	putPost(id: ID!, title: String!): Post
+        \\x09putPost(id: ID!, title: String!): Post
         }
 
         type Post {
-        	id: ID!
-        	title: String!
+        \\x09id: ID!
+        \\x09title: String!
         }
 
         type Query {
-        	singlePost(id: ID!): Post
+        \\x09singlePost(id: ID!): Post
         }
 
         schema {
-        	query: Query
-        	mutation: Mutation
+        \\x09query: Query
+        \\x09mutation: Mutation
         }
         \"\"\")
         test_data_source = aws.appsync.DataSource("test",
@@ -629,21 +629,21 @@ class Resolver(pulumi.CustomResource):
             authentication_type="API_KEY",
             name="tf-example",
             schema=\"\"\"type Mutation {
-        	putPost(id: ID!, title: String!): Post
+        \\x09putPost(id: ID!, title: String!): Post
         }
 
         type Post {
-        	id: ID!
-        	title: String!
+        \\x09id: ID!
+        \\x09title: String!
         }
 
         type Query {
-        	singlePost(id: ID!): Post
+        \\x09singlePost(id: ID!): Post
         }
 
         schema {
-        	query: Query
-        	mutation: Mutation
+        \\x09query: Query
+        \\x09mutation: Mutation
         }
         \"\"\")
         test_data_source = aws.appsync.DataSource("test",

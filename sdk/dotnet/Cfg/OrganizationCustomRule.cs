@@ -56,8 +56,8 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
-    ///             exampleOrganization, 
+    ///             example,
+    ///             exampleOrganization,
     ///         },
     ///     });
     /// 

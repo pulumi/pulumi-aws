@@ -36,7 +36,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             cisAwsFoundationsBenchmark, 
+    ///             cisAwsFoundationsBenchmark,
     ///         },
     ///     });
     /// 

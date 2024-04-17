@@ -81,8 +81,8 @@ namespace Pulumi.Aws.DynamoDB
     ///     {
     ///         DependsOn =
     ///         {
-    ///             us_east_1, 
-    ///             us_west_2, 
+    ///             us_east_1,
+    ///             us_west_2,
     ///         },
     ///     });
     /// 

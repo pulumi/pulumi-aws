@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsConfigConfigurationRecorder, 
+    ///             exampleAwsConfigConfigurationRecorder,
     ///         },
     ///     });
     /// 
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsConfigConfigurationRecorder, 
+    ///             exampleAwsConfigConfigurationRecorder,
     ///         },
     ///     });
     /// 

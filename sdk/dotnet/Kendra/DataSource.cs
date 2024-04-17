@@ -324,7 +324,7 @@ namespace Pulumi.Aws.Kendra
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsSecretsmanagerSecretVersion, 
+    ///             exampleAwsSecretsmanagerSecretVersion,
     ///         },
     ///     });
     /// 
@@ -495,7 +495,7 @@ namespace Pulumi.Aws.Kendra
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsSecretsmanagerSecretVersion, 
+    ///             exampleAwsSecretsmanagerSecretVersion,
     ///         },
     ///     });
     /// 

@@ -106,7 +106,7 @@ namespace Pulumi.Aws.CloudFront
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleRolePolicy, 
+    ///             exampleRolePolicy,
     ///         },
     ///     });
     /// 
