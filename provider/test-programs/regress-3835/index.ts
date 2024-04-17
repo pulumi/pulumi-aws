@@ -18,13 +18,13 @@ const vpc = new aws.ec2.Vpc("vpc", {
 const subnet = new aws.ec2.Subnet("subnet", {
   vpcId: vpc.id,
   cidrBlock: "10.0.1.0/24",
-  availabilityZone: "us-east-2a",
+  availabilityZone: "us-west-2a",
 });
 
 const anotherSubnet = new aws.ec2.Subnet("another-subnet", {
   vpcId: vpc.id,
   cidrBlock: "10.0.2.0/24",
-  availabilityZone: "us-east-2b",
+  availabilityZone: "us-west-2b",
 });
 
 const example = new aws.rds.Proxy("example", {
