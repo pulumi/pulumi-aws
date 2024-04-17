@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Neptune
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primaryClusterInstance, 
+    ///             primaryClusterInstance,
     ///         },
     ///     });
     /// 

@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Route53Domains
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleKeySigningKey, 
+    ///             exampleKeySigningKey,
     ///         },
     ///     });
     /// 

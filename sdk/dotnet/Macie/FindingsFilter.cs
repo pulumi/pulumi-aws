@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Macie
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testAwsMacie2Account, 
+    ///             testAwsMacie2Account,
     ///         },
     ///     });
     /// 

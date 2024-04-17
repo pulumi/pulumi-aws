@@ -252,7 +252,7 @@ namespace Pulumi.Aws.Lambda
     ///     {
     ///         DependsOn =
     ///         {
-    ///             logging, 
+    ///             logging,
     ///         },
     ///     });
     /// 

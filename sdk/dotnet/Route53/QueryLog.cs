@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         DependsOn =
     ///         {
-    ///             route53_query_logging_policyLogResourcePolicy, 
+    ///             route53_query_logging_policyLogResourcePolicy,
     ///         },
     ///     });
     /// 

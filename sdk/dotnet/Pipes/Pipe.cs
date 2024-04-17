@@ -122,8 +122,8 @@ namespace Pulumi.Aws.Pipes
     ///     {
     ///         DependsOn =
     ///         {
-    ///             source, 
-    ///             target, 
+    ///             source,
+    ///             target,
     ///         },
     ///     });
     /// 

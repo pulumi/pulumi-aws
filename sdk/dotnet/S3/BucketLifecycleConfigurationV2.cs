@@ -496,7 +496,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             versioning, 
+    ///             versioning,
     ///         },
     ///     });
     /// 

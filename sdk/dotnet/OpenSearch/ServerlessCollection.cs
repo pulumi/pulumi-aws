@@ -58,7 +58,7 @@ namespace Pulumi.Aws.OpenSearch
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 

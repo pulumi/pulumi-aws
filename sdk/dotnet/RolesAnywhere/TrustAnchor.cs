@@ -75,7 +75,7 @@ namespace Pulumi.Aws.RolesAnywhere
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleCertificateAuthorityCertificate, 
+    ///             exampleCertificateAuthorityCertificate,
     ///         },
     ///     });
     /// 

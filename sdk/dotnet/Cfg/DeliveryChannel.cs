@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             fooRecorder, 
+    ///             fooRecorder,
     ///         },
     ///     });
     /// 

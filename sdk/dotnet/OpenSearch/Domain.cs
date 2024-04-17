@@ -335,7 +335,7 @@ namespace Pulumi.Aws.OpenSearch
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleServiceLinkedRole, 
+    ///             exampleServiceLinkedRole,
     ///         },
     ///     });
     /// 

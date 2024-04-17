@@ -194,7 +194,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketVersioningV2, 
+    ///             exampleBucketVersioningV2,
     ///         },
     ///     });
     /// 

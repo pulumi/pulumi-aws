@@ -84,7 +84,7 @@ namespace Pulumi.Aws.NetworkManager
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test, 
+    ///             test,
     ///         },
     ///     });
     /// 
