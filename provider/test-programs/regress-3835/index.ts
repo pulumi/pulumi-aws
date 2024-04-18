@@ -27,6 +27,8 @@ const anotherSubnet = new aws.ec2.Subnet("another-subnet", {
   availabilityZone: "us-west-2b",
 });
 
+const secret = new aws.secretsmanager.Secret("secret", {});
+
 const example = new aws.rds.Proxy("example", {
   name: "example",
   debugLogging: false,
@@ -35,7 +37,11 @@ const example = new aws.rds.Proxy("example", {
   requireTls: true,
   roleArn: proxyRole.arn,
   vpcSubnetIds: [subnet.id, anotherSubnet.id],
-  auths: [{}],
+  auths: secret.arn.apply(sec => [{
+    iamAuth: "DISABLED",
+    authScheme: "SECRETS",
+    secretArn: sec[0],
+  }]),
   tags: {
     Name: "example",
     Key: "value",
