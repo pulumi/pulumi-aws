@@ -298,7 +298,7 @@ namespace Pulumi.Aws.CostExplorer
     ///     {
     ///         DependsOn =
     ///         {
-    ///             @default, 
+    ///             @default,
     ///         },
     ///     });
     /// 

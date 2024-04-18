@@ -41,7 +41,7 @@ namespace Pulumi.Aws.SsmIncidents
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///             exampleAwsSsmincidentsReplicationSet,
     ///         },
     ///     });
     /// 
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.SsmIncidents
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///             exampleAwsSsmincidentsReplicationSet,
     ///         },
     ///     });
     /// 

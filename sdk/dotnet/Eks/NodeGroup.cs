@@ -43,9 +43,9 @@ namespace Pulumi.Aws.Eks
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example_AmazonEKSWorkerNodePolicy, 
-    ///             example_AmazonEKSCNIPolicy, 
-    ///             example_AmazonEC2ContainerRegistryReadOnly, 
+    ///             example_AmazonEKSWorkerNodePolicy,
+    ///             example_AmazonEKSCNIPolicy,
+    ///             example_AmazonEC2ContainerRegistryReadOnly,
     ///         },
     ///     });
     /// 

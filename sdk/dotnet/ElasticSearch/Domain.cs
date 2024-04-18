@@ -281,7 +281,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///     {
     ///         DependsOn =
     ///         {
-    ///             esServiceLinkedRole, 
+    ///             esServiceLinkedRole,
     ///         },
     ///     });
     /// 

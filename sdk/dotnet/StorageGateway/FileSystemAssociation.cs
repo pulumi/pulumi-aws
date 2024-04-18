@@ -68,8 +68,8 @@ namespace Pulumi.Aws.StorageGateway
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testAwsRoute, 
-    ///             testAwsVpcDhcpOptionsAssociation, 
+    ///             testAwsRoute,
+    ///             testAwsVpcDhcpOptionsAssociation,
     ///         },
     ///     });
     /// 

@@ -100,8 +100,8 @@ namespace Pulumi.Aws.Cognito
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsCognitoUserPoolDomain, 
-    ///             exampleRolePolicyAttachment, 
+    ///             exampleAwsCognitoUserPoolDomain,
+    ///             exampleRolePolicyAttachment,
     ///         },
     ///     });
     /// 
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Cognito
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleDomain, 
+    ///             exampleDomain,
     ///         },
     ///     });
     /// 

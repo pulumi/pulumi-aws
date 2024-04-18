@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         DependsOn =
     ///         {
-    ///             defaultClusterInstance, 
+    ///             defaultClusterInstance,
     ///         },
     ///     });
     /// 

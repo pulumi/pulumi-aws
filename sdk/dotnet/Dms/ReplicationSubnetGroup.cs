@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Dms
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 

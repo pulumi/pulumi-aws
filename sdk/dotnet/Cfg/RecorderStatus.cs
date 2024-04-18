@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             fooDeliveryChannel, 
+    ///             fooDeliveryChannel,
     ///         },
     ///     });
     /// 

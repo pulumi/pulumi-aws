@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             organizationRolePolicyAttachment, 
+    ///             organizationRolePolicyAttachment,
     ///         },
     ///     });
     /// 

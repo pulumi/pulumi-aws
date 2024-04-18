@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Alb
     ///     {
     ///         DependsOn =
     ///         {
-    ///             withLb, 
+    ///             withLb,
     ///         },
     ///     });
     /// 

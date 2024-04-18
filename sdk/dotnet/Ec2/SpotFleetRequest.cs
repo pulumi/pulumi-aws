@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test_attach, 
+    ///             test_attach,
     ///         },
     ///     });
     /// 
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test_attach, 
+    ///             test_attach,
     ///         },
     ///     });
     /// 

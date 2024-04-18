@@ -42,7 +42,7 @@ namespace Pulumi.Aws.DirectConnect
     ///     {
     ///         DependsOn =
     ///         {
-    ///             vpnGw, 
+    ///             vpnGw,
     ///         },
     ///     });
     /// 
