@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: corymhall <43035978+corymhall@users.noreply.github.com>
 Date: Thu, 11 Apr 2024 14:42:01 -0400
-Subject: [PATCH 52/53] non-idempotent sns topic creation
+Subject: [PATCH] non-idempotent sns topic creation
 
 
 diff --git a/internal/service/sns/topic.go b/internal/service/sns/topic.go

@@ -63,3 +63,18 @@ func TestRegress3094(t *testing.T) {
 	upResult := test.Up()
 	t.Logf("#%v", upResult.Summary)
 }
+
+func TestRegress3835(t *testing.T) {
+	skipIfShort(t)
+	dir := filepath.Join("test-programs", "regress-3835")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	providerName := "aws"
+	options := []opttest.Option{
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+	result := test.Preview()
+	t.Logf("#%v", result.ChangeSummary)
+}

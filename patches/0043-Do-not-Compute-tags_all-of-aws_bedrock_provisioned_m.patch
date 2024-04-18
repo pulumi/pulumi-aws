@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: guineveresaenger <guinevere@pulumi.com>
 Date: Wed, 21 Feb 2024 14:46:27 -0800
-Subject: [PATCH 43/53] Do not Compute tags_all of
+Subject: [PATCH] Do not Compute tags_all of
  aws_bedrock_provisioned_model_throughput
 
 

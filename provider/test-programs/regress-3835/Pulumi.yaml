@@ -1,0 +1,3 @@
+name: regress-3835
+runtime: nodejs
+description: Reproduce AWS 3835
