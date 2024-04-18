@@ -71,6 +71,11 @@ prebuild_project = codebuild.Project(
         "imagePullCredentialsType": "CODEBUILD",
         "type": "LINUX_CONTAINER",
         "privilegedMode": True,  # Required to use docker
+        "environmentVariables": [{
+            "name": "CODEBUILD_CONFIG_AUTO_DISCOVER",
+            "value": "true",
+            "type": "PLAINTEXT"
+        }]
     },
     service_role=cicd_role.arn,
     source={
