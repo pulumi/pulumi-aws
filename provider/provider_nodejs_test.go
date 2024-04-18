@@ -75,6 +75,6 @@ func TestRegress3835(t *testing.T) {
 		opttest.YarnLink("@pulumi/aws"),
 	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
-	upResult := test.Up()
-	t.Logf("#%v", upResult.Summary)
+	result := test.Preview()
+	t.Logf("#%v", result.ChangeSummary)
 }
