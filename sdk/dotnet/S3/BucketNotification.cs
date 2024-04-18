@@ -274,7 +274,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             allowBucket, 
+    ///             allowBucket,
     ///         },
     ///     });
     /// 
@@ -395,8 +395,8 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             allowBucket1, 
-    ///             allowBucket2, 
+    ///             allowBucket1,
+    ///             allowBucket2,
     ///         },
     ///     });
     /// 

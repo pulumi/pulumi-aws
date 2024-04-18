@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Lambda
     ///     {
     ///         DependsOn =
     ///         {
-    ///             alpha, 
+    ///             alpha,
     ///         },
     ///     });
     /// 
@@ -340,8 +340,8 @@ namespace Pulumi.Aws.Lambda
     ///     {
     ///         DependsOn =
     ///         {
-    ///             lambdaLogs, 
-    ///             example, 
+    ///             lambdaLogs,
+    ///             example,
     ///         },
     ///     });
     /// 

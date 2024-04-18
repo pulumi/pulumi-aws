@@ -51,7 +51,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketOwnershipControls, 
+    ///             exampleBucketOwnershipControls,
     ///         },
     ///     });
     /// 
@@ -104,8 +104,8 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketOwnershipControls, 
-    ///             exampleBucketPublicAccessBlock, 
+    ///             exampleBucketOwnershipControls,
+    ///             exampleBucketPublicAccessBlock,
     ///         },
     ///     });
     /// 
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketOwnershipControls, 
+    ///             exampleBucketOwnershipControls,
     ///         },
     ///     });
     /// 

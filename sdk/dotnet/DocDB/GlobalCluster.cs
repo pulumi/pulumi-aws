@@ -64,7 +64,7 @@ namespace Pulumi.Aws.DocDB
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primary, 
+    ///             primary,
     ///         },
     ///     });
     /// 
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.DocDB
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primaryClusterInstance, 
+    ///             primaryClusterInstance,
     ///         },
     ///     });
     /// 

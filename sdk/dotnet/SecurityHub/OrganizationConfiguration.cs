@@ -49,7 +49,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsOrganizationsOrganization, 
+    ///             exampleAwsOrganizationsOrganization,
     ///         },
     ///     });
     /// 
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleFindingAggregator, 
+    ///             exampleFindingAggregator,
     ///         },
     ///     });
     /// 

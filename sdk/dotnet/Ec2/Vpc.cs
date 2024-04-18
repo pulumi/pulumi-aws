@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testVpcIpamPoolCidr, 
+    ///             testVpcIpamPoolCidr,
     ///         },
     ///     });
     /// 

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsInternetGateway, 
+    ///             exampleAwsInternetGateway,
     ///         },
     ///     });
     /// 

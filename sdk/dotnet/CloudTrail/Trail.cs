@@ -148,7 +148,7 @@ namespace Pulumi.Aws.CloudTrail
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketPolicy, 
+    ///             exampleBucketPolicy,
     ///         },
     ///     });
     /// 

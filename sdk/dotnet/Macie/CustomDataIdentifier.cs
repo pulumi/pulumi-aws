@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Macie
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test, 
+    ///             test,
     ///         },
     ///     });
     /// 

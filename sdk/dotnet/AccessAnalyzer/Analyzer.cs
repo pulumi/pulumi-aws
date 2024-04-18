@@ -61,7 +61,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
