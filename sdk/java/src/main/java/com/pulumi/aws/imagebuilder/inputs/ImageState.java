@@ -6,6 +6,7 @@ package com.pulumi.aws.imagebuilder.inputs;
 import com.pulumi.aws.imagebuilder.inputs.ImageImageScanningConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImageImageTestsConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImageOutputResourceArgs;
+import com.pulumi.aws.imagebuilder.inputs.ImageWorkflowArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -97,6 +98,21 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * 
+     */
+    @Import(name="executionRole")
+    private @Nullable Output<String> executionRole;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * 
+     */
+    public Optional<Output<String>> executionRole() {
+        return Optional.ofNullable(this.executionRole);
+    }
+
+    /**
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
@@ -161,14 +177,14 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the AMI.
+     * The name of the Workflow parameter.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the AMI.
+     * @return The name of the Workflow parameter.
      * 
      */
     public Optional<Output<String>> name() {
@@ -273,6 +289,21 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.version);
     }
 
+    /**
+     * Configuration block with the workflow configuration. Detailed below.
+     * 
+     */
+    @Import(name="workflows")
+    private @Nullable Output<List<ImageWorkflowArgs>> workflows;
+
+    /**
+     * @return Configuration block with the workflow configuration. Detailed below.
+     * 
+     */
+    public Optional<Output<List<ImageWorkflowArgs>>> workflows() {
+        return Optional.ofNullable(this.workflows);
+    }
+
     private ImageState() {}
 
     private ImageState(ImageState $) {
@@ -281,6 +312,7 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         this.dateCreated = $.dateCreated;
         this.distributionConfigurationArn = $.distributionConfigurationArn;
         this.enhancedImageMetadataEnabled = $.enhancedImageMetadataEnabled;
+        this.executionRole = $.executionRole;
         this.imageRecipeArn = $.imageRecipeArn;
         this.imageScanningConfiguration = $.imageScanningConfiguration;
         this.imageTestsConfiguration = $.imageTestsConfiguration;
@@ -292,6 +324,7 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.version = $.version;
+        this.workflows = $.workflows;
     }
 
     public static Builder builder() {
@@ -418,6 +451,27 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param executionRole Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionRole(@Nullable Output<String> executionRole) {
+            $.executionRole = executionRole;
+            return this;
+        }
+
+        /**
+         * @param executionRole Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder executionRole(String executionRole) {
+            return executionRole(Output.of(executionRole));
+        }
+
+        /**
          * @param imageRecipeArn Amazon Resource Name (ARN) of the image recipe.
          * 
          * @return builder
@@ -506,7 +560,7 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the AMI.
+         * @param name The name of the Workflow parameter.
          * 
          * @return builder
          * 
@@ -517,7 +571,7 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the AMI.
+         * @param name The name of the Workflow parameter.
          * 
          * @return builder
          * 
@@ -668,6 +722,37 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder version(String version) {
             return version(Output.of(version));
+        }
+
+        /**
+         * @param workflows Configuration block with the workflow configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workflows(@Nullable Output<List<ImageWorkflowArgs>> workflows) {
+            $.workflows = workflows;
+            return this;
+        }
+
+        /**
+         * @param workflows Configuration block with the workflow configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workflows(List<ImageWorkflowArgs> workflows) {
+            return workflows(Output.of(workflows));
+        }
+
+        /**
+         * @param workflows Configuration block with the workflow configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workflows(ImageWorkflowArgs... workflows) {
+            return workflows(List.of(workflows));
         }
 
         public ImageState build() {

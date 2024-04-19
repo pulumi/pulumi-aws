@@ -153,6 +153,10 @@ export interface GetElasticIpResult {
      */
     readonly privateIp: string;
     /**
+     * The DNS pointer (PTR) record for the IP address.
+     */
+    readonly ptrRecord: string;
+    /**
      * Public DNS associated with the Elastic IP address.
      */
     readonly publicDns: string;

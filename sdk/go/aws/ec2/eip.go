@@ -225,6 +225,8 @@ type Eip struct {
 	PrivateDns pulumi.StringOutput `pulumi:"privateDns"`
 	// Contains the private IP address (if in VPC).
 	PrivateIp pulumi.StringOutput `pulumi:"privateIp"`
+	// The DNS pointer (PTR) record for the IP address.
+	PtrRecord pulumi.StringOutput `pulumi:"ptrRecord"`
 	// Public DNS associated with the Elastic IP address.
 	PublicDns pulumi.StringOutput `pulumi:"publicDns"`
 	// Contains the public IP address.
@@ -306,6 +308,8 @@ type eipState struct {
 	PrivateDns *string `pulumi:"privateDns"`
 	// Contains the private IP address (if in VPC).
 	PrivateIp *string `pulumi:"privateIp"`
+	// The DNS pointer (PTR) record for the IP address.
+	PtrRecord *string `pulumi:"ptrRecord"`
 	// Public DNS associated with the Elastic IP address.
 	PublicDns *string `pulumi:"publicDns"`
 	// Contains the public IP address.
@@ -358,6 +362,8 @@ type EipState struct {
 	PrivateDns pulumi.StringPtrInput
 	// Contains the private IP address (if in VPC).
 	PrivateIp pulumi.StringPtrInput
+	// The DNS pointer (PTR) record for the IP address.
+	PtrRecord pulumi.StringPtrInput
 	// Public DNS associated with the Elastic IP address.
 	PublicDns pulumi.StringPtrInput
 	// Contains the public IP address.
@@ -602,6 +608,11 @@ func (o EipOutput) PrivateDns() pulumi.StringOutput {
 // Contains the private IP address (if in VPC).
 func (o EipOutput) PrivateIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.PrivateIp }).(pulumi.StringOutput)
+}
+
+// The DNS pointer (PTR) record for the IP address.
+func (o EipOutput) PtrRecord() pulumi.StringOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.PtrRecord }).(pulumi.StringOutput)
 }
 
 // Public DNS associated with the Elastic IP address.

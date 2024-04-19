@@ -22,7 +22,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, client_keep_alive=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -32,6 +32,9 @@ class GetLoadBalancerResult:
         if arn_suffix and not isinstance(arn_suffix, str):
             raise TypeError("Expected argument 'arn_suffix' to be a str")
         pulumi.set(__self__, "arn_suffix", arn_suffix)
+        if client_keep_alive and not isinstance(client_keep_alive, int):
+            raise TypeError("Expected argument 'client_keep_alive' to be a int")
+        pulumi.set(__self__, "client_keep_alive", client_keep_alive)
         if connection_logs and not isinstance(connection_logs, list):
             raise TypeError("Expected argument 'connection_logs' to be a list")
         pulumi.set(__self__, "connection_logs", connection_logs)
@@ -128,6 +131,11 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="arnSuffix")
     def arn_suffix(self) -> str:
         return pulumi.get(self, "arn_suffix")
+
+    @property
+    @pulumi.getter(name="clientKeepAlive")
+    def client_keep_alive(self) -> int:
+        return pulumi.get(self, "client_keep_alive")
 
     @property
     @pulumi.getter(name="connectionLogs")
@@ -277,6 +285,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             access_logs=self.access_logs,
             arn=self.arn,
             arn_suffix=self.arn_suffix,
+            client_keep_alive=self.client_keep_alive,
             connection_logs=self.connection_logs,
             customer_owned_ipv4_pool=self.customer_owned_ipv4_pool,
             desync_mitigation_mode=self.desync_mitigation_mode,
@@ -356,6 +365,7 @@ def get_load_balancer(arn: Optional[str] = None,
         access_logs=pulumi.get(__ret__, 'access_logs'),
         arn=pulumi.get(__ret__, 'arn'),
         arn_suffix=pulumi.get(__ret__, 'arn_suffix'),
+        client_keep_alive=pulumi.get(__ret__, 'client_keep_alive'),
         connection_logs=pulumi.get(__ret__, 'connection_logs'),
         customer_owned_ipv4_pool=pulumi.get(__ret__, 'customer_owned_ipv4_pool'),
         desync_mitigation_mode=pulumi.get(__ret__, 'desync_mitigation_mode'),

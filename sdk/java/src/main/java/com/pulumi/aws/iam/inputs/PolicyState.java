@@ -5,6 +5,7 @@ package com.pulumi.aws.iam.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -29,6 +30,21 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Number of entities (users, groups, and roles) that the policy is attached to.
+     * 
+     */
+    @Import(name="attachmentCount")
+    private @Nullable Output<Integer> attachmentCount;
+
+    /**
+     * @return Number of entities (users, groups, and roles) that the policy is attached to.
+     * 
+     */
+    public Optional<Output<Integer>> attachmentCount() {
+        return Optional.ofNullable(this.attachmentCount);
     }
 
     /**
@@ -163,6 +179,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
 
     private PolicyState(PolicyState $) {
         this.arn = $.arn;
+        this.attachmentCount = $.attachmentCount;
         this.description = $.description;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
@@ -210,6 +227,27 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param attachmentCount Number of entities (users, groups, and roles) that the policy is attached to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder attachmentCount(@Nullable Output<Integer> attachmentCount) {
+            $.attachmentCount = attachmentCount;
+            return this;
+        }
+
+        /**
+         * @param attachmentCount Number of entities (users, groups, and roles) that the policy is attached to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder attachmentCount(Integer attachmentCount) {
+            return attachmentCount(Output.of(attachmentCount));
         }
 
         /**

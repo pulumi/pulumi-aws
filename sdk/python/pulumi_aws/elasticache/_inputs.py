@@ -352,26 +352,19 @@ class ServerlessCacheCacheUsageLimitsArgs:
 @pulumi.input_type
 class ServerlessCacheCacheUsageLimitsDataStorageArgs:
     def __init__(__self__, *,
-                 maximum: pulumi.Input[int],
-                 unit: pulumi.Input[str]):
+                 unit: pulumi.Input[str],
+                 maximum: Optional[pulumi.Input[int]] = None,
+                 minimum: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
         :param pulumi.Input[str] unit: The unit that the storage is measured in, in GB.
+        :param pulumi.Input[int] maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        :param pulumi.Input[int] minimum: The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
         """
-        pulumi.set(__self__, "maximum", maximum)
         pulumi.set(__self__, "unit", unit)
-
-    @property
-    @pulumi.getter
-    def maximum(self) -> pulumi.Input[int]:
-        """
-        The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-        """
-        return pulumi.get(self, "maximum")
-
-    @maximum.setter
-    def maximum(self, value: pulumi.Input[int]):
-        pulumi.set(self, "maximum", value)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
 
     @property
     @pulumi.getter
@@ -385,27 +378,68 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgs:
     def unit(self, value: pulumi.Input[str]):
         pulumi.set(self, "unit", value)
 
-
-@pulumi.input_type
-class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
-    def __init__(__self__, *,
-                 maximum: pulumi.Input[int]):
-        """
-        :param pulumi.Input[int] maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-        """
-        pulumi.set(__self__, "maximum", maximum)
-
     @property
     @pulumi.getter
-    def maximum(self) -> pulumi.Input[int]:
+    def maximum(self) -> Optional[pulumi.Input[int]]:
         """
         The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
         """
         return pulumi.get(self, "maximum")
 
     @maximum.setter
-    def maximum(self, value: pulumi.Input[int]):
+    def maximum(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum", value)
+
+
+@pulumi.input_type
+class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
+    def __init__(__self__, *,
+                 maximum: Optional[pulumi.Input[int]] = None,
+                 minimum: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        :param pulumi.Input[int] minimum: The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum", value)
 
 
 @pulumi.input_type

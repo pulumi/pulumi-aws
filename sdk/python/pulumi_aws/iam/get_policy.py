@@ -21,10 +21,13 @@ class GetPolicyResult:
     """
     A collection of values returned by getPolicy.
     """
-    def __init__(__self__, arn=None, description=None, id=None, name=None, path=None, path_prefix=None, policy=None, policy_id=None, tags=None):
+    def __init__(__self__, arn=None, attachment_count=None, description=None, id=None, name=None, path=None, path_prefix=None, policy=None, policy_id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if attachment_count and not isinstance(attachment_count, int):
+            raise TypeError("Expected argument 'attachment_count' to be a int")
+        pulumi.set(__self__, "attachment_count", attachment_count)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -57,6 +60,14 @@ class GetPolicyResult:
         ARN of the policy.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="attachmentCount")
+    def attachment_count(self) -> int:
+        """
+        Number of entities (users, groups, and roles) that the policy is attached to.
+        """
+        return pulumi.get(self, "attachment_count")
 
     @property
     @pulumi.getter
@@ -124,6 +135,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             yield self
         return GetPolicyResult(
             arn=self.arn,
+            attachment_count=self.attachment_count,
             description=self.description,
             id=self.id,
             name=self.name,
@@ -187,6 +199,7 @@ def get_policy(arn: Optional[str] = None,
 
     return AwaitableGetPolicyResult(
         arn=pulumi.get(__ret__, 'arn'),
+        attachment_count=pulumi.get(__ret__, 'attachment_count'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),

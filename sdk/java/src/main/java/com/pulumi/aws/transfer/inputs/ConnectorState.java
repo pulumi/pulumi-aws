@@ -94,6 +94,21 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Name of the security policy for the connector.
+     * 
+     */
+    @Import(name="securityPolicyName")
+    private @Nullable Output<String> securityPolicyName;
+
+    /**
+     * @return Name of the security policy for the connector.
+     * 
+     */
+    public Optional<Output<String>> securityPolicyName() {
+        return Optional.ofNullable(this.securityPolicyName);
+    }
+
+    /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      * 
      */
@@ -165,6 +180,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         this.as2Config = $.as2Config;
         this.connectorId = $.connectorId;
         this.loggingRole = $.loggingRole;
+        this.securityPolicyName = $.securityPolicyName;
         this.sftpConfig = $.sftpConfig;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -292,6 +308,27 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder loggingRole(String loggingRole) {
             return loggingRole(Output.of(loggingRole));
+        }
+
+        /**
+         * @param securityPolicyName Name of the security policy for the connector.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityPolicyName(@Nullable Output<String> securityPolicyName) {
+            $.securityPolicyName = securityPolicyName;
+            return this;
+        }
+
+        /**
+         * @param securityPolicyName Name of the security policy for the connector.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityPolicyName(String securityPolicyName) {
+            return securityPolicyName(Output.of(securityPolicyName));
         }
 
         /**

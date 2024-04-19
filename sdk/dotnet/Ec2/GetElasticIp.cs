@@ -353,6 +353,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string PrivateIp;
         /// <summary>
+        /// The DNS pointer (PTR) record for the IP address.
+        /// </summary>
+        public readonly string PtrRecord;
+        /// <summary>
         /// Public DNS associated with the Elastic IP address.
         /// </summary>
         public readonly string PublicDns;
@@ -395,6 +399,8 @@ namespace Pulumi.Aws.Ec2
 
             string privateIp,
 
+            string ptrRecord,
+
             string publicDns,
 
             string publicIp,
@@ -415,6 +421,7 @@ namespace Pulumi.Aws.Ec2
             NetworkInterfaceOwnerId = networkInterfaceOwnerId;
             PrivateDns = privateDns;
             PrivateIp = privateIp;
+            PtrRecord = ptrRecord;
             PublicDns = publicDns;
             PublicIp = publicIp;
             PublicIpv4Pool = publicIpv4Pool;

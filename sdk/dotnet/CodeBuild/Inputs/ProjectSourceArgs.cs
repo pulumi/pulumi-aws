@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+        /// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
         /// </summary>
         [Input("buildStatusConfig")]
         public Input<Inputs.ProjectSourceBuildStatusConfigArgs>? BuildStatusConfig { get; set; }
@@ -49,13 +49,13 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+        /// Whether to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
         /// </summary>
         [Input("reportBuildStatus")]
         public Input<bool>? ReportBuildStatus { get; set; }
 
         /// <summary>
-        /// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+        /// Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SigningProfileRevocationRecord {
+    /**
+     * @return The time when revocation becomes effective.
+     * 
+     */
     private @Nullable String revocationEffectiveFrom;
+    /**
+     * @return The time when the signing profile was revoked.
+     * 
+     */
     private @Nullable String revokedAt;
+    /**
+     * @return The identity of the revoker.
+     * 
+     */
     private @Nullable String revokedBy;
 
     private SigningProfileRevocationRecord() {}
+    /**
+     * @return The time when revocation becomes effective.
+     * 
+     */
     public Optional<String> revocationEffectiveFrom() {
         return Optional.ofNullable(this.revocationEffectiveFrom);
     }
+    /**
+     * @return The time when the signing profile was revoked.
+     * 
+     */
     public Optional<String> revokedAt() {
         return Optional.ofNullable(this.revokedAt);
     }
+    /**
+     * @return The identity of the revoker.
+     * 
+     */
     public Optional<String> revokedBy() {
         return Optional.ofNullable(this.revokedBy);
     }

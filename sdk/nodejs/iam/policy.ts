@@ -75,6 +75,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Number of entities (users, groups, and roles) that the policy is attached to.
+     */
+    public /*out*/ readonly attachmentCount!: pulumi.Output<number>;
+    /**
      * Description of the IAM policy.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -123,6 +127,7 @@ export class Policy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["attachmentCount"] = state ? state.attachmentCount : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
@@ -143,6 +148,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["attachmentCount"] = undefined /*out*/;
             resourceInputs["policyId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -159,6 +165,10 @@ export interface PolicyState {
      * ARN assigned by AWS to this policy.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Number of entities (users, groups, and roles) that the policy is attached to.
+     */
+    attachmentCount?: pulumi.Input<number>;
     /**
      * Description of the IAM policy.
      */

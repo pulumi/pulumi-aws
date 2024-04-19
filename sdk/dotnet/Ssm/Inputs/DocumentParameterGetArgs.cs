@@ -12,11 +12,14 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class DocumentParameterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
+        /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
         /// <summary>
-        /// The description of the document.
+        /// A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -27,6 +30,9 @@ namespace Pulumi.Aws.Ssm.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The permission type for the document. The permission type can be `Share`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly string? Image;
         /// <summary>
-        /// Name of the AMI.
+        /// The name of the Workflow parameter.
         /// </summary>
         public readonly string? Name;
         /// <summary>

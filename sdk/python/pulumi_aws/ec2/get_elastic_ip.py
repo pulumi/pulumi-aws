@@ -23,7 +23,7 @@ class GetElasticIpResult:
     """
     A collection of values returned by getElasticIp.
     """
-    def __init__(__self__, association_id=None, carrier_ip=None, customer_owned_ip=None, customer_owned_ipv4_pool=None, domain=None, filters=None, id=None, instance_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None):
+    def __init__(__self__, association_id=None, carrier_ip=None, customer_owned_ip=None, customer_owned_ipv4_pool=None, domain=None, filters=None, id=None, instance_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, ptr_record=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None):
         if association_id and not isinstance(association_id, str):
             raise TypeError("Expected argument 'association_id' to be a str")
         pulumi.set(__self__, "association_id", association_id)
@@ -60,6 +60,9 @@ class GetElasticIpResult:
         if private_ip and not isinstance(private_ip, str):
             raise TypeError("Expected argument 'private_ip' to be a str")
         pulumi.set(__self__, "private_ip", private_ip)
+        if ptr_record and not isinstance(ptr_record, str):
+            raise TypeError("Expected argument 'ptr_record' to be a str")
+        pulumi.set(__self__, "ptr_record", ptr_record)
         if public_dns and not isinstance(public_dns, str):
             raise TypeError("Expected argument 'public_dns' to be a str")
         pulumi.set(__self__, "public_dns", public_dns)
@@ -167,6 +170,14 @@ class GetElasticIpResult:
         return pulumi.get(self, "private_ip")
 
     @property
+    @pulumi.getter(name="ptrRecord")
+    def ptr_record(self) -> str:
+        """
+        The DNS pointer (PTR) record for the IP address.
+        """
+        return pulumi.get(self, "ptr_record")
+
+    @property
     @pulumi.getter(name="publicDns")
     def public_dns(self) -> str:
         """
@@ -217,6 +228,7 @@ class AwaitableGetElasticIpResult(GetElasticIpResult):
             network_interface_owner_id=self.network_interface_owner_id,
             private_dns=self.private_dns,
             private_ip=self.private_ip,
+            ptr_record=self.ptr_record,
             public_dns=self.public_dns,
             public_ip=self.public_ip,
             public_ipv4_pool=self.public_ipv4_pool,
@@ -309,6 +321,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
         network_interface_owner_id=pulumi.get(__ret__, 'network_interface_owner_id'),
         private_dns=pulumi.get(__ret__, 'private_dns'),
         private_ip=pulumi.get(__ret__, 'private_ip'),
+        ptr_record=pulumi.get(__ret__, 'ptr_record'),
         public_dns=pulumi.get(__ret__, 'public_dns'),
         public_ip=pulumi.get(__ret__, 'public_ip'),
         public_ipv4_pool=pulumi.get(__ret__, 'public_ipv4_pool'),

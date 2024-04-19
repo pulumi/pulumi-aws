@@ -48,6 +48,21 @@ public final class VpcDhcpOptionsArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+     * 
+     */
+    @Import(name="ipv6AddressPreferredLeaseTime")
+    private @Nullable Output<String> ipv6AddressPreferredLeaseTime;
+
+    /**
+     * @return How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+     * 
+     */
+    public Optional<Output<String>> ipv6AddressPreferredLeaseTime() {
+        return Optional.ofNullable(this.ipv6AddressPreferredLeaseTime);
+    }
+
+    /**
      * List of NETBIOS name servers.
      * 
      */
@@ -112,6 +127,7 @@ public final class VpcDhcpOptionsArgs extends com.pulumi.resources.ResourceArgs 
     private VpcDhcpOptionsArgs(VpcDhcpOptionsArgs $) {
         this.domainName = $.domainName;
         this.domainNameServers = $.domainNameServers;
+        this.ipv6AddressPreferredLeaseTime = $.ipv6AddressPreferredLeaseTime;
         this.netbiosNameServers = $.netbiosNameServers;
         this.netbiosNodeType = $.netbiosNodeType;
         this.ntpServers = $.ntpServers;
@@ -186,6 +202,27 @@ public final class VpcDhcpOptionsArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder domainNameServers(String... domainNameServers) {
             return domainNameServers(List.of(domainNameServers));
+        }
+
+        /**
+         * @param ipv6AddressPreferredLeaseTime How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6AddressPreferredLeaseTime(@Nullable Output<String> ipv6AddressPreferredLeaseTime) {
+            $.ipv6AddressPreferredLeaseTime = ipv6AddressPreferredLeaseTime;
+            return this;
+        }
+
+        /**
+         * @param ipv6AddressPreferredLeaseTime How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6AddressPreferredLeaseTime(String ipv6AddressPreferredLeaseTime) {
+            return ipv6AddressPreferredLeaseTime(Output.of(ipv6AddressPreferredLeaseTime));
         }
 
         /**

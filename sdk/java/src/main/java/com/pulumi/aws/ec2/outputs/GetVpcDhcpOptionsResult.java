@@ -41,6 +41,11 @@ public final class GetVpcDhcpOptionsResult {
      */
     private String id;
     /**
+     * @return How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
+     * 
+     */
+    private String ipv6AddressPreferredLeaseTime;
+    /**
      * @return List of NETBIOS name servers.
      * 
      */
@@ -106,6 +111,13 @@ public final class GetVpcDhcpOptionsResult {
         return this.id;
     }
     /**
+     * @return How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
+     * 
+     */
+    public String ipv6AddressPreferredLeaseTime() {
+        return this.ipv6AddressPreferredLeaseTime;
+    }
+    /**
      * @return List of NETBIOS name servers.
      * 
      */
@@ -156,6 +168,7 @@ public final class GetVpcDhcpOptionsResult {
         private List<String> domainNameServers;
         private @Nullable List<GetVpcDhcpOptionsFilter> filters;
         private String id;
+        private String ipv6AddressPreferredLeaseTime;
         private List<String> netbiosNameServers;
         private String netbiosNodeType;
         private List<String> ntpServers;
@@ -170,6 +183,7 @@ public final class GetVpcDhcpOptionsResult {
     	      this.domainNameServers = defaults.domainNameServers;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.ipv6AddressPreferredLeaseTime = defaults.ipv6AddressPreferredLeaseTime;
     	      this.netbiosNameServers = defaults.netbiosNameServers;
     	      this.netbiosNodeType = defaults.netbiosNodeType;
     	      this.ntpServers = defaults.ntpServers;
@@ -230,6 +244,14 @@ public final class GetVpcDhcpOptionsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ipv6AddressPreferredLeaseTime(String ipv6AddressPreferredLeaseTime) {
+            if (ipv6AddressPreferredLeaseTime == null) {
+              throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "ipv6AddressPreferredLeaseTime");
+            }
+            this.ipv6AddressPreferredLeaseTime = ipv6AddressPreferredLeaseTime;
+            return this;
+        }
+        @CustomType.Setter
         public Builder netbiosNameServers(List<String> netbiosNameServers) {
             if (netbiosNameServers == null) {
               throw new MissingRequiredPropertyException("GetVpcDhcpOptionsResult", "netbiosNameServers");
@@ -283,6 +305,7 @@ public final class GetVpcDhcpOptionsResult {
             _resultValue.domainNameServers = domainNameServers;
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.ipv6AddressPreferredLeaseTime = ipv6AddressPreferredLeaseTime;
             _resultValue.netbiosNameServers = netbiosNameServers;
             _resultValue.netbiosNodeType = netbiosNodeType;
             _resultValue.ntpServers = ntpServers;

@@ -644,6 +644,7 @@
         "ec2/egressOnlyInternetGateway.ts",
         "ec2/eip.ts",
         "ec2/eipAssociation.ts",
+        "ec2/eipDomainName.ts",
         "ec2/fleet.ts",
         "ec2/flowLog.ts",
         "ec2/getAmi.ts",

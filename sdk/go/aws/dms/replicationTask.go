@@ -83,7 +83,9 @@ type ReplicationTask struct {
 	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId pulumi.StringOutput `pulumi:"replicationTaskId"`
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
-	ReplicationTaskSettings pulumi.StringPtrOutput `pulumi:"replicationTaskSettings"`
+	ReplicationTaskSettings pulumi.StringOutput `pulumi:"replicationTaskSettings"`
+	// A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+	ResourceIdentifier pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
 	SourceEndpointArn pulumi.StringOutput `pulumi:"sourceEndpointArn"`
 	// Whether to run or stop the replication task.
@@ -169,6 +171,8 @@ type replicationTaskState struct {
 	ReplicationTaskId *string `pulumi:"replicationTaskId"`
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings *string `pulumi:"replicationTaskSettings"`
+	// A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
 	SourceEndpointArn *string `pulumi:"sourceEndpointArn"`
 	// Whether to run or stop the replication task.
@@ -207,6 +211,8 @@ type ReplicationTaskState struct {
 	ReplicationTaskId pulumi.StringPtrInput
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings pulumi.StringPtrInput
+	// A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+	ResourceIdentifier pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
 	SourceEndpointArn pulumi.StringPtrInput
 	// Whether to run or stop the replication task.
@@ -247,6 +253,8 @@ type replicationTaskArgs struct {
 	ReplicationTaskId string `pulumi:"replicationTaskId"`
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings *string `pulumi:"replicationTaskSettings"`
+	// A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
 	SourceEndpointArn string `pulumi:"sourceEndpointArn"`
 	// Whether to run or stop the replication task.
@@ -278,6 +286,8 @@ type ReplicationTaskArgs struct {
 	ReplicationTaskId pulumi.StringInput
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings pulumi.StringPtrInput
+	// A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+	ResourceIdentifier pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
 	SourceEndpointArn pulumi.StringInput
 	// Whether to run or stop the replication task.
@@ -413,8 +423,13 @@ func (o ReplicationTaskOutput) ReplicationTaskId() pulumi.StringOutput {
 }
 
 // An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
-func (o ReplicationTaskOutput) ReplicationTaskSettings() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReplicationTask) pulumi.StringPtrOutput { return v.ReplicationTaskSettings }).(pulumi.StringPtrOutput)
+func (o ReplicationTaskOutput) ReplicationTaskSettings() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.ReplicationTaskSettings }).(pulumi.StringOutput)
+}
+
+// A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+func (o ReplicationTaskOutput) ResourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.

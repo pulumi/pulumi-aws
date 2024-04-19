@@ -15,16 +15,32 @@ public final class SigningProfileSignatureValidityPeriodArgs extends com.pulumi.
 
     public static final SigningProfileSignatureValidityPeriodArgs Empty = new SigningProfileSignatureValidityPeriodArgs();
 
+    /**
+     * The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
 
+    /**
+     * The numerical value of the time unit for signature validity.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<Integer> value;
 
+    /**
+     * @return The numerical value of the time unit for signature validity.
+     * 
+     */
     public Output<Integer> value() {
         return this.value;
     }
@@ -54,20 +70,44 @@ public final class SigningProfileSignatureValidityPeriodArgs extends com.pulumi.
             $ = new SigningProfileSignatureValidityPeriodArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param type The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
+        /**
+         * @param value The numerical value of the time unit for signature validity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<Integer> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value The numerical value of the time unit for signature validity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Integer value) {
             return value(Output.of(value));
         }

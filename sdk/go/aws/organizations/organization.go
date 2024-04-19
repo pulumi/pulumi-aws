@@ -75,6 +75,8 @@ type Organization struct {
 	MasterAccountEmail pulumi.StringOutput `pulumi:"masterAccountEmail"`
 	// Identifier of the master account
 	MasterAccountId pulumi.StringOutput `pulumi:"masterAccountId"`
+	// Name of the master account
+	MasterAccountName pulumi.StringOutput `pulumi:"masterAccountName"`
 	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 	NonMasterAccounts OrganizationNonMasterAccountArrayOutput `pulumi:"nonMasterAccounts"`
 	// List of organization roots. All elements have these attributes:
@@ -127,6 +129,8 @@ type organizationState struct {
 	MasterAccountEmail *string `pulumi:"masterAccountEmail"`
 	// Identifier of the master account
 	MasterAccountId *string `pulumi:"masterAccountId"`
+	// Name of the master account
+	MasterAccountName *string `pulumi:"masterAccountName"`
 	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 	NonMasterAccounts []OrganizationNonMasterAccount `pulumi:"nonMasterAccounts"`
 	// List of organization roots. All elements have these attributes:
@@ -150,6 +154,8 @@ type OrganizationState struct {
 	MasterAccountEmail pulumi.StringPtrInput
 	// Identifier of the master account
 	MasterAccountId pulumi.StringPtrInput
+	// Name of the master account
+	MasterAccountName pulumi.StringPtrInput
 	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 	NonMasterAccounts OrganizationNonMasterAccountArrayInput
 	// List of organization roots. All elements have these attributes:
@@ -304,6 +310,11 @@ func (o OrganizationOutput) MasterAccountEmail() pulumi.StringOutput {
 // Identifier of the master account
 func (o OrganizationOutput) MasterAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.MasterAccountId }).(pulumi.StringOutput)
+}
+
+// Name of the master account
+func (o OrganizationOutput) MasterAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.MasterAccountName }).(pulumi.StringOutput)
 }
 
 // List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:

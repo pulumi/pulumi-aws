@@ -247,6 +247,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
+        /// </summary>
+        public readonly string Ipv6AddressPreferredLeaseTime;
+        /// <summary>
         /// List of NETBIOS name servers.
         /// </summary>
         public readonly ImmutableArray<string> NetbiosNameServers;
@@ -281,6 +285,8 @@ namespace Pulumi.Aws.Ec2
 
             string id,
 
+            string ipv6AddressPreferredLeaseTime,
+
             ImmutableArray<string> netbiosNameServers,
 
             string netbiosNodeType,
@@ -297,6 +303,7 @@ namespace Pulumi.Aws.Ec2
             DomainNameServers = domainNameServers;
             Filters = filters;
             Id = id;
+            Ipv6AddressPreferredLeaseTime = ipv6AddressPreferredLeaseTime;
             NetbiosNameServers = netbiosNameServers;
             NetbiosNodeType = netbiosNodeType;
             NtpServers = ntpServers;

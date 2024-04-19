@@ -510,6 +510,8 @@ func (o GroupInstanceRefreshPtrOutput) Triggers() pulumi.StringArrayOutput {
 }
 
 type GroupInstanceRefreshPreferences struct {
+	// Alarm Specification for Instance Refresh.
+	AlarmSpecification *GroupInstanceRefreshPreferencesAlarmSpecification `pulumi:"alarmSpecification"`
 	// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
 	AutoRollback *bool `pulumi:"autoRollback"`
 	// Number of seconds to wait after a checkpoint. Defaults to `3600`.
@@ -542,6 +544,8 @@ type GroupInstanceRefreshPreferencesInput interface {
 }
 
 type GroupInstanceRefreshPreferencesArgs struct {
+	// Alarm Specification for Instance Refresh.
+	AlarmSpecification GroupInstanceRefreshPreferencesAlarmSpecificationPtrInput `pulumi:"alarmSpecification"`
 	// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
 	AutoRollback pulumi.BoolPtrInput `pulumi:"autoRollback"`
 	// Number of seconds to wait after a checkpoint. Defaults to `3600`.
@@ -639,6 +643,13 @@ func (o GroupInstanceRefreshPreferencesOutput) ToGroupInstanceRefreshPreferences
 	}).(GroupInstanceRefreshPreferencesPtrOutput)
 }
 
+// Alarm Specification for Instance Refresh.
+func (o GroupInstanceRefreshPreferencesOutput) AlarmSpecification() GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput {
+	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *GroupInstanceRefreshPreferencesAlarmSpecification {
+		return v.AlarmSpecification
+	}).(GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput)
+}
+
 // Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
 func (o GroupInstanceRefreshPreferencesOutput) AutoRollback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *bool { return v.AutoRollback }).(pulumi.BoolPtrOutput)
@@ -706,6 +717,16 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) Elem() GroupInstanceRefreshPre
 		var ret GroupInstanceRefreshPreferences
 		return ret
 	}).(GroupInstanceRefreshPreferencesOutput)
+}
+
+// Alarm Specification for Instance Refresh.
+func (o GroupInstanceRefreshPreferencesPtrOutput) AlarmSpecification() GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput {
+	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *GroupInstanceRefreshPreferencesAlarmSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.AlarmSpecification
+	}).(GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput)
 }
 
 // Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
@@ -796,6 +817,143 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) StandbyInstances() pulumi.Stri
 		}
 		return v.StandbyInstances
 	}).(pulumi.StringPtrOutput)
+}
+
+type GroupInstanceRefreshPreferencesAlarmSpecification struct {
+	// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+	Alarms []string `pulumi:"alarms"`
+}
+
+// GroupInstanceRefreshPreferencesAlarmSpecificationInput is an input type that accepts GroupInstanceRefreshPreferencesAlarmSpecificationArgs and GroupInstanceRefreshPreferencesAlarmSpecificationOutput values.
+// You can construct a concrete instance of `GroupInstanceRefreshPreferencesAlarmSpecificationInput` via:
+//
+//	GroupInstanceRefreshPreferencesAlarmSpecificationArgs{...}
+type GroupInstanceRefreshPreferencesAlarmSpecificationInput interface {
+	pulumi.Input
+
+	ToGroupInstanceRefreshPreferencesAlarmSpecificationOutput() GroupInstanceRefreshPreferencesAlarmSpecificationOutput
+	ToGroupInstanceRefreshPreferencesAlarmSpecificationOutputWithContext(context.Context) GroupInstanceRefreshPreferencesAlarmSpecificationOutput
+}
+
+type GroupInstanceRefreshPreferencesAlarmSpecificationArgs struct {
+	// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+	Alarms pulumi.StringArrayInput `pulumi:"alarms"`
+}
+
+func (GroupInstanceRefreshPreferencesAlarmSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInstanceRefreshPreferencesAlarmSpecification)(nil)).Elem()
+}
+
+func (i GroupInstanceRefreshPreferencesAlarmSpecificationArgs) ToGroupInstanceRefreshPreferencesAlarmSpecificationOutput() GroupInstanceRefreshPreferencesAlarmSpecificationOutput {
+	return i.ToGroupInstanceRefreshPreferencesAlarmSpecificationOutputWithContext(context.Background())
+}
+
+func (i GroupInstanceRefreshPreferencesAlarmSpecificationArgs) ToGroupInstanceRefreshPreferencesAlarmSpecificationOutputWithContext(ctx context.Context) GroupInstanceRefreshPreferencesAlarmSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceRefreshPreferencesAlarmSpecificationOutput)
+}
+
+func (i GroupInstanceRefreshPreferencesAlarmSpecificationArgs) ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput() GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput {
+	return i.ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i GroupInstanceRefreshPreferencesAlarmSpecificationArgs) ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutputWithContext(ctx context.Context) GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceRefreshPreferencesAlarmSpecificationOutput).ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutputWithContext(ctx)
+}
+
+// GroupInstanceRefreshPreferencesAlarmSpecificationPtrInput is an input type that accepts GroupInstanceRefreshPreferencesAlarmSpecificationArgs, GroupInstanceRefreshPreferencesAlarmSpecificationPtr and GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput values.
+// You can construct a concrete instance of `GroupInstanceRefreshPreferencesAlarmSpecificationPtrInput` via:
+//
+//	        GroupInstanceRefreshPreferencesAlarmSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GroupInstanceRefreshPreferencesAlarmSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput() GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput
+	ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutputWithContext(context.Context) GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput
+}
+
+type groupInstanceRefreshPreferencesAlarmSpecificationPtrType GroupInstanceRefreshPreferencesAlarmSpecificationArgs
+
+func GroupInstanceRefreshPreferencesAlarmSpecificationPtr(v *GroupInstanceRefreshPreferencesAlarmSpecificationArgs) GroupInstanceRefreshPreferencesAlarmSpecificationPtrInput {
+	return (*groupInstanceRefreshPreferencesAlarmSpecificationPtrType)(v)
+}
+
+func (*groupInstanceRefreshPreferencesAlarmSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupInstanceRefreshPreferencesAlarmSpecification)(nil)).Elem()
+}
+
+func (i *groupInstanceRefreshPreferencesAlarmSpecificationPtrType) ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput() GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput {
+	return i.ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *groupInstanceRefreshPreferencesAlarmSpecificationPtrType) ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutputWithContext(ctx context.Context) GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput)
+}
+
+type GroupInstanceRefreshPreferencesAlarmSpecificationOutput struct{ *pulumi.OutputState }
+
+func (GroupInstanceRefreshPreferencesAlarmSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInstanceRefreshPreferencesAlarmSpecification)(nil)).Elem()
+}
+
+func (o GroupInstanceRefreshPreferencesAlarmSpecificationOutput) ToGroupInstanceRefreshPreferencesAlarmSpecificationOutput() GroupInstanceRefreshPreferencesAlarmSpecificationOutput {
+	return o
+}
+
+func (o GroupInstanceRefreshPreferencesAlarmSpecificationOutput) ToGroupInstanceRefreshPreferencesAlarmSpecificationOutputWithContext(ctx context.Context) GroupInstanceRefreshPreferencesAlarmSpecificationOutput {
+	return o
+}
+
+func (o GroupInstanceRefreshPreferencesAlarmSpecificationOutput) ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput() GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput {
+	return o.ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o GroupInstanceRefreshPreferencesAlarmSpecificationOutput) ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutputWithContext(ctx context.Context) GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupInstanceRefreshPreferencesAlarmSpecification) *GroupInstanceRefreshPreferencesAlarmSpecification {
+		return &v
+	}).(GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput)
+}
+
+// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+func (o GroupInstanceRefreshPreferencesAlarmSpecificationOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupInstanceRefreshPreferencesAlarmSpecification) []string { return v.Alarms }).(pulumi.StringArrayOutput)
+}
+
+type GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupInstanceRefreshPreferencesAlarmSpecification)(nil)).Elem()
+}
+
+func (o GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput) ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput() GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput {
+	return o
+}
+
+func (o GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput) ToGroupInstanceRefreshPreferencesAlarmSpecificationPtrOutputWithContext(ctx context.Context) GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput {
+	return o
+}
+
+func (o GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput) Elem() GroupInstanceRefreshPreferencesAlarmSpecificationOutput {
+	return o.ApplyT(func(v *GroupInstanceRefreshPreferencesAlarmSpecification) GroupInstanceRefreshPreferencesAlarmSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret GroupInstanceRefreshPreferencesAlarmSpecification
+		return ret
+	}).(GroupInstanceRefreshPreferencesAlarmSpecificationOutput)
+}
+
+// List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+func (o GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput) Alarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupInstanceRefreshPreferencesAlarmSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(pulumi.StringArrayOutput)
 }
 
 type GroupLaunchTemplate struct {
@@ -12536,6 +12694,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceRefreshPtrInput)(nil)).Elem(), GroupInstanceRefreshArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceRefreshPreferencesInput)(nil)).Elem(), GroupInstanceRefreshPreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceRefreshPreferencesPtrInput)(nil)).Elem(), GroupInstanceRefreshPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceRefreshPreferencesAlarmSpecificationInput)(nil)).Elem(), GroupInstanceRefreshPreferencesAlarmSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceRefreshPreferencesAlarmSpecificationPtrInput)(nil)).Elem(), GroupInstanceRefreshPreferencesAlarmSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupLaunchTemplateInput)(nil)).Elem(), GroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupLaunchTemplatePtrInput)(nil)).Elem(), GroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyInput)(nil)).Elem(), GroupMixedInstancesPolicyArgs{})
@@ -12694,6 +12854,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupInstanceRefreshPtrOutput{})
 	pulumi.RegisterOutputType(GroupInstanceRefreshPreferencesOutput{})
 	pulumi.RegisterOutputType(GroupInstanceRefreshPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(GroupInstanceRefreshPreferencesAlarmSpecificationOutput{})
+	pulumi.RegisterOutputType(GroupInstanceRefreshPreferencesAlarmSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GroupLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(GroupLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(GroupMixedInstancesPolicyOutput{})

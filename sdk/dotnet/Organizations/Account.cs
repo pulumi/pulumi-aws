@@ -111,6 +111,9 @@ namespace Pulumi.Aws.Organizations
         [Output("roleName")]
         public Output<string?> RoleName { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the account in the organization.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -298,6 +301,9 @@ namespace Pulumi.Aws.Organizations
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 
+        /// <summary>
+        /// The status of the account in the organization.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

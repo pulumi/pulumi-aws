@@ -4376,11 +4376,11 @@ func (o ListenerRuleConditionSourceIpPtrOutput) Values() pulumi.StringArrayOutpu
 }
 
 type LoadBalancerAccessLogs struct {
-	// The S3 bucket name to store the logs in.
+	// S3 bucket name to store the logs in.
 	Bucket string `pulumi:"bucket"`
 	// Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
 	Enabled *bool `pulumi:"enabled"`
-	// The S3 bucket prefix. Logs are stored in the root if not configured.
+	// S3 bucket prefix. Logs are stored in the root if not configured.
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -4396,11 +4396,11 @@ type LoadBalancerAccessLogsInput interface {
 }
 
 type LoadBalancerAccessLogsArgs struct {
-	// The S3 bucket name to store the logs in.
+	// S3 bucket name to store the logs in.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Boolean to enable / disable `accessLogs`. Defaults to `false`, even when `bucket` is specified.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The S3 bucket prefix. Logs are stored in the root if not configured.
+	// S3 bucket prefix. Logs are stored in the root if not configured.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -4481,7 +4481,7 @@ func (o LoadBalancerAccessLogsOutput) ToLoadBalancerAccessLogsPtrOutputWithConte
 	}).(LoadBalancerAccessLogsPtrOutput)
 }
 
-// The S3 bucket name to store the logs in.
+// S3 bucket name to store the logs in.
 func (o LoadBalancerAccessLogsOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerAccessLogs) string { return v.Bucket }).(pulumi.StringOutput)
 }
@@ -4491,7 +4491,7 @@ func (o LoadBalancerAccessLogsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAccessLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The S3 bucket prefix. Logs are stored in the root if not configured.
+// S3 bucket prefix. Logs are stored in the root if not configured.
 func (o LoadBalancerAccessLogsOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAccessLogs) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -4520,7 +4520,7 @@ func (o LoadBalancerAccessLogsPtrOutput) Elem() LoadBalancerAccessLogsOutput {
 	}).(LoadBalancerAccessLogsOutput)
 }
 
-// The S3 bucket name to store the logs in.
+// S3 bucket name to store the logs in.
 func (o LoadBalancerAccessLogsPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerAccessLogs) *string {
 		if v == nil {
@@ -4540,7 +4540,7 @@ func (o LoadBalancerAccessLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The S3 bucket prefix. Logs are stored in the root if not configured.
+// S3 bucket prefix. Logs are stored in the root if not configured.
 func (o LoadBalancerAccessLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerAccessLogs) *string {
 		if v == nil {
@@ -4551,11 +4551,11 @@ func (o LoadBalancerAccessLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 type LoadBalancerConnectionLogs struct {
-	// The S3 bucket name to store the logs in.
+	// S3 bucket name to store the logs in.
 	Bucket string `pulumi:"bucket"`
 	// Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
 	Enabled *bool `pulumi:"enabled"`
-	// The S3 bucket prefix. Logs are stored in the root if not configured.
+	// S3 bucket prefix. Logs are stored in the root if not configured.
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -4571,11 +4571,11 @@ type LoadBalancerConnectionLogsInput interface {
 }
 
 type LoadBalancerConnectionLogsArgs struct {
-	// The S3 bucket name to store the logs in.
+	// S3 bucket name to store the logs in.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Boolean to enable / disable `connectionLogs`. Defaults to `false`, even when `bucket` is specified.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The S3 bucket prefix. Logs are stored in the root if not configured.
+	// S3 bucket prefix. Logs are stored in the root if not configured.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -4656,7 +4656,7 @@ func (o LoadBalancerConnectionLogsOutput) ToLoadBalancerConnectionLogsPtrOutputW
 	}).(LoadBalancerConnectionLogsPtrOutput)
 }
 
-// The S3 bucket name to store the logs in.
+// S3 bucket name to store the logs in.
 func (o LoadBalancerConnectionLogsOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerConnectionLogs) string { return v.Bucket }).(pulumi.StringOutput)
 }
@@ -4666,7 +4666,7 @@ func (o LoadBalancerConnectionLogsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LoadBalancerConnectionLogs) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The S3 bucket prefix. Logs are stored in the root if not configured.
+// S3 bucket prefix. Logs are stored in the root if not configured.
 func (o LoadBalancerConnectionLogsOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerConnectionLogs) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -4695,7 +4695,7 @@ func (o LoadBalancerConnectionLogsPtrOutput) Elem() LoadBalancerConnectionLogsOu
 	}).(LoadBalancerConnectionLogsOutput)
 }
 
-// The S3 bucket name to store the logs in.
+// S3 bucket name to store the logs in.
 func (o LoadBalancerConnectionLogsPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerConnectionLogs) *string {
 		if v == nil {
@@ -4715,7 +4715,7 @@ func (o LoadBalancerConnectionLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The S3 bucket prefix. Logs are stored in the root if not configured.
+// S3 bucket prefix. Logs are stored in the root if not configured.
 func (o LoadBalancerConnectionLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerConnectionLogs) *string {
 		if v == nil {
@@ -4726,12 +4726,12 @@ func (o LoadBalancerConnectionLogsPtrOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 type LoadBalancerSubnetMapping struct {
-	// The allocation ID of the Elastic IP address for an internet-facing load balancer.
+	// Allocation ID of the Elastic IP address for an internet-facing load balancer.
 	AllocationId *string `pulumi:"allocationId"`
-	// The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+	// IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
 	Ipv6Address *string `pulumi:"ipv6Address"`
 	OutpostId   *string `pulumi:"outpostId"`
-	// The private IPv4 address for an internal load balancer.
+	// Private IPv4 address for an internal load balancer.
 	PrivateIpv4Address *string `pulumi:"privateIpv4Address"`
 	// ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
 	SubnetId string `pulumi:"subnetId"`
@@ -4749,12 +4749,12 @@ type LoadBalancerSubnetMappingInput interface {
 }
 
 type LoadBalancerSubnetMappingArgs struct {
-	// The allocation ID of the Elastic IP address for an internet-facing load balancer.
+	// Allocation ID of the Elastic IP address for an internet-facing load balancer.
 	AllocationId pulumi.StringPtrInput `pulumi:"allocationId"`
-	// The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+	// IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
 	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
 	OutpostId   pulumi.StringPtrInput `pulumi:"outpostId"`
-	// The private IPv4 address for an internal load balancer.
+	// Private IPv4 address for an internal load balancer.
 	PrivateIpv4Address pulumi.StringPtrInput `pulumi:"privateIpv4Address"`
 	// ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -4811,12 +4811,12 @@ func (o LoadBalancerSubnetMappingOutput) ToLoadBalancerSubnetMappingOutputWithCo
 	return o
 }
 
-// The allocation ID of the Elastic IP address for an internet-facing load balancer.
+// Allocation ID of the Elastic IP address for an internet-facing load balancer.
 func (o LoadBalancerSubnetMappingOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+// IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
 func (o LoadBalancerSubnetMappingOutput) Ipv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
 }
@@ -4825,7 +4825,7 @@ func (o LoadBalancerSubnetMappingOutput) OutpostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.OutpostId }).(pulumi.StringPtrOutput)
 }
 
-// The private IPv4 address for an internal load balancer.
+// Private IPv4 address for an internal load balancer.
 func (o LoadBalancerSubnetMappingOutput) PrivateIpv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.PrivateIpv4Address }).(pulumi.StringPtrOutput)
 }

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     name: "custom_gitlab",
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_1_0",
+ *     bundleId: "nano_3_0",
  *     keyPairName: "some_key_name",
  *     tags: {
  *         foo: "bar",
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *     name: "custom",
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_1_0",
+ *     bundleId: "nano_3_0",
  *     userData: "sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html",
  * });
  * ```
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *     name: "custom_instance",
  *     availabilityZone: "us-east-1b",
  *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_1_0",
+ *     bundleId: "nano_3_0",
  *     addOn: {
  *         type: "AutoSnapshot",
  *         snapshotTime: "06:00",

@@ -4,9 +4,10 @@
 package com.pulumi.aws.elasticache.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ServerlessCacheCacheUsageLimitsEcpuPerSecond {
@@ -14,15 +15,27 @@ public final class ServerlessCacheCacheUsageLimitsEcpuPerSecond {
      * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
-    private Integer maximum;
+    private @Nullable Integer maximum;
+    /**
+     * @return The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+     * 
+     */
+    private @Nullable Integer minimum;
 
     private ServerlessCacheCacheUsageLimitsEcpuPerSecond() {}
     /**
      * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
-    public Integer maximum() {
-        return this.maximum;
+    public Optional<Integer> maximum() {
+        return Optional.ofNullable(this.maximum);
+    }
+    /**
+     * @return The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+     * 
+     */
+    public Optional<Integer> minimum() {
+        return Optional.ofNullable(this.minimum);
     }
 
     public static Builder builder() {
@@ -34,24 +47,31 @@ public final class ServerlessCacheCacheUsageLimitsEcpuPerSecond {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer maximum;
+        private @Nullable Integer maximum;
+        private @Nullable Integer minimum;
         public Builder() {}
         public Builder(ServerlessCacheCacheUsageLimitsEcpuPerSecond defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maximum = defaults.maximum;
+    	      this.minimum = defaults.minimum;
         }
 
         @CustomType.Setter
-        public Builder maximum(Integer maximum) {
-            if (maximum == null) {
-              throw new MissingRequiredPropertyException("ServerlessCacheCacheUsageLimitsEcpuPerSecond", "maximum");
-            }
+        public Builder maximum(@Nullable Integer maximum) {
+
             this.maximum = maximum;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder minimum(@Nullable Integer minimum) {
+
+            this.minimum = minimum;
             return this;
         }
         public ServerlessCacheCacheUsageLimitsEcpuPerSecond build() {
             final var _resultValue = new ServerlessCacheCacheUsageLimitsEcpuPerSecond();
             _resultValue.maximum = maximum;
+            _resultValue.minimum = minimum;
             return _resultValue;
         }
     }

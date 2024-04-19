@@ -60,6 +60,11 @@ public final class GetOrganizationResult {
      */
     private String masterAccountId;
     /**
+     * @return Name of the master account of an organization.
+     * 
+     */
+    private String masterAccountName;
+    /**
      * @return List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      * 
      */
@@ -135,6 +140,13 @@ public final class GetOrganizationResult {
         return this.masterAccountId;
     }
     /**
+     * @return Name of the master account of an organization.
+     * 
+     */
+    public String masterAccountName() {
+        return this.masterAccountName;
+    }
+    /**
      * @return List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      * 
      */
@@ -167,6 +179,7 @@ public final class GetOrganizationResult {
         private String masterAccountArn;
         private String masterAccountEmail;
         private String masterAccountId;
+        private String masterAccountName;
         private List<GetOrganizationNonMasterAccount> nonMasterAccounts;
         private List<GetOrganizationRoot> roots;
         public Builder() {}
@@ -181,6 +194,7 @@ public final class GetOrganizationResult {
     	      this.masterAccountArn = defaults.masterAccountArn;
     	      this.masterAccountEmail = defaults.masterAccountEmail;
     	      this.masterAccountId = defaults.masterAccountId;
+    	      this.masterAccountName = defaults.masterAccountName;
     	      this.nonMasterAccounts = defaults.nonMasterAccounts;
     	      this.roots = defaults.roots;
         }
@@ -267,6 +281,14 @@ public final class GetOrganizationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder masterAccountName(String masterAccountName) {
+            if (masterAccountName == null) {
+              throw new MissingRequiredPropertyException("GetOrganizationResult", "masterAccountName");
+            }
+            this.masterAccountName = masterAccountName;
+            return this;
+        }
+        @CustomType.Setter
         public Builder nonMasterAccounts(List<GetOrganizationNonMasterAccount> nonMasterAccounts) {
             if (nonMasterAccounts == null) {
               throw new MissingRequiredPropertyException("GetOrganizationResult", "nonMasterAccounts");
@@ -299,6 +321,7 @@ public final class GetOrganizationResult {
             _resultValue.masterAccountArn = masterAccountArn;
             _resultValue.masterAccountEmail = masterAccountEmail;
             _resultValue.masterAccountId = masterAccountId;
+            _resultValue.masterAccountName = masterAccountName;
             _resultValue.nonMasterAccounts = nonMasterAccounts;
             _resultValue.roots = roots;
             return _resultValue;

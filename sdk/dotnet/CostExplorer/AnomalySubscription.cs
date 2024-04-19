@@ -48,6 +48,21 @@ namespace Pulumi.Aws.CostExplorer
     ///                 Address = "abc@example.com",
     ///             },
     ///         },
+    ///         ThresholdExpression = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionArgs
+    ///         {
+    ///             Dimension = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionDimensionArgs
+    ///             {
+    ///                 Key = "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+    ///                 MatchOptions = new[]
+    ///                 {
+    ///                     "GREATER_THAN_OR_EQUAL",
+    ///                 },
+    ///                 Values = new[]
+    ///                 {
+    ///                     "100",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -56,7 +71,7 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// ### Threshold Expression Example
     /// 
-    /// ### For a Specific Dimension
+    /// ### Using a Percentage Threshold
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
@@ -87,14 +102,14 @@ namespace Pulumi.Aws.CostExplorer
     ///         {
     ///             Dimension = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionDimensionArgs
     ///             {
-    ///                 Key = "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "100.0",
-    ///                 },
+    ///                 Key = "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
     ///                 MatchOptions = new[]
     ///                 {
     ///                     "GREATER_THAN_OR_EQUAL",
+    ///                 },
+    ///                 Values = new[]
+    ///                 {
+    ///                     "100",
     ///                 },
     ///             },
     ///         },
@@ -241,7 +256,7 @@ namespace Pulumi.Aws.CostExplorer
     ///                         Variable = "AWS:SourceOwner",
     ///                         Values = new[]
     ///                         {
-    ///                             account_id,
+    ///                             accountId,
     ///                         },
     ///                     },
     ///                 },

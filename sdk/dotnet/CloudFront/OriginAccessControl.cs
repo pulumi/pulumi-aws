@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+        /// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
         /// </summary>
         [Output("originAccessControlOriginType")]
         public Output<string> OriginAccessControlOriginType { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+        /// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
         /// </summary>
         [Input("originAccessControlOriginType", required: true)]
         public Input<string> OriginAccessControlOriginType { get; set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+        /// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
         /// </summary>
         [Input("originAccessControlOriginType")]
         public Input<string>? OriginAccessControlOriginType { get; set; }

@@ -18,14 +18,14 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
     public static final LoadBalancerAccessLogsArgs Empty = new LoadBalancerAccessLogsArgs();
 
     /**
-     * The S3 bucket name to store the logs in.
+     * S3 bucket name to store the logs in.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The S3 bucket name to store the logs in.
+     * @return S3 bucket name to store the logs in.
      * 
      */
     public Output<String> bucket() {
@@ -48,14 +48,14 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The S3 bucket prefix. Logs are stored in the root if not configured.
+     * S3 bucket prefix. Logs are stored in the root if not configured.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The S3 bucket prefix. Logs are stored in the root if not configured.
+     * @return S3 bucket prefix. Logs are stored in the root if not configured.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -89,7 +89,7 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bucket The S3 bucket name to store the logs in.
+         * @param bucket S3 bucket name to store the logs in.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bucket The S3 bucket name to store the logs in.
+         * @param bucket S3 bucket name to store the logs in.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param prefix The S3 bucket prefix. Logs are stored in the root if not configured.
+         * @param prefix S3 bucket prefix. Logs are stored in the root if not configured.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class LoadBalancerAccessLogsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param prefix The S3 bucket prefix. Logs are stored in the root if not configured.
+         * @param prefix S3 bucket prefix. Logs are stored in the root if not configured.
          * 
          * @return builder
          * 

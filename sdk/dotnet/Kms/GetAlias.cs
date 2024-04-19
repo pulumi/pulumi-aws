@@ -109,6 +109,9 @@ namespace Pulumi.Aws.Kms
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of the alias
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// ARN pointed to by the alias.

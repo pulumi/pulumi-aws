@@ -192,6 +192,10 @@ export class Eip extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateIp!: pulumi.Output<string>;
     /**
+     * The DNS pointer (PTR) record for the IP address.
+     */
+    public /*out*/ readonly ptrRecord!: pulumi.Output<string>;
+    /**
      * Public DNS associated with the Elastic IP address.
      */
     public /*out*/ readonly publicDns!: pulumi.Output<string>;
@@ -253,6 +257,7 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["networkInterface"] = state ? state.networkInterface : undefined;
             resourceInputs["privateDns"] = state ? state.privateDns : undefined;
             resourceInputs["privateIp"] = state ? state.privateIp : undefined;
+            resourceInputs["ptrRecord"] = state ? state.ptrRecord : undefined;
             resourceInputs["publicDns"] = state ? state.publicDns : undefined;
             resourceInputs["publicIp"] = state ? state.publicIp : undefined;
             resourceInputs["publicIpv4Pool"] = state ? state.publicIpv4Pool : undefined;
@@ -277,6 +282,7 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["customerOwnedIp"] = undefined /*out*/;
             resourceInputs["privateDns"] = undefined /*out*/;
             resourceInputs["privateIp"] = undefined /*out*/;
+            resourceInputs["ptrRecord"] = undefined /*out*/;
             resourceInputs["publicDns"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -342,6 +348,10 @@ export interface EipState {
      * Contains the private IP address (if in VPC).
      */
     privateIp?: pulumi.Input<string>;
+    /**
+     * The DNS pointer (PTR) record for the IP address.
+     */
+    ptrRecord?: pulumi.Input<string>;
     /**
      * Public DNS associated with the Elastic IP address.
      */

@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     name: "test-instance",
  *     availabilityZone: available.then(available => available.names?.[0]),
  *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_1_0",
+ *     bundleId: "nano_3_0",
  * });
  * const testDisk_attachment = new aws.lightsail.Disk_attachment("test", {
  *     diskName: test.name,

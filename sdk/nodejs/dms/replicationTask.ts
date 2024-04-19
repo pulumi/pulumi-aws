@@ -101,7 +101,11 @@ export class ReplicationTask extends pulumi.CustomResource {
     /**
      * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
      */
-    public readonly replicationTaskSettings!: pulumi.Output<string | undefined>;
+    public readonly replicationTaskSettings!: pulumi.Output<string>;
+    /**
+     * A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+     */
+    public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      */
@@ -153,6 +157,7 @@ export class ReplicationTask extends pulumi.CustomResource {
             resourceInputs["replicationTaskArn"] = state ? state.replicationTaskArn : undefined;
             resourceInputs["replicationTaskId"] = state ? state.replicationTaskId : undefined;
             resourceInputs["replicationTaskSettings"] = state ? state.replicationTaskSettings : undefined;
+            resourceInputs["resourceIdentifier"] = state ? state.resourceIdentifier : undefined;
             resourceInputs["sourceEndpointArn"] = state ? state.sourceEndpointArn : undefined;
             resourceInputs["startReplicationTask"] = state ? state.startReplicationTask : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -186,6 +191,7 @@ export class ReplicationTask extends pulumi.CustomResource {
             resourceInputs["replicationInstanceArn"] = args ? args.replicationInstanceArn : undefined;
             resourceInputs["replicationTaskId"] = args ? args.replicationTaskId : undefined;
             resourceInputs["replicationTaskSettings"] = args ? args.replicationTaskSettings : undefined;
+            resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
             resourceInputs["sourceEndpointArn"] = args ? args.sourceEndpointArn : undefined;
             resourceInputs["startReplicationTask"] = args ? args.startReplicationTask : undefined;
             resourceInputs["tableMappings"] = args ? args.tableMappings : undefined;
@@ -237,6 +243,10 @@ export interface ReplicationTaskState {
      * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
      */
     replicationTaskSettings?: pulumi.Input<string>;
+    /**
+     * A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+     */
+    resourceIdentifier?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      */
@@ -302,6 +312,10 @@ export interface ReplicationTaskArgs {
      * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
      */
     replicationTaskSettings?: pulumi.Input<string>;
+    /**
+     * A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+     */
+    resourceIdentifier?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      */

@@ -21,14 +21,14 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetTagsArgs Empty = new GetTagsArgs();
 
     /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
+     * Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
      * 
      */
     @Import(name="filter")
     private @Nullable Output<GetTagsFilterArgs> filter;
 
     /**
-     * @return Configuration block for the `Expression` object used to categorize costs. See below.
+     * @return Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
      * 
      */
     public Optional<Output<GetTagsFilterArgs>> filter() {
@@ -51,14 +51,14 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Configuration block for the value by which you want to sort the data. See below.
+     * Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
      * 
      */
     @Import(name="sortBies")
     private @Nullable Output<List<GetTagsSortByArgs>> sortBies;
 
     /**
-     * @return Configuration block for the value by which you want to sort the data. See below.
+     * @return Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
      * 
      */
     public Optional<Output<List<GetTagsSortByArgs>>> sortBies() {
@@ -81,7 +81,7 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Configuration block for the start and end dates for retrieving the dimension values.
+     * Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
      * 
      * The following arguments are optional:
      * 
@@ -90,7 +90,7 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
     private Output<GetTagsTimePeriodArgs> timePeriod;
 
     /**
-     * @return Configuration block for the start and end dates for retrieving the dimension values.
+     * @return Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
      * 
      * The following arguments are optional:
      * 
@@ -128,7 +128,7 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filter Configuration block for the `Expression` object used to categorize costs. See below.
+         * @param filter Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filter Configuration block for the `Expression` object used to categorize costs. See below.
+         * @param filter Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param sortBies Configuration block for the value by which you want to sort the data. See below.
+         * @param sortBies Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param sortBies Configuration block for the value by which you want to sort the data. See below.
+         * @param sortBies Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param sortBies Configuration block for the value by which you want to sort the data. See below.
+         * @param sortBies Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values.
+         * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
          * 
          * The following arguments are optional:
          * 
@@ -235,7 +235,7 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values.
+         * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
          * 
          * The following arguments are optional:
          * 

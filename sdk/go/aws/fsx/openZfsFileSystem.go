@@ -75,6 +75,8 @@ type OpenZfsFileSystem struct {
 	DiskIopsConfiguration OpenZfsFileSystemDiskIopsConfigurationOutput `pulumi:"diskIopsConfiguration"`
 	// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	// IP address of the endpoint that is used to access data or to manage the file system.
+	EndpointIpAddress pulumi.StringOutput `pulumi:"endpointIpAddress"`
 	// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
 	EndpointIpAddressRange pulumi.StringOutput `pulumi:"endpointIpAddressRange"`
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -172,6 +174,8 @@ type openZfsFileSystemState struct {
 	DiskIopsConfiguration *OpenZfsFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
 	// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
 	DnsName *string `pulumi:"dnsName"`
+	// IP address of the endpoint that is used to access data or to manage the file system.
+	EndpointIpAddress *string `pulumi:"endpointIpAddress"`
 	// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
 	EndpointIpAddressRange *string `pulumi:"endpointIpAddressRange"`
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -231,6 +235,8 @@ type OpenZfsFileSystemState struct {
 	DiskIopsConfiguration OpenZfsFileSystemDiskIopsConfigurationPtrInput
 	// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
 	DnsName pulumi.StringPtrInput
+	// IP address of the endpoint that is used to access data or to manage the file system.
+	EndpointIpAddress pulumi.StringPtrInput
 	// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
 	EndpointIpAddressRange pulumi.StringPtrInput
 	// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -494,6 +500,11 @@ func (o OpenZfsFileSystemOutput) DiskIopsConfiguration() OpenZfsFileSystemDiskIo
 // DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
 func (o OpenZfsFileSystemOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+}
+
+// IP address of the endpoint that is used to access data or to manage the file system.
+func (o OpenZfsFileSystemOutput) EndpointIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.EndpointIpAddress }).(pulumi.StringOutput)
 }
 
 // (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.

@@ -71,6 +71,7 @@ export interface GetLoadBalancerResult {
     readonly accessLogs: outputs.alb.GetLoadBalancerAccessLogs;
     readonly arn: string;
     readonly arnSuffix: string;
+    readonly clientKeepAlive: number;
     readonly connectionLogs: outputs.alb.GetLoadBalancerConnectionLog[];
     readonly customerOwnedIpv4Pool: string;
     readonly desyncMitigationMode: string;

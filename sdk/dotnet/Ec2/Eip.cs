@@ -249,6 +249,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PrivateIp { get; private set; } = null!;
 
         /// <summary>
+        /// The DNS pointer (PTR) record for the IP address.
+        /// </summary>
+        [Output("ptrRecord")]
+        public Output<string> PtrRecord { get; private set; } = null!;
+
+        /// <summary>
         /// Public DNS associated with the Elastic IP address.
         /// </summary>
         [Output("publicDns")]
@@ -495,6 +501,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("privateIp")]
         public Input<string>? PrivateIp { get; set; }
+
+        /// <summary>
+        /// The DNS pointer (PTR) record for the IP address.
+        /// </summary>
+        [Input("ptrRecord")]
+        public Input<string>? PtrRecord { get; set; }
 
         /// <summary>
         /// Public DNS associated with the Elastic IP address.

@@ -14,6 +14,10 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GroupInstanceRefreshPreferences
     {
         /// <summary>
+        /// Alarm Specification for Instance Refresh.
+        /// </summary>
+        public readonly Outputs.GroupInstanceRefreshPreferencesAlarmSpecification? AlarmSpecification;
+        /// <summary>
         /// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
         /// </summary>
         public readonly bool? AutoRollback;
@@ -52,6 +56,8 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
         [OutputConstructor]
         private GroupInstanceRefreshPreferences(
+            Outputs.GroupInstanceRefreshPreferencesAlarmSpecification? alarmSpecification,
+
             bool? autoRollback,
 
             string? checkpointDelay,
@@ -70,6 +76,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
             string? standbyInstances)
         {
+            AlarmSpecification = alarmSpecification;
             AutoRollback = autoRollback;
             CheckpointDelay = checkpointDelay;
             CheckpointPercentages = checkpointPercentages;

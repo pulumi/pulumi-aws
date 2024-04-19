@@ -95,6 +95,11 @@ export type EipAssociation = import("./eipAssociation").EipAssociation;
 export const EipAssociation: typeof import("./eipAssociation").EipAssociation = null as any;
 utilities.lazyLoad(exports, ["EipAssociation"], () => require("./eipAssociation"));
 
+export { EipDomainNameArgs, EipDomainNameState } from "./eipDomainName";
+export type EipDomainName = import("./eipDomainName").EipDomainName;
+export const EipDomainName: typeof import("./eipDomainName").EipDomainName = null as any;
+utilities.lazyLoad(exports, ["EipDomainName"], () => require("./eipDomainName"));
+
 export { FleetArgs, FleetState } from "./fleet";
 export type Fleet = import("./fleet").Fleet;
 export const Fleet: typeof import("./fleet").Fleet = null as any;
@@ -834,6 +839,8 @@ const _module = {
                 return new Eip(name, <any>undefined, { urn })
             case "aws:ec2/eipAssociation:EipAssociation":
                 return new EipAssociation(name, <any>undefined, { urn })
+            case "aws:ec2/eipDomainName:EipDomainName":
+                return new EipDomainName(name, <any>undefined, { urn })
             case "aws:ec2/fleet:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
             case "aws:ec2/flowLog:FlowLog":
@@ -1009,6 +1016,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/defaultVpcDhcpOptions", _modul
 pulumi.runtime.registerResourceModule("aws", "ec2/egressOnlyInternetGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/eip", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/eipAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/eipDomainName", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/fleet", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/flowLog", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/imageBlockPublicAccess", _module)

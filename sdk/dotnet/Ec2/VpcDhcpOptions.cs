@@ -57,6 +57,7 @@ namespace Pulumi.Aws.Ec2
     ///             "127.0.0.1",
     ///             "10.0.0.2",
     ///         },
+    ///         Ipv6AddressPreferredLeaseTime = "1440",
     ///         NtpServers = new[]
     ///         {
     ///             "127.0.0.1",
@@ -112,6 +113,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("domainNameServers")]
         public Output<ImmutableArray<string>> DomainNameServers { get; private set; } = null!;
+
+        /// <summary>
+        /// How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+        /// </summary>
+        [Output("ipv6AddressPreferredLeaseTime")]
+        public Output<string?> Ipv6AddressPreferredLeaseTime { get; private set; } = null!;
 
         /// <summary>
         /// List of NETBIOS name servers.
@@ -213,6 +220,12 @@ namespace Pulumi.Aws.Ec2
             set => _domainNameServers = value;
         }
 
+        /// <summary>
+        /// How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+        /// </summary>
+        [Input("ipv6AddressPreferredLeaseTime")]
+        public Input<string>? Ipv6AddressPreferredLeaseTime { get; set; }
+
         [Input("netbiosNameServers")]
         private InputList<string>? _netbiosNameServers;
 
@@ -286,6 +299,12 @@ namespace Pulumi.Aws.Ec2
             get => _domainNameServers ?? (_domainNameServers = new InputList<string>());
             set => _domainNameServers = value;
         }
+
+        /// <summary>
+        /// How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+        /// </summary>
+        [Input("ipv6AddressPreferredLeaseTime")]
+        public Input<string>? Ipv6AddressPreferredLeaseTime { get; set; }
 
         [Input("netbiosNameServers")]
         private InputList<string>? _netbiosNameServers;

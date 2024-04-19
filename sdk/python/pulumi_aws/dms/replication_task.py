@@ -23,6 +23,7 @@ class ReplicationTaskArgs:
                  cdc_start_position: Optional[pulumi.Input[str]] = None,
                  cdc_start_time: Optional[pulumi.Input[str]] = None,
                  replication_task_settings: Optional[pulumi.Input[str]] = None,
+                 resource_identifier: Optional[pulumi.Input[str]] = None,
                  start_replication_task: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -41,6 +42,7 @@ class ReplicationTaskArgs:
         :param pulumi.Input[str] cdc_start_position: Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         :param pulumi.Input[str] cdc_start_time: RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         :param pulumi.Input[str] replication_task_settings: An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+        :param pulumi.Input[str] resource_identifier: A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
         :param pulumi.Input[bool] start_replication_task: Whether to run or stop the replication task.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -56,6 +58,8 @@ class ReplicationTaskArgs:
             pulumi.set(__self__, "cdc_start_time", cdc_start_time)
         if replication_task_settings is not None:
             pulumi.set(__self__, "replication_task_settings", replication_task_settings)
+        if resource_identifier is not None:
+            pulumi.set(__self__, "resource_identifier", resource_identifier)
         if start_replication_task is not None:
             pulumi.set(__self__, "start_replication_task", start_replication_task)
         if tags is not None:
@@ -175,6 +179,18 @@ class ReplicationTaskArgs:
         pulumi.set(self, "replication_task_settings", value)
 
     @property
+    @pulumi.getter(name="resourceIdentifier")
+    def resource_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+        """
+        return pulumi.get(self, "resource_identifier")
+
+    @resource_identifier.setter
+    def resource_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_identifier", value)
+
+    @property
     @pulumi.getter(name="startReplicationTask")
     def start_replication_task(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -209,6 +225,7 @@ class _ReplicationTaskState:
                  replication_task_arn: Optional[pulumi.Input[str]] = None,
                  replication_task_id: Optional[pulumi.Input[str]] = None,
                  replication_task_settings: Optional[pulumi.Input[str]] = None,
+                 resource_identifier: Optional[pulumi.Input[str]] = None,
                  source_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  start_replication_task: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -230,6 +247,7 @@ class _ReplicationTaskState:
                - Cannot end with a hyphen.
                - Cannot contain two consecutive hyphens.
         :param pulumi.Input[str] replication_task_settings: An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+        :param pulumi.Input[str] resource_identifier: A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         :param pulumi.Input[bool] start_replication_task: Whether to run or stop the replication task.
         :param pulumi.Input[str] status: Replication Task status.
@@ -252,6 +270,8 @@ class _ReplicationTaskState:
             pulumi.set(__self__, "replication_task_id", replication_task_id)
         if replication_task_settings is not None:
             pulumi.set(__self__, "replication_task_settings", replication_task_settings)
+        if resource_identifier is not None:
+            pulumi.set(__self__, "resource_identifier", resource_identifier)
         if source_endpoint_arn is not None:
             pulumi.set(__self__, "source_endpoint_arn", source_endpoint_arn)
         if start_replication_task is not None:
@@ -360,6 +380,18 @@ class _ReplicationTaskState:
         pulumi.set(self, "replication_task_settings", value)
 
     @property
+    @pulumi.getter(name="resourceIdentifier")
+    def resource_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+        """
+        return pulumi.get(self, "resource_identifier")
+
+    @resource_identifier.setter
+    def resource_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_identifier", value)
+
+    @property
     @pulumi.getter(name="sourceEndpointArn")
     def source_endpoint_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -458,6 +490,7 @@ class ReplicationTask(pulumi.CustomResource):
                  replication_instance_arn: Optional[pulumi.Input[str]] = None,
                  replication_task_id: Optional[pulumi.Input[str]] = None,
                  replication_task_settings: Optional[pulumi.Input[str]] = None,
+                 resource_identifier: Optional[pulumi.Input[str]] = None,
                  source_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  start_replication_task: Optional[pulumi.Input[bool]] = None,
                  table_mappings: Optional[pulumi.Input[str]] = None,
@@ -513,6 +546,7 @@ class ReplicationTask(pulumi.CustomResource):
                - Cannot end with a hyphen.
                - Cannot contain two consecutive hyphens.
         :param pulumi.Input[str] replication_task_settings: An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+        :param pulumi.Input[str] resource_identifier: A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         :param pulumi.Input[bool] start_replication_task: Whether to run or stop the replication task.
         :param pulumi.Input[str] table_mappings: An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
@@ -582,6 +616,7 @@ class ReplicationTask(pulumi.CustomResource):
                  replication_instance_arn: Optional[pulumi.Input[str]] = None,
                  replication_task_id: Optional[pulumi.Input[str]] = None,
                  replication_task_settings: Optional[pulumi.Input[str]] = None,
+                 resource_identifier: Optional[pulumi.Input[str]] = None,
                  source_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  start_replication_task: Optional[pulumi.Input[bool]] = None,
                  table_mappings: Optional[pulumi.Input[str]] = None,
@@ -608,6 +643,7 @@ class ReplicationTask(pulumi.CustomResource):
                 raise TypeError("Missing required property 'replication_task_id'")
             __props__.__dict__["replication_task_id"] = replication_task_id
             __props__.__dict__["replication_task_settings"] = replication_task_settings
+            __props__.__dict__["resource_identifier"] = resource_identifier
             if source_endpoint_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'source_endpoint_arn'")
             __props__.__dict__["source_endpoint_arn"] = source_endpoint_arn
@@ -639,6 +675,7 @@ class ReplicationTask(pulumi.CustomResource):
             replication_task_arn: Optional[pulumi.Input[str]] = None,
             replication_task_id: Optional[pulumi.Input[str]] = None,
             replication_task_settings: Optional[pulumi.Input[str]] = None,
+            resource_identifier: Optional[pulumi.Input[str]] = None,
             source_endpoint_arn: Optional[pulumi.Input[str]] = None,
             start_replication_task: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -665,6 +702,7 @@ class ReplicationTask(pulumi.CustomResource):
                - Cannot end with a hyphen.
                - Cannot contain two consecutive hyphens.
         :param pulumi.Input[str] replication_task_settings: An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
+        :param pulumi.Input[str] resource_identifier: A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         :param pulumi.Input[bool] start_replication_task: Whether to run or stop the replication task.
         :param pulumi.Input[str] status: Replication Task status.
@@ -684,6 +722,7 @@ class ReplicationTask(pulumi.CustomResource):
         __props__.__dict__["replication_task_arn"] = replication_task_arn
         __props__.__dict__["replication_task_id"] = replication_task_id
         __props__.__dict__["replication_task_settings"] = replication_task_settings
+        __props__.__dict__["resource_identifier"] = resource_identifier
         __props__.__dict__["source_endpoint_arn"] = source_endpoint_arn
         __props__.__dict__["start_replication_task"] = start_replication_task
         __props__.__dict__["status"] = status
@@ -748,11 +787,19 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationTaskSettings")
-    def replication_task_settings(self) -> pulumi.Output[Optional[str]]:
+    def replication_task_settings(self) -> pulumi.Output[str]:
         """
         An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
         """
         return pulumi.get(self, "replication_task_settings")
+
+    @property
+    @pulumi.getter(name="resourceIdentifier")
+    def resource_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+        """
+        return pulumi.get(self, "resource_identifier")
 
     @property
     @pulumi.getter(name="sourceEndpointArn")

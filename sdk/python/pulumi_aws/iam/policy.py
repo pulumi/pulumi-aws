@@ -118,6 +118,7 @@ class PolicyArgs:
 class _PolicyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 attachment_count: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -129,6 +130,7 @@ class _PolicyState:
         """
         Input properties used for looking up and filtering Policy resources.
         :param pulumi.Input[str] arn: ARN assigned by AWS to this policy.
+        :param pulumi.Input[int] attachment_count: Number of entities (users, groups, and roles) that the policy is attached to.
         :param pulumi.Input[str] description: Description of the IAM policy.
         :param pulumi.Input[str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -140,6 +142,8 @@ class _PolicyState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if attachment_count is not None:
+            pulumi.set(__self__, "attachment_count", attachment_count)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -171,6 +175,18 @@ class _PolicyState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="attachmentCount")
+    def attachment_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of entities (users, groups, and roles) that the policy is attached to.
+        """
+        return pulumi.get(self, "attachment_count")
+
+    @attachment_count.setter
+    def attachment_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "attachment_count", value)
 
     @property
     @pulumi.getter
@@ -410,6 +426,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["policy"] = policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["attachment_count"] = None
             __props__.__dict__["policy_id"] = None
             __props__.__dict__["tags_all"] = None
         super(Policy, __self__).__init__(
@@ -423,6 +440,7 @@ class Policy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            attachment_count: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
@@ -439,6 +457,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN assigned by AWS to this policy.
+        :param pulumi.Input[int] attachment_count: Number of entities (users, groups, and roles) that the policy is attached to.
         :param pulumi.Input[str] description: Description of the IAM policy.
         :param pulumi.Input[str] name: Name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -453,6 +472,7 @@ class Policy(pulumi.CustomResource):
         __props__ = _PolicyState.__new__(_PolicyState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["attachment_count"] = attachment_count
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
@@ -470,6 +490,14 @@ class Policy(pulumi.CustomResource):
         ARN assigned by AWS to this policy.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="attachmentCount")
+    def attachment_count(self) -> pulumi.Output[int]:
+        """
+        Number of entities (users, groups, and roles) that the policy is attached to.
+        """
+        return pulumi.get(self, "attachment_count")
 
     @property
     @pulumi.getter

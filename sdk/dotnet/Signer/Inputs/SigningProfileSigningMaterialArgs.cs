@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Signer.Inputs
 
     public sealed class SigningProfileSigningMaterialArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+        /// </summary>
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
 

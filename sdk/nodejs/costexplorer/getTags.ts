@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides details about a specific CE Tags.
+ * Provides the available cost allocation tag keys and tag values for a specified period.
  *
  * ## Example Usage
  *
@@ -43,7 +43,7 @@ export function getTags(args: GetTagsArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetTagsArgs {
     /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
+     * Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
      */
     filter?: inputs.costexplorer.GetTagsFilter;
     /**
@@ -51,7 +51,7 @@ export interface GetTagsArgs {
      */
     searchString?: string;
     /**
-     * Configuration block for the value by which you want to sort the data. See below.
+     * Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
      */
     sortBies?: inputs.costexplorer.GetTagsSortBy[];
     /**
@@ -59,7 +59,7 @@ export interface GetTagsArgs {
      */
     tagKey?: string;
     /**
-     * Configuration block for the start and end dates for retrieving the dimension values.
+     * Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
      *
      * The following arguments are optional:
      */
@@ -85,7 +85,7 @@ export interface GetTagsResult {
     readonly timePeriod: outputs.costexplorer.GetTagsTimePeriod;
 }
 /**
- * Provides details about a specific CE Tags.
+ * Provides the available cost allocation tag keys and tag values for a specified period.
  *
  * ## Example Usage
  *
@@ -112,7 +112,7 @@ export function getTagsOutput(args: GetTagsOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetTagsOutputArgs {
     /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
+     * Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
      */
     filter?: pulumi.Input<inputs.costexplorer.GetTagsFilterArgs>;
     /**
@@ -120,7 +120,7 @@ export interface GetTagsOutputArgs {
      */
     searchString?: pulumi.Input<string>;
     /**
-     * Configuration block for the value by which you want to sort the data. See below.
+     * Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
      */
     sortBies?: pulumi.Input<pulumi.Input<inputs.costexplorer.GetTagsSortByArgs>[]>;
     /**
@@ -128,7 +128,7 @@ export interface GetTagsOutputArgs {
      */
     tagKey?: pulumi.Input<string>;
     /**
-     * Configuration block for the start and end dates for retrieving the dimension values.
+     * Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
      *
      * The following arguments are optional:
      */

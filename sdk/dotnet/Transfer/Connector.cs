@@ -117,6 +117,12 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> LoggingRole { get; private set; } = null!;
 
         /// <summary>
+        /// Name of the security policy for the connector.
+        /// </summary>
+        [Output("securityPolicyName")]
+        public Output<string> SecurityPolicyName { get; private set; } = null!;
+
+        /// <summary>
         /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         /// </summary>
         [Output("sftpConfig")]
@@ -202,6 +208,12 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? LoggingRole { get; set; }
 
         /// <summary>
+        /// Name of the security policy for the connector.
+        /// </summary>
+        [Input("securityPolicyName")]
+        public Input<string>? SecurityPolicyName { get; set; }
+
+        /// <summary>
         /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         /// </summary>
         [Input("sftpConfig")]
@@ -262,6 +274,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("loggingRole")]
         public Input<string>? LoggingRole { get; set; }
+
+        /// <summary>
+        /// Name of the security policy for the connector.
+        /// </summary>
+        [Input("securityPolicyName")]
+        public Input<string>? SecurityPolicyName { get; set; }
 
         /// <summary>
         /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.

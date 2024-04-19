@@ -66,7 +66,7 @@ type OriginAccessControl struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// A name that identifies the Origin Access Control.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+	// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
 	OriginAccessControlOriginType pulumi.StringOutput `pulumi:"originAccessControlOriginType"`
 	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
 	SigningBehavior pulumi.StringOutput `pulumi:"signingBehavior"`
@@ -119,7 +119,7 @@ type originAccessControlState struct {
 	Etag *string `pulumi:"etag"`
 	// A name that identifies the Origin Access Control.
 	Name *string `pulumi:"name"`
-	// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+	// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
 	OriginAccessControlOriginType *string `pulumi:"originAccessControlOriginType"`
 	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
 	SigningBehavior *string `pulumi:"signingBehavior"`
@@ -134,7 +134,7 @@ type OriginAccessControlState struct {
 	Etag pulumi.StringPtrInput
 	// A name that identifies the Origin Access Control.
 	Name pulumi.StringPtrInput
-	// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+	// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
 	OriginAccessControlOriginType pulumi.StringPtrInput
 	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
 	SigningBehavior pulumi.StringPtrInput
@@ -151,7 +151,7 @@ type originAccessControlArgs struct {
 	Description *string `pulumi:"description"`
 	// A name that identifies the Origin Access Control.
 	Name *string `pulumi:"name"`
-	// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+	// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
 	OriginAccessControlOriginType string `pulumi:"originAccessControlOriginType"`
 	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
 	SigningBehavior string `pulumi:"signingBehavior"`
@@ -165,7 +165,7 @@ type OriginAccessControlArgs struct {
 	Description pulumi.StringPtrInput
 	// A name that identifies the Origin Access Control.
 	Name pulumi.StringPtrInput
-	// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+	// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
 	OriginAccessControlOriginType pulumi.StringInput
 	// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
 	SigningBehavior pulumi.StringInput
@@ -275,7 +275,7 @@ func (o OriginAccessControlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
 func (o OriginAccessControlOutput) OriginAccessControlOriginType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.OriginAccessControlOriginType }).(pulumi.StringOutput)
 }

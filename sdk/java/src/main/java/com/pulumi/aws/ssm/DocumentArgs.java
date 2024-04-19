@@ -20,14 +20,14 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
     public static final DocumentArgs Empty = new DocumentArgs();
 
     /**
-     * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+     * One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
      * 
      */
     @Import(name="attachmentsSources")
     private @Nullable Output<List<DocumentAttachmentsSourceArgs>> attachmentsSources;
 
     /**
-     * @return One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+     * @return One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
      * 
      */
     public Optional<Output<List<DocumentAttachmentsSourceArgs>>> attachmentsSources() {
@@ -35,14 +35,14 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The JSON or YAML content of the document.
+     * The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      * 
      */
     @Import(name="content", required=true)
     private Output<String> content;
 
     /**
-     * @return The JSON or YAML content of the document.
+     * @return The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      * 
      */
     public Output<String> content() {
@@ -50,14 +50,14 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The format of the document. Valid document types include: `JSON` and `YAML`
+     * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      * 
      */
     @Import(name="documentFormat")
     private @Nullable Output<String> documentFormat;
 
     /**
-     * @return The format of the document. Valid document types include: `JSON` and `YAML`
+     * @return The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      * 
      */
     public Optional<Output<String>> documentFormat() {
@@ -65,14 +65,14 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+     * The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
      * 
      */
     @Import(name="documentType", required=true)
     private Output<String> documentType;
 
     /**
-     * @return The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+     * @return The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
      * 
      */
     public Output<String> documentType() {
@@ -95,14 +95,14 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Additional Permissions to attach to the document. See Permissions below for details.
+     * Additional permissions to attach to the document. See Permissions below for details.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<Map<String,String>> permissions;
 
     /**
-     * @return Additional Permissions to attach to the document. See Permissions below for details.
+     * @return Additional permissions to attach to the document. See Permissions below for details.
      * 
      */
     public Optional<Output<Map<String,String>>> permissions() {
@@ -125,14 +125,14 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+     * The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
      * 
      */
     @Import(name="targetType")
     private @Nullable Output<String> targetType;
 
     /**
-     * @return The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+     * @return The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
      * 
      */
     public Optional<Output<String>> targetType() {
@@ -140,14 +140,14 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A field specifying the version of the artifact you are creating with the document. For example, &#34;Release 12, Update 6&#34;. This value is unique across all versions of a document and cannot be changed for an existing document version.
+     * The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can&#39;t be changed.
      * 
      */
     @Import(name="versionName")
     private @Nullable Output<String> versionName;
 
     /**
-     * @return A field specifying the version of the artifact you are creating with the document. For example, &#34;Release 12, Update 6&#34;. This value is unique across all versions of a document and cannot be changed for an existing document version.
+     * @return The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can&#39;t be changed.
      * 
      */
     public Optional<Output<String>> versionName() {
@@ -187,7 +187,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attachmentsSources One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+         * @param attachmentsSources One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attachmentsSources One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+         * @param attachmentsSources One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attachmentsSources One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+         * @param attachmentsSources One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param content The JSON or YAML content of the document.
+         * @param content The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param content The JSON or YAML content of the document.
+         * @param content The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentFormat The format of the document. Valid document types include: `JSON` and `YAML`
+         * @param documentFormat The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentFormat The format of the document. Valid document types include: `JSON` and `YAML`
+         * @param documentFormat The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentType The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+         * @param documentType The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentType The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+         * @param documentType The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions Additional Permissions to attach to the document. See Permissions below for details.
+         * @param permissions Additional permissions to attach to the document. See Permissions below for details.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions Additional Permissions to attach to the document. See Permissions below for details.
+         * @param permissions Additional permissions to attach to the document. See Permissions below for details.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetType The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+         * @param targetType The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetType The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+         * @param targetType The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionName A field specifying the version of the artifact you are creating with the document. For example, &#34;Release 12, Update 6&#34;. This value is unique across all versions of a document and cannot be changed for an existing document version.
+         * @param versionName The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can&#39;t be changed.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class DocumentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionName A field specifying the version of the artifact you are creating with the document. For example, &#34;Release 12, Update 6&#34;. This value is unique across all versions of a document and cannot be changed for an existing document version.
+         * @param versionName The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can&#39;t be changed.
          * 
          * @return builder
          * 

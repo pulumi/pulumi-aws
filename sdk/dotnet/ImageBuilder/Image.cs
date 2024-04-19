@@ -76,6 +76,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<bool?> EnhancedImageMetadataEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        /// </summary>
+        [Output("executionRole")]
+        public Output<string> ExecutionRole { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Output("imageRecipeArn")]
@@ -102,7 +108,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> InfrastructureConfigurationArn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the AMI.
+        /// The name of the Workflow parameter.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block with the workflow configuration. Detailed below.
+        /// </summary>
+        [Output("workflows")]
+        public Output<ImmutableArray<Outputs.ImageWorkflow>> Workflows { get; private set; } = null!;
 
 
         /// <summary>
@@ -208,6 +220,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        /// </summary>
+        [Input("executionRole")]
+        public Input<string>? ExecutionRole { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Input("imageRecipeArn")]
@@ -243,6 +261,18 @@ namespace Pulumi.Aws.ImageBuilder
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("workflows")]
+        private InputList<Inputs.ImageWorkflowArgs>? _workflows;
+
+        /// <summary>
+        /// Configuration block with the workflow configuration. Detailed below.
+        /// </summary>
+        public InputList<Inputs.ImageWorkflowArgs> Workflows
+        {
+            get => _workflows ?? (_workflows = new InputList<Inputs.ImageWorkflowArgs>());
+            set => _workflows = value;
         }
 
         public ImageArgs()
@@ -284,6 +314,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        /// </summary>
+        [Input("executionRole")]
+        public Input<string>? ExecutionRole { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Input("imageRecipeArn")]
@@ -310,7 +346,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? InfrastructureConfigurationArn { get; set; }
 
         /// <summary>
-        /// Name of the AMI.
+        /// The name of the Workflow parameter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -369,6 +405,18 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
+
+        [Input("workflows")]
+        private InputList<Inputs.ImageWorkflowGetArgs>? _workflows;
+
+        /// <summary>
+        /// Configuration block with the workflow configuration. Detailed below.
+        /// </summary>
+        public InputList<Inputs.ImageWorkflowGetArgs> Workflows
+        {
+            get => _workflows ?? (_workflows = new InputList<Inputs.ImageWorkflowGetArgs>());
+            set => _workflows = value;
+        }
 
         public ImageState()
         {

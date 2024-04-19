@@ -253,7 +253,7 @@ namespace Pulumi.Aws.Amplify
     public partial class App : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+        /// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
         /// </summary>
         [Output("accessToken")]
         public Output<string?> AccessToken { get; private set; } = null!;
@@ -446,7 +446,7 @@ namespace Pulumi.Aws.Amplify
         private Input<string>? _accessToken;
 
         /// <summary>
-        /// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+        /// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
         /// </summary>
         public Input<string>? AccessToken
         {
@@ -622,7 +622,7 @@ namespace Pulumi.Aws.Amplify
         private Input<string>? _accessToken;
 
         /// <summary>
-        /// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+        /// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
         /// </summary>
         public Input<string>? AccessToken
         {

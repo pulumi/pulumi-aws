@@ -57,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Eip{}
 	case "aws:ec2/eipAssociation:EipAssociation":
 		r = &EipAssociation{}
+	case "aws:ec2/eipDomainName:EipDomainName":
+		r = &EipDomainName{}
 	case "aws:ec2/fleet:Fleet":
 		r = &Fleet{}
 	case "aws:ec2/flowLog:FlowLog":
@@ -310,6 +312,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/eipAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/eipDomainName",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

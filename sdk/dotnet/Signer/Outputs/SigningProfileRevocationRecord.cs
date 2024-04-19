@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Signer.Outputs
     [OutputType]
     public sealed class SigningProfileRevocationRecord
     {
+        /// <summary>
+        /// The time when revocation becomes effective.
+        /// </summary>
         public readonly string? RevocationEffectiveFrom;
+        /// <summary>
+        /// The time when the signing profile was revoked.
+        /// </summary>
         public readonly string? RevokedAt;
+        /// <summary>
+        /// The identity of the revoker.
+        /// </summary>
         public readonly string? RevokedBy;
 
         [OutputConstructor]

@@ -68,7 +68,6 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * The Created At date of the MWAA Environment
-     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
     @Import(name="createdAt")
@@ -76,7 +75,6 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The Created At date of the MWAA Environment
-     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -96,6 +94,23 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> dagS3Path() {
         return Optional.ofNullable(this.dagS3Path);
+    }
+
+    /**
+     * The VPC endpoint for the environment&#39;s Amazon RDS database
+     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+     * 
+     */
+    @Import(name="databaseVpcEndpointService")
+    private @Nullable Output<String> databaseVpcEndpointService;
+
+    /**
+     * @return The VPC endpoint for the environment&#39;s Amazon RDS database
+     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+     * 
+     */
+    public Optional<Output<String>> databaseVpcEndpointService() {
+        return Optional.ofNullable(this.databaseVpcEndpointService);
     }
 
     @Import(name="endpointManagement")
@@ -451,6 +466,21 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The VPC endpoint for the environment&#39;s web server
+     * 
+     */
+    @Import(name="webserverVpcEndpointService")
+    private @Nullable Output<String> webserverVpcEndpointService;
+
+    /**
+     * @return The VPC endpoint for the environment&#39;s web server
+     * 
+     */
+    public Optional<Output<String>> webserverVpcEndpointService() {
+        return Optional.ofNullable(this.webserverVpcEndpointService);
+    }
+
+    /**
      * Specifies the start date for the weekly maintenance window.
      * 
      */
@@ -473,6 +503,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.createdAt = $.createdAt;
         this.dagS3Path = $.dagS3Path;
+        this.databaseVpcEndpointService = $.databaseVpcEndpointService;
         this.endpointManagement = $.endpointManagement;
         this.environmentClass = $.environmentClass;
         this.executionRoleArn = $.executionRoleArn;
@@ -497,6 +528,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         this.tagsAll = $.tagsAll;
         this.webserverAccessMode = $.webserverAccessMode;
         this.webserverUrl = $.webserverUrl;
+        this.webserverVpcEndpointService = $.webserverVpcEndpointService;
         this.weeklyMaintenanceWindowStart = $.weeklyMaintenanceWindowStart;
     }
 
@@ -583,7 +615,6 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createdAt The Created At date of the MWAA Environment
-         * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
          * 
          * @return builder
          * 
@@ -595,7 +626,6 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createdAt The Created At date of the MWAA Environment
-         * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
          * 
          * @return builder
          * 
@@ -623,6 +653,29 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dagS3Path(String dagS3Path) {
             return dagS3Path(Output.of(dagS3Path));
+        }
+
+        /**
+         * @param databaseVpcEndpointService The VPC endpoint for the environment&#39;s Amazon RDS database
+         * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseVpcEndpointService(@Nullable Output<String> databaseVpcEndpointService) {
+            $.databaseVpcEndpointService = databaseVpcEndpointService;
+            return this;
+        }
+
+        /**
+         * @param databaseVpcEndpointService The VPC endpoint for the environment&#39;s Amazon RDS database
+         * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseVpcEndpointService(String databaseVpcEndpointService) {
+            return databaseVpcEndpointService(Output.of(databaseVpcEndpointService));
         }
 
         public Builder endpointManagement(@Nullable Output<String> endpointManagement) {
@@ -1115,6 +1168,27 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder webserverUrl(String webserverUrl) {
             return webserverUrl(Output.of(webserverUrl));
+        }
+
+        /**
+         * @param webserverVpcEndpointService The VPC endpoint for the environment&#39;s web server
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webserverVpcEndpointService(@Nullable Output<String> webserverVpcEndpointService) {
+            $.webserverVpcEndpointService = webserverVpcEndpointService;
+            return this;
+        }
+
+        /**
+         * @param webserverVpcEndpointService The VPC endpoint for the environment&#39;s web server
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webserverVpcEndpointService(String webserverVpcEndpointService) {
+            return webserverVpcEndpointService(Output.of(webserverVpcEndpointService));
         }
 
         /**

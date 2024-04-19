@@ -40,7 +40,7 @@ import (
 //				Name:             pulumi.String("custom_gitlab"),
 //				AvailabilityZone: pulumi.String("us-east-1b"),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_1_0"),
+//				BundleId:         pulumi.String("nano_3_0"),
 //				KeyPairName:      pulumi.String("some_key_name"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
@@ -77,7 +77,7 @@ import (
 //				Name:             pulumi.String("custom"),
 //				AvailabilityZone: pulumi.String("us-east-1b"),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_1_0"),
+//				BundleId:         pulumi.String("nano_3_0"),
 //				UserData:         pulumi.String("sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html"),
 //			})
 //			if err != nil {
@@ -109,7 +109,7 @@ import (
 //				Name:             pulumi.String("custom_instance"),
 //				AvailabilityZone: pulumi.String("us-east-1b"),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_1_0"),
+//				BundleId:         pulumi.String("nano_3_0"),
 //				AddOn: &lightsail.InstanceAddOnArgs{
 //					Type:         pulumi.String("AutoSnapshot"),
 //					SnapshotTime: pulumi.String("06:00"),

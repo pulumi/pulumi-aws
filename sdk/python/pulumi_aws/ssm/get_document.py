@@ -56,7 +56,7 @@ class GetDocumentResult:
     @pulumi.getter
     def content(self) -> str:
         """
-        Contents of the document.
+        The content for the SSM document in JSON or YAML format.
         """
         return pulumi.get(self, "content")
 
@@ -69,7 +69,7 @@ class GetDocumentResult:
     @pulumi.getter(name="documentType")
     def document_type(self) -> str:
         """
-        Type of the document.
+        The type of the document.
         """
         return pulumi.get(self, "document_type")
 
@@ -142,9 +142,9 @@ def get_document(document_format: Optional[str] = None,
     <!--End PulumiCodeChooser -->
 
 
-    :param str document_format: Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
-    :param str document_version: Document version for which you want information.
-    :param str name: Name of the Systems Manager document.
+    :param str document_format: The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
+    :param str document_version: The document version.
+    :param str name: The name of the document.
     """
     __args__ = dict()
     __args__['documentFormat'] = document_format
@@ -199,8 +199,8 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[str]]] =
     <!--End PulumiCodeChooser -->
 
 
-    :param str document_format: Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
-    :param str document_version: Document version for which you want information.
-    :param str name: Name of the Systems Manager document.
+    :param str document_format: The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
+    :param str document_version: The document version.
+    :param str name: The name of the document.
     """
     ...

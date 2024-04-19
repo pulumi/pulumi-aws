@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Ec2
         /// List of all the Elastic IP addresses.
         /// </summary>
         public readonly ImmutableArray<string> PublicIps;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetEipsResult(
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> publicIps,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             AllocationIds = allocationIds;
             Filters = filters;

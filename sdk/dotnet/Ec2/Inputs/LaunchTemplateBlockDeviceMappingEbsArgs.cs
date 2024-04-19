@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     {
         /// <summary>
         /// Whether the volume should be destroyed on instance termination.
-        /// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+        /// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
         /// </summary>
         [Input("deleteOnTermination")]
         public Input<string>? DeleteOnTermination { get; set; }

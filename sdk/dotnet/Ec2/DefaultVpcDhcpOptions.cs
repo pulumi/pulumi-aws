@@ -69,6 +69,9 @@ namespace Pulumi.Aws.Ec2
         [Output("domainNameServers")]
         public Output<string> DomainNameServers { get; private set; } = null!;
 
+        [Output("ipv6AddressPreferredLeaseTime")]
+        public Output<string> Ipv6AddressPreferredLeaseTime { get; private set; } = null!;
+
         /// <summary>
         /// List of NETBIOS name servers.
         /// </summary>
@@ -182,6 +185,9 @@ namespace Pulumi.Aws.Ec2
 
         [Input("domainNameServers")]
         public Input<string>? DomainNameServers { get; set; }
+
+        [Input("ipv6AddressPreferredLeaseTime")]
+        public Input<string>? Ipv6AddressPreferredLeaseTime { get; set; }
 
         /// <summary>
         /// List of NETBIOS name servers.

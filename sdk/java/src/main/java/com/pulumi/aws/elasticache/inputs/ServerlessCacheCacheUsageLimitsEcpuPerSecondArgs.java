@@ -5,9 +5,10 @@ package com.pulumi.aws.elasticache.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,21 +19,37 @@ public final class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs extends com.
      * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
-    @Import(name="maximum", required=true)
-    private Output<Integer> maximum;
+    @Import(name="maximum")
+    private @Nullable Output<Integer> maximum;
 
     /**
      * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
-    public Output<Integer> maximum() {
-        return this.maximum;
+    public Optional<Output<Integer>> maximum() {
+        return Optional.ofNullable(this.maximum);
+    }
+
+    /**
+     * The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+     * 
+     */
+    @Import(name="minimum")
+    private @Nullable Output<Integer> minimum;
+
+    /**
+     * @return The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+     * 
+     */
+    public Optional<Output<Integer>> minimum() {
+        return Optional.ofNullable(this.minimum);
     }
 
     private ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs() {}
 
     private ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs $) {
         this.maximum = $.maximum;
+        this.minimum = $.minimum;
     }
 
     public static Builder builder() {
@@ -59,7 +76,7 @@ public final class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs extends com.
          * @return builder
          * 
          */
-        public Builder maximum(Output<Integer> maximum) {
+        public Builder maximum(@Nullable Output<Integer> maximum) {
             $.maximum = maximum;
             return this;
         }
@@ -74,10 +91,28 @@ public final class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs extends com.
             return maximum(Output.of(maximum));
         }
 
+        /**
+         * @param minimum The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimum(@Nullable Output<Integer> minimum) {
+            $.minimum = minimum;
+            return this;
+        }
+
+        /**
+         * @param minimum The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimum(Integer minimum) {
+            return minimum(Output.of(minimum));
+        }
+
         public ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs build() {
-            if ($.maximum == null) {
-                throw new MissingRequiredPropertyException("ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs", "maximum");
-            }
             return $;
         }
     }

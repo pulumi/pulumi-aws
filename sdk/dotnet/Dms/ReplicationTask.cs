@@ -102,7 +102,13 @@ namespace Pulumi.Aws.Dms
         /// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
         /// </summary>
         [Output("replicationTaskSettings")]
-        public Output<string?> ReplicationTaskSettings { get; private set; } = null!;
+        public Output<string> ReplicationTaskSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+        /// </summary>
+        [Output("resourceIdentifier")]
+        public Output<string?> ResourceIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
@@ -234,6 +240,12 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ReplicationTaskSettings { get; set; }
 
         /// <summary>
+        /// A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+        /// </summary>
+        [Input("resourceIdentifier")]
+        public Input<string>? ResourceIdentifier { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         /// </summary>
         [Input("sourceEndpointArn", required: true)]
@@ -323,6 +335,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("replicationTaskSettings")]
         public Input<string>? ReplicationTaskSettings { get; set; }
+
+        /// <summary>
+        /// A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+        /// </summary>
+        [Input("resourceIdentifier")]
+        public Input<string>? ResourceIdentifier { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.

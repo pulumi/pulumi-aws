@@ -72,17 +72,6 @@ import * as utilities from "../utilities";
  * ```
  * <!--End PulumiCodeChooser -->
  *
- * ## Permissions
- *
- * The permissions attribute specifies how you want to share the document. If you share a document privately,
- * you must specify the AWS user account IDs for those people who can use the document. If you share a document
- * publicly, you must specify All as the account ID.
- *
- * The permissions mapping supports the following:
- *
- * * `type` - The permission type for the document. The permission type can be `Share`.
- * * `accountIds` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
- *
  * ## Import
  *
  * Using `pulumi import`, import SSM Documents using the name. For example:
@@ -120,13 +109,16 @@ export class Document extends pulumi.CustomResource {
         return obj['__pulumiType'] === Document.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the document.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+     * One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
      */
     public readonly attachmentsSources!: pulumi.Output<outputs.ssm.DocumentAttachmentsSource[] | undefined>;
     /**
-     * The JSON or YAML content of the document.
+     * The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      */
     public readonly content!: pulumi.Output<string>;
     /**
@@ -138,15 +130,15 @@ export class Document extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultVersion!: pulumi.Output<string>;
     /**
-     * The description of the document.
+     * A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
     /**
-     * The format of the document. Valid document types include: `JSON` and `YAML`
+     * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      */
     public readonly documentFormat!: pulumi.Output<string | undefined>;
     /**
-     * The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+     * The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
      */
     public readonly documentType!: pulumi.Output<string>;
     /**
@@ -154,11 +146,11 @@ export class Document extends pulumi.CustomResource {
      */
     public /*out*/ readonly documentVersion!: pulumi.Output<string>;
     /**
-     * The sha1 or sha256 of the document content
+     * The Sha256 or Sha1 hash created by the system when the document was created.
      */
     public /*out*/ readonly hash!: pulumi.Output<string>;
     /**
-     * "Sha1" "Sha256". The hashing algorithm used when hashing the content.
+     * The hash type of the document. Valid values: `Sha256`, `Sha1`.
      */
     public /*out*/ readonly hashType!: pulumi.Output<string>;
     /**
@@ -170,19 +162,19 @@ export class Document extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The AWS user account of the person who created the document.
+     * The Amazon Web Services user that created the document.
      */
     public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
-     * The parameters that are available to this document.
+     * One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
      */
     public /*out*/ readonly parameters!: pulumi.Output<outputs.ssm.DocumentParameter[]>;
     /**
-     * Additional Permissions to attach to the document. See Permissions below for details.
+     * Additional permissions to attach to the document. See Permissions below for details.
      */
     public readonly permissions!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
+     * The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
      */
     public /*out*/ readonly platformTypes!: pulumi.Output<string[]>;
     /**
@@ -190,7 +182,7 @@ export class Document extends pulumi.CustomResource {
      */
     public /*out*/ readonly schemaVersion!: pulumi.Output<string>;
     /**
-     * "Creating", "Active" or "Deleting". The current status of the document.
+     * The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -204,11 +196,11 @@ export class Document extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+     * The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
      */
     public readonly targetType!: pulumi.Output<string | undefined>;
     /**
-     * A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+     * The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
      */
     public readonly versionName!: pulumi.Output<string | undefined>;
 
@@ -289,13 +281,16 @@ export class Document extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Document resources.
  */
 export interface DocumentState {
+    /**
+     * The Amazon Resource Name (ARN) of the document.
+     */
     arn?: pulumi.Input<string>;
     /**
-     * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+     * One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
      */
     attachmentsSources?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSource>[]>;
     /**
-     * The JSON or YAML content of the document.
+     * The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      */
     content?: pulumi.Input<string>;
     /**
@@ -307,15 +302,15 @@ export interface DocumentState {
      */
     defaultVersion?: pulumi.Input<string>;
     /**
-     * The description of the document.
+     * A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
      */
     description?: pulumi.Input<string>;
     /**
-     * The format of the document. Valid document types include: `JSON` and `YAML`
+     * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      */
     documentFormat?: pulumi.Input<string>;
     /**
-     * The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+     * The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
      */
     documentType?: pulumi.Input<string>;
     /**
@@ -323,11 +318,11 @@ export interface DocumentState {
      */
     documentVersion?: pulumi.Input<string>;
     /**
-     * The sha1 or sha256 of the document content
+     * The Sha256 or Sha1 hash created by the system when the document was created.
      */
     hash?: pulumi.Input<string>;
     /**
-     * "Sha1" "Sha256". The hashing algorithm used when hashing the content.
+     * The hash type of the document. Valid values: `Sha256`, `Sha1`.
      */
     hashType?: pulumi.Input<string>;
     /**
@@ -339,19 +334,19 @@ export interface DocumentState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS user account of the person who created the document.
+     * The Amazon Web Services user that created the document.
      */
     owner?: pulumi.Input<string>;
     /**
-     * The parameters that are available to this document.
+     * One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentParameter>[]>;
     /**
-     * Additional Permissions to attach to the document. See Permissions below for details.
+     * Additional permissions to attach to the document. See Permissions below for details.
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
+     * The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
      */
     platformTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -359,7 +354,7 @@ export interface DocumentState {
      */
     schemaVersion?: pulumi.Input<string>;
     /**
-     * "Creating", "Active" or "Deleting". The current status of the document.
+     * The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
      */
     status?: pulumi.Input<string>;
     /**
@@ -373,11 +368,11 @@ export interface DocumentState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+     * The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
      */
     targetType?: pulumi.Input<string>;
     /**
-     * A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+     * The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
      */
     versionName?: pulumi.Input<string>;
 }
@@ -387,19 +382,19 @@ export interface DocumentState {
  */
 export interface DocumentArgs {
     /**
-     * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+     * One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
      */
     attachmentsSources?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSource>[]>;
     /**
-     * The JSON or YAML content of the document.
+     * The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      */
     content: pulumi.Input<string>;
     /**
-     * The format of the document. Valid document types include: `JSON` and `YAML`
+     * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      */
     documentFormat?: pulumi.Input<string>;
     /**
-     * The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+     * The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
      */
     documentType: pulumi.Input<string>;
     /**
@@ -407,7 +402,7 @@ export interface DocumentArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Additional Permissions to attach to the document. See Permissions below for details.
+     * Additional permissions to attach to the document. See Permissions below for details.
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -415,11 +410,11 @@ export interface DocumentArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+     * The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
      */
     targetType?: pulumi.Input<string>;
     /**
-     * A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+     * The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
      */
     versionName?: pulumi.Input<string>;
 }

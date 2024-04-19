@@ -152,7 +152,7 @@ class Disk_attachment(pulumi.CustomResource):
             name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
+            bundle_id="nano_3_0")
         test_disk_attachment = aws.lightsail.Disk_attachment("test",
             disk_name=test.name,
             instance_name=test_instance.name,
@@ -203,7 +203,7 @@ class Disk_attachment(pulumi.CustomResource):
             name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
+            bundle_id="nano_3_0")
         test_disk_attachment = aws.lightsail.Disk_attachment("test",
             disk_name=test.name,
             instance_name=test_instance.name,

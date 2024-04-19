@@ -83,6 +83,10 @@ export interface GetPolicyResult {
      */
     readonly arn: string;
     /**
+     * Number of entities (users, groups, and roles) that the policy is attached to.
+     */
+    readonly attachmentCount: number;
+    /**
      * Description of the policy.
      */
     readonly description: string;

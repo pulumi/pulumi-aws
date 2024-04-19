@@ -1765,6 +1765,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_egress_only_internet_gateway": {Tok: awsResource(ec2Mod, "EgressOnlyInternetGateway")},
 			"aws_eip":                          {Tok: awsResource(ec2Mod, "Eip")},
 			"aws_eip_association":              {Tok: awsResource(ec2Mod, "EipAssociation")},
+			"aws_eip_domain_name":              {Tok: awsResource(ec2Mod, "EipDomainName")},
 			"aws_flow_log":                     {Tok: awsResource(ec2Mod, "FlowLog")},
 			"aws_instance": {
 				Tok: awsResource(ec2Mod, "Instance"),
@@ -3093,12 +3094,12 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					"description": {
 						Default: managedByPulumi,
 					},
-					"parameter" : {
+					"parameter": {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"apply_method": {
 									// We set the default value in the overlay since
-									// we remove it in the TF schema in 
+									// we remove it in the TF schema in
 									// provider/pkg/rds/parameter_group.go
 									Default: &tfbridge.DefaultInfo{Value: "immediate"},
 								},

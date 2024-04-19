@@ -51,6 +51,17 @@ import (
 //						Address: pulumi.String("abc@example.com"),
 //					},
 //				},
+//				ThresholdExpression: &costexplorer.AnomalySubscriptionThresholdExpressionArgs{
+//					Dimension: &costexplorer.AnomalySubscriptionThresholdExpressionDimensionArgs{
+//						Key: pulumi.String("ANOMALY_TOTAL_IMPACT_ABSOLUTE"),
+//						MatchOptions: pulumi.StringArray{
+//							pulumi.String("GREATER_THAN_OR_EQUAL"),
+//						},
+//						Values: pulumi.StringArray{
+//							pulumi.String("100"),
+//						},
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -64,7 +75,7 @@ import (
 //
 // ### Threshold Expression Example
 //
-// ### For a Specific Dimension
+// ### Using a Percentage Threshold
 //
 // <!--Start PulumiCodeChooser -->
 // ```go
@@ -93,12 +104,12 @@ import (
 //				},
 //				ThresholdExpression: &costexplorer.AnomalySubscriptionThresholdExpressionArgs{
 //					Dimension: &costexplorer.AnomalySubscriptionThresholdExpressionDimensionArgs{
-//						Key: pulumi.String("ANOMALY_TOTAL_IMPACT_ABSOLUTE"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("100.0"),
-//						},
+//						Key: pulumi.String("ANOMALY_TOTAL_IMPACT_PERCENTAGE"),
 //						MatchOptions: pulumi.StringArray{
 //							pulumi.String("GREATER_THAN_OR_EQUAL"),
+//						},
+//						Values: pulumi.StringArray{
+//							pulumi.String("100"),
 //						},
 //					},
 //				},
@@ -241,7 +252,7 @@ import (
 // Test: "StringEquals",
 // Variable: "AWS:SourceOwner",
 // Values: interface{}{
-// account_id,
+// accountId,
 // },
 // },
 // },

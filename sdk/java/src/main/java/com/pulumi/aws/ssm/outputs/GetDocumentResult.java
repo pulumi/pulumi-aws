@@ -18,13 +18,13 @@ public final class GetDocumentResult {
      */
     private String arn;
     /**
-     * @return Contents of the document.
+     * @return The content for the SSM document in JSON or YAML format.
      * 
      */
     private String content;
     private @Nullable String documentFormat;
     /**
-     * @return Type of the document.
+     * @return The type of the document.
      * 
      */
     private String documentType;
@@ -45,7 +45,7 @@ public final class GetDocumentResult {
         return this.arn;
     }
     /**
-     * @return Contents of the document.
+     * @return The content for the SSM document in JSON or YAML format.
      * 
      */
     public String content() {
@@ -55,7 +55,7 @@ public final class GetDocumentResult {
         return Optional.ofNullable(this.documentFormat);
     }
     /**
-     * @return Type of the document.
+     * @return The type of the document.
      * 
      */
     public String documentType() {

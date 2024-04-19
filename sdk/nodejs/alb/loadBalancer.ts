@@ -147,39 +147,43 @@ export class LoadBalancer extends pulumi.CustomResource {
     }
 
     /**
-     * An Access Logs block. Access Logs documented below.
+     * Access Logs block. See below.
      */
     public readonly accessLogs!: pulumi.Output<outputs.alb.LoadBalancerAccessLogs | undefined>;
     /**
-     * The ARN of the load balancer (matches `id`).
+     * ARN of the load balancer (matches `id`).
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The ARN suffix for use with CloudWatch Metrics.
+     * ARN suffix for use with CloudWatch Metrics.
      */
     public /*out*/ readonly arnSuffix!: pulumi.Output<string>;
     /**
-     * A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+     */
+    public readonly clientKeepAlive!: pulumi.Output<number | undefined>;
+    /**
+     * Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      */
     public readonly connectionLogs!: pulumi.Output<outputs.alb.LoadBalancerConnectionLogs | undefined>;
     /**
-     * The ID of the customer owned ipv4 pool to use for this load balancer.
+     * ID of the customer owned ipv4 pool to use for this load balancer.
      */
     public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     /**
-     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     * How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      */
     public readonly desyncMitigationMode!: pulumi.Output<string | undefined>;
     /**
-     * The DNS name of the load balancer.
+     * DNS name of the load balancer.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
-     * Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      */
     public readonly dnsRecordClientRoutingPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+     * Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      */
     public readonly dropInvalidHeaderFields!: pulumi.Output<boolean | undefined>;
     /**
@@ -191,27 +195,27 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly enableDeletionProtection!: pulumi.Output<boolean | undefined>;
     /**
-     * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+     * Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
     public readonly enableHttp2!: pulumi.Output<boolean | undefined>;
     /**
-     * Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+     * Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      */
     public readonly enableTlsVersionAndCipherSuiteHeaders!: pulumi.Output<boolean | undefined>;
     /**
-     * Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+     * Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
      */
     public readonly enableWafFailOpen!: pulumi.Output<boolean | undefined>;
     /**
-     * Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+     * Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      */
     public readonly enableXffClientPort!: pulumi.Output<boolean | undefined>;
     /**
-     * Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      */
     public readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic!: pulumi.Output<string>;
     /**
-     * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+     * Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
     public readonly idleTimeout!: pulumi.Output<number | undefined>;
     /**
@@ -219,17 +223,15 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly internal!: pulumi.Output<boolean>;
     /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+     * Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      */
     public readonly ipAddressType!: pulumi.Output<IpAddressType>;
     /**
-     * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+     * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
     public readonly loadBalancerType!: pulumi.Output<LoadBalancerType | undefined>;
     /**
-     * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-     * this provider will autogenerate a name beginning with `tf-lb`.
+     * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -237,27 +239,27 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
-     * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     * Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     public readonly preserveHostHeader!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+     * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
     /**
-     * A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
+     * Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      */
     public readonly subnetMappings!: pulumi.Output<outputs.alb.LoadBalancerSubnetMapping[]>;
     /**
-     * A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+     * List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      */
     public readonly subnets!: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -268,7 +270,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly xffHeaderProcessingMode!: pulumi.Output<string | undefined>;
     /**
-     * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+     * Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
      */
     public /*out*/ readonly zoneId!: pulumi.Output<string>;
 
@@ -288,6 +290,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["accessLogs"] = state ? state.accessLogs : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["arnSuffix"] = state ? state.arnSuffix : undefined;
+            resourceInputs["clientKeepAlive"] = state ? state.clientKeepAlive : undefined;
             resourceInputs["connectionLogs"] = state ? state.connectionLogs : undefined;
             resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             resourceInputs["desyncMitigationMode"] = state ? state.desyncMitigationMode : undefined;
@@ -319,6 +322,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
             resourceInputs["accessLogs"] = args ? args.accessLogs : undefined;
+            resourceInputs["clientKeepAlive"] = args ? args.clientKeepAlive : undefined;
             resourceInputs["connectionLogs"] = args ? args.connectionLogs : undefined;
             resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
             resourceInputs["desyncMitigationMode"] = args ? args.desyncMitigationMode : undefined;
@@ -362,39 +366,43 @@ export class LoadBalancer extends pulumi.CustomResource {
  */
 export interface LoadBalancerState {
     /**
-     * An Access Logs block. Access Logs documented below.
+     * Access Logs block. See below.
      */
     accessLogs?: pulumi.Input<inputs.alb.LoadBalancerAccessLogs>;
     /**
-     * The ARN of the load balancer (matches `id`).
+     * ARN of the load balancer (matches `id`).
      */
     arn?: pulumi.Input<string>;
     /**
-     * The ARN suffix for use with CloudWatch Metrics.
+     * ARN suffix for use with CloudWatch Metrics.
      */
     arnSuffix?: pulumi.Input<string>;
     /**
-     * A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+     */
+    clientKeepAlive?: pulumi.Input<number>;
+    /**
+     * Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      */
     connectionLogs?: pulumi.Input<inputs.alb.LoadBalancerConnectionLogs>;
     /**
-     * The ID of the customer owned ipv4 pool to use for this load balancer.
+     * ID of the customer owned ipv4 pool to use for this load balancer.
      */
     customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
-     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     * How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      */
     desyncMitigationMode?: pulumi.Input<string>;
     /**
-     * The DNS name of the load balancer.
+     * DNS name of the load balancer.
      */
     dnsName?: pulumi.Input<string>;
     /**
-     * Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      */
     dnsRecordClientRoutingPolicy?: pulumi.Input<string>;
     /**
-     * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+     * Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      */
     dropInvalidHeaderFields?: pulumi.Input<boolean>;
     /**
@@ -406,27 +414,27 @@ export interface LoadBalancerState {
      */
     enableDeletionProtection?: pulumi.Input<boolean>;
     /**
-     * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+     * Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
     enableHttp2?: pulumi.Input<boolean>;
     /**
-     * Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+     * Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      */
     enableTlsVersionAndCipherSuiteHeaders?: pulumi.Input<boolean>;
     /**
-     * Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+     * Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
      */
     enableWafFailOpen?: pulumi.Input<boolean>;
     /**
-     * Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+     * Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      */
     enableXffClientPort?: pulumi.Input<boolean>;
     /**
-     * Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      */
     enforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: pulumi.Input<string>;
     /**
-     * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+     * Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
     idleTimeout?: pulumi.Input<number>;
     /**
@@ -434,17 +442,15 @@ export interface LoadBalancerState {
      */
     internal?: pulumi.Input<boolean>;
     /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+     * Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      */
     ipAddressType?: pulumi.Input<IpAddressType>;
     /**
-     * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+     * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
     loadBalancerType?: pulumi.Input<LoadBalancerType>;
     /**
-     * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-     * this provider will autogenerate a name beginning with `tf-lb`.
+     * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -452,27 +458,27 @@ export interface LoadBalancerState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     * Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     preserveHostHeader?: pulumi.Input<boolean>;
     /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+     * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
+     * Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      */
     subnetMappings?: pulumi.Input<pulumi.Input<inputs.alb.LoadBalancerSubnetMapping>[]>;
     /**
-     * A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+     * List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -483,7 +489,7 @@ export interface LoadBalancerState {
      */
     xffHeaderProcessingMode?: pulumi.Input<string>;
     /**
-     * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+     * Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
      */
     zoneId?: pulumi.Input<string>;
 }
@@ -493,27 +499,31 @@ export interface LoadBalancerState {
  */
 export interface LoadBalancerArgs {
     /**
-     * An Access Logs block. Access Logs documented below.
+     * Access Logs block. See below.
      */
     accessLogs?: pulumi.Input<inputs.alb.LoadBalancerAccessLogs>;
     /**
-     * A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+     */
+    clientKeepAlive?: pulumi.Input<number>;
+    /**
+     * Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      */
     connectionLogs?: pulumi.Input<inputs.alb.LoadBalancerConnectionLogs>;
     /**
-     * The ID of the customer owned ipv4 pool to use for this load balancer.
+     * ID of the customer owned ipv4 pool to use for this load balancer.
      */
     customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
-     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     * How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      */
     desyncMitigationMode?: pulumi.Input<string>;
     /**
-     * Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      */
     dnsRecordClientRoutingPolicy?: pulumi.Input<string>;
     /**
-     * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+     * Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      */
     dropInvalidHeaderFields?: pulumi.Input<boolean>;
     /**
@@ -525,27 +535,27 @@ export interface LoadBalancerArgs {
      */
     enableDeletionProtection?: pulumi.Input<boolean>;
     /**
-     * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+     * Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
     enableHttp2?: pulumi.Input<boolean>;
     /**
-     * Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+     * Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      */
     enableTlsVersionAndCipherSuiteHeaders?: pulumi.Input<boolean>;
     /**
-     * Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+     * Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
      */
     enableWafFailOpen?: pulumi.Input<boolean>;
     /**
-     * Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+     * Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      */
     enableXffClientPort?: pulumi.Input<boolean>;
     /**
-     * Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      */
     enforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: pulumi.Input<string>;
     /**
-     * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+     * Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
     idleTimeout?: pulumi.Input<number>;
     /**
@@ -553,17 +563,15 @@ export interface LoadBalancerArgs {
      */
     internal?: pulumi.Input<boolean>;
     /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+     * Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      */
     ipAddressType?: pulumi.Input<IpAddressType>;
     /**
-     * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+     * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
     loadBalancerType?: pulumi.Input<LoadBalancerType>;
     /**
-     * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-     * this provider will autogenerate a name beginning with `tf-lb`.
+     * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -571,23 +579,23 @@ export interface LoadBalancerArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     * Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     preserveHostHeader?: pulumi.Input<boolean>;
     /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+     * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
+     * Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      */
     subnetMappings?: pulumi.Input<pulumi.Input<inputs.alb.LoadBalancerSubnetMapping>[]>;
     /**
-     * A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+     * List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -71,6 +71,11 @@ public final class GetElasticIpResult {
      */
     private String privateIp;
     /**
+     * @return The DNS pointer (PTR) record for the IP address.
+     * 
+     */
+    private String ptrRecord;
+    /**
      * @return Public DNS associated with the Elastic IP address.
      * 
      */
@@ -173,6 +178,13 @@ public final class GetElasticIpResult {
         return this.privateIp;
     }
     /**
+     * @return The DNS pointer (PTR) record for the IP address.
+     * 
+     */
+    public String ptrRecord() {
+        return this.ptrRecord;
+    }
+    /**
      * @return Public DNS associated with the Elastic IP address.
      * 
      */
@@ -222,6 +234,7 @@ public final class GetElasticIpResult {
         private String networkInterfaceOwnerId;
         private String privateDns;
         private String privateIp;
+        private String ptrRecord;
         private String publicDns;
         private String publicIp;
         private String publicIpv4Pool;
@@ -241,6 +254,7 @@ public final class GetElasticIpResult {
     	      this.networkInterfaceOwnerId = defaults.networkInterfaceOwnerId;
     	      this.privateDns = defaults.privateDns;
     	      this.privateIp = defaults.privateIp;
+    	      this.ptrRecord = defaults.ptrRecord;
     	      this.publicDns = defaults.publicDns;
     	      this.publicIp = defaults.publicIp;
     	      this.publicIpv4Pool = defaults.publicIpv4Pool;
@@ -345,6 +359,14 @@ public final class GetElasticIpResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ptrRecord(String ptrRecord) {
+            if (ptrRecord == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "ptrRecord");
+            }
+            this.ptrRecord = ptrRecord;
+            return this;
+        }
+        @CustomType.Setter
         public Builder publicDns(String publicDns) {
             if (publicDns == null) {
               throw new MissingRequiredPropertyException("GetElasticIpResult", "publicDns");
@@ -390,6 +412,7 @@ public final class GetElasticIpResult {
             _resultValue.networkInterfaceOwnerId = networkInterfaceOwnerId;
             _resultValue.privateDns = privateDns;
             _resultValue.privateIp = privateIp;
+            _resultValue.ptrRecord = ptrRecord;
             _resultValue.publicDns = publicDns;
             _resultValue.publicIp = publicIp;
             _resultValue.publicIpv4Pool = publicIpv4Pool;

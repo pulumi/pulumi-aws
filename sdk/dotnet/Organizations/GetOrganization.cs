@@ -253,6 +253,10 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public readonly string MasterAccountId;
         /// <summary>
+        /// Name of the master account of an organization.
+        /// </summary>
+        public readonly string MasterAccountName;
+        /// <summary>
         /// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationNonMasterAccountResult> NonMasterAccounts;
@@ -281,6 +285,8 @@ namespace Pulumi.Aws.Organizations
 
             string masterAccountId,
 
+            string masterAccountName,
+
             ImmutableArray<Outputs.GetOrganizationNonMasterAccountResult> nonMasterAccounts,
 
             ImmutableArray<Outputs.GetOrganizationRootResult> roots)
@@ -294,6 +300,7 @@ namespace Pulumi.Aws.Organizations
             MasterAccountArn = masterAccountArn;
             MasterAccountEmail = masterAccountEmail;
             MasterAccountId = masterAccountId;
+            MasterAccountName = masterAccountName;
             NonMasterAccounts = nonMasterAccounts;
             Roots = roots;
         }

@@ -165,6 +165,20 @@ public class EventRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventPattern);
     }
     /**
+     * Used to delete managed rules created by AWS. Defaults to `false`.
+     * 
+     */
+    @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> forceDestroy;
+
+    /**
+     * @return Used to delete managed rules created by AWS. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> forceDestroy() {
+        return Codegen.optional(this.forceDestroy);
+    }
+    /**
      * Whether the rule should be enabled.
      * Defaults to `true`.
      * Conflicts with `state`.

@@ -84,6 +84,7 @@ type LookupLoadBalancerResult struct {
 	AccessLogs                                           GetLoadBalancerAccessLogs      `pulumi:"accessLogs"`
 	Arn                                                  string                         `pulumi:"arn"`
 	ArnSuffix                                            string                         `pulumi:"arnSuffix"`
+	ClientKeepAlive                                      int                            `pulumi:"clientKeepAlive"`
 	ConnectionLogs                                       []GetLoadBalancerConnectionLog `pulumi:"connectionLogs"`
 	CustomerOwnedIpv4Pool                                string                         `pulumi:"customerOwnedIpv4Pool"`
 	DesyncMitigationMode                                 string                         `pulumi:"desyncMitigationMode"`
@@ -168,6 +169,10 @@ func (o LookupLoadBalancerResultOutput) Arn() pulumi.StringOutput {
 
 func (o LookupLoadBalancerResultOutput) ArnSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.ArnSuffix }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) ClientKeepAlive() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) int { return v.ClientKeepAlive }).(pulumi.IntOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) ConnectionLogs() GetLoadBalancerConnectionLogArrayOutput {

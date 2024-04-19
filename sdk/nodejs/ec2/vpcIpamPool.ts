@@ -130,6 +130,10 @@ export class VpcIpamPool extends pulumi.CustomResource {
      */
     public readonly awsService!: pulumi.Output<string | undefined>;
     /**
+     * Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+     */
+    public readonly cascade!: pulumi.Output<boolean | undefined>;
+    /**
      * A description for the IPAM pool.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -191,6 +195,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["autoImport"] = state ? state.autoImport : undefined;
             resourceInputs["awsService"] = state ? state.awsService : undefined;
+            resourceInputs["cascade"] = state ? state.cascade : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["ipamScopeId"] = state ? state.ipamScopeId : undefined;
             resourceInputs["ipamScopeType"] = state ? state.ipamScopeType : undefined;
@@ -217,6 +222,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
             resourceInputs["allocationResourceTags"] = args ? args.allocationResourceTags : undefined;
             resourceInputs["autoImport"] = args ? args.autoImport : undefined;
             resourceInputs["awsService"] = args ? args.awsService : undefined;
+            resourceInputs["cascade"] = args ? args.cascade : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["ipamScopeId"] = args ? args.ipamScopeId : undefined;
             resourceInputs["locale"] = args ? args.locale : undefined;
@@ -272,6 +278,10 @@ export interface VpcIpamPoolState {
      * Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
      */
     awsService?: pulumi.Input<string>;
+    /**
+     * Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+     */
+    cascade?: pulumi.Input<boolean>;
     /**
      * A description for the IPAM pool.
      */
@@ -347,6 +357,10 @@ export interface VpcIpamPoolArgs {
      * Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
      */
     awsService?: pulumi.Input<string>;
+    /**
+     * Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+     */
+    cascade?: pulumi.Input<boolean>;
     /**
      * A description for the IPAM pool.
      */

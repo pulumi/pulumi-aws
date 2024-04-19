@@ -32,7 +32,7 @@ namespace Pulumi.Aws.LightSail
     ///         Name = "yak_sail",
     ///         AvailabilityZone = available.Names[0],
     ///         BlueprintId = "amazon_linux_2",
-    ///         BundleId = "nano_1_0",
+    ///         BundleId = "nano_3_0",
     ///     });
     /// 
     ///     var testInstancePublicPorts = new Aws.LightSail.InstancePublicPorts("test", new()

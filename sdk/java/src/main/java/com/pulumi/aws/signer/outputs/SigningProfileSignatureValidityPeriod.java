@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class SigningProfileSignatureValidityPeriod {
+    /**
+     * @return The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+     * 
+     */
     private String type;
+    /**
+     * @return The numerical value of the time unit for signature validity.
+     * 
+     */
     private Integer value;
 
     private SigningProfileSignatureValidityPeriod() {}
+    /**
+     * @return The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return The numerical value of the time unit for signature validity.
+     * 
+     */
     public Integer value() {
         return this.value;
     }

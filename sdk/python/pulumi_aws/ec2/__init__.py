@@ -24,6 +24,7 @@ from .default_vpc_dhcp_options import *
 from .egress_only_internet_gateway import *
 from .eip import *
 from .eip_association import *
+from .eip_domain_name import *
 from .fleet import *
 from .flow_log import *
 from .get_ami import *

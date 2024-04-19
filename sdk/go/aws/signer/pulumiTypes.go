@@ -928,9 +928,12 @@ func (o SigningJobSourceS3PtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type SigningProfileRevocationRecord struct {
+	// The time when revocation becomes effective.
 	RevocationEffectiveFrom *string `pulumi:"revocationEffectiveFrom"`
-	RevokedAt               *string `pulumi:"revokedAt"`
-	RevokedBy               *string `pulumi:"revokedBy"`
+	// The time when the signing profile was revoked.
+	RevokedAt *string `pulumi:"revokedAt"`
+	// The identity of the revoker.
+	RevokedBy *string `pulumi:"revokedBy"`
 }
 
 // SigningProfileRevocationRecordInput is an input type that accepts SigningProfileRevocationRecordArgs and SigningProfileRevocationRecordOutput values.
@@ -945,9 +948,12 @@ type SigningProfileRevocationRecordInput interface {
 }
 
 type SigningProfileRevocationRecordArgs struct {
+	// The time when revocation becomes effective.
 	RevocationEffectiveFrom pulumi.StringPtrInput `pulumi:"revocationEffectiveFrom"`
-	RevokedAt               pulumi.StringPtrInput `pulumi:"revokedAt"`
-	RevokedBy               pulumi.StringPtrInput `pulumi:"revokedBy"`
+	// The time when the signing profile was revoked.
+	RevokedAt pulumi.StringPtrInput `pulumi:"revokedAt"`
+	// The identity of the revoker.
+	RevokedBy pulumi.StringPtrInput `pulumi:"revokedBy"`
 }
 
 func (SigningProfileRevocationRecordArgs) ElementType() reflect.Type {
@@ -1001,14 +1007,17 @@ func (o SigningProfileRevocationRecordOutput) ToSigningProfileRevocationRecordOu
 	return o
 }
 
+// The time when revocation becomes effective.
 func (o SigningProfileRevocationRecordOutput) RevocationEffectiveFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningProfileRevocationRecord) *string { return v.RevocationEffectiveFrom }).(pulumi.StringPtrOutput)
 }
 
+// The time when the signing profile was revoked.
 func (o SigningProfileRevocationRecordOutput) RevokedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningProfileRevocationRecord) *string { return v.RevokedAt }).(pulumi.StringPtrOutput)
 }
 
+// The identity of the revoker.
 func (o SigningProfileRevocationRecordOutput) RevokedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningProfileRevocationRecord) *string { return v.RevokedBy }).(pulumi.StringPtrOutput)
 }
@@ -1034,8 +1043,10 @@ func (o SigningProfileRevocationRecordArrayOutput) Index(i pulumi.IntInput) Sign
 }
 
 type SigningProfileSignatureValidityPeriod struct {
-	Type  string `pulumi:"type"`
-	Value int    `pulumi:"value"`
+	// The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+	Type string `pulumi:"type"`
+	// The numerical value of the time unit for signature validity.
+	Value int `pulumi:"value"`
 }
 
 // SigningProfileSignatureValidityPeriodInput is an input type that accepts SigningProfileSignatureValidityPeriodArgs and SigningProfileSignatureValidityPeriodOutput values.
@@ -1050,8 +1061,10 @@ type SigningProfileSignatureValidityPeriodInput interface {
 }
 
 type SigningProfileSignatureValidityPeriodArgs struct {
-	Type  pulumi.StringInput `pulumi:"type"`
-	Value pulumi.IntInput    `pulumi:"value"`
+	// The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The numerical value of the time unit for signature validity.
+	Value pulumi.IntInput `pulumi:"value"`
 }
 
 func (SigningProfileSignatureValidityPeriodArgs) ElementType() reflect.Type {
@@ -1131,10 +1144,12 @@ func (o SigningProfileSignatureValidityPeriodOutput) ToSigningProfileSignatureVa
 	}).(SigningProfileSignatureValidityPeriodPtrOutput)
 }
 
+// The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
 func (o SigningProfileSignatureValidityPeriodOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The numerical value of the time unit for signature validity.
 func (o SigningProfileSignatureValidityPeriodOutput) Value() pulumi.IntOutput {
 	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) int { return v.Value }).(pulumi.IntOutput)
 }
@@ -1163,6 +1178,7 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Elem() SigningProfileSig
 	}).(SigningProfileSignatureValidityPeriodOutput)
 }
 
+// The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
 func (o SigningProfileSignatureValidityPeriodPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriod) *string {
 		if v == nil {
@@ -1172,6 +1188,7 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Type() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The numerical value of the time unit for signature validity.
 func (o SigningProfileSignatureValidityPeriodPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriod) *int {
 		if v == nil {
@@ -1182,6 +1199,7 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Value() pulumi.IntPtrOut
 }
 
 type SigningProfileSigningMaterial struct {
+	// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
 	CertificateArn string `pulumi:"certificateArn"`
 }
 
@@ -1197,6 +1215,7 @@ type SigningProfileSigningMaterialInput interface {
 }
 
 type SigningProfileSigningMaterialArgs struct {
+	// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
 	CertificateArn pulumi.StringInput `pulumi:"certificateArn"`
 }
 
@@ -1277,6 +1296,7 @@ func (o SigningProfileSigningMaterialOutput) ToSigningProfileSigningMaterialPtrO
 	}).(SigningProfileSigningMaterialPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
 func (o SigningProfileSigningMaterialOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningProfileSigningMaterial) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
@@ -1305,6 +1325,7 @@ func (o SigningProfileSigningMaterialPtrOutput) Elem() SigningProfileSigningMate
 	}).(SigningProfileSigningMaterialOutput)
 }
 
+// The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
 func (o SigningProfileSigningMaterialPtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningProfileSigningMaterial) *string {
 		if v == nil {

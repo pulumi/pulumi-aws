@@ -2188,8 +2188,8 @@ class GetTagsFilterArgs:
                  tags: Optional['GetTagsFilterTagsArgs'] = None):
         """
         :param Sequence['GetTagsFilterAndArgs'] ands: Return results that match both `Dimension` objects.
-        :param 'GetTagsFilterCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param 'GetTagsFilterDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param 'GetTagsFilterCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
+        :param 'GetTagsFilterDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
         :param 'GetTagsFilterNotArgs' not_: Return results that match both `Dimension` object.
         :param Sequence['GetTagsFilterOrArgs'] ors: Return results that match both `Dimension` object.
         :param 'GetTagsFilterTagsArgs' tags: Tags that match your request.
@@ -2223,7 +2223,7 @@ class GetTagsFilterArgs:
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional['GetTagsFilterCostCategoryArgs']:
         """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
+        Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
         """
         return pulumi.get(self, "cost_category")
 
@@ -2235,7 +2235,7 @@ class GetTagsFilterArgs:
     @pulumi.getter
     def dimension(self) -> Optional['GetTagsFilterDimensionArgs']:
         """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
         """
         return pulumi.get(self, "dimension")
 
@@ -2287,8 +2287,8 @@ class GetTagsFilterAndArgs:
                  dimension: Optional['GetTagsFilterAndDimensionArgs'] = None,
                  tags: Optional['GetTagsFilterAndTagsArgs'] = None):
         """
-        :param 'GetTagsFilterAndCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param 'GetTagsFilterAndDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param 'GetTagsFilterAndCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
+        :param 'GetTagsFilterAndDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
         :param 'GetTagsFilterAndTagsArgs' tags: Tags that match your request.
         """
         if cost_category is not None:
@@ -2302,7 +2302,7 @@ class GetTagsFilterAndArgs:
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional['GetTagsFilterAndCostCategoryArgs']:
         """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
+        Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
         """
         return pulumi.get(self, "cost_category")
 
@@ -2314,7 +2314,7 @@ class GetTagsFilterAndArgs:
     @pulumi.getter
     def dimension(self) -> Optional['GetTagsFilterAndDimensionArgs']:
         """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
         """
         return pulumi.get(self, "dimension")
 
@@ -2617,8 +2617,8 @@ class GetTagsFilterNotArgs:
                  dimension: Optional['GetTagsFilterNotDimensionArgs'] = None,
                  tags: Optional['GetTagsFilterNotTagsArgs'] = None):
         """
-        :param 'GetTagsFilterNotCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param 'GetTagsFilterNotDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param 'GetTagsFilterNotCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
+        :param 'GetTagsFilterNotDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
         :param 'GetTagsFilterNotTagsArgs' tags: Tags that match your request.
         """
         if cost_category is not None:
@@ -2632,7 +2632,7 @@ class GetTagsFilterNotArgs:
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional['GetTagsFilterNotCostCategoryArgs']:
         """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
+        Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
         """
         return pulumi.get(self, "cost_category")
 
@@ -2644,7 +2644,7 @@ class GetTagsFilterNotArgs:
     @pulumi.getter
     def dimension(self) -> Optional['GetTagsFilterNotDimensionArgs']:
         """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
         """
         return pulumi.get(self, "dimension")
 
@@ -2837,8 +2837,8 @@ class GetTagsFilterOrArgs:
                  dimension: Optional['GetTagsFilterOrDimensionArgs'] = None,
                  tags: Optional['GetTagsFilterOrTagsArgs'] = None):
         """
-        :param 'GetTagsFilterOrCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param 'GetTagsFilterOrDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param 'GetTagsFilterOrCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
+        :param 'GetTagsFilterOrDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
         :param 'GetTagsFilterOrTagsArgs' tags: Tags that match your request.
         """
         if cost_category is not None:
@@ -2852,7 +2852,7 @@ class GetTagsFilterOrArgs:
     @pulumi.getter(name="costCategory")
     def cost_category(self) -> Optional['GetTagsFilterOrCostCategoryArgs']:
         """
-        Configuration block for the filter that's based on `CostCategory` values. See below.
+        Configuration block for the filter that's based on `CostCategory` values. See `cost_category` block below for details.
         """
         return pulumi.get(self, "cost_category")
 
@@ -2864,7 +2864,7 @@ class GetTagsFilterOrArgs:
     @pulumi.getter
     def dimension(self) -> Optional['GetTagsFilterOrDimensionArgs']:
         """
-        Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
         """
         return pulumi.get(self, "dimension")
 

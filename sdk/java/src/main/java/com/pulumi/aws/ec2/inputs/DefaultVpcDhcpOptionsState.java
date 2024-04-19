@@ -45,6 +45,13 @@ public final class DefaultVpcDhcpOptionsState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.domainNameServers);
     }
 
+    @Import(name="ipv6AddressPreferredLeaseTime")
+    private @Nullable Output<String> ipv6AddressPreferredLeaseTime;
+
+    public Optional<Output<String>> ipv6AddressPreferredLeaseTime() {
+        return Optional.ofNullable(this.ipv6AddressPreferredLeaseTime);
+    }
+
     /**
      * List of NETBIOS name servers.
      * 
@@ -137,6 +144,7 @@ public final class DefaultVpcDhcpOptionsState extends com.pulumi.resources.Resou
         this.arn = $.arn;
         this.domainName = $.domainName;
         this.domainNameServers = $.domainNameServers;
+        this.ipv6AddressPreferredLeaseTime = $.ipv6AddressPreferredLeaseTime;
         this.netbiosNameServers = $.netbiosNameServers;
         this.netbiosNodeType = $.netbiosNodeType;
         this.ntpServers = $.ntpServers;
@@ -200,6 +208,15 @@ public final class DefaultVpcDhcpOptionsState extends com.pulumi.resources.Resou
 
         public Builder domainNameServers(String domainNameServers) {
             return domainNameServers(Output.of(domainNameServers));
+        }
+
+        public Builder ipv6AddressPreferredLeaseTime(@Nullable Output<String> ipv6AddressPreferredLeaseTime) {
+            $.ipv6AddressPreferredLeaseTime = ipv6AddressPreferredLeaseTime;
+            return this;
+        }
+
+        public Builder ipv6AddressPreferredLeaseTime(String ipv6AddressPreferredLeaseTime) {
+            return ipv6AddressPreferredLeaseTime(Output.of(ipv6AddressPreferredLeaseTime));
         }
 
         /**

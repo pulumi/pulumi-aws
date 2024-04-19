@@ -101,6 +101,10 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
+     * IP address of the endpoint that is used to access data or to manage the file system.
+     */
+    public /*out*/ readonly endpointIpAddress!: pulumi.Output<string>;
+    /**
      * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
      */
     public readonly endpointIpAddressRange!: pulumi.Output<string>;
@@ -197,6 +201,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
             resourceInputs["diskIopsConfiguration"] = state ? state.diskIopsConfiguration : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["endpointIpAddress"] = state ? state.endpointIpAddress : undefined;
             resourceInputs["endpointIpAddressRange"] = state ? state.endpointIpAddressRange : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
@@ -248,6 +253,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["endpointIpAddress"] = undefined /*out*/;
             resourceInputs["networkInterfaceIds"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["rootVolumeId"] = undefined /*out*/;
@@ -299,6 +305,10 @@ export interface OpenZfsFileSystemState {
      * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
     dnsName?: pulumi.Input<string>;
+    /**
+     * IP address of the endpoint that is used to access data or to manage the file system.
+     */
+    endpointIpAddress?: pulumi.Input<string>;
     /**
      * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
      */

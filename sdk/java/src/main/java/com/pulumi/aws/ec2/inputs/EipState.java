@@ -213,6 +213,21 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The DNS pointer (PTR) record for the IP address.
+     * 
+     */
+    @Import(name="ptrRecord")
+    private @Nullable Output<String> ptrRecord;
+
+    /**
+     * @return The DNS pointer (PTR) record for the IP address.
+     * 
+     */
+    public Optional<Output<String>> ptrRecord() {
+        return Optional.ofNullable(this.ptrRecord);
+    }
+
+    /**
      * Public DNS associated with the Elastic IP address.
      * 
      */
@@ -348,6 +363,7 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
         this.networkInterface = $.networkInterface;
         this.privateDns = $.privateDns;
         this.privateIp = $.privateIp;
+        this.ptrRecord = $.ptrRecord;
         this.publicDns = $.publicDns;
         this.publicIp = $.publicIp;
         this.publicIpv4Pool = $.publicIpv4Pool;
@@ -645,6 +661,27 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder privateIp(String privateIp) {
             return privateIp(Output.of(privateIp));
+        }
+
+        /**
+         * @param ptrRecord The DNS pointer (PTR) record for the IP address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ptrRecord(@Nullable Output<String> ptrRecord) {
+            $.ptrRecord = ptrRecord;
+            return this;
+        }
+
+        /**
+         * @param ptrRecord The DNS pointer (PTR) record for the IP address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ptrRecord(String ptrRecord) {
+            return ptrRecord(Output.of(ptrRecord));
         }
 
         /**

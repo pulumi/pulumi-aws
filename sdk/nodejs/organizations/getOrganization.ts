@@ -107,6 +107,10 @@ export interface GetOrganizationResult {
      */
     readonly masterAccountId: string;
     /**
+     * Name of the master account of an organization.
+     */
+    readonly masterAccountName: string;
+    /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      */
     readonly nonMasterAccounts: outputs.organizations.GetOrganizationNonMasterAccount[];

@@ -110,6 +110,8 @@ type Connector struct {
 	ConnectorId pulumi.StringOutput `pulumi:"connectorId"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
+	// Name of the security policy for the connector.
+	SecurityPolicyName pulumi.StringOutput `pulumi:"securityPolicyName"`
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	SftpConfig ConnectorSftpConfigPtrOutput `pulumi:"sftpConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -166,6 +168,8 @@ type connectorState struct {
 	ConnectorId *string `pulumi:"connectorId"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole *string `pulumi:"loggingRole"`
+	// Name of the security policy for the connector.
+	SecurityPolicyName *string `pulumi:"securityPolicyName"`
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	SftpConfig *ConnectorSftpConfig `pulumi:"sftpConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -187,6 +191,8 @@ type ConnectorState struct {
 	ConnectorId pulumi.StringPtrInput
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrInput
+	// Name of the security policy for the connector.
+	SecurityPolicyName pulumi.StringPtrInput
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	SftpConfig ConnectorSftpConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -208,6 +214,8 @@ type connectorArgs struct {
 	As2Config *ConnectorAs2Config `pulumi:"as2Config"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole *string `pulumi:"loggingRole"`
+	// Name of the security policy for the connector.
+	SecurityPolicyName *string `pulumi:"securityPolicyName"`
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	SftpConfig *ConnectorSftpConfig `pulumi:"sftpConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -224,6 +232,8 @@ type ConnectorArgs struct {
 	As2Config ConnectorAs2ConfigPtrInput
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrInput
+	// Name of the security policy for the connector.
+	SecurityPolicyName pulumi.StringPtrInput
 	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	SftpConfig ConnectorSftpConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -342,6 +352,11 @@ func (o ConnectorOutput) ConnectorId() pulumi.StringOutput {
 // The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 func (o ConnectorOutput) LoggingRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.LoggingRole }).(pulumi.StringPtrOutput)
+}
+
+// Name of the security policy for the connector.
+func (o ConnectorOutput) SecurityPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.SecurityPolicyName }).(pulumi.StringOutput)
 }
 
 // Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.

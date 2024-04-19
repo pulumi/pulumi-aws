@@ -164,6 +164,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> AwsService { get; private set; } = null!;
 
         /// <summary>
+        /// Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+        /// </summary>
+        [Output("cascade")]
+        public Output<bool?> Cascade { get; private set; } = null!;
+
+        /// <summary>
         /// A description for the IPAM pool.
         /// </summary>
         [Output("description")]
@@ -319,6 +325,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AwsService { get; set; }
 
         /// <summary>
+        /// Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+        /// </summary>
+        [Input("cascade")]
+        public Input<bool>? Cascade { get; set; }
+
+        /// <summary>
         /// A description for the IPAM pool.
         /// </summary>
         [Input("description")]
@@ -428,6 +440,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("awsService")]
         public Input<string>? AwsService { get; set; }
+
+        /// <summary>
+        /// Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+        /// </summary>
+        [Input("cascade")]
+        public Input<bool>? Cascade { get; set; }
 
         /// <summary>
         /// A description for the IPAM pool.

@@ -101,6 +101,8 @@ type LookupPolicyArgs struct {
 type LookupPolicyResult struct {
 	// ARN of the policy.
 	Arn string `pulumi:"arn"`
+	// Number of entities (users, groups, and roles) that the policy is attached to.
+	AttachmentCount int `pulumi:"attachmentCount"`
 	// Description of the policy.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
@@ -168,6 +170,11 @@ func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx cont
 // ARN of the policy.
 func (o LookupPolicyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Number of entities (users, groups, and roles) that the policy is attached to.
+func (o LookupPolicyResultOutput) AttachmentCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupPolicyResult) int { return v.AttachmentCount }).(pulumi.IntOutput)
 }
 
 // Description of the policy.

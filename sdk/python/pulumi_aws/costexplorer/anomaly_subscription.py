@@ -324,13 +324,20 @@ class AnomalySubscription(pulumi.CustomResource):
             subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
                 type="EMAIL",
                 address="abc@example.com",
-            )])
+            )],
+            threshold_expression=aws.costexplorer.AnomalySubscriptionThresholdExpressionArgs(
+                dimension=aws.costexplorer.AnomalySubscriptionThresholdExpressionDimensionArgs(
+                    key="ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+                    match_options=["GREATER_THAN_OR_EQUAL"],
+                    values=["100"],
+                ),
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
         ### Threshold Expression Example
 
-        ### For a Specific Dimension
+        ### Using a Percentage Threshold
 
         <!--Start PulumiCodeChooser -->
         ```python
@@ -347,9 +354,9 @@ class AnomalySubscription(pulumi.CustomResource):
             )],
             threshold_expression=aws.costexplorer.AnomalySubscriptionThresholdExpressionArgs(
                 dimension=aws.costexplorer.AnomalySubscriptionThresholdExpressionDimensionArgs(
-                    key="ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-                    values=["100.0"],
+                    key="ANOMALY_TOTAL_IMPACT_PERCENTAGE",
                     match_options=["GREATER_THAN_OR_EQUAL"],
+                    values=["100"],
                 ),
             ))
         ```
@@ -503,13 +510,20 @@ class AnomalySubscription(pulumi.CustomResource):
             subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
                 type="EMAIL",
                 address="abc@example.com",
-            )])
+            )],
+            threshold_expression=aws.costexplorer.AnomalySubscriptionThresholdExpressionArgs(
+                dimension=aws.costexplorer.AnomalySubscriptionThresholdExpressionDimensionArgs(
+                    key="ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+                    match_options=["GREATER_THAN_OR_EQUAL"],
+                    values=["100"],
+                ),
+            ))
         ```
         <!--End PulumiCodeChooser -->
 
         ### Threshold Expression Example
 
-        ### For a Specific Dimension
+        ### Using a Percentage Threshold
 
         <!--Start PulumiCodeChooser -->
         ```python
@@ -526,9 +540,9 @@ class AnomalySubscription(pulumi.CustomResource):
             )],
             threshold_expression=aws.costexplorer.AnomalySubscriptionThresholdExpressionArgs(
                 dimension=aws.costexplorer.AnomalySubscriptionThresholdExpressionDimensionArgs(
-                    key="ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-                    values=["100.0"],
+                    key="ANOMALY_TOTAL_IMPACT_PERCENTAGE",
                     match_options=["GREATER_THAN_OR_EQUAL"],
+                    values=["100"],
                 ),
             ))
         ```

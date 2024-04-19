@@ -9,6 +9,7 @@ import com.pulumi.aws.imagebuilder.inputs.ImageState;
 import com.pulumi.aws.imagebuilder.outputs.ImageImageScanningConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImageImageTestsConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImageOutputResource;
+import com.pulumi.aws.imagebuilder.outputs.ImageWorkflow;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -140,6 +141,20 @@ public class Image extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enhancedImageMetadataEnabled);
     }
     /**
+     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * 
+     */
+    @Export(name="executionRole", refs={String.class}, tree="[0]")
+    private Output<String> executionRole;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * 
+     */
+    public Output<String> executionRole() {
+        return this.executionRole;
+    }
+    /**
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
@@ -200,14 +215,14 @@ public class Image extends com.pulumi.resources.CustomResource {
         return this.infrastructureConfigurationArn;
     }
     /**
-     * Name of the AMI.
+     * The name of the Workflow parameter.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the AMI.
+     * @return The name of the Workflow parameter.
      * 
      */
     public Output<String> name() {
@@ -300,6 +315,20 @@ public class Image extends com.pulumi.resources.CustomResource {
      */
     public Output<String> version() {
         return this.version;
+    }
+    /**
+     * Configuration block with the workflow configuration. Detailed below.
+     * 
+     */
+    @Export(name="workflows", refs={List.class,ImageWorkflow.class}, tree="[0,1]")
+    private Output<List<ImageWorkflow>> workflows;
+
+    /**
+     * @return Configuration block with the workflow configuration. Detailed below.
+     * 
+     */
+    public Output<List<ImageWorkflow>> workflows() {
+        return this.workflows;
     }
 
     /**

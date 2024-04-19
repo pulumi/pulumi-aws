@@ -22,7 +22,7 @@ class GetOrganizationResult:
     """
     A collection of values returned by getOrganization.
     """
-    def __init__(__self__, accounts=None, arn=None, aws_service_access_principals=None, enabled_policy_types=None, feature_set=None, id=None, master_account_arn=None, master_account_email=None, master_account_id=None, non_master_accounts=None, roots=None):
+    def __init__(__self__, accounts=None, arn=None, aws_service_access_principals=None, enabled_policy_types=None, feature_set=None, id=None, master_account_arn=None, master_account_email=None, master_account_id=None, master_account_name=None, non_master_accounts=None, roots=None):
         if accounts and not isinstance(accounts, list):
             raise TypeError("Expected argument 'accounts' to be a list")
         pulumi.set(__self__, "accounts", accounts)
@@ -50,6 +50,9 @@ class GetOrganizationResult:
         if master_account_id and not isinstance(master_account_id, str):
             raise TypeError("Expected argument 'master_account_id' to be a str")
         pulumi.set(__self__, "master_account_id", master_account_id)
+        if master_account_name and not isinstance(master_account_name, str):
+            raise TypeError("Expected argument 'master_account_name' to be a str")
+        pulumi.set(__self__, "master_account_name", master_account_name)
         if non_master_accounts and not isinstance(non_master_accounts, list):
             raise TypeError("Expected argument 'non_master_accounts' to be a list")
         pulumi.set(__self__, "non_master_accounts", non_master_accounts)
@@ -130,6 +133,14 @@ class GetOrganizationResult:
         return pulumi.get(self, "master_account_id")
 
     @property
+    @pulumi.getter(name="masterAccountName")
+    def master_account_name(self) -> str:
+        """
+        Name of the master account of an organization.
+        """
+        return pulumi.get(self, "master_account_name")
+
+    @property
     @pulumi.getter(name="nonMasterAccounts")
     def non_master_accounts(self) -> Sequence['outputs.GetOrganizationNonMasterAccountResult']:
         """
@@ -161,6 +172,7 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
             master_account_arn=self.master_account_arn,
             master_account_email=self.master_account_email,
             master_account_id=self.master_account_id,
+            master_account_name=self.master_account_name,
             non_master_accounts=self.non_master_accounts,
             roots=self.roots)
 
@@ -229,6 +241,7 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
         master_account_arn=pulumi.get(__ret__, 'master_account_arn'),
         master_account_email=pulumi.get(__ret__, 'master_account_email'),
         master_account_id=pulumi.get(__ret__, 'master_account_id'),
+        master_account_name=pulumi.get(__ret__, 'master_account_name'),
         non_master_accounts=pulumi.get(__ret__, 'non_master_accounts'),
         roots=pulumi.get(__ret__, 'roots'))
 

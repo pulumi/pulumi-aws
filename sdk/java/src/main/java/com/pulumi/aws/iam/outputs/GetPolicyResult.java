@@ -5,6 +5,7 @@ package com.pulumi.aws.iam.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -18,6 +19,11 @@ public final class GetPolicyResult {
      * 
      */
     private String arn;
+    /**
+     * @return Number of entities (users, groups, and roles) that the policy is attached to.
+     * 
+     */
+    private Integer attachmentCount;
     /**
      * @return Description of the policy.
      * 
@@ -58,6 +64,13 @@ public final class GetPolicyResult {
      */
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return Number of entities (users, groups, and roles) that the policy is attached to.
+     * 
+     */
+    public Integer attachmentCount() {
+        return this.attachmentCount;
     }
     /**
      * @return Description of the policy.
@@ -118,6 +131,7 @@ public final class GetPolicyResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private Integer attachmentCount;
         private String description;
         private String id;
         private String name;
@@ -130,6 +144,7 @@ public final class GetPolicyResult {
         public Builder(GetPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.attachmentCount = defaults.attachmentCount;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
@@ -146,6 +161,14 @@ public final class GetPolicyResult {
               throw new MissingRequiredPropertyException("GetPolicyResult", "arn");
             }
             this.arn = arn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder attachmentCount(Integer attachmentCount) {
+            if (attachmentCount == null) {
+              throw new MissingRequiredPropertyException("GetPolicyResult", "attachmentCount");
+            }
+            this.attachmentCount = attachmentCount;
             return this;
         }
         @CustomType.Setter
@@ -213,6 +236,7 @@ public final class GetPolicyResult {
         public GetPolicyResult build() {
             final var _resultValue = new GetPolicyResult();
             _resultValue.arn = arn;
+            _resultValue.attachmentCount = attachmentCount;
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;

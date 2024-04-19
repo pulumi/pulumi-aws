@@ -23,12 +23,12 @@ public final class GetTagsFilter {
      */
     private @Nullable List<GetTagsFilterAnd> ands;
     /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
      * 
      */
     private @Nullable GetTagsFilterCostCategory costCategory;
     /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
+     * @return Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
      * 
      */
     private @Nullable GetTagsFilterDimension dimension;
@@ -57,14 +57,14 @@ public final class GetTagsFilter {
         return this.ands == null ? List.of() : this.ands;
     }
     /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
      * 
      */
     public Optional<GetTagsFilterCostCategory> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
     /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
+     * @return Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
      * 
      */
     public Optional<GetTagsFilterDimension> dimension() {

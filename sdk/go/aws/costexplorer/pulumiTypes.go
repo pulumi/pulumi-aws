@@ -8463,9 +8463,9 @@ func (o GetCostCategorySplitChargeRuleParameterArrayOutput) Index(i pulumi.IntIn
 type GetTagsFilter struct {
 	// Return results that match both `Dimension` objects.
 	Ands []GetTagsFilterAnd `pulumi:"ands"`
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory *GetTagsFilterCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 	Dimension *GetTagsFilterDimension `pulumi:"dimension"`
 	// Return results that match both `Dimension` object.
 	Not *GetTagsFilterNot `pulumi:"not"`
@@ -8489,9 +8489,9 @@ type GetTagsFilterInput interface {
 type GetTagsFilterArgs struct {
 	// Return results that match both `Dimension` objects.
 	Ands GetTagsFilterAndArrayInput `pulumi:"ands"`
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory GetTagsFilterCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 	Dimension GetTagsFilterDimensionPtrInput `pulumi:"dimension"`
 	// Return results that match both `Dimension` object.
 	Not GetTagsFilterNotPtrInput `pulumi:"not"`
@@ -8583,12 +8583,12 @@ func (o GetTagsFilterOutput) Ands() GetTagsFilterAndArrayOutput {
 	return o.ApplyT(func(v GetTagsFilter) []GetTagsFilterAnd { return v.Ands }).(GetTagsFilterAndArrayOutput)
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See below.
+// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterOutput) CostCategory() GetTagsFilterCostCategoryPtrOutput {
 	return o.ApplyT(func(v GetTagsFilter) *GetTagsFilterCostCategory { return v.CostCategory }).(GetTagsFilterCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterOutput) Dimension() GetTagsFilterDimensionPtrOutput {
 	return o.ApplyT(func(v GetTagsFilter) *GetTagsFilterDimension { return v.Dimension }).(GetTagsFilterDimensionPtrOutput)
 }
@@ -8642,7 +8642,7 @@ func (o GetTagsFilterPtrOutput) Ands() GetTagsFilterAndArrayOutput {
 	}).(GetTagsFilterAndArrayOutput)
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See below.
+// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterPtrOutput) CostCategory() GetTagsFilterCostCategoryPtrOutput {
 	return o.ApplyT(func(v *GetTagsFilter) *GetTagsFilterCostCategory {
 		if v == nil {
@@ -8652,7 +8652,7 @@ func (o GetTagsFilterPtrOutput) CostCategory() GetTagsFilterCostCategoryPtrOutpu
 	}).(GetTagsFilterCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterPtrOutput) Dimension() GetTagsFilterDimensionPtrOutput {
 	return o.ApplyT(func(v *GetTagsFilter) *GetTagsFilterDimension {
 		if v == nil {
@@ -8693,9 +8693,9 @@ func (o GetTagsFilterPtrOutput) Tags() GetTagsFilterTagsPtrOutput {
 }
 
 type GetTagsFilterAnd struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory *GetTagsFilterAndCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 	Dimension *GetTagsFilterAndDimension `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags *GetTagsFilterAndTags `pulumi:"tags"`
@@ -8713,9 +8713,9 @@ type GetTagsFilterAndInput interface {
 }
 
 type GetTagsFilterAndArgs struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory GetTagsFilterAndCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 	Dimension GetTagsFilterAndDimensionPtrInput `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags GetTagsFilterAndTagsPtrInput `pulumi:"tags"`
@@ -8772,12 +8772,12 @@ func (o GetTagsFilterAndOutput) ToGetTagsFilterAndOutputWithContext(ctx context.
 	return o
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See below.
+// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterAndOutput) CostCategory() GetTagsFilterAndCostCategoryPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterAnd) *GetTagsFilterAndCostCategory { return v.CostCategory }).(GetTagsFilterAndCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterAndOutput) Dimension() GetTagsFilterAndDimensionPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterAnd) *GetTagsFilterAndDimension { return v.Dimension }).(GetTagsFilterAndDimensionPtrOutput)
 }
@@ -9683,9 +9683,9 @@ func (o GetTagsFilterDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 type GetTagsFilterNot struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory *GetTagsFilterNotCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 	Dimension *GetTagsFilterNotDimension `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags *GetTagsFilterNotTags `pulumi:"tags"`
@@ -9703,9 +9703,9 @@ type GetTagsFilterNotInput interface {
 }
 
 type GetTagsFilterNotArgs struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory GetTagsFilterNotCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 	Dimension GetTagsFilterNotDimensionPtrInput `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags GetTagsFilterNotTagsPtrInput `pulumi:"tags"`
@@ -9788,12 +9788,12 @@ func (o GetTagsFilterNotOutput) ToGetTagsFilterNotPtrOutputWithContext(ctx conte
 	}).(GetTagsFilterNotPtrOutput)
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See below.
+// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterNotOutput) CostCategory() GetTagsFilterNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterNot) *GetTagsFilterNotCostCategory { return v.CostCategory }).(GetTagsFilterNotCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterNotOutput) Dimension() GetTagsFilterNotDimensionPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterNot) *GetTagsFilterNotDimension { return v.Dimension }).(GetTagsFilterNotDimensionPtrOutput)
 }
@@ -9827,7 +9827,7 @@ func (o GetTagsFilterNotPtrOutput) Elem() GetTagsFilterNotOutput {
 	}).(GetTagsFilterNotOutput)
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See below.
+// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterNotPtrOutput) CostCategory() GetTagsFilterNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v *GetTagsFilterNot) *GetTagsFilterNotCostCategory {
 		if v == nil {
@@ -9837,7 +9837,7 @@ func (o GetTagsFilterNotPtrOutput) CostCategory() GetTagsFilterNotCostCategoryPt
 	}).(GetTagsFilterNotCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterNotPtrOutput) Dimension() GetTagsFilterNotDimensionPtrOutput {
 	return o.ApplyT(func(v *GetTagsFilterNot) *GetTagsFilterNotDimension {
 		if v == nil {
@@ -10383,9 +10383,9 @@ func (o GetTagsFilterNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 type GetTagsFilterOr struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory *GetTagsFilterOrCostCategory `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 	Dimension *GetTagsFilterOrDimension `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags *GetTagsFilterOrTags `pulumi:"tags"`
@@ -10403,9 +10403,9 @@ type GetTagsFilterOrInput interface {
 }
 
 type GetTagsFilterOrArgs struct {
-	// Configuration block for the filter that's based on `CostCategory` values. See below.
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory GetTagsFilterOrCostCategoryPtrInput `pulumi:"costCategory"`
-	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 	Dimension GetTagsFilterOrDimensionPtrInput `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags GetTagsFilterOrTagsPtrInput `pulumi:"tags"`
@@ -10462,12 +10462,12 @@ func (o GetTagsFilterOrOutput) ToGetTagsFilterOrOutputWithContext(ctx context.Co
 	return o
 }
 
-// Configuration block for the filter that's based on `CostCategory` values. See below.
+// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterOrOutput) CostCategory() GetTagsFilterOrCostCategoryPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterOr) *GetTagsFilterOrCostCategory { return v.CostCategory }).(GetTagsFilterOrCostCategoryPtrOutput)
 }
 
-// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterOrOutput) Dimension() GetTagsFilterOrDimensionPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterOr) *GetTagsFilterOrDimension { return v.Dimension }).(GetTagsFilterOrDimensionPtrOutput)
 }

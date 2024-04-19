@@ -20,6 +20,10 @@ public final class GetAliasResult {
      * 
      */
     private String id;
+    /**
+     * @return Name of the alias
+     * 
+     */
     private String name;
     /**
      * @return ARN pointed to by the alias.
@@ -47,6 +51,10 @@ public final class GetAliasResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Name of the alias
+     * 
+     */
     public String name() {
         return this.name;
     }

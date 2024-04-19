@@ -36,6 +36,7 @@ import * as utilities from "../utilities";
  *         "127.0.0.1",
  *         "10.0.0.2",
  *     ],
+ *     ipv6AddressPreferredLeaseTime: "1440",
  *     ntpServers: ["127.0.0.1"],
  *     netbiosNameServers: ["127.0.0.1"],
  *     netbiosNodeType: "2",
@@ -103,6 +104,10 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
      */
     public readonly domainNameServers!: pulumi.Output<string[] | undefined>;
     /**
+     * How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+     */
+    public readonly ipv6AddressPreferredLeaseTime!: pulumi.Output<string | undefined>;
+    /**
      * List of NETBIOS name servers.
      */
     public readonly netbiosNameServers!: pulumi.Output<string[] | undefined>;
@@ -145,6 +150,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["domainNameServers"] = state ? state.domainNameServers : undefined;
+            resourceInputs["ipv6AddressPreferredLeaseTime"] = state ? state.ipv6AddressPreferredLeaseTime : undefined;
             resourceInputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;
             resourceInputs["netbiosNodeType"] = state ? state.netbiosNodeType : undefined;
             resourceInputs["ntpServers"] = state ? state.ntpServers : undefined;
@@ -155,6 +161,7 @@ export class VpcDhcpOptions extends pulumi.CustomResource {
             const args = argsOrState as VpcDhcpOptionsArgs | undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["domainNameServers"] = args ? args.domainNameServers : undefined;
+            resourceInputs["ipv6AddressPreferredLeaseTime"] = args ? args.ipv6AddressPreferredLeaseTime : undefined;
             resourceInputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
             resourceInputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
             resourceInputs["ntpServers"] = args ? args.ntpServers : undefined;
@@ -184,6 +191,10 @@ export interface VpcDhcpOptionsState {
      * List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
      */
     domainNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+     */
+    ipv6AddressPreferredLeaseTime?: pulumi.Input<string>;
     /**
      * List of NETBIOS name servers.
      */
@@ -224,6 +235,10 @@ export interface VpcDhcpOptionsArgs {
      * List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
      */
     domainNameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+     */
+    ipv6AddressPreferredLeaseTime?: pulumi.Input<string>;
     /**
      * List of NETBIOS name servers.
      */

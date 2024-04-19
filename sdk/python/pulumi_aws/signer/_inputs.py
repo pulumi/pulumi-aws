@@ -265,6 +265,11 @@ class SigningProfileRevocationRecordArgs:
                  revocation_effective_from: Optional[pulumi.Input[str]] = None,
                  revoked_at: Optional[pulumi.Input[str]] = None,
                  revoked_by: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] revocation_effective_from: The time when revocation becomes effective.
+        :param pulumi.Input[str] revoked_at: The time when the signing profile was revoked.
+        :param pulumi.Input[str] revoked_by: The identity of the revoker.
+        """
         if revocation_effective_from is not None:
             pulumi.set(__self__, "revocation_effective_from", revocation_effective_from)
         if revoked_at is not None:
@@ -275,6 +280,9 @@ class SigningProfileRevocationRecordArgs:
     @property
     @pulumi.getter(name="revocationEffectiveFrom")
     def revocation_effective_from(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time when revocation becomes effective.
+        """
         return pulumi.get(self, "revocation_effective_from")
 
     @revocation_effective_from.setter
@@ -284,6 +292,9 @@ class SigningProfileRevocationRecordArgs:
     @property
     @pulumi.getter(name="revokedAt")
     def revoked_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time when the signing profile was revoked.
+        """
         return pulumi.get(self, "revoked_at")
 
     @revoked_at.setter
@@ -293,6 +304,9 @@ class SigningProfileRevocationRecordArgs:
     @property
     @pulumi.getter(name="revokedBy")
     def revoked_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity of the revoker.
+        """
         return pulumi.get(self, "revoked_by")
 
     @revoked_by.setter
@@ -305,12 +319,19 @@ class SigningProfileSignatureValidityPeriodArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] type: The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+        :param pulumi.Input[int] value: The numerical value of the time unit for signature validity.
+        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -320,6 +341,9 @@ class SigningProfileSignatureValidityPeriodArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[int]:
+        """
+        The numerical value of the time unit for signature validity.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -331,11 +355,17 @@ class SigningProfileSignatureValidityPeriodArgs:
 class SigningProfileSigningMaterialArgs:
     def __init__(__self__, *,
                  certificate_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+        """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter

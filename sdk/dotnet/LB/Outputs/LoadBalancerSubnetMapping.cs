@@ -14,16 +14,16 @@ namespace Pulumi.Aws.LB.Outputs
     public sealed class LoadBalancerSubnetMapping
     {
         /// <summary>
-        /// The allocation ID of the Elastic IP address for an internet-facing load balancer.
+        /// Allocation ID of the Elastic IP address for an internet-facing load balancer.
         /// </summary>
         public readonly string? AllocationId;
         /// <summary>
-        /// The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+        /// IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
         /// </summary>
         public readonly string? Ipv6Address;
         public readonly string? OutpostId;
         /// <summary>
-        /// The private IPv4 address for an internal load balancer.
+        /// Private IPv4 address for an internal load balancer.
         /// </summary>
         public readonly string? PrivateIpv4Address;
         /// <summary>

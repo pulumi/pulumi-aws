@@ -407,6 +407,20 @@ public class Eip extends com.pulumi.resources.CustomResource {
         return this.privateIp;
     }
     /**
+     * The DNS pointer (PTR) record for the IP address.
+     * 
+     */
+    @Export(name="ptrRecord", refs={String.class}, tree="[0]")
+    private Output<String> ptrRecord;
+
+    /**
+     * @return The DNS pointer (PTR) record for the IP address.
+     * 
+     */
+    public Output<String> ptrRecord() {
+        return this.ptrRecord;
+    }
+    /**
      * Public DNS associated with the Elastic IP address.
      * 
      */

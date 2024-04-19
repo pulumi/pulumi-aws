@@ -63,7 +63,8 @@ type LookupAliasResult struct {
 	// Amazon Resource Name(ARN) of the key alias.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Name of the alias
 	Name string `pulumi:"name"`
 	// ARN pointed to by the alias.
 	TargetKeyArn string `pulumi:"targetKeyArn"`
@@ -119,6 +120,7 @@ func (o LookupAliasResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Name of the alias
 func (o LookupAliasResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Name }).(pulumi.StringOutput)
 }

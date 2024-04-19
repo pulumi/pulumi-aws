@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Mwaa.Outputs
     {
         /// <summary>
         /// The Created At date of the MWAA Environment
-        /// * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         /// </summary>
         public readonly string? CreatedAt;
         public readonly ImmutableArray<Outputs.EnvironmentLastUpdatedError> Errors;

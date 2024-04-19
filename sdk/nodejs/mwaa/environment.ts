@@ -176,13 +176,17 @@ export class Environment extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Created At date of the MWAA Environment
-     * * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
     public readonly dagS3Path!: pulumi.Output<string>;
+    /**
+     * The VPC endpoint for the environment's Amazon RDS database
+     * * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+     */
+    public /*out*/ readonly databaseVpcEndpointService!: pulumi.Output<string>;
     public readonly endpointManagement!: pulumi.Output<string>;
     /**
      * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
@@ -276,6 +280,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly webserverUrl!: pulumi.Output<string>;
     /**
+     * The VPC endpoint for the environment's web server
+     */
+    public /*out*/ readonly webserverVpcEndpointService!: pulumi.Output<string>;
+    /**
      * Specifies the start date for the weekly maintenance window.
      */
     public readonly weeklyMaintenanceWindowStart!: pulumi.Output<string>;
@@ -298,6 +306,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["dagS3Path"] = state ? state.dagS3Path : undefined;
+            resourceInputs["databaseVpcEndpointService"] = state ? state.databaseVpcEndpointService : undefined;
             resourceInputs["endpointManagement"] = state ? state.endpointManagement : undefined;
             resourceInputs["environmentClass"] = state ? state.environmentClass : undefined;
             resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
@@ -322,6 +331,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["webserverAccessMode"] = state ? state.webserverAccessMode : undefined;
             resourceInputs["webserverUrl"] = state ? state.webserverUrl : undefined;
+            resourceInputs["webserverVpcEndpointService"] = state ? state.webserverVpcEndpointService : undefined;
             resourceInputs["weeklyMaintenanceWindowStart"] = state ? state.weeklyMaintenanceWindowStart : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
@@ -362,11 +372,13 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["databaseVpcEndpointService"] = undefined /*out*/;
             resourceInputs["lastUpdateds"] = undefined /*out*/;
             resourceInputs["serviceRoleArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["webserverUrl"] = undefined /*out*/;
+            resourceInputs["webserverVpcEndpointService"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["airflowConfigurationOptions"] };
@@ -393,13 +405,17 @@ export interface EnvironmentState {
     arn?: pulumi.Input<string>;
     /**
      * The Created At date of the MWAA Environment
-     * * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      */
     createdAt?: pulumi.Input<string>;
     /**
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
     dagS3Path?: pulumi.Input<string>;
+    /**
+     * The VPC endpoint for the environment's Amazon RDS database
+     * * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+     */
+    databaseVpcEndpointService?: pulumi.Input<string>;
     endpointManagement?: pulumi.Input<string>;
     /**
      * Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
@@ -492,6 +508,10 @@ export interface EnvironmentState {
      * The webserver URL of the MWAA Environment
      */
     webserverUrl?: pulumi.Input<string>;
+    /**
+     * The VPC endpoint for the environment's web server
+     */
+    webserverVpcEndpointService?: pulumi.Input<string>;
     /**
      * Specifies the start date for the weekly maintenance window.
      */

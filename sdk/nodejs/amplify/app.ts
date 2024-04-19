@@ -215,7 +215,7 @@ export class App extends pulumi.CustomResource {
     }
 
     /**
-     * Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+     * Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
      */
     public readonly accessToken!: pulumi.Output<string | undefined>;
     /**
@@ -383,7 +383,7 @@ export class App extends pulumi.CustomResource {
  */
 export interface AppState {
     /**
-     * Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+     * Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
      */
     accessToken?: pulumi.Input<string>;
     /**
@@ -483,7 +483,7 @@ export interface AppState {
  */
 export interface AppArgs {
     /**
-     * Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+     * Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
      */
     accessToken?: pulumi.Input<string>;
     /**

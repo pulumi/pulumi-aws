@@ -185,6 +185,20 @@ public class Organization extends com.pulumi.resources.CustomResource {
         return this.masterAccountId;
     }
     /**
+     * Name of the master account
+     * 
+     */
+    @Export(name="masterAccountName", refs={String.class}, tree="[0]")
+    private Output<String> masterAccountName;
+
+    /**
+     * @return Name of the master account
+     * 
+     */
+    public Output<String> masterAccountName() {
+        return this.masterAccountName;
+    }
+    /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      * 
      */

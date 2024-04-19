@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.autoscaling.inputs;
 
+import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshPreferencesAlarmSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupInstanceRefreshPreferencesArgs Empty = new GroupInstanceRefreshPreferencesArgs();
+
+    /**
+     * Alarm Specification for Instance Refresh.
+     * 
+     */
+    @Import(name="alarmSpecification")
+    private @Nullable Output<GroupInstanceRefreshPreferencesAlarmSpecificationArgs> alarmSpecification;
+
+    /**
+     * @return Alarm Specification for Instance Refresh.
+     * 
+     */
+    public Optional<Output<GroupInstanceRefreshPreferencesAlarmSpecificationArgs>> alarmSpecification() {
+        return Optional.ofNullable(this.alarmSpecification);
+    }
 
     /**
      * Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
@@ -156,6 +172,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     private GroupInstanceRefreshPreferencesArgs() {}
 
     private GroupInstanceRefreshPreferencesArgs(GroupInstanceRefreshPreferencesArgs $) {
+        this.alarmSpecification = $.alarmSpecification;
         this.autoRollback = $.autoRollback;
         this.checkpointDelay = $.checkpointDelay;
         this.checkpointPercentages = $.checkpointPercentages;
@@ -183,6 +200,27 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
 
         public Builder(GroupInstanceRefreshPreferencesArgs defaults) {
             $ = new GroupInstanceRefreshPreferencesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param alarmSpecification Alarm Specification for Instance Refresh.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alarmSpecification(@Nullable Output<GroupInstanceRefreshPreferencesAlarmSpecificationArgs> alarmSpecification) {
+            $.alarmSpecification = alarmSpecification;
+            return this;
+        }
+
+        /**
+         * @param alarmSpecification Alarm Specification for Instance Refresh.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alarmSpecification(GroupInstanceRefreshPreferencesAlarmSpecificationArgs alarmSpecification) {
+            return alarmSpecification(Output.of(alarmSpecification));
         }
 
         /**

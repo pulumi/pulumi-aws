@@ -61,14 +61,14 @@ public final class ImageOutputResourceAmiArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Name of the AMI.
+     * The name of the Workflow parameter.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the AMI.
+     * @return The name of the Workflow parameter.
      * 
      */
     public Optional<Output<String>> name() {
@@ -182,7 +182,7 @@ public final class ImageOutputResourceAmiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Name of the AMI.
+         * @param name The name of the Workflow parameter.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ImageOutputResourceAmiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Name of the AMI.
+         * @param name The name of the Workflow parameter.
          * 
          * @return builder
          * 

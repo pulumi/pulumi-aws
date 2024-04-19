@@ -52,6 +52,9 @@ export interface GetAliasResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Name of the alias
+     */
     readonly name: string;
     /**
      * ARN pointed to by the alias.

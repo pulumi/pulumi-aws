@@ -55,7 +55,7 @@ namespace Pulumi.Aws.LightSail
     ///         Name = "test-instance",
     ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
     ///         BlueprintId = "amazon_linux_2",
-    ///         BundleId = "nano_1_0",
+    ///         BundleId = "nano_3_0",
     ///     });
     /// 
     ///     var testLbAttachment = new Aws.LightSail.LbAttachment("test", new()

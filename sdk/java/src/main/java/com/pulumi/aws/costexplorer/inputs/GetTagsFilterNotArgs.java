@@ -18,14 +18,14 @@ public final class GetTagsFilterNotArgs extends com.pulumi.resources.ResourceArg
     public static final GetTagsFilterNotArgs Empty = new GetTagsFilterNotArgs();
 
     /**
-     * Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+     * Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
      * 
      */
     @Import(name="costCategory")
     private @Nullable Output<GetTagsFilterNotCostCategoryArgs> costCategory;
 
     /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
      * 
      */
     public Optional<Output<GetTagsFilterNotCostCategoryArgs>> costCategory() {
@@ -33,14 +33,14 @@ public final class GetTagsFilterNotArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+     * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
      * 
      */
     @Import(name="dimension")
     private @Nullable Output<GetTagsFilterNotDimensionArgs> dimension;
 
     /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
+     * @return Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
      * 
      */
     public Optional<Output<GetTagsFilterNotDimensionArgs>> dimension() {
@@ -89,7 +89,7 @@ public final class GetTagsFilterNotArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GetTagsFilterNotArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class GetTagsFilterNotArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class GetTagsFilterNotArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
          * 
          * @return builder
          * 

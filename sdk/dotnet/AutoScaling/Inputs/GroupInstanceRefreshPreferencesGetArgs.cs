@@ -13,6 +13,12 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class GroupInstanceRefreshPreferencesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Alarm Specification for Instance Refresh.
+        /// </summary>
+        [Input("alarmSpecification")]
+        public Input<Inputs.GroupInstanceRefreshPreferencesAlarmSpecificationGetArgs>? AlarmSpecification { get; set; }
+
+        /// <summary>
         /// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
         /// </summary>
         [Input("autoRollback")]

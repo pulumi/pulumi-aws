@@ -80,6 +80,7 @@ class _OrganizationState:
                  master_account_arn: Optional[pulumi.Input[str]] = None,
                  master_account_email: Optional[pulumi.Input[str]] = None,
                  master_account_id: Optional[pulumi.Input[str]] = None,
+                 master_account_name: Optional[pulumi.Input[str]] = None,
                  non_master_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationNonMasterAccountArgs']]]] = None,
                  roots: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootArgs']]]] = None):
         """
@@ -92,6 +93,7 @@ class _OrganizationState:
         :param pulumi.Input[str] master_account_arn: ARN of the master account
         :param pulumi.Input[str] master_account_email: Email address of the master account
         :param pulumi.Input[str] master_account_id: Identifier of the master account
+        :param pulumi.Input[str] master_account_name: Name of the master account
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationNonMasterAccountArgs']]] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRootArgs']]] roots: List of organization roots. All elements have these attributes:
         """
@@ -111,6 +113,8 @@ class _OrganizationState:
             pulumi.set(__self__, "master_account_email", master_account_email)
         if master_account_id is not None:
             pulumi.set(__self__, "master_account_id", master_account_id)
+        if master_account_name is not None:
+            pulumi.set(__self__, "master_account_name", master_account_name)
         if non_master_accounts is not None:
             pulumi.set(__self__, "non_master_accounts", non_master_accounts)
         if roots is not None:
@@ -211,6 +215,18 @@ class _OrganizationState:
     @master_account_id.setter
     def master_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "master_account_id", value)
+
+    @property
+    @pulumi.getter(name="masterAccountName")
+    def master_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the master account
+        """
+        return pulumi.get(self, "master_account_name")
+
+    @master_account_name.setter
+    def master_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_account_name", value)
 
     @property
     @pulumi.getter(name="nonMasterAccounts")
@@ -355,6 +371,7 @@ class Organization(pulumi.CustomResource):
             __props__.__dict__["master_account_arn"] = None
             __props__.__dict__["master_account_email"] = None
             __props__.__dict__["master_account_id"] = None
+            __props__.__dict__["master_account_name"] = None
             __props__.__dict__["non_master_accounts"] = None
             __props__.__dict__["roots"] = None
         super(Organization, __self__).__init__(
@@ -375,6 +392,7 @@ class Organization(pulumi.CustomResource):
             master_account_arn: Optional[pulumi.Input[str]] = None,
             master_account_email: Optional[pulumi.Input[str]] = None,
             master_account_id: Optional[pulumi.Input[str]] = None,
+            master_account_name: Optional[pulumi.Input[str]] = None,
             non_master_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationNonMasterAccountArgs']]]]] = None,
             roots: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationRootArgs']]]]] = None) -> 'Organization':
         """
@@ -392,6 +410,7 @@ class Organization(pulumi.CustomResource):
         :param pulumi.Input[str] master_account_arn: ARN of the master account
         :param pulumi.Input[str] master_account_email: Email address of the master account
         :param pulumi.Input[str] master_account_id: Identifier of the master account
+        :param pulumi.Input[str] master_account_name: Name of the master account
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationNonMasterAccountArgs']]]] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationRootArgs']]]] roots: List of organization roots. All elements have these attributes:
         """
@@ -407,6 +426,7 @@ class Organization(pulumi.CustomResource):
         __props__.__dict__["master_account_arn"] = master_account_arn
         __props__.__dict__["master_account_email"] = master_account_email
         __props__.__dict__["master_account_id"] = master_account_id
+        __props__.__dict__["master_account_name"] = master_account_name
         __props__.__dict__["non_master_accounts"] = non_master_accounts
         __props__.__dict__["roots"] = roots
         return Organization(resource_name, opts=opts, __props__=__props__)
@@ -474,6 +494,14 @@ class Organization(pulumi.CustomResource):
         Identifier of the master account
         """
         return pulumi.get(self, "master_account_id")
+
+    @property
+    @pulumi.getter(name="masterAccountName")
+    def master_account_name(self) -> pulumi.Output[str]:
+        """
+        Name of the master account
+        """
+        return pulumi.get(self, "master_account_name")
 
     @property
     @pulumi.getter(name="nonMasterAccounts")

@@ -73,6 +73,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     public /*out*/ readonly domainNameServers!: pulumi.Output<string>;
+    public /*out*/ readonly ipv6AddressPreferredLeaseTime!: pulumi.Output<string>;
     /**
      * List of NETBIOS name servers.
      */
@@ -111,6 +112,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["domainNameServers"] = state ? state.domainNameServers : undefined;
+            resourceInputs["ipv6AddressPreferredLeaseTime"] = state ? state.ipv6AddressPreferredLeaseTime : undefined;
             resourceInputs["netbiosNameServers"] = state ? state.netbiosNameServers : undefined;
             resourceInputs["netbiosNodeType"] = state ? state.netbiosNodeType : undefined;
             resourceInputs["ntpServers"] = state ? state.ntpServers : undefined;
@@ -124,6 +126,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["domainNameServers"] = undefined /*out*/;
+            resourceInputs["ipv6AddressPreferredLeaseTime"] = undefined /*out*/;
             resourceInputs["netbiosNameServers"] = undefined /*out*/;
             resourceInputs["netbiosNodeType"] = undefined /*out*/;
             resourceInputs["ntpServers"] = undefined /*out*/;
@@ -144,6 +147,7 @@ export interface DefaultVpcDhcpOptionsState {
     arn?: pulumi.Input<string>;
     domainName?: pulumi.Input<string>;
     domainNameServers?: pulumi.Input<string>;
+    ipv6AddressPreferredLeaseTime?: pulumi.Input<string>;
     /**
      * List of NETBIOS name servers.
      */

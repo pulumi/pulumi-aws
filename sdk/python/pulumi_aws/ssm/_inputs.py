@@ -578,9 +578,9 @@ class DocumentAttachmentsSourceArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] key: The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value describing the location of an attachment to a document
-        :param pulumi.Input[str] name: The name of the document attachment file
+        :param pulumi.Input[str] key: The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
+        :param pulumi.Input[str] name: The name of the document attachment file.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -591,7 +591,7 @@ class DocumentAttachmentsSourceArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
+        The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
         """
         return pulumi.get(self, "key")
 
@@ -603,7 +603,7 @@ class DocumentAttachmentsSourceArgs:
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The value describing the location of an attachment to a document
+        The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
         """
         return pulumi.get(self, "values")
 
@@ -615,7 +615,7 @@ class DocumentAttachmentsSourceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the document attachment file
+        The name of the document attachment file.
         """
         return pulumi.get(self, "name")
 
@@ -632,8 +632,10 @@ class DocumentParameterArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] description: The description of the document.
+        :param pulumi.Input[str] default_value: If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
+        :param pulumi.Input[str] description: A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
         :param pulumi.Input[str] name: The name of the document.
+        :param pulumi.Input[str] type: The permission type for the document. The permission type can be `Share`.
         """
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
@@ -647,6 +649,9 @@ class DocumentParameterArgs:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
+        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -657,7 +662,7 @@ class DocumentParameterArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the document.
+        A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
         """
         return pulumi.get(self, "description")
 
@@ -680,6 +685,9 @@ class DocumentParameterArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The permission type for the document. The permission type can be `Share`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter

@@ -102,6 +102,10 @@ export interface GetVpcDhcpOptionsResult {
      */
     readonly id: string;
     /**
+     * How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
+     */
+    readonly ipv6AddressPreferredLeaseTime: string;
+    /**
      * List of NETBIOS name servers.
      */
     readonly netbiosNameServers: string[];

@@ -133,6 +133,21 @@ public final class ReplicationTaskState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+     * 
+     */
+    @Import(name="resourceIdentifier")
+    private @Nullable Output<String> resourceIdentifier;
+
+    /**
+     * @return A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+     * 
+     */
+    public Optional<Output<String>> resourceIdentifier() {
+        return Optional.ofNullable(this.resourceIdentifier);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      * 
      */
@@ -255,6 +270,7 @@ public final class ReplicationTaskState extends com.pulumi.resources.ResourceArg
         this.replicationTaskArn = $.replicationTaskArn;
         this.replicationTaskId = $.replicationTaskId;
         this.replicationTaskSettings = $.replicationTaskSettings;
+        this.resourceIdentifier = $.resourceIdentifier;
         this.sourceEndpointArn = $.sourceEndpointArn;
         this.startReplicationTask = $.startReplicationTask;
         this.status = $.status;
@@ -437,6 +453,27 @@ public final class ReplicationTaskState extends com.pulumi.resources.ResourceArg
          */
         public Builder replicationTaskSettings(String replicationTaskSettings) {
             return replicationTaskSettings(Output.of(replicationTaskSettings));
+        }
+
+        /**
+         * @param resourceIdentifier A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceIdentifier(@Nullable Output<String> resourceIdentifier) {
+            $.resourceIdentifier = resourceIdentifier;
+            return this;
+        }
+
+        /**
+         * @param resourceIdentifier A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceIdentifier(String resourceIdentifier) {
+            return resourceIdentifier(Output.of(resourceIdentifier));
         }
 
         /**

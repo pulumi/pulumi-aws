@@ -30,7 +30,7 @@ public final class GetEipsResult {
      * 
      */
     private List<String> publicIps;
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetEipsResult() {}
     /**
@@ -58,7 +58,7 @@ public final class GetEipsResult {
         return this.publicIps;
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -74,7 +74,7 @@ public final class GetEipsResult {
         private @Nullable List<GetEipsFilter> filters;
         private String id;
         private List<String> publicIps;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetEipsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -125,10 +125,8 @@ public final class GetEipsResult {
             return publicIps(List.of(publicIps));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            if (tags == null) {
-              throw new MissingRequiredPropertyException("GetEipsResult", "tags");
-            }
+        public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

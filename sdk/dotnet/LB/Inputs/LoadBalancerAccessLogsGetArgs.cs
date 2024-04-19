@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LB.Inputs
     public sealed class LoadBalancerAccessLogsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The S3 bucket name to store the logs in.
+        /// S3 bucket name to store the logs in.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.LB.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The S3 bucket prefix. Logs are stored in the root if not configured.
+        /// S3 bucket prefix. Logs are stored in the root if not configured.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
