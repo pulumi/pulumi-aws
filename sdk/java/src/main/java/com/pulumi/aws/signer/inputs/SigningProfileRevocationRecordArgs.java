@@ -15,23 +15,47 @@ public final class SigningProfileRevocationRecordArgs extends com.pulumi.resourc
 
     public static final SigningProfileRevocationRecordArgs Empty = new SigningProfileRevocationRecordArgs();
 
+    /**
+     * The time when revocation becomes effective.
+     * 
+     */
     @Import(name="revocationEffectiveFrom")
     private @Nullable Output<String> revocationEffectiveFrom;
 
+    /**
+     * @return The time when revocation becomes effective.
+     * 
+     */
     public Optional<Output<String>> revocationEffectiveFrom() {
         return Optional.ofNullable(this.revocationEffectiveFrom);
     }
 
+    /**
+     * The time when the signing profile was revoked.
+     * 
+     */
     @Import(name="revokedAt")
     private @Nullable Output<String> revokedAt;
 
+    /**
+     * @return The time when the signing profile was revoked.
+     * 
+     */
     public Optional<Output<String>> revokedAt() {
         return Optional.ofNullable(this.revokedAt);
     }
 
+    /**
+     * The identity of the revoker.
+     * 
+     */
     @Import(name="revokedBy")
     private @Nullable Output<String> revokedBy;
 
+    /**
+     * @return The identity of the revoker.
+     * 
+     */
     public Optional<Output<String>> revokedBy() {
         return Optional.ofNullable(this.revokedBy);
     }
@@ -62,29 +86,65 @@ public final class SigningProfileRevocationRecordArgs extends com.pulumi.resourc
             $ = new SigningProfileRevocationRecordArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param revocationEffectiveFrom The time when revocation becomes effective.
+         * 
+         * @return builder
+         * 
+         */
         public Builder revocationEffectiveFrom(@Nullable Output<String> revocationEffectiveFrom) {
             $.revocationEffectiveFrom = revocationEffectiveFrom;
             return this;
         }
 
+        /**
+         * @param revocationEffectiveFrom The time when revocation becomes effective.
+         * 
+         * @return builder
+         * 
+         */
         public Builder revocationEffectiveFrom(String revocationEffectiveFrom) {
             return revocationEffectiveFrom(Output.of(revocationEffectiveFrom));
         }
 
+        /**
+         * @param revokedAt The time when the signing profile was revoked.
+         * 
+         * @return builder
+         * 
+         */
         public Builder revokedAt(@Nullable Output<String> revokedAt) {
             $.revokedAt = revokedAt;
             return this;
         }
 
+        /**
+         * @param revokedAt The time when the signing profile was revoked.
+         * 
+         * @return builder
+         * 
+         */
         public Builder revokedAt(String revokedAt) {
             return revokedAt(Output.of(revokedAt));
         }
 
+        /**
+         * @param revokedBy The identity of the revoker.
+         * 
+         * @return builder
+         * 
+         */
         public Builder revokedBy(@Nullable Output<String> revokedBy) {
             $.revokedBy = revokedBy;
             return this;
         }
 
+        /**
+         * @param revokedBy The identity of the revoker.
+         * 
+         * @return builder
+         * 
+         */
         public Builder revokedBy(String revokedBy) {
             return revokedBy(Output.of(revokedBy));
         }

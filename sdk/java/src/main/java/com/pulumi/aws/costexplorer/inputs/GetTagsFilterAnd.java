@@ -17,14 +17,14 @@ public final class GetTagsFilterAnd extends com.pulumi.resources.InvokeArgs {
     public static final GetTagsFilterAnd Empty = new GetTagsFilterAnd();
 
     /**
-     * Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+     * Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
      * 
      */
     @Import(name="costCategory")
     private @Nullable GetTagsFilterAndCostCategory costCategory;
 
     /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
      * 
      */
     public Optional<GetTagsFilterAndCostCategory> costCategory() {
@@ -32,14 +32,14 @@ public final class GetTagsFilterAnd extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+     * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
      * 
      */
     @Import(name="dimension")
     private @Nullable GetTagsFilterAndDimension dimension;
 
     /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
+     * @return Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
      * 
      */
     public Optional<GetTagsFilterAndDimension> dimension() {
@@ -88,7 +88,7 @@ public final class GetTagsFilterAnd extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetTagsFilterAnd extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
          * 
          * @return builder
          * 

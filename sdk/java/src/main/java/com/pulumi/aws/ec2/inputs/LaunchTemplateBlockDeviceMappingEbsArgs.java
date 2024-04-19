@@ -18,7 +18,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
     /**
      * Whether the volume should be destroyed on instance termination.
-     * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+     * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
      * 
      */
     @Import(name="deleteOnTermination")
@@ -26,7 +26,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
     /**
      * @return Whether the volume should be destroyed on instance termination.
-     * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+     * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
      * 
      */
     public Optional<Output<String>> deleteOnTermination() {
@@ -179,7 +179,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
         /**
          * @param deleteOnTermination Whether the volume should be destroyed on instance termination.
-         * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+         * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs extends com.pulumi.re
 
         /**
          * @param deleteOnTermination Whether the volume should be destroyed on instance termination.
-         * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+         * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
          * 
          * @return builder
          * 

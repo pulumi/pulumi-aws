@@ -47,14 +47,14 @@ public final class OriginAccessControlArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+     * The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
      * 
      */
     @Import(name="originAccessControlOriginType", required=true)
     private Output<String> originAccessControlOriginType;
 
     /**
-     * @return The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+     * @return The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
      * 
      */
     public Output<String> originAccessControlOriginType() {
@@ -162,7 +162,7 @@ public final class OriginAccessControlArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param originAccessControlOriginType The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+         * @param originAccessControlOriginType The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class OriginAccessControlArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param originAccessControlOriginType The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+         * @param originAccessControlOriginType The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
          * 
          * @return builder
          * 

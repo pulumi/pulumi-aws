@@ -15,7 +15,6 @@ import javax.annotation.Nullable;
 public final class EnvironmentLastUpdated {
     /**
      * @return The Created At date of the MWAA Environment
-     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
     private @Nullable String createdAt;
@@ -29,7 +28,6 @@ public final class EnvironmentLastUpdated {
     private EnvironmentLastUpdated() {}
     /**
      * @return The Created At date of the MWAA Environment
-     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
     public Optional<String> createdAt() {

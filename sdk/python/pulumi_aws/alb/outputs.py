@@ -1783,9 +1783,9 @@ class LoadBalancerAccessLogs(dict):
                  enabled: Optional[bool] = None,
                  prefix: Optional[str] = None):
         """
-        :param str bucket: The S3 bucket name to store the logs in.
+        :param str bucket: S3 bucket name to store the logs in.
         :param bool enabled: Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
-        :param str prefix: The S3 bucket prefix. Logs are stored in the root if not configured.
+        :param str prefix: S3 bucket prefix. Logs are stored in the root if not configured.
         """
         pulumi.set(__self__, "bucket", bucket)
         if enabled is not None:
@@ -1797,7 +1797,7 @@ class LoadBalancerAccessLogs(dict):
     @pulumi.getter
     def bucket(self) -> str:
         """
-        The S3 bucket name to store the logs in.
+        S3 bucket name to store the logs in.
         """
         return pulumi.get(self, "bucket")
 
@@ -1813,7 +1813,7 @@ class LoadBalancerAccessLogs(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        The S3 bucket prefix. Logs are stored in the root if not configured.
+        S3 bucket prefix. Logs are stored in the root if not configured.
         """
         return pulumi.get(self, "prefix")
 
@@ -1825,9 +1825,9 @@ class LoadBalancerConnectionLogs(dict):
                  enabled: Optional[bool] = None,
                  prefix: Optional[str] = None):
         """
-        :param str bucket: The S3 bucket name to store the logs in.
+        :param str bucket: S3 bucket name to store the logs in.
         :param bool enabled: Boolean to enable / disable `connection_logs`. Defaults to `false`, even when `bucket` is specified.
-        :param str prefix: The S3 bucket prefix. Logs are stored in the root if not configured.
+        :param str prefix: S3 bucket prefix. Logs are stored in the root if not configured.
         """
         pulumi.set(__self__, "bucket", bucket)
         if enabled is not None:
@@ -1839,7 +1839,7 @@ class LoadBalancerConnectionLogs(dict):
     @pulumi.getter
     def bucket(self) -> str:
         """
-        The S3 bucket name to store the logs in.
+        S3 bucket name to store the logs in.
         """
         return pulumi.get(self, "bucket")
 
@@ -1855,7 +1855,7 @@ class LoadBalancerConnectionLogs(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        The S3 bucket prefix. Logs are stored in the root if not configured.
+        S3 bucket prefix. Logs are stored in the root if not configured.
         """
         return pulumi.get(self, "prefix")
 
@@ -1895,9 +1895,9 @@ class LoadBalancerSubnetMapping(dict):
                  private_ipv4_address: Optional[str] = None):
         """
         :param str subnet_id: ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-        :param str allocation_id: The allocation ID of the Elastic IP address for an internet-facing load balancer.
-        :param str ipv6_address: The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
-        :param str private_ipv4_address: The private IPv4 address for an internal load balancer.
+        :param str allocation_id: Allocation ID of the Elastic IP address for an internet-facing load balancer.
+        :param str ipv6_address: IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+        :param str private_ipv4_address: Private IPv4 address for an internal load balancer.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if allocation_id is not None:
@@ -1921,7 +1921,7 @@ class LoadBalancerSubnetMapping(dict):
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[str]:
         """
-        The allocation ID of the Elastic IP address for an internet-facing load balancer.
+        Allocation ID of the Elastic IP address for an internet-facing load balancer.
         """
         return pulumi.get(self, "allocation_id")
 
@@ -1929,7 +1929,7 @@ class LoadBalancerSubnetMapping(dict):
     @pulumi.getter(name="ipv6Address")
     def ipv6_address(self) -> Optional[str]:
         """
-        The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+        IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
         """
         return pulumi.get(self, "ipv6_address")
 
@@ -1942,7 +1942,7 @@ class LoadBalancerSubnetMapping(dict):
     @pulumi.getter(name="privateIpv4Address")
     def private_ipv4_address(self) -> Optional[str]:
         """
-        The private IPv4 address for an internal load balancer.
+        Private IPv4 address for an internal load balancer.
         """
         return pulumi.get(self, "private_ipv4_address")
 

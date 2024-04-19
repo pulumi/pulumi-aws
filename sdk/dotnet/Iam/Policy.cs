@@ -71,6 +71,12 @@ namespace Pulumi.Aws.Iam
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Number of entities (users, groups, and roles) that the policy is attached to.
+        /// </summary>
+        [Output("attachmentCount")]
+        public Output<int> AttachmentCount { get; private set; } = null!;
+
+        /// <summary>
         /// Description of the IAM policy.
         /// </summary>
         [Output("description")]
@@ -219,6 +225,12 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Number of entities (users, groups, and roles) that the policy is attached to.
+        /// </summary>
+        [Input("attachmentCount")]
+        public Input<int>? AttachmentCount { get; set; }
 
         /// <summary>
         /// Description of the IAM policy.

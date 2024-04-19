@@ -99,6 +99,12 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
     public Output<String> domainNameServers() {
         return this.domainNameServers;
     }
+    @Export(name="ipv6AddressPreferredLeaseTime", refs={String.class}, tree="[0]")
+    private Output<String> ipv6AddressPreferredLeaseTime;
+
+    public Output<String> ipv6AddressPreferredLeaseTime() {
+        return this.ipv6AddressPreferredLeaseTime;
+    }
     /**
      * List of NETBIOS name servers.
      * 

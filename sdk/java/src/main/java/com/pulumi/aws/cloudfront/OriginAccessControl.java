@@ -112,14 +112,14 @@ public class OriginAccessControl extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+     * The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
      * 
      */
     @Export(name="originAccessControlOriginType", refs={String.class}, tree="[0]")
     private Output<String> originAccessControlOriginType;
 
     /**
-     * @return The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+     * @return The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
      * 
      */
     public Output<String> originAccessControlOriginType() {

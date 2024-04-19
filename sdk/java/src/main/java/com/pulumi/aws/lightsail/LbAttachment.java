@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;test-instance&#34;)
  *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
  *             .blueprintId(&#34;amazon_linux_2&#34;)
- *             .bundleId(&#34;nano_1_0&#34;)
+ *             .bundleId(&#34;nano_3_0&#34;)
  *             .build());
  * 
  *         var testLbAttachment = new LbAttachment(&#34;testLbAttachment&#34;, LbAttachmentArgs.builder()        

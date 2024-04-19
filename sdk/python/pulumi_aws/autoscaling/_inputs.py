@@ -15,6 +15,7 @@ __all__ = [
     'GroupInstanceMaintenancePolicyArgs',
     'GroupInstanceRefreshArgs',
     'GroupInstanceRefreshPreferencesArgs',
+    'GroupInstanceRefreshPreferencesAlarmSpecificationArgs',
     'GroupLaunchTemplateArgs',
     'GroupMixedInstancesPolicyArgs',
     'GroupMixedInstancesPolicyInstancesDistributionArgs',
@@ -273,6 +274,7 @@ class GroupInstanceRefreshArgs:
 @pulumi.input_type
 class GroupInstanceRefreshPreferencesArgs:
     def __init__(__self__, *,
+                 alarm_specification: Optional[pulumi.Input['GroupInstanceRefreshPreferencesAlarmSpecificationArgs']] = None,
                  auto_rollback: Optional[pulumi.Input[bool]] = None,
                  checkpoint_delay: Optional[pulumi.Input[str]] = None,
                  checkpoint_percentages: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -283,6 +285,7 @@ class GroupInstanceRefreshPreferencesArgs:
                  skip_matching: Optional[pulumi.Input[bool]] = None,
                  standby_instances: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input['GroupInstanceRefreshPreferencesAlarmSpecificationArgs'] alarm_specification: Alarm Specification for Instance Refresh.
         :param pulumi.Input[bool] auto_rollback: Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
         :param pulumi.Input[str] checkpoint_delay: Number of seconds to wait after a checkpoint. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] checkpoint_percentages: List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
@@ -293,6 +296,8 @@ class GroupInstanceRefreshPreferencesArgs:
         :param pulumi.Input[bool] skip_matching: Replace instances that already have your desired configuration. Defaults to `false`.
         :param pulumi.Input[str] standby_instances: Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
         """
+        if alarm_specification is not None:
+            pulumi.set(__self__, "alarm_specification", alarm_specification)
         if auto_rollback is not None:
             pulumi.set(__self__, "auto_rollback", auto_rollback)
         if checkpoint_delay is not None:
@@ -311,6 +316,18 @@ class GroupInstanceRefreshPreferencesArgs:
             pulumi.set(__self__, "skip_matching", skip_matching)
         if standby_instances is not None:
             pulumi.set(__self__, "standby_instances", standby_instances)
+
+    @property
+    @pulumi.getter(name="alarmSpecification")
+    def alarm_specification(self) -> Optional[pulumi.Input['GroupInstanceRefreshPreferencesAlarmSpecificationArgs']]:
+        """
+        Alarm Specification for Instance Refresh.
+        """
+        return pulumi.get(self, "alarm_specification")
+
+    @alarm_specification.setter
+    def alarm_specification(self, value: Optional[pulumi.Input['GroupInstanceRefreshPreferencesAlarmSpecificationArgs']]):
+        pulumi.set(self, "alarm_specification", value)
 
     @property
     @pulumi.getter(name="autoRollback")
@@ -419,6 +436,29 @@ class GroupInstanceRefreshPreferencesArgs:
     @standby_instances.setter
     def standby_instances(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "standby_instances", value)
+
+
+@pulumi.input_type
+class GroupInstanceRefreshPreferencesAlarmSpecificationArgs:
+    def __init__(__self__, *,
+                 alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarms: List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+        """
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+        """
+        return pulumi.get(self, "alarms")
+
+    @alarms.setter
+    def alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "alarms", value)
 
 
 @pulumi.input_type

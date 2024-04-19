@@ -211,7 +211,6 @@ namespace Pulumi.Aws.Mwaa
 
         /// <summary>
         /// The Created At date of the MWAA Environment
-        /// * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
@@ -221,6 +220,13 @@ namespace Pulumi.Aws.Mwaa
         /// </summary>
         [Output("dagS3Path")]
         public Output<string> DagS3Path { get; private set; } = null!;
+
+        /// <summary>
+        /// The VPC endpoint for the environment's Amazon RDS database
+        /// * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        /// </summary>
+        [Output("databaseVpcEndpointService")]
+        public Output<string> DatabaseVpcEndpointService { get; private set; } = null!;
 
         [Output("endpointManagement")]
         public Output<string> EndpointManagement { get; private set; } = null!;
@@ -359,6 +365,12 @@ namespace Pulumi.Aws.Mwaa
         /// </summary>
         [Output("webserverUrl")]
         public Output<string> WebserverUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The VPC endpoint for the environment's web server
+        /// </summary>
+        [Output("webserverVpcEndpointService")]
+        public Output<string> WebserverVpcEndpointService { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the start date for the weekly maintenance window.
@@ -605,7 +617,6 @@ namespace Pulumi.Aws.Mwaa
 
         /// <summary>
         /// The Created At date of the MWAA Environment
-        /// * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -615,6 +626,13 @@ namespace Pulumi.Aws.Mwaa
         /// </summary>
         [Input("dagS3Path")]
         public Input<string>? DagS3Path { get; set; }
+
+        /// <summary>
+        /// The VPC endpoint for the environment's Amazon RDS database
+        /// * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        /// </summary>
+        [Input("databaseVpcEndpointService")]
+        public Input<string>? DatabaseVpcEndpointService { get; set; }
 
         [Input("endpointManagement")]
         public Input<string>? EndpointManagement { get; set; }
@@ -771,6 +789,12 @@ namespace Pulumi.Aws.Mwaa
         /// </summary>
         [Input("webserverUrl")]
         public Input<string>? WebserverUrl { get; set; }
+
+        /// <summary>
+        /// The VPC endpoint for the environment's web server
+        /// </summary>
+        [Input("webserverVpcEndpointService")]
+        public Input<string>? WebserverVpcEndpointService { get; set; }
 
         /// <summary>
         /// Specifies the start date for the weekly maintenance window.

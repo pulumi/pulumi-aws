@@ -3935,6 +3935,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/eipDomainName",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/eipDomainName:EipDomainName": "EipDomainName"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/fleet",
   "fqn": "pulumi_aws.ec2",
   "classes": {

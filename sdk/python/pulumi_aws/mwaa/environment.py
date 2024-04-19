@@ -389,6 +389,7 @@ class _EnvironmentState:
                  arn: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  dag_s3_path: Optional[pulumi.Input[str]] = None,
+                 database_vpc_endpoint_service: Optional[pulumi.Input[str]] = None,
                  endpoint_management: Optional[pulumi.Input[str]] = None,
                  environment_class: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
@@ -413,6 +414,7 @@ class _EnvironmentState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
                  webserver_url: Optional[pulumi.Input[str]] = None,
+                 webserver_vpc_endpoint_service: Optional[pulumi.Input[str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
@@ -420,8 +422,9 @@ class _EnvironmentState:
         :param pulumi.Input[str] airflow_version: Airflow version of your environment, will be set by default to the latest version that MWAA supports.
         :param pulumi.Input[str] arn: The ARN of the MWAA Environment
         :param pulumi.Input[str] created_at: The Created At date of the MWAA Environment
-               * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         :param pulumi.Input[str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[str] database_vpc_endpoint_service: The VPC endpoint for the environment's Amazon RDS database
+               * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         :param pulumi.Input[str] environment_class: Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
@@ -444,6 +447,7 @@ class _EnvironmentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         :param pulumi.Input[str] webserver_url: The webserver URL of the MWAA Environment
+        :param pulumi.Input[str] webserver_vpc_endpoint_service: The VPC endpoint for the environment's web server
         :param pulumi.Input[str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
         """
         if airflow_configuration_options is not None:
@@ -456,6 +460,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "created_at", created_at)
         if dag_s3_path is not None:
             pulumi.set(__self__, "dag_s3_path", dag_s3_path)
+        if database_vpc_endpoint_service is not None:
+            pulumi.set(__self__, "database_vpc_endpoint_service", database_vpc_endpoint_service)
         if endpoint_management is not None:
             pulumi.set(__self__, "endpoint_management", endpoint_management)
         if environment_class is not None:
@@ -507,6 +513,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "webserver_access_mode", webserver_access_mode)
         if webserver_url is not None:
             pulumi.set(__self__, "webserver_url", webserver_url)
+        if webserver_vpc_endpoint_service is not None:
+            pulumi.set(__self__, "webserver_vpc_endpoint_service", webserver_vpc_endpoint_service)
         if weekly_maintenance_window_start is not None:
             pulumi.set(__self__, "weekly_maintenance_window_start", weekly_maintenance_window_start)
 
@@ -551,7 +559,6 @@ class _EnvironmentState:
     def created_at(self) -> Optional[pulumi.Input[str]]:
         """
         The Created At date of the MWAA Environment
-        * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         """
         return pulumi.get(self, "created_at")
 
@@ -570,6 +577,19 @@ class _EnvironmentState:
     @dag_s3_path.setter
     def dag_s3_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dag_s3_path", value)
+
+    @property
+    @pulumi.getter(name="databaseVpcEndpointService")
+    def database_vpc_endpoint_service(self) -> Optional[pulumi.Input[str]]:
+        """
+        The VPC endpoint for the environment's Amazon RDS database
+        * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        """
+        return pulumi.get(self, "database_vpc_endpoint_service")
+
+    @database_vpc_endpoint_service.setter
+    def database_vpc_endpoint_service(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_vpc_endpoint_service", value)
 
     @property
     @pulumi.getter(name="endpointManagement")
@@ -855,6 +875,18 @@ class _EnvironmentState:
     @webserver_url.setter
     def webserver_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "webserver_url", value)
+
+    @property
+    @pulumi.getter(name="webserverVpcEndpointService")
+    def webserver_vpc_endpoint_service(self) -> Optional[pulumi.Input[str]]:
+        """
+        The VPC endpoint for the environment's web server
+        """
+        return pulumi.get(self, "webserver_vpc_endpoint_service")
+
+    @webserver_vpc_endpoint_service.setter
+    def webserver_vpc_endpoint_service(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "webserver_vpc_endpoint_service", value)
 
     @property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
@@ -1255,11 +1287,13 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["database_vpc_endpoint_service"] = None
             __props__.__dict__["last_updateds"] = None
             __props__.__dict__["service_role_arn"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["webserver_url"] = None
+            __props__.__dict__["webserver_vpc_endpoint_service"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["airflowConfigurationOptions"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Environment, __self__).__init__(
@@ -1277,6 +1311,7 @@ class Environment(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             dag_s3_path: Optional[pulumi.Input[str]] = None,
+            database_vpc_endpoint_service: Optional[pulumi.Input[str]] = None,
             endpoint_management: Optional[pulumi.Input[str]] = None,
             environment_class: Optional[pulumi.Input[str]] = None,
             execution_role_arn: Optional[pulumi.Input[str]] = None,
@@ -1301,6 +1336,7 @@ class Environment(pulumi.CustomResource):
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             webserver_access_mode: Optional[pulumi.Input[str]] = None,
             webserver_url: Optional[pulumi.Input[str]] = None,
+            webserver_vpc_endpoint_service: Optional[pulumi.Input[str]] = None,
             weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
@@ -1313,8 +1349,9 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] airflow_version: Airflow version of your environment, will be set by default to the latest version that MWAA supports.
         :param pulumi.Input[str] arn: The ARN of the MWAA Environment
         :param pulumi.Input[str] created_at: The Created At date of the MWAA Environment
-               * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         :param pulumi.Input[str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[str] database_vpc_endpoint_service: The VPC endpoint for the environment's Amazon RDS database
+               * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         :param pulumi.Input[str] environment_class: Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
@@ -1337,6 +1374,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         :param pulumi.Input[str] webserver_url: The webserver URL of the MWAA Environment
+        :param pulumi.Input[str] webserver_vpc_endpoint_service: The VPC endpoint for the environment's web server
         :param pulumi.Input[str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1348,6 +1386,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["dag_s3_path"] = dag_s3_path
+        __props__.__dict__["database_vpc_endpoint_service"] = database_vpc_endpoint_service
         __props__.__dict__["endpoint_management"] = endpoint_management
         __props__.__dict__["environment_class"] = environment_class
         __props__.__dict__["execution_role_arn"] = execution_role_arn
@@ -1372,6 +1411,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["webserver_access_mode"] = webserver_access_mode
         __props__.__dict__["webserver_url"] = webserver_url
+        __props__.__dict__["webserver_vpc_endpoint_service"] = webserver_vpc_endpoint_service
         __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
         return Environment(resource_name, opts=opts, __props__=__props__)
 
@@ -1404,7 +1444,6 @@ class Environment(pulumi.CustomResource):
     def created_at(self) -> pulumi.Output[str]:
         """
         The Created At date of the MWAA Environment
-        * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         """
         return pulumi.get(self, "created_at")
 
@@ -1415,6 +1454,15 @@ class Environment(pulumi.CustomResource):
         The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         """
         return pulumi.get(self, "dag_s3_path")
+
+    @property
+    @pulumi.getter(name="databaseVpcEndpointService")
+    def database_vpc_endpoint_service(self) -> pulumi.Output[str]:
+        """
+        The VPC endpoint for the environment's Amazon RDS database
+        * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        """
+        return pulumi.get(self, "database_vpc_endpoint_service")
 
     @property
     @pulumi.getter(name="endpointManagement")
@@ -1604,6 +1652,14 @@ class Environment(pulumi.CustomResource):
         The webserver URL of the MWAA Environment
         """
         return pulumi.get(self, "webserver_url")
+
+    @property
+    @pulumi.getter(name="webserverVpcEndpointService")
+    def webserver_vpc_endpoint_service(self) -> pulumi.Output[str]:
+        """
+        The VPC endpoint for the environment's web server
+        """
+        return pulumi.get(self, "webserver_vpc_endpoint_service")
 
     @property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")

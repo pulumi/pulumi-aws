@@ -19,7 +19,6 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
 
     /**
      * The Created At date of the MWAA Environment
-     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
     @Import(name="createdAt")
@@ -27,7 +26,6 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
 
     /**
      * @return The Created At date of the MWAA Environment
-     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -84,7 +82,6 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
 
         /**
          * @param createdAt The Created At date of the MWAA Environment
-         * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
          * 
          * @return builder
          * 
@@ -96,7 +93,6 @@ public final class EnvironmentLastUpdatedArgs extends com.pulumi.resources.Resou
 
         /**
          * @param createdAt The Created At date of the MWAA Environment
-         * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
          * 
          * @return builder
          * 

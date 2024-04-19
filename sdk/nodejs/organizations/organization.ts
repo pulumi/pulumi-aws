@@ -100,6 +100,10 @@ export class Organization extends pulumi.CustomResource {
      */
     public /*out*/ readonly masterAccountId!: pulumi.Output<string>;
     /**
+     * Name of the master account
+     */
+    public /*out*/ readonly masterAccountName!: pulumi.Output<string>;
+    /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      */
     public /*out*/ readonly nonMasterAccounts!: pulumi.Output<outputs.organizations.OrganizationNonMasterAccount[]>;
@@ -129,6 +133,7 @@ export class Organization extends pulumi.CustomResource {
             resourceInputs["masterAccountArn"] = state ? state.masterAccountArn : undefined;
             resourceInputs["masterAccountEmail"] = state ? state.masterAccountEmail : undefined;
             resourceInputs["masterAccountId"] = state ? state.masterAccountId : undefined;
+            resourceInputs["masterAccountName"] = state ? state.masterAccountName : undefined;
             resourceInputs["nonMasterAccounts"] = state ? state.nonMasterAccounts : undefined;
             resourceInputs["roots"] = state ? state.roots : undefined;
         } else {
@@ -141,6 +146,7 @@ export class Organization extends pulumi.CustomResource {
             resourceInputs["masterAccountArn"] = undefined /*out*/;
             resourceInputs["masterAccountEmail"] = undefined /*out*/;
             resourceInputs["masterAccountId"] = undefined /*out*/;
+            resourceInputs["masterAccountName"] = undefined /*out*/;
             resourceInputs["nonMasterAccounts"] = undefined /*out*/;
             resourceInputs["roots"] = undefined /*out*/;
         }
@@ -185,6 +191,10 @@ export interface OrganizationState {
      * Identifier of the master account
      */
     masterAccountId?: pulumi.Input<string>;
+    /**
+     * Name of the master account
+     */
+    masterAccountName?: pulumi.Input<string>;
     /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      */

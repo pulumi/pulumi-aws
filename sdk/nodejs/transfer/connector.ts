@@ -111,6 +111,10 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly loggingRole!: pulumi.Output<string | undefined>;
     /**
+     * Name of the security policy for the connector.
+     */
+    public readonly securityPolicyName!: pulumi.Output<string>;
+    /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      */
     public readonly sftpConfig!: pulumi.Output<outputs.transfer.ConnectorSftpConfig | undefined>;
@@ -145,6 +149,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["as2Config"] = state ? state.as2Config : undefined;
             resourceInputs["connectorId"] = state ? state.connectorId : undefined;
             resourceInputs["loggingRole"] = state ? state.loggingRole : undefined;
+            resourceInputs["securityPolicyName"] = state ? state.securityPolicyName : undefined;
             resourceInputs["sftpConfig"] = state ? state.sftpConfig : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -160,6 +165,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["accessRole"] = args ? args.accessRole : undefined;
             resourceInputs["as2Config"] = args ? args.as2Config : undefined;
             resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
+            resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
             resourceInputs["sftpConfig"] = args ? args.sftpConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
@@ -197,6 +203,10 @@ export interface ConnectorState {
      */
     loggingRole?: pulumi.Input<string>;
     /**
+     * Name of the security policy for the connector.
+     */
+    securityPolicyName?: pulumi.Input<string>;
+    /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      */
     sftpConfig?: pulumi.Input<inputs.transfer.ConnectorSftpConfig>;
@@ -230,6 +240,10 @@ export interface ConnectorArgs {
      * The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
      */
     loggingRole?: pulumi.Input<string>;
+    /**
+     * Name of the security policy for the connector.
+     */
+    securityPolicyName?: pulumi.Input<string>;
     /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      */

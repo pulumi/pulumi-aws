@@ -32,13 +32,20 @@ import * as utilities from "../utilities";
  *         type: "EMAIL",
  *         address: "abc@example.com",
  *     }],
+ *     thresholdExpression: {
+ *         dimension: {
+ *             key: "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+ *             matchOptions: ["GREATER_THAN_OR_EQUAL"],
+ *             values: ["100"],
+ *         },
+ *     },
  * });
  * ```
  * <!--End PulumiCodeChooser -->
  *
  * ### Threshold Expression Example
  *
- * ### For a Specific Dimension
+ * ### Using a Percentage Threshold
  *
  * <!--Start PulumiCodeChooser -->
  * ```typescript
@@ -55,9 +62,9 @@ import * as utilities from "../utilities";
  *     }],
  *     thresholdExpression: {
  *         dimension: {
- *             key: "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
- *             values: ["100.0"],
+ *             key: "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
  *             matchOptions: ["GREATER_THAN_OR_EQUAL"],
+ *             values: ["100"],
  *         },
  *     },
  * });
@@ -138,7 +145,7 @@ import * as utilities from "../utilities";
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "AWS:SourceOwner",
- *                 values: [account_id],
+ *                 values: [accountId],
  *             }],
  *             effect: "Allow",
  *             principals: [{

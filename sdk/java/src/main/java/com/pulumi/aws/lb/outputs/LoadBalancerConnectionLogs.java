@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LoadBalancerConnectionLogs {
     /**
-     * @return The S3 bucket name to store the logs in.
+     * @return S3 bucket name to store the logs in.
      * 
      */
     private String bucket;
@@ -24,14 +24,14 @@ public final class LoadBalancerConnectionLogs {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return The S3 bucket prefix. Logs are stored in the root if not configured.
+     * @return S3 bucket prefix. Logs are stored in the root if not configured.
      * 
      */
     private @Nullable String prefix;
 
     private LoadBalancerConnectionLogs() {}
     /**
-     * @return The S3 bucket name to store the logs in.
+     * @return S3 bucket name to store the logs in.
      * 
      */
     public String bucket() {
@@ -45,7 +45,7 @@ public final class LoadBalancerConnectionLogs {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return The S3 bucket prefix. Logs are stored in the root if not configured.
+     * @return S3 bucket prefix. Logs are stored in the root if not configured.
      * 
      */
     public Optional<String> prefix() {

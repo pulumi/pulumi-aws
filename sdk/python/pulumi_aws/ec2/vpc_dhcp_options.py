@@ -16,6 +16,7 @@ class VpcDhcpOptionsArgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_address_preferred_lease_time: Optional[pulumi.Input[str]] = None,
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[str]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -24,6 +25,7 @@ class VpcDhcpOptionsArgs:
         The set of arguments for constructing a VpcDhcpOptions resource.
         :param pulumi.Input[str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
+        :param pulumi.Input[str] ipv6_address_preferred_lease_time: How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: List of NTP servers to configure.
@@ -33,6 +35,8 @@ class VpcDhcpOptionsArgs:
             pulumi.set(__self__, "domain_name", domain_name)
         if domain_name_servers is not None:
             pulumi.set(__self__, "domain_name_servers", domain_name_servers)
+        if ipv6_address_preferred_lease_time is not None:
+            pulumi.set(__self__, "ipv6_address_preferred_lease_time", ipv6_address_preferred_lease_time)
         if netbios_name_servers is not None:
             pulumi.set(__self__, "netbios_name_servers", netbios_name_servers)
         if netbios_node_type is not None:
@@ -65,6 +69,18 @@ class VpcDhcpOptionsArgs:
     @domain_name_servers.setter
     def domain_name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "domain_name_servers", value)
+
+    @property
+    @pulumi.getter(name="ipv6AddressPreferredLeaseTime")
+    def ipv6_address_preferred_lease_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+        """
+        return pulumi.get(self, "ipv6_address_preferred_lease_time")
+
+    @ipv6_address_preferred_lease_time.setter
+    def ipv6_address_preferred_lease_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_address_preferred_lease_time", value)
 
     @property
     @pulumi.getter(name="netbiosNameServers")
@@ -121,6 +137,7 @@ class _VpcDhcpOptionsState:
                  arn: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_address_preferred_lease_time: Optional[pulumi.Input[str]] = None,
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[str]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -132,6 +149,7 @@ class _VpcDhcpOptionsState:
         :param pulumi.Input[str] arn: The ARN of the DHCP Options Set.
         :param pulumi.Input[str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
+        :param pulumi.Input[str] ipv6_address_preferred_lease_time: How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: List of NTP servers to configure.
@@ -145,6 +163,8 @@ class _VpcDhcpOptionsState:
             pulumi.set(__self__, "domain_name", domain_name)
         if domain_name_servers is not None:
             pulumi.set(__self__, "domain_name_servers", domain_name_servers)
+        if ipv6_address_preferred_lease_time is not None:
+            pulumi.set(__self__, "ipv6_address_preferred_lease_time", ipv6_address_preferred_lease_time)
         if netbios_name_servers is not None:
             pulumi.set(__self__, "netbios_name_servers", netbios_name_servers)
         if netbios_node_type is not None:
@@ -196,6 +216,18 @@ class _VpcDhcpOptionsState:
     @domain_name_servers.setter
     def domain_name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "domain_name_servers", value)
+
+    @property
+    @pulumi.getter(name="ipv6AddressPreferredLeaseTime")
+    def ipv6_address_preferred_lease_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+        """
+        return pulumi.get(self, "ipv6_address_preferred_lease_time")
+
+    @ipv6_address_preferred_lease_time.setter
+    def ipv6_address_preferred_lease_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_address_preferred_lease_time", value)
 
     @property
     @pulumi.getter(name="netbiosNameServers")
@@ -280,6 +312,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_address_preferred_lease_time: Optional[pulumi.Input[str]] = None,
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[str]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -317,6 +350,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
                 "127.0.0.1",
                 "10.0.0.2",
             ],
+            ipv6_address_preferred_lease_time="1440",
             ntp_servers=["127.0.0.1"],
             netbios_name_servers=["127.0.0.1"],
             netbios_node_type="2",
@@ -346,6 +380,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
+        :param pulumi.Input[str] ipv6_address_preferred_lease_time: How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: List of NTP servers to configure.
@@ -389,6 +424,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
                 "127.0.0.1",
                 "10.0.0.2",
             ],
+            ipv6_address_preferred_lease_time="1440",
             ntp_servers=["127.0.0.1"],
             netbios_name_servers=["127.0.0.1"],
             netbios_node_type="2",
@@ -431,6 +467,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_address_preferred_lease_time: Optional[pulumi.Input[str]] = None,
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[str]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -446,6 +483,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
 
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_name_servers"] = domain_name_servers
+            __props__.__dict__["ipv6_address_preferred_lease_time"] = ipv6_address_preferred_lease_time
             __props__.__dict__["netbios_name_servers"] = netbios_name_servers
             __props__.__dict__["netbios_node_type"] = netbios_node_type
             __props__.__dict__["ntp_servers"] = ntp_servers
@@ -466,6 +504,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            ipv6_address_preferred_lease_time: Optional[pulumi.Input[str]] = None,
             netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             netbios_node_type: Optional[pulumi.Input[str]] = None,
             ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -482,6 +521,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the DHCP Options Set.
         :param pulumi.Input[str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
+        :param pulumi.Input[str] ipv6_address_preferred_lease_time: How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: List of NETBIOS name servers.
         :param pulumi.Input[str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: List of NTP servers to configure.
@@ -496,6 +536,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["domain_name_servers"] = domain_name_servers
+        __props__.__dict__["ipv6_address_preferred_lease_time"] = ipv6_address_preferred_lease_time
         __props__.__dict__["netbios_name_servers"] = netbios_name_servers
         __props__.__dict__["netbios_node_type"] = netbios_node_type
         __props__.__dict__["ntp_servers"] = ntp_servers
@@ -527,6 +568,14 @@ class VpcDhcpOptions(pulumi.CustomResource):
         List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
         """
         return pulumi.get(self, "domain_name_servers")
+
+    @property
+    @pulumi.getter(name="ipv6AddressPreferredLeaseTime")
+    def ipv6_address_preferred_lease_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
+        """
+        return pulumi.get(self, "ipv6_address_preferred_lease_time")
 
     @property
     @pulumi.getter(name="netbiosNameServers")

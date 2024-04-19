@@ -35,7 +35,7 @@ namespace Pulumi.Aws.LightSail
     ///         Name = "custom_gitlab",
     ///         AvailabilityZone = "us-east-1b",
     ///         BlueprintId = "amazon_linux_2",
-    ///         BundleId = "nano_1_0",
+    ///         BundleId = "nano_3_0",
     ///         KeyPairName = "some_key_name",
     ///         Tags = 
     ///         {
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.LightSail
     ///         Name = "custom",
     ///         AvailabilityZone = "us-east-1b",
     ///         BlueprintId = "amazon_linux_2",
-    ///         BundleId = "nano_1_0",
+    ///         BundleId = "nano_3_0",
     ///         UserData = "sudo yum install -y httpd &amp;&amp; sudo systemctl start httpd &amp;&amp; sudo systemctl enable httpd &amp;&amp; echo '&lt;h1&gt;Deployed via Pulumi&lt;/h1&gt;' | sudo tee /var/www/html/index.html",
     ///     });
     /// 
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.LightSail
     ///         Name = "custom_instance",
     ///         AvailabilityZone = "us-east-1b",
     ///         BlueprintId = "amazon_linux_2",
-    ///         BundleId = "nano_1_0",
+    ///         BundleId = "nano_3_0",
     ///         AddOn = new Aws.LightSail.Inputs.InstanceAddOnArgs
     ///         {
     ///             Type = "AutoSnapshot",

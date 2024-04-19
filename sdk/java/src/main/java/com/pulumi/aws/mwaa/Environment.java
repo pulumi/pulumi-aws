@@ -284,7 +284,6 @@ public class Environment extends com.pulumi.resources.CustomResource {
     }
     /**
      * The Created At date of the MWAA Environment
-     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
@@ -292,7 +291,6 @@ public class Environment extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The Created At date of the MWAA Environment
-     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
     public Output<String> createdAt() {
@@ -311,6 +309,22 @@ public class Environment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> dagS3Path() {
         return this.dagS3Path;
+    }
+    /**
+     * The VPC endpoint for the environment&#39;s Amazon RDS database
+     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+     * 
+     */
+    @Export(name="databaseVpcEndpointService", refs={String.class}, tree="[0]")
+    private Output<String> databaseVpcEndpointService;
+
+    /**
+     * @return The VPC endpoint for the environment&#39;s Amazon RDS database
+     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+     * 
+     */
+    public Output<String> databaseVpcEndpointService() {
+        return this.databaseVpcEndpointService;
     }
     @Export(name="endpointManagement", refs={String.class}, tree="[0]")
     private Output<String> endpointManagement;
@@ -635,6 +649,20 @@ public class Environment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> webserverUrl() {
         return this.webserverUrl;
+    }
+    /**
+     * The VPC endpoint for the environment&#39;s web server
+     * 
+     */
+    @Export(name="webserverVpcEndpointService", refs={String.class}, tree="[0]")
+    private Output<String> webserverVpcEndpointService;
+
+    /**
+     * @return The VPC endpoint for the environment&#39;s web server
+     * 
+     */
+    public Output<String> webserverVpcEndpointService() {
+        return this.webserverVpcEndpointService;
     }
     /**
      * Specifies the start date for the weekly maintenance window.

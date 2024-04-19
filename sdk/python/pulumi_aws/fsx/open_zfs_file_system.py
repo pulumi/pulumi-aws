@@ -350,6 +350,7 @@ class _OpenZfsFileSystemState:
                  deployment_type: Optional[pulumi.Input[str]] = None,
                  disk_iops_configuration: Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArgs']] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
+                 endpoint_ip_address: Optional[pulumi.Input[str]] = None,
                  endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -379,6 +380,7 @@ class _OpenZfsFileSystemState:
         :param pulumi.Input[str] deployment_type: The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
         :param pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArgs'] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
         :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
+        :param pulumi.Input[str] endpoint_ip_address: IP address of the endpoint that is used to access data or to manage the file system.
         :param pulumi.Input[str] endpoint_ip_address_range: (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
@@ -416,6 +418,8 @@ class _OpenZfsFileSystemState:
             pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
+        if endpoint_ip_address is not None:
+            pulumi.set(__self__, "endpoint_ip_address", endpoint_ip_address)
         if endpoint_ip_address_range is not None:
             pulumi.set(__self__, "endpoint_ip_address_range", endpoint_ip_address_range)
         if kms_key_id is not None:
@@ -563,6 +567,18 @@ class _OpenZfsFileSystemState:
     @dns_name.setter
     def dns_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_name", value)
+
+    @property
+    @pulumi.getter(name="endpointIpAddress")
+    def endpoint_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address of the endpoint that is used to access data or to manage the file system.
+        """
+        return pulumi.get(self, "endpoint_ip_address")
+
+    @endpoint_ip_address.setter
+    def endpoint_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_ip_address", value)
 
     @property
     @pulumi.getter(name="endpointIpAddressRange")
@@ -967,6 +983,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             __props__.__dict__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
             __props__.__dict__["arn"] = None
             __props__.__dict__["dns_name"] = None
+            __props__.__dict__["endpoint_ip_address"] = None
             __props__.__dict__["network_interface_ids"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["root_volume_id"] = None
@@ -991,6 +1008,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             deployment_type: Optional[pulumi.Input[str]] = None,
             disk_iops_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArgs']]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
+            endpoint_ip_address: Optional[pulumi.Input[str]] = None,
             endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1025,6 +1043,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_type: The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
         :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArgs']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
         :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
+        :param pulumi.Input[str] endpoint_ip_address: IP address of the endpoint that is used to access data or to manage the file system.
         :param pulumi.Input[str] endpoint_ip_address_range: (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
@@ -1057,6 +1076,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         __props__.__dict__["deployment_type"] = deployment_type
         __props__.__dict__["disk_iops_configuration"] = disk_iops_configuration
         __props__.__dict__["dns_name"] = dns_name
+        __props__.__dict__["endpoint_ip_address"] = endpoint_ip_address
         __props__.__dict__["endpoint_ip_address_range"] = endpoint_ip_address_range
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["network_interface_ids"] = network_interface_ids
@@ -1148,6 +1168,14 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         """
         return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="endpointIpAddress")
+    def endpoint_ip_address(self) -> pulumi.Output[str]:
+        """
+        IP address of the endpoint that is used to access data or to manage the file system.
+        """
+        return pulumi.get(self, "endpoint_ip_address")
 
     @property
     @pulumi.getter(name="endpointIpAddressRange")

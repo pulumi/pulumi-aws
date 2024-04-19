@@ -139,126 +139,140 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:alb/loadBalancer:LoadBalancer")
 public class LoadBalancer extends com.pulumi.resources.CustomResource {
     /**
-     * An Access Logs block. Access Logs documented below.
+     * Access Logs block. See below.
      * 
      */
     @Export(name="accessLogs", refs={LoadBalancerAccessLogs.class}, tree="[0]")
     private Output</* @Nullable */ LoadBalancerAccessLogs> accessLogs;
 
     /**
-     * @return An Access Logs block. Access Logs documented below.
+     * @return Access Logs block. See below.
      * 
      */
     public Output<Optional<LoadBalancerAccessLogs>> accessLogs() {
         return Codegen.optional(this.accessLogs);
     }
     /**
-     * The ARN of the load balancer (matches `id`).
+     * ARN of the load balancer (matches `id`).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the load balancer (matches `id`).
+     * @return ARN of the load balancer (matches `id`).
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The ARN suffix for use with CloudWatch Metrics.
+     * ARN suffix for use with CloudWatch Metrics.
      * 
      */
     @Export(name="arnSuffix", refs={String.class}, tree="[0]")
     private Output<String> arnSuffix;
 
     /**
-     * @return The ARN suffix for use with CloudWatch Metrics.
+     * @return ARN suffix for use with CloudWatch Metrics.
      * 
      */
     public Output<String> arnSuffix() {
         return this.arnSuffix;
     }
     /**
-     * A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+     * 
+     */
+    @Export(name="clientKeepAlive", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> clientKeepAlive;
+
+    /**
+     * @return Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+     * 
+     */
+    public Output<Optional<Integer>> clientKeepAlive() {
+        return Codegen.optional(this.clientKeepAlive);
+    }
+    /**
+     * Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      * 
      */
     @Export(name="connectionLogs", refs={LoadBalancerConnectionLogs.class}, tree="[0]")
     private Output</* @Nullable */ LoadBalancerConnectionLogs> connectionLogs;
 
     /**
-     * @return A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * @return Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      * 
      */
     public Output<Optional<LoadBalancerConnectionLogs>> connectionLogs() {
         return Codegen.optional(this.connectionLogs);
     }
     /**
-     * The ID of the customer owned ipv4 pool to use for this load balancer.
+     * ID of the customer owned ipv4 pool to use for this load balancer.
      * 
      */
     @Export(name="customerOwnedIpv4Pool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerOwnedIpv4Pool;
 
     /**
-     * @return The ID of the customer owned ipv4 pool to use for this load balancer.
+     * @return ID of the customer owned ipv4 pool to use for this load balancer.
      * 
      */
     public Output<Optional<String>> customerOwnedIpv4Pool() {
         return Codegen.optional(this.customerOwnedIpv4Pool);
     }
     /**
-     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     * How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      * 
      */
     @Export(name="desyncMitigationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> desyncMitigationMode;
 
     /**
-     * @return Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     * @return How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      * 
      */
     public Output<Optional<String>> desyncMitigationMode() {
         return Codegen.optional(this.desyncMitigationMode);
     }
     /**
-     * The DNS name of the load balancer.
+     * DNS name of the load balancer.
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
     private Output<String> dnsName;
 
     /**
-     * @return The DNS name of the load balancer.
+     * @return DNS name of the load balancer.
      * 
      */
     public Output<String> dnsName() {
         return this.dnsName;
     }
     /**
-     * Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      * 
      */
     @Export(name="dnsRecordClientRoutingPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsRecordClientRoutingPolicy;
 
     /**
-     * @return Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * @return How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      * 
      */
     public Output<Optional<String>> dnsRecordClientRoutingPolicy() {
         return Codegen.optional(this.dnsRecordClientRoutingPolicy);
     }
     /**
-     * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+     * Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      * 
      */
     @Export(name="dropInvalidHeaderFields", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dropInvalidHeaderFields;
 
     /**
-     * @return Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+     * @return Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      * 
      */
     public Output<Optional<Boolean>> dropInvalidHeaderFields() {
@@ -293,84 +307,84 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableDeletionProtection);
     }
     /**
-     * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+     * Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      * 
      */
     @Export(name="enableHttp2", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableHttp2;
 
     /**
-     * @return Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+     * @return Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enableHttp2() {
         return Codegen.optional(this.enableHttp2);
     }
     /**
-     * Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+     * Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      * 
      */
     @Export(name="enableTlsVersionAndCipherSuiteHeaders", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableTlsVersionAndCipherSuiteHeaders;
 
     /**
-     * @return Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+     * @return Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      * 
      */
     public Output<Optional<Boolean>> enableTlsVersionAndCipherSuiteHeaders() {
         return Codegen.optional(this.enableTlsVersionAndCipherSuiteHeaders);
     }
     /**
-     * Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+     * Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
      * 
      */
     @Export(name="enableWafFailOpen", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableWafFailOpen;
 
     /**
-     * @return Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+     * @return Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> enableWafFailOpen() {
         return Codegen.optional(this.enableWafFailOpen);
     }
     /**
-     * Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+     * Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      * 
      */
     @Export(name="enableXffClientPort", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableXffClientPort;
 
     /**
-     * @return Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+     * @return Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> enableXffClientPort() {
         return Codegen.optional(this.enableXffClientPort);
     }
     /**
-     * Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      * 
      */
     @Export(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic", refs={String.class}, tree="[0]")
     private Output<String> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
 
     /**
-     * @return Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * @return Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      * 
      */
     public Output<String> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
         return this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
     }
     /**
-     * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+     * Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      * 
      */
     @Export(name="idleTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> idleTimeout;
 
     /**
-     * @return The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+     * @return Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      * 
      */
     public Output<Optional<Integer>> idleTimeout() {
@@ -391,46 +405,42 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.internal;
     }
     /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+     * Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output<String> ipAddressType;
 
     /**
-     * @return The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+     * @return Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      * 
      */
     public Output<String> ipAddressType() {
         return this.ipAddressType;
     }
     /**
-     * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+     * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      * 
      */
     @Export(name="loadBalancerType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loadBalancerType;
 
     /**
-     * @return The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+     * @return Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      * 
      */
     public Output<Optional<String>> loadBalancerType() {
         return Codegen.optional(this.loadBalancerType);
     }
     /**
-     * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-     * this provider will autogenerate a name beginning with `tf-lb`.
+     * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-     * this provider will autogenerate a name beginning with `tf-lb`.
+     * @return Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      * 
      */
     public Output<String> name() {
@@ -451,77 +461,77 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
-     * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     * Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      * 
      */
     @Export(name="preserveHostHeader", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> preserveHostHeader;
 
     /**
-     * @return Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     * @return Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> preserveHostHeader() {
         return Codegen.optional(this.preserveHostHeader);
     }
     /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+     * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */
     @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroups;
 
     /**
-     * @return A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+     * @return List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */
     public Output<List<String>> securityGroups() {
         return this.securityGroups;
     }
     /**
-     * A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
+     * Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      * 
      */
     @Export(name="subnetMappings", refs={List.class,LoadBalancerSubnetMapping.class}, tree="[0,1]")
     private Output<List<LoadBalancerSubnetMapping>> subnetMappings;
 
     /**
-     * @return A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
+     * @return Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      * 
      */
     public Output<List<LoadBalancerSubnetMapping>> subnetMappings() {
         return this.subnetMappings;
     }
     /**
-     * A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+     * List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      * 
      */
     @Export(name="subnets", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnets;
 
     /**
-     * @return A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+     * @return List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      * 
      */
     public Output<List<String>> subnets() {
         return this.subnets;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -532,7 +542,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -559,14 +569,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.xffHeaderProcessingMode);
     }
     /**
-     * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+     * Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
      * 
      */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
     private Output<String> zoneId;
 
     /**
-     * @return The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
+     * @return Canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
      * 
      */
     public Output<String> zoneId() {

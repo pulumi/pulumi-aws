@@ -204,6 +204,10 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// Number of entities (users, groups, and roles) that the policy is attached to.
+        /// </summary>
+        public readonly int AttachmentCount;
+        /// <summary>
         /// Description of the policy.
         /// </summary>
         public readonly string Description;
@@ -234,6 +238,8 @@ namespace Pulumi.Aws.Iam
         private GetPolicyResult(
             string arn,
 
+            int attachmentCount,
+
             string description,
 
             string id,
@@ -251,6 +257,7 @@ namespace Pulumi.Aws.Iam
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
+            AttachmentCount = attachmentCount;
             Description = description;
             Id = id;
             Name = name;

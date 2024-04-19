@@ -897,7 +897,7 @@ export namespace alb {
 
     export interface LoadBalancerAccessLogs {
         /**
-         * The S3 bucket name to store the logs in.
+         * S3 bucket name to store the logs in.
          */
         bucket: string;
         /**
@@ -905,14 +905,14 @@ export namespace alb {
          */
         enabled?: boolean;
         /**
-         * The S3 bucket prefix. Logs are stored in the root if not configured.
+         * S3 bucket prefix. Logs are stored in the root if not configured.
          */
         prefix?: string;
     }
 
     export interface LoadBalancerConnectionLogs {
         /**
-         * The S3 bucket name to store the logs in.
+         * S3 bucket name to store the logs in.
          */
         bucket: string;
         /**
@@ -920,23 +920,23 @@ export namespace alb {
          */
         enabled?: boolean;
         /**
-         * The S3 bucket prefix. Logs are stored in the root if not configured.
+         * S3 bucket prefix. Logs are stored in the root if not configured.
          */
         prefix?: string;
     }
 
     export interface LoadBalancerSubnetMapping {
         /**
-         * The allocation ID of the Elastic IP address for an internet-facing load balancer.
+         * Allocation ID of the Elastic IP address for an internet-facing load balancer.
          */
         allocationId?: string;
         /**
-         * The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+         * IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
          */
         ipv6Address?: string;
         outpostId: string;
         /**
-         * The private IPv4 address for an internal load balancer.
+         * Private IPv4 address for an internal load balancer.
          */
         privateIpv4Address?: string;
         /**
@@ -8595,6 +8595,10 @@ export namespace autoscaling {
 
     export interface GroupInstanceRefreshPreferences {
         /**
+         * Alarm Specification for Instance Refresh.
+         */
+        alarmSpecification?: outputs.autoscaling.GroupInstanceRefreshPreferencesAlarmSpecification;
+        /**
          * Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
          */
         autoRollback?: boolean;
@@ -8630,6 +8634,13 @@ export namespace autoscaling {
          * Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
          */
         standbyInstances?: string;
+    }
+
+    export interface GroupInstanceRefreshPreferencesAlarmSpecification {
+        /**
+         * List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
+         */
+        alarms?: string[];
     }
 
     export interface GroupLaunchTemplate {
@@ -14416,7 +14427,7 @@ export namespace codebuild {
 
     export interface ProjectSecondarySource {
         /**
-         * Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
+         * Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `buildStatusConfig` blocks are documented below.
          */
         buildStatusConfig?: outputs.codebuild.ProjectSecondarySourceBuildStatusConfig;
         /**
@@ -14440,7 +14451,7 @@ export namespace codebuild {
          */
         location?: string;
         /**
-         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+         * Whether to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
          */
         reportBuildStatus?: boolean;
         /**
@@ -14448,7 +14459,7 @@ export namespace codebuild {
          */
         sourceIdentifier: string;
         /**
-         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+         * Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
          */
         type: string;
     }
@@ -14484,7 +14495,7 @@ export namespace codebuild {
 
     export interface ProjectSource {
         /**
-         * Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
+         * Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `buildStatusConfig` blocks are documented below.
          */
         buildStatusConfig?: outputs.codebuild.ProjectSourceBuildStatusConfig;
         /**
@@ -14508,11 +14519,11 @@ export namespace codebuild {
          */
         location?: string;
         /**
-         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
+         * Whether to report the status of a build's start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
          */
         reportBuildStatus?: boolean;
         /**
-         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
+         * Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
          */
         type: string;
     }
@@ -14602,7 +14613,7 @@ export namespace codebuild {
          */
         pattern: string;
         /**
-         * The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`. At least one filter group must specify `EVENT` as its type.
+         * The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`. At least one filter group must specify `EVENT` as its type.
          */
         type: string;
     }
@@ -19378,11 +19389,11 @@ export namespace costexplorer {
          */
         ands?: outputs.costexplorer.GetTagsFilterAnd[];
         /**
-         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
          */
         costCategory?: outputs.costexplorer.GetTagsFilterCostCategory;
         /**
-         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
          */
         dimension?: outputs.costexplorer.GetTagsFilterDimension;
         /**
@@ -19401,11 +19412,11 @@ export namespace costexplorer {
 
     export interface GetTagsFilterAnd {
         /**
-         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
          */
         costCategory?: outputs.costexplorer.GetTagsFilterAndCostCategory;
         /**
-         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
          */
         dimension?: outputs.costexplorer.GetTagsFilterAndDimension;
         /**
@@ -19491,11 +19502,11 @@ export namespace costexplorer {
 
     export interface GetTagsFilterNot {
         /**
-         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
          */
         costCategory?: outputs.costexplorer.GetTagsFilterNotCostCategory;
         /**
-         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
          */
         dimension?: outputs.costexplorer.GetTagsFilterNotDimension;
         /**
@@ -19551,11 +19562,11 @@ export namespace costexplorer {
 
     export interface GetTagsFilterOr {
         /**
-         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
          */
         costCategory?: outputs.costexplorer.GetTagsFilterOrCostCategory;
         /**
-         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
          */
         dimension?: outputs.costexplorer.GetTagsFilterOrDimension;
         /**
@@ -22460,6 +22471,21 @@ export namespace ec2 {
          * End range port (or ICMP code if protocol is `icmp`).
          */
         toPort: number;
+    }
+
+    export interface EipDomainNameTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
     export interface FleetFleetInstanceSet {
@@ -25529,7 +25555,7 @@ export namespace ec2 {
     export interface LaunchTemplateBlockDeviceMappingEbs {
         /**
          * Whether the volume should be destroyed on instance termination.
-         * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+         * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
          */
         deleteOnTermination?: string;
         /**
@@ -30117,7 +30143,11 @@ export namespace elasticache {
         /**
          * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
          */
-        maximum: number;
+        maximum?: number;
+        /**
+         * The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+         */
+        minimum?: number;
         /**
          * The unit that the storage is measured in, in GB.
          */
@@ -30128,7 +30158,11 @@ export namespace elasticache {
         /**
          * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
          */
-        maximum: number;
+        maximum?: number;
+        /**
+         * The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+         */
+        minimum?: number;
     }
 
     export interface ServerlessCacheEndpoint {
@@ -36683,7 +36717,7 @@ export namespace imagebuilder {
          */
         image: string;
         /**
-         * Name of the AMI.
+         * The name of the Workflow parameter.
          */
         name: string;
         /**
@@ -36831,6 +36865,38 @@ export namespace imagebuilder {
          * Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
          */
         uninstallAfterBuild: boolean;
+    }
+
+    export interface ImageWorkflow {
+        /**
+         * The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
+         */
+        onFailure?: string;
+        /**
+         * The parallel group in which to run a test Workflow.
+         */
+        parallelGroup?: string;
+        /**
+         * Configuration block for the workflow parameters. Detailed below.
+         */
+        parameters?: outputs.imagebuilder.ImageWorkflowParameter[];
+        /**
+         * Amazon Resource Name (ARN) of the Image Builder Workflow.
+         *
+         * The following arguments are optional:
+         */
+        workflowArn: string;
+    }
+
+    export interface ImageWorkflowParameter {
+        /**
+         * The name of the Workflow parameter.
+         */
+        name: string;
+        /**
+         * The value of the Workflow parameter.
+         */
+        value: string;
     }
 
     export interface InfrastructureConfigurationInstanceMetadataOptions {
@@ -42997,7 +43063,7 @@ export namespace lb {
 
     export interface LoadBalancerAccessLogs {
         /**
-         * The S3 bucket name to store the logs in.
+         * S3 bucket name to store the logs in.
          */
         bucket: string;
         /**
@@ -43005,14 +43071,14 @@ export namespace lb {
          */
         enabled?: boolean;
         /**
-         * The S3 bucket prefix. Logs are stored in the root if not configured.
+         * S3 bucket prefix. Logs are stored in the root if not configured.
          */
         prefix?: string;
     }
 
     export interface LoadBalancerConnectionLogs {
         /**
-         * The S3 bucket name to store the logs in.
+         * S3 bucket name to store the logs in.
          */
         bucket: string;
         /**
@@ -43020,23 +43086,23 @@ export namespace lb {
          */
         enabled?: boolean;
         /**
-         * The S3 bucket prefix. Logs are stored in the root if not configured.
+         * S3 bucket prefix. Logs are stored in the root if not configured.
          */
         prefix?: string;
     }
 
     export interface LoadBalancerSubnetMapping {
         /**
-         * The allocation ID of the Elastic IP address for an internet-facing load balancer.
+         * Allocation ID of the Elastic IP address for an internet-facing load balancer.
          */
         allocationId?: string;
         /**
-         * The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+         * IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
          */
         ipv6Address?: string;
         outpostId: string;
         /**
-         * The private IPv4 address for an internal load balancer.
+         * Private IPv4 address for an internal load balancer.
          */
         privateIpv4Address?: string;
         /**
@@ -60032,7 +60098,6 @@ export namespace mwaa {
     export interface EnvironmentLastUpdated {
         /**
          * The Created At date of the MWAA Environment
-         * * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
          */
         createdAt: string;
         errors: outputs.mwaa.EnvironmentLastUpdatedError[];
@@ -76962,17 +77027,35 @@ export namespace signer {
     }
 
     export interface SigningProfileRevocationRecord {
+        /**
+         * The time when revocation becomes effective.
+         */
         revocationEffectiveFrom: string;
+        /**
+         * The time when the signing profile was revoked.
+         */
         revokedAt: string;
+        /**
+         * The identity of the revoker.
+         */
         revokedBy: string;
     }
 
     export interface SigningProfileSignatureValidityPeriod {
+        /**
+         * The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+         */
         type: string;
+        /**
+         * The numerical value of the time unit for signature validity.
+         */
         value: number;
     }
 
     export interface SigningProfileSigningMaterial {
+        /**
+         * The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+         */
         certificateArn: string;
     }
 
@@ -77129,29 +77212,35 @@ export namespace ssm {
 
     export interface DocumentAttachmentsSource {
         /**
-         * The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
+         * The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
          */
         key: string;
         /**
-         * The name of the document attachment file
+         * The name of the document attachment file.
          */
         name?: string;
         /**
-         * The value describing the location of an attachment to a document
+         * The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
          */
         values: string[];
     }
 
     export interface DocumentParameter {
+        /**
+         * If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
+         */
         defaultValue: string;
         /**
-         * The description of the document.
+         * A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
          */
         description: string;
         /**
          * The name of the document.
          */
         name: string;
+        /**
+         * The permission type for the document. The permission type can be `Share`.
+         */
         type: string;
     }
 

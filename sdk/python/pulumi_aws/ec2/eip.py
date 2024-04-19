@@ -215,6 +215,7 @@ class _EipState:
                  network_interface: Optional[pulumi.Input[str]] = None,
                  private_dns: Optional[pulumi.Input[str]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
+                 ptr_record: Optional[pulumi.Input[str]] = None,
                  public_dns: Optional[pulumi.Input[str]] = None,
                  public_ip: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
@@ -236,6 +237,7 @@ class _EipState:
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] private_dns: The Private DNS associated with the Elastic IP address (if in VPC).
         :param pulumi.Input[str] private_ip: Contains the private IP address (if in VPC).
+        :param pulumi.Input[str] ptr_record: The DNS pointer (PTR) record for the IP address.
         :param pulumi.Input[str] public_dns: Public DNS associated with the Elastic IP address.
         :param pulumi.Input[str] public_ip: Contains the public IP address.
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
@@ -276,6 +278,8 @@ class _EipState:
             pulumi.set(__self__, "private_dns", private_dns)
         if private_ip is not None:
             pulumi.set(__self__, "private_ip", private_ip)
+        if ptr_record is not None:
+            pulumi.set(__self__, "ptr_record", ptr_record)
         if public_dns is not None:
             pulumi.set(__self__, "public_dns", public_dns)
         if public_ip is not None:
@@ -450,6 +454,18 @@ class _EipState:
     @private_ip.setter
     def private_ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_ip", value)
+
+    @property
+    @pulumi.getter(name="ptrRecord")
+    def ptr_record(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS pointer (PTR) record for the IP address.
+        """
+        return pulumi.get(self, "ptr_record")
+
+    @ptr_record.setter
+    def ptr_record(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ptr_record", value)
 
     @property
     @pulumi.getter(name="publicDns")
@@ -821,6 +837,7 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["customer_owned_ip"] = None
             __props__.__dict__["private_dns"] = None
             __props__.__dict__["private_ip"] = None
+            __props__.__dict__["ptr_record"] = None
             __props__.__dict__["public_dns"] = None
             __props__.__dict__["public_ip"] = None
             __props__.__dict__["tags_all"] = None
@@ -847,6 +864,7 @@ class Eip(pulumi.CustomResource):
             network_interface: Optional[pulumi.Input[str]] = None,
             private_dns: Optional[pulumi.Input[str]] = None,
             private_ip: Optional[pulumi.Input[str]] = None,
+            ptr_record: Optional[pulumi.Input[str]] = None,
             public_dns: Optional[pulumi.Input[str]] = None,
             public_ip: Optional[pulumi.Input[str]] = None,
             public_ipv4_pool: Optional[pulumi.Input[str]] = None,
@@ -873,6 +891,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] private_dns: The Private DNS associated with the Elastic IP address (if in VPC).
         :param pulumi.Input[str] private_ip: Contains the private IP address (if in VPC).
+        :param pulumi.Input[str] ptr_record: The DNS pointer (PTR) record for the IP address.
         :param pulumi.Input[str] public_dns: Public DNS associated with the Elastic IP address.
         :param pulumi.Input[str] public_ip: Contains the public IP address.
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
@@ -904,6 +923,7 @@ class Eip(pulumi.CustomResource):
         __props__.__dict__["network_interface"] = network_interface
         __props__.__dict__["private_dns"] = private_dns
         __props__.__dict__["private_ip"] = private_ip
+        __props__.__dict__["ptr_record"] = ptr_record
         __props__.__dict__["public_dns"] = public_dns
         __props__.__dict__["public_ip"] = public_ip
         __props__.__dict__["public_ipv4_pool"] = public_ipv4_pool
@@ -1015,6 +1035,14 @@ class Eip(pulumi.CustomResource):
         Contains the private IP address (if in VPC).
         """
         return pulumi.get(self, "private_ip")
+
+    @property
+    @pulumi.getter(name="ptrRecord")
+    def ptr_record(self) -> pulumi.Output[str]:
+        """
+        The DNS pointer (PTR) record for the IP address.
+        """
+        return pulumi.get(self, "ptr_record")
 
     @property
     @pulumi.getter(name="publicDns")

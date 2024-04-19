@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ssm.Inputs
     public sealed class DocumentAttachmentsSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
+        /// The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The name of the document attachment file
+        /// The name of the document attachment file.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ssm.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// The value describing the location of an attachment to a document
+        /// The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
         /// </summary>
         public InputList<string> Values
         {

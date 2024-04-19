@@ -57,6 +57,9 @@ class GetAliasResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the alias
+        """
         return pulumi.get(self, "name")
 
     @property

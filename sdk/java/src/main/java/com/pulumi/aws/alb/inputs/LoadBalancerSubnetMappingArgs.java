@@ -17,14 +17,14 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
     public static final LoadBalancerSubnetMappingArgs Empty = new LoadBalancerSubnetMappingArgs();
 
     /**
-     * The allocation ID of the Elastic IP address for an internet-facing load balancer.
+     * Allocation ID of the Elastic IP address for an internet-facing load balancer.
      * 
      */
     @Import(name="allocationId")
     private @Nullable Output<String> allocationId;
 
     /**
-     * @return The allocation ID of the Elastic IP address for an internet-facing load balancer.
+     * @return Allocation ID of the Elastic IP address for an internet-facing load balancer.
      * 
      */
     public Optional<Output<String>> allocationId() {
@@ -32,14 +32,14 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+     * IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
      * 
      */
     @Import(name="ipv6Address")
     private @Nullable Output<String> ipv6Address;
 
     /**
-     * @return The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+     * @return IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
      * 
      */
     public Optional<Output<String>> ipv6Address() {
@@ -54,14 +54,14 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The private IPv4 address for an internal load balancer.
+     * Private IPv4 address for an internal load balancer.
      * 
      */
     @Import(name="privateIpv4Address")
     private @Nullable Output<String> privateIpv4Address;
 
     /**
-     * @return The private IPv4 address for an internal load balancer.
+     * @return Private IPv4 address for an internal load balancer.
      * 
      */
     public Optional<Output<String>> privateIpv4Address() {
@@ -112,7 +112,7 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param allocationId The allocation ID of the Elastic IP address for an internet-facing load balancer.
+         * @param allocationId Allocation ID of the Elastic IP address for an internet-facing load balancer.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param allocationId The allocation ID of the Elastic IP address for an internet-facing load balancer.
+         * @param allocationId Allocation ID of the Elastic IP address for an internet-facing load balancer.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipv6Address The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+         * @param ipv6Address IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipv6Address The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+         * @param ipv6Address IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param privateIpv4Address The private IPv4 address for an internal load balancer.
+         * @param privateIpv4Address Private IPv4 address for an internal load balancer.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class LoadBalancerSubnetMappingArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param privateIpv4Address The private IPv4 address for an internal load balancer.
+         * @param privateIpv4Address Private IPv4 address for an internal load balancer.
          * 
          * @return builder
          * 

@@ -211,9 +211,17 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> roleName() {
         return Codegen.optional(this.roleName);
     }
+    /**
+     * The status of the account in the organization.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return The status of the account in the organization.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

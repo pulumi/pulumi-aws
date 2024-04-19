@@ -11,9 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DocumentParameter {
+    /**
+     * @return If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
+     * 
+     */
     private @Nullable String defaultValue;
     /**
-     * @return The description of the document.
+     * @return A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
      * 
      */
     private @Nullable String description;
@@ -22,14 +26,22 @@ public final class DocumentParameter {
      * 
      */
     private @Nullable String name;
+    /**
+     * @return The permission type for the document. The permission type can be `Share`.
+     * 
+     */
     private @Nullable String type;
 
     private DocumentParameter() {}
+    /**
+     * @return If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
+     * 
+     */
     public Optional<String> defaultValue() {
         return Optional.ofNullable(this.defaultValue);
     }
     /**
-     * @return The description of the document.
+     * @return A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
      * 
      */
     public Optional<String> description() {
@@ -42,6 +54,10 @@ public final class DocumentParameter {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return The permission type for the document. The permission type can be `Share`.
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

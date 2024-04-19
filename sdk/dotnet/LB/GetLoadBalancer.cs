@@ -160,6 +160,7 @@ namespace Pulumi.Aws.LB
         public readonly Outputs.GetLoadBalancerAccessLogsResult AccessLogs;
         public readonly string Arn;
         public readonly string ArnSuffix;
+        public readonly int ClientKeepAlive;
         public readonly ImmutableArray<Outputs.GetLoadBalancerConnectionLogResult> ConnectionLogs;
         public readonly string CustomerOwnedIpv4Pool;
         public readonly string DesyncMitigationMode;
@@ -198,6 +199,8 @@ namespace Pulumi.Aws.LB
             string arn,
 
             string arnSuffix,
+
+            int clientKeepAlive,
 
             ImmutableArray<Outputs.GetLoadBalancerConnectionLogResult> connectionLogs,
 
@@ -256,6 +259,7 @@ namespace Pulumi.Aws.LB
             AccessLogs = accessLogs;
             Arn = arn;
             ArnSuffix = arnSuffix;
+            ClientKeepAlive = clientKeepAlive;
             ConnectionLogs = connectionLogs;
             CustomerOwnedIpv4Pool = customerOwnedIpv4Pool;
             DesyncMitigationMode = desyncMitigationMode;

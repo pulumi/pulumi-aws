@@ -17,6 +17,7 @@ class EventRuleArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
                  event_pattern: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,7 @@ class EventRuleArgs:
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with this rule.
                If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
+        :param pulumi.Input[bool] force_destroy: Used to delete managed rules created by AWS. Defaults to `false`.
         :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled.
                Defaults to `true`.
                Conflicts with `state`.
@@ -53,6 +55,8 @@ class EventRuleArgs:
             pulumi.set(__self__, "event_bus_name", event_bus_name)
         if event_pattern is not None:
             pulumi.set(__self__, "event_pattern", event_pattern)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if is_enabled is not None:
             warnings.warn("""Use \"state\" instead""", DeprecationWarning)
             pulumi.log.warn("""is_enabled is deprecated: Use \"state\" instead""")
@@ -107,6 +111,18 @@ class EventRuleArgs:
     @event_pattern.setter
     def event_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_pattern", value)
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to delete managed rules created by AWS. Defaults to `false`.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -212,6 +228,7 @@ class _EventRuleState:
                  description: Optional[pulumi.Input[str]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
                  event_pattern: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -227,6 +244,7 @@ class _EventRuleState:
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with this rule.
                If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
+        :param pulumi.Input[bool] force_destroy: Used to delete managed rules created by AWS. Defaults to `false`.
         :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled.
                Defaults to `true`.
                Conflicts with `state`.
@@ -253,6 +271,8 @@ class _EventRuleState:
             pulumi.set(__self__, "event_bus_name", event_bus_name)
         if event_pattern is not None:
             pulumi.set(__self__, "event_pattern", event_pattern)
+        if force_destroy is not None:
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if is_enabled is not None:
             warnings.warn("""Use \"state\" instead""", DeprecationWarning)
             pulumi.log.warn("""is_enabled is deprecated: Use \"state\" instead""")
@@ -324,6 +344,18 @@ class _EventRuleState:
     @event_pattern.setter
     def event_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_pattern", value)
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to delete managed rules created by AWS. Defaults to `false`.
+        """
+        return pulumi.get(self, "force_destroy")
+
+    @force_destroy.setter
+    def force_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_destroy", value)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -445,6 +477,7 @@ class EventRule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
                  event_pattern: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -506,6 +539,7 @@ class EventRule(pulumi.CustomResource):
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with this rule.
                If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
+        :param pulumi.Input[bool] force_destroy: Used to delete managed rules created by AWS. Defaults to `false`.
         :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled.
                Defaults to `true`.
                Conflicts with `state`.
@@ -594,6 +628,7 @@ class EventRule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
                  event_pattern: Optional[pulumi.Input[str]] = None,
+                 force_destroy: Optional[pulumi.Input[bool]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -613,6 +648,7 @@ class EventRule(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["event_bus_name"] = event_bus_name
             __props__.__dict__["event_pattern"] = event_pattern
+            __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["is_enabled"] = is_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
@@ -636,6 +672,7 @@ class EventRule(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             event_bus_name: Optional[pulumi.Input[str]] = None,
             event_pattern: Optional[pulumi.Input[str]] = None,
+            force_destroy: Optional[pulumi.Input[bool]] = None,
             is_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
@@ -656,6 +693,7 @@ class EventRule(pulumi.CustomResource):
         :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus to associate with this rule.
                If you omit this, the `default` event bus is used.
         :param pulumi.Input[str] event_pattern: The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
+        :param pulumi.Input[bool] force_destroy: Used to delete managed rules created by AWS. Defaults to `false`.
         :param pulumi.Input[bool] is_enabled: Whether the rule should be enabled.
                Defaults to `true`.
                Conflicts with `state`.
@@ -682,6 +720,7 @@ class EventRule(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["event_bus_name"] = event_bus_name
         __props__.__dict__["event_pattern"] = event_pattern
+        __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["is_enabled"] = is_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
@@ -724,6 +763,14 @@ class EventRule(pulumi.CustomResource):
         The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
         """
         return pulumi.get(self, "event_pattern")
+
+    @property
+    @pulumi.getter(name="forceDestroy")
+    def force_destroy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Used to delete managed rules created by AWS. Defaults to `false`.
+        """
+        return pulumi.get(self, "force_destroy")
 
     @property
     @pulumi.getter(name="isEnabled")

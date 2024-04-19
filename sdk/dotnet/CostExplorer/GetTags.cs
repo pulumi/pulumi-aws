@@ -12,7 +12,7 @@ namespace Pulumi.Aws.CostExplorer
     public static class GetTags
     {
         /// <summary>
-        /// Provides details about a specific CE Tags.
+        /// Provides the available cost allocation tag keys and tag values for a specified period.
         /// 
         /// ## Example Usage
         /// 
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.CostExplorer
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagsResult>("aws:costexplorer/getTags:getTags", args ?? new GetTagsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides details about a specific CE Tags.
+        /// Provides the available cost allocation tag keys and tag values for a specified period.
         /// 
         /// ## Example Usage
         /// 
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.CostExplorer
     public sealed class GetTagsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Configuration block for the `Expression` object used to categorize costs. See below.
+        /// Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
         /// </summary>
         [Input("filter")]
         public Inputs.GetTagsFilterArgs? Filter { get; set; }
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.CostExplorer
         private List<Inputs.GetTagsSortByArgs>? _sortBies;
 
         /// <summary>
-        /// Configuration block for the value by which you want to sort the data. See below.
+        /// Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
         /// </summary>
         public List<Inputs.GetTagsSortByArgs> SortBies
         {
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.CostExplorer
         public string? TagKey { get; set; }
 
         /// <summary>
-        /// Configuration block for the start and end dates for retrieving the dimension values.
+        /// Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.CostExplorer
     public sealed class GetTagsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Configuration block for the `Expression` object used to categorize costs. See below.
+        /// Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.GetTagsFilterInputArgs>? Filter { get; set; }
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.CostExplorer
         private InputList<Inputs.GetTagsSortByInputArgs>? _sortBies;
 
         /// <summary>
-        /// Configuration block for the value by which you want to sort the data. See below.
+        /// Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
         /// </summary>
         public InputList<Inputs.GetTagsSortByInputArgs> SortBies
         {
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.CostExplorer
         public Input<string>? TagKey { get; set; }
 
         /// <summary>
-        /// Configuration block for the start and end dates for retrieving the dimension values.
+        /// Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
         /// 
         /// The following arguments are optional:
         /// </summary>

@@ -57,6 +57,7 @@ class _DefaultVpcDhcpOptionsState:
                  arn: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_name_servers: Optional[pulumi.Input[str]] = None,
+                 ipv6_address_preferred_lease_time: Optional[pulumi.Input[str]] = None,
                  netbios_name_servers: Optional[pulumi.Input[str]] = None,
                  netbios_node_type: Optional[pulumi.Input[str]] = None,
                  ntp_servers: Optional[pulumi.Input[str]] = None,
@@ -77,6 +78,8 @@ class _DefaultVpcDhcpOptionsState:
             pulumi.set(__self__, "domain_name", domain_name)
         if domain_name_servers is not None:
             pulumi.set(__self__, "domain_name_servers", domain_name_servers)
+        if ipv6_address_preferred_lease_time is not None:
+            pulumi.set(__self__, "ipv6_address_preferred_lease_time", ipv6_address_preferred_lease_time)
         if netbios_name_servers is not None:
             pulumi.set(__self__, "netbios_name_servers", netbios_name_servers)
         if netbios_node_type is not None:
@@ -122,6 +125,15 @@ class _DefaultVpcDhcpOptionsState:
     @domain_name_servers.setter
     def domain_name_servers(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain_name_servers", value)
+
+    @property
+    @pulumi.getter(name="ipv6AddressPreferredLeaseTime")
+    def ipv6_address_preferred_lease_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_address_preferred_lease_time")
+
+    @ipv6_address_preferred_lease_time.setter
+    def ipv6_address_preferred_lease_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_address_preferred_lease_time", value)
 
     @property
     @pulumi.getter(name="netbiosNameServers")
@@ -313,6 +325,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_name"] = None
             __props__.__dict__["domain_name_servers"] = None
+            __props__.__dict__["ipv6_address_preferred_lease_time"] = None
             __props__.__dict__["netbios_name_servers"] = None
             __props__.__dict__["netbios_node_type"] = None
             __props__.__dict__["ntp_servers"] = None
@@ -330,6 +343,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             domain_name_servers: Optional[pulumi.Input[str]] = None,
+            ipv6_address_preferred_lease_time: Optional[pulumi.Input[str]] = None,
             netbios_name_servers: Optional[pulumi.Input[str]] = None,
             netbios_node_type: Optional[pulumi.Input[str]] = None,
             ntp_servers: Optional[pulumi.Input[str]] = None,
@@ -356,6 +370,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["domain_name_servers"] = domain_name_servers
+        __props__.__dict__["ipv6_address_preferred_lease_time"] = ipv6_address_preferred_lease_time
         __props__.__dict__["netbios_name_servers"] = netbios_name_servers
         __props__.__dict__["netbios_node_type"] = netbios_node_type
         __props__.__dict__["ntp_servers"] = ntp_servers
@@ -381,6 +396,11 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
     @pulumi.getter(name="domainNameServers")
     def domain_name_servers(self) -> pulumi.Output[str]:
         return pulumi.get(self, "domain_name_servers")
+
+    @property
+    @pulumi.getter(name="ipv6AddressPreferredLeaseTime")
+    def ipv6_address_preferred_lease_time(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "ipv6_address_preferred_lease_time")
 
     @property
     @pulumi.getter(name="netbiosNameServers")

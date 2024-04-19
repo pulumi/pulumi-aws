@@ -123,7 +123,7 @@ class LbAttachment(pulumi.CustomResource):
             name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
+            bundle_id="nano_3_0")
         test_lb_attachment = aws.lightsail.LbAttachment("test",
             lb_name=test.name,
             instance_name=test_instance.name)
@@ -175,7 +175,7 @@ class LbAttachment(pulumi.CustomResource):
             name="test-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
+            bundle_id="nano_3_0")
         test_lb_attachment = aws.lightsail.LbAttachment("test",
             lb_name=test.name,
             instance_name=test_instance.name)

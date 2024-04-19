@@ -40,6 +40,8 @@ __all__ = [
     'ImageRecipeComponentArgs',
     'ImageRecipeComponentParameterArgs',
     'ImageRecipeSystemsManagerAgentArgs',
+    'ImageWorkflowArgs',
+    'ImageWorkflowParameterArgs',
     'InfrastructureConfigurationInstanceMetadataOptionsArgs',
     'InfrastructureConfigurationLoggingArgs',
     'InfrastructureConfigurationLoggingS3LogsArgs',
@@ -1164,7 +1166,7 @@ class ImageOutputResourceAmiArgs:
         :param pulumi.Input[str] account_id: Account identifier of the AMI.
         :param pulumi.Input[str] description: Description of the AMI.
         :param pulumi.Input[str] image: Identifier of the AMI.
-        :param pulumi.Input[str] name: Name of the AMI.
+        :param pulumi.Input[str] name: The name of the Workflow parameter.
         :param pulumi.Input[str] region: Region of the container image.
         """
         if account_id is not None:
@@ -1218,7 +1220,7 @@ class ImageOutputResourceAmiArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the AMI.
+        The name of the Workflow parameter.
         """
         return pulumi.get(self, "name")
 
@@ -1750,6 +1752,117 @@ class ImageRecipeSystemsManagerAgentArgs:
     @uninstall_after_build.setter
     def uninstall_after_build(self, value: pulumi.Input[bool]):
         pulumi.set(self, "uninstall_after_build", value)
+
+
+@pulumi.input_type
+class ImageWorkflowArgs:
+    def __init__(__self__, *,
+                 workflow_arn: pulumi.Input[str],
+                 on_failure: Optional[pulumi.Input[str]] = None,
+                 parallel_group: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ImageWorkflowParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[str] workflow_arn: Amazon Resource Name (ARN) of the Image Builder Workflow.
+               
+               The following arguments are optional:
+        :param pulumi.Input[str] on_failure: The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
+        :param pulumi.Input[str] parallel_group: The parallel group in which to run a test Workflow.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageWorkflowParameterArgs']]] parameters: Configuration block for the workflow parameters. Detailed below.
+        """
+        pulumi.set(__self__, "workflow_arn", workflow_arn)
+        if on_failure is not None:
+            pulumi.set(__self__, "on_failure", on_failure)
+        if parallel_group is not None:
+            pulumi.set(__self__, "parallel_group", parallel_group)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="workflowArn")
+    def workflow_arn(self) -> pulumi.Input[str]:
+        """
+        Amazon Resource Name (ARN) of the Image Builder Workflow.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "workflow_arn")
+
+    @workflow_arn.setter
+    def workflow_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workflow_arn", value)
+
+    @property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
+        """
+        return pulumi.get(self, "on_failure")
+
+    @on_failure.setter
+    def on_failure(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_failure", value)
+
+    @property
+    @pulumi.getter(name="parallelGroup")
+    def parallel_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parallel group in which to run a test Workflow.
+        """
+        return pulumi.get(self, "parallel_group")
+
+    @parallel_group.setter
+    def parallel_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parallel_group", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageWorkflowParameterArgs']]]]:
+        """
+        Configuration block for the workflow parameters. Detailed below.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageWorkflowParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class ImageWorkflowParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the Workflow parameter.
+        :param pulumi.Input[str] value: The value of the Workflow parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Workflow parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the Workflow parameter.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

@@ -37,6 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.costexplorer.AnomalySubscription;
  * import com.pulumi.aws.costexplorer.AnomalySubscriptionArgs;
  * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
+ * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionArgs;
+ * import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionDimensionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,6 +66,13 @@ import javax.annotation.Nullable;
  *                 .type(&#34;EMAIL&#34;)
  *                 .address(&#34;abc@example.com&#34;)
  *                 .build())
+ *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
+ *                 .dimension(AnomalySubscriptionThresholdExpressionDimensionArgs.builder()
+ *                     .key(&#34;ANOMALY_TOTAL_IMPACT_ABSOLUTE&#34;)
+ *                     .matchOptions(&#34;GREATER_THAN_OR_EQUAL&#34;)
+ *                     .values(&#34;100&#34;)
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -73,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  * ### Threshold Expression Example
  * 
- * ### For a Specific Dimension
+ * ### Using a Percentage Threshold
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
@@ -110,9 +119,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .thresholdExpression(AnomalySubscriptionThresholdExpressionArgs.builder()
  *                 .dimension(AnomalySubscriptionThresholdExpressionDimensionArgs.builder()
- *                     .key(&#34;ANOMALY_TOTAL_IMPACT_ABSOLUTE&#34;)
- *                     .values(&#34;100.0&#34;)
+ *                     .key(&#34;ANOMALY_TOTAL_IMPACT_PERCENTAGE&#34;)
  *                     .matchOptions(&#34;GREATER_THAN_OR_EQUAL&#34;)
+ *                     .values(&#34;100&#34;)
  *                     .build())
  *                 .build())
  *             .build());
@@ -246,7 +255,7 @@ import javax.annotation.Nullable;
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test(&#34;StringEquals&#34;)
  *                         .variable(&#34;AWS:SourceOwner&#34;)
- *                         .values(account_id)
+ *                         .values(accountId)
  *                         .build())
  *                     .effect(&#34;Allow&#34;)
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()

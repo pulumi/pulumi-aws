@@ -112,17 +112,6 @@ import (
 // ```
 // <!--End PulumiCodeChooser -->
 //
-// ## Permissions
-//
-// The permissions attribute specifies how you want to share the document. If you share a document privately,
-// you must specify the AWS user account IDs for those people who can use the document. If you share a document
-// publicly, you must specify All as the account ID.
-//
-// The permissions mapping supports the following:
-//
-// * `type` - The permission type for the document. The permission type can be `Share`.
-// * `accountIds` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
-//
 // ## Import
 //
 // Using `pulumi import`, import SSM Documents using the name. For example:
@@ -134,42 +123,43 @@ import (
 type Document struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the document.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+	// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
 	AttachmentsSources DocumentAttachmentsSourceArrayOutput `pulumi:"attachmentsSources"`
-	// The JSON or YAML content of the document.
+	// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
 	Content pulumi.StringOutput `pulumi:"content"`
 	// The date the document was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The default version of the document.
 	DefaultVersion pulumi.StringOutput `pulumi:"defaultVersion"`
-	// The description of the document.
+	// A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The format of the document. Valid document types include: `JSON` and `YAML`
+	// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
 	DocumentFormat pulumi.StringPtrOutput `pulumi:"documentFormat"`
-	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+	// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
 	DocumentType pulumi.StringOutput `pulumi:"documentType"`
 	// The document version.
 	DocumentVersion pulumi.StringOutput `pulumi:"documentVersion"`
-	// The sha1 or sha256 of the document content
+	// The Sha256 or Sha1 hash created by the system when the document was created.
 	Hash pulumi.StringOutput `pulumi:"hash"`
-	// "Sha1" "Sha256". The hashing algorithm used when hashing the content.
+	// The hash type of the document. Valid values: `Sha256`, `Sha1`.
 	HashType pulumi.StringOutput `pulumi:"hashType"`
 	// The latest version of the document.
 	LatestVersion pulumi.StringOutput `pulumi:"latestVersion"`
 	// The name of the document.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The AWS user account of the person who created the document.
+	// The Amazon Web Services user that created the document.
 	Owner pulumi.StringOutput `pulumi:"owner"`
-	// The parameters that are available to this document.
+	// One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
 	Parameters DocumentParameterArrayOutput `pulumi:"parameters"`
-	// Additional Permissions to attach to the document. See Permissions below for details.
+	// Additional permissions to attach to the document. See Permissions below for details.
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
-	// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
+	// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
 	PlatformTypes pulumi.StringArrayOutput `pulumi:"platformTypes"`
 	// The schema version of the document.
 	SchemaVersion pulumi.StringOutput `pulumi:"schemaVersion"`
-	// "Creating", "Active" or "Deleting". The current status of the document.
+	// The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -177,9 +167,9 @@ type Document struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+	// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
 	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
-	// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+	// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
 	VersionName pulumi.StringPtrOutput `pulumi:"versionName"`
 }
 
@@ -219,42 +209,43 @@ func GetDocument(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Document resources.
 type documentState struct {
+	// The Amazon Resource Name (ARN) of the document.
 	Arn *string `pulumi:"arn"`
-	// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+	// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
 	AttachmentsSources []DocumentAttachmentsSource `pulumi:"attachmentsSources"`
-	// The JSON or YAML content of the document.
+	// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
 	Content *string `pulumi:"content"`
 	// The date the document was created.
 	CreatedDate *string `pulumi:"createdDate"`
 	// The default version of the document.
 	DefaultVersion *string `pulumi:"defaultVersion"`
-	// The description of the document.
+	// A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
 	Description *string `pulumi:"description"`
-	// The format of the document. Valid document types include: `JSON` and `YAML`
+	// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
 	DocumentFormat *string `pulumi:"documentFormat"`
-	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+	// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
 	DocumentType *string `pulumi:"documentType"`
 	// The document version.
 	DocumentVersion *string `pulumi:"documentVersion"`
-	// The sha1 or sha256 of the document content
+	// The Sha256 or Sha1 hash created by the system when the document was created.
 	Hash *string `pulumi:"hash"`
-	// "Sha1" "Sha256". The hashing algorithm used when hashing the content.
+	// The hash type of the document. Valid values: `Sha256`, `Sha1`.
 	HashType *string `pulumi:"hashType"`
 	// The latest version of the document.
 	LatestVersion *string `pulumi:"latestVersion"`
 	// The name of the document.
 	Name *string `pulumi:"name"`
-	// The AWS user account of the person who created the document.
+	// The Amazon Web Services user that created the document.
 	Owner *string `pulumi:"owner"`
-	// The parameters that are available to this document.
+	// One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
 	Parameters []DocumentParameter `pulumi:"parameters"`
-	// Additional Permissions to attach to the document. See Permissions below for details.
+	// Additional permissions to attach to the document. See Permissions below for details.
 	Permissions map[string]string `pulumi:"permissions"`
-	// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
+	// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
 	PlatformTypes []string `pulumi:"platformTypes"`
 	// The schema version of the document.
 	SchemaVersion *string `pulumi:"schemaVersion"`
-	// "Creating", "Active" or "Deleting". The current status of the document.
+	// The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
 	Status *string `pulumi:"status"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -262,49 +253,50 @@ type documentState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+	// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
 	TargetType *string `pulumi:"targetType"`
-	// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+	// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
 	VersionName *string `pulumi:"versionName"`
 }
 
 type DocumentState struct {
+	// The Amazon Resource Name (ARN) of the document.
 	Arn pulumi.StringPtrInput
-	// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+	// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
 	AttachmentsSources DocumentAttachmentsSourceArrayInput
-	// The JSON or YAML content of the document.
+	// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
 	Content pulumi.StringPtrInput
 	// The date the document was created.
 	CreatedDate pulumi.StringPtrInput
 	// The default version of the document.
 	DefaultVersion pulumi.StringPtrInput
-	// The description of the document.
+	// A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
 	Description pulumi.StringPtrInput
-	// The format of the document. Valid document types include: `JSON` and `YAML`
+	// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
 	DocumentFormat pulumi.StringPtrInput
-	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+	// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
 	DocumentType pulumi.StringPtrInput
 	// The document version.
 	DocumentVersion pulumi.StringPtrInput
-	// The sha1 or sha256 of the document content
+	// The Sha256 or Sha1 hash created by the system when the document was created.
 	Hash pulumi.StringPtrInput
-	// "Sha1" "Sha256". The hashing algorithm used when hashing the content.
+	// The hash type of the document. Valid values: `Sha256`, `Sha1`.
 	HashType pulumi.StringPtrInput
 	// The latest version of the document.
 	LatestVersion pulumi.StringPtrInput
 	// The name of the document.
 	Name pulumi.StringPtrInput
-	// The AWS user account of the person who created the document.
+	// The Amazon Web Services user that created the document.
 	Owner pulumi.StringPtrInput
-	// The parameters that are available to this document.
+	// One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
 	Parameters DocumentParameterArrayInput
-	// Additional Permissions to attach to the document. See Permissions below for details.
+	// Additional permissions to attach to the document. See Permissions below for details.
 	Permissions pulumi.StringMapInput
-	// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
+	// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
 	PlatformTypes pulumi.StringArrayInput
 	// The schema version of the document.
 	SchemaVersion pulumi.StringPtrInput
-	// "Creating", "Active" or "Deleting". The current status of the document.
+	// The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
 	Status pulumi.StringPtrInput
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -312,9 +304,9 @@ type DocumentState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+	// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
 	TargetType pulumi.StringPtrInput
-	// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+	// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
 	VersionName pulumi.StringPtrInput
 }
 
@@ -323,45 +315,45 @@ func (DocumentState) ElementType() reflect.Type {
 }
 
 type documentArgs struct {
-	// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+	// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
 	AttachmentsSources []DocumentAttachmentsSource `pulumi:"attachmentsSources"`
-	// The JSON or YAML content of the document.
+	// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
 	Content string `pulumi:"content"`
-	// The format of the document. Valid document types include: `JSON` and `YAML`
+	// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
 	DocumentFormat *string `pulumi:"documentFormat"`
-	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+	// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
 	DocumentType string `pulumi:"documentType"`
 	// The name of the document.
 	Name *string `pulumi:"name"`
-	// Additional Permissions to attach to the document. See Permissions below for details.
+	// Additional permissions to attach to the document. See Permissions below for details.
 	Permissions map[string]string `pulumi:"permissions"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+	// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
 	TargetType *string `pulumi:"targetType"`
-	// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+	// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
 	VersionName *string `pulumi:"versionName"`
 }
 
 // The set of arguments for constructing a Document resource.
 type DocumentArgs struct {
-	// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+	// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
 	AttachmentsSources DocumentAttachmentsSourceArrayInput
-	// The JSON or YAML content of the document.
+	// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
 	Content pulumi.StringInput
-	// The format of the document. Valid document types include: `JSON` and `YAML`
+	// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
 	DocumentFormat pulumi.StringPtrInput
-	// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+	// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
 	DocumentType pulumi.StringInput
 	// The name of the document.
 	Name pulumi.StringPtrInput
-	// Additional Permissions to attach to the document. See Permissions below for details.
+	// Additional permissions to attach to the document. See Permissions below for details.
 	Permissions pulumi.StringMapInput
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+	// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
 	TargetType pulumi.StringPtrInput
-	// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+	// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
 	VersionName pulumi.StringPtrInput
 }
 
@@ -452,16 +444,17 @@ func (o DocumentOutput) ToDocumentOutputWithContext(ctx context.Context) Documen
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the document.
 func (o DocumentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
 func (o DocumentOutput) AttachmentsSources() DocumentAttachmentsSourceArrayOutput {
 	return o.ApplyT(func(v *Document) DocumentAttachmentsSourceArrayOutput { return v.AttachmentsSources }).(DocumentAttachmentsSourceArrayOutput)
 }
 
-// The JSON or YAML content of the document.
+// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
 func (o DocumentOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
@@ -476,17 +469,17 @@ func (o DocumentOutput) DefaultVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.DefaultVersion }).(pulumi.StringOutput)
 }
 
-// The description of the document.
+// A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
 func (o DocumentOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The format of the document. Valid document types include: `JSON` and `YAML`
+// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
 func (o DocumentOutput) DocumentFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.DocumentFormat }).(pulumi.StringPtrOutput)
 }
 
-// The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
 func (o DocumentOutput) DocumentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.DocumentType }).(pulumi.StringOutput)
 }
@@ -496,12 +489,12 @@ func (o DocumentOutput) DocumentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.DocumentVersion }).(pulumi.StringOutput)
 }
 
-// The sha1 or sha256 of the document content
+// The Sha256 or Sha1 hash created by the system when the document was created.
 func (o DocumentOutput) Hash() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Hash }).(pulumi.StringOutput)
 }
 
-// "Sha1" "Sha256". The hashing algorithm used when hashing the content.
+// The hash type of the document. Valid values: `Sha256`, `Sha1`.
 func (o DocumentOutput) HashType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.HashType }).(pulumi.StringOutput)
 }
@@ -516,22 +509,22 @@ func (o DocumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The AWS user account of the person who created the document.
+// The Amazon Web Services user that created the document.
 func (o DocumentOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// The parameters that are available to this document.
+// One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
 func (o DocumentOutput) Parameters() DocumentParameterArrayOutput {
 	return o.ApplyT(func(v *Document) DocumentParameterArrayOutput { return v.Parameters }).(DocumentParameterArrayOutput)
 }
 
-// Additional Permissions to attach to the document. See Permissions below for details.
+// Additional permissions to attach to the document. See Permissions below for details.
 func (o DocumentOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }
 
-// A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
+// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
 func (o DocumentOutput) PlatformTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringArrayOutput { return v.PlatformTypes }).(pulumi.StringArrayOutput)
 }
@@ -541,7 +534,7 @@ func (o DocumentOutput) SchemaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.SchemaVersion }).(pulumi.StringOutput)
 }
 
-// "Creating", "Active" or "Deleting". The current status of the document.
+// The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
 func (o DocumentOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -558,12 +551,12 @@ func (o DocumentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
 func (o DocumentOutput) TargetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.TargetType }).(pulumi.StringPtrOutput)
 }
 
-// A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
+// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
 func (o DocumentOutput) VersionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringPtrOutput { return v.VersionName }).(pulumi.StringPtrOutput)
 }

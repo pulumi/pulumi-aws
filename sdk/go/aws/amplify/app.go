@@ -308,7 +308,7 @@ import (
 type App struct {
 	pulumi.CustomResourceState
 
-	// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+	// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
 	AccessToken pulumi.StringPtrOutput `pulumi:"accessToken"`
 	// ARN of the Amplify app.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -403,7 +403,7 @@ func GetApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering App resources.
 type appState struct {
-	// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+	// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
 	AccessToken *string `pulumi:"accessToken"`
 	// ARN of the Amplify app.
 	Arn *string `pulumi:"arn"`
@@ -454,7 +454,7 @@ type appState struct {
 }
 
 type AppState struct {
-	// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+	// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
 	AccessToken pulumi.StringPtrInput
 	// ARN of the Amplify app.
 	Arn pulumi.StringPtrInput
@@ -509,7 +509,7 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
-	// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+	// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
 	AccessToken *string `pulumi:"accessToken"`
 	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
 	AutoBranchCreationConfig *AppAutoBranchCreationConfig `pulumi:"autoBranchCreationConfig"`
@@ -551,7 +551,7 @@ type appArgs struct {
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
-	// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+	// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
 	AccessToken pulumi.StringPtrInput
 	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
 	AutoBranchCreationConfig AppAutoBranchCreationConfigPtrInput
@@ -678,7 +678,7 @@ func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return o
 }
 
-// Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
+// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
 func (o AppOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.AccessToken }).(pulumi.StringPtrOutput)
 }

@@ -262,6 +262,20 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.awsService);
     }
     /**
+     * Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+     * 
+     */
+    @Export(name="cascade", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> cascade;
+
+    /**
+     * @return Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+     * 
+     */
+    public Output<Optional<Boolean>> cascade() {
+        return Codegen.optional(this.cascade);
+    }
+    /**
      * A description for the IPAM pool.
      * 
      */

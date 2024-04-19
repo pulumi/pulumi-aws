@@ -124,19 +124,19 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetDocumentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+        /// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
         /// </summary>
         [Input("documentFormat")]
         public string? DocumentFormat { get; set; }
 
         /// <summary>
-        /// Document version for which you want information.
+        /// The document version.
         /// </summary>
         [Input("documentVersion")]
         public string? DocumentVersion { get; set; }
 
         /// <summary>
-        /// Name of the Systems Manager document.
+        /// The name of the document.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -150,19 +150,19 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetDocumentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+        /// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
         /// </summary>
         [Input("documentFormat")]
         public Input<string>? DocumentFormat { get; set; }
 
         /// <summary>
-        /// Document version for which you want information.
+        /// The document version.
         /// </summary>
         [Input("documentVersion")]
         public Input<string>? DocumentVersion { get; set; }
 
         /// <summary>
-        /// Name of the Systems Manager document.
+        /// The name of the document.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -182,12 +182,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Contents of the document.
+        /// The content for the SSM document in JSON or YAML format.
         /// </summary>
         public readonly string Content;
         public readonly string? DocumentFormat;
         /// <summary>
-        /// Type of the document.
+        /// The type of the document.
         /// </summary>
         public readonly string DocumentType;
         public readonly string? DocumentVersion;

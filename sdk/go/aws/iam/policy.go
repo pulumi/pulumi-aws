@@ -77,6 +77,8 @@ type Policy struct {
 
 	// ARN assigned by AWS to this policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Number of entities (users, groups, and roles) that the policy is attached to.
+	AttachmentCount pulumi.IntOutput `pulumi:"attachmentCount"`
 	// Description of the IAM policy.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the policy. If omitted, the provider will assign a random, unique name.
@@ -132,6 +134,8 @@ func GetPolicy(ctx *pulumi.Context,
 type policyState struct {
 	// ARN assigned by AWS to this policy.
 	Arn *string `pulumi:"arn"`
+	// Number of entities (users, groups, and roles) that the policy is attached to.
+	AttachmentCount *int `pulumi:"attachmentCount"`
 	// Description of the IAM policy.
 	Description *string `pulumi:"description"`
 	// Name of the policy. If omitted, the provider will assign a random, unique name.
@@ -155,6 +159,8 @@ type policyState struct {
 type PolicyState struct {
 	// ARN assigned by AWS to this policy.
 	Arn pulumi.StringPtrInput
+	// Number of entities (users, groups, and roles) that the policy is attached to.
+	AttachmentCount pulumi.IntPtrInput
 	// Description of the IAM policy.
 	Description pulumi.StringPtrInput
 	// Name of the policy. If omitted, the provider will assign a random, unique name.
@@ -300,6 +306,11 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 // ARN assigned by AWS to this policy.
 func (o PolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Number of entities (users, groups, and roles) that the policy is attached to.
+func (o PolicyOutput) AttachmentCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *Policy) pulumi.IntOutput { return v.AttachmentCount }).(pulumi.IntOutput)
 }
 
 // Description of the IAM policy.

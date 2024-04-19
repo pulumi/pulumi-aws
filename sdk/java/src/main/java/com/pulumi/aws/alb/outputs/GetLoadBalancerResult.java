@@ -20,6 +20,7 @@ public final class GetLoadBalancerResult {
     private GetLoadBalancerAccessLogs accessLogs;
     private String arn;
     private String arnSuffix;
+    private Integer clientKeepAlive;
     private List<GetLoadBalancerConnectionLog> connectionLogs;
     private String customerOwnedIpv4Pool;
     private String desyncMitigationMode;
@@ -61,6 +62,9 @@ public final class GetLoadBalancerResult {
     }
     public String arnSuffix() {
         return this.arnSuffix;
+    }
+    public Integer clientKeepAlive() {
+        return this.clientKeepAlive;
     }
     public List<GetLoadBalancerConnectionLog> connectionLogs() {
         return this.connectionLogs;
@@ -160,6 +164,7 @@ public final class GetLoadBalancerResult {
         private GetLoadBalancerAccessLogs accessLogs;
         private String arn;
         private String arnSuffix;
+        private Integer clientKeepAlive;
         private List<GetLoadBalancerConnectionLog> connectionLogs;
         private String customerOwnedIpv4Pool;
         private String desyncMitigationMode;
@@ -193,6 +198,7 @@ public final class GetLoadBalancerResult {
     	      this.accessLogs = defaults.accessLogs;
     	      this.arn = defaults.arn;
     	      this.arnSuffix = defaults.arnSuffix;
+    	      this.clientKeepAlive = defaults.clientKeepAlive;
     	      this.connectionLogs = defaults.connectionLogs;
     	      this.customerOwnedIpv4Pool = defaults.customerOwnedIpv4Pool;
     	      this.desyncMitigationMode = defaults.desyncMitigationMode;
@@ -244,6 +250,14 @@ public final class GetLoadBalancerResult {
               throw new MissingRequiredPropertyException("GetLoadBalancerResult", "arnSuffix");
             }
             this.arnSuffix = arnSuffix;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientKeepAlive(Integer clientKeepAlive) {
+            if (clientKeepAlive == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "clientKeepAlive");
+            }
+            this.clientKeepAlive = clientKeepAlive;
             return this;
         }
         @CustomType.Setter
@@ -479,6 +493,7 @@ public final class GetLoadBalancerResult {
             _resultValue.accessLogs = accessLogs;
             _resultValue.arn = arn;
             _resultValue.arnSuffix = arnSuffix;
+            _resultValue.clientKeepAlive = clientKeepAlive;
             _resultValue.connectionLogs = connectionLogs;
             _resultValue.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
             _resultValue.desyncMitigationMode = desyncMitigationMode;

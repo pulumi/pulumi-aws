@@ -544,7 +544,7 @@ class Instance(pulumi.CustomResource):
             name="custom_gitlab",
             availability_zone="us-east-1b",
             blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0",
+            bundle_id="nano_3_0",
             key_pair_name="some_key_name",
             tags={
                 "foo": "bar",
@@ -565,7 +565,7 @@ class Instance(pulumi.CustomResource):
             name="custom",
             availability_zone="us-east-1b",
             blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0",
+            bundle_id="nano_3_0",
             user_data="sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
         ```
         <!--End PulumiCodeChooser -->
@@ -581,7 +581,7 @@ class Instance(pulumi.CustomResource):
             name="custom_instance",
             availability_zone="us-east-1b",
             blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0",
+            bundle_id="nano_3_0",
             add_on=aws.lightsail.InstanceAddOnArgs(
                 type="AutoSnapshot",
                 snapshot_time="06:00",
@@ -647,7 +647,7 @@ class Instance(pulumi.CustomResource):
             name="custom_gitlab",
             availability_zone="us-east-1b",
             blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0",
+            bundle_id="nano_3_0",
             key_pair_name="some_key_name",
             tags={
                 "foo": "bar",
@@ -668,7 +668,7 @@ class Instance(pulumi.CustomResource):
             name="custom",
             availability_zone="us-east-1b",
             blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0",
+            bundle_id="nano_3_0",
             user_data="sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
         ```
         <!--End PulumiCodeChooser -->
@@ -684,7 +684,7 @@ class Instance(pulumi.CustomResource):
             name="custom_instance",
             availability_zone="us-east-1b",
             blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0",
+            bundle_id="nano_3_0",
             add_on=aws.lightsail.InstanceAddOnArgs(
                 type="AutoSnapshot",
                 snapshot_time="06:00",

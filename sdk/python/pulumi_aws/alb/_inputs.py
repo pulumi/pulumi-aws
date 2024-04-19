@@ -1829,9 +1829,9 @@ class LoadBalancerAccessLogsArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] bucket: The S3 bucket name to store the logs in.
+        :param pulumi.Input[str] bucket: S3 bucket name to store the logs in.
         :param pulumi.Input[bool] enabled: Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
-        :param pulumi.Input[str] prefix: The S3 bucket prefix. Logs are stored in the root if not configured.
+        :param pulumi.Input[str] prefix: S3 bucket prefix. Logs are stored in the root if not configured.
         """
         pulumi.set(__self__, "bucket", bucket)
         if enabled is not None:
@@ -1843,7 +1843,7 @@ class LoadBalancerAccessLogsArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The S3 bucket name to store the logs in.
+        S3 bucket name to store the logs in.
         """
         return pulumi.get(self, "bucket")
 
@@ -1867,7 +1867,7 @@ class LoadBalancerAccessLogsArgs:
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        The S3 bucket prefix. Logs are stored in the root if not configured.
+        S3 bucket prefix. Logs are stored in the root if not configured.
         """
         return pulumi.get(self, "prefix")
 
@@ -1883,9 +1883,9 @@ class LoadBalancerConnectionLogsArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] bucket: The S3 bucket name to store the logs in.
+        :param pulumi.Input[str] bucket: S3 bucket name to store the logs in.
         :param pulumi.Input[bool] enabled: Boolean to enable / disable `connection_logs`. Defaults to `false`, even when `bucket` is specified.
-        :param pulumi.Input[str] prefix: The S3 bucket prefix. Logs are stored in the root if not configured.
+        :param pulumi.Input[str] prefix: S3 bucket prefix. Logs are stored in the root if not configured.
         """
         pulumi.set(__self__, "bucket", bucket)
         if enabled is not None:
@@ -1897,7 +1897,7 @@ class LoadBalancerConnectionLogsArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The S3 bucket name to store the logs in.
+        S3 bucket name to store the logs in.
         """
         return pulumi.get(self, "bucket")
 
@@ -1921,7 +1921,7 @@ class LoadBalancerConnectionLogsArgs:
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        The S3 bucket prefix. Logs are stored in the root if not configured.
+        S3 bucket prefix. Logs are stored in the root if not configured.
         """
         return pulumi.get(self, "prefix")
 
@@ -1940,9 +1940,9 @@ class LoadBalancerSubnetMappingArgs:
                  private_ipv4_address: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] subnet_id: ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
-        :param pulumi.Input[str] allocation_id: The allocation ID of the Elastic IP address for an internet-facing load balancer.
-        :param pulumi.Input[str] ipv6_address: The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
-        :param pulumi.Input[str] private_ipv4_address: The private IPv4 address for an internal load balancer.
+        :param pulumi.Input[str] allocation_id: Allocation ID of the Elastic IP address for an internet-facing load balancer.
+        :param pulumi.Input[str] ipv6_address: IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+        :param pulumi.Input[str] private_ipv4_address: Private IPv4 address for an internal load balancer.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if allocation_id is not None:
@@ -1970,7 +1970,7 @@ class LoadBalancerSubnetMappingArgs:
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The allocation ID of the Elastic IP address for an internet-facing load balancer.
+        Allocation ID of the Elastic IP address for an internet-facing load balancer.
         """
         return pulumi.get(self, "allocation_id")
 
@@ -1982,7 +1982,7 @@ class LoadBalancerSubnetMappingArgs:
     @pulumi.getter(name="ipv6Address")
     def ipv6_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+        IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
         """
         return pulumi.get(self, "ipv6_address")
 
@@ -2003,7 +2003,7 @@ class LoadBalancerSubnetMappingArgs:
     @pulumi.getter(name="privateIpv4Address")
     def private_ipv4_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The private IPv4 address for an internal load balancer.
+        Private IPv4 address for an internal load balancer.
         """
         return pulumi.get(self, "private_ipv4_address")
 

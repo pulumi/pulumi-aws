@@ -178,7 +178,7 @@ public final class CostexplorerFunctions {
         return Deployment.getInstance().invokeAsync("aws:costexplorer/getCostCategory:getCostCategory", TypeShape.of(GetCostCategoryResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about a specific CE Tags.
+     * Provides the available cost allocation tag keys and tag values for a specified period.
      * 
      * ## Example Usage
      * 
@@ -222,7 +222,7 @@ public final class CostexplorerFunctions {
         return getTags(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific CE Tags.
+     * Provides the available cost allocation tag keys and tag values for a specified period.
      * 
      * ## Example Usage
      * 
@@ -266,7 +266,7 @@ public final class CostexplorerFunctions {
         return getTagsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific CE Tags.
+     * Provides the available cost allocation tag keys and tag values for a specified period.
      * 
      * ## Example Usage
      * 
@@ -310,7 +310,7 @@ public final class CostexplorerFunctions {
         return Deployment.getInstance().invoke("aws:costexplorer/getTags:getTags", TypeShape.of(GetTagsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about a specific CE Tags.
+     * Provides the available cost allocation tag keys and tag values for a specified period.
      * 
      * ## Example Usage
      * 

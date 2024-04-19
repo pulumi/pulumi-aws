@@ -37,7 +37,7 @@ import (
 //				Name:             pulumi.String("yak_sail"),
 //				AvailabilityZone: pulumi.Any(available.Names[0]),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_1_0"),
+//				BundleId:         pulumi.String("nano_3_0"),
 //			})
 //			if err != nil {
 //				return err

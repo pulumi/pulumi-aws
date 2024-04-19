@@ -23,7 +23,7 @@ class GetVpcDhcpOptionsResult:
     """
     A collection of values returned by getVpcDhcpOptions.
     """
-    def __init__(__self__, arn=None, dhcp_options_id=None, domain_name=None, domain_name_servers=None, filters=None, id=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, owner_id=None, tags=None):
+    def __init__(__self__, arn=None, dhcp_options_id=None, domain_name=None, domain_name_servers=None, filters=None, id=None, ipv6_address_preferred_lease_time=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, owner_id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetVpcDhcpOptionsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ipv6_address_preferred_lease_time and not isinstance(ipv6_address_preferred_lease_time, str):
+            raise TypeError("Expected argument 'ipv6_address_preferred_lease_time' to be a str")
+        pulumi.set(__self__, "ipv6_address_preferred_lease_time", ipv6_address_preferred_lease_time)
         if netbios_name_servers and not isinstance(netbios_name_servers, list):
             raise TypeError("Expected argument 'netbios_name_servers' to be a list")
         pulumi.set(__self__, "netbios_name_servers", netbios_name_servers)
@@ -104,6 +107,14 @@ class GetVpcDhcpOptionsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="ipv6AddressPreferredLeaseTime")
+    def ipv6_address_preferred_lease_time(self) -> str:
+        """
+        How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
+        """
+        return pulumi.get(self, "ipv6_address_preferred_lease_time")
+
+    @property
     @pulumi.getter(name="netbiosNameServers")
     def netbios_name_servers(self) -> Sequence[str]:
         """
@@ -156,6 +167,7 @@ class AwaitableGetVpcDhcpOptionsResult(GetVpcDhcpOptionsResult):
             domain_name_servers=self.domain_name_servers,
             filters=self.filters,
             id=self.id,
+            ipv6_address_preferred_lease_time=self.ipv6_address_preferred_lease_time,
             netbios_name_servers=self.netbios_name_servers,
             netbios_node_type=self.netbios_node_type,
             ntp_servers=self.ntp_servers,
@@ -222,6 +234,7 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[str] = None,
         domain_name_servers=pulumi.get(__ret__, 'domain_name_servers'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
+        ipv6_address_preferred_lease_time=pulumi.get(__ret__, 'ipv6_address_preferred_lease_time'),
         netbios_name_servers=pulumi.get(__ret__, 'netbios_name_servers'),
         netbios_node_type=pulumi.get(__ret__, 'netbios_node_type'),
         ntp_servers=pulumi.get(__ret__, 'ntp_servers'),

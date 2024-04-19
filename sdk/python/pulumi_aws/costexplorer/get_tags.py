@@ -110,7 +110,7 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
              time_period: Optional[pulumi.InputType['GetTagsTimePeriodArgs']] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagsResult:
     """
-    Provides details about a specific CE Tags.
+    Provides the available cost allocation tag keys and tag values for a specified period.
 
     ## Example Usage
 
@@ -127,11 +127,11 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
     <!--End PulumiCodeChooser -->
 
 
-    :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See below.
+    :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
     :param str search_string: Value that you want to search for.
-    :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. See below.
+    :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
     :param str tag_key: Key of the tag that you want to return values for.
-    :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values.
+    :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
            
            The following arguments are optional:
     """
@@ -162,7 +162,7 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
                     time_period: Optional[pulumi.Input[pulumi.InputType['GetTagsTimePeriodArgs']]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagsResult]:
     """
-    Provides details about a specific CE Tags.
+    Provides the available cost allocation tag keys and tag values for a specified period.
 
     ## Example Usage
 
@@ -179,11 +179,11 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
     <!--End PulumiCodeChooser -->
 
 
-    :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See below.
+    :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
     :param str search_string: Value that you want to search for.
-    :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. See below.
+    :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
     :param str tag_key: Key of the tag that you want to return values for.
-    :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values.
+    :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
            
            The following arguments are optional:
     """

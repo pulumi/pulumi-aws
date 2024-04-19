@@ -149,6 +149,8 @@ type LookupOrganizationResult struct {
 	MasterAccountEmail string `pulumi:"masterAccountEmail"`
 	// Unique identifier (ID) of the master account of an organization.
 	MasterAccountId string `pulumi:"masterAccountId"`
+	// Name of the master account of an organization.
+	MasterAccountName string `pulumi:"masterAccountName"`
 	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 	NonMasterAccounts []GetOrganizationNonMasterAccount `pulumi:"nonMasterAccounts"`
 	// List of organization roots. All elements have these attributes:
@@ -224,6 +226,11 @@ func (o LookupOrganizationResultOutput) MasterAccountEmail() pulumi.StringOutput
 // Unique identifier (ID) of the master account of an organization.
 func (o LookupOrganizationResultOutput) MasterAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) string { return v.MasterAccountId }).(pulumi.StringOutput)
+}
+
+// Name of the master account of an organization.
+func (o LookupOrganizationResultOutput) MasterAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) string { return v.MasterAccountName }).(pulumi.StringOutput)
 }
 
 // List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:

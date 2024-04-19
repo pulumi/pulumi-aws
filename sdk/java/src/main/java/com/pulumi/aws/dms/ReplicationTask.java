@@ -173,14 +173,28 @@ public class ReplicationTask extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="replicationTaskSettings", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> replicationTaskSettings;
+    private Output<String> replicationTaskSettings;
 
     /**
      * @return An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
      * 
      */
-    public Output<Optional<String>> replicationTaskSettings() {
-        return Codegen.optional(this.replicationTaskSettings);
+    public Output<String> replicationTaskSettings() {
+        return this.replicationTaskSettings;
+    }
+    /**
+     * A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+     * 
+     */
+    @Export(name="resourceIdentifier", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> resourceIdentifier;
+
+    /**
+     * @return A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
+     * 
+     */
+    public Output<Optional<String>> resourceIdentifier() {
+        return Codegen.optional(this.resourceIdentifier);
     }
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.

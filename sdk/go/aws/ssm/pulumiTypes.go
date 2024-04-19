@@ -1694,11 +1694,11 @@ func (o ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput) MinuteOfHou
 }
 
 type DocumentAttachmentsSource struct {
-	// The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
+	// The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
 	Key string `pulumi:"key"`
-	// The name of the document attachment file
+	// The name of the document attachment file.
 	Name *string `pulumi:"name"`
-	// The value describing the location of an attachment to a document
+	// The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
 	Values []string `pulumi:"values"`
 }
 
@@ -1714,11 +1714,11 @@ type DocumentAttachmentsSourceInput interface {
 }
 
 type DocumentAttachmentsSourceArgs struct {
-	// The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
+	// The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The name of the document attachment file
+	// The name of the document attachment file.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value describing the location of an attachment to a document
+	// The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1773,17 +1773,17 @@ func (o DocumentAttachmentsSourceOutput) ToDocumentAttachmentsSourceOutputWithCo
 	return o
 }
 
-// The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
+// The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
 func (o DocumentAttachmentsSourceOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DocumentAttachmentsSource) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The name of the document attachment file
+// The name of the document attachment file.
 func (o DocumentAttachmentsSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentAttachmentsSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value describing the location of an attachment to a document
+// The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
 func (o DocumentAttachmentsSourceOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DocumentAttachmentsSource) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1809,11 +1809,13 @@ func (o DocumentAttachmentsSourceArrayOutput) Index(i pulumi.IntInput) DocumentA
 }
 
 type DocumentParameter struct {
+	// If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
 	DefaultValue *string `pulumi:"defaultValue"`
-	// The description of the document.
+	// A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
 	Description *string `pulumi:"description"`
 	// The name of the document.
 	Name *string `pulumi:"name"`
+	// The permission type for the document. The permission type can be `Share`.
 	Type *string `pulumi:"type"`
 }
 
@@ -1829,11 +1831,13 @@ type DocumentParameterInput interface {
 }
 
 type DocumentParameterArgs struct {
+	// If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// The description of the document.
+	// A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The name of the document.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The permission type for the document. The permission type can be `Share`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1888,11 +1892,12 @@ func (o DocumentParameterOutput) ToDocumentParameterOutputWithContext(ctx contex
 	return o
 }
 
+// If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
 func (o DocumentParameterOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The description of the document.
+// A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
 func (o DocumentParameterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -1902,6 +1907,7 @@ func (o DocumentParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The permission type for the document. The permission type can be `Share`.
 func (o DocumentParameterOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

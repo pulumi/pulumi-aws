@@ -85,11 +85,11 @@ func LookupDocument(ctx *pulumi.Context, args *LookupDocumentArgs, opts ...pulum
 
 // A collection of arguments for invoking getDocument.
 type LookupDocumentArgs struct {
-	// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+	// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
 	DocumentFormat *string `pulumi:"documentFormat"`
-	// Document version for which you want information.
+	// The document version.
 	DocumentVersion *string `pulumi:"documentVersion"`
-	// Name of the Systems Manager document.
+	// The name of the document.
 	Name string `pulumi:"name"`
 }
 
@@ -97,10 +97,10 @@ type LookupDocumentArgs struct {
 type LookupDocumentResult struct {
 	// ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
 	Arn string `pulumi:"arn"`
-	// Contents of the document.
+	// The content for the SSM document in JSON or YAML format.
 	Content        string  `pulumi:"content"`
 	DocumentFormat *string `pulumi:"documentFormat"`
-	// Type of the document.
+	// The type of the document.
 	DocumentType    string  `pulumi:"documentType"`
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// The provider-assigned unique ID for this managed resource.
@@ -123,11 +123,11 @@ func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, op
 
 // A collection of arguments for invoking getDocument.
 type LookupDocumentOutputArgs struct {
-	// Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+	// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
 	DocumentFormat pulumi.StringPtrInput `pulumi:"documentFormat"`
-	// Document version for which you want information.
+	// The document version.
 	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
-	// Name of the Systems Manager document.
+	// The name of the document.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -155,7 +155,7 @@ func (o LookupDocumentResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDocumentResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Contents of the document.
+// The content for the SSM document in JSON or YAML format.
 func (o LookupDocumentResultOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDocumentResult) string { return v.Content }).(pulumi.StringOutput)
 }
@@ -164,7 +164,7 @@ func (o LookupDocumentResultOutput) DocumentFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDocumentResult) *string { return v.DocumentFormat }).(pulumi.StringPtrOutput)
 }
 
-// Type of the document.
+// The type of the document.
 func (o LookupDocumentResultOutput) DocumentType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDocumentResult) string { return v.DocumentType }).(pulumi.StringOutput)
 }

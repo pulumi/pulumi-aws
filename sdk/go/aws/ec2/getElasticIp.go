@@ -182,6 +182,8 @@ type GetElasticIpResult struct {
 	PrivateDns string `pulumi:"privateDns"`
 	// Private IP address associated with the Elastic IP address.
 	PrivateIp string `pulumi:"privateIp"`
+	// The DNS pointer (PTR) record for the IP address.
+	PtrRecord string `pulumi:"ptrRecord"`
 	// Public DNS associated with the Elastic IP address.
 	PublicDns string `pulumi:"publicDns"`
 	// Public IP address of Elastic IP.
@@ -293,6 +295,11 @@ func (o GetElasticIpResultOutput) PrivateDns() pulumi.StringOutput {
 // Private IP address associated with the Elastic IP address.
 func (o GetElasticIpResultOutput) PrivateIp() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.PrivateIp }).(pulumi.StringOutput)
+}
+
+// The DNS pointer (PTR) record for the IP address.
+func (o GetElasticIpResultOutput) PtrRecord() pulumi.StringOutput {
+	return o.ApplyT(func(v GetElasticIpResult) string { return v.PtrRecord }).(pulumi.StringOutput)
 }
 
 // Public DNS associated with the Elastic IP address.

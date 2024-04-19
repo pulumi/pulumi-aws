@@ -128,6 +128,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> EventPattern { get; private set; } = null!;
 
         /// <summary>
+        /// Used to delete managed rules created by AWS. Defaults to `false`.
+        /// </summary>
+        [Output("forceDestroy")]
+        public Output<bool?> ForceDestroy { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the rule should be enabled.
         /// Defaults to `true`.
         /// Conflicts with `state`.
@@ -250,6 +256,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? EventPattern { get; set; }
 
         /// <summary>
+        /// Used to delete managed rules created by AWS. Defaults to `false`.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
+
+        /// <summary>
         /// Whether the rule should be enabled.
         /// Defaults to `true`.
         /// Conflicts with `state`.
@@ -338,6 +350,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("eventPattern")]
         public Input<string>? EventPattern { get; set; }
+
+        /// <summary>
+        /// Used to delete managed rules created by AWS. Defaults to `false`.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
         /// Whether the rule should be enabled.

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides details about a specific CE Tags.
+// Provides the available cost allocation tag keys and tag values for a specified period.
 //
 // ## Example Usage
 //
@@ -55,15 +55,15 @@ func GetTags(ctx *pulumi.Context, args *GetTagsArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getTags.
 type GetTagsArgs struct {
-	// Configuration block for the `Expression` object used to categorize costs. See below.
+	// Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
 	Filter *GetTagsFilter `pulumi:"filter"`
 	// Value that you want to search for.
 	SearchString *string `pulumi:"searchString"`
-	// Configuration block for the value by which you want to sort the data. See below.
+	// Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
 	SortBies []GetTagsSortBy `pulumi:"sortBies"`
 	// Key of the tag that you want to return values for.
 	TagKey *string `pulumi:"tagKey"`
-	// Configuration block for the start and end dates for retrieving the dimension values.
+	// Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
 	//
 	// The following arguments are optional:
 	TimePeriod GetTagsTimePeriod `pulumi:"timePeriod"`
@@ -97,15 +97,15 @@ func GetTagsOutput(ctx *pulumi.Context, args GetTagsOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getTags.
 type GetTagsOutputArgs struct {
-	// Configuration block for the `Expression` object used to categorize costs. See below.
+	// Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
 	Filter GetTagsFilterPtrInput `pulumi:"filter"`
 	// Value that you want to search for.
 	SearchString pulumi.StringPtrInput `pulumi:"searchString"`
-	// Configuration block for the value by which you want to sort the data. See below.
+	// Configuration block for the value by which you want to sort the data. `sortBy` block below for details.
 	SortBies GetTagsSortByArrayInput `pulumi:"sortBies"`
 	// Key of the tag that you want to return values for.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
-	// Configuration block for the start and end dates for retrieving the dimension values.
+	// Configuration block for the start and end dates for retrieving the dimension values. See `timePeriod` block below for details.
 	//
 	// The following arguments are optional:
 	TimePeriod GetTagsTimePeriodInput `pulumi:"timePeriod"`

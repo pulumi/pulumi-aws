@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     name: "yak_sail",
  *     availabilityZone: available.names[0],
  *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_1_0",
+ *     bundleId: "nano_3_0",
  * });
  * const testInstancePublicPorts = new aws.lightsail.InstancePublicPorts("test", {
  *     instanceName: test.name,

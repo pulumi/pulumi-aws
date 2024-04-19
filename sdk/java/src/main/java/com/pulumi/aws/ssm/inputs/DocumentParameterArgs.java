@@ -15,22 +15,30 @@ public final class DocumentParameterArgs extends com.pulumi.resources.ResourceAr
 
     public static final DocumentParameterArgs Empty = new DocumentParameterArgs();
 
+    /**
+     * If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
+     * 
+     */
     @Import(name="defaultValue")
     private @Nullable Output<String> defaultValue;
 
+    /**
+     * @return If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
+     * 
+     */
     public Optional<Output<String>> defaultValue() {
         return Optional.ofNullable(this.defaultValue);
     }
 
     /**
-     * The description of the document.
+     * A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the document.
+     * @return A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
      * 
      */
     public Optional<Output<String>> description() {
@@ -52,9 +60,17 @@ public final class DocumentParameterArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The permission type for the document. The permission type can be `Share`.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The permission type for the document. The permission type can be `Share`.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -86,17 +102,29 @@ public final class DocumentParameterArgs extends com.pulumi.resources.ResourceAr
             $ = new DocumentParameterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param defaultValue If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultValue(@Nullable Output<String> defaultValue) {
             $.defaultValue = defaultValue;
             return this;
         }
 
+        /**
+         * @param defaultValue If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultValue(String defaultValue) {
             return defaultValue(Output.of(defaultValue));
         }
 
         /**
-         * @param description The description of the document.
+         * @param description A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
          * 
          * @return builder
          * 
@@ -107,7 +135,7 @@ public final class DocumentParameterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param description The description of the document.
+         * @param description A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
          * 
          * @return builder
          * 
@@ -137,11 +165,23 @@ public final class DocumentParameterArgs extends com.pulumi.resources.ResourceAr
             return name(Output.of(name));
         }
 
+        /**
+         * @param type The permission type for the document. The permission type can be `Share`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The permission type for the document. The permission type can be `Share`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

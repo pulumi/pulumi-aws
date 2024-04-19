@@ -15,8 +15,14 @@ namespace Pulumi.Aws.ElastiCache.Inputs
         /// <summary>
         /// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
         /// </summary>
-        [Input("maximum", required: true)]
-        public Input<int> Maximum { get; set; } = null!;
+        [Input("maximum")]
+        public Input<int>? Maximum { get; set; }
+
+        /// <summary>
+        /// The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        /// </summary>
+        [Input("minimum")]
+        public Input<int>? Minimum { get; set; }
 
         public ServerlessCacheCacheUsageLimitsEcpuPerSecondGetArgs()
         {

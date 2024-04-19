@@ -103,6 +103,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
+        /// IP address of the endpoint that is used to access data or to manage the file system.
+        /// </summary>
+        [Output("endpointIpAddress")]
+        public Output<string> EndpointIpAddress { get; private set; } = null!;
+
+        /// <summary>
         /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         /// </summary>
         [Output("endpointIpAddressRange")]
@@ -455,6 +461,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
+
+        /// <summary>
+        /// IP address of the endpoint that is used to access data or to manage the file system.
+        /// </summary>
+        [Input("endpointIpAddress")]
+        public Input<string>? EndpointIpAddress { get; set; }
 
         /// <summary>
         /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.

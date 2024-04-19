@@ -22,6 +22,7 @@ class VpcIpamPoolArgs:
                  allocation_resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auto_import: Optional[pulumi.Input[bool]] = None,
                  aws_service: Optional[pulumi.Input[str]] = None,
+                 cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
                  public_ip_source: Optional[pulumi.Input[str]] = None,
@@ -39,6 +40,7 @@ class VpcIpamPoolArgs:
         :param pulumi.Input[bool] auto_import: If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
                within the CIDR range in the pool.
         :param pulumi.Input[str] aws_service: Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
+        :param pulumi.Input[bool] cascade: Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
         :param pulumi.Input[str] description: A description for the IPAM pool.
         :param pulumi.Input[str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
         :param pulumi.Input[str] public_ip_source: The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
@@ -60,6 +62,8 @@ class VpcIpamPoolArgs:
             pulumi.set(__self__, "auto_import", auto_import)
         if aws_service is not None:
             pulumi.set(__self__, "aws_service", aws_service)
+        if cascade is not None:
+            pulumi.set(__self__, "cascade", cascade)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if locale is not None:
@@ -172,6 +176,18 @@ class VpcIpamPoolArgs:
 
     @property
     @pulumi.getter
+    def cascade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+        """
+        return pulumi.get(self, "cascade")
+
+    @cascade.setter
+    def cascade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cascade", value)
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         A description for the IPAM pool.
@@ -254,6 +270,7 @@ class _VpcIpamPoolState:
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_import: Optional[pulumi.Input[bool]] = None,
                  aws_service: Optional[pulumi.Input[str]] = None,
+                 cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_scope_id: Optional[pulumi.Input[str]] = None,
                  ipam_scope_type: Optional[pulumi.Input[str]] = None,
@@ -276,6 +293,7 @@ class _VpcIpamPoolState:
         :param pulumi.Input[bool] auto_import: If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
                within the CIDR range in the pool.
         :param pulumi.Input[str] aws_service: Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
+        :param pulumi.Input[bool] cascade: Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
         :param pulumi.Input[str] description: A description for the IPAM pool.
         :param pulumi.Input[str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
         :param pulumi.Input[str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
@@ -302,6 +320,8 @@ class _VpcIpamPoolState:
             pulumi.set(__self__, "auto_import", auto_import)
         if aws_service is not None:
             pulumi.set(__self__, "aws_service", aws_service)
+        if cascade is not None:
+            pulumi.set(__self__, "cascade", cascade)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if ipam_scope_id is not None:
@@ -424,6 +444,18 @@ class _VpcIpamPoolState:
     @aws_service.setter
     def aws_service(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aws_service", value)
+
+    @property
+    @pulumi.getter
+    def cascade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+        """
+        return pulumi.get(self, "cascade")
+
+    @cascade.setter
+    def cascade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cascade", value)
 
     @property
     @pulumi.getter
@@ -567,6 +599,7 @@ class VpcIpamPool(pulumi.CustomResource):
                  allocation_resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auto_import: Optional[pulumi.Input[bool]] = None,
                  aws_service: Optional[pulumi.Input[str]] = None,
+                 cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_scope_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
@@ -644,6 +677,7 @@ class VpcIpamPool(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_import: If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
                within the CIDR range in the pool.
         :param pulumi.Input[str] aws_service: Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
+        :param pulumi.Input[bool] cascade: Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
         :param pulumi.Input[str] description: A description for the IPAM pool.
         :param pulumi.Input[str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
         :param pulumi.Input[str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
@@ -739,6 +773,7 @@ class VpcIpamPool(pulumi.CustomResource):
                  allocation_resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auto_import: Optional[pulumi.Input[bool]] = None,
                  aws_service: Optional[pulumi.Input[str]] = None,
+                 cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ipam_scope_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
@@ -764,6 +799,7 @@ class VpcIpamPool(pulumi.CustomResource):
             __props__.__dict__["allocation_resource_tags"] = allocation_resource_tags
             __props__.__dict__["auto_import"] = auto_import
             __props__.__dict__["aws_service"] = aws_service
+            __props__.__dict__["cascade"] = cascade
             __props__.__dict__["description"] = description
             if ipam_scope_id is None and not opts.urn:
                 raise TypeError("Missing required property 'ipam_scope_id'")
@@ -796,6 +832,7 @@ class VpcIpamPool(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             auto_import: Optional[pulumi.Input[bool]] = None,
             aws_service: Optional[pulumi.Input[str]] = None,
+            cascade: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             ipam_scope_id: Optional[pulumi.Input[str]] = None,
             ipam_scope_type: Optional[pulumi.Input[str]] = None,
@@ -823,6 +860,7 @@ class VpcIpamPool(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_import: If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
                within the CIDR range in the pool.
         :param pulumi.Input[str] aws_service: Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
+        :param pulumi.Input[bool] cascade: Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
         :param pulumi.Input[str] description: A description for the IPAM pool.
         :param pulumi.Input[str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
         :param pulumi.Input[str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
@@ -845,6 +883,7 @@ class VpcIpamPool(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auto_import"] = auto_import
         __props__.__dict__["aws_service"] = aws_service
+        __props__.__dict__["cascade"] = cascade
         __props__.__dict__["description"] = description
         __props__.__dict__["ipam_scope_id"] = ipam_scope_id
         __props__.__dict__["ipam_scope_type"] = ipam_scope_type
@@ -922,6 +961,14 @@ class VpcIpamPool(pulumi.CustomResource):
         Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
         """
         return pulumi.get(self, "aws_service")
+
+    @property
+    @pulumi.getter
+    def cascade(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+        """
+        return pulumi.get(self, "cascade")
 
     @property
     @pulumi.getter

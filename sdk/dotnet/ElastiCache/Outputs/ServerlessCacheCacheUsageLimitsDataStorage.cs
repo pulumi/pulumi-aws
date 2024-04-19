@@ -16,7 +16,11 @@ namespace Pulumi.Aws.ElastiCache.Outputs
         /// <summary>
         /// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
         /// </summary>
-        public readonly int Maximum;
+        public readonly int? Maximum;
+        /// <summary>
+        /// The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        /// </summary>
+        public readonly int? Minimum;
         /// <summary>
         /// The unit that the storage is measured in, in GB.
         /// </summary>
@@ -24,11 +28,14 @@ namespace Pulumi.Aws.ElastiCache.Outputs
 
         [OutputConstructor]
         private ServerlessCacheCacheUsageLimitsDataStorage(
-            int maximum,
+            int? maximum,
+
+            int? minimum,
 
             string unit)
         {
             Maximum = maximum;
+            Minimum = minimum;
             Unit = unit;
         }
     }

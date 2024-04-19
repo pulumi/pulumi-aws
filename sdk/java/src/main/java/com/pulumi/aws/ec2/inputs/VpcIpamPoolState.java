@@ -141,6 +141,21 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+     * 
+     */
+    @Import(name="cascade")
+    private @Nullable Output<Boolean> cascade;
+
+    /**
+     * @return Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+     * 
+     */
+    public Optional<Output<Boolean>> cascade() {
+        return Optional.ofNullable(this.cascade);
+    }
+
+    /**
      * A description for the IPAM pool.
      * 
      */
@@ -308,6 +323,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.autoImport = $.autoImport;
         this.awsService = $.awsService;
+        this.cascade = $.cascade;
         this.description = $.description;
         this.ipamScopeId = $.ipamScopeId;
         this.ipamScopeType = $.ipamScopeType;
@@ -507,6 +523,27 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder awsService(String awsService) {
             return awsService(Output.of(awsService));
+        }
+
+        /**
+         * @param cascade Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cascade(@Nullable Output<Boolean> cascade) {
+            $.cascade = cascade;
+            return this;
+        }
+
+        /**
+         * @param cascade Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cascade(Boolean cascade) {
+            return cascade(Output.of(cascade));
         }
 
         /**

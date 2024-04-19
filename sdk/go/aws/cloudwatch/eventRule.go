@@ -121,6 +121,8 @@ type EventRule struct {
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
 	EventPattern pulumi.StringPtrOutput `pulumi:"eventPattern"`
+	// Used to delete managed rules created by AWS. Defaults to `false`.
+	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Whether the rule should be enabled.
 	// Defaults to `true`.
 	// Conflicts with `state`.
@@ -191,6 +193,8 @@ type eventRuleState struct {
 	EventBusName *string `pulumi:"eventBusName"`
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
 	EventPattern *string `pulumi:"eventPattern"`
+	// Used to delete managed rules created by AWS. Defaults to `false`.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Whether the rule should be enabled.
 	// Defaults to `true`.
 	// Conflicts with `state`.
@@ -232,6 +236,8 @@ type EventRuleState struct {
 	EventBusName pulumi.StringPtrInput
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
 	EventPattern pulumi.StringPtrInput
+	// Used to delete managed rules created by AWS. Defaults to `false`.
+	ForceDestroy pulumi.BoolPtrInput
 	// Whether the rule should be enabled.
 	// Defaults to `true`.
 	// Conflicts with `state`.
@@ -275,6 +281,8 @@ type eventRuleArgs struct {
 	EventBusName *string `pulumi:"eventBusName"`
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
 	EventPattern *string `pulumi:"eventPattern"`
+	// Used to delete managed rules created by AWS. Defaults to `false`.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Whether the rule should be enabled.
 	// Defaults to `true`.
 	// Conflicts with `state`.
@@ -311,6 +319,8 @@ type EventRuleArgs struct {
 	EventBusName pulumi.StringPtrInput
 	// The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
 	EventPattern pulumi.StringPtrInput
+	// Used to delete managed rules created by AWS. Defaults to `false`.
+	ForceDestroy pulumi.BoolPtrInput
 	// Whether the rule should be enabled.
 	// Defaults to `true`.
 	// Conflicts with `state`.
@@ -444,6 +454,11 @@ func (o EventRuleOutput) EventBusName() pulumi.StringPtrOutput {
 // The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
 func (o EventRuleOutput) EventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringPtrOutput { return v.EventPattern }).(pulumi.StringPtrOutput)
+}
+
+// Used to delete managed rules created by AWS. Defaults to `false`.
+func (o EventRuleOutput) ForceDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventRule) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
 // Whether the rule should be enabled.

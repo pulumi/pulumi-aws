@@ -1827,6 +1827,181 @@ func (o DefaultSecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) Default
 	}).(DefaultSecurityGroupIngressOutput)
 }
 
+type EipDomainNameTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// EipDomainNameTimeoutsInput is an input type that accepts EipDomainNameTimeoutsArgs and EipDomainNameTimeoutsOutput values.
+// You can construct a concrete instance of `EipDomainNameTimeoutsInput` via:
+//
+//	EipDomainNameTimeoutsArgs{...}
+type EipDomainNameTimeoutsInput interface {
+	pulumi.Input
+
+	ToEipDomainNameTimeoutsOutput() EipDomainNameTimeoutsOutput
+	ToEipDomainNameTimeoutsOutputWithContext(context.Context) EipDomainNameTimeoutsOutput
+}
+
+type EipDomainNameTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (EipDomainNameTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EipDomainNameTimeouts)(nil)).Elem()
+}
+
+func (i EipDomainNameTimeoutsArgs) ToEipDomainNameTimeoutsOutput() EipDomainNameTimeoutsOutput {
+	return i.ToEipDomainNameTimeoutsOutputWithContext(context.Background())
+}
+
+func (i EipDomainNameTimeoutsArgs) ToEipDomainNameTimeoutsOutputWithContext(ctx context.Context) EipDomainNameTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipDomainNameTimeoutsOutput)
+}
+
+func (i EipDomainNameTimeoutsArgs) ToEipDomainNameTimeoutsPtrOutput() EipDomainNameTimeoutsPtrOutput {
+	return i.ToEipDomainNameTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i EipDomainNameTimeoutsArgs) ToEipDomainNameTimeoutsPtrOutputWithContext(ctx context.Context) EipDomainNameTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipDomainNameTimeoutsOutput).ToEipDomainNameTimeoutsPtrOutputWithContext(ctx)
+}
+
+// EipDomainNameTimeoutsPtrInput is an input type that accepts EipDomainNameTimeoutsArgs, EipDomainNameTimeoutsPtr and EipDomainNameTimeoutsPtrOutput values.
+// You can construct a concrete instance of `EipDomainNameTimeoutsPtrInput` via:
+//
+//	        EipDomainNameTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EipDomainNameTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToEipDomainNameTimeoutsPtrOutput() EipDomainNameTimeoutsPtrOutput
+	ToEipDomainNameTimeoutsPtrOutputWithContext(context.Context) EipDomainNameTimeoutsPtrOutput
+}
+
+type eipDomainNameTimeoutsPtrType EipDomainNameTimeoutsArgs
+
+func EipDomainNameTimeoutsPtr(v *EipDomainNameTimeoutsArgs) EipDomainNameTimeoutsPtrInput {
+	return (*eipDomainNameTimeoutsPtrType)(v)
+}
+
+func (*eipDomainNameTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EipDomainNameTimeouts)(nil)).Elem()
+}
+
+func (i *eipDomainNameTimeoutsPtrType) ToEipDomainNameTimeoutsPtrOutput() EipDomainNameTimeoutsPtrOutput {
+	return i.ToEipDomainNameTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *eipDomainNameTimeoutsPtrType) ToEipDomainNameTimeoutsPtrOutputWithContext(ctx context.Context) EipDomainNameTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EipDomainNameTimeoutsPtrOutput)
+}
+
+type EipDomainNameTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (EipDomainNameTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EipDomainNameTimeouts)(nil)).Elem()
+}
+
+func (o EipDomainNameTimeoutsOutput) ToEipDomainNameTimeoutsOutput() EipDomainNameTimeoutsOutput {
+	return o
+}
+
+func (o EipDomainNameTimeoutsOutput) ToEipDomainNameTimeoutsOutputWithContext(ctx context.Context) EipDomainNameTimeoutsOutput {
+	return o
+}
+
+func (o EipDomainNameTimeoutsOutput) ToEipDomainNameTimeoutsPtrOutput() EipDomainNameTimeoutsPtrOutput {
+	return o.ToEipDomainNameTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o EipDomainNameTimeoutsOutput) ToEipDomainNameTimeoutsPtrOutputWithContext(ctx context.Context) EipDomainNameTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EipDomainNameTimeouts) *EipDomainNameTimeouts {
+		return &v
+	}).(EipDomainNameTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EipDomainNameTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EipDomainNameTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o EipDomainNameTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EipDomainNameTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EipDomainNameTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EipDomainNameTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type EipDomainNameTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (EipDomainNameTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EipDomainNameTimeouts)(nil)).Elem()
+}
+
+func (o EipDomainNameTimeoutsPtrOutput) ToEipDomainNameTimeoutsPtrOutput() EipDomainNameTimeoutsPtrOutput {
+	return o
+}
+
+func (o EipDomainNameTimeoutsPtrOutput) ToEipDomainNameTimeoutsPtrOutputWithContext(ctx context.Context) EipDomainNameTimeoutsPtrOutput {
+	return o
+}
+
+func (o EipDomainNameTimeoutsPtrOutput) Elem() EipDomainNameTimeoutsOutput {
+	return o.ApplyT(func(v *EipDomainNameTimeouts) EipDomainNameTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret EipDomainNameTimeouts
+		return ret
+	}).(EipDomainNameTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EipDomainNameTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EipDomainNameTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o EipDomainNameTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EipDomainNameTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EipDomainNameTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EipDomainNameTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type FleetFleetInstanceSet struct {
 	// The IDs of the instances.
 	InstanceIds []string `pulumi:"instanceIds"`
@@ -8910,7 +9085,7 @@ func (o LaunchTemplateBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) La
 
 type LaunchTemplateBlockDeviceMappingEbs struct {
 	// Whether the volume should be destroyed on instance termination.
-	// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+	// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
 	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
 	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
 	// Cannot be used with `snapshotId`.
@@ -8945,7 +9120,7 @@ type LaunchTemplateBlockDeviceMappingEbsInput interface {
 
 type LaunchTemplateBlockDeviceMappingEbsArgs struct {
 	// Whether the volume should be destroyed on instance termination.
-	// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+	// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
 	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
 	// Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
 	// Cannot be used with `snapshotId`.
@@ -9045,7 +9220,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) ToLaunchTemplateBlockDeviceMa
 }
 
 // Whether the volume should be destroyed on instance termination.
-// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.DeleteOnTermination }).(pulumi.StringPtrOutput)
 }
@@ -9114,7 +9289,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Elem() LaunchTemplateBlock
 }
 
 // Whether the volume should be destroyed on instance termination.
-// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+// See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) DeleteOnTermination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *string {
 		if v == nil {
@@ -57207,6 +57382,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupEgressArrayInput)(nil)).Elem(), DefaultSecurityGroupEgressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupIngressInput)(nil)).Elem(), DefaultSecurityGroupIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupIngressArrayInput)(nil)).Elem(), DefaultSecurityGroupIngressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EipDomainNameTimeoutsInput)(nil)).Elem(), EipDomainNameTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EipDomainNameTimeoutsPtrInput)(nil)).Elem(), EipDomainNameTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetFleetInstanceSetInput)(nil)).Elem(), FleetFleetInstanceSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetFleetInstanceSetArrayInput)(nil)).Elem(), FleetFleetInstanceSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigInput)(nil)).Elem(), FleetLaunchTemplateConfigArgs{})
@@ -58052,6 +58229,8 @@ func init() {
 	pulumi.RegisterOutputType(DefaultSecurityGroupEgressArrayOutput{})
 	pulumi.RegisterOutputType(DefaultSecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(DefaultSecurityGroupIngressArrayOutput{})
+	pulumi.RegisterOutputType(EipDomainNameTimeoutsOutput{})
+	pulumi.RegisterOutputType(EipDomainNameTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(FleetFleetInstanceSetOutput{})
 	pulumi.RegisterOutputType(FleetFleetInstanceSetArrayOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOutput{})

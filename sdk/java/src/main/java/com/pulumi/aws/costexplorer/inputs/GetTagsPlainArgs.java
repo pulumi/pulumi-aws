@@ -20,14 +20,14 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetTagsPlainArgs Empty = new GetTagsPlainArgs();
 
     /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
+     * Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
      * 
      */
     @Import(name="filter")
     private @Nullable GetTagsFilter filter;
 
     /**
-     * @return Configuration block for the `Expression` object used to categorize costs. See below.
+     * @return Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
      * 
      */
     public Optional<GetTagsFilter> filter() {
@@ -50,14 +50,14 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Configuration block for the value by which you want to sort the data. See below.
+     * Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
      * 
      */
     @Import(name="sortBies")
     private @Nullable List<GetTagsSortBy> sortBies;
 
     /**
-     * @return Configuration block for the value by which you want to sort the data. See below.
+     * @return Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
      * 
      */
     public Optional<List<GetTagsSortBy>> sortBies() {
@@ -80,7 +80,7 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Configuration block for the start and end dates for retrieving the dimension values.
+     * Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
      * 
      * The following arguments are optional:
      * 
@@ -89,7 +89,7 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetTagsTimePeriod timePeriod;
 
     /**
-     * @return Configuration block for the start and end dates for retrieving the dimension values.
+     * @return Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
      * 
      * The following arguments are optional:
      * 
@@ -127,7 +127,7 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filter Configuration block for the `Expression` object used to categorize costs. See below.
+         * @param filter Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param sortBies Configuration block for the value by which you want to sort the data. See below.
+         * @param sortBies Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param sortBies Configuration block for the value by which you want to sort the data. See below.
+         * @param sortBies Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values.
+         * @param timePeriod Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
          * 
          * The following arguments are optional:
          * 

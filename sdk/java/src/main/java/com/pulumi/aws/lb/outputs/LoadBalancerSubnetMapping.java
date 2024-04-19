@@ -13,18 +13,18 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LoadBalancerSubnetMapping {
     /**
-     * @return The allocation ID of the Elastic IP address for an internet-facing load balancer.
+     * @return Allocation ID of the Elastic IP address for an internet-facing load balancer.
      * 
      */
     private @Nullable String allocationId;
     /**
-     * @return The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+     * @return IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
      * 
      */
     private @Nullable String ipv6Address;
     private @Nullable String outpostId;
     /**
-     * @return The private IPv4 address for an internal load balancer.
+     * @return Private IPv4 address for an internal load balancer.
      * 
      */
     private @Nullable String privateIpv4Address;
@@ -36,14 +36,14 @@ public final class LoadBalancerSubnetMapping {
 
     private LoadBalancerSubnetMapping() {}
     /**
-     * @return The allocation ID of the Elastic IP address for an internet-facing load balancer.
+     * @return Allocation ID of the Elastic IP address for an internet-facing load balancer.
      * 
      */
     public Optional<String> allocationId() {
         return Optional.ofNullable(this.allocationId);
     }
     /**
-     * @return The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
+     * @return IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
      * 
      */
     public Optional<String> ipv6Address() {
@@ -53,7 +53,7 @@ public final class LoadBalancerSubnetMapping {
         return Optional.ofNullable(this.outpostId);
     }
     /**
-     * @return The private IPv4 address for an internal load balancer.
+     * @return Private IPv4 address for an internal load balancer.
      * 
      */
     public Optional<String> privateIpv4Address() {

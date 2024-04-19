@@ -53,15 +53,15 @@ export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetDocumentArgs {
     /**
-     * Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+     * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      */
     documentFormat?: string;
     /**
-     * Document version for which you want information.
+     * The document version.
      */
     documentVersion?: string;
     /**
-     * Name of the Systems Manager document.
+     * The name of the document.
      */
     name: string;
 }
@@ -75,12 +75,12 @@ export interface GetDocumentResult {
      */
     readonly arn: string;
     /**
-     * Contents of the document.
+     * The content for the SSM document in JSON or YAML format.
      */
     readonly content: string;
     readonly documentFormat?: string;
     /**
-     * Type of the document.
+     * The type of the document.
      */
     readonly documentType: string;
     readonly documentVersion?: string;
@@ -133,15 +133,15 @@ export function getDocumentOutput(args: GetDocumentOutputArgs, opts?: pulumi.Inv
  */
 export interface GetDocumentOutputArgs {
     /**
-     * Returns the document in the specified format. The document format can be either `JSON`, `YAML` and `TEXT`. JSON is the default format.
+     * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      */
     documentFormat?: pulumi.Input<string>;
     /**
-     * Document version for which you want information.
+     * The document version.
      */
     documentVersion?: pulumi.Input<string>;
     /**
-     * Name of the Systems Manager document.
+     * The name of the document.
      */
     name: pulumi.Input<string>;
 }

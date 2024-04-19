@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 public final class LaunchTemplateBlockDeviceMappingEbs {
     /**
      * @return Whether the volume should be destroyed on instance termination.
-     * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+     * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
      * 
      */
     private @Nullable String deleteOnTermination;
@@ -61,7 +61,7 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
     private LaunchTemplateBlockDeviceMappingEbs() {}
     /**
      * @return Whether the volume should be destroyed on instance termination.
-     * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
+     * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
      * 
      */
     public Optional<String> deleteOnTermination() {

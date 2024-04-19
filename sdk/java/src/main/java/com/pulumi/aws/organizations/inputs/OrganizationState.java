@@ -140,6 +140,21 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Name of the master account
+     * 
+     */
+    @Import(name="masterAccountName")
+    private @Nullable Output<String> masterAccountName;
+
+    /**
+     * @return Name of the master account
+     * 
+     */
+    public Optional<Output<String>> masterAccountName() {
+        return Optional.ofNullable(this.masterAccountName);
+    }
+
+    /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      * 
      */
@@ -180,6 +195,7 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
         this.masterAccountArn = $.masterAccountArn;
         this.masterAccountEmail = $.masterAccountEmail;
         this.masterAccountId = $.masterAccountId;
+        this.masterAccountName = $.masterAccountName;
         this.nonMasterAccounts = $.nonMasterAccounts;
         this.roots = $.roots;
     }
@@ -398,6 +414,27 @@ public final class OrganizationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder masterAccountId(String masterAccountId) {
             return masterAccountId(Output.of(masterAccountId));
+        }
+
+        /**
+         * @param masterAccountName Name of the master account
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterAccountName(@Nullable Output<String> masterAccountName) {
+            $.masterAccountName = masterAccountName;
+            return this;
+        }
+
+        /**
+         * @param masterAccountName Name of the master account
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterAccountName(String masterAccountName) {
+            return masterAccountName(Output.of(masterAccountName));
         }
 
         /**

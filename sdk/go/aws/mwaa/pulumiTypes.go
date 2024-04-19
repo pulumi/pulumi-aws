@@ -15,7 +15,6 @@ var _ = internal.GetEnvOrDefault
 
 type EnvironmentLastUpdated struct {
 	// The Created At date of the MWAA Environment
-	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	CreatedAt *string                       `pulumi:"createdAt"`
 	Errors    []EnvironmentLastUpdatedError `pulumi:"errors"`
 	// The status of the Amazon MWAA Environment
@@ -35,7 +34,6 @@ type EnvironmentLastUpdatedInput interface {
 
 type EnvironmentLastUpdatedArgs struct {
 	// The Created At date of the MWAA Environment
-	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	CreatedAt pulumi.StringPtrInput                 `pulumi:"createdAt"`
 	Errors    EnvironmentLastUpdatedErrorArrayInput `pulumi:"errors"`
 	// The status of the Amazon MWAA Environment
@@ -94,7 +92,6 @@ func (o EnvironmentLastUpdatedOutput) ToEnvironmentLastUpdatedOutputWithContext(
 }
 
 // The Created At date of the MWAA Environment
-// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 func (o EnvironmentLastUpdatedOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLastUpdated) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }

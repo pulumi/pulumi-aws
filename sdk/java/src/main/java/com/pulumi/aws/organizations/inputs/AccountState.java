@@ -170,9 +170,17 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.roleName);
     }
 
+    /**
+     * The status of the account in the organization.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return The status of the account in the organization.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -463,11 +471,23 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             return roleName(Output.of(roleName));
         }
 
+        /**
+         * @param status The status of the account in the organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status The status of the account in the organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

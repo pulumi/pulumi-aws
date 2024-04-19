@@ -23,14 +23,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     public static final LoadBalancerArgs Empty = new LoadBalancerArgs();
 
     /**
-     * An Access Logs block. Access Logs documented below.
+     * Access Logs block. See below.
      * 
      */
     @Import(name="accessLogs")
     private @Nullable Output<LoadBalancerAccessLogsArgs> accessLogs;
 
     /**
-     * @return An Access Logs block. Access Logs documented below.
+     * @return Access Logs block. See below.
      * 
      */
     public Optional<Output<LoadBalancerAccessLogsArgs>> accessLogs() {
@@ -38,14 +38,29 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+     * 
+     */
+    @Import(name="clientKeepAlive")
+    private @Nullable Output<Integer> clientKeepAlive;
+
+    /**
+     * @return Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+     * 
+     */
+    public Optional<Output<Integer>> clientKeepAlive() {
+        return Optional.ofNullable(this.clientKeepAlive);
+    }
+
+    /**
+     * Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      * 
      */
     @Import(name="connectionLogs")
     private @Nullable Output<LoadBalancerConnectionLogsArgs> connectionLogs;
 
     /**
-     * @return A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+     * @return Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      * 
      */
     public Optional<Output<LoadBalancerConnectionLogsArgs>> connectionLogs() {
@@ -53,14 +68,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the customer owned ipv4 pool to use for this load balancer.
+     * ID of the customer owned ipv4 pool to use for this load balancer.
      * 
      */
     @Import(name="customerOwnedIpv4Pool")
     private @Nullable Output<String> customerOwnedIpv4Pool;
 
     /**
-     * @return The ID of the customer owned ipv4 pool to use for this load balancer.
+     * @return ID of the customer owned ipv4 pool to use for this load balancer.
      * 
      */
     public Optional<Output<String>> customerOwnedIpv4Pool() {
@@ -68,14 +83,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     * How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      * 
      */
     @Import(name="desyncMitigationMode")
     private @Nullable Output<String> desyncMitigationMode;
 
     /**
-     * @return Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     * @return How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      * 
      */
     public Optional<Output<String>> desyncMitigationMode() {
@@ -83,14 +98,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      * 
      */
     @Import(name="dnsRecordClientRoutingPolicy")
     private @Nullable Output<String> dnsRecordClientRoutingPolicy;
 
     /**
-     * @return Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * @return How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      * 
      */
     public Optional<Output<String>> dnsRecordClientRoutingPolicy() {
@@ -98,14 +113,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+     * Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      * 
      */
     @Import(name="dropInvalidHeaderFields")
     private @Nullable Output<Boolean> dropInvalidHeaderFields;
 
     /**
-     * @return Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+     * @return Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      * 
      */
     public Optional<Output<Boolean>> dropInvalidHeaderFields() {
@@ -143,14 +158,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+     * Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      * 
      */
     @Import(name="enableHttp2")
     private @Nullable Output<Boolean> enableHttp2;
 
     /**
-     * @return Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+     * @return Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enableHttp2() {
@@ -158,14 +173,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+     * Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      * 
      */
     @Import(name="enableTlsVersionAndCipherSuiteHeaders")
     private @Nullable Output<Boolean> enableTlsVersionAndCipherSuiteHeaders;
 
     /**
-     * @return Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+     * @return Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      * 
      */
     public Optional<Output<Boolean>> enableTlsVersionAndCipherSuiteHeaders() {
@@ -173,14 +188,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+     * Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
      * 
      */
     @Import(name="enableWafFailOpen")
     private @Nullable Output<Boolean> enableWafFailOpen;
 
     /**
-     * @return Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+     * @return Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enableWafFailOpen() {
@@ -188,14 +203,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+     * Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      * 
      */
     @Import(name="enableXffClientPort")
     private @Nullable Output<Boolean> enableXffClientPort;
 
     /**
-     * @return Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+     * @return Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enableXffClientPort() {
@@ -203,14 +218,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      * 
      */
     @Import(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
     private @Nullable Output<String> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
 
     /**
-     * @return Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+     * @return Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      * 
      */
     public Optional<Output<String>> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
@@ -218,14 +233,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+     * Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      * 
      */
     @Import(name="idleTimeout")
     private @Nullable Output<Integer> idleTimeout;
 
     /**
-     * @return The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+     * @return Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      * 
      */
     public Optional<Output<Integer>> idleTimeout() {
@@ -248,14 +263,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+     * Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+     * @return Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -263,14 +278,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+     * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      * 
      */
     @Import(name="loadBalancerType")
     private @Nullable Output<String> loadBalancerType;
 
     /**
-     * @return The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+     * @return Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      * 
      */
     public Optional<Output<String>> loadBalancerType() {
@@ -278,18 +293,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-     * this provider will autogenerate a name beginning with `tf-lb`.
+     * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-     * this provider will autogenerate a name beginning with `tf-lb`.
+     * @return Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -312,14 +323,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     * Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      * 
      */
     @Import(name="preserveHostHeader")
     private @Nullable Output<Boolean> preserveHostHeader;
 
     /**
-     * @return Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+     * @return Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> preserveHostHeader() {
@@ -327,14 +338,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+     * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+     * @return List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -342,14 +353,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
+     * Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      * 
      */
     @Import(name="subnetMappings")
     private @Nullable Output<List<LoadBalancerSubnetMappingArgs>> subnetMappings;
 
     /**
-     * @return A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
+     * @return Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      * 
      */
     public Optional<Output<List<LoadBalancerSubnetMappingArgs>>> subnetMappings() {
@@ -357,14 +368,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+     * List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      * 
      */
     @Import(name="subnets")
     private @Nullable Output<List<String>> subnets;
 
     /**
-     * @return A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+     * @return List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      * 
      */
     public Optional<Output<List<String>>> subnets() {
@@ -372,14 +383,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -405,6 +416,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
 
     private LoadBalancerArgs(LoadBalancerArgs $) {
         this.accessLogs = $.accessLogs;
+        this.clientKeepAlive = $.clientKeepAlive;
         this.connectionLogs = $.connectionLogs;
         this.customerOwnedIpv4Pool = $.customerOwnedIpv4Pool;
         this.desyncMitigationMode = $.desyncMitigationMode;
@@ -450,7 +462,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessLogs An Access Logs block. Access Logs documented below.
+         * @param accessLogs Access Logs block. See below.
          * 
          * @return builder
          * 
@@ -461,7 +473,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessLogs An Access Logs block. Access Logs documented below.
+         * @param accessLogs Access Logs block. See below.
          * 
          * @return builder
          * 
@@ -471,7 +483,28 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionLogs A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+         * @param clientKeepAlive Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientKeepAlive(@Nullable Output<Integer> clientKeepAlive) {
+            $.clientKeepAlive = clientKeepAlive;
+            return this;
+        }
+
+        /**
+         * @param clientKeepAlive Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientKeepAlive(Integer clientKeepAlive) {
+            return clientKeepAlive(Output.of(clientKeepAlive));
+        }
+
+        /**
+         * @param connectionLogs Connection Logs block. See below. Only valid for Load Balancers of type `application`.
          * 
          * @return builder
          * 
@@ -482,7 +515,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionLogs A Connection Logs block. Connection Logs documented below. Only valid for Load Balancers of type `application`.
+         * @param connectionLogs Connection Logs block. See below. Only valid for Load Balancers of type `application`.
          * 
          * @return builder
          * 
@@ -492,7 +525,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerOwnedIpv4Pool The ID of the customer owned ipv4 pool to use for this load balancer.
+         * @param customerOwnedIpv4Pool ID of the customer owned ipv4 pool to use for this load balancer.
          * 
          * @return builder
          * 
@@ -503,7 +536,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerOwnedIpv4Pool The ID of the customer owned ipv4 pool to use for this load balancer.
+         * @param customerOwnedIpv4Pool ID of the customer owned ipv4 pool to use for this load balancer.
          * 
          * @return builder
          * 
@@ -513,7 +546,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param desyncMitigationMode Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+         * @param desyncMitigationMode How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
          * 
          * @return builder
          * 
@@ -524,7 +557,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param desyncMitigationMode Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+         * @param desyncMitigationMode How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
          * 
          * @return builder
          * 
@@ -534,7 +567,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsRecordClientRoutingPolicy Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+         * @param dnsRecordClientRoutingPolicy How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
          * 
          * @return builder
          * 
@@ -545,7 +578,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsRecordClientRoutingPolicy Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+         * @param dnsRecordClientRoutingPolicy How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
          * 
          * @return builder
          * 
@@ -555,7 +588,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dropInvalidHeaderFields Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+         * @param dropInvalidHeaderFields Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
          * 
          * @return builder
          * 
@@ -566,7 +599,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dropInvalidHeaderFields Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
+         * @param dropInvalidHeaderFields Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
          * 
          * @return builder
          * 
@@ -618,7 +651,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableHttp2 Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+         * @param enableHttp2 Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -629,7 +662,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableHttp2 Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+         * @param enableHttp2 Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -639,7 +672,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableTlsVersionAndCipherSuiteHeaders Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+         * @param enableTlsVersionAndCipherSuiteHeaders Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
          * 
          * @return builder
          * 
@@ -650,7 +683,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableTlsVersionAndCipherSuiteHeaders Indicates whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
+         * @param enableTlsVersionAndCipherSuiteHeaders Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
          * 
          * @return builder
          * 
@@ -660,7 +693,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableWafFailOpen Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+         * @param enableWafFailOpen Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -671,7 +704,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableWafFailOpen Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+         * @param enableWafFailOpen Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -681,7 +714,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableXffClientPort Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+         * @param enableXffClientPort Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -692,7 +725,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableXffClientPort Indicates whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
+         * @param enableXffClientPort Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -702,7 +735,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enforceSecurityGroupInboundRulesOnPrivateLinkTraffic Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+         * @param enforceSecurityGroupInboundRulesOnPrivateLinkTraffic Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
          * 
          * @return builder
          * 
@@ -713,7 +746,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enforceSecurityGroupInboundRulesOnPrivateLinkTraffic Indicates whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
+         * @param enforceSecurityGroupInboundRulesOnPrivateLinkTraffic Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
          * 
          * @return builder
          * 
@@ -723,7 +756,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idleTimeout The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+         * @param idleTimeout Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
          * 
          * @return builder
          * 
@@ -734,7 +767,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idleTimeout The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
+         * @param idleTimeout Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
          * 
          * @return builder
          * 
@@ -765,7 +798,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+         * @param ipAddressType Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
          * 
          * @return builder
          * 
@@ -776,7 +809,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
+         * @param ipAddressType Type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
          * 
          * @return builder
          * 
@@ -786,7 +819,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerType The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+         * @param loadBalancerType Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
          * 
          * @return builder
          * 
@@ -797,7 +830,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerType The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
+         * @param loadBalancerType Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
          * 
          * @return builder
          * 
@@ -807,9 +840,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-         * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-         * this provider will autogenerate a name beginning with `tf-lb`.
+         * @param name Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
          * 
          * @return builder
          * 
@@ -820,9 +851,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-         * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-         * this provider will autogenerate a name beginning with `tf-lb`.
+         * @param name Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
          * 
          * @return builder
          * 
@@ -853,7 +882,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preserveHostHeader Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+         * @param preserveHostHeader Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -864,7 +893,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preserveHostHeader Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
+         * @param preserveHostHeader Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -874,7 +903,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+         * @param securityGroups List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
          * 
          * @return builder
          * 
@@ -885,7 +914,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+         * @param securityGroups List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
          * 
          * @return builder
          * 
@@ -895,7 +924,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
+         * @param securityGroups List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
          * 
          * @return builder
          * 
@@ -905,7 +934,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetMappings A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
+         * @param subnetMappings Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
          * 
          * @return builder
          * 
@@ -916,7 +945,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetMappings A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
+         * @param subnetMappings Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
          * 
          * @return builder
          * 
@@ -926,7 +955,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetMappings A subnet mapping block as documented below. For Load Balancers of type `network` subnet mappings can only be added.
+         * @param subnetMappings Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
          * 
          * @return builder
          * 
@@ -936,7 +965,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+         * @param subnets List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
          * 
          * @return builder
          * 
@@ -947,7 +976,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+         * @param subnets List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
          * 
          * @return builder
          * 
@@ -957,7 +986,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
+         * @param subnets List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
          * 
          * @return builder
          * 
@@ -967,7 +996,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -978,7 +1007,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

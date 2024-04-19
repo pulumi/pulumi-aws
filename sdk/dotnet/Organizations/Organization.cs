@@ -101,6 +101,12 @@ namespace Pulumi.Aws.Organizations
         public Output<string> MasterAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// Name of the master account
+        /// </summary>
+        [Output("masterAccountName")]
+        public Output<string> MasterAccountName { get; private set; } = null!;
+
+        /// <summary>
         /// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         /// </summary>
         [Output("nonMasterAccounts")]
@@ -261,6 +267,12 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         [Input("masterAccountId")]
         public Input<string>? MasterAccountId { get; set; }
+
+        /// <summary>
+        /// Name of the master account
+        /// </summary>
+        [Input("masterAccountName")]
+        public Input<string>? MasterAccountName { get; set; }
 
         [Input("nonMasterAccounts")]
         private InputList<Inputs.OrganizationNonMasterAccountGetArgs>? _nonMasterAccounts;

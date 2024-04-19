@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.autoscaling.outputs;
 
+import com.pulumi.aws.autoscaling.outputs.GroupInstanceRefreshPreferencesAlarmSpecification;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -14,6 +15,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupInstanceRefreshPreferences {
+    /**
+     * @return Alarm Specification for Instance Refresh.
+     * 
+     */
+    private @Nullable GroupInstanceRefreshPreferencesAlarmSpecification alarmSpecification;
     /**
      * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
      * 
@@ -61,6 +67,13 @@ public final class GroupInstanceRefreshPreferences {
     private @Nullable String standbyInstances;
 
     private GroupInstanceRefreshPreferences() {}
+    /**
+     * @return Alarm Specification for Instance Refresh.
+     * 
+     */
+    public Optional<GroupInstanceRefreshPreferencesAlarmSpecification> alarmSpecification() {
+        return Optional.ofNullable(this.alarmSpecification);
+    }
     /**
      * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
      * 
@@ -134,6 +147,7 @@ public final class GroupInstanceRefreshPreferences {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable GroupInstanceRefreshPreferencesAlarmSpecification alarmSpecification;
         private @Nullable Boolean autoRollback;
         private @Nullable String checkpointDelay;
         private @Nullable List<Integer> checkpointPercentages;
@@ -146,6 +160,7 @@ public final class GroupInstanceRefreshPreferences {
         public Builder() {}
         public Builder(GroupInstanceRefreshPreferences defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.alarmSpecification = defaults.alarmSpecification;
     	      this.autoRollback = defaults.autoRollback;
     	      this.checkpointDelay = defaults.checkpointDelay;
     	      this.checkpointPercentages = defaults.checkpointPercentages;
@@ -157,6 +172,12 @@ public final class GroupInstanceRefreshPreferences {
     	      this.standbyInstances = defaults.standbyInstances;
         }
 
+        @CustomType.Setter
+        public Builder alarmSpecification(@Nullable GroupInstanceRefreshPreferencesAlarmSpecification alarmSpecification) {
+
+            this.alarmSpecification = alarmSpecification;
+            return this;
+        }
         @CustomType.Setter
         public Builder autoRollback(@Nullable Boolean autoRollback) {
 
@@ -216,6 +237,7 @@ public final class GroupInstanceRefreshPreferences {
         }
         public GroupInstanceRefreshPreferences build() {
             final var _resultValue = new GroupInstanceRefreshPreferences();
+            _resultValue.alarmSpecification = alarmSpecification;
             _resultValue.autoRollback = autoRollback;
             _resultValue.checkpointDelay = checkpointDelay;
             _resultValue.checkpointPercentages = checkpointPercentages;

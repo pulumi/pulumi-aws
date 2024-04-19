@@ -117,7 +117,7 @@ class InstancePublicPorts(pulumi.CustomResource):
             name="yak_sail",
             availability_zone=available["names"],
             blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
+            bundle_id="nano_3_0")
         test_instance_public_ports = aws.lightsail.InstancePublicPorts("test",
             instance_name=test.name,
             port_infos=[aws.lightsail.InstancePublicPortsPortInfoArgs(
@@ -157,7 +157,7 @@ class InstancePublicPorts(pulumi.CustomResource):
             name="yak_sail",
             availability_zone=available["names"],
             blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
+            bundle_id="nano_3_0")
         test_instance_public_ports = aws.lightsail.InstancePublicPorts("test",
             instance_name=test.name,
             port_infos=[aws.lightsail.InstancePublicPortsPortInfoArgs(

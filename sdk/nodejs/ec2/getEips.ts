@@ -70,7 +70,7 @@ export interface GetEipsResult {
      * List of all the Elastic IP addresses.
      */
     readonly publicIps: string[];
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides a list of Elastic IPs in a region.

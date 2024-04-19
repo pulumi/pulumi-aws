@@ -65,6 +65,21 @@ public final class EventRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Used to delete managed rules created by AWS. Defaults to `false`.
+     * 
+     */
+    @Import(name="forceDestroy")
+    private @Nullable Output<Boolean> forceDestroy;
+
+    /**
+     * @return Used to delete managed rules created by AWS. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> forceDestroy() {
+        return Optional.ofNullable(this.forceDestroy);
+    }
+
+    /**
      * Whether the rule should be enabled.
      * Defaults to `true`.
      * Conflicts with `state`.
@@ -201,6 +216,7 @@ public final class EventRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.eventBusName = $.eventBusName;
         this.eventPattern = $.eventPattern;
+        this.forceDestroy = $.forceDestroy;
         this.isEnabled = $.isEnabled;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
@@ -291,6 +307,27 @@ public final class EventRuleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder eventPattern(String eventPattern) {
             return eventPattern(Output.of(eventPattern));
+        }
+
+        /**
+         * @param forceDestroy Used to delete managed rules created by AWS. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDestroy(@Nullable Output<Boolean> forceDestroy) {
+            $.forceDestroy = forceDestroy;
+            return this;
+        }
+
+        /**
+         * @param forceDestroy Used to delete managed rules created by AWS. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDestroy(Boolean forceDestroy) {
+            return forceDestroy(Output.of(forceDestroy));
         }
 
         /**

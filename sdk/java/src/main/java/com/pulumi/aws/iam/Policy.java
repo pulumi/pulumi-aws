@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -89,6 +90,20 @@ public class Policy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Number of entities (users, groups, and roles) that the policy is attached to.
+     * 
+     */
+    @Export(name="attachmentCount", refs={Integer.class}, tree="[0]")
+    private Output<Integer> attachmentCount;
+
+    /**
+     * @return Number of entities (users, groups, and roles) that the policy is attached to.
+     * 
+     */
+    public Output<Integer> attachmentCount() {
+        return this.attachmentCount;
     }
     /**
      * Description of the IAM policy.

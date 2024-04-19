@@ -125,17 +125,6 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ## Permissions
- * 
- * The permissions attribute specifies how you want to share the document. If you share a document privately,
- * you must specify the AWS user account IDs for those people who can use the document. If you share a document
- * publicly, you must specify All as the account ID.
- * 
- * The permissions mapping supports the following:
- * 
- * * `type` - The permission type for the document. The permission type can be `Share`.
- * * `account_ids` - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or `All`.
- * 
  * ## Import
  * 
  * Using `pulumi import`, import SSM Documents using the name. For example:
@@ -148,35 +137,43 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ssm/document:Document")
 public class Document extends com.pulumi.resources.CustomResource {
+    /**
+     * The Amazon Resource Name (ARN) of the document.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return The Amazon Resource Name (ARN) of the document.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+     * One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
      * 
      */
     @Export(name="attachmentsSources", refs={List.class,DocumentAttachmentsSource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DocumentAttachmentsSource>> attachmentsSources;
 
     /**
-     * @return One or more configuration blocks describing attachments sources to a version of a document. Defined below.
+     * @return One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
      * 
      */
     public Output<Optional<List<DocumentAttachmentsSource>>> attachmentsSources() {
         return Codegen.optional(this.attachmentsSources);
     }
     /**
-     * The JSON or YAML content of the document.
+     * The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      * 
      */
     @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
-     * @return The JSON or YAML content of the document.
+     * @return The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      * 
      */
     public Output<String> content() {
@@ -211,42 +208,42 @@ public class Document extends com.pulumi.resources.CustomResource {
         return this.defaultVersion;
     }
     /**
-     * The description of the document.
+     * A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return The description of the document.
+     * @return A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * The format of the document. Valid document types include: `JSON` and `YAML`
+     * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      * 
      */
     @Export(name="documentFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> documentFormat;
 
     /**
-     * @return The format of the document. Valid document types include: `JSON` and `YAML`
+     * @return The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      * 
      */
     public Output<Optional<String>> documentFormat() {
         return Codegen.optional(this.documentFormat);
     }
     /**
-     * The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+     * The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
      * 
      */
     @Export(name="documentType", refs={String.class}, tree="[0]")
     private Output<String> documentType;
 
     /**
-     * @return The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
+     * @return The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
      * 
      */
     public Output<String> documentType() {
@@ -267,28 +264,28 @@ public class Document extends com.pulumi.resources.CustomResource {
         return this.documentVersion;
     }
     /**
-     * The sha1 or sha256 of the document content
+     * The Sha256 or Sha1 hash created by the system when the document was created.
      * 
      */
     @Export(name="hash", refs={String.class}, tree="[0]")
     private Output<String> hash;
 
     /**
-     * @return The sha1 or sha256 of the document content
+     * @return The Sha256 or Sha1 hash created by the system when the document was created.
      * 
      */
     public Output<String> hash() {
         return this.hash;
     }
     /**
-     * &#34;Sha1&#34; &#34;Sha256&#34;. The hashing algorithm used when hashing the content.
+     * The hash type of the document. Valid values: `Sha256`, `Sha1`.
      * 
      */
     @Export(name="hashType", refs={String.class}, tree="[0]")
     private Output<String> hashType;
 
     /**
-     * @return &#34;Sha1&#34; &#34;Sha256&#34;. The hashing algorithm used when hashing the content.
+     * @return The hash type of the document. Valid values: `Sha256`, `Sha1`.
      * 
      */
     public Output<String> hashType() {
@@ -323,56 +320,56 @@ public class Document extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The AWS user account of the person who created the document.
+     * The Amazon Web Services user that created the document.
      * 
      */
     @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
-     * @return The AWS user account of the person who created the document.
+     * @return The Amazon Web Services user that created the document.
      * 
      */
     public Output<String> owner() {
         return this.owner;
     }
     /**
-     * The parameters that are available to this document.
+     * One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
      * 
      */
     @Export(name="parameters", refs={List.class,DocumentParameter.class}, tree="[0,1]")
     private Output<List<DocumentParameter>> parameters;
 
     /**
-     * @return The parameters that are available to this document.
+     * @return One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
      * 
      */
     public Output<List<DocumentParameter>> parameters() {
         return this.parameters;
     }
     /**
-     * Additional Permissions to attach to the document. See Permissions below for details.
+     * Additional permissions to attach to the document. See Permissions below for details.
      * 
      */
     @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> permissions;
 
     /**
-     * @return Additional Permissions to attach to the document. See Permissions below for details.
+     * @return Additional permissions to attach to the document. See Permissions below for details.
      * 
      */
     public Output<Optional<Map<String,String>>> permissions() {
         return Codegen.optional(this.permissions);
     }
     /**
-     * A list of OS platforms compatible with this SSM document, either &#34;Windows&#34; or &#34;Linux&#34;.
+     * The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
      * 
      */
     @Export(name="platformTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> platformTypes;
 
     /**
-     * @return A list of OS platforms compatible with this SSM document, either &#34;Windows&#34; or &#34;Linux&#34;.
+     * @return The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
      * 
      */
     public Output<List<String>> platformTypes() {
@@ -393,14 +390,14 @@ public class Document extends com.pulumi.resources.CustomResource {
         return this.schemaVersion;
     }
     /**
-     * &#34;Creating&#34;, &#34;Active&#34; or &#34;Deleting&#34;. The current status of the document.
+     * The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return &#34;Creating&#34;, &#34;Active&#34; or &#34;Deleting&#34;. The current status of the document.
+     * @return The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
      * 
      */
     public Output<String> status() {
@@ -439,28 +436,28 @@ public class Document extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+     * The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
      * 
      */
     @Export(name="targetType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetType;
 
     /**
-     * @return The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
+     * @return The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
      * 
      */
     public Output<Optional<String>> targetType() {
         return Codegen.optional(this.targetType);
     }
     /**
-     * A field specifying the version of the artifact you are creating with the document. For example, &#34;Release 12, Update 6&#34;. This value is unique across all versions of a document and cannot be changed for an existing document version.
+     * The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can&#39;t be changed.
      * 
      */
     @Export(name="versionName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> versionName;
 
     /**
-     * @return A field specifying the version of the artifact you are creating with the document. For example, &#34;Release 12, Update 6&#34;. This value is unique across all versions of a document and cannot be changed for an existing document version.
+     * @return The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can&#39;t be changed.
      * 
      */
     public Output<Optional<String>> versionName() {

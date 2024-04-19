@@ -21,14 +21,14 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
     public static final ProjectSecondarySourceArgs Empty = new ProjectSecondarySourceArgs();
 
     /**
-     * Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+     * Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
      * 
      */
     @Import(name="buildStatusConfig")
     private @Nullable Output<ProjectSecondarySourceBuildStatusConfigArgs> buildStatusConfig;
 
     /**
-     * @return Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+     * @return Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
      * 
      */
     public Optional<Output<ProjectSecondarySourceBuildStatusConfigArgs>> buildStatusConfig() {
@@ -111,14 +111,14 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+     * Whether to report the status of a build&#39;s start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
      * 
      */
     @Import(name="reportBuildStatus")
     private @Nullable Output<Boolean> reportBuildStatus;
 
     /**
-     * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+     * @return Whether to report the status of a build&#39;s start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
      * 
      */
     public Optional<Output<Boolean>> reportBuildStatus() {
@@ -141,14 +141,14 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+     * Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+     * @return Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
      * 
      */
     public Output<String> type() {
@@ -188,7 +188,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param buildStatusConfig Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+         * @param buildStatusConfig Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param buildStatusConfig Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+         * @param buildStatusConfig Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+         * @param reportBuildStatus Whether to report the status of a build&#39;s start and finish to your source provider. This option is valid only when your source provider is GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+         * @param type Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class ProjectSecondarySourceArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
+         * @param type Type of repository that contains the source code to be built. Valid values: `BITBUCKET`, `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
          * 
          * @return builder
          * 

@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ServerlessCacheCacheUsageLimitsDataStorage {
@@ -15,7 +17,12 @@ public final class ServerlessCacheCacheUsageLimitsDataStorage {
      * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
-    private Integer maximum;
+    private @Nullable Integer maximum;
+    /**
+     * @return The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+     * 
+     */
+    private @Nullable Integer minimum;
     /**
      * @return The unit that the storage is measured in, in GB.
      * 
@@ -27,8 +34,15 @@ public final class ServerlessCacheCacheUsageLimitsDataStorage {
      * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
-    public Integer maximum() {
-        return this.maximum;
+    public Optional<Integer> maximum() {
+        return Optional.ofNullable(this.maximum);
+    }
+    /**
+     * @return The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+     * 
+     */
+    public Optional<Integer> minimum() {
+        return Optional.ofNullable(this.minimum);
     }
     /**
      * @return The unit that the storage is measured in, in GB.
@@ -47,21 +61,27 @@ public final class ServerlessCacheCacheUsageLimitsDataStorage {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Integer maximum;
+        private @Nullable Integer maximum;
+        private @Nullable Integer minimum;
         private String unit;
         public Builder() {}
         public Builder(ServerlessCacheCacheUsageLimitsDataStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maximum = defaults.maximum;
+    	      this.minimum = defaults.minimum;
     	      this.unit = defaults.unit;
         }
 
         @CustomType.Setter
-        public Builder maximum(Integer maximum) {
-            if (maximum == null) {
-              throw new MissingRequiredPropertyException("ServerlessCacheCacheUsageLimitsDataStorage", "maximum");
-            }
+        public Builder maximum(@Nullable Integer maximum) {
+
             this.maximum = maximum;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder minimum(@Nullable Integer minimum) {
+
+            this.minimum = minimum;
             return this;
         }
         @CustomType.Setter
@@ -75,6 +95,7 @@ public final class ServerlessCacheCacheUsageLimitsDataStorage {
         public ServerlessCacheCacheUsageLimitsDataStorage build() {
             final var _resultValue = new ServerlessCacheCacheUsageLimitsDataStorage();
             _resultValue.maximum = maximum;
+            _resultValue.minimum = minimum;
             _resultValue.unit = unit;
             return _resultValue;
         }

@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;yak_sail&#34;)
  *             .availabilityZone(available.names()[0])
  *             .blueprintId(&#34;amazon_linux_2&#34;)
- *             .bundleId(&#34;nano_1_0&#34;)
+ *             .bundleId(&#34;nano_3_0&#34;)
  *             .build());
  * 
  *         var testInstancePublicPorts = new InstancePublicPorts(&#34;testInstancePublicPorts&#34;, InstancePublicPortsArgs.builder()        

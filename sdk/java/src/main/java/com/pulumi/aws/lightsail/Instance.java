@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;custom_gitlab&#34;)
  *             .availabilityZone(&#34;us-east-1b&#34;)
  *             .blueprintId(&#34;amazon_linux_2&#34;)
- *             .bundleId(&#34;nano_1_0&#34;)
+ *             .bundleId(&#34;nano_3_0&#34;)
  *             .keyPairName(&#34;some_key_name&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());
@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;custom&#34;)
  *             .availabilityZone(&#34;us-east-1b&#34;)
  *             .blueprintId(&#34;amazon_linux_2&#34;)
- *             .bundleId(&#34;nano_1_0&#34;)
+ *             .bundleId(&#34;nano_3_0&#34;)
  *             .userData(&#34;sudo yum install -y httpd &amp;&amp; sudo systemctl start httpd &amp;&amp; sudo systemctl enable httpd &amp;&amp; echo &#39;&lt;h1&gt;Deployed via Pulumi&lt;/h1&gt;&#39; | sudo tee /var/www/html/index.html&#34;)
  *             .build());
  * 
@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;custom_instance&#34;)
  *             .availabilityZone(&#34;us-east-1b&#34;)
  *             .blueprintId(&#34;amazon_linux_2&#34;)
- *             .bundleId(&#34;nano_1_0&#34;)
+ *             .bundleId(&#34;nano_3_0&#34;)
  *             .addOn(InstanceAddOnArgs.builder()
  *                 .type(&#34;AutoSnapshot&#34;)
  *                 .snapshotTime(&#34;06:00&#34;)

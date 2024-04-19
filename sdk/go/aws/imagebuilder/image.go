@@ -64,6 +64,8 @@ type Image struct {
 	DistributionConfigurationArn pulumi.StringPtrOutput `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrOutput `pulumi:"enhancedImageMetadataEnabled"`
+	// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+	ExecutionRole pulumi.StringOutput `pulumi:"executionRole"`
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
 	// Configuration block with image scanning configuration. Detailed below.
@@ -74,7 +76,7 @@ type Image struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringOutput `pulumi:"infrastructureConfigurationArn"`
-	// Name of the AMI.
+	// The name of the Workflow parameter.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Operating System version of the image.
 	OsVersion pulumi.StringOutput `pulumi:"osVersion"`
@@ -90,6 +92,8 @@ type Image struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Version of the image.
 	Version pulumi.StringOutput `pulumi:"version"`
+	// Configuration block with the workflow configuration. Detailed below.
+	Workflows ImageWorkflowArrayOutput `pulumi:"workflows"`
 }
 
 // NewImage registers a new resource with the given unique name, arguments, and options.
@@ -135,6 +139,8 @@ type imageState struct {
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
+	// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+	ExecutionRole *string `pulumi:"executionRole"`
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// Configuration block with image scanning configuration. Detailed below.
@@ -145,7 +151,7 @@ type imageState struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
-	// Name of the AMI.
+	// The name of the Workflow parameter.
 	Name *string `pulumi:"name"`
 	// Operating System version of the image.
 	OsVersion *string `pulumi:"osVersion"`
@@ -161,6 +167,8 @@ type imageState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Version of the image.
 	Version *string `pulumi:"version"`
+	// Configuration block with the workflow configuration. Detailed below.
+	Workflows []ImageWorkflow `pulumi:"workflows"`
 }
 
 type ImageState struct {
@@ -174,6 +182,8 @@ type ImageState struct {
 	DistributionConfigurationArn pulumi.StringPtrInput
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
+	// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+	ExecutionRole pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn pulumi.StringPtrInput
 	// Configuration block with image scanning configuration. Detailed below.
@@ -184,7 +194,7 @@ type ImageState struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringPtrInput
-	// Name of the AMI.
+	// The name of the Workflow parameter.
 	Name pulumi.StringPtrInput
 	// Operating System version of the image.
 	OsVersion pulumi.StringPtrInput
@@ -200,6 +210,8 @@ type ImageState struct {
 	TagsAll pulumi.StringMapInput
 	// Version of the image.
 	Version pulumi.StringPtrInput
+	// Configuration block with the workflow configuration. Detailed below.
+	Workflows ImageWorkflowArrayInput
 }
 
 func (ImageState) ElementType() reflect.Type {
@@ -213,6 +225,8 @@ type imageArgs struct {
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
+	// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+	ExecutionRole *string `pulumi:"executionRole"`
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// Configuration block with image scanning configuration. Detailed below.
@@ -225,6 +239,8 @@ type imageArgs struct {
 	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Configuration block with the workflow configuration. Detailed below.
+	Workflows []ImageWorkflow `pulumi:"workflows"`
 }
 
 // The set of arguments for constructing a Image resource.
@@ -235,6 +251,8 @@ type ImageArgs struct {
 	DistributionConfigurationArn pulumi.StringPtrInput
 	// Whether additional information about the image being created is collected. Defaults to `true`.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
+	// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+	ExecutionRole pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn pulumi.StringPtrInput
 	// Configuration block with image scanning configuration. Detailed below.
@@ -247,6 +265,8 @@ type ImageArgs struct {
 	InfrastructureConfigurationArn pulumi.StringInput
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Configuration block with the workflow configuration. Detailed below.
+	Workflows ImageWorkflowArrayInput
 }
 
 func (ImageArgs) ElementType() reflect.Type {
@@ -361,6 +381,11 @@ func (o ImageOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.BoolPtrOutput { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+func (o ImageOutput) ExecutionRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
 // Amazon Resource Name (ARN) of the image recipe.
 func (o ImageOutput) ImageRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
@@ -383,7 +408,7 @@ func (o ImageOutput) InfrastructureConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringOutput)
 }
 
-// Name of the AMI.
+// The name of the Workflow parameter.
 func (o ImageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -418,6 +443,11 @@ func (o ImageOutput) TagsAll() pulumi.StringMapOutput {
 // Version of the image.
 func (o ImageOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
+// Configuration block with the workflow configuration. Detailed below.
+func (o ImageOutput) Workflows() ImageWorkflowArrayOutput {
+	return o.ApplyT(func(v *Image) ImageWorkflowArrayOutput { return v.Workflows }).(ImageWorkflowArrayOutput)
 }
 
 type ImageArrayOutput struct{ *pulumi.OutputState }

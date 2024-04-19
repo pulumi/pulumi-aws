@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Alb.Outputs
     public sealed class LoadBalancerConnectionLogs
     {
         /// <summary>
-        /// The S3 bucket name to store the logs in.
+        /// S3 bucket name to store the logs in.
         /// </summary>
         public readonly string Bucket;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Alb.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The S3 bucket prefix. Logs are stored in the root if not configured.
+        /// S3 bucket prefix. Logs are stored in the root if not configured.
         /// </summary>
         public readonly string? Prefix;
 

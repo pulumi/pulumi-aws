@@ -157,6 +157,21 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * IP address of the endpoint that is used to access data or to manage the file system.
+     * 
+     */
+    @Import(name="endpointIpAddress")
+    private @Nullable Output<String> endpointIpAddress;
+
+    /**
+     * @return IP address of the endpoint that is used to access data or to manage the file system.
+     * 
+     */
+    public Optional<Output<String>> endpointIpAddress() {
+        return Optional.ofNullable(this.endpointIpAddress);
+    }
+
+    /**
      * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
      * 
      */
@@ -446,6 +461,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         this.deploymentType = $.deploymentType;
         this.diskIopsConfiguration = $.diskIopsConfiguration;
         this.dnsName = $.dnsName;
+        this.endpointIpAddress = $.endpointIpAddress;
         this.endpointIpAddressRange = $.endpointIpAddressRange;
         this.kmsKeyId = $.kmsKeyId;
         this.networkInterfaceIds = $.networkInterfaceIds;
@@ -671,6 +687,27 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
          */
         public Builder dnsName(String dnsName) {
             return dnsName(Output.of(dnsName));
+        }
+
+        /**
+         * @param endpointIpAddress IP address of the endpoint that is used to access data or to manage the file system.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointIpAddress(@Nullable Output<String> endpointIpAddress) {
+            $.endpointIpAddress = endpointIpAddress;
+            return this;
+        }
+
+        /**
+         * @param endpointIpAddress IP address of the endpoint that is used to access data or to manage the file system.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointIpAddress(String endpointIpAddress) {
+            return endpointIpAddress(Output.of(endpointIpAddress));
         }
 
         /**

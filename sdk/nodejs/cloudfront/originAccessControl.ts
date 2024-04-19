@@ -77,7 +77,7 @@ export class OriginAccessControl extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+     * The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
      */
     public readonly originAccessControlOriginType!: pulumi.Output<string>;
     /**
@@ -148,7 +148,7 @@ export interface OriginAccessControlState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+     * The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
      */
     originAccessControlOriginType?: pulumi.Input<string>;
     /**
@@ -174,7 +174,7 @@ export interface OriginAccessControlArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The type of origin that this Origin Access Control is for. Valid values are `s3`, and `mediastore`.
+     * The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
      */
     originAccessControlOriginType: pulumi.Input<string>;
     /**

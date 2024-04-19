@@ -188,6 +188,20 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.loggingRole);
     }
     /**
+     * Name of the security policy for the connector.
+     * 
+     */
+    @Export(name="securityPolicyName", refs={String.class}, tree="[0]")
+    private Output<String> securityPolicyName;
+
+    /**
+     * @return Name of the security policy for the connector.
+     * 
+     */
+    public Output<String> securityPolicyName() {
+        return this.securityPolicyName;
+    }
+    /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      * 
      */

@@ -199,6 +199,20 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return this.dnsName;
     }
     /**
+     * IP address of the endpoint that is used to access data or to manage the file system.
+     * 
+     */
+    @Export(name="endpointIpAddress", refs={String.class}, tree="[0]")
+    private Output<String> endpointIpAddress;
+
+    /**
+     * @return IP address of the endpoint that is used to access data or to manage the file system.
+     * 
+     */
+    public Output<String> endpointIpAddress() {
+        return this.endpointIpAddress;
+    }
+    /**
      * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
      * 
      */

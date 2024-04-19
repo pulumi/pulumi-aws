@@ -12,12 +12,21 @@ namespace Pulumi.Aws.Signer.Inputs
 
     public sealed class SigningProfileRevocationRecordArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The time when revocation becomes effective.
+        /// </summary>
         [Input("revocationEffectiveFrom")]
         public Input<string>? RevocationEffectiveFrom { get; set; }
 
+        /// <summary>
+        /// The time when the signing profile was revoked.
+        /// </summary>
         [Input("revokedAt")]
         public Input<string>? RevokedAt { get; set; }
 
+        /// <summary>
+        /// The identity of the revoker.
+        /// </summary>
         [Input("revokedBy")]
         public Input<string>? RevokedBy { get; set; }
 
