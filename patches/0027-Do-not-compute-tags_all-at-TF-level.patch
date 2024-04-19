@@ -4,23 +4,6 @@ Date: Mon, 6 Nov 2023 11:17:16 -0500
 Subject: [PATCH] Do not compute tags_all at TF level
 
 
-diff --git a/internal/framework/base.go b/internal/framework/base.go
-index d1c4c7d1ab..3e51e53f87 100644
---- a/internal/framework/base.go
-+++ b/internal/framework/base.go
-@@ -70,6 +70,12 @@ func (r *ResourceWithConfigure) Configure(_ context.Context, request resource.Co
- 
- // SetTagsAll calculates the new value for the `tags_all` attribute.
- func (r *ResourceWithConfigure) SetTagsAll(ctx context.Context, request resource.ModifyPlanRequest, response *resource.ModifyPlanResponse) {
-+
-+	// Skip SetTagsAll in Pulumi because it is handled at Pulumi provider level.
-+	if 1+1 == 2 {
-+		return
-+	}
-+
- 	// If the entire plan is null, the resource is planned for destruction.
- 	if request.Plan.Raw.IsNull() {
- 		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
 index 6415ce2355..c80c01b8d1 100644
 --- a/internal/provider/fwprovider/provider.go
@@ -37,10 +20,10 @@ index 6415ce2355..c80c01b8d1 100644
  					}
  				} else {
 diff --git a/internal/service/appconfig/environment.go b/internal/service/appconfig/environment.go
-index 96ee77124c..ef427103a2 100644
+index 122fc2306f..79ad4807ad 100644
 --- a/internal/service/appconfig/environment.go
 +++ b/internal/service/appconfig/environment.go
-@@ -105,7 +105,7 @@ func (r *resourceEnvironment) Schema(ctx context.Context, request resource.Schem
+@@ -104,7 +104,7 @@ func (r *resourceEnvironment) Schema(ctx context.Context, request resource.Schem
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -89,10 +72,10 @@ index 942630acae..45b72fc158 100644
  		Blocks: map[string]schema.Block{
  			"control_sets": schema.SetNestedBlock{
 diff --git a/internal/service/batch/job_queue.go b/internal/service/batch/job_queue.go
-index 015d8aa916..f026b6da0c 100644
+index d9769c3e5d..049c61a1a4 100644
 --- a/internal/service/batch/job_queue.go
 +++ b/internal/service/batch/job_queue.go
-@@ -110,7 +110,7 @@ func (r *resourceJobQueue) Schema(ctx context.Context, request resource.SchemaRe
+@@ -109,7 +109,7 @@ func (r *resourceJobQueue) Schema(ctx context.Context, request resource.SchemaRe
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -115,10 +98,10 @@ index 8b11271ab7..0ded1f6052 100644
  		Blocks: map[string]schema.Block{
  			"timeouts": timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/ec2/ec2_instance_connect_endpoint.go b/internal/service/ec2/ec2_instance_connect_endpoint.go
-index b01be4bf72..bd5e235ada 100644
+index 069f416fc3..d6cc1710d5 100644
 --- a/internal/service/ec2/ec2_instance_connect_endpoint.go
 +++ b/internal/service/ec2/ec2_instance_connect_endpoint.go
-@@ -115,7 +115,7 @@ func (r *resourceInstanceConnectEndpoint) Schema(ctx context.Context, req resour
+@@ -117,7 +117,7 @@ func (r *instanceConnectEndpointResource) Schema(ctx context.Context, req resour
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -128,10 +111,10 @@ index b01be4bf72..bd5e235ada 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/ec2/vpc_security_group_ingress_rule.go b/internal/service/ec2/vpc_security_group_ingress_rule.go
-index 0b867c6616..0bf0c7ec63 100644
+index b26759afad..5aaa95f7c6 100644
 --- a/internal/service/ec2/vpc_security_group_ingress_rule.go
 +++ b/internal/service/ec2/vpc_security_group_ingress_rule.go
-@@ -149,7 +149,7 @@ func (r *resourceSecurityGroupRule) Schema(ctx context.Context, req resource.Sch
+@@ -225,7 +225,7 @@ func (r *securityGroupRuleResource) Schema(ctx context.Context, request resource
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -232,15 +215,14 @@ index 33d374f4e2..b2e1c97096 100644
  		Blocks: map[string]schema.Block{
  			"timeouts": timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/verify/diff.go b/internal/verify/diff.go
-index 776355f900..ae851b099a 100644
+index 0bc956a747..e0636e99ce 100644
 --- a/internal/verify/diff.go
 +++ b/internal/verify/diff.go
-@@ -5,102 +5,13 @@ package verify
+@@ -5,101 +5,12 @@ package verify
  
  import (
  	"context"
 -	"fmt"
- 	"strings"
  	"time"
  
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"

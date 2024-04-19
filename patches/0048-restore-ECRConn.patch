@@ -5,10 +5,10 @@ Subject: [PATCH] restore ECRConn
 
 
 diff --git a/internal/conns/awsclient_gen.go b/internal/conns/awsclient_gen.go
-index 7a067fe8c4..c1383baf76 100644
+index ad4fe435f1..63c7c7674f 100644
 --- a/internal/conns/awsclient_gen.go
 +++ b/internal/conns/awsclient_gen.go
-@@ -182,6 +182,7 @@ import (
+@@ -184,6 +184,7 @@ import (
  	docdb_sdkv1 "github.com/aws/aws-sdk-go/service/docdb"
  	dynamodb_sdkv1 "github.com/aws/aws-sdk-go/service/dynamodb"
  	ec2_sdkv1 "github.com/aws/aws-sdk-go/service/ec2"

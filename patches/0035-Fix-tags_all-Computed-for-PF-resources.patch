@@ -44,7 +44,7 @@ index 130998fa1b..dadc35736d 100644
  		Blocks: map[string]schema.Block{
  			"agent_orchestration_config": schema.ListNestedBlock{
 diff --git a/internal/service/elasticache/serverless_cache.go b/internal/service/elasticache/serverless_cache.go
-index 25d88eb72d..ac51f127f4 100644
+index 4322d2c55b..0f0366eeca 100644
 --- a/internal/service/elasticache/serverless_cache.go
 +++ b/internal/service/elasticache/serverless_cache.go
 @@ -178,7 +178,7 @@ func (r *serverlessCacheResource) Schema(ctx context.Context, request resource.S
