@@ -48,7 +48,7 @@ namespace Pulumi.Aws.DirectConnect
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 

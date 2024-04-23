@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleKeySigningKey, 
+    ///             exampleKeySigningKey,
     ///         },
     ///     });
     /// 

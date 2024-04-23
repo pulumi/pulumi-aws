@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             foo, 
+    ///             foo,
     ///         },
     ///     });
     /// 
@@ -149,8 +149,8 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
-    ///             examplePermission, 
+    ///             example,
+    ///             examplePermission,
     ///         },
     ///     });
     /// 

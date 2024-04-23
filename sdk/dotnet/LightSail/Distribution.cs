@@ -137,7 +137,7 @@ namespace Pulumi.Aws.LightSail
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test, 
+    ///             test,
     ///         },
     ///     });
     /// 
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.LightSail
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testLbAttachment, 
+    ///             testLbAttachment,
     ///         },
     ///     });
     /// 

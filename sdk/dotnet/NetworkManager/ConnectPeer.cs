@@ -98,7 +98,7 @@ namespace Pulumi.Aws.NetworkManager
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test, 
+    ///             test,
     ///         },
     ///     });
     /// 
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.NetworkManager
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example2, 
+    ///             example2,
     ///         },
     ///     });
     /// 

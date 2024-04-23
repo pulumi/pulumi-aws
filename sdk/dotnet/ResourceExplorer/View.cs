@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ResourceExplorer
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 

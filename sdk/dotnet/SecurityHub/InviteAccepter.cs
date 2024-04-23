@@ -43,7 +43,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             invitee, 
+    ///             invitee,
     ///         },
     ///     });
     /// 

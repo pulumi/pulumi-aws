@@ -180,7 +180,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             sourceBucketVersioningV2, 
+    ///             sourceBucketVersioningV2,
     ///         },
     ///     });
     /// 
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             eastBucketVersioningV2, 
+    ///             eastBucketVersioningV2,
     ///         },
     ///     });
     /// 
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             westBucketVersioningV2, 
+    ///             westBucketVersioningV2,
     ///         },
     ///     });
     /// 
