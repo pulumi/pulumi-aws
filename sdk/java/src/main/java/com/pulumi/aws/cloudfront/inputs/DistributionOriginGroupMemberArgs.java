@@ -14,17 +14,9 @@ public final class DistributionOriginGroupMemberArgs extends com.pulumi.resource
 
     public static final DistributionOriginGroupMemberArgs Empty = new DistributionOriginGroupMemberArgs();
 
-    /**
-     * Unique identifier of the member origin.
-     * 
-     */
     @Import(name="originId", required=true)
     private Output<String> originId;
 
-    /**
-     * @return Unique identifier of the member origin.
-     * 
-     */
     public Output<String> originId() {
         return this.originId;
     }
@@ -53,23 +45,11 @@ public final class DistributionOriginGroupMemberArgs extends com.pulumi.resource
             $ = new DistributionOriginGroupMemberArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param originId Unique identifier of the member origin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originId(Output<String> originId) {
             $.originId = originId;
             return this;
         }
 
-        /**
-         * @param originId Unique identifier of the member origin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originId(String originId) {
             return originId(Output.of(originId));
         }

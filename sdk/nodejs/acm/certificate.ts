@@ -50,7 +50,6 @@ import * as utilities from "../utilities";
  *
  * ### Custom Domain Validation Options
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,11 +63,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Existing Certificate Body Import
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -94,13 +91,11 @@ import * as utilities from "../utilities";
  *     certificateBody: exampleSelfSignedCert.certPem,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Referencing domainValidationOptions With forEach Based Resources
  *
  * See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -121,7 +116,6 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -163,18 +157,8 @@ export class Certificate extends pulumi.CustomResource {
      * ARN of the certificate
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * ARN of an ACM PCA
-     */
     public readonly certificateAuthorityArn!: pulumi.Output<string | undefined>;
-    /**
-     * Certificate's PEM-formatted public key
-     */
     public readonly certificateBody!: pulumi.Output<string | undefined>;
-    /**
-     * Certificate's PEM-formatted chain
-     * * Creating a private CA issued certificate
-     */
     public readonly certificateChain!: pulumi.Output<string | undefined>;
     /**
      * Fully qualified domain name (FQDN) in the certificate.
@@ -186,17 +170,7 @@ export class Certificate extends pulumi.CustomResource {
      * Only set if `DNS`-validation was used.
      */
     public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.acm.CertificateDomainValidationOption[]>;
-    /**
-     * Amount of time to start automatic renewal process before expiration.
-     * Has no effect if less than 60 days.
-     * Represented by either
-     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-     * or a string such as `2160h`.
-     */
     public readonly earlyRenewalDuration!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-     */
     public readonly keyAlgorithm!: pulumi.Output<string>;
     /**
      * Expiration date and time of the certificate.
@@ -206,17 +180,11 @@ export class Certificate extends pulumi.CustomResource {
      * Start of the validity period of the certificate.
      */
     public /*out*/ readonly notBefore!: pulumi.Output<string>;
-    /**
-     * Configuration block used to set certificate options. Detailed below.
-     */
     public readonly options!: pulumi.Output<outputs.acm.CertificateOptions>;
     /**
      * `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
      */
     public /*out*/ readonly pendingRenewal!: pulumi.Output<boolean>;
-    /**
-     * Certificate's PEM-formatted private key
-     */
     public readonly privateKey!: pulumi.Output<string | undefined>;
     /**
      * Whether the certificate is eligible for managed renewal.
@@ -253,14 +221,7 @@ export class Certificate extends pulumi.CustomResource {
      * List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      */
     public /*out*/ readonly validationEmails!: pulumi.Output<string[]>;
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-     */
     public readonly validationMethod!: pulumi.Output<string>;
-    /**
-     * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-     * * Importing an existing certificate
-     */
     public readonly validationOptions!: pulumi.Output<outputs.acm.CertificateValidationOption[] | undefined>;
 
     /**
@@ -340,18 +301,8 @@ export interface CertificateState {
      * ARN of the certificate
      */
     arn?: pulumi.Input<string>;
-    /**
-     * ARN of an ACM PCA
-     */
     certificateAuthorityArn?: pulumi.Input<string>;
-    /**
-     * Certificate's PEM-formatted public key
-     */
     certificateBody?: pulumi.Input<string>;
-    /**
-     * Certificate's PEM-formatted chain
-     * * Creating a private CA issued certificate
-     */
     certificateChain?: pulumi.Input<string>;
     /**
      * Fully qualified domain name (FQDN) in the certificate.
@@ -363,17 +314,7 @@ export interface CertificateState {
      * Only set if `DNS`-validation was used.
      */
     domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateDomainValidationOption>[]>;
-    /**
-     * Amount of time to start automatic renewal process before expiration.
-     * Has no effect if less than 60 days.
-     * Represented by either
-     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-     * or a string such as `2160h`.
-     */
     earlyRenewalDuration?: pulumi.Input<string>;
-    /**
-     * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-     */
     keyAlgorithm?: pulumi.Input<string>;
     /**
      * Expiration date and time of the certificate.
@@ -383,17 +324,11 @@ export interface CertificateState {
      * Start of the validity period of the certificate.
      */
     notBefore?: pulumi.Input<string>;
-    /**
-     * Configuration block used to set certificate options. Detailed below.
-     */
     options?: pulumi.Input<inputs.acm.CertificateOptions>;
     /**
      * `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
      */
     pendingRenewal?: pulumi.Input<boolean>;
-    /**
-     * Certificate's PEM-formatted private key
-     */
     privateKey?: pulumi.Input<string>;
     /**
      * Whether the certificate is eligible for managed renewal.
@@ -430,14 +365,7 @@ export interface CertificateState {
      * List of addresses that received a validation email. Only set if `EMAIL` validation was used.
      */
     validationEmails?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-     */
     validationMethod?: pulumi.Input<string>;
-    /**
-     * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-     * * Importing an existing certificate
-     */
     validationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateValidationOption>[]>;
 }
 
@@ -445,42 +373,16 @@ export interface CertificateState {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
-    /**
-     * ARN of an ACM PCA
-     */
     certificateAuthorityArn?: pulumi.Input<string>;
-    /**
-     * Certificate's PEM-formatted public key
-     */
     certificateBody?: pulumi.Input<string>;
-    /**
-     * Certificate's PEM-formatted chain
-     * * Creating a private CA issued certificate
-     */
     certificateChain?: pulumi.Input<string>;
     /**
      * Fully qualified domain name (FQDN) in the certificate.
      */
     domainName?: pulumi.Input<string>;
-    /**
-     * Amount of time to start automatic renewal process before expiration.
-     * Has no effect if less than 60 days.
-     * Represented by either
-     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-     * or a string such as `2160h`.
-     */
     earlyRenewalDuration?: pulumi.Input<string>;
-    /**
-     * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-     */
     keyAlgorithm?: pulumi.Input<string>;
-    /**
-     * Configuration block used to set certificate options. Detailed below.
-     */
     options?: pulumi.Input<inputs.acm.CertificateOptions>;
-    /**
-     * Certificate's PEM-formatted private key
-     */
     privateKey?: pulumi.Input<string>;
     /**
      * Set of domains that should be SANs in the issued certificate.
@@ -491,13 +393,6 @@ export interface CertificateArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-     */
     validationMethod?: pulumi.Input<string>;
-    /**
-     * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-     * * Importing an existing certificate
-     */
     validationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateValidationOption>[]>;
 }

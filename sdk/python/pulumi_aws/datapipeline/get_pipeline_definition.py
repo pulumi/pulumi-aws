@@ -99,14 +99,12 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[pulumi.InputType
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.datapipeline.get_pipeline_definition(pipeline_id="pipelineID")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetPipelineDefinitionParameterValueArgs']] parameter_values: Parameter values used in the pipeline definition. See below
@@ -135,14 +133,12 @@ def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optio
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.datapipeline.get_pipeline_definition(pipeline_id="pipelineID")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetPipelineDefinitionParameterValueArgs']] parameter_values: Parameter values used in the pipeline definition. See below

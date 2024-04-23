@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// By `name`
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,11 +34,9 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// By `contact_flow_module_id`
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,7 +53,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetContactFlowModuleResult> InvokeAsync(GetContactFlowModuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactFlowModuleResult>("aws:connect/getContactFlowModule:getContactFlowModule", args ?? new GetContactFlowModuleArgs(), options.WithDefaults());
@@ -68,7 +64,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// By `name`
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -85,11 +80,9 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// By `contact_flow_module_id`
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -106,7 +99,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetContactFlowModuleResult> Invoke(GetContactFlowModuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactFlowModuleResult>("aws:connect/getContactFlowModule:getContactFlowModule", args ?? new GetContactFlowModuleInvokeArgs(), options.WithDefaults());

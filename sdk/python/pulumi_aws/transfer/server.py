@@ -849,7 +849,6 @@ class Server(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -858,22 +857,18 @@ class Server(pulumi.CustomResource):
             "Name": "Example",
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Security Policy Name
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example", security_policy_name="TransferSecurityPolicy-2020-06")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### VPC Endpoint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -886,11 +881,9 @@ class Server(pulumi.CustomResource):
                 vpc_id=example_aws_vpc["id"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS Directory authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -899,11 +892,9 @@ class Server(pulumi.CustomResource):
             identity_provider_type="AWS_DIRECTORY_SERVICE",
             directory_id=example_aws_directory_service_directory["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS Lambda authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -912,11 +903,9 @@ class Server(pulumi.CustomResource):
             identity_provider_type="AWS_LAMBDA",
             function=example_aws_lambda_identity_provider["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protocols
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -935,11 +924,9 @@ class Server(pulumi.CustomResource):
             identity_provider_type="API_GATEWAY",
             url=f"{example_aws_api_gateway_deployment['invokeUrl']}{example_aws_api_gateway_resource['path']}")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using Structured Logging Destinations
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -963,7 +950,6 @@ class Server(pulumi.CustomResource):
             protocols=["SFTP"],
             structured_log_destinations=[transfer.arn.apply(lambda arn: f"{arn}:*")])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1025,7 +1011,6 @@ class Server(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1034,22 +1019,18 @@ class Server(pulumi.CustomResource):
             "Name": "Example",
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Security Policy Name
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example", security_policy_name="TransferSecurityPolicy-2020-06")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### VPC Endpoint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1062,11 +1043,9 @@ class Server(pulumi.CustomResource):
                 vpc_id=example_aws_vpc["id"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS Directory authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1075,11 +1054,9 @@ class Server(pulumi.CustomResource):
             identity_provider_type="AWS_DIRECTORY_SERVICE",
             directory_id=example_aws_directory_service_directory["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS Lambda authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1088,11 +1065,9 @@ class Server(pulumi.CustomResource):
             identity_provider_type="AWS_LAMBDA",
             function=example_aws_lambda_identity_provider["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Protocols
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1111,11 +1086,9 @@ class Server(pulumi.CustomResource):
             identity_provider_type="API_GATEWAY",
             url=f"{example_aws_api_gateway_deployment['invokeUrl']}{example_aws_api_gateway_resource['path']}")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using Structured Logging Destinations
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1139,7 +1112,6 @@ class Server(pulumi.CustomResource):
             protocols=["SFTP"],
             structured_log_destinations=[transfer.arn.apply(lambda arn: f"{arn}:*")])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

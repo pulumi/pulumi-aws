@@ -264,7 +264,6 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,11 +284,9 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             cidr="172.20.0.0/24",
             opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
-        <!--End PulumiCodeChooser -->
 
         With the `disallowed_cidrs` attribute:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -311,7 +308,6 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             disallowed_cidrs=["172.20.0.0/28"],
             opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -342,7 +338,6 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -363,11 +358,9 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             cidr="172.20.0.0/24",
             opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
-        <!--End PulumiCodeChooser -->
 
         With the `disallowed_cidrs` attribute:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,7 +382,6 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             disallowed_cidrs=["172.20.0.0/28"],
             opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

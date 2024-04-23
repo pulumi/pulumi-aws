@@ -179,7 +179,6 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,7 +198,6 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
             lb_port=80,
             cookie_name="MyAppCookie")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -230,7 +228,6 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,7 +247,6 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
             lb_port=80,
             cookie_name="MyAppCookie")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupAppregistryApplication(ctx *pulumi.Context, args *LookupAppregistryApplicationArgs, opts ...pulumi.InvokeOption) (*LookupAppregistryApplicationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppregistryApplicationResult

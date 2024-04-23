@@ -539,7 +539,6 @@ class DefaultSubnet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -550,7 +549,6 @@ class DefaultSubnet(pulumi.CustomResource):
                 "Name": "Default subnet for us-west-2a",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -587,7 +585,6 @@ class DefaultSubnet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -598,7 +595,6 @@ class DefaultSubnet(pulumi.CustomResource):
                 "Name": "Default subnet for us-west-2a",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

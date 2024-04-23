@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,11 +50,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Transit Gateway Configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,11 +103,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Transit Gateway Attachment Network ACL Configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -177,7 +172,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

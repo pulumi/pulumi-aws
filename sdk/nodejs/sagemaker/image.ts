@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     roleArn: test.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

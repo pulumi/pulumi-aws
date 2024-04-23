@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey
     {
-        /// <summary>
-        /// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-        /// </summary>
         public readonly string ApiKey;
-        /// <summary>
-        /// The API secret key required for API key authentication.
-        /// </summary>
         public readonly string? ApiSecretKey;
 
         [OutputConstructor]

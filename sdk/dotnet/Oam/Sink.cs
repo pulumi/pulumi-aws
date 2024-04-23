@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Oam
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.Oam
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ### Single EIP associated with an instance
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,11 +36,9 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Multiple EIPs associated with a single network interface
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,11 +73,9 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -109,7 +104,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             gw, 
+    ///             gw,
     ///         },
     ///     });
     /// 
@@ -130,17 +125,15 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             gw, 
+    ///             gw,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Allocating EIP from the BYOIP pool
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -157,7 +150,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

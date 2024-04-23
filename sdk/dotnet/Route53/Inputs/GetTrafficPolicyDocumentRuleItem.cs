@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Route53.Inputs
 
     public sealed class GetTrafficPolicyDocumentRuleItemArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// References to an endpoint.
-        /// </summary>
         [Input("endpointReference")]
         public string? EndpointReference { get; set; }
 
-        /// <summary>
-        /// If you want to associate a health check with the endpoint or rule.
-        /// </summary>
         [Input("healthCheck")]
         public string? HealthCheck { get; set; }
 

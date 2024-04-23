@@ -14,28 +14,17 @@ namespace Pulumi.Aws.Pipes.Inputs
     {
         [Input("commands")]
         private InputList<string>? _commands;
-
-        /// <summary>
-        /// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-        /// </summary>
         public InputList<string> Commands
         {
             get => _commands ?? (_commands = new InputList<string>());
             set => _commands = value;
         }
 
-        /// <summary>
-        /// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-        /// </summary>
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }
 
         [Input("environmentFiles")]
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileGetArgs>? _environmentFiles;
-
-        /// <summary>
-        /// A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
-        /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileGetArgs> EnvironmentFiles
         {
             get => _environmentFiles ?? (_environmentFiles = new InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileGetArgs>());
@@ -44,25 +33,15 @@ namespace Pulumi.Aws.Pipes.Inputs
 
         [Input("environments")]
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentGetArgs>? _environments;
-
-        /// <summary>
-        /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-        /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentGetArgs> Environments
         {
             get => _environments ?? (_environments = new InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentGetArgs>());
             set => _environments = value;
         }
 
-        /// <summary>
-        /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-        /// </summary>
         [Input("memory")]
         public Input<int>? Memory { get; set; }
 
-        /// <summary>
-        /// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
-        /// </summary>
         [Input("memoryReservation")]
         public Input<int>? MemoryReservation { get; set; }
 
@@ -74,10 +53,6 @@ namespace Pulumi.Aws.Pipes.Inputs
 
         [Input("resourceRequirements")]
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementGetArgs>? _resourceRequirements;
-
-        /// <summary>
-        /// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
-        /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementGetArgs> ResourceRequirements
         {
             get => _resourceRequirements ?? (_resourceRequirements = new InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementGetArgs>());

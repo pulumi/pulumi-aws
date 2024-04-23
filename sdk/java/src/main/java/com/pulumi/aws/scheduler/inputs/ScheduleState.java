@@ -18,14 +18,14 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     public static final ScheduleState Empty = new ScheduleState();
 
     /**
-     * ARN of the SQS queue specified as the destination for the dead-letter queue.
+     * ARN of the schedule.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
+     * @return ARN of the schedule.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -253,7 +253,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the SQS queue specified as the destination for the dead-letter queue.
+         * @param arn ARN of the schedule.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the SQS queue specified as the destination for the dead-letter queue.
+         * @param arn ARN of the schedule.
          * 
          * @return builder
          * 

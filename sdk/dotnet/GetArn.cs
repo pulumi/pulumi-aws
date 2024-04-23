@@ -16,7 +16,6 @@ namespace Pulumi.Aws
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetArnResult> InvokeAsync(GetArnArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArnResult>("aws:index/getArn:getArn", args ?? new GetArnArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetArnResult> Invoke(GetArnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArnResult>("aws:index/getArn:getArn", args ?? new GetArnInvokeArgs(), options.WithDefaults());

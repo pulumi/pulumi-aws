@@ -20,7 +20,6 @@ import (
 //
 // ### New Neptune Global Cluster
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,11 +89,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### New Global Cluster From Existing DB Cluster
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -123,7 +120,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

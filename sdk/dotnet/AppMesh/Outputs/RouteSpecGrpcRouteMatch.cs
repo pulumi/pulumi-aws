@@ -25,9 +25,6 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// The port number to match from the request.
         /// </summary>
         public readonly int? Port;
-        /// <summary>
-        /// Header value sent by the client must begin with the specified characters.
-        /// </summary>
         public readonly string? Prefix;
         /// <summary>
         /// Fully qualified domain name for the service to match from the request.

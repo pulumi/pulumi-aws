@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicyRemoveHeadersConfigItem
     {
-        /// <summary>
-        /// The HTTP response header name.
-        /// </summary>
         public readonly string Header;
 
         [OutputConstructor]

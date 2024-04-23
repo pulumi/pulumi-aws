@@ -227,7 +227,6 @@ class Webhook(pulumi.CustomResource):
 
         > **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucket_hook`/`github_repository_webhook` resource is only possible with importing that resource after creation of the `codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `codebuild.Webhook` resource in this scenario.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -248,7 +247,6 @@ class Webhook(pulumi.CustomResource):
                 ],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -284,7 +282,6 @@ class Webhook(pulumi.CustomResource):
 
         > **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucket_hook`/`github_repository_webhook` resource is only possible with importing that resource after creation of the `codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `codebuild.Webhook` resource in this scenario.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -305,7 +302,6 @@ class Webhook(pulumi.CustomResource):
                 ],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

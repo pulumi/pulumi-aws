@@ -207,7 +207,6 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
 
         ### Add intelligent tiering configuration for entire S3 bucket
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,11 +226,9 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Add intelligent tiering configuration with S3 object filter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,7 +250,6 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                 days=125,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -286,7 +282,6 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
 
         ### Add intelligent tiering configuration for entire S3 bucket
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -306,11 +301,9 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Add intelligent tiering configuration with S3 object filter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,7 +325,6 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                 days=125,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

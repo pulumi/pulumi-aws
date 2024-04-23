@@ -134,7 +134,6 @@ class ConditionalForwader(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -147,7 +146,6 @@ class ConditionalForwader(pulumi.CustomResource):
                 "8.8.4.4",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -174,7 +172,6 @@ class ConditionalForwader(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,7 +184,6 @@ class ConditionalForwader(pulumi.CustomResource):
                 "8.8.4.4",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

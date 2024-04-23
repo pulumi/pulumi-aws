@@ -16,7 +16,6 @@ namespace Pulumi.Aws.EmrContainers
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.EmrContainers
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVirtualClusterResult> InvokeAsync(GetVirtualClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualClusterResult>("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args ?? new GetVirtualClusterArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws.EmrContainers
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Aws.EmrContainers
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVirtualClusterResult> Invoke(GetVirtualClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualClusterResult>("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args ?? new GetVirtualClusterInvokeArgs(), options.WithDefaults());

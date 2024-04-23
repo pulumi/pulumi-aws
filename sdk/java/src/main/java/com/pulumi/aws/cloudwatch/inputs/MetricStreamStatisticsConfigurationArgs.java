@@ -16,32 +16,16 @@ public final class MetricStreamStatisticsConfigurationArgs extends com.pulumi.re
 
     public static final MetricStreamStatisticsConfigurationArgs Empty = new MetricStreamStatisticsConfigurationArgs();
 
-    /**
-     * The additional statistics to stream for the metrics listed in `include_metrics`.
-     * 
-     */
     @Import(name="additionalStatistics", required=true)
     private Output<List<String>> additionalStatistics;
 
-    /**
-     * @return The additional statistics to stream for the metrics listed in `include_metrics`.
-     * 
-     */
     public Output<List<String>> additionalStatistics() {
         return this.additionalStatistics;
     }
 
-    /**
-     * An array that defines the metrics that are to have additional statistics streamed. See details below.
-     * 
-     */
     @Import(name="includeMetrics", required=true)
     private Output<List<MetricStreamStatisticsConfigurationIncludeMetricArgs>> includeMetrics;
 
-    /**
-     * @return An array that defines the metrics that are to have additional statistics streamed. See details below.
-     * 
-     */
     public Output<List<MetricStreamStatisticsConfigurationIncludeMetricArgs>> includeMetrics() {
         return this.includeMetrics;
     }
@@ -71,64 +55,28 @@ public final class MetricStreamStatisticsConfigurationArgs extends com.pulumi.re
             $ = new MetricStreamStatisticsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param additionalStatistics The additional statistics to stream for the metrics listed in `include_metrics`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalStatistics(Output<List<String>> additionalStatistics) {
             $.additionalStatistics = additionalStatistics;
             return this;
         }
 
-        /**
-         * @param additionalStatistics The additional statistics to stream for the metrics listed in `include_metrics`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalStatistics(List<String> additionalStatistics) {
             return additionalStatistics(Output.of(additionalStatistics));
         }
 
-        /**
-         * @param additionalStatistics The additional statistics to stream for the metrics listed in `include_metrics`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder additionalStatistics(String... additionalStatistics) {
             return additionalStatistics(List.of(additionalStatistics));
         }
 
-        /**
-         * @param includeMetrics An array that defines the metrics that are to have additional statistics streamed. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeMetrics(Output<List<MetricStreamStatisticsConfigurationIncludeMetricArgs>> includeMetrics) {
             $.includeMetrics = includeMetrics;
             return this;
         }
 
-        /**
-         * @param includeMetrics An array that defines the metrics that are to have additional statistics streamed. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeMetrics(List<MetricStreamStatisticsConfigurationIncludeMetricArgs> includeMetrics) {
             return includeMetrics(Output.of(includeMetrics));
         }
 
-        /**
-         * @param includeMetrics An array that defines the metrics that are to have additional statistics streamed. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeMetrics(MetricStreamStatisticsConfigurationIncludeMetricArgs... includeMetrics) {
             return includeMetrics(List.of(includeMetrics));
         }

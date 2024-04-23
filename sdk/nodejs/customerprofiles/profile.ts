@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  * const example = new aws.customerprofiles.Domain("example", {domainName: "example"});
  * const exampleProfile = new aws.customerprofiles.Profile("example", {domainName: example.domainName});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

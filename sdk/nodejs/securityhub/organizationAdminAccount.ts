@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  * // Auto enable security hub in organization member accounts
  * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("example", {autoEnable: true});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

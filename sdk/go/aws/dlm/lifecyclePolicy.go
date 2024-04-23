@@ -18,7 +18,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -134,11 +133,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Cross-Region Snapshot Copy Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -241,11 +238,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Event Based Policy Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -315,7 +310,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

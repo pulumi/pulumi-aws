@@ -22,7 +22,6 @@ import (
 //
 // ### EC2 Transit Gateway
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,11 +60,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Virtual Private Gateway
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,11 +109,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### AWS Site to Site Private VPN
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -193,7 +188,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

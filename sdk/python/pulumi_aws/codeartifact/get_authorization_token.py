@@ -104,14 +104,12 @@ def get_authorization_token(domain: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.codeartifact.get_authorization_token(domain=test_aws_codeartifact_domain["domain"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain: Name of the domain that is in scope for the generated authorization token.
@@ -144,14 +142,12 @@ def get_authorization_token_output(domain: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.codeartifact.get_authorization_token(domain=test_aws_codeartifact_domain["domain"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain: Name of the domain that is in scope for the generated authorization token.

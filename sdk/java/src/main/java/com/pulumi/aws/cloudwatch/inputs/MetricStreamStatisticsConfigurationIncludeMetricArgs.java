@@ -14,32 +14,16 @@ public final class MetricStreamStatisticsConfigurationIncludeMetricArgs extends 
 
     public static final MetricStreamStatisticsConfigurationIncludeMetricArgs Empty = new MetricStreamStatisticsConfigurationIncludeMetricArgs();
 
-    /**
-     * The name of the metric.
-     * 
-     */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
-    /**
-     * @return The name of the metric.
-     * 
-     */
     public Output<String> metricName() {
         return this.metricName;
     }
 
-    /**
-     * Name of the metric namespace in the filter.
-     * 
-     */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
-    /**
-     * @return Name of the metric namespace in the filter.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
@@ -69,44 +53,20 @@ public final class MetricStreamStatisticsConfigurationIncludeMetricArgs extends 
             $ = new MetricStreamStatisticsConfigurationIncludeMetricArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metricName The name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName The name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param namespace Name of the metric namespace in the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Name of the metric namespace in the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }

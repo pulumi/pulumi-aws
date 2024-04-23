@@ -134,7 +134,6 @@ class SshKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,7 +181,6 @@ class SshKey(pulumi.CustomResource):
             role=example_role.id,
             policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -209,7 +207,6 @@ class SshKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,7 +254,6 @@ class SshKey(pulumi.CustomResource):
             role=example_role.id,
             policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

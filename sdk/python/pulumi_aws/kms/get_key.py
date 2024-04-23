@@ -314,7 +314,6 @@ def get_key(grant_tokens: Optional[Sequence[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -324,7 +323,6 @@ def get_key(grant_tokens: Optional[Sequence[str]] = None,
     by_alias_arn = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:alias/my-key")
     by_key_arn = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] grant_tokens: List of grant tokens
@@ -378,7 +376,6 @@ def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[str]]]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -388,7 +385,6 @@ def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[str]]]]
     by_alias_arn = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:alias/my-key")
     by_key_arn = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] grant_tokens: List of grant tokens

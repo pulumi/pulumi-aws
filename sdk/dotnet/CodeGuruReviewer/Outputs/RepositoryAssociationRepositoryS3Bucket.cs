@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CodeGuruReviewer.Outputs
         /// </summary>
         public readonly string BucketName;
         /// <summary>
-        /// The name of the third party source repository.
+        /// The name of the repository in the S3 bucket.
         /// </summary>
         public readonly string Name;
 

@@ -207,7 +207,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,7 +220,6 @@ class Application(pulumi.CustomResource):
                 delete_source_from_s3=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -253,7 +251,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -267,7 +264,6 @@ class Application(pulumi.CustomResource):
                 delete_source_from_s3=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

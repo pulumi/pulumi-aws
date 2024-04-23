@@ -259,7 +259,6 @@ class Framework(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,7 +340,6 @@ class Framework(pulumi.CustomResource):
                 "Name": "Example Framework",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -371,7 +369,6 @@ class Framework(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -453,7 +450,6 @@ class Framework(pulumi.CustomResource):
                 "Name": "Example Framework",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

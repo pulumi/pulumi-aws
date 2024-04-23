@@ -292,7 +292,6 @@ class DataQualityRuleset(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,11 +300,9 @@ class DataQualityRuleset(pulumi.CustomResource):
             name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With description
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -315,11 +312,9 @@ class DataQualityRuleset(pulumi.CustomResource):
             description="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,11 +326,9 @@ class DataQualityRuleset(pulumi.CustomResource):
                 "hello": "world",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With target_table
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -348,7 +341,6 @@ class DataQualityRuleset(pulumi.CustomResource):
                 table_name=example_aws_glue_catalog_table["name"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -379,7 +371,6 @@ class DataQualityRuleset(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,11 +379,9 @@ class DataQualityRuleset(pulumi.CustomResource):
             name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With description
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -402,11 +391,9 @@ class DataQualityRuleset(pulumi.CustomResource):
             description="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -418,11 +405,9 @@ class DataQualityRuleset(pulumi.CustomResource):
                 "hello": "world",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With target_table
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,7 +420,6 @@ class DataQualityRuleset(pulumi.CustomResource):
                 table_name=example_aws_glue_catalog_table["name"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

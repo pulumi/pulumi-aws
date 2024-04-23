@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,7 +87,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -118,8 +116,7 @@ type V2modelsSlotType struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
 	ParentSlotTypeSignature pulumi.StringPtrOutput `pulumi:"parentSlotTypeSignature"`
-	// Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-	SlotTypeId pulumi.StringOutput `pulumi:"slotTypeId"`
+	SlotTypeId              pulumi.StringOutput    `pulumi:"slotTypeId"`
 	// List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
 	SlotTypeValues V2modelsSlotTypeSlotTypeValuesPtrOutput `pulumi:"slotTypeValues"`
 	Timeouts       V2modelsSlotTypeTimeoutsPtrOutput       `pulumi:"timeouts"`
@@ -184,8 +181,7 @@ type v2modelsSlotTypeState struct {
 	Name *string `pulumi:"name"`
 	// Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
 	ParentSlotTypeSignature *string `pulumi:"parentSlotTypeSignature"`
-	// Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-	SlotTypeId *string `pulumi:"slotTypeId"`
+	SlotTypeId              *string `pulumi:"slotTypeId"`
 	// List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
 	SlotTypeValues *V2modelsSlotTypeSlotTypeValues `pulumi:"slotTypeValues"`
 	Timeouts       *V2modelsSlotTypeTimeouts       `pulumi:"timeouts"`
@@ -212,8 +208,7 @@ type V2modelsSlotTypeState struct {
 	Name pulumi.StringPtrInput
 	// Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
 	ParentSlotTypeSignature pulumi.StringPtrInput
-	// Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-	SlotTypeId pulumi.StringPtrInput
+	SlotTypeId              pulumi.StringPtrInput
 	// List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
 	SlotTypeValues V2modelsSlotTypeSlotTypeValuesPtrInput
 	Timeouts       V2modelsSlotTypeTimeoutsPtrInput
@@ -411,7 +406,6 @@ func (o V2modelsSlotTypeOutput) ParentSlotTypeSignature() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *V2modelsSlotType) pulumi.StringPtrOutput { return v.ParentSlotTypeSignature }).(pulumi.StringPtrOutput)
 }
 
-// Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
 func (o V2modelsSlotTypeOutput) SlotTypeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsSlotType) pulumi.StringOutput { return v.SlotTypeId }).(pulumi.StringOutput)
 }

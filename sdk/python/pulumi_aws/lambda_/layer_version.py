@@ -524,7 +524,6 @@ class LayerVersion(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -534,7 +533,6 @@ class LayerVersion(pulumi.CustomResource):
             layer_name="lambda_layer_name",
             compatible_runtimes=["nodejs16.x"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Specifying the Deployment Package
 
@@ -586,7 +584,6 @@ class LayerVersion(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -596,7 +593,6 @@ class LayerVersion(pulumi.CustomResource):
             layer_name="lambda_layer_name",
             compatible_runtimes=["nodejs16.x"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Specifying the Deployment Package
 

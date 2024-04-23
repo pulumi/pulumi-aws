@@ -2163,9 +2163,7 @@ class DataSetOutputColumnArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] description: Field folder description.
         :param pulumi.Input[str] name: Display name for the dataset.
-        :param pulumi.Input[str] type: Data type of the column.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -2177,9 +2175,6 @@ class DataSetOutputColumnArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Field folder description.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -2201,9 +2196,6 @@ class DataSetOutputColumnArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Data type of the column.
-        """
         return pulumi.get(self, "type")
 
     @type.setter

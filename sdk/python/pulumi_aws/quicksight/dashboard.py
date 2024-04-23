@@ -206,7 +206,7 @@ class _DashboardState:
                  version_number: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Dashboard resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource.
+        :param pulumi.Input[str] arn: ARN of the dashboard.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] created_time: The time that the dashboard was created.
         :param pulumi.Input[str] dashboard_id: Identifier for the dashboard.
@@ -270,7 +270,7 @@ class _DashboardState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the resource.
+        ARN of the dashboard.
         """
         return pulumi.get(self, "arn")
 
@@ -508,7 +508,6 @@ class Dashboard(pulumi.CustomResource):
 
         ### From Source Template
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -527,7 +526,6 @@ class Dashboard(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -565,7 +563,6 @@ class Dashboard(pulumi.CustomResource):
 
         ### From Source Template
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -584,7 +581,6 @@ class Dashboard(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -685,7 +681,7 @@ class Dashboard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource.
+        :param pulumi.Input[str] arn: ARN of the dashboard.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] created_time: The time that the dashboard was created.
         :param pulumi.Input[str] dashboard_id: Identifier for the dashboard.
@@ -733,7 +729,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the resource.
+        ARN of the dashboard.
         """
         return pulumi.get(self, "arn")
 

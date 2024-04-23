@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,7 +70,6 @@ namespace Pulumi.Aws.Ec2
         ///     }
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? new GetInstancesArgs(), options.WithDefaults());
@@ -91,7 +89,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -136,7 +133,6 @@ namespace Pulumi.Aws.Ec2
         ///     }
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());

@@ -44,10 +44,6 @@ public final class GetTrafficPolicyDocumentRule {
      * 
      */
     private @Nullable GetTrafficPolicyDocumentRulePrimary primary;
-    /**
-     * @return To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-     * 
-     */
     private @Nullable List<GetTrafficPolicyDocumentRuleRegion> regions;
     /**
      * @return Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
@@ -96,10 +92,6 @@ public final class GetTrafficPolicyDocumentRule {
     public Optional<GetTrafficPolicyDocumentRulePrimary> primary() {
         return Optional.ofNullable(this.primary);
     }
-    /**
-     * @return To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-     * 
-     */
     public List<GetTrafficPolicyDocumentRuleRegion> regions() {
         return this.regions == null ? List.of() : this.regions;
     }

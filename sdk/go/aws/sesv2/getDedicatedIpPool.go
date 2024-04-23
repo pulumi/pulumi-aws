@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupDedicatedIpPool(ctx *pulumi.Context, args *LookupDedicatedIpPoolArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedIpPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDedicatedIpPoolResult

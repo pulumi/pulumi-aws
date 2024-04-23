@@ -71,14 +71,12 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         users = aws.simpledb.Domain("users", name="users")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -103,14 +101,12 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         users = aws.simpledb.Domain("users", name="users")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

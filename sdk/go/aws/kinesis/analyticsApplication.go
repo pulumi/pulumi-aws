@@ -22,7 +22,6 @@ import (
 //
 // ### Kinesis Stream Input
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -80,11 +79,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Starting An Application
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -185,7 +182,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

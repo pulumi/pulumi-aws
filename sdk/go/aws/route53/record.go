@@ -18,7 +18,6 @@ import (
 //
 // ### Simple routing policy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,13 +47,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Weighted routing policy
 //
 // Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,11 +105,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Geoproximity routing policy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -151,7 +146,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Alias record
 //
@@ -161,7 +155,6 @@ import (
 // TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
 // you cannot change this, therefore `ttl` has to be omitted in alias records.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -212,13 +205,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### NS and SOA Record Management
 //
 // When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allowOverwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -266,7 +257,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

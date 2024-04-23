@@ -183,7 +183,6 @@ class SubnetCidrReservation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,7 +192,6 @@ class SubnetCidrReservation(pulumi.CustomResource):
             reservation_type="prefix",
             subnet_id=example_aws_subnet["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -221,7 +219,6 @@ class SubnetCidrReservation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,7 +228,6 @@ class SubnetCidrReservation(pulumi.CustomResource):
             reservation_type="prefix",
             subnet_id=example_aws_subnet["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

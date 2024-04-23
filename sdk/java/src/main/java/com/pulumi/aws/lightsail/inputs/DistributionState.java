@@ -253,14 +253,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The resource type of the origin resource (e.g., Instance).
+     * The Lightsail resource type (e.g., Distribution).
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return The resource type of the origin resource (e.g., Instance).
+     * @return The Lightsail resource type (e.g., Distribution).
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -734,7 +734,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType The resource type of the origin resource (e.g., Instance).
+         * @param resourceType The Lightsail resource type (e.g., Distribution).
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType The resource type of the origin resource (e.g., Instance).
+         * @param resourceType The Lightsail resource type (e.g., Distribution).
          * 
          * @return builder
          * 

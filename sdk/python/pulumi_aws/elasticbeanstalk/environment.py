@@ -719,7 +719,6 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -732,7 +731,6 @@ class Environment(pulumi.CustomResource):
             application=tftest.name,
             solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Option Settings
 
@@ -748,7 +746,6 @@ class Environment(pulumi.CustomResource):
 
         ### Example With Options
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -773,7 +770,6 @@ class Environment(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -831,7 +827,6 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -844,7 +839,6 @@ class Environment(pulumi.CustomResource):
             application=tftest.name,
             solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Option Settings
 
@@ -860,7 +854,6 @@ class Environment(pulumi.CustomResource):
 
         ### Example With Options
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -885,7 +878,6 @@ class Environment(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

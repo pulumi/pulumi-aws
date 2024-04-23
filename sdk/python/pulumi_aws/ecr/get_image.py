@@ -148,7 +148,6 @@ def get_image(image_digest: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,7 +155,6 @@ def get_image(image_digest: Optional[str] = None,
     service_image = aws.ecr.get_image(repository_name="my/service",
         image_tag="latest")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str image_digest: Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
@@ -199,7 +197,6 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -207,7 +204,6 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
     service_image = aws.ecr.get_image(repository_name="my/service",
         image_tag="latest")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str image_digest: Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.

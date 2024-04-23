@@ -262,7 +262,6 @@ class IamPolicyAssignment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,7 +274,6 @@ class IamPolicyAssignment(pulumi.CustomResource):
                 users=[example_aws_quicksight_user["userName"]],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -309,7 +307,6 @@ class IamPolicyAssignment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,7 +319,6 @@ class IamPolicyAssignment(pulumi.CustomResource):
                 users=[example_aws_quicksight_user["userName"]],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -231,7 +231,6 @@ class VoiceConnector(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,7 +240,6 @@ class VoiceConnector(pulumi.CustomResource):
             require_encryption=True,
             aws_region="us-east-1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -271,7 +269,6 @@ class VoiceConnector(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,7 +278,6 @@ class VoiceConnector(pulumi.CustomResource):
             require_encryption=True,
             aws_region="us-east-1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -49,7 +48,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("aws:route53/getZone:getZone", args ?? new GetZoneArgs(), options.WithDefaults());
@@ -63,7 +61,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -92,7 +89,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("aws:route53/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());

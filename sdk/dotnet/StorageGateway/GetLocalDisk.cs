@@ -16,7 +16,6 @@ namespace Pulumi.Aws.StorageGateway
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.StorageGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocalDiskResult> InvokeAsync(GetLocalDiskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalDiskResult>("aws:storagegateway/getLocalDisk:getLocalDisk", args ?? new GetLocalDiskArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Aws.StorageGateway
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.StorageGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocalDiskResult> Invoke(GetLocalDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalDiskResult>("aws:storagegateway/getLocalDisk:getLocalDisk", args ?? new GetLocalDiskInvokeArgs(), options.WithDefaults());

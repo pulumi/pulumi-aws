@@ -36,7 +36,7 @@ export class RuleGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * The ARN of the WAF rule group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class RuleGroup extends pulumi.CustomResource {
  */
 export interface RuleGroupState {
     /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * The ARN of the WAF rule group.
      */
     arn?: pulumi.Input<string>;
     /**

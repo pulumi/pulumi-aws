@@ -16,32 +16,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs();
 
-    /**
-     * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-     * 
-     */
     @Import(name="apiKey", required=true)
     private Output<String> apiKey;
 
-    /**
-     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-     * 
-     */
     public Output<String> apiKey() {
         return this.apiKey;
     }
 
-    /**
-     * The API secret key required for API key authentication.
-     * 
-     */
     @Import(name="apiSecretKey")
     private @Nullable Output<String> apiSecretKey;
 
-    /**
-     * @return The API secret key required for API key authentication.
-     * 
-     */
     public Optional<Output<String>> apiSecretKey() {
         return Optional.ofNullable(this.apiSecretKey);
     }
@@ -71,44 +55,20 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiKey Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
-        /**
-         * @param apiKey Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }
 
-        /**
-         * @param apiSecretKey The API secret key required for API key authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiSecretKey(@Nullable Output<String> apiSecretKey) {
             $.apiSecretKey = apiSecretKey;
             return this;
         }
 
-        /**
-         * @param apiSecretKey The API secret key required for API key authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiSecretKey(String apiSecretKey) {
             return apiSecretKey(Output.of(apiSecretKey));
         }

@@ -308,14 +308,12 @@ class Channel(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ivs.Channel("example", name="channel-1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -347,14 +345,12 @@ class Channel(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ivs.Channel("example", name="channel-1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

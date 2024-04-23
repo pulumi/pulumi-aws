@@ -14,10 +14,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
     {
         [Input("apiSecretKey", required: true)]
         private Input<string>? _apiSecretKey;
-
-        /// <summary>
-        /// The API secret key required for API key authentication.
-        /// </summary>
         public Input<string>? ApiSecretKey
         {
             get => _apiSecretKey;

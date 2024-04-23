@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class AutomationRuleCriteriaResourceTag {
-    /**
-     * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-     * 
-     */
     private String comparison;
-    /**
-     * @return The key of the map filter.
-     * 
-     */
     private String key;
-    /**
-     * @return A date range value for the date filter, provided as an Integer.
-     * 
-     */
     private String value;
 
     private AutomationRuleCriteriaResourceTag() {}
-    /**
-     * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-     * 
-     */
     public String comparison() {
         return this.comparison;
     }
-    /**
-     * @return The key of the map filter.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return A date range value for the date filter, provided as an Integer.
-     * 
-     */
     public String value() {
         return this.value;
     }

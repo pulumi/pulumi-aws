@@ -20,7 +20,6 @@ import (
 //
 // ### Local Cache
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,11 +60,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### FSx File Gateway
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,11 +94,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### S3 File Gateway
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -128,11 +123,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Tape Gateway
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,11 +154,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Volume Gateway (Cached)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -192,11 +183,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Volume Gateway (Stored)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -223,7 +212,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

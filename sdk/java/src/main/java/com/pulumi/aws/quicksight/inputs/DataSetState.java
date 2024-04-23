@@ -29,14 +29,14 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
     public static final DataSetState Empty = new DataSetState();
 
     /**
-     * ARN of the dataset that contains permissions for RLS.
+     * Amazon Resource Name (ARN) of the data set.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the dataset that contains permissions for RLS.
+     * @return Amazon Resource Name (ARN) of the data set.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -344,7 +344,7 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the dataset that contains permissions for RLS.
+         * @param arn Amazon Resource Name (ARN) of the data set.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the dataset that contains permissions for RLS.
+         * @param arn Amazon Resource Name (ARN) of the data set.
          * 
          * @return builder
          * 

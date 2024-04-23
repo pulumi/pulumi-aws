@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResponsePlanAction {
-    /**
-     * @return The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-     * 
-     */
     private @Nullable List<ResponsePlanActionSsmAutomation> ssmAutomations;
 
     private ResponsePlanAction() {}
-    /**
-     * @return The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-     * 
-     */
     public List<ResponsePlanActionSsmAutomation> ssmAutomations() {
         return this.ssmAutomations == null ? List.of() : this.ssmAutomations;
     }

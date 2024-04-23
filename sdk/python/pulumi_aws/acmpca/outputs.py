@@ -520,6 +520,13 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict)
                  expiration_in_days: int,
                  s3_bucket_name: str,
                  s3_object_acl: str):
+        """
+        :param str custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+        :param bool enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+        :param int expiration_in_days: Number of days until a certificate expires.
+        :param str s3_bucket_name: Name of the S3 bucket that contains the CRL.
+        :param str s3_object_acl: Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+        """
         pulumi.set(__self__, "custom_cname", custom_cname)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "expiration_in_days", expiration_in_days)
@@ -529,26 +536,41 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict)
     @property
     @pulumi.getter(name="customCname")
     def custom_cname(self) -> str:
+        """
+        Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+        """
         return pulumi.get(self, "custom_cname")
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="expirationInDays")
     def expiration_in_days(self) -> int:
+        """
+        Number of days until a certificate expires.
+        """
         return pulumi.get(self, "expiration_in_days")
 
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> str:
+        """
+        Name of the S3 bucket that contains the CRL.
+        """
         return pulumi.get(self, "s3_bucket_name")
 
     @property
     @pulumi.getter(name="s3ObjectAcl")
     def s3_object_acl(self) -> str:
+        """
+        Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+        """
         return pulumi.get(self, "s3_object_acl")
 
 
@@ -557,17 +579,27 @@ class GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult(dict
     def __init__(__self__, *,
                  enabled: bool,
                  ocsp_custom_cname: str):
+        """
+        :param bool enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
+        :param str ocsp_custom_cname: A CNAME specifying a customized OCSP domain.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "ocsp_custom_cname", ocsp_custom_cname)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Boolean value that specifies whether a custom OCSP responder is enabled.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="ocspCustomCname")
     def ocsp_custom_cname(self) -> str:
+        """
+        A CNAME specifying a customized OCSP domain.
+        """
         return pulumi.get(self, "ocsp_custom_cname")
 
 

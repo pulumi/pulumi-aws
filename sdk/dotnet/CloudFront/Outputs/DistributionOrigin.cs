@@ -13,45 +13,18 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionOrigin
     {
-        /// <summary>
-        /// Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
-        /// </summary>
         public readonly int? ConnectionAttempts;
-        /// <summary>
-        /// Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
-        /// </summary>
         public readonly int? ConnectionTimeout;
-        /// <summary>
-        /// One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
-        /// </summary>
         public readonly ImmutableArray<Outputs.DistributionOriginCustomHeader> CustomHeaders;
-        /// <summary>
-        /// The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
-        /// </summary>
         public readonly Outputs.DistributionOriginCustomOriginConfig? CustomOriginConfig;
         /// <summary>
-        /// DNS domain name of either the S3 bucket, or web site of your custom origin.
+        /// Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
         /// </summary>
         public readonly string DomainName;
-        /// <summary>
-        /// Unique identifier of a [CloudFront origin access control][8] for this origin.
-        /// </summary>
         public readonly string? OriginAccessControlId;
-        /// <summary>
-        /// Unique identifier of the member origin.
-        /// </summary>
         public readonly string OriginId;
-        /// <summary>
-        /// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
-        /// </summary>
         public readonly string? OriginPath;
-        /// <summary>
-        /// CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
-        /// </summary>
         public readonly Outputs.DistributionOriginOriginShield? OriginShield;
-        /// <summary>
-        /// CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
-        /// </summary>
         public readonly Outputs.DistributionOriginS3OriginConfig? S3OriginConfig;
 
         [OutputConstructor]

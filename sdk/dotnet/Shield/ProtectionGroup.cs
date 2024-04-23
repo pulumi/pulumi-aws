@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Shield
     /// 
     /// ### Create protection group for all resources
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,11 +35,9 @@ namespace Pulumi.Aws.Shield
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Create protection group for arbitrary number of resources
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,17 +86,15 @@ namespace Pulumi.Aws.Shield
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleProtection, 
+    ///             exampleProtection,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Create protection group for a type of resource
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -118,7 +113,6 @@ namespace Pulumi.Aws.Shield
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

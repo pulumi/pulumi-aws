@@ -137,7 +137,6 @@ class ClusterRoleAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -147,7 +146,6 @@ class ClusterRoleAssociation(pulumi.CustomResource):
             feature_name="S3_INTEGRATION",
             role_arn=example_aws_iam_role["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -177,7 +175,6 @@ class ClusterRoleAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,7 +184,6 @@ class ClusterRoleAssociation(pulumi.CustomResource):
             feature_name="S3_INTEGRATION",
             role_arn=example_aws_iam_role["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

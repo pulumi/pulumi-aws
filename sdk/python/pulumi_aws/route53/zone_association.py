@@ -155,7 +155,6 @@ class ZoneAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -177,7 +176,6 @@ class ZoneAssociation(pulumi.CustomResource):
             zone_id=example.zone_id,
             vpc_id=secondary.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -217,7 +215,6 @@ class ZoneAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -239,7 +236,6 @@ class ZoneAssociation(pulumi.CustomResource):
             zone_id=example.zone_id,
             vpc_id=secondary.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

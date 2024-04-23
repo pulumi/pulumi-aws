@@ -17,7 +17,6 @@ import (
 //
 // By `name`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,11 +41,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // By `contactFlowModuleId`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,7 +68,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupContactFlowModule(ctx *pulumi.Context, args *LookupContactFlowModuleArgs, opts ...pulumi.InvokeOption) (*LookupContactFlowModuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactFlowModuleResult

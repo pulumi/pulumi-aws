@@ -99,17 +99,11 @@ class LoggingConfigurationDestinationConfigurationCloudwatchLogs(dict):
 
     def __init__(__self__, *,
                  log_group_name: str):
-        """
-        :param str log_group_name: Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
-        """
         pulumi.set(__self__, "log_group_name", log_group_name)
 
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> str:
-        """
-        Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
-        """
         return pulumi.get(self, "log_group_name")
 
 
@@ -134,17 +128,11 @@ class LoggingConfigurationDestinationConfigurationFirehose(dict):
 
     def __init__(__self__, *,
                  delivery_stream_name: str):
-        """
-        :param str delivery_stream_name: Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
-        """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
 
     @property
     @pulumi.getter(name="deliveryStreamName")
     def delivery_stream_name(self) -> str:
-        """
-        Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
-        """
         return pulumi.get(self, "delivery_stream_name")
 
 
@@ -169,21 +157,11 @@ class LoggingConfigurationDestinationConfigurationS3(dict):
 
     def __init__(__self__, *,
                  bucket_name: str):
-        """
-        :param str bucket_name: Name of the Amazon S3 bucket where chat activity will be logged.
-               
-               The following arguments are optional:
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
-        """
-        Name of the Amazon S3 bucket where chat activity will be logged.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "bucket_name")
 
 

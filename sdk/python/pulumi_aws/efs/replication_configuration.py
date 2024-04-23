@@ -172,7 +172,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,11 +183,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 region="us-west-2",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -201,11 +198,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 kms_key_id="1234abcd-12ab-34cd-56ef-1234567890ab",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,7 +213,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 region="us-west-2",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -248,7 +242,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,11 +253,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 region="us-west-2",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -277,11 +268,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 kms_key_id="1234abcd-12ab-34cd-56ef-1234567890ab",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -294,7 +283,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 region="us-west-2",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

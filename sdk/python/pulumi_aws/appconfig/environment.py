@@ -276,7 +276,6 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,7 +298,6 @@ class Environment(pulumi.CustomResource):
                 "Type": "AppConfig Environment",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -328,7 +326,6 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -351,7 +348,6 @@ class Environment(pulumi.CustomResource):
                 "Type": "AppConfig Environment",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

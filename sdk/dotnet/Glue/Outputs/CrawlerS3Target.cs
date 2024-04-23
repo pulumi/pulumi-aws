@@ -14,19 +14,15 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CrawlerS3Target
     {
         /// <summary>
-        /// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+        /// The name of a connection which allows crawler to access data in S3 within a VPC.
         /// </summary>
         public readonly string? ConnectionName;
         /// <summary>
-        /// A valid Amazon SQS ARN.
-        /// 
-        /// &gt; **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
-        /// 
-        /// &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
+        /// The ARN of the dead-letter SQS queue.
         /// </summary>
         public readonly string? DlqEventQueueArn;
         /// <summary>
-        /// A valid Amazon SQS ARN.
+        /// The ARN of the SQS queue to receive S3 notifications from.
         /// </summary>
         public readonly string? EventQueueArn;
         /// <summary>
@@ -34,7 +30,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
         /// <summary>
-        /// The name of the DynamoDB table to crawl.
+        /// The path to the Amazon S3 target.
         /// </summary>
         public readonly string Path;
         /// <summary>

@@ -119,7 +119,6 @@ def get_dns_namespace(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -127,7 +126,6 @@ def get_dns_namespace(name: Optional[str] = None,
     test = aws.servicediscovery.get_dns_namespace(name="example.service.local",
         type="DNS_PRIVATE")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the namespace.
@@ -161,7 +159,6 @@ def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -169,7 +166,6 @@ def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
     test = aws.servicediscovery.get_dns_namespace(name="example.service.local",
         type="DNS_PRIVATE")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the namespace.

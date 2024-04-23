@@ -213,7 +213,6 @@ class EventPermission(pulumi.CustomResource):
 
         ### Account Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,11 +221,9 @@ class EventPermission(pulumi.CustomResource):
             principal="123456789012",
             statement_id="DevAccountAccess")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Organization Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,7 +237,6 @@ class EventPermission(pulumi.CustomResource):
                 value=example["id"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -276,7 +272,6 @@ class EventPermission(pulumi.CustomResource):
 
         ### Account Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,11 +280,9 @@ class EventPermission(pulumi.CustomResource):
             principal="123456789012",
             statement_id="DevAccountAccess")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Organization Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -303,7 +296,6 @@ class EventPermission(pulumi.CustomResource):
                 value=example["id"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

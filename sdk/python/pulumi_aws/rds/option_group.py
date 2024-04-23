@@ -316,7 +316,6 @@ class OptionGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -346,7 +345,6 @@ class OptionGroup(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
 
@@ -392,7 +390,6 @@ class OptionGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -422,7 +419,6 @@ class OptionGroup(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
 

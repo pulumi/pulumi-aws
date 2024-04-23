@@ -97,7 +97,6 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[str] = None,
 
     ### By Transit Gateway and Direct Connect Gateway Identifiers
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -105,7 +104,6 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[str] = None,
     example = aws.ec2transitgateway.get_direct_connect_gateway_attachment(transit_gateway_id=example_aws_ec2_transit_gateway["id"],
         dx_gateway_id=example_aws_dx_gateway["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str dx_gateway_id: Identifier of the Direct Connect Gateway.
@@ -142,7 +140,6 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
 
     ### By Transit Gateway and Direct Connect Gateway Identifiers
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -150,7 +147,6 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
     example = aws.ec2transitgateway.get_direct_connect_gateway_attachment(transit_gateway_id=example_aws_ec2_transit_gateway["id"],
         dx_gateway_id=example_aws_dx_gateway["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str dx_gateway_id: Identifier of the Direct Connect Gateway.

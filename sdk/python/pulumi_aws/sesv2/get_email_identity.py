@@ -133,14 +133,12 @@ def get_email_identity(email_identity: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.sesv2.get_email_identity(email_identity="example.com")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str email_identity: The name of the email identity.
@@ -174,14 +172,12 @@ def get_email_identity_output(email_identity: Optional[pulumi.Input[str]] = None
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.sesv2.get_email_identity(email_identity="example.com")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str email_identity: The name of the email identity.

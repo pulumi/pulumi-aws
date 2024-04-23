@@ -278,7 +278,6 @@ class InstanceFleet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -319,7 +318,6 @@ class InstanceFleet(pulumi.CustomResource):
             target_on_demand_capacity=1,
             target_spot_capacity=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -354,7 +352,6 @@ class InstanceFleet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -395,7 +392,6 @@ class InstanceFleet(pulumi.CustomResource):
             target_on_demand_capacity=1,
             target_spot_capacity=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

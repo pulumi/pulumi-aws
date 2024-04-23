@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Default standards enabled
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,11 +47,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleOrganizationConfiguration],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Disabled Policy
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -67,11 +64,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Custom Control Configuration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -127,7 +122,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

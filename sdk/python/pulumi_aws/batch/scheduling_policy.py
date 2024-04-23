@@ -169,7 +169,6 @@ class SchedulingPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -194,7 +193,6 @@ class SchedulingPolicy(pulumi.CustomResource):
                 "Name": "Example Batch Scheduling Policy",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -220,7 +218,6 @@ class SchedulingPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +242,6 @@ class SchedulingPolicy(pulumi.CustomResource):
                 "Name": "Example Batch Scheduling Policy",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

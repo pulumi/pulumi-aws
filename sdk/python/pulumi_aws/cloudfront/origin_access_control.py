@@ -220,7 +220,6 @@ class OriginAccessControl(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,7 +231,6 @@ class OriginAccessControl(pulumi.CustomResource):
             signing_behavior="always",
             signing_protocol="sigv4")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -265,7 +263,6 @@ class OriginAccessControl(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -277,7 +274,6 @@ class OriginAccessControl(pulumi.CustomResource):
             signing_behavior="always",
             signing_protocol="sigv4")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

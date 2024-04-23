@@ -12,18 +12,11 @@ namespace Pulumi.Aws.CostExplorer.Inputs
 
     public sealed class GetTagsFilterTagsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Unique name of the Cost Category.
-        /// </summary>
         [Input("key")]
         public string? Key { get; set; }
 
         [Input("matchOptions")]
         private List<string>? _matchOptions;
-
-        /// <summary>
-        /// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-        /// </summary>
         public List<string> MatchOptions
         {
             get => _matchOptions ?? (_matchOptions = new List<string>());
@@ -32,10 +25,6 @@ namespace Pulumi.Aws.CostExplorer.Inputs
 
         [Input("values")]
         private List<string>? _values;
-
-        /// <summary>
-        /// Specific value of the Cost Category.
-        /// </summary>
         public List<string> Values
         {
             get => _values ?? (_values = new List<string>());

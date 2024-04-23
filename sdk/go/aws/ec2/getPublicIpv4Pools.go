@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,11 +39,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Usage with Filter
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,7 +72,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetPublicIpv4Pools(ctx *pulumi.Context, args *GetPublicIpv4PoolsArgs, opts ...pulumi.InvokeOption) (*GetPublicIpv4PoolsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicIpv4PoolsResult

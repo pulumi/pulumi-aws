@@ -25,19 +25,19 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
         }
 
         /// <summary>
-        /// Labels all personally identifiable information (PII) identified in Transcript events.
+        /// Labels all personally identifiable information (PII) identified in Utterance events.
         /// </summary>
         [Input("contentIdentificationType")]
         public Input<string>? ContentIdentificationType { get; set; }
 
         /// <summary>
-        /// Redacts all personally identifiable information (PII) identified in Transcript events.
+        /// Redacts all personally identifiable information (PII) identified in Utterance events.
         /// </summary>
         [Input("contentRedactionType")]
         public Input<string>? ContentRedactionType { get; set; }
 
         /// <summary>
-        /// Enables partial result stabilization in Transcript events.
+        /// Enables partial result stabilization in Utterance events.
         /// </summary>
         [Input("enablePartialResultsStabilization")]
         public Input<bool>? EnablePartialResultsStabilization { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
         public Input<string>? PartialResultsStability { get; set; }
 
         /// <summary>
-        /// Types of personally identifiable information (PII) to redact from a Transcript event.
+        /// Types of personally identifiable information (PII) to redact from an Utterance event.
         /// </summary>
         [Input("piiEntityTypes")]
         public Input<string>? PiiEntityTypes { get; set; }
@@ -79,19 +79,19 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
         public Input<Inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs>? PostCallAnalyticsSettings { get; set; }
 
         /// <summary>
-        /// Method for applying a vocabulary filter to Transcript events.
+        /// Method for applying a vocabulary filter to Utterance events.
         /// </summary>
         [Input("vocabularyFilterMethod")]
         public Input<string>? VocabularyFilterMethod { get; set; }
 
         /// <summary>
-        /// Name of the custom vocabulary filter to use when processing Transcript events.
+        /// Name of the custom vocabulary filter to use when processing Utterance events.
         /// </summary>
         [Input("vocabularyFilterName")]
         public Input<string>? VocabularyFilterName { get; set; }
 
         /// <summary>
-        /// Name of the custom vocabulary to use when processing Transcript events.
+        /// Name of the custom vocabulary to use when processing Utterance events.
         /// </summary>
         [Input("vocabularyName")]
         public Input<string>? VocabularyName { get; set; }

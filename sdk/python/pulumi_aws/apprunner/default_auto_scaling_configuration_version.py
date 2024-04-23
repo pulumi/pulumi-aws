@@ -73,7 +73,6 @@ class DefaultAutoScalingConfigurationVersion(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -85,7 +84,6 @@ class DefaultAutoScalingConfigurationVersion(pulumi.CustomResource):
             min_size=2)
         example_default_auto_scaling_configuration_version = aws.apprunner.DefaultAutoScalingConfigurationVersion("example", auto_scaling_configuration_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -113,7 +111,6 @@ class DefaultAutoScalingConfigurationVersion(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -125,7 +122,6 @@ class DefaultAutoScalingConfigurationVersion(pulumi.CustomResource):
             min_size=2)
         example_default_auto_scaling_configuration_version = aws.apprunner.DefaultAutoScalingConfigurationVersion("example", auto_scaling_configuration_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -18,7 +18,6 @@ import (
 //
 // ### Accept cross-account request
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,7 +63,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

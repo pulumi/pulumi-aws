@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
-    /**
-     * @return Name of the Amazon S3 bucket.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return Amazon S3 bucket prefix.
-     * 
-     */
     private String bucketPrefix;
-    /**
-     * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig s3InputFormatConfig;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesS3() {}
-    /**
-     * @return Name of the Amazon S3 bucket.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return Amazon S3 bucket prefix.
-     * 
-     */
     public String bucketPrefix() {
         return this.bucketPrefix;
     }
-    /**
-     * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig> s3InputFormatConfig() {
         return Optional.ofNullable(this.s3InputFormatConfig);
     }

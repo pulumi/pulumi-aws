@@ -13,32 +13,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings {
     private @Nullable Double bitDepth;
-    /**
-     * @return Mono, Stereo, or 5.1 channel layout.
-     * 
-     */
     private @Nullable String codingMode;
-    /**
-     * @return Sample rate in Hz.
-     * 
-     */
     private @Nullable Double sampleRate;
 
     private ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings() {}
     public Optional<Double> bitDepth() {
         return Optional.ofNullable(this.bitDepth);
     }
-    /**
-     * @return Mono, Stereo, or 5.1 channel layout.
-     * 
-     */
     public Optional<String> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
-    /**
-     * @return Sample rate in Hz.
-     * 
-     */
     public Optional<Double> sampleRate() {
         return Optional.ofNullable(this.sampleRate);
     }

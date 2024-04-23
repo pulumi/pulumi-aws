@@ -191,7 +191,6 @@ class PublicDnsNamespace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -200,7 +199,6 @@ class PublicDnsNamespace(pulumi.CustomResource):
             name="hoge.example.com",
             description="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -227,7 +225,6 @@ class PublicDnsNamespace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,7 +233,6 @@ class PublicDnsNamespace(pulumi.CustomResource):
             name="hoge.example.com",
             description="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

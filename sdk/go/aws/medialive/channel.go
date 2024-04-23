@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -121,7 +120,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -139,7 +137,7 @@ type Channel struct {
 	CdiInputSpecification ChannelCdiInputSpecificationPtrOutput `pulumi:"cdiInputSpecification"`
 	// Concise argument description.
 	ChannelClass pulumi.StringOutput `pulumi:"channelClass"`
-	// ID of the channel in MediaPackage that is the destination for this output group.
+	// ID of the Channel.
 	ChannelId pulumi.StringOutput `pulumi:"channelId"`
 	// Destinations for channel. See Destinations for more details.
 	Destinations ChannelDestinationArrayOutput `pulumi:"destinations"`
@@ -220,7 +218,7 @@ type channelState struct {
 	CdiInputSpecification *ChannelCdiInputSpecification `pulumi:"cdiInputSpecification"`
 	// Concise argument description.
 	ChannelClass *string `pulumi:"channelClass"`
-	// ID of the channel in MediaPackage that is the destination for this output group.
+	// ID of the Channel.
 	ChannelId *string `pulumi:"channelId"`
 	// Destinations for channel. See Destinations for more details.
 	Destinations []ChannelDestination `pulumi:"destinations"`
@@ -257,7 +255,7 @@ type ChannelState struct {
 	CdiInputSpecification ChannelCdiInputSpecificationPtrInput
 	// Concise argument description.
 	ChannelClass pulumi.StringPtrInput
-	// ID of the channel in MediaPackage that is the destination for this output group.
+	// ID of the Channel.
 	ChannelId pulumi.StringPtrInput
 	// Destinations for channel. See Destinations for more details.
 	Destinations ChannelDestinationArrayInput
@@ -456,7 +454,7 @@ func (o ChannelOutput) ChannelClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelClass }).(pulumi.StringOutput)
 }
 
-// ID of the channel in MediaPackage that is the destination for this output group.
+// ID of the Channel.
 func (o ChannelOutput) ChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelId }).(pulumi.StringOutput)
 }

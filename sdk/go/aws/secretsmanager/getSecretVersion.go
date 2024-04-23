@@ -19,7 +19,6 @@ import (
 //
 // By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,11 +42,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Retrieve Specific Secret Version
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,7 +69,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupSecretVersion(ctx *pulumi.Context, args *LookupSecretVersionArgs, opts ...pulumi.InvokeOption) (*LookupSecretVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecretVersionResult

@@ -31,17 +31,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
         return this.hlsSettings;
     }
 
-    /**
-     * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-     * 
-     */
     @Import(name="nameModifier")
     private @Nullable Output<String> nameModifier;
 
-    /**
-     * @return String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-     * 
-     */
     public Optional<Output<String>> nameModifier() {
         return Optional.ofNullable(this.nameModifier);
     }
@@ -98,23 +90,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
             return hlsSettings(Output.of(hlsSettings));
         }
 
-        /**
-         * @param nameModifier String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameModifier(@Nullable Output<String> nameModifier) {
             $.nameModifier = nameModifier;
             return this;
         }
 
-        /**
-         * @param nameModifier String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameModifier(String nameModifier) {
             return nameModifier(Output.of(nameModifier));
         }

@@ -37,7 +37,6 @@ import (
 //
 // ### Basic example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,11 +73,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // To subsequently remove all managed routes:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,7 +103,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Adopting an existing local route
 //
@@ -114,7 +110,6 @@ import (
 //
 // First, adopt an existing AWS-created route:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -150,11 +145,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Next, update the target of the route:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -203,7 +196,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // The target could then be updated again back to `local`.
 //

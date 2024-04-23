@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Workspaces
         /// 
         /// ### Filter By Workspace ID
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,11 +33,9 @@ namespace Pulumi.Aws.Workspaces
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Filter By Directory ID &amp; User Name
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,7 +52,6 @@ namespace Pulumi.Aws.Workspaces
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("aws:workspaces/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
@@ -67,7 +63,6 @@ namespace Pulumi.Aws.Workspaces
         /// 
         /// ### Filter By Workspace ID
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -83,11 +78,9 @@ namespace Pulumi.Aws.Workspaces
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Filter By Directory ID &amp; User Name
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -104,7 +97,6 @@ namespace Pulumi.Aws.Workspaces
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("aws:workspaces/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());

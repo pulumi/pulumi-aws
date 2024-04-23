@@ -17,17 +17,9 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
 
     public static final V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotArgs Empty = new V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotArgs();
 
-    /**
-     * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-     * 
-     */
     @Import(name="mapBlockKey", required=true)
     private Output<String> mapBlockKey;
 
-    /**
-     * @return Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-     * 
-     */
     public Output<String> mapBlockKey() {
         return this.mapBlockKey;
     }
@@ -88,23 +80,11 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
             $ = new V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mapBlockKey Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapBlockKey(Output<String> mapBlockKey) {
             $.mapBlockKey = mapBlockKey;
             return this;
         }
 
-        /**
-         * @param mapBlockKey Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapBlockKey(String mapBlockKey) {
             return mapBlockKey(Output.of(mapBlockKey));
         }

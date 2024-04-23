@@ -14,18 +14,15 @@ import * as utilities from "../utilities";
  *
  * ### Basic Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ses.ConfigurationSet("test", {name: "some-configuration-set-test"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Require TLS Connections
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,11 +34,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Tracking Options
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,7 +48,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -41,7 +40,6 @@ namespace Pulumi.Aws.Ec2
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocalGatewaysResult> InvokeAsync(GetLocalGatewaysArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewaysResult>("aws:ec2/getLocalGateways:getLocalGateways", args ?? new GetLocalGatewaysArgs(), options.WithDefaults());
@@ -53,7 +51,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -76,7 +73,6 @@ namespace Pulumi.Aws.Ec2
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocalGatewaysResult> Invoke(GetLocalGatewaysInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewaysResult>("aws:ec2/getLocalGateways:getLocalGateways", args ?? new GetLocalGatewaysInvokeArgs(), options.WithDefaults());

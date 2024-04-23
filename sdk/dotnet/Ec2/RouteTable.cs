@@ -35,7 +35,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ### Basic example
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,11 +67,9 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// To subsequently remove all managed routes:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,7 +90,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Adopting an existing local route
     /// 
@@ -101,7 +97,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// First, adopt an existing AWS-created route:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -130,11 +125,9 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Next, update the target of the route:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -174,7 +167,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// The target could then be updated again back to `local`.
     /// 

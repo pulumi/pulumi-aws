@@ -15,17 +15,9 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
 
     public static final DataSetOutputColumnArgs Empty = new DataSetOutputColumnArgs();
 
-    /**
-     * Field folder description.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Field folder description.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -45,17 +37,9 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Data type of the column.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Data type of the column.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -86,23 +70,11 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
             $ = new DataSetOutputColumnArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Field folder description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Field folder description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -128,23 +100,11 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
             return name(Output.of(name));
         }
 
-        /**
-         * @param type Data type of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Data type of the column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

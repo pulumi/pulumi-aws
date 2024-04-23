@@ -328,7 +328,6 @@ class KxScalingGroup(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -339,7 +338,6 @@ class KxScalingGroup(pulumi.CustomResource):
             availability_zone_id="use1-az2",
             host_type="kx.sg.4xlarge")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -372,7 +370,6 @@ class KxScalingGroup(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -383,7 +380,6 @@ class KxScalingGroup(pulumi.CustomResource):
             availability_zone_id="use1-az2",
             host_type="kx.sg.4xlarge")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         public Input<string>? EndpointId { get; set; }
 
         /// <summary>
-        /// The unique identifier for the subnet.
+        /// The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Sfn
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Sfn
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetStateMachineResult> InvokeAsync(GetStateMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? new GetStateMachineArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.Sfn
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Sfn
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetStateMachineResult> Invoke(GetStateMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? new GetStateMachineInvokeArgs(), options.WithDefaults());

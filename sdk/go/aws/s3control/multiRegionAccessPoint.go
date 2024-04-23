@@ -20,7 +20,6 @@ import (
 //
 // ### Multiple AWS Buckets in Different Regions
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,7 +66,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,7 +39,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Inference Execution Config
  *
@@ -112,8 +110,6 @@ export class Model extends pulumi.CustomResource {
     public readonly primaryContainer!: pulumi.Output<outputs.sagemaker.ModelPrimaryContainer | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * The `primaryContainer` and `container` block both support:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -205,8 +201,6 @@ export interface ModelState {
     primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * The `primaryContainer` and `container` block both support:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -251,8 +245,6 @@ export interface ModelArgs {
     primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * The `primaryContainer` and `container` block both support:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

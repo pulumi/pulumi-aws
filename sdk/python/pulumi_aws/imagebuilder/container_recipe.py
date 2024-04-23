@@ -276,7 +276,7 @@ class _ContainerRecipeState:
         :param pulumi.Input[str] description: The description of the container recipe.
         :param pulumi.Input[str] dockerfile_template_data: The Dockerfile template used to build the image as an inline data blob.
         :param pulumi.Input[str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-        :param pulumi.Input[bool] encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        :param pulumi.Input[bool] encrypted: A flag that indicates if the target container is encrypted.
         :param pulumi.Input['ContainerRecipeInstanceConfigurationArgs'] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
         :param pulumi.Input[str] kms_key_id: The KMS key used to encrypt the container image.
         :param pulumi.Input[str] name: The name of the container recipe.
@@ -424,7 +424,7 @@ class _ContainerRecipeState:
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        A flag that indicates if the target container is encrypted.
         """
         return pulumi.get(self, "encrypted")
 
@@ -607,7 +607,6 @@ class ContainerRecipe(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -639,7 +638,6 @@ class ContainerRecipe(pulumi.CustomResource):
         {{{ imagebuilder:components }}}
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -679,7 +677,6 @@ class ContainerRecipe(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -711,7 +708,6 @@ class ContainerRecipe(pulumi.CustomResource):
         {{{ imagebuilder:components }}}
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -833,7 +829,7 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the container recipe.
         :param pulumi.Input[str] dockerfile_template_data: The Dockerfile template used to build the image as an inline data blob.
         :param pulumi.Input[str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-        :param pulumi.Input[bool] encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        :param pulumi.Input[bool] encrypted: A flag that indicates if the target container is encrypted.
         :param pulumi.Input[pulumi.InputType['ContainerRecipeInstanceConfigurationArgs']] instance_configuration: Configuration block used to configure an instance for building and testing container images. Detailed below.
         :param pulumi.Input[str] kms_key_id: The KMS key used to encrypt the container image.
         :param pulumi.Input[str] name: The name of the container recipe.
@@ -935,7 +931,7 @@ class ContainerRecipe(pulumi.CustomResource):
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[bool]:
         """
-        Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        A flag that indicates if the target container is encrypted.
         """
         return pulumi.get(self, "encrypted")
 

@@ -1725,8 +1725,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainersPtrOutput) VolumeMounts
 
 type JobDefinitionEksPropertiesPodPropertiesContainersEnv struct {
 	// Specifies the name of the job definition.
-	Name string `pulumi:"name"`
-	// The value of the environment variable.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -1743,8 +1742,7 @@ type JobDefinitionEksPropertiesPodPropertiesContainersEnvInput interface {
 
 type JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs struct {
 	// Specifies the name of the job definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the environment variable.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1804,7 +1802,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainersEnvOutput) Name() pulum
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainersEnv) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the environment variable.
 func (o JobDefinitionEksPropertiesPodPropertiesContainersEnvOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainersEnv) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2538,10 +2535,8 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeArrayOutput) Index(i pulumi
 }
 
 type JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir struct {
-	// The medium to store the volume. The default value is an empty string, which uses the storage of the node.
-	Medium *string `pulumi:"medium"`
-	// The maximum size of the volume. By default, there's no maximum size defined.
-	SizeLimit string `pulumi:"sizeLimit"`
+	Medium    *string `pulumi:"medium"`
+	SizeLimit string  `pulumi:"sizeLimit"`
 }
 
 // JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs and JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirOutput values.
@@ -2556,10 +2551,8 @@ type JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs struct {
-	// The medium to store the volume. The default value is an empty string, which uses the storage of the node.
-	Medium pulumi.StringPtrInput `pulumi:"medium"`
-	// The maximum size of the volume. By default, there's no maximum size defined.
-	SizeLimit pulumi.StringInput `pulumi:"sizeLimit"`
+	Medium    pulumi.StringPtrInput `pulumi:"medium"`
+	SizeLimit pulumi.StringInput    `pulumi:"sizeLimit"`
 }
 
 func (JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs) ElementType() reflect.Type {
@@ -2639,12 +2632,10 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirOutput) ToJobDefini
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrOutput)
 }
 
-// The medium to store the volume. The default value is an empty string, which uses the storage of the node.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirOutput) Medium() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir) *string { return v.Medium }).(pulumi.StringPtrOutput)
 }
 
-// The maximum size of the volume. By default, there's no maximum size defined.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirOutput) SizeLimit() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir) string { return v.SizeLimit }).(pulumi.StringOutput)
 }
@@ -2673,7 +2664,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrOutput) Elem() J
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirOutput)
 }
 
-// The medium to store the volume. The default value is an empty string, which uses the storage of the node.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrOutput) Medium() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir) *string {
 		if v == nil {
@@ -2683,7 +2673,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrOutput) Medium()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The maximum size of the volume. By default, there's no maximum size defined.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrOutput) SizeLimit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir) *string {
 		if v == nil {
@@ -2694,7 +2683,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirPtrOutput) SizeLimi
 }
 
 type JobDefinitionEksPropertiesPodPropertiesVolumeHostPath struct {
-	// The path of the file or directory on the host to mount into containers on the pod.
 	Path string `pulumi:"path"`
 }
 
@@ -2710,7 +2698,6 @@ type JobDefinitionEksPropertiesPodPropertiesVolumeHostPathInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs struct {
-	// The path of the file or directory on the host to mount into containers on the pod.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -2791,7 +2778,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeHostPathOutput) ToJobDefini
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeHostPathPtrOutput)
 }
 
-// The path of the file or directory on the host to mount into containers on the pod.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeHostPathOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesVolumeHostPath) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -2820,7 +2806,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeHostPathPtrOutput) Elem() J
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeHostPathOutput)
 }
 
-// The path of the file or directory on the host to mount into containers on the pod.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeHostPathPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesVolumeHostPath) *string {
 		if v == nil {
@@ -2831,9 +2816,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeHostPathPtrOutput) Path() p
 }
 
 type JobDefinitionEksPropertiesPodPropertiesVolumeSecret struct {
-	// Specifies whether the secret or the secret's keys must be defined.
-	Optional *bool `pulumi:"optional"`
-	// The name of the secret. The name must be allowed as a DNS subdomain name.
+	Optional   *bool  `pulumi:"optional"`
 	SecretName string `pulumi:"secretName"`
 }
 
@@ -2849,10 +2832,8 @@ type JobDefinitionEksPropertiesPodPropertiesVolumeSecretInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs struct {
-	// Specifies whether the secret or the secret's keys must be defined.
-	Optional pulumi.BoolPtrInput `pulumi:"optional"`
-	// The name of the secret. The name must be allowed as a DNS subdomain name.
-	SecretName pulumi.StringInput `pulumi:"secretName"`
+	Optional   pulumi.BoolPtrInput `pulumi:"optional"`
+	SecretName pulumi.StringInput  `pulumi:"secretName"`
 }
 
 func (JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs) ElementType() reflect.Type {
@@ -2932,12 +2913,10 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretOutput) ToJobDefiniti
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrOutput)
 }
 
-// Specifies whether the secret or the secret's keys must be defined.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretOutput) Optional() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesVolumeSecret) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the secret. The name must be allowed as a DNS subdomain name.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesVolumeSecret) string { return v.SecretName }).(pulumi.StringOutput)
 }
@@ -2966,7 +2945,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrOutput) Elem() Job
 	}).(JobDefinitionEksPropertiesPodPropertiesVolumeSecretOutput)
 }
 
-// Specifies whether the secret or the secret's keys must be defined.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrOutput) Optional() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesVolumeSecret) *bool {
 		if v == nil {
@@ -2976,7 +2954,6 @@ func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrOutput) Optional()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the secret. The name must be allowed as a DNS subdomain name.
 func (o JobDefinitionEksPropertiesPodPropertiesVolumeSecretPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesVolumeSecret) *string {
 		if v == nil {
@@ -3687,10 +3664,8 @@ func (o JobQueueTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type SchedulingPolicyFairSharePolicy struct {
-	// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-	ComputeReservation *int `pulumi:"computeReservation"`
-	ShareDecaySeconds  *int `pulumi:"shareDecaySeconds"`
-	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
+	ComputeReservation *int                                               `pulumi:"computeReservation"`
+	ShareDecaySeconds  *int                                               `pulumi:"shareDecaySeconds"`
 	ShareDistributions []SchedulingPolicyFairSharePolicyShareDistribution `pulumi:"shareDistributions"`
 }
 
@@ -3706,10 +3681,8 @@ type SchedulingPolicyFairSharePolicyInput interface {
 }
 
 type SchedulingPolicyFairSharePolicyArgs struct {
-	// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-	ComputeReservation pulumi.IntPtrInput `pulumi:"computeReservation"`
-	ShareDecaySeconds  pulumi.IntPtrInput `pulumi:"shareDecaySeconds"`
-	// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
+	ComputeReservation pulumi.IntPtrInput                                         `pulumi:"computeReservation"`
+	ShareDecaySeconds  pulumi.IntPtrInput                                         `pulumi:"shareDecaySeconds"`
 	ShareDistributions SchedulingPolicyFairSharePolicyShareDistributionArrayInput `pulumi:"shareDistributions"`
 }
 
@@ -3790,7 +3763,6 @@ func (o SchedulingPolicyFairSharePolicyOutput) ToSchedulingPolicyFairSharePolicy
 	}).(SchedulingPolicyFairSharePolicyPtrOutput)
 }
 
-// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 func (o SchedulingPolicyFairSharePolicyOutput) ComputeReservation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairSharePolicy) *int { return v.ComputeReservation }).(pulumi.IntPtrOutput)
 }
@@ -3799,7 +3771,6 @@ func (o SchedulingPolicyFairSharePolicyOutput) ShareDecaySeconds() pulumi.IntPtr
 	return o.ApplyT(func(v SchedulingPolicyFairSharePolicy) *int { return v.ShareDecaySeconds }).(pulumi.IntPtrOutput)
 }
 
-// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
 func (o SchedulingPolicyFairSharePolicyOutput) ShareDistributions() SchedulingPolicyFairSharePolicyShareDistributionArrayOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairSharePolicy) []SchedulingPolicyFairSharePolicyShareDistribution {
 		return v.ShareDistributions
@@ -3830,7 +3801,6 @@ func (o SchedulingPolicyFairSharePolicyPtrOutput) Elem() SchedulingPolicyFairSha
 	}).(SchedulingPolicyFairSharePolicyOutput)
 }
 
-// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 func (o SchedulingPolicyFairSharePolicyPtrOutput) ComputeReservation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SchedulingPolicyFairSharePolicy) *int {
 		if v == nil {
@@ -3849,7 +3819,6 @@ func (o SchedulingPolicyFairSharePolicyPtrOutput) ShareDecaySeconds() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
 func (o SchedulingPolicyFairSharePolicyPtrOutput) ShareDistributions() SchedulingPolicyFairSharePolicyShareDistributionArrayOutput {
 	return o.ApplyT(func(v *SchedulingPolicyFairSharePolicy) []SchedulingPolicyFairSharePolicyShareDistribution {
 		if v == nil {

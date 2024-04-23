@@ -22,7 +22,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,11 +58,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // To subsequently remove all managed routes:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,7 +88,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

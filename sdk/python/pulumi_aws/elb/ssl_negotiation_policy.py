@@ -29,7 +29,7 @@ class SslNegotiationPolicyArgs:
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
         :param pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]] attributes: An SSL Negotiation policy attribute. Each has two properties:
-        :param pulumi.Input[str] name: The name of the attribute
+        :param pulumi.Input[str] name: The name of the SSL negotiation policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
                
                To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -88,7 +88,7 @@ class SslNegotiationPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the attribute
+        The name of the SSL negotiation policy.
         """
         return pulumi.get(self, "name")
 
@@ -129,7 +129,7 @@ class _SslNegotiationPolicyState:
                balancer.
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
-        :param pulumi.Input[str] name: The name of the attribute
+        :param pulumi.Input[str] name: The name of the SSL negotiation policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
                
                To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -190,7 +190,7 @@ class _SslNegotiationPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the attribute
+        The name of the SSL negotiation policy.
         """
         return pulumi.get(self, "name")
 
@@ -231,7 +231,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,7 +280,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -291,7 +289,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                balancer.
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
-        :param pulumi.Input[str] name: The name of the attribute
+        :param pulumi.Input[str] name: The name of the SSL negotiation policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
                
                To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -309,7 +307,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,7 +356,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param SslNegotiationPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -429,7 +425,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                balancer.
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
-        :param pulumi.Input[str] name: The name of the attribute
+        :param pulumi.Input[str] name: The name of the SSL negotiation policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
                
                To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -478,7 +474,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the attribute
+        The name of the SSL negotiation policy.
         """
         return pulumi.get(self, "name")
 

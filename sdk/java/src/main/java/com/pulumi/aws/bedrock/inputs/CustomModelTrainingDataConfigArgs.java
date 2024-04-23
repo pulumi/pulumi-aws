@@ -15,14 +15,14 @@ public final class CustomModelTrainingDataConfigArgs extends com.pulumi.resource
     public static final CustomModelTrainingDataConfigArgs Empty = new CustomModelTrainingDataConfigArgs();
 
     /**
-     * The S3 URI where the validation data is stored.
+     * The S3 URI where the training data is stored.
      * 
      */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
     /**
-     * @return The S3 URI where the validation data is stored.
+     * @return The S3 URI where the training data is stored.
      * 
      */
     public Output<String> s3Uri() {
@@ -54,7 +54,7 @@ public final class CustomModelTrainingDataConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param s3Uri The S3 URI where the validation data is stored.
+         * @param s3Uri The S3 URI where the training data is stored.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class CustomModelTrainingDataConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param s3Uri The S3 URI where the validation data is stored.
+         * @param s3Uri The S3 URI where the training data is stored.
          * 
          * @return builder
          * 

@@ -444,7 +444,6 @@ func (o BucketLifecycleConfigurationRuleArrayOutput) Index(i pulumi.IntInput) Bu
 }
 
 type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload struct {
-	// Number of days after which Amazon S3 aborts an incomplete multipart upload.
 	DaysAfterInitiation int `pulumi:"daysAfterInitiation"`
 }
 
@@ -460,7 +459,6 @@ type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadInput interfa
 }
 
 type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs struct {
-	// Number of days after which Amazon S3 aborts an incomplete multipart upload.
 	DaysAfterInitiation pulumi.IntInput `pulumi:"daysAfterInitiation"`
 }
 
@@ -541,7 +539,6 @@ func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) To
 	}).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
-// Number of days after which Amazon S3 aborts an incomplete multipart upload.
 func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload) int {
 		return v.DaysAfterInitiation
@@ -572,7 +569,6 @@ func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 	}).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput)
 }
 
-// Number of days after which Amazon S3 aborts an incomplete multipart upload.
 func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload) *int {
 		if v == nil {
@@ -583,12 +579,9 @@ func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
 type BucketLifecycleConfigurationRuleExpiration struct {
-	// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-	Date *string `pulumi:"date"`
-	// Number of days before the object is to be deleted.
-	Days *int `pulumi:"days"`
-	// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-	ExpiredObjectDeleteMarker *bool `pulumi:"expiredObjectDeleteMarker"`
+	Date                      *string `pulumi:"date"`
+	Days                      *int    `pulumi:"days"`
+	ExpiredObjectDeleteMarker *bool   `pulumi:"expiredObjectDeleteMarker"`
 }
 
 // BucketLifecycleConfigurationRuleExpirationInput is an input type that accepts BucketLifecycleConfigurationRuleExpirationArgs and BucketLifecycleConfigurationRuleExpirationOutput values.
@@ -603,12 +596,9 @@ type BucketLifecycleConfigurationRuleExpirationInput interface {
 }
 
 type BucketLifecycleConfigurationRuleExpirationArgs struct {
-	// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-	Date pulumi.StringPtrInput `pulumi:"date"`
-	// Number of days before the object is to be deleted.
-	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-	ExpiredObjectDeleteMarker pulumi.BoolPtrInput `pulumi:"expiredObjectDeleteMarker"`
+	Date                      pulumi.StringPtrInput `pulumi:"date"`
+	Days                      pulumi.IntPtrInput    `pulumi:"days"`
+	ExpiredObjectDeleteMarker pulumi.BoolPtrInput   `pulumi:"expiredObjectDeleteMarker"`
 }
 
 func (BucketLifecycleConfigurationRuleExpirationArgs) ElementType() reflect.Type {
@@ -688,17 +678,14 @@ func (o BucketLifecycleConfigurationRuleExpirationOutput) ToBucketLifecycleConfi
 	}).(BucketLifecycleConfigurationRuleExpirationPtrOutput)
 }
 
-// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
 func (o BucketLifecycleConfigurationRuleExpirationOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
-// Number of days before the object is to be deleted.
 func (o BucketLifecycleConfigurationRuleExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
 func (o BucketLifecycleConfigurationRuleExpirationOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *bool { return v.ExpiredObjectDeleteMarker }).(pulumi.BoolPtrOutput)
 }
@@ -727,7 +714,6 @@ func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Elem() BucketLifecy
 	}).(BucketLifecycleConfigurationRuleExpirationOutput)
 }
 
-// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
 func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) *string {
 		if v == nil {
@@ -737,7 +723,6 @@ func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Date() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of days before the object is to be deleted.
 func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) *int {
 		if v == nil {
@@ -747,7 +732,6 @@ func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Days() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
 func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) *bool {
 		if v == nil {
@@ -758,10 +742,8 @@ func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) ExpiredObjectDelete
 }
 
 type BucketLifecycleConfigurationRuleFilter struct {
-	// Object prefix for rule filtering.
-	Prefix *string `pulumi:"prefix"`
-	// Key-value map of object tags for rule filtering.
-	Tags map[string]string `pulumi:"tags"`
+	Prefix *string           `pulumi:"prefix"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // BucketLifecycleConfigurationRuleFilterInput is an input type that accepts BucketLifecycleConfigurationRuleFilterArgs and BucketLifecycleConfigurationRuleFilterOutput values.
@@ -776,10 +758,8 @@ type BucketLifecycleConfigurationRuleFilterInput interface {
 }
 
 type BucketLifecycleConfigurationRuleFilterArgs struct {
-	// Object prefix for rule filtering.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Key-value map of object tags for rule filtering.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (BucketLifecycleConfigurationRuleFilterArgs) ElementType() reflect.Type {
@@ -859,12 +839,10 @@ func (o BucketLifecycleConfigurationRuleFilterOutput) ToBucketLifecycleConfigura
 	}).(BucketLifecycleConfigurationRuleFilterPtrOutput)
 }
 
-// Object prefix for rule filtering.
 func (o BucketLifecycleConfigurationRuleFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of object tags for rule filtering.
 func (o BucketLifecycleConfigurationRuleFilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilter) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -893,7 +871,6 @@ func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Elem() BucketLifecycleC
 	}).(BucketLifecycleConfigurationRuleFilterOutput)
 }
 
-// Object prefix for rule filtering.
 func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilter) *string {
 		if v == nil {
@@ -903,7 +880,6 @@ func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Prefix() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of object tags for rule filtering.
 func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilter) map[string]string {
 		if v == nil {
@@ -4666,9 +4642,9 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetr
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination struct {
-	// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+	// The account ID of the owner of the S3 Storage Lens metrics export bucket.
 	AccountId string `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+	// The Amazon Resource Name (ARN) of the bucket.
 	Arn string `pulumi:"arn"`
 	// Encryption of the metrics exports in this bucket. See Encryption below for more details.
 	Encryption *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption `pulumi:"encryption"`
@@ -4692,9 +4668,9 @@ type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinati
 }
 
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs struct {
-	// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+	// The account ID of the owner of the S3 Storage Lens metrics export bucket.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+	// The Amazon Resource Name (ARN) of the bucket.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Encryption of the metrics exports in this bucket. See Encryption below for more details.
 	Encryption StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrInput `pulumi:"encryption"`
@@ -4783,14 +4759,14 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput)
 }
 
-// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+// The account ID of the owner of the S3 Storage Lens metrics export bucket.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
 		return v.AccountId
 	}).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+// The Amazon Resource Name (ARN) of the bucket.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
 		return v.Arn
@@ -4849,7 +4825,7 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput)
 }
 
-// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+// The account ID of the owner of the S3 Storage Lens metrics export bucket.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
 		if v == nil {
@@ -4859,7 +4835,7 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+// The Amazon Resource Name (ARN) of the bucket.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
 		if v == nil {

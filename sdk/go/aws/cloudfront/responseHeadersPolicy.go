@@ -20,7 +20,6 @@ import (
 //
 // The example below creates a CloudFront response headers policy.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,11 +63,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // The example below creates a CloudFront response headers policy with a custom headers config.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,11 +103,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -147,7 +142,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

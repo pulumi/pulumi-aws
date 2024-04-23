@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SigningJobDestinationS3 {
-    /**
-     * @return Name of the S3 bucket.
-     * 
-     */
     private String bucket;
-    /**
-     * @return An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
-     * 
-     */
     private @Nullable String prefix;
 
     private SigningJobDestinationS3() {}
-    /**
-     * @return Name of the S3 bucket.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

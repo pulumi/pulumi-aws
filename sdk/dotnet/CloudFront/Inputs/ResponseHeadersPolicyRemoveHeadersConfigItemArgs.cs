@@ -12,9 +12,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class ResponseHeadersPolicyRemoveHeadersConfigItemArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The HTTP response header name.
-        /// </summary>
         [Input("header", required: true)]
         public Input<string> Header { get; set; } = null!;
 

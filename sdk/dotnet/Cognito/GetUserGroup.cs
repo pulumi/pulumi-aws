@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetUserGroupResult> InvokeAsync(GetUserGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserGroupResult>("aws:cognito/getUserGroup:getUserGroup", args ?? new GetUserGroupArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetUserGroupResult> Invoke(GetUserGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserGroupResult>("aws:cognito/getUserGroup:getUserGroup", args ?? new GetUserGroupInvokeArgs(), options.WithDefaults());

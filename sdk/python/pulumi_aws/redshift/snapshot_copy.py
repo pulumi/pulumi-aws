@@ -211,7 +211,6 @@ class SnapshotCopy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -220,7 +219,6 @@ class SnapshotCopy(pulumi.CustomResource):
             cluster_identifier=example_aws_redshift_cluster["id"],
             destination_region="us-east-1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -253,7 +251,6 @@ class SnapshotCopy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -262,7 +259,6 @@ class SnapshotCopy(pulumi.CustomResource):
             cluster_identifier=example_aws_redshift_cluster["id"],
             destination_region="us-east-1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

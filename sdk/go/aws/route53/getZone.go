@@ -19,7 +19,6 @@ import (
 //
 // The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,7 +57,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.InvokeOption) (*LookupZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupZoneResult

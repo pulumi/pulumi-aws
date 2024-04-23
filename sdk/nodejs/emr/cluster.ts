@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -126,7 +125,6 @@ import * as utilities from "../utilities";
  *     serviceRole: iamEmrServiceRole.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
  *
@@ -134,7 +132,6 @@ import * as utilities from "../utilities";
  *
  * ### Instance Fleet
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -229,13 +226,11 @@ import * as utilities from "../utilities";
  *     targetSpotCapacity: 1,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Enable Debug Logging
  *
  * [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -249,13 +244,11 @@ import * as utilities from "../utilities";
  *     },
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Multiple Node Master Instance Group
  *
  * Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -276,7 +269,6 @@ import * as utilities from "../utilities";
  *     coreInstanceGroup: {},
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -349,7 +341,6 @@ export class Cluster extends pulumi.CustomResource {
      *
      * > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -370,7 +361,6 @@ export class Cluster extends pulumi.CustomResource {
      * ]
      * `});
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     public readonly configurationsJson!: pulumi.Output<string | undefined>;
     /**
@@ -617,7 +607,6 @@ export interface ClusterState {
      *
      * > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -638,7 +627,6 @@ export interface ClusterState {
      * ]
      * `});
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     configurationsJson?: pulumi.Input<string>;
     /**
@@ -784,7 +772,6 @@ export interface ClusterArgs {
      *
      * > **NOTE on `configurationsJson`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
      *
-     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -805,7 +792,6 @@ export interface ClusterArgs {
      * ]
      * `});
      * ```
-     * <!--End PulumiCodeChooser -->
      */
     configurationsJson?: pulumi.Input<string>;
     /**

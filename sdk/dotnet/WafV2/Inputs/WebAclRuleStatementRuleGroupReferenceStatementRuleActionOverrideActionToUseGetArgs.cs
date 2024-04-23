@@ -12,33 +12,18 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Instructs AWS WAF to allow the web request. See `allow` below for details.
-        /// </summary>
         [Input("allow")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowGetArgs>? Allow { get; set; }
 
-        /// <summary>
-        /// Instructs AWS WAF to block the web request. See `block` below for details.
-        /// </summary>
         [Input("block")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockGetArgs>? Block { get; set; }
 
-        /// <summary>
-        /// Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-        /// </summary>
         [Input("captcha")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaGetArgs>? Captcha { get; set; }
 
-        /// <summary>
-        /// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        /// </summary>
         [Input("challenge")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeGetArgs>? Challenge { get; set; }
 
-        /// <summary>
-        /// Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-        /// </summary>
         [Input("count")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountGetArgs>? Count { get; set; }
 

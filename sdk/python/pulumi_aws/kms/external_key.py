@@ -422,14 +422,12 @@ class ExternalKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kms.ExternalKey("example", description="KMS EXTERNAL for AMI encryption")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -463,14 +461,12 @@ class ExternalKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.kms.ExternalKey("example", description="KMS EXTERNAL for AMI encryption")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

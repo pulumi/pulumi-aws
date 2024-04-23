@@ -226,7 +226,6 @@ class ServerlessCluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +244,6 @@ class ServerlessCluster(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -275,7 +273,6 @@ class ServerlessCluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -294,7 +291,6 @@ class ServerlessCluster(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

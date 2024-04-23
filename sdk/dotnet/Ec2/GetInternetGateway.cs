@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -44,7 +43,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetInternetGatewayResult> InvokeAsync(GetInternetGatewayArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInternetGatewayResult>("aws:ec2/getInternetGateway:getInternetGateway", args ?? new GetInternetGatewayArgs(), options.WithDefaults());
@@ -54,7 +52,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -82,7 +79,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetInternetGatewayResult> Invoke(GetInternetGatewayInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayResult>("aws:ec2/getInternetGateway:getInternetGateway", args ?? new GetInternetGatewayInvokeArgs(), options.WithDefaults());

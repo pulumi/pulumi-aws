@@ -18,7 +18,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,11 +30,9 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Filter by Inference Type
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -51,7 +48,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetModelsResult> InvokeAsync(GetModelsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelsResult>("aws:bedrockfoundation/getModels:getModels", args ?? new GetModelsArgs(), options.WithDefaults());
@@ -63,7 +59,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -76,11 +71,9 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Filter by Inference Type
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -96,7 +89,6 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetModelsResult> Invoke(GetModelsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelsResult>("aws:bedrockfoundation/getModels:getModels", args ?? new GetModelsInvokeArgs(), options.WithDefaults());

@@ -429,7 +429,6 @@ class PublicVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -447,7 +446,6 @@ class PublicVirtualInterface(pulumi.CustomResource):
                 "175.45.176.0/22",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -481,7 +479,6 @@ class PublicVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -499,7 +496,6 @@ class PublicVirtualInterface(pulumi.CustomResource):
                 "175.45.176.0/22",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

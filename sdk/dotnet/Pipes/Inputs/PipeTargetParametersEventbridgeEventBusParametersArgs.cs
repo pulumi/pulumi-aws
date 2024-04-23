@@ -12,24 +12,14 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeTargetParametersEventbridgeEventBusParametersArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
-        /// </summary>
         [Input("detailType")]
         public Input<string>? DetailType { get; set; }
 
-        /// <summary>
-        /// The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
-        /// </summary>
         [Input("endpointId")]
         public Input<string>? EndpointId { get; set; }
 
         [Input("resources")]
         private InputList<string>? _resources;
-
-        /// <summary>
-        /// List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
-        /// </summary>
         public InputList<string> Resources
         {
             get => _resources ?? (_resources = new InputList<string>());
@@ -42,9 +32,6 @@ namespace Pulumi.Aws.Pipes.Inputs
         [Input("source")]
         public Input<string>? Source { get; set; }
 
-        /// <summary>
-        /// The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
-        /// </summary>
         [Input("time")]
         public Input<string>? Time { get; set; }
 

@@ -104,7 +104,6 @@ class ResourceAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -113,7 +112,6 @@ class ResourceAssociation(pulumi.CustomResource):
             resource_arn=example_aws_subnet["arn"],
             resource_share_arn=example_aws_ram_resource_share["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -141,7 +139,6 @@ class ResourceAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,7 +147,6 @@ class ResourceAssociation(pulumi.CustomResource):
             resource_arn=example_aws_subnet["arn"],
             resource_share_arn=example_aws_ram_resource_share["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

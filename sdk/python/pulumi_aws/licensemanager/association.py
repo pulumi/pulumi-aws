@@ -104,7 +104,6 @@ class Association(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -125,7 +124,6 @@ class Association(pulumi.CustomResource):
             license_configuration_arn=example_license_configuration.arn,
             resource_arn=example_instance.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -153,7 +151,6 @@ class Association(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -174,7 +171,6 @@ class Association(pulumi.CustomResource):
             license_configuration_arn=example_license_configuration.arn,
             resource_arn=example_instance.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

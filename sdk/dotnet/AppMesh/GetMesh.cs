@@ -16,7 +16,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,9 +31,7 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,7 +50,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetMeshResult> InvokeAsync(GetMeshArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshArgs(), options.WithDefaults());
@@ -63,7 +59,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -79,9 +74,7 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -100,7 +93,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetMeshResult> Invoke(GetMeshInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshInvokeArgs(), options.WithDefaults());

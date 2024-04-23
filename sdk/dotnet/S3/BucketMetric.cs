@@ -18,7 +18,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### Add metrics configuration for entire S3 bucket
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,11 +39,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Add metrics configuration with S3 object filter
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,11 +72,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Add metrics configuration with S3 object filter for S3 Access Point
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -116,7 +111,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

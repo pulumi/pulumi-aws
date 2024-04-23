@@ -169,7 +169,6 @@ class RequestValidator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +179,6 @@ class RequestValidator(pulumi.CustomResource):
             validate_request_body=True,
             validate_request_parameters=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -208,7 +206,6 @@ class RequestValidator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -219,7 +216,6 @@ class RequestValidator(pulumi.CustomResource):
             validate_request_body=True,
             validate_request_parameters=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

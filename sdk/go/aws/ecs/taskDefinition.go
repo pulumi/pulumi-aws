@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,11 +88,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With AppMesh Proxy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -136,11 +133,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Using `dockerVolumeConfiguration`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -189,11 +184,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Using `efsVolumeConfiguration`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -240,11 +233,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Using `fsxWindowsFileServerVolumeConfiguration`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -307,11 +298,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Using `containerDefinitions` and `inferenceAccelerator`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -370,11 +359,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example Using `runtimePlatform` and `fargate`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -420,7 +407,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

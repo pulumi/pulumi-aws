@@ -19,7 +19,6 @@ namespace Pulumi.Aws.Kms
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.Aws.Kms
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCipherTextResult> InvokeAsync(GetCipherTextArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextArgs(), options.WithDefaults());
@@ -59,7 +57,6 @@ namespace Pulumi.Aws.Kms
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -86,7 +83,6 @@ namespace Pulumi.Aws.Kms
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCipherTextResult> Invoke(GetCipherTextInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextInvokeArgs(), options.WithDefaults());

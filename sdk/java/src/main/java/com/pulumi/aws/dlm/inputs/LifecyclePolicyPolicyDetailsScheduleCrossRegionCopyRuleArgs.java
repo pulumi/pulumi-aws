@@ -19,92 +19,44 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
 
     public static final LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
-     * 
-     */
     @Import(name="cmkArn")
     private @Nullable Output<String> cmkArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
-     * 
-     */
     public Optional<Output<String>> cmkArn() {
         return Optional.ofNullable(this.cmkArn);
     }
 
-    /**
-     * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-     * 
-     */
     @Import(name="copyTags")
     private @Nullable Output<Boolean> copyTags;
 
-    /**
-     * @return Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-     * 
-     */
     public Optional<Output<Boolean>> copyTags() {
         return Optional.ofNullable(this.copyTags);
     }
 
-    /**
-     * The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
-     * 
-     */
     @Import(name="deprecateRule")
     private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs> deprecateRule;
 
-    /**
-     * @return The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
-     * 
-     */
     public Optional<Output<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs>> deprecateRule() {
         return Optional.ofNullable(this.deprecateRule);
     }
 
-    /**
-     * To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
-     * 
-     */
     @Import(name="encrypted", required=true)
     private Output<Boolean> encrypted;
 
-    /**
-     * @return To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
-     * 
-     */
     public Output<Boolean> encrypted() {
         return this.encrypted;
     }
 
-    /**
-     * Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-     * 
-     */
     @Import(name="retainRule")
     private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs> retainRule;
 
-    /**
-     * @return Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-     * 
-     */
     public Optional<Output<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs>> retainRule() {
         return Optional.ofNullable(this.retainRule);
     }
 
-    /**
-     * The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-     * 
-     */
     @Import(name="target", required=true)
     private Output<String> target;
 
-    /**
-     * @return The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-     * 
-     */
     public Output<String> target() {
         return this.target;
     }
@@ -138,128 +90,56 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
             $ = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cmkArn The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cmkArn(@Nullable Output<String> cmkArn) {
             $.cmkArn = cmkArn;
             return this;
         }
 
-        /**
-         * @param cmkArn The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cmkArn(String cmkArn) {
             return cmkArn(Output.of(cmkArn));
         }
 
-        /**
-         * @param copyTags Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copyTags(@Nullable Output<Boolean> copyTags) {
             $.copyTags = copyTags;
             return this;
         }
 
-        /**
-         * @param copyTags Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copyTags(Boolean copyTags) {
             return copyTags(Output.of(copyTags));
         }
 
-        /**
-         * @param deprecateRule The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deprecateRule(@Nullable Output<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs> deprecateRule) {
             $.deprecateRule = deprecateRule;
             return this;
         }
 
-        /**
-         * @param deprecateRule The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deprecateRule(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs deprecateRule) {
             return deprecateRule(Output.of(deprecateRule));
         }
 
-        /**
-         * @param encrypted To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encrypted(Output<Boolean> encrypted) {
             $.encrypted = encrypted;
             return this;
         }
 
-        /**
-         * @param encrypted To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encrypted(Boolean encrypted) {
             return encrypted(Output.of(encrypted));
         }
 
-        /**
-         * @param retainRule Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retainRule(@Nullable Output<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs> retainRule) {
             $.retainRule = retainRule;
             return this;
         }
 
-        /**
-         * @param retainRule Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retainRule(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs retainRule) {
             return retainRule(Output.of(retainRule));
         }
 
-        /**
-         * @param target The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(String target) {
             return target(Output.of(target));
         }

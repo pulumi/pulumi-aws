@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     virtualGatewayName: "test-gateway",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGatewayRoute(args: GetGatewayRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteResult> {
 
@@ -105,7 +103,6 @@ export interface GetGatewayRouteResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -116,7 +113,6 @@ export interface GetGatewayRouteResult {
  *     virtualGatewayName: "test-gateway",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGatewayRouteOutput(args: GetGatewayRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteResult> {
     return pulumi.output(args).apply((a: any) => getGatewayRoute(a, opts))

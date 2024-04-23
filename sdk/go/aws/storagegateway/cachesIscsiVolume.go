@@ -24,7 +24,6 @@ import (
 //
 // ### Create Empty Cached iSCSI Volume
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,11 +50,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create Cached iSCSI Volume From Snapshot
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,11 +80,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create Cached iSCSI Volume From Source Volume
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -115,7 +110,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

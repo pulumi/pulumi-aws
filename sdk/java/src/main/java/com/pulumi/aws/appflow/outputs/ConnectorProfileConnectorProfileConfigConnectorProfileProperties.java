@@ -28,10 +28,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileProperties {
-    /**
-     * @return The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude amplitude;
     /**
      * @return The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
@@ -48,15 +44,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace dynatrace;
-    /**
-     * @return The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics googleAnalytics;
-    /**
-     * @return The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode honeycode;
     /**
      * @return The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
@@ -88,10 +76,6 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow serviceNow;
-    /**
-     * @return Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular singular;
     /**
      * @return Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
@@ -103,10 +87,6 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake snowflake;
-    /**
-     * @return The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro trendmicro;
     /**
      * @return Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
@@ -120,10 +100,6 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk zendesk;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileProperties() {}
-    /**
-     * @return The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude> amplitude() {
         return Optional.ofNullable(this.amplitude);
     }
@@ -148,17 +124,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace> dynatrace() {
         return Optional.ofNullable(this.dynatrace);
     }
-    /**
-     * @return The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics> googleAnalytics() {
         return Optional.ofNullable(this.googleAnalytics);
     }
-    /**
-     * @return The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode> honeycode() {
         return Optional.ofNullable(this.honeycode);
     }
@@ -204,10 +172,6 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow> serviceNow() {
         return Optional.ofNullable(this.serviceNow);
     }
-    /**
-     * @return Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular> singular() {
         return Optional.ofNullable(this.singular);
     }
@@ -225,10 +189,6 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake> snowflake() {
         return Optional.ofNullable(this.snowflake);
     }
-    /**
-     * @return The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro> trendmicro() {
         return Optional.ofNullable(this.trendmicro);
     }

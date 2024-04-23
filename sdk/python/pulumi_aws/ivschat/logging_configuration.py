@@ -195,7 +195,6 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         ### Basic Usage - Logging to CloudWatch
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,11 +206,9 @@ class LoggingConfiguration(pulumi.CustomResource):
             ),
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic Usage - Logging to Kinesis Firehose with Extended S3
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,7 +244,6 @@ class LoggingConfiguration(pulumi.CustomResource):
             ),
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -276,7 +272,6 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         ### Basic Usage - Logging to CloudWatch
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,11 +283,9 @@ class LoggingConfiguration(pulumi.CustomResource):
             ),
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic Usage - Logging to Kinesis Firehose with Extended S3
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,7 +321,6 @@ class LoggingConfiguration(pulumi.CustomResource):
             ),
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

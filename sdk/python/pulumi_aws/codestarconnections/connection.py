@@ -226,7 +226,6 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,7 +264,6 @@ class Connection(pulumi.CustomResource):
             name="tf-test-pipeline",
             role_arn=codepipeline_role["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -295,7 +293,6 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -334,7 +331,6 @@ class Connection(pulumi.CustomResource):
             name="tf-test-pipeline",
             role_arn=codepipeline_role["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

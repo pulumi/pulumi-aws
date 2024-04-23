@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupDomainName(ctx *pulumi.Context, args *LookupDomainNameArgs, opts ...pulumi.InvokeOption) (*LookupDomainNameResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainNameResult

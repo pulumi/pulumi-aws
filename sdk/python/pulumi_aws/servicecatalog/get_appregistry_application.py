@@ -98,14 +98,12 @@ def get_appregistry_application(id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.servicecatalog.get_appregistry_application(id="application-1234")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Application identifier.
@@ -133,14 +131,12 @@ def get_appregistry_application_output(id: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.servicecatalog.get_appregistry_application(id="application-1234")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Application identifier.

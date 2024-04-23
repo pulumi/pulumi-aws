@@ -18,11 +18,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly double? Bitrate;
         /// <summary>
-        /// Mono, Stereo, or 5.1 channel layout.
+        /// Dolby Digital Plus with Dolby Atmos coding mode.
         /// </summary>
         public readonly string? CodingMode;
         /// <summary>
-        /// Sets the dialnorm of the output.
+        /// Sets the dialnorm for the output.
         /// </summary>
         public readonly double? Dialnorm;
         /// <summary>

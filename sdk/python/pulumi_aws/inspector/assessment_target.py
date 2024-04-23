@@ -120,7 +120,6 @@ class AssessmentTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -133,7 +132,6 @@ class AssessmentTarget(pulumi.CustomResource):
             name="assessment target",
             resource_group_arn=bar.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -159,7 +157,6 @@ class AssessmentTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -172,7 +169,6 @@ class AssessmentTarget(pulumi.CustomResource):
             name="assessment target",
             resource_group_arn=bar.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

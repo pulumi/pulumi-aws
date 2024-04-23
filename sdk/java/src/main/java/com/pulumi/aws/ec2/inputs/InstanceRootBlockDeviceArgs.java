@@ -34,14 +34,14 @@ public final class InstanceRootBlockDeviceArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Name of the device to mount.
+     * Device name, e.g., `/dev/sdh` or `xvdh`.
      * 
      */
     @Import(name="deviceName")
     private @Nullable Output<String> deviceName;
 
     /**
-     * @return Name of the device to mount.
+     * @return Device name, e.g., `/dev/sdh` or `xvdh`.
      * 
      */
     public Optional<Output<String>> deviceName() {
@@ -243,7 +243,7 @@ public final class InstanceRootBlockDeviceArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param deviceName Name of the device to mount.
+         * @param deviceName Device name, e.g., `/dev/sdh` or `xvdh`.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class InstanceRootBlockDeviceArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param deviceName Name of the device to mount.
+         * @param deviceName Device name, e.g., `/dev/sdh` or `xvdh`.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> ApplicationIntegrationUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        /// The ARN of the WAF WebACL.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? ApplicationIntegrationUrl { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        /// The ARN of the WAF WebACL.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

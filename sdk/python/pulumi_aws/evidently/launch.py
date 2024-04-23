@@ -438,7 +438,6 @@ class Launch(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -460,11 +459,9 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With description
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -487,11 +484,9 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With multiple groups
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -523,11 +518,9 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With metric_monitors
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -569,11 +562,9 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With randomization_salt
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -596,11 +587,9 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With multiple steps
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -639,11 +628,9 @@ class Launch(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With segment overrides
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -690,7 +677,6 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -733,7 +719,6 @@ class Launch(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -755,11 +740,9 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With description
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -782,11 +765,9 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With multiple groups
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -818,11 +799,9 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With metric_monitors
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -864,11 +843,9 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With randomization_salt
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -891,11 +868,9 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With multiple steps
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -934,11 +909,9 @@ class Launch(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With segment overrides
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -985,7 +958,6 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

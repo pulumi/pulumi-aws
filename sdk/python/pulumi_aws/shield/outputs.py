@@ -160,11 +160,6 @@ class ProactiveEngagementEmergencyContact(dict):
                  email_address: str,
                  contact_notes: Optional[str] = None,
                  phone_number: Optional[str] = None):
-        """
-        :param str email_address: A valid email address that will be used for this contact.
-        :param str contact_notes: Additional notes regarding the contact.
-        :param str phone_number: A phone number, starting with `+` and up to 15 digits that will be used for this contact.
-        """
         pulumi.set(__self__, "email_address", email_address)
         if contact_notes is not None:
             pulumi.set(__self__, "contact_notes", contact_notes)
@@ -174,25 +169,16 @@ class ProactiveEngagementEmergencyContact(dict):
     @property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> str:
-        """
-        A valid email address that will be used for this contact.
-        """
         return pulumi.get(self, "email_address")
 
     @property
     @pulumi.getter(name="contactNotes")
     def contact_notes(self) -> Optional[str]:
-        """
-        Additional notes regarding the contact.
-        """
         return pulumi.get(self, "contact_notes")
 
     @property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> Optional[str]:
-        """
-        A phone number, starting with `+` and up to 15 digits that will be used for this contact.
-        """
         return pulumi.get(self, "phone_number")
 
 

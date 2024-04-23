@@ -998,7 +998,6 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1024,24 +1023,20 @@ class Service(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[foo]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Ignoring Changes to Desired Count
 
         You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example", desired_count=2)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Daemon Scheduling Strategy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1052,11 +1047,9 @@ class Service(pulumi.CustomResource):
             task_definition=bar_aws_ecs_task_definition["arn"],
             scheduling_strategy="DAEMON")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### CloudWatch Deployment Alarms
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1070,11 +1063,9 @@ class Service(pulumi.CustomResource):
                 alarm_names=[example_aws_cloudwatch_metric_alarm["alarmName"]],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### External Deployment Controller
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1086,7 +1077,6 @@ class Service(pulumi.CustomResource):
                 type="EXTERNAL",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1144,7 +1134,6 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1170,24 +1159,20 @@ class Service(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[foo]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Ignoring Changes to Desired Count
 
         You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example", desired_count=2)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Daemon Scheduling Strategy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1198,11 +1183,9 @@ class Service(pulumi.CustomResource):
             task_definition=bar_aws_ecs_task_definition["arn"],
             scheduling_strategy="DAEMON")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### CloudWatch Deployment Alarms
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1216,11 +1199,9 @@ class Service(pulumi.CustomResource):
                 alarm_names=[example_aws_cloudwatch_metric_alarm["alarmName"]],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### External Deployment Controller
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1232,7 +1213,6 @@ class Service(pulumi.CustomResource):
                 type="EXTERNAL",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

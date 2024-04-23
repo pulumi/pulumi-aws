@@ -30,14 +30,14 @@ public final class DistributionLocationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The AWS Region name of the origin resource.
+     * The AWS Region name.
      * 
      */
     @Import(name="regionName", required=true)
     private Output<String> regionName;
 
     /**
-     * @return The AWS Region name of the origin resource.
+     * @return The AWS Region name.
      * 
      */
     public Output<String> regionName() {
@@ -91,7 +91,7 @@ public final class DistributionLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param regionName The AWS Region name of the origin resource.
+         * @param regionName The AWS Region name.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class DistributionLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param regionName The AWS Region name of the origin resource.
+         * @param regionName The AWS Region name.
          * 
          * @return builder
          * 

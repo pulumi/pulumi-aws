@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     instanceId: testAwsConnectInstance.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserHierarchyStructure(args: GetUserHierarchyStructureArgs, opts?: pulumi.InvokeOptions): Promise<GetUserHierarchyStructureResult> {
 
@@ -60,7 +58,6 @@ export interface GetUserHierarchyStructureResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -69,7 +66,6 @@ export interface GetUserHierarchyStructureResult {
  *     instanceId: testAwsConnectInstance.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserHierarchyStructureOutput(args: GetUserHierarchyStructureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserHierarchyStructureResult> {
     return pulumi.output(args).apply((a: any) => getUserHierarchyStructure(a, opts))

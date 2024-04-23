@@ -395,7 +395,7 @@ class ProjectEnvironment(dict):
         """
         :param str compute_type: Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`, `BUILD_LAMBDA_1GB`, `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `compute_type` must be `BUILD_LAMBDA_XGB`.`
         :param str image: Docker image to use for this build project. Valid values include Docker images provided by CodeBuild, and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
-        :param str type: Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
+        :param str type: Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`, `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
         :param str certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
         :param Sequence['ProjectEnvironmentEnvironmentVariableArgs'] environment_variables: Configuration block. Detailed below.
         :param str image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
@@ -436,7 +436,7 @@ class ProjectEnvironment(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
+        Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`, `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
         """
         return pulumi.get(self, "type")
 
@@ -488,9 +488,9 @@ class ProjectEnvironmentEnvironmentVariable(dict):
                  value: str,
                  type: Optional[str] = None):
         """
-        :param str name: Project's name.
+        :param str name: Environment variable's name or key.
         :param str value: Environment variable's value.
-        :param str type: Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+        :param str type: Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -501,7 +501,7 @@ class ProjectEnvironmentEnvironmentVariable(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Project's name.
+        Environment variable's name or key.
         """
         return pulumi.get(self, "name")
 
@@ -517,7 +517,7 @@ class ProjectEnvironmentEnvironmentVariable(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+        Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
         """
         return pulumi.get(self, "type")
 
@@ -731,7 +731,7 @@ class ProjectLogsConfigCloudwatchLogs(dict):
                  stream_name: Optional[str] = None):
         """
         :param str group_name: Group name of the logs in CloudWatch Logs.
-        :param str status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+        :param str status: Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
         :param str stream_name: Prefix of the log stream name of the logs in CloudWatch Logs.
         """
         if group_name is not None:
@@ -753,7 +753,7 @@ class ProjectLogsConfigCloudwatchLogs(dict):
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
-        Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+        Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -794,8 +794,8 @@ class ProjectLogsConfigS3Logs(dict):
                  status: Optional[str] = None):
         """
         :param str bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
-        :param bool encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-        :param str location: Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+        :param bool encryption_disabled: Whether to disable encrypting S3 logs. Defaults to `false`.
+        :param str location: Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
         :param str status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
         """
         if bucket_owner_access is not None:
@@ -819,7 +819,7 @@ class ProjectLogsConfigS3Logs(dict):
     @pulumi.getter(name="encryptionDisabled")
     def encryption_disabled(self) -> Optional[bool]:
         """
-        Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+        Whether to disable encrypting S3 logs. Defaults to `false`.
         """
         return pulumi.get(self, "encryption_disabled")
 
@@ -827,7 +827,7 @@ class ProjectLogsConfigS3Logs(dict):
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+        Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
         """
         return pulumi.get(self, "location")
 

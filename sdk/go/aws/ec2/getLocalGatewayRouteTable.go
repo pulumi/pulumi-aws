@@ -20,7 +20,6 @@ import (
 //
 // # The following example returns a specific local gateway route table ID
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,7 +46,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetLocalGatewayRouteTable(ctx *pulumi.Context, args *GetLocalGatewayRouteTableArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayRouteTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewayRouteTableResult

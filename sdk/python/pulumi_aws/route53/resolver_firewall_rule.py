@@ -331,7 +331,6 @@ class ResolverFirewallRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,7 +353,6 @@ class ResolverFirewallRule(pulumi.CustomResource):
             firewall_rule_group_id=example_resolver_firewall_rule_group.id,
             priority=100)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -387,7 +385,6 @@ class ResolverFirewallRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -410,7 +407,6 @@ class ResolverFirewallRule(pulumi.CustomResource):
             firewall_rule_group_id=example_resolver_firewall_rule_group.id,
             priority=100)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

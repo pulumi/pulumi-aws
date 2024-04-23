@@ -48,14 +48,14 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
     }
 
     /**
-     * Mono, Stereo, or 5.1 channel layout.
+     * Dolby Digital coding mode.
      * 
      */
     @Import(name="codingMode")
     private @Nullable Output<String> codingMode;
 
     /**
-     * @return Mono, Stereo, or 5.1 channel layout.
+     * @return Dolby Digital coding mode.
      * 
      */
     public Optional<Output<String>> codingMode() {
@@ -195,7 +195,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
         }
 
         /**
-         * @param codingMode Mono, Stereo, or 5.1 channel layout.
+         * @param codingMode Dolby Digital coding mode.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
         }
 
         /**
-         * @param codingMode Mono, Stereo, or 5.1 channel layout.
+         * @param codingMode Dolby Digital coding mode.
          * 
          * @return builder
          * 

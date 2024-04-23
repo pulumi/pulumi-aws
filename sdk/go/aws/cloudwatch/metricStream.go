@@ -18,7 +18,6 @@ import (
 //
 // ### Filters
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -199,11 +198,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Additional Statistics
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -255,7 +252,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

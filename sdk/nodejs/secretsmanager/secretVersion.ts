@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Simple String Value
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +22,11 @@ import * as utilities from "../utilities";
  *     secretString: "example-string-to-protect",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Key-Value Pairs
  *
  * Secrets Manager also accepts key-value pairs in JSON.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,7 +41,6 @@ import * as utilities from "../utilities";
  *     secretString: JSON.stringify(example),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Reading key-value pairs from JSON back into a native map
  *

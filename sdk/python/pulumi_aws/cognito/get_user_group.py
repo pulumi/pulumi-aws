@@ -108,7 +108,6 @@ def get_user_group(name: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -116,7 +115,6 @@ def get_user_group(name: Optional[str] = None,
     example = aws.cognito.get_user_group(user_pool_id="us-west-2_aaaaaaaaa",
         name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the user group.
@@ -148,7 +146,6 @@ def get_user_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,7 +153,6 @@ def get_user_group_output(name: Optional[pulumi.Input[str]] = None,
     example = aws.cognito.get_user_group(user_pool_id="us-west-2_aaaaaaaaa",
         name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the user group.

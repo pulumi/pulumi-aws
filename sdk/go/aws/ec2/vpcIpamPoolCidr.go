@@ -23,7 +23,6 @@ import (
 //
 // Basic usage:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,11 +70,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Provision Public IPv6 Pool CIDRs:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,7 +124,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

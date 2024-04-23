@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Filter by AWS account ID
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,11 +38,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter by date range
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,11 +61,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter by destination IPv4 address
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -86,11 +81,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter by finding's confidence
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -108,11 +101,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter by resource tags
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -132,7 +123,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

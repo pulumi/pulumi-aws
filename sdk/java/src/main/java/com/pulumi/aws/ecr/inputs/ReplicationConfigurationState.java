@@ -17,14 +17,14 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
     public static final ReplicationConfigurationState Empty = new ReplicationConfigurationState();
 
     /**
-     * The account ID of the destination registry to replicate to.
+     * The registry ID where the replication configuration was created.
      * 
      */
     @Import(name="registryId")
     private @Nullable Output<String> registryId;
 
     /**
-     * @return The account ID of the destination registry to replicate to.
+     * @return The registry ID where the replication configuration was created.
      * 
      */
     public Optional<Output<String>> registryId() {
@@ -72,7 +72,7 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param registryId The account ID of the destination registry to replicate to.
+         * @param registryId The registry ID where the replication configuration was created.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param registryId The account ID of the destination registry to replicate to.
+         * @param registryId The registry ID where the replication configuration was created.
          * 
          * @return builder
          * 

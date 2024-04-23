@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,14 +38,12 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Subnets In Secondary VPC CIDR Blocks
     /// 
     /// When managing subnets in one of a VPC's secondary CIDR blocks created using a `aws.ec2.VpcIpv4CidrBlockAssociation`
     /// resource, it is recommended to reference that resource's `vpc_id` attribute to ensure correct dependency ordering.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,7 +66,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

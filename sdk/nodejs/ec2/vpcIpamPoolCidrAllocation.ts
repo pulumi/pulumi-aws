@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,11 +35,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleVpcIpamPoolCidr],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * With the `disallowedCidrs` attribute:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,7 +63,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleVpcIpamPoolCidr],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -141,7 +141,6 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -159,7 +158,6 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -199,7 +197,6 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,7 +214,6 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

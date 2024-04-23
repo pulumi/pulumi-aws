@@ -599,7 +599,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -634,7 +633,6 @@ class Application(pulumi.CustomResource):
             auto_bundle_on_deploy="true",
             rails_env="staging")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -675,7 +673,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -710,7 +707,6 @@ class Application(pulumi.CustomResource):
             auto_bundle_on_deploy="true",
             rails_env="staging")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

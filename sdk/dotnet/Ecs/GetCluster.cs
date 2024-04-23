@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:ecs/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:ecs/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

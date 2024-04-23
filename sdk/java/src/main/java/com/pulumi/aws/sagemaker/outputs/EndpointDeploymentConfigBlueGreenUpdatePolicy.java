@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointDeploymentConfigBlueGreenUpdatePolicy {
-    /**
-     * @return Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
-     * 
-     */
     private @Nullable Integer maximumExecutionTimeoutInSeconds;
-    /**
-     * @return Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
-     * 
-     */
     private @Nullable Integer terminationWaitInSeconds;
-    /**
-     * @return Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
-     * 
-     */
     private EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration trafficRoutingConfiguration;
 
     private EndpointDeploymentConfigBlueGreenUpdatePolicy() {}
-    /**
-     * @return Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
-     * 
-     */
     public Optional<Integer> maximumExecutionTimeoutInSeconds() {
         return Optional.ofNullable(this.maximumExecutionTimeoutInSeconds);
     }
-    /**
-     * @return Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
-     * 
-     */
     public Optional<Integer> terminationWaitInSeconds() {
         return Optional.ofNullable(this.terminationWaitInSeconds);
     }
-    /**
-     * @return Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
-     * 
-     */
     public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration trafficRoutingConfiguration() {
         return this.trafficRoutingConfiguration;
     }

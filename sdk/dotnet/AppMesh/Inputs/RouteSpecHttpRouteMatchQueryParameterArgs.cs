@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecHttpRouteMatchQueryParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Criteria for determining an gRPC request match.
+        /// The query parameter to match on.
         /// </summary>
         [Input("match")]
         public Input<Inputs.RouteSpecHttpRouteMatchQueryParameterMatchArgs>? Match { get; set; }
 
         /// <summary>
-        /// Name to use for the route. Must be between 1 and 255 characters in length.
+        /// Name for the query parameter that will be matched on.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

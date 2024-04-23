@@ -123,7 +123,6 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
         ### Basic example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -138,11 +137,9 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
                 )],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Multiple rules
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,7 +163,6 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -194,7 +190,6 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
         ### Basic example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,11 +204,9 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
                 )],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Multiple rules
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,7 +230,6 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

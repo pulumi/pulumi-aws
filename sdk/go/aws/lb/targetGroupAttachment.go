@@ -20,7 +20,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,11 +54,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Lambda Target
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,7 +105,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 

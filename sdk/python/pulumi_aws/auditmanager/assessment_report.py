@@ -178,7 +178,6 @@ class AssessmentReport(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,7 +186,6 @@ class AssessmentReport(pulumi.CustomResource):
             name="example",
             assessment_id=test_aws_auditmanager_assessment["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -218,7 +216,6 @@ class AssessmentReport(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,7 +224,6 @@ class AssessmentReport(pulumi.CustomResource):
             name="example",
             assessment_id=test_aws_auditmanager_assessment["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

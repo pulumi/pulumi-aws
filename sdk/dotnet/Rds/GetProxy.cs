@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetProxyResult> InvokeAsync(GetProxyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProxyResult>("aws:rds/getProxy:getProxy", args ?? new GetProxyArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetProxyResult> Invoke(GetProxyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProxyResult>("aws:rds/getProxy:getProxy", args ?? new GetProxyInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ### Testing Glacier Vault Lock Policy
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,11 +32,9 @@ import * as utilities from "../utilities";
  *     vaultName: exampleVault.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Permanently Applying Glacier Vault Lock Policy
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,7 +45,6 @@ import * as utilities from "../utilities";
  *     vaultName: exampleAwsGlacierVault.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

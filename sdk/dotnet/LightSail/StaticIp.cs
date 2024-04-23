@@ -16,7 +16,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:lightsail/staticIp:StaticIp")]
     public partial class StaticIp : global::Pulumi.CustomResource

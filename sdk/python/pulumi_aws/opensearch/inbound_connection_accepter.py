@@ -88,7 +88,6 @@ class InboundConnectionAccepter(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -109,7 +108,6 @@ class InboundConnectionAccepter(pulumi.CustomResource):
             ))
         foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("foo", connection_id=foo.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -136,7 +134,6 @@ class InboundConnectionAccepter(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -157,7 +154,6 @@ class InboundConnectionAccepter(pulumi.CustomResource):
             ))
         foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("foo", connection_id=foo.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

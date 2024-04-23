@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge {
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig errorHandlingConfig;
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     private String object;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge() {}
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     public String object() {
         return this.object;
     }

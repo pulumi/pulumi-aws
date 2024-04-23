@@ -17,7 +17,6 @@ import (
 //
 // The following shows outputting all SVM IDs for a given FSx ONTAP File System.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetOntapStorageVirtualMachines(ctx *pulumi.Context, args *GetOntapStorageVirtualMachinesArgs, opts ...pulumi.InvokeOption) (*GetOntapStorageVirtualMachinesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOntapStorageVirtualMachinesResult

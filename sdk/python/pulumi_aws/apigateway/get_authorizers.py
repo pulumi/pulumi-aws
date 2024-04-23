@@ -72,14 +72,12 @@ def get_authorizers(rest_api_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.apigateway.get_authorizers(rest_api_id=example_aws_api_gateway_rest_api["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str rest_api_id: ID of the associated REST API.
@@ -103,14 +101,12 @@ def get_authorizers_output(rest_api_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.apigateway.get_authorizers(rest_api_id=example_aws_api_gateway_rest_api["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str rest_api_id: ID of the associated REST API.

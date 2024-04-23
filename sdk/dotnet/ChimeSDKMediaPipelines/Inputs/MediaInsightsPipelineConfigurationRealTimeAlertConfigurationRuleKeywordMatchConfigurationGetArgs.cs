@@ -14,25 +14,15 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
     {
         [Input("keywords", required: true)]
         private InputList<string>? _keywords;
-
-        /// <summary>
-        /// Collection of keywords to match.
-        /// </summary>
         public InputList<string> Keywords
         {
             get => _keywords ?? (_keywords = new InputList<string>());
             set => _keywords = value;
         }
 
-        /// <summary>
-        /// Negate the rule.
-        /// </summary>
         [Input("negate")]
         public Input<bool>? Negate { get; set; }
 
-        /// <summary>
-        /// Rule name.
-        /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 

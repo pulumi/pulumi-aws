@@ -424,7 +424,6 @@ class Trust(pulumi.CustomResource):
 
         ### Two-Way Trust
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -448,11 +447,9 @@ class Trust(pulumi.CustomResource):
             trust_password="Some0therPassword",
             conditional_forwarder_ip_addrs=one_directory.dns_ip_addresses)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### One-Way Trust
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -476,7 +473,6 @@ class Trust(pulumi.CustomResource):
             trust_password="Some0therPassword",
             conditional_forwarder_ip_addrs=one_directory.dns_ip_addresses)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -525,7 +521,6 @@ class Trust(pulumi.CustomResource):
 
         ### Two-Way Trust
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -549,11 +544,9 @@ class Trust(pulumi.CustomResource):
             trust_password="Some0therPassword",
             conditional_forwarder_ip_addrs=one_directory.dns_ip_addresses)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### One-Way Trust
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -577,7 +570,6 @@ class Trust(pulumi.CustomResource):
             trust_password="Some0therPassword",
             conditional_forwarder_ip_addrs=one_directory.dns_ip_addresses)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

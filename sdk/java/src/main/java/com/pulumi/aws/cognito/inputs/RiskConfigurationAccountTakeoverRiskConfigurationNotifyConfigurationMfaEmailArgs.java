@@ -14,47 +14,23 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
 
     public static final RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs Empty = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs();
 
-    /**
-     * The email HTML body.
-     * 
-     */
     @Import(name="htmlBody", required=true)
     private Output<String> htmlBody;
 
-    /**
-     * @return The email HTML body.
-     * 
-     */
     public Output<String> htmlBody() {
         return this.htmlBody;
     }
 
-    /**
-     * The email subject.
-     * 
-     */
     @Import(name="subject", required=true)
     private Output<String> subject;
 
-    /**
-     * @return The email subject.
-     * 
-     */
     public Output<String> subject() {
         return this.subject;
     }
 
-    /**
-     * The email text body.
-     * 
-     */
     @Import(name="textBody", required=true)
     private Output<String> textBody;
 
-    /**
-     * @return The email text body.
-     * 
-     */
     public Output<String> textBody() {
         return this.textBody;
     }
@@ -85,65 +61,29 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
             $ = new RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param htmlBody The email HTML body.
-         * 
-         * @return builder
-         * 
-         */
         public Builder htmlBody(Output<String> htmlBody) {
             $.htmlBody = htmlBody;
             return this;
         }
 
-        /**
-         * @param htmlBody The email HTML body.
-         * 
-         * @return builder
-         * 
-         */
         public Builder htmlBody(String htmlBody) {
             return htmlBody(Output.of(htmlBody));
         }
 
-        /**
-         * @param subject The email subject.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subject(Output<String> subject) {
             $.subject = subject;
             return this;
         }
 
-        /**
-         * @param subject The email subject.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subject(String subject) {
             return subject(Output.of(subject));
         }
 
-        /**
-         * @param textBody The email text body.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textBody(Output<String> textBody) {
             $.textBody = textBody;
             return this;
         }
 
-        /**
-         * @param textBody The email text body.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textBody(String textBody) {
             return textBody(Output.of(textBody));
         }

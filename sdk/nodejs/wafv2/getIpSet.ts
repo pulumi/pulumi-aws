@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     scope: "REGIONAL",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIpSet(args: GetIpSetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpSetResult> {
 
@@ -76,7 +74,6 @@ export interface GetIpSetResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -86,7 +83,6 @@ export interface GetIpSetResult {
  *     scope: "REGIONAL",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIpSetOutput(args: GetIpSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpSetResult> {
     return pulumi.output(args).apply((a: any) => getIpSet(a, opts))

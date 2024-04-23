@@ -149,14 +149,12 @@ def get_framework(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.backup.get_framework(name="my_example_backup_framework_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Backup framework name.
@@ -189,14 +187,12 @@ def get_framework_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.backup.get_framework(name="my_example_backup_framework_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Backup framework name.

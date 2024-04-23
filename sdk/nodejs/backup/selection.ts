@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,11 +42,9 @@ import * as utilities from "../utilities";
  * });
  * const exampleSelection = new aws.backup.Selection("example", {iamRoleArn: example.arn});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Selecting Backups By Tag
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,11 +60,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Selecting Backups By Conditions
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -97,11 +92,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Selecting Backups By Resource
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -117,11 +110,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Selecting Backups By Not Resource
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -137,7 +128,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

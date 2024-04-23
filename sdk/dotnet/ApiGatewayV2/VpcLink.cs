@@ -17,7 +17,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

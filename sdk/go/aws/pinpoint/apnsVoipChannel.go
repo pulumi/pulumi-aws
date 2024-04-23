@@ -17,7 +17,6 @@ import (
 // > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,7 +59,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

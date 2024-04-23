@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,21 +42,19 @@ namespace Pulumi.Aws.Eks
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example_AmazonEKSWorkerNodePolicy, 
-    ///             example_AmazonEKSCNIPolicy, 
-    ///             example_AmazonEC2ContainerRegistryReadOnly, 
+    ///             example_AmazonEKSWorkerNodePolicy,
+    ///             example_AmazonEKSCNIPolicy,
+    ///             example_AmazonEC2ContainerRegistryReadOnly,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Ignoring Changes to Desired Size
     /// 
     /// You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,11 +73,9 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Example IAM Role for EKS Node Group
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -131,11 +126,9 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Example Subnets for EKS Node Group
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -168,7 +161,6 @@ namespace Pulumi.Aws.Eks
     ///     }
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

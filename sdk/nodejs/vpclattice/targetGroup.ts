@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,11 +28,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Basic usage with Health check
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,13 +61,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### ALB
  *
  * If the type is ALB, `healthCheck` block is not supported.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -86,13 +81,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Lambda
  *
  * If the type is Lambda, `config` block is not supported.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -102,7 +95,6 @@ import * as utilities from "../utilities";
  *     type: "LAMBDA",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

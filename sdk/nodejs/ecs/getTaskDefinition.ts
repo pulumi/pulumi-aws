@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,7 +44,6 @@ import * as utilities from "../utilities";
  *     taskDefinition: mongo.apply(mongo => mongo.arn),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
 
@@ -113,7 +111,6 @@ export interface GetTaskDefinitionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -148,7 +145,6 @@ export interface GetTaskDefinitionResult {
  *     taskDefinition: mongo.apply(mongo => mongo.arn),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTaskDefinitionOutput(args: GetTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getTaskDefinition(a, opts))

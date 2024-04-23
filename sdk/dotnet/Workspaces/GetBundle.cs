@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Workspaces
         /// 
         /// ### By ID
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,11 +33,9 @@ namespace Pulumi.Aws.Workspaces
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### By Owner &amp; Name
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,7 +52,6 @@ namespace Pulumi.Aws.Workspaces
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBundleResult> InvokeAsync(GetBundleArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBundleResult>("aws:workspaces/getBundle:getBundle", args ?? new GetBundleArgs(), options.WithDefaults());
@@ -67,7 +63,6 @@ namespace Pulumi.Aws.Workspaces
         /// 
         /// ### By ID
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -83,11 +78,9 @@ namespace Pulumi.Aws.Workspaces
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### By Owner &amp; Name
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -104,7 +97,6 @@ namespace Pulumi.Aws.Workspaces
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBundleResult> Invoke(GetBundleInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBundleResult>("aws:workspaces/getBundle:getBundle", args ?? new GetBundleInvokeArgs(), options.WithDefaults());

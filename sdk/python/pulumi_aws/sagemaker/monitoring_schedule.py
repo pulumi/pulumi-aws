@@ -178,7 +178,6 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -190,7 +189,6 @@ class MonitoringSchedule(pulumi.CustomResource):
                 monitoring_type="DataQuality",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -219,7 +217,6 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,7 +228,6 @@ class MonitoringSchedule(pulumi.CustomResource):
                 monitoring_type="DataQuality",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

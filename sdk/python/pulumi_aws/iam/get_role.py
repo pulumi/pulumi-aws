@@ -184,14 +184,12 @@ def get_role(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_role(name="an_example_role_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Friendly IAM role name to match.
@@ -229,14 +227,12 @@ def get_role_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_role(name="an_example_role_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Friendly IAM role name to match.

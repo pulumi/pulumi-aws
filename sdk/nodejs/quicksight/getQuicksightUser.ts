@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     userName: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getQuicksightUser(args: GetQuicksightUserArgs, opts?: pulumi.InvokeOptions): Promise<GetQuicksightUserResult> {
 
@@ -99,7 +97,6 @@ export interface GetQuicksightUserResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -108,7 +105,6 @@ export interface GetQuicksightUserResult {
  *     userName: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getQuicksightUserOutput(args: GetQuicksightUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuicksightUserResult> {
     return pulumi.output(args).apply((a: any) => getQuicksightUser(a, opts))

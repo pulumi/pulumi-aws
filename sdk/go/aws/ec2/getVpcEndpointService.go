@@ -18,7 +18,6 @@ import (
 //
 // ### AWS Service
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,11 +58,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Non-AWS Service
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,11 +84,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Filter
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -122,7 +117,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupVpcEndpointService(ctx *pulumi.Context, args *LookupVpcEndpointServiceArgs, opts ...pulumi.InvokeOption) (*LookupVpcEndpointServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcEndpointServiceResult

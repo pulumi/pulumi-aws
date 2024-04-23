@@ -234,7 +234,6 @@ class ThingGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,7 +255,6 @@ class ThingGroup(pulumi.CustomResource):
                 "managed": "true",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -284,7 +282,6 @@ class ThingGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -306,7 +303,6 @@ class ThingGroup(pulumi.CustomResource):
                 "managed": "true",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

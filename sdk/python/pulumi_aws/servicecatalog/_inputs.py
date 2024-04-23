@@ -128,8 +128,8 @@ class ProvisionedProductOutputArgs:
                  value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] description: The description of the output.
-        :param pulumi.Input[str] key: Parameter key.
-        :param pulumi.Input[str] value: Parameter value.
+        :param pulumi.Input[str] key: The output key.
+        :param pulumi.Input[str] value: The output value.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -154,7 +154,7 @@ class ProvisionedProductOutputArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        Parameter key.
+        The output key.
         """
         return pulumi.get(self, "key")
 
@@ -166,7 +166,7 @@ class ProvisionedProductOutputArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        Parameter value.
+        The output value.
         """
         return pulumi.get(self, "value")
 

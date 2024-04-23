@@ -12,45 +12,24 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// A name for the associated Amazon S3 bucket.
-        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// The object key for the destination bucket in which Amazon AppFlow places the files.
-        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
-        /// <summary>
-        /// The unique ID that's assigned to an Amazon Redshift cluster.
-        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM role that permits AppFlow to access the database through Data API.
-        /// </summary>
         [Input("dataApiRoleArn")]
         public Input<string>? DataApiRoleArn { get; set; }
 
-        /// <summary>
-        /// The name of an Amazon Redshift database.
-        /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
-        /// <summary>
-        /// The JDBC URL of the Amazon Redshift cluster.
-        /// </summary>
         [Input("databaseUrl")]
         public Input<string>? DatabaseUrl { get; set; }
 
-        /// <summary>
-        /// ARN of the IAM role.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

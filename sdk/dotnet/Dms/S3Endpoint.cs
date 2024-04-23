@@ -22,7 +22,6 @@ namespace Pulumi.Aws.Dms
     /// 
     /// This is the minimal configuration for an `aws.dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,17 +40,15 @@ namespace Pulumi.Aws.Dms
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsIamRolePolicy, 
+    ///             exampleAwsIamRolePolicy,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Complete Configuration
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -116,13 +113,12 @@ namespace Pulumi.Aws.Dms
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsIamRolePolicy, 
+    ///             exampleAwsIamRolePolicy,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

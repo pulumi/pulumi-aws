@@ -15,152 +15,72 @@ public final class ProfileShippingAddressArgs extends com.pulumi.resources.Resou
 
     public static final ProfileShippingAddressArgs Empty = new ProfileShippingAddressArgs();
 
-    /**
-     * The first line of a customer address.
-     * 
-     */
     @Import(name="address1")
     private @Nullable Output<String> address1;
 
-    /**
-     * @return The first line of a customer address.
-     * 
-     */
     public Optional<Output<String>> address1() {
         return Optional.ofNullable(this.address1);
     }
 
-    /**
-     * The second line of a customer address.
-     * 
-     */
     @Import(name="address2")
     private @Nullable Output<String> address2;
 
-    /**
-     * @return The second line of a customer address.
-     * 
-     */
     public Optional<Output<String>> address2() {
         return Optional.ofNullable(this.address2);
     }
 
-    /**
-     * The third line of a customer address.
-     * 
-     */
     @Import(name="address3")
     private @Nullable Output<String> address3;
 
-    /**
-     * @return The third line of a customer address.
-     * 
-     */
     public Optional<Output<String>> address3() {
         return Optional.ofNullable(this.address3);
     }
 
-    /**
-     * The fourth line of a customer address.
-     * 
-     */
     @Import(name="address4")
     private @Nullable Output<String> address4;
 
-    /**
-     * @return The fourth line of a customer address.
-     * 
-     */
     public Optional<Output<String>> address4() {
         return Optional.ofNullable(this.address4);
     }
 
-    /**
-     * The city in which a customer lives.
-     * 
-     */
     @Import(name="city")
     private @Nullable Output<String> city;
 
-    /**
-     * @return The city in which a customer lives.
-     * 
-     */
     public Optional<Output<String>> city() {
         return Optional.ofNullable(this.city);
     }
 
-    /**
-     * The country in which a customer lives.
-     * 
-     */
     @Import(name="country")
     private @Nullable Output<String> country;
 
-    /**
-     * @return The country in which a customer lives.
-     * 
-     */
     public Optional<Output<String>> country() {
         return Optional.ofNullable(this.country);
     }
 
-    /**
-     * The county in which a customer lives.
-     * 
-     */
     @Import(name="county")
     private @Nullable Output<String> county;
 
-    /**
-     * @return The county in which a customer lives.
-     * 
-     */
     public Optional<Output<String>> county() {
         return Optional.ofNullable(this.county);
     }
 
-    /**
-     * The postal code of a customer address.
-     * 
-     */
     @Import(name="postalCode")
     private @Nullable Output<String> postalCode;
 
-    /**
-     * @return The postal code of a customer address.
-     * 
-     */
     public Optional<Output<String>> postalCode() {
         return Optional.ofNullable(this.postalCode);
     }
 
-    /**
-     * The province in which a customer lives.
-     * 
-     */
     @Import(name="province")
     private @Nullable Output<String> province;
 
-    /**
-     * @return The province in which a customer lives.
-     * 
-     */
     public Optional<Output<String>> province() {
         return Optional.ofNullable(this.province);
     }
 
-    /**
-     * The state in which a customer lives.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return The state in which a customer lives.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
@@ -198,212 +118,92 @@ public final class ProfileShippingAddressArgs extends com.pulumi.resources.Resou
             $ = new ProfileShippingAddressArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param address1 The first line of a customer address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address1(@Nullable Output<String> address1) {
             $.address1 = address1;
             return this;
         }
 
-        /**
-         * @param address1 The first line of a customer address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address1(String address1) {
             return address1(Output.of(address1));
         }
 
-        /**
-         * @param address2 The second line of a customer address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address2(@Nullable Output<String> address2) {
             $.address2 = address2;
             return this;
         }
 
-        /**
-         * @param address2 The second line of a customer address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address2(String address2) {
             return address2(Output.of(address2));
         }
 
-        /**
-         * @param address3 The third line of a customer address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address3(@Nullable Output<String> address3) {
             $.address3 = address3;
             return this;
         }
 
-        /**
-         * @param address3 The third line of a customer address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address3(String address3) {
             return address3(Output.of(address3));
         }
 
-        /**
-         * @param address4 The fourth line of a customer address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address4(@Nullable Output<String> address4) {
             $.address4 = address4;
             return this;
         }
 
-        /**
-         * @param address4 The fourth line of a customer address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address4(String address4) {
             return address4(Output.of(address4));
         }
 
-        /**
-         * @param city The city in which a customer lives.
-         * 
-         * @return builder
-         * 
-         */
         public Builder city(@Nullable Output<String> city) {
             $.city = city;
             return this;
         }
 
-        /**
-         * @param city The city in which a customer lives.
-         * 
-         * @return builder
-         * 
-         */
         public Builder city(String city) {
             return city(Output.of(city));
         }
 
-        /**
-         * @param country The country in which a customer lives.
-         * 
-         * @return builder
-         * 
-         */
         public Builder country(@Nullable Output<String> country) {
             $.country = country;
             return this;
         }
 
-        /**
-         * @param country The country in which a customer lives.
-         * 
-         * @return builder
-         * 
-         */
         public Builder country(String country) {
             return country(Output.of(country));
         }
 
-        /**
-         * @param county The county in which a customer lives.
-         * 
-         * @return builder
-         * 
-         */
         public Builder county(@Nullable Output<String> county) {
             $.county = county;
             return this;
         }
 
-        /**
-         * @param county The county in which a customer lives.
-         * 
-         * @return builder
-         * 
-         */
         public Builder county(String county) {
             return county(Output.of(county));
         }
 
-        /**
-         * @param postalCode The postal code of a customer address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postalCode(@Nullable Output<String> postalCode) {
             $.postalCode = postalCode;
             return this;
         }
 
-        /**
-         * @param postalCode The postal code of a customer address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder postalCode(String postalCode) {
             return postalCode(Output.of(postalCode));
         }
 
-        /**
-         * @param province The province in which a customer lives.
-         * 
-         * @return builder
-         * 
-         */
         public Builder province(@Nullable Output<String> province) {
             $.province = province;
             return this;
         }
 
-        /**
-         * @param province The province in which a customer lives.
-         * 
-         * @return builder
-         * 
-         */
         public Builder province(String province) {
             return province(Output.of(province));
         }
 
-        /**
-         * @param state The state in which a customer lives.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state The state in which a customer lives.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }

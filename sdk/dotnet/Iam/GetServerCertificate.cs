@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -49,7 +48,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServerCertificateResult> InvokeAsync(GetServerCertificateArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? new GetServerCertificateArgs(), options.WithDefaults());
@@ -59,7 +57,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -92,7 +89,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServerCertificateResult> Invoke(GetServerCertificateInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? new GetServerCertificateInvokeArgs(), options.WithDefaults());

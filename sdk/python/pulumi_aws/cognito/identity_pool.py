@@ -378,7 +378,6 @@ class IdentityPool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -410,7 +409,6 @@ class IdentityPool(pulumi.CustomResource):
             saml_provider_arns=[default.arn],
             openid_connect_provider_arns=["arn:aws:iam::123456789012:oidc-provider/id.example.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -444,7 +442,6 @@ class IdentityPool(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -476,7 +473,6 @@ class IdentityPool(pulumi.CustomResource):
             saml_provider_arns=[default.arn],
             openid_connect_provider_arns=["arn:aws:iam::123456789012:oidc-provider/id.example.com"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

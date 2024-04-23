@@ -19,7 +19,6 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEnvironmentsResult> InvokeAsync(GetEnvironmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentsResult>("aws:appconfig/getEnvironments:getEnvironments", args ?? new GetEnvironmentsArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEnvironmentsResult> Invoke(GetEnvironmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentsResult>("aws:appconfig/getEnvironments:getEnvironments", args ?? new GetEnvironmentsInvokeArgs(), options.WithDefaults());

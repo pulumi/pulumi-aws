@@ -272,7 +272,6 @@ class CloudFormationStack(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,7 +290,6 @@ class CloudFormationStack(pulumi.CustomResource):
                 "endpoint": f"secretsmanager.{current_get_region.name}.{current.dns_suffix}",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -321,7 +319,6 @@ class CloudFormationStack(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -340,7 +337,6 @@ class CloudFormationStack(pulumi.CustomResource):
                 "endpoint": f"secretsmanager.{current_get_region.name}.{current.dns_suffix}",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

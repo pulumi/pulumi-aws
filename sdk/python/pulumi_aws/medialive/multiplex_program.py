@@ -147,7 +147,6 @@ class MultiplexProgram(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +179,6 @@ class MultiplexProgram(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -211,7 +209,6 @@ class MultiplexProgram(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,7 +241,6 @@ class MultiplexProgram(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -226,7 +226,6 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,11 +236,9 @@ class Workspace(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### CloudWatch Logging
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,11 +248,9 @@ class Workspace(pulumi.CustomResource):
             log_group_arn=example.arn.apply(lambda arn: f"{arn}:*"),
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS KMS Customer Managed Keys (CMK)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -267,7 +262,6 @@ class Workspace(pulumi.CustomResource):
             alias="example",
             kms_key_arn=example_key.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -295,7 +289,6 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -306,11 +299,9 @@ class Workspace(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### CloudWatch Logging
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -320,11 +311,9 @@ class Workspace(pulumi.CustomResource):
             log_group_arn=example.arn.apply(lambda arn: f"{arn}:*"),
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS KMS Customer Managed Keys (CMK)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -336,7 +325,6 @@ class Workspace(pulumi.CustomResource):
             alias="example",
             kms_key_arn=example_key.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

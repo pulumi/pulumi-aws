@@ -375,7 +375,6 @@ class CompositeAlarm(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -394,7 +393,6 @@ class CompositeAlarm(pulumi.CustomResource):
                 wait_period=20,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -429,7 +427,6 @@ class CompositeAlarm(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -448,7 +445,6 @@ class CompositeAlarm(pulumi.CustomResource):
                 wait_period=20,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

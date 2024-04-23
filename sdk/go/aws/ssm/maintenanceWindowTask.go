@@ -18,7 +18,6 @@ import (
 //
 // ### Automation Tasks
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,11 +67,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Lambda Tasks
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -122,11 +119,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Run Command Tasks
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -186,11 +181,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Step Function Tasks
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -233,7 +226,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

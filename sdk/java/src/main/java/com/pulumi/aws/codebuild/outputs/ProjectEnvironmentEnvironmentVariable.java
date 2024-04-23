@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProjectEnvironmentEnvironmentVariable {
     /**
-     * @return Project&#39;s name.
+     * @return Environment variable&#39;s name or key.
      * 
      */
     private String name;
     /**
-     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+     * @return Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
      * 
      */
     private @Nullable String type;
@@ -30,14 +30,14 @@ public final class ProjectEnvironmentEnvironmentVariable {
 
     private ProjectEnvironmentEnvironmentVariable() {}
     /**
-     * @return Project&#39;s name.
+     * @return Environment variable&#39;s name or key.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+     * @return Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
      * 
      */
     public Optional<String> type() {

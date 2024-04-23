@@ -453,7 +453,6 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -464,7 +463,6 @@ class MaintenanceWindow(pulumi.CustomResource):
             duration=3,
             cutoff=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -500,7 +498,6 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -511,7 +508,6 @@ class MaintenanceWindow(pulumi.CustomResource):
             duration=3,
             cutoff=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

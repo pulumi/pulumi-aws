@@ -721,7 +721,6 @@ class Gateway(pulumi.CustomResource):
 
         ### Local Cache
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -736,11 +735,9 @@ class Gateway(pulumi.CustomResource):
             disk_id=test.disk_id,
             gateway_arn=test_aws_storagegateway_gateway["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### FSx File Gateway
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -756,11 +753,9 @@ class Gateway(pulumi.CustomResource):
                 username="Admin",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 File Gateway
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -771,11 +766,9 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="FILE_S3")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Tape Gateway
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -788,11 +781,9 @@ class Gateway(pulumi.CustomResource):
             medium_changer_type="AWS-Gateway-VTL",
             tape_drive_type="IBM-ULT3580-TD5")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Volume Gateway (Cached)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -803,11 +794,9 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="CACHED")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Volume Gateway (Stored)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -818,7 +807,6 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="STORED")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -864,7 +852,6 @@ class Gateway(pulumi.CustomResource):
 
         ### Local Cache
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -879,11 +866,9 @@ class Gateway(pulumi.CustomResource):
             disk_id=test.disk_id,
             gateway_arn=test_aws_storagegateway_gateway["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### FSx File Gateway
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -899,11 +884,9 @@ class Gateway(pulumi.CustomResource):
                 username="Admin",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 File Gateway
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -914,11 +897,9 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="FILE_S3")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Tape Gateway
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -931,11 +912,9 @@ class Gateway(pulumi.CustomResource):
             medium_changer_type="AWS-Gateway-VTL",
             tape_drive_type="IBM-ULT3580-TD5")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Volume Gateway (Cached)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -946,11 +925,9 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="CACHED")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Volume Gateway (Stored)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -961,7 +938,6 @@ class Gateway(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="STORED")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

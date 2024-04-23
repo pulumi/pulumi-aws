@@ -106,7 +106,6 @@ class ListenerCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -118,7 +117,6 @@ class ListenerCertificate(pulumi.CustomResource):
             listener_arn=front_end_listener.arn,
             certificate_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -148,7 +146,6 @@ class ListenerCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,7 +157,6 @@ class ListenerCertificate(pulumi.CustomResource):
             listener_arn=front_end_listener.arn,
             certificate_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

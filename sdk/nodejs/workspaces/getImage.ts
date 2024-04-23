@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     imageId: "wsi-ten5h0y19",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
 
@@ -70,7 +68,6 @@ export interface GetImageResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,7 +76,6 @@ export interface GetImageResult {
  *     imageId: "wsi-ten5h0y19",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
     return pulumi.output(args).apply((a: any) => getImage(a, opts))

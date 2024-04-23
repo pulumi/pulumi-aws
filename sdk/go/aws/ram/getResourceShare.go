@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,11 +39,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Search by filters
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,7 +73,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupResourceShare(ctx *pulumi.Context, args *LookupResourceShareArgs, opts ...pulumi.InvokeOption) (*LookupResourceShareResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceShareResult
@@ -91,7 +87,7 @@ func LookupResourceShare(ctx *pulumi.Context, args *LookupResourceShareArgs, opt
 type LookupResourceShareArgs struct {
 	// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
 	Filters []GetResourceShareFilter `pulumi:"filters"`
-	// Name of the tag key to filter on.
+	// Name of the resource share to retrieve.
 	Name *string `pulumi:"name"`
 	// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
 	ResourceOwner string `pulumi:"resourceOwner"`
@@ -138,7 +134,7 @@ func LookupResourceShareOutput(ctx *pulumi.Context, args LookupResourceShareOutp
 type LookupResourceShareOutputArgs struct {
 	// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
 	Filters GetResourceShareFilterArrayInput `pulumi:"filters"`
-	// Name of the tag key to filter on.
+	// Name of the resource share to retrieve.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
 	ResourceOwner pulumi.StringInput `pulumi:"resourceOwner"`

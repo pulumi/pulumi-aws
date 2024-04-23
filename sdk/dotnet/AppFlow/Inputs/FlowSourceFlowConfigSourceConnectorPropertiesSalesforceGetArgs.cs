@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-        /// </summary>
         [Input("enableDynamicFieldUpdate")]
         public Input<bool>? EnableDynamicFieldUpdate { get; set; }
 
-        /// <summary>
-        /// Whether Amazon AppFlow includes deleted files in the flow run.
-        /// </summary>
         [Input("includeDeletedRecords")]
         public Input<bool>? IncludeDeletedRecords { get; set; }
 
-        /// <summary>
-        /// Object specified in the flow destination.
-        /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 

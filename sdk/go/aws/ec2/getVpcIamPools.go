@@ -19,7 +19,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,7 +55,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Deprecated: aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools
 func GetVpcIamPools(ctx *pulumi.Context, args *GetVpcIamPoolsArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolsResult, error) {

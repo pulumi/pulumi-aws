@@ -360,17 +360,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:cloudfront/distribution:Distribution")
 public class Distribution extends com.pulumi.resources.CustomResource {
-    /**
-     * Extra CNAMEs (alternate domain names), if any, for this distribution.
-     * 
-     */
     @Export(name="aliases", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> aliases;
 
-    /**
-     * @return Extra CNAMEs (alternate domain names), if any, for this distribution.
-     * 
-     */
     public Output<Optional<List<String>>> aliases() {
         return Codegen.optional(this.aliases);
     }
@@ -402,99 +394,59 @@ public class Distribution extends com.pulumi.resources.CustomResource {
     public Output<String> callerReference() {
         return this.callerReference;
     }
-    /**
-     * Any comments you want to include about the distribution.
-     * 
-     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
-    /**
-     * @return Any comments you want to include about the distribution.
-     * 
-     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-     * 
-     */
     @Export(name="continuousDeploymentPolicyId", refs={String.class}, tree="[0]")
     private Output<String> continuousDeploymentPolicyId;
 
-    /**
-     * @return Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-     * 
-     */
     public Output<String> continuousDeploymentPolicyId() {
         return this.continuousDeploymentPolicyId;
     }
-    /**
-     * One or more custom error response elements (multiples allowed).
-     * 
-     */
     @Export(name="customErrorResponses", refs={List.class,DistributionCustomErrorResponse.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DistributionCustomErrorResponse>> customErrorResponses;
 
-    /**
-     * @return One or more custom error response elements (multiples allowed).
-     * 
-     */
     public Output<Optional<List<DistributionCustomErrorResponse>>> customErrorResponses() {
         return Codegen.optional(this.customErrorResponses);
     }
-    /**
-     * Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
-     * 
-     */
     @Export(name="defaultCacheBehavior", refs={DistributionDefaultCacheBehavior.class}, tree="[0]")
     private Output<DistributionDefaultCacheBehavior> defaultCacheBehavior;
 
-    /**
-     * @return Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
-     * 
-     */
     public Output<DistributionDefaultCacheBehavior> defaultCacheBehavior() {
         return this.defaultCacheBehavior;
     }
-    /**
-     * Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
-     * 
-     */
     @Export(name="defaultRootObject", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultRootObject;
 
-    /**
-     * @return Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
-     * 
-     */
     public Output<Optional<String>> defaultRootObject() {
         return Codegen.optional(this.defaultRootObject);
     }
     /**
-     * DNS domain name of either the S3 bucket, or web site of your custom origin.
+     * Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
-     * @return DNS domain name of either the S3 bucket, or web site of your custom origin.
+     * @return Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
      * 
      */
     public Output<String> domainName() {
         return this.domainName;
     }
     /**
-     * Whether Origin Shield is enabled.
+     * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
-     * @return Whether Origin Shield is enabled.
+     * @return `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
     public Output<Boolean> enabled() {
@@ -528,17 +480,9 @@ public class Distribution extends com.pulumi.resources.CustomResource {
     public Output<String> hostedZoneId() {
         return this.hostedZoneId;
     }
-    /**
-     * Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
-     * 
-     */
     @Export(name="httpVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpVersion;
 
-    /**
-     * @return Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
-     * 
-     */
     public Output<Optional<String>> httpVersion() {
         return Codegen.optional(this.httpVersion);
     }
@@ -556,17 +500,9 @@ public class Distribution extends com.pulumi.resources.CustomResource {
     public Output<Integer> inProgressValidationBatches() {
         return this.inProgressValidationBatches;
     }
-    /**
-     * Whether the IPv6 is enabled for the distribution.
-     * 
-     */
     @Export(name="isIpv6Enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isIpv6Enabled;
 
-    /**
-     * @return Whether the IPv6 is enabled for the distribution.
-     * 
-     */
     public Output<Optional<Boolean>> isIpv6Enabled() {
         return Codegen.optional(this.isIpv6Enabled);
     }
@@ -584,115 +520,51 @@ public class Distribution extends com.pulumi.resources.CustomResource {
     public Output<String> lastModifiedTime() {
         return this.lastModifiedTime;
     }
-    /**
-     * The logging configuration that controls how logs are written to your distribution (maximum one).
-     * 
-     */
     @Export(name="loggingConfig", refs={DistributionLoggingConfig.class}, tree="[0]")
     private Output</* @Nullable */ DistributionLoggingConfig> loggingConfig;
 
-    /**
-     * @return The logging configuration that controls how logs are written to your distribution (maximum one).
-     * 
-     */
     public Output<Optional<DistributionLoggingConfig>> loggingConfig() {
         return Codegen.optional(this.loggingConfig);
     }
-    /**
-     * Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
-     * 
-     */
     @Export(name="orderedCacheBehaviors", refs={List.class,DistributionOrderedCacheBehavior.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DistributionOrderedCacheBehavior>> orderedCacheBehaviors;
 
-    /**
-     * @return Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
-     * 
-     */
     public Output<Optional<List<DistributionOrderedCacheBehavior>>> orderedCacheBehaviors() {
         return Codegen.optional(this.orderedCacheBehaviors);
     }
-    /**
-     * One or more origin_group for this distribution (multiples allowed).
-     * 
-     */
     @Export(name="originGroups", refs={List.class,DistributionOriginGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DistributionOriginGroup>> originGroups;
 
-    /**
-     * @return One or more origin_group for this distribution (multiples allowed).
-     * 
-     */
     public Output<Optional<List<DistributionOriginGroup>>> originGroups() {
         return Codegen.optional(this.originGroups);
     }
-    /**
-     * One or more origins for this distribution (multiples allowed).
-     * 
-     */
     @Export(name="origins", refs={List.class,DistributionOrigin.class}, tree="[0,1]")
     private Output<List<DistributionOrigin>> origins;
 
-    /**
-     * @return One or more origins for this distribution (multiples allowed).
-     * 
-     */
     public Output<List<DistributionOrigin>> origins() {
         return this.origins;
     }
-    /**
-     * Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
-     * 
-     */
     @Export(name="priceClass", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> priceClass;
 
-    /**
-     * @return Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
-     * 
-     */
     public Output<Optional<String>> priceClass() {
         return Codegen.optional(this.priceClass);
     }
-    /**
-     * The restriction configuration for this distribution (maximum one).
-     * 
-     */
     @Export(name="restrictions", refs={DistributionRestrictions.class}, tree="[0]")
     private Output<DistributionRestrictions> restrictions;
 
-    /**
-     * @return The restriction configuration for this distribution (maximum one).
-     * 
-     */
     public Output<DistributionRestrictions> restrictions() {
         return this.restrictions;
     }
-    /**
-     * Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
-     * 
-     */
     @Export(name="retainOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> retainOnDelete;
 
-    /**
-     * @return Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
-     * 
-     */
     public Output<Optional<Boolean>> retainOnDelete() {
         return Codegen.optional(this.retainOnDelete);
     }
-    /**
-     * A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
-     * 
-     */
     @Export(name="staging", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> staging;
 
-    /**
-     * @return A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> staging() {
         return Codegen.optional(this.staging);
     }
@@ -710,17 +582,9 @@ public class Distribution extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -743,72 +607,48 @@ public class Distribution extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      * 
      */
     @Export(name="trustedKeyGroups", refs={List.class,DistributionTrustedKeyGroup.class}, tree="[0,1]")
     private Output<List<DistributionTrustedKeyGroup>> trustedKeyGroups;
 
     /**
-     * @return List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * @return List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      * 
      */
     public Output<List<DistributionTrustedKeyGroup>> trustedKeyGroups() {
         return this.trustedKeyGroups;
     }
     /**
-     * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
      * 
      */
     @Export(name="trustedSigners", refs={List.class,DistributionTrustedSigner.class}, tree="[0,1]")
     private Output<List<DistributionTrustedSigner>> trustedSigners;
 
     /**
-     * @return List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * @return List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
      * 
      */
     public Output<List<DistributionTrustedSigner>> trustedSigners() {
         return this.trustedSigners;
     }
-    /**
-     * The SSL configuration for this distribution (maximum one).
-     * 
-     */
     @Export(name="viewerCertificate", refs={DistributionViewerCertificate.class}, tree="[0]")
     private Output<DistributionViewerCertificate> viewerCertificate;
 
-    /**
-     * @return The SSL configuration for this distribution (maximum one).
-     * 
-     */
     public Output<DistributionViewerCertificate> viewerCertificate() {
         return this.viewerCertificate;
     }
-    /**
-     * If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
-     * 
-     */
     @Export(name="waitForDeployment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> waitForDeployment;
 
-    /**
-     * @return If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
-     * 
-     */
     public Output<Optional<Boolean>> waitForDeployment() {
         return Codegen.optional(this.waitForDeployment);
     }
-    /**
-     * Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
-     * 
-     */
     @Export(name="webAclId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> webAclId;
 
-    /**
-     * @return Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
-     * 
-     */
     public Output<Optional<String>> webAclId() {
         return Codegen.optional(this.webAclId);
     }

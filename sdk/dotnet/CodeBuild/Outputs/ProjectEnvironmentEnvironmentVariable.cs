@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CodeBuild.Outputs
     public sealed class ProjectEnvironmentEnvironmentVariable
     {
         /// <summary>
-        /// Project's name.
+        /// Environment variable's name or key.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+        /// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
         /// </summary>
         public readonly string? Type;
         /// <summary>

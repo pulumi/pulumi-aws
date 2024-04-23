@@ -14,7 +14,6 @@ namespace Pulumi.Aws.AppIntegrations
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.AppIntegrations
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

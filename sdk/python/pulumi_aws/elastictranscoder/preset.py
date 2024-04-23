@@ -377,7 +377,6 @@ class Preset(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -437,7 +436,6 @@ class Preset(pulumi.CustomResource):
                 sizing_policy="Fit",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -470,7 +468,6 @@ class Preset(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -530,7 +527,6 @@ class Preset(pulumi.CustomResource):
                 sizing_policy="Fit",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -18,7 +18,6 @@ import (
 //
 // ### Connectivity and HTTP Status Code Check
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,11 +49,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Connectivity and String Matching Check
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,11 +81,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Aggregate Check
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -119,11 +114,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### CloudWatch Alarm Check
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -165,7 +158,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

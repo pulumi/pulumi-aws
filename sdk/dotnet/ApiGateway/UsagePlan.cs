@@ -54,14 +54,11 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> ProductCode { get; private set; } = null!;
 
         /// <summary>
-        /// The quota settings of the usage plan.
+        /// Quota of the usage plan.
         /// </summary>
         [Output("quotaSettings")]
         public Output<Outputs.UsagePlanQuotaSettings?> QuotaSettings { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -72,7 +69,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The throttling limits of the usage plan.
+        /// Throttling limits of the usage plan.
         /// </summary>
         [Output("throttleSettings")]
         public Output<Outputs.UsagePlanThrottleSettings?> ThrottleSettings { get; private set; } = null!;
@@ -154,17 +151,13 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? ProductCode { get; set; }
 
         /// <summary>
-        /// The quota settings of the usage plan.
+        /// Quota of the usage plan.
         /// </summary>
         [Input("quotaSettings")]
         public Input<Inputs.UsagePlanQuotaSettingsArgs>? QuotaSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -172,7 +165,7 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The throttling limits of the usage plan.
+        /// Throttling limits of the usage plan.
         /// </summary>
         [Input("throttleSettings")]
         public Input<Inputs.UsagePlanThrottleSettingsArgs>? ThrottleSettings { get; set; }
@@ -222,17 +215,13 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? ProductCode { get; set; }
 
         /// <summary>
-        /// The quota settings of the usage plan.
+        /// Quota of the usage plan.
         /// </summary>
         [Input("quotaSettings")]
         public Input<Inputs.UsagePlanQuotaSettingsGetArgs>? QuotaSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -253,7 +242,7 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The throttling limits of the usage plan.
+        /// Throttling limits of the usage plan.
         /// </summary>
         [Input("throttleSettings")]
         public Input<Inputs.UsagePlanThrottleSettingsGetArgs>? ThrottleSettings { get; set; }

@@ -16,65 +16,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector {
-    /**
-     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey apiKey;
-    /**
-     * @return The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
-     * 
-     */
     private String authenticationType;
-    /**
-     * @return Basic credentials that are required for the authentication of the user.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic basic;
-    /**
-     * @return If the connector uses the custom authentication mechanism, this holds the required credentials.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom custom;
-    /**
-     * @return OAuth 2.0 credentials required for the authentication of the user.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 oauth2;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector() {}
-    /**
-     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
-    /**
-     * @return The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
-     * 
-     */
     public String authenticationType() {
         return this.authenticationType;
     }
-    /**
-     * @return Basic credentials that are required for the authentication of the user.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic> basic() {
         return Optional.ofNullable(this.basic);
     }
-    /**
-     * @return If the connector uses the custom authentication mechanism, this holds the required credentials.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom> custom() {
         return Optional.ofNullable(this.custom);
     }
-    /**
-     * @return OAuth 2.0 credentials required for the authentication of the user.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2> oauth2() {
         return Optional.ofNullable(this.oauth2);
     }

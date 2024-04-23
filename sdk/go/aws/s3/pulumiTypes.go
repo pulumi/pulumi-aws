@@ -823,8 +823,6 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) OutputSch
 
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestination struct {
 	// Analytics data export currently only supports an S3 bucket destination (documented below).
-	//
-	// The `s3BucketDestination` configuration supports the following:
 	S3BucketDestination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination `pulumi:"s3BucketDestination"`
 }
 
@@ -841,8 +839,6 @@ type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationInput interf
 
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs struct {
 	// Analytics data export currently only supports an S3 bucket destination (documented below).
-	//
-	// The `s3BucketDestination` configuration supports the following:
 	S3BucketDestination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationInput `pulumi:"s3BucketDestination"`
 }
 
@@ -924,8 +920,6 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) T
 }
 
 // Analytics data export currently only supports an S3 bucket destination (documented below).
-//
-// The `s3BucketDestination` configuration supports the following:
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) S3BucketDestination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExportDestination) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
 		return v.S3BucketDestination
@@ -957,8 +951,6 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput
 }
 
 // Analytics data export currently only supports an S3 bucket destination (documented below).
-//
-// The `s3BucketDestination` configuration supports the following:
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput) S3BucketDestination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExportDestination) *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
 		if v == nil {
@@ -1435,7 +1427,6 @@ func (o BucketAclV2AccessControlPolicyGrantArrayOutput) Index(i pulumi.IntInput)
 }
 
 type BucketAclV2AccessControlPolicyGrantGrantee struct {
-	// Display name of the owner.
 	DisplayName *string `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -1459,7 +1450,6 @@ type BucketAclV2AccessControlPolicyGrantGranteeInput interface {
 }
 
 type BucketAclV2AccessControlPolicyGrantGranteeArgs struct {
-	// Display name of the owner.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -1548,7 +1538,6 @@ func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) ToBucketAclV2AccessCon
 	}).(BucketAclV2AccessControlPolicyGrantGranteePtrOutput)
 }
 
-// Display name of the owner.
 func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclV2AccessControlPolicyGrantGrantee) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
@@ -1597,7 +1586,6 @@ func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) Elem() BucketAclV2A
 	}).(BucketAclV2AccessControlPolicyGrantGranteeOutput)
 }
 
-// Display name of the owner.
 func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclV2AccessControlPolicyGrantGrantee) *string {
 		if v == nil {
@@ -1946,16 +1934,11 @@ func (o BucketCorsConfigurationV2CorsRuleArrayOutput) Index(i pulumi.IntInput) B
 }
 
 type BucketCorsRule struct {
-	// Specifies which headers are allowed.
 	AllowedHeaders []string `pulumi:"allowedHeaders"`
-	// Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
 	AllowedMethods []string `pulumi:"allowedMethods"`
-	// Specifies which origins are allowed.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
-	// Specifies expose header in the response.
-	ExposeHeaders []string `pulumi:"exposeHeaders"`
-	// Specifies time in seconds that browser can cache the response for a preflight request.
-	MaxAgeSeconds *int `pulumi:"maxAgeSeconds"`
+	ExposeHeaders  []string `pulumi:"exposeHeaders"`
+	MaxAgeSeconds  *int     `pulumi:"maxAgeSeconds"`
 }
 
 // BucketCorsRuleInput is an input type that accepts BucketCorsRuleArgs and BucketCorsRuleOutput values.
@@ -1970,16 +1953,11 @@ type BucketCorsRuleInput interface {
 }
 
 type BucketCorsRuleArgs struct {
-	// Specifies which headers are allowed.
 	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
-	// Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
 	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
-	// Specifies which origins are allowed.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-	// Specifies expose header in the response.
-	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
-	// Specifies time in seconds that browser can cache the response for a preflight request.
-	MaxAgeSeconds pulumi.IntPtrInput `pulumi:"maxAgeSeconds"`
+	ExposeHeaders  pulumi.StringArrayInput `pulumi:"exposeHeaders"`
+	MaxAgeSeconds  pulumi.IntPtrInput      `pulumi:"maxAgeSeconds"`
 }
 
 func (BucketCorsRuleArgs) ElementType() reflect.Type {
@@ -2033,27 +2011,22 @@ func (o BucketCorsRuleOutput) ToBucketCorsRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Specifies which headers are allowed.
 func (o BucketCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BucketCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
 }
 
-// Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
 func (o BucketCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BucketCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
-// Specifies which origins are allowed.
 func (o BucketCorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BucketCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
-// Specifies expose header in the response.
 func (o BucketCorsRuleOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BucketCorsRule) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
 }
 
-// Specifies time in seconds that browser can cache the response for a preflight request.
 func (o BucketCorsRuleOutput) MaxAgeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketCorsRule) *int { return v.MaxAgeSeconds }).(pulumi.IntPtrOutput)
 }
@@ -9496,9 +9469,7 @@ func (o BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects
 }
 
 type BucketReplicationConfiguration struct {
-	// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-	Role string `pulumi:"role"`
-	// Specifies the rules managing the replication (documented below).
+	Role  string                               `pulumi:"role"`
 	Rules []BucketReplicationConfigurationRule `pulumi:"rules"`
 }
 
@@ -9514,9 +9485,7 @@ type BucketReplicationConfigurationInput interface {
 }
 
 type BucketReplicationConfigurationArgs struct {
-	// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-	Role pulumi.StringInput `pulumi:"role"`
-	// Specifies the rules managing the replication (documented below).
+	Role  pulumi.StringInput                           `pulumi:"role"`
 	Rules BucketReplicationConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
@@ -9597,12 +9566,10 @@ func (o BucketReplicationConfigurationOutput) ToBucketReplicationConfigurationPt
 	}).(BucketReplicationConfigurationPtrOutput)
 }
 
-// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 func (o BucketReplicationConfigurationOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfiguration) string { return v.Role }).(pulumi.StringOutput)
 }
 
-// Specifies the rules managing the replication (documented below).
 func (o BucketReplicationConfigurationOutput) Rules() BucketReplicationConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v BucketReplicationConfiguration) []BucketReplicationConfigurationRule { return v.Rules }).(BucketReplicationConfigurationRuleArrayOutput)
 }
@@ -9631,7 +9598,6 @@ func (o BucketReplicationConfigurationPtrOutput) Elem() BucketReplicationConfigu
 	}).(BucketReplicationConfigurationOutput)
 }
 
-// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 func (o BucketReplicationConfigurationPtrOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketReplicationConfiguration) *string {
 		if v == nil {
@@ -9641,7 +9607,6 @@ func (o BucketReplicationConfigurationPtrOutput) Role() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the rules managing the replication (documented below).
 func (o BucketReplicationConfigurationPtrOutput) Rules() BucketReplicationConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v *BucketReplicationConfiguration) []BucketReplicationConfigurationRule {
 		if v == nil {

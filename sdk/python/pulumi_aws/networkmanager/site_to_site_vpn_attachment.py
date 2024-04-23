@@ -311,7 +311,6 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -320,7 +319,6 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             vpn_connection_arn=example_aws_vpn_connection["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -351,7 +349,6 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -360,7 +357,6 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             vpn_connection_arn=example_aws_vpn_connection["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

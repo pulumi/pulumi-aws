@@ -157,14 +157,14 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+     * The current state of the trigger.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+     * @return The current state of the trigger.
      * 
      */
     public Optional<Output<String>> state() {
@@ -486,7 +486,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+         * @param state The current state of the trigger.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class TriggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+         * @param state The current state of the trigger.
          * 
          * @return builder
          * 

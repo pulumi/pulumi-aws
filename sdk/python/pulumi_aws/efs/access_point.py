@@ -237,14 +237,12 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.efs.AccessPoint("test", file_system_id=foo["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -272,14 +270,12 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.efs.AccessPoint("test", file_system_id=foo["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

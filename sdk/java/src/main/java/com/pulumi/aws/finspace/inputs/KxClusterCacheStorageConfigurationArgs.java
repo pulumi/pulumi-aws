@@ -15,23 +15,9 @@ public final class KxClusterCacheStorageConfigurationArgs extends com.pulumi.res
 
     public static final KxClusterCacheStorageConfigurationArgs Empty = new KxClusterCacheStorageConfigurationArgs();
 
-    /**
-     * Size of cache in Gigabytes.
-     * 
-     * Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
-     * volume of data being cached, as noted in the example configuration.
-     * 
-     */
     @Import(name="size", required=true)
     private Output<Integer> size;
 
-    /**
-     * @return Size of cache in Gigabytes.
-     * 
-     * Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
-     * volume of data being cached, as noted in the example configuration.
-     * 
-     */
     public Output<Integer> size() {
         return this.size;
     }
@@ -86,29 +72,11 @@ public final class KxClusterCacheStorageConfigurationArgs extends com.pulumi.res
             $ = new KxClusterCacheStorageConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param size Size of cache in Gigabytes.
-         * 
-         * Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
-         * volume of data being cached, as noted in the example configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Output<Integer> size) {
             $.size = size;
             return this;
         }
 
-        /**
-         * @param size Size of cache in Gigabytes.
-         * 
-         * Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
-         * volume of data being cached, as noted in the example configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder size(Integer size) {
             return size(Output.of(size));
         }

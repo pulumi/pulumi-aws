@@ -32,7 +32,6 @@ import (
 //
 // The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,7 +95,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Global Tables
 //
@@ -104,7 +102,6 @@ import (
 //
 // > **Note:** dynamodb.TableReplica is an alternate way of configuring Global Tables. Do not use `replica` configuration blocks of `dynamodb.Table` together with aws_dynamodb_table_replica.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -146,13 +143,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Replica Tagging
 //
 // You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `dynamodb.Tag` resource for the other.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -229,7 +224,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

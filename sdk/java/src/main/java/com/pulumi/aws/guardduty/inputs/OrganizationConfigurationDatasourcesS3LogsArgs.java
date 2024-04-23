@@ -15,14 +15,14 @@ public final class OrganizationConfigurationDatasourcesS3LogsArgs extends com.pu
     public static final OrganizationConfigurationDatasourcesS3LogsArgs Empty = new OrganizationConfigurationDatasourcesS3LogsArgs();
 
     /**
-     * *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
      * 
      */
     @Import(name="autoEnable", required=true)
     private Output<Boolean> autoEnable;
 
     /**
-     * @return *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * @return Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
      * 
      */
     public Output<Boolean> autoEnable() {
@@ -54,7 +54,7 @@ public final class OrganizationConfigurationDatasourcesS3LogsArgs extends com.pu
         }
 
         /**
-         * @param autoEnable *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+         * @param autoEnable Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class OrganizationConfigurationDatasourcesS3LogsArgs extends com.pu
         }
 
         /**
-         * @param autoEnable *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+         * @param autoEnable Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
          * 
          * @return builder
          * 

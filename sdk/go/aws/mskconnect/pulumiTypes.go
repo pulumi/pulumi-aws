@@ -2172,7 +2172,7 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput) Enabled() pulumi
 type ConnectorLogDeliveryWorkerLogDeliveryS3 struct {
 	// The name of the S3 bucket that is the destination for log delivery.
 	Bucket *string `pulumi:"bucket"`
-	// Whether log delivery to Amazon CloudWatch Logs is enabled.
+	// Specifies whether connector logs get sent to the specified Amazon S3 destination.
 	Enabled bool `pulumi:"enabled"`
 	// The S3 prefix that is the destination for log delivery.
 	Prefix *string `pulumi:"prefix"`
@@ -2192,7 +2192,7 @@ type ConnectorLogDeliveryWorkerLogDeliveryS3Input interface {
 type ConnectorLogDeliveryWorkerLogDeliveryS3Args struct {
 	// The name of the S3 bucket that is the destination for log delivery.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// Whether log delivery to Amazon CloudWatch Logs is enabled.
+	// Specifies whether connector logs get sent to the specified Amazon S3 destination.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The S3 prefix that is the destination for log delivery.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -2280,7 +2280,7 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryS3Output) Bucket() pulumi.StringPtr
 	return o.ApplyT(func(v ConnectorLogDeliveryWorkerLogDeliveryS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// Whether log delivery to Amazon CloudWatch Logs is enabled.
+// Specifies whether connector logs get sent to the specified Amazon S3 destination.
 func (o ConnectorLogDeliveryWorkerLogDeliveryS3Output) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ConnectorLogDeliveryWorkerLogDeliveryS3) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2324,7 +2324,7 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput) Bucket() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether log delivery to Amazon CloudWatch Logs is enabled.
+// Specifies whether connector logs get sent to the specified Amazon S3 destination.
 func (o ConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConnectorLogDeliveryWorkerLogDeliveryS3) *bool {
 		if v == nil {
@@ -2796,11 +2796,8 @@ func (o CustomPluginLocationPtrOutput) S3() CustomPluginLocationS3PtrOutput {
 }
 
 type CustomPluginLocationS3 struct {
-	// The Amazon Resource Name (ARN) of an S3 bucket.
-	BucketArn string `pulumi:"bucketArn"`
-	// The file key for an object in an S3 bucket.
-	FileKey string `pulumi:"fileKey"`
-	// The version of an object in an S3 bucket.
+	BucketArn     string  `pulumi:"bucketArn"`
+	FileKey       string  `pulumi:"fileKey"`
 	ObjectVersion *string `pulumi:"objectVersion"`
 }
 
@@ -2816,11 +2813,8 @@ type CustomPluginLocationS3Input interface {
 }
 
 type CustomPluginLocationS3Args struct {
-	// The Amazon Resource Name (ARN) of an S3 bucket.
-	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// The file key for an object in an S3 bucket.
-	FileKey pulumi.StringInput `pulumi:"fileKey"`
-	// The version of an object in an S3 bucket.
+	BucketArn     pulumi.StringInput    `pulumi:"bucketArn"`
+	FileKey       pulumi.StringInput    `pulumi:"fileKey"`
 	ObjectVersion pulumi.StringPtrInput `pulumi:"objectVersion"`
 }
 
@@ -2901,17 +2895,14 @@ func (o CustomPluginLocationS3Output) ToCustomPluginLocationS3PtrOutputWithConte
 	}).(CustomPluginLocationS3PtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of an S3 bucket.
 func (o CustomPluginLocationS3Output) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomPluginLocationS3) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// The file key for an object in an S3 bucket.
 func (o CustomPluginLocationS3Output) FileKey() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomPluginLocationS3) string { return v.FileKey }).(pulumi.StringOutput)
 }
 
-// The version of an object in an S3 bucket.
 func (o CustomPluginLocationS3Output) ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPluginLocationS3) *string { return v.ObjectVersion }).(pulumi.StringPtrOutput)
 }
@@ -2940,7 +2931,6 @@ func (o CustomPluginLocationS3PtrOutput) Elem() CustomPluginLocationS3Output {
 	}).(CustomPluginLocationS3Output)
 }
 
-// The Amazon Resource Name (ARN) of an S3 bucket.
 func (o CustomPluginLocationS3PtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPluginLocationS3) *string {
 		if v == nil {
@@ -2950,7 +2940,6 @@ func (o CustomPluginLocationS3PtrOutput) BucketArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The file key for an object in an S3 bucket.
 func (o CustomPluginLocationS3PtrOutput) FileKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPluginLocationS3) *string {
 		if v == nil {
@@ -2960,7 +2949,6 @@ func (o CustomPluginLocationS3PtrOutput) FileKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of an object in an S3 bucket.
 func (o CustomPluginLocationS3PtrOutput) ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPluginLocationS3) *string {
 		if v == nil {

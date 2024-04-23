@@ -21,7 +21,7 @@ public final class AnalyticsApplicationReferenceDataSourcesS3 {
      */
     private String fileKey;
     /**
-     * @return The ARN of the IAM Role used to send application messages.
+     * @return The IAM Role ARN to read the data.
      * 
      */
     private String roleArn;
@@ -42,7 +42,7 @@ public final class AnalyticsApplicationReferenceDataSourcesS3 {
         return this.fileKey;
     }
     /**
-     * @return The ARN of the IAM Role used to send application messages.
+     * @return The IAM Role ARN to read the data.
      * 
      */
     public String roleArn() {

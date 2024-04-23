@@ -207,7 +207,6 @@ class Instance(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,18 +217,15 @@ class Instance(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With `fips_enabled`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Instance("example", fips_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -258,7 +254,6 @@ class Instance(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,18 +264,15 @@ class Instance(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With `fips_enabled`
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Instance("example", fips_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

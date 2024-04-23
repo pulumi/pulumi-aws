@@ -16,7 +16,6 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,13 +40,11 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Access Policy
     /// 
     /// &gt; See also: `aws.elasticsearch.DomainPolicy` resource
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,11 +86,9 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Log Publishing to CloudWatch Logs
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -159,11 +154,9 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### VPC based ES
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -281,13 +274,12 @@ namespace Pulumi.Aws.ElasticSearch
     ///     {
     ///         DependsOn =
     ///         {
-    ///             esServiceLinkedRole, 
+    ///             esServiceLinkedRole,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -73,14 +73,12 @@ def get_delegated_services(account_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.organizations.get_delegated_services(account_id="AWS ACCOUNT ID")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_id: Account ID number of a delegated administrator account in the organization.
@@ -104,14 +102,12 @@ def get_delegated_services_output(account_id: Optional[pulumi.Input[str]] = None
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.organizations.get_delegated_services(account_id="AWS ACCOUNT ID")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str account_id: Account ID number of a delegated administrator account in the organization.

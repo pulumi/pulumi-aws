@@ -17,7 +17,6 @@ import (
 //
 // The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetLocalGateways(ctx *pulumi.Context, args *GetLocalGatewaysArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewaysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewaysResult

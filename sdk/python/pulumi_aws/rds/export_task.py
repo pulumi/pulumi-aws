@@ -429,7 +429,6 @@ class ExportTask(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -441,11 +440,9 @@ class ExportTask(pulumi.CustomResource):
             iam_role_arn=example_aws_iam_role["arn"],
             kms_key_id=example_aws_kms_key["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Complete Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -521,7 +518,6 @@ class ExportTask(pulumi.CustomResource):
             export_onlies=["database"],
             s3_prefix="my_prefix/example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -556,7 +552,6 @@ class ExportTask(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -568,11 +563,9 @@ class ExportTask(pulumi.CustomResource):
             iam_role_arn=example_aws_iam_role["arn"],
             kms_key_id=example_aws_kms_key["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Complete Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -648,7 +641,6 @@ class ExportTask(pulumi.CustomResource):
             export_onlies=["database"],
             s3_prefix="my_prefix/example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -84,7 +84,6 @@ def get_user_pools(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -97,7 +96,6 @@ def get_user_pools(name: Optional[str] = None,
         rest_api=selected.id,
         provider_arns=selected_get_user_pools.arns)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
@@ -122,7 +120,6 @@ def get_user_pools_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -135,7 +132,6 @@ def get_user_pools_output(name: Optional[pulumi.Input[str]] = None,
         rest_api=selected.id,
         provider_arns=selected_get_user_pools.arns)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```

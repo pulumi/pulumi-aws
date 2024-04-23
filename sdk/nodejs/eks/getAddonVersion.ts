@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,7 +34,6 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAddonVersion(args: GetAddonVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonVersionResult> {
 
@@ -87,7 +85,6 @@ export interface GetAddonVersionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,7 +110,6 @@ export interface GetAddonVersionResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAddonVersionOutput(args: GetAddonVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonVersionResult> {
     return pulumi.output(args).apply((a: any) => getAddonVersion(a, opts))

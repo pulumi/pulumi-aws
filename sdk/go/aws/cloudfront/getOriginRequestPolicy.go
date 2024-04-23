@@ -15,7 +15,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,13 +38,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### AWS-Managed Policies
 //
 // AWS managed origin request policy names are prefixed with `Managed-`:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,7 +66,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupOriginRequestPolicy(ctx *pulumi.Context, args *LookupOriginRequestPolicyArgs, opts ...pulumi.InvokeOption) (*LookupOriginRequestPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOriginRequestPolicyResult

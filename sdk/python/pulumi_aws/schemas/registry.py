@@ -177,7 +177,6 @@ class Registry(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,7 +185,6 @@ class Registry(pulumi.CustomResource):
             name="my_own_registry",
             description="A custom schema registry")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -215,7 +213,6 @@ class Registry(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -224,7 +221,6 @@ class Registry(pulumi.CustomResource):
             name="my_own_registry",
             description="A custom schema registry")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

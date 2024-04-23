@@ -74,20 +74,17 @@ def get_supported_instance_types(release_label: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.emr.get_supported_instance_types(release_label="ebs-6.15.0")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### With a Lifecycle Pre-Condition
 
     This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -101,7 +98,6 @@ def get_supported_instance_types(release_label: Optional[str] = None,
             instance_type=instance_type,
         ))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str release_label: Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
@@ -130,20 +126,17 @@ def get_supported_instance_types_output(release_label: Optional[pulumi.Input[str
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.emr.get_supported_instance_types(release_label="ebs-6.15.0")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### With a Lifecycle Pre-Condition
 
     This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -157,7 +150,6 @@ def get_supported_instance_types_output(release_label: Optional[pulumi.Input[str
             instance_type=instance_type,
         ))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str release_label: Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).

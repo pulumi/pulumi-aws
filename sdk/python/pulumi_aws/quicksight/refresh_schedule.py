@@ -196,7 +196,6 @@ class RefreshSchedule(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -211,11 +210,9 @@ class RefreshSchedule(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Weekly Refresh
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,11 +232,9 @@ class RefreshSchedule(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Monthly Refresh
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,7 +254,6 @@ class RefreshSchedule(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -291,7 +285,6 @@ class RefreshSchedule(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -306,11 +299,9 @@ class RefreshSchedule(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Weekly Refresh
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -330,11 +321,9 @@ class RefreshSchedule(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Monthly Refresh
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,7 +343,6 @@ class RefreshSchedule(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

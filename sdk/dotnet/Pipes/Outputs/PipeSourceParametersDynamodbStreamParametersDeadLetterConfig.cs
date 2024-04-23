@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeSourceParametersDynamodbStreamParametersDeadLetterConfig
     {
         /// <summary>
-        /// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+        /// ARN of this pipe.
         /// </summary>
         public readonly string? Arn;
 

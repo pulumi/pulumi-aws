@@ -318,7 +318,6 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,13 +326,11 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
             file_system_id=test_aws_fsx_ontap_file_system["id"],
             name="test")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using a Self-Managed Microsoft Active Directory
 
         Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,7 +351,6 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -387,7 +383,6 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -396,13 +391,11 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
             file_system_id=test_aws_fsx_ontap_file_system["id"],
             name="test")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using a Self-Managed Microsoft Active Directory
 
         Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -423,7 +416,6 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

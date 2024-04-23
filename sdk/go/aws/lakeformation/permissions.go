@@ -29,7 +29,6 @@ import (
 //
 // This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `createDatabaseDefaultPermissions` and `createTableDefaultPermissions` are not set in the `lakeformation.DataLakeSettings` resource, they are cleared.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,7 +66,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
 //
@@ -84,7 +82,6 @@ import (
 //
 // AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -140,7 +137,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
 //
@@ -160,7 +156,6 @@ import (
 //
 // ### Grant Permissions For A Lake Formation S3 Resource
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -190,11 +185,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Grant Permissions For A Glue Catalog Database
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -227,11 +220,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Grant Permissions Using Tag-Based Access Control
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -278,7 +269,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type Permissions struct {
 	pulumi.CustomResourceState
 

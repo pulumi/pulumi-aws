@@ -297,7 +297,6 @@ class FargateProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -311,11 +310,9 @@ class FargateProfile(pulumi.CustomResource):
                 namespace="example",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example IAM Role for EKS Fargate Profile
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -337,7 +334,6 @@ class FargateProfile(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
             role=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -369,7 +365,6 @@ class FargateProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -383,11 +378,9 @@ class FargateProfile(pulumi.CustomResource):
                 namespace="example",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example IAM Role for EKS Fargate Profile
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -409,7 +402,6 @@ class FargateProfile(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
             role=example.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

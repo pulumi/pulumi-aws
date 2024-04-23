@@ -162,7 +162,6 @@ def get_server_certificate(latest: Optional[bool] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -179,7 +178,6 @@ def get_server_certificate(latest: Optional[bool] = None,
             ssl_certificate_id=my_domain.arn,
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool latest: sort results by expiration date. returns the certificate with expiration date in furthest in the future.
@@ -220,7 +218,6 @@ def get_server_certificate_output(latest: Optional[pulumi.Input[Optional[bool]]]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -237,7 +234,6 @@ def get_server_certificate_output(latest: Optional[pulumi.Input[Optional[bool]]]
             ssl_certificate_id=my_domain.arn,
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool latest: sort results by expiration date. returns the certificate with expiration date in furthest in the future.

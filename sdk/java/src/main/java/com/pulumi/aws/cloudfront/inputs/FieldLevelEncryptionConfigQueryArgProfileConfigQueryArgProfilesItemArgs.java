@@ -14,32 +14,16 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
 
     public static final FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs Empty = new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs();
 
-    /**
-     * The profile ID for a field-level encryption content type-profile mapping.
-     * 
-     */
     @Import(name="profileId", required=true)
     private Output<String> profileId;
 
-    /**
-     * @return The profile ID for a field-level encryption content type-profile mapping.
-     * 
-     */
     public Output<String> profileId() {
         return this.profileId;
     }
 
-    /**
-     * Query argument for field-level encryption query argument-profile mapping.
-     * 
-     */
     @Import(name="queryArg", required=true)
     private Output<String> queryArg;
 
-    /**
-     * @return Query argument for field-level encryption query argument-profile mapping.
-     * 
-     */
     public Output<String> queryArg() {
         return this.queryArg;
     }
@@ -69,44 +53,20 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
             $ = new FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param profileId The profile ID for a field-level encryption content type-profile mapping.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileId(Output<String> profileId) {
             $.profileId = profileId;
             return this;
         }
 
-        /**
-         * @param profileId The profile ID for a field-level encryption content type-profile mapping.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileId(String profileId) {
             return profileId(Output.of(profileId));
         }
 
-        /**
-         * @param queryArg Query argument for field-level encryption query argument-profile mapping.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryArg(Output<String> queryArg) {
             $.queryArg = queryArg;
             return this;
         }
 
-        /**
-         * @param queryArg Query argument for field-level encryption query argument-profile mapping.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryArg(String queryArg) {
             return queryArg(Output.of(queryArg));
         }

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * To register a basic SWF domain:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     workflowExecutionRetentionPeriodInDays: "30",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

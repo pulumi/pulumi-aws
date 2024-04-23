@@ -14,10 +14,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
     {
         [Input("accessToken")]
         private Input<string>? _accessToken;
-
-        /// <summary>
-        /// The access token used to access the connector on your behalf.
-        /// </summary>
         public Input<string>? AccessToken
         {
             get => _accessToken;
@@ -28,15 +24,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
             }
         }
 
-        /// <summary>
-        /// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-        /// </summary>
         [Input("oauthRequest")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs>? OauthRequest { get; set; }
 
-        /// <summary>
-        /// The refresh token used to refresh an expired access token.
-        /// </summary>
         [Input("refreshToken")]
         public Input<string>? RefreshToken { get; set; }
 

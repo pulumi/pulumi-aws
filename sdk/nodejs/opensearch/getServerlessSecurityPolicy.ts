@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     type: "encryption",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServerlessSecurityPolicy(args: GetServerlessSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessSecurityPolicyResult> {
 
@@ -80,7 +78,6 @@ export interface GetServerlessSecurityPolicyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,7 +87,6 @@ export interface GetServerlessSecurityPolicyResult {
  *     type: "encryption",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServerlessSecurityPolicyOutput(args: GetServerlessSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessSecurityPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServerlessSecurityPolicy(a, opts))

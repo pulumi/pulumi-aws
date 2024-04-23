@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### By Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +25,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### By Identifier
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,7 +36,6 @@ import * as utilities from "../utilities";
  *     id: "tgw-attach-12345678",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcAttachment(args?: GetVpcAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentResult> {
     args = args || {};
@@ -119,7 +115,6 @@ export interface GetVpcAttachmentResult {
  *
  * ### By Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -131,11 +126,9 @@ export interface GetVpcAttachmentResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### By Identifier
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -144,7 +137,6 @@ export interface GetVpcAttachmentResult {
  *     id: "tgw-attach-12345678",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVpcAttachmentOutput(args?: GetVpcAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getVpcAttachment(a, opts))

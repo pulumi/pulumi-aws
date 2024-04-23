@@ -621,7 +621,6 @@ class ServerlessCache(pulumi.CustomResource):
 
         ### Memcached Serverless
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -644,11 +643,9 @@ class ServerlessCache(pulumi.CustomResource):
             security_group_ids=[test_aws_security_group["id"]],
             subnet_ids=[__item["id"] for __item in test_aws_subnet])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Redis Serverless
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -673,7 +670,6 @@ class ServerlessCache(pulumi.CustomResource):
             security_group_ids=[test_aws_security_group["id"]],
             subnet_ids=[__item["id"] for __item in test_aws_subnet])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -715,7 +711,6 @@ class ServerlessCache(pulumi.CustomResource):
 
         ### Memcached Serverless
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -738,11 +733,9 @@ class ServerlessCache(pulumi.CustomResource):
             security_group_ids=[test_aws_security_group["id"]],
             subnet_ids=[__item["id"] for __item in test_aws_subnet])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Redis Serverless
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -767,7 +760,6 @@ class ServerlessCache(pulumi.CustomResource):
             security_group_ids=[test_aws_security_group["id"]],
             subnet_ids=[__item["id"] for __item in test_aws_subnet])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

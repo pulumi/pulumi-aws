@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetPortfolioConstraints(ctx *pulumi.Context, args *GetPortfolioConstraintsArgs, opts ...pulumi.InvokeOption) (*GetPortfolioConstraintsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPortfolioConstraintsResult

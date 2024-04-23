@@ -750,7 +750,6 @@ class OntapFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -765,7 +764,6 @@ class OntapFileSystem(pulumi.CustomResource):
             throughput_capacity=512,
             preferred_subnet_id=test1["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -809,7 +807,6 @@ class OntapFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -824,7 +821,6 @@ class OntapFileSystem(pulumi.CustomResource):
             throughput_capacity=512,
             preferred_subnet_id=test1["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

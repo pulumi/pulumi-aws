@@ -140,7 +140,6 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
 
         ### Attaching an AWS-managed policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -152,7 +151,6 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
                 managed_policy_arn="arn:aws:iam::aws:policy/ReadOnlyAccess",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -183,7 +181,6 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
 
         ### Attaching an AWS-managed policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,7 +192,6 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
                 managed_policy_arn="arn:aws:iam::aws:policy/ReadOnlyAccess",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

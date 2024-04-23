@@ -282,7 +282,6 @@ class ContactsRotation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,11 +300,9 @@ class ContactsRotation(pulumi.CustomResource):
             time_zone_id="Australia/Sydney",
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with Weekly Settings and Shift Coverages Fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,11 +351,9 @@ class ContactsRotation(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with Monthly Settings Fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,7 +384,6 @@ class ContactsRotation(pulumi.CustomResource):
             time_zone_id="Australia/Sydney",
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -421,7 +415,6 @@ class ContactsRotation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -440,11 +433,9 @@ class ContactsRotation(pulumi.CustomResource):
             time_zone_id="Australia/Sydney",
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with Weekly Settings and Shift Coverages Fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -493,11 +484,9 @@ class ContactsRotation(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with Monthly Settings Fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -528,7 +517,6 @@ class ContactsRotation(pulumi.CustomResource):
             time_zone_id="Australia/Sydney",
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

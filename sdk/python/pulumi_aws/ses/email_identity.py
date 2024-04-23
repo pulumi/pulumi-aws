@@ -86,14 +86,12 @@ class EmailIdentity(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ses.EmailIdentity("example", email="email@example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -118,14 +116,12 @@ class EmailIdentity(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ses.EmailIdentity("example", email="email@example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

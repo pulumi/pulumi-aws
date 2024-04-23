@@ -211,7 +211,6 @@ class Endpoint(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,7 +222,6 @@ class Endpoint(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -253,7 +251,6 @@ class Endpoint(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,7 +262,6 @@ class Endpoint(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

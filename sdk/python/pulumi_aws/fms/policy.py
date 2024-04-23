@@ -519,7 +519,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -553,7 +552,6 @@ class Policy(pulumi.CustomResource):
                 "Name": "example-fms-policy",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -592,7 +590,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -626,7 +623,6 @@ class Policy(pulumi.CustomResource):
                 "Name": "example-fms-policy",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

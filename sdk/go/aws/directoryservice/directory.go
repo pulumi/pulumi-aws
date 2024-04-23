@@ -18,7 +18,6 @@ import (
 //
 // ### SimpleAD
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,11 +76,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Microsoft Active Directory (MicrosoftAD)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -141,11 +138,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Microsoft Active Directory Connector (ADConnector)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -206,7 +201,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

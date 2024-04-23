@@ -232,7 +232,6 @@ class VpcIpamScope(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +244,6 @@ class VpcIpamScope(pulumi.CustomResource):
             ipam_id=example.id,
             description="Another Scope")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -274,7 +272,6 @@ class VpcIpamScope(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,7 +284,6 @@ class VpcIpamScope(pulumi.CustomResource):
             ipam_id=example.id,
             description="Another Scope")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

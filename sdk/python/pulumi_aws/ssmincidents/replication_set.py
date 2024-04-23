@@ -20,9 +20,6 @@ class ReplicationSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReplicationSet resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags applied to the replication set.
-               
-               For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
         """
         pulumi.set(__self__, "regions", regions)
         if tags is not None:
@@ -40,11 +37,6 @@ class ReplicationSetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Tags applied to the replication set.
-
-        For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -71,9 +63,6 @@ class _ReplicationSetState:
         :param pulumi.Input[str] last_modified_by: A timestamp showing when the replication set was last modified.
         :param pulumi.Input[str] status: The current status of the Region.
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags applied to the replication set.
-               
-               For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -169,11 +158,6 @@ class _ReplicationSetState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Tags applied to the replication set.
-
-        For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -215,7 +199,6 @@ class ReplicationSet(pulumi.CustomResource):
 
         Create a replication set.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,11 +211,9 @@ class ReplicationSet(pulumi.CustomResource):
                 "exampleTag": "exampleValue",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         Add a Region to a replication set. (You can add only one Region at a time.)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,11 +227,9 @@ class ReplicationSet(pulumi.CustomResource):
             ),
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         Delete a Region from a replication set. (You can delete only one Region at a time.)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,13 +238,11 @@ class ReplicationSet(pulumi.CustomResource):
             name="us-west-2",
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Basic Usage with an AWS Customer Managed Key
 
         Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,7 +257,6 @@ class ReplicationSet(pulumi.CustomResource):
                 "exampleTag": "exampleValue",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -292,9 +268,6 @@ class ReplicationSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags applied to the replication set.
-               
-               For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
         """
         ...
     @overload
@@ -313,7 +286,6 @@ class ReplicationSet(pulumi.CustomResource):
 
         Create a replication set.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,11 +298,9 @@ class ReplicationSet(pulumi.CustomResource):
                 "exampleTag": "exampleValue",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         Add a Region to a replication set. (You can add only one Region at a time.)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,11 +314,9 @@ class ReplicationSet(pulumi.CustomResource):
             ),
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         Delete a Region from a replication set. (You can delete only one Region at a time.)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,13 +325,11 @@ class ReplicationSet(pulumi.CustomResource):
             name="us-west-2",
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Basic Usage with an AWS Customer Managed Key
 
         Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -378,7 +344,6 @@ class ReplicationSet(pulumi.CustomResource):
                 "exampleTag": "exampleValue",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -455,9 +420,6 @@ class ReplicationSet(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_by: A timestamp showing when the replication set was last modified.
         :param pulumi.Input[str] status: The current status of the Region.
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags applied to the replication set.
-               
-               For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -523,11 +485,6 @@ class ReplicationSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Tags applied to the replication set.
-
-        For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
-        """
         return pulumi.get(self, "tags")
 
     @property

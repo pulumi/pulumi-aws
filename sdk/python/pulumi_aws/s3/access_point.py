@@ -384,7 +384,6 @@ class AccessPoint(pulumi.CustomResource):
 
         ### AWS Partition General Purpose Bucket
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -394,11 +393,9 @@ class AccessPoint(pulumi.CustomResource):
             bucket=example.id,
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 on Outposts Bucket
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -412,7 +409,6 @@ class AccessPoint(pulumi.CustomResource):
                 vpc_id=example_vpc.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -462,7 +458,6 @@ class AccessPoint(pulumi.CustomResource):
 
         ### AWS Partition General Purpose Bucket
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -472,11 +467,9 @@ class AccessPoint(pulumi.CustomResource):
             bucket=example.id,
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 on Outposts Bucket
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -490,7 +483,6 @@ class AccessPoint(pulumi.CustomResource):
                 vpc_id=example_vpc.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

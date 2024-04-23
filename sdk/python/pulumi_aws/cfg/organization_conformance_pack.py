@@ -291,7 +291,6 @@ class OrganizationConformancePack(pulumi.CustomResource):
 
         ### Using Template Body
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,11 +321,9 @@ class OrganizationConformancePack(pulumi.CustomResource):
                     example_organization,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using Template S3 URI
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -355,7 +352,6 @@ class OrganizationConformancePack(pulumi.CustomResource):
                     example_organization,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -390,7 +386,6 @@ class OrganizationConformancePack(pulumi.CustomResource):
 
         ### Using Template Body
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -421,11 +416,9 @@ class OrganizationConformancePack(pulumi.CustomResource):
                     example_organization,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using Template S3 URI
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -454,7 +447,6 @@ class OrganizationConformancePack(pulumi.CustomResource):
                     example_organization,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Iot.Inputs
         public Input<Inputs.TopicRuleDynamodbv2PutItemGetArgs>? PutItem { get; set; }
 
         /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
+        /// The ARN of the IAM role that grants access to the DynamoDB table.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

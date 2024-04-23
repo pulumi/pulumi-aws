@@ -18,7 +18,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ### All origin access identities in the account
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,13 +30,11 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Origin access identities filtered by comment/name
         /// 
         /// Origin access identities whose comments are `example-comment1`, `example-comment2`
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,7 +54,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOriginAccessIdentitiesResult> InvokeAsync(GetOriginAccessIdentitiesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesArgs(), options.WithDefaults());
@@ -69,7 +65,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ### All origin access identities in the account
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -82,13 +77,11 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Origin access identities filtered by comment/name
         /// 
         /// Origin access identities whose comments are `example-comment1`, `example-comment2`
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -108,7 +101,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOriginAccessIdentitiesResult> Invoke(GetOriginAccessIdentitiesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesInvokeArgs(), options.WithDefaults());

@@ -497,7 +497,6 @@ class Stage(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -506,7 +505,6 @@ class Stage(pulumi.CustomResource):
             api_id=example_aws_apigatewayv2_api["id"],
             name="example-stage")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -549,7 +547,6 @@ class Stage(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -558,7 +555,6 @@ class Stage(pulumi.CustomResource):
             api_id=example_aws_apigatewayv2_api["id"],
             name="example-stage")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

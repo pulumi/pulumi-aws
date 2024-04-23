@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -55,7 +54,6 @@ import * as utilities from "../utilities";
  *     policyNames: [wu_tang_root_ca_backend_auth_policy.policyName],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
     /**

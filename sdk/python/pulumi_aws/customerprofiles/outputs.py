@@ -314,10 +314,6 @@ class DomainMatchingExportingConfigS3Exporting(dict):
     def __init__(__self__, *,
                  s3_bucket_name: str,
                  s3_key_name: Optional[str] = None):
-        """
-        :param str s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
-        :param str s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_name is not None:
             pulumi.set(__self__, "s3_key_name", s3_key_name)
@@ -325,17 +321,11 @@ class DomainMatchingExportingConfigS3Exporting(dict):
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> str:
-        """
-        The name of the S3 bucket where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @property
     @pulumi.getter(name="s3KeyName")
     def s3_key_name(self) -> Optional[str]:
-        """
-        The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_key_name")
 
 
@@ -688,10 +678,6 @@ class DomainRuleBasedMatchingExportingConfigS3Exporting(dict):
     def __init__(__self__, *,
                  s3_bucket_name: str,
                  s3_key_name: Optional[str] = None):
-        """
-        :param str s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
-        :param str s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_name is not None:
             pulumi.set(__self__, "s3_key_name", s3_key_name)
@@ -699,17 +685,11 @@ class DomainRuleBasedMatchingExportingConfigS3Exporting(dict):
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> str:
-        """
-        The name of the S3 bucket where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @property
     @pulumi.getter(name="s3KeyName")
     def s3_key_name(self) -> Optional[str]:
-        """
-        The S3 key name of the location where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_key_name")
 
 
@@ -905,18 +885,6 @@ class ProfileBillingAddress(dict):
                  postal_code: Optional[str] = None,
                  province: Optional[str] = None,
                  state: Optional[str] = None):
-        """
-        :param str address1: The first line of a customer address.
-        :param str address2: The second line of a customer address.
-        :param str address3: The third line of a customer address.
-        :param str address4: The fourth line of a customer address.
-        :param str city: The city in which a customer lives.
-        :param str country: The country in which a customer lives.
-        :param str county: The county in which a customer lives.
-        :param str postal_code: The postal code of a customer address.
-        :param str province: The province in which a customer lives.
-        :param str state: The state in which a customer lives.
-        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -941,81 +909,51 @@ class ProfileBillingAddress(dict):
     @property
     @pulumi.getter
     def address1(self) -> Optional[str]:
-        """
-        The first line of a customer address.
-        """
         return pulumi.get(self, "address1")
 
     @property
     @pulumi.getter
     def address2(self) -> Optional[str]:
-        """
-        The second line of a customer address.
-        """
         return pulumi.get(self, "address2")
 
     @property
     @pulumi.getter
     def address3(self) -> Optional[str]:
-        """
-        The third line of a customer address.
-        """
         return pulumi.get(self, "address3")
 
     @property
     @pulumi.getter
     def address4(self) -> Optional[str]:
-        """
-        The fourth line of a customer address.
-        """
         return pulumi.get(self, "address4")
 
     @property
     @pulumi.getter
     def city(self) -> Optional[str]:
-        """
-        The city in which a customer lives.
-        """
         return pulumi.get(self, "city")
 
     @property
     @pulumi.getter
     def country(self) -> Optional[str]:
-        """
-        The country in which a customer lives.
-        """
         return pulumi.get(self, "country")
 
     @property
     @pulumi.getter
     def county(self) -> Optional[str]:
-        """
-        The county in which a customer lives.
-        """
         return pulumi.get(self, "county")
 
     @property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[str]:
-        """
-        The postal code of a customer address.
-        """
         return pulumi.get(self, "postal_code")
 
     @property
     @pulumi.getter
     def province(self) -> Optional[str]:
-        """
-        The province in which a customer lives.
-        """
         return pulumi.get(self, "province")
 
     @property
     @pulumi.getter
     def state(self) -> Optional[str]:
-        """
-        The state in which a customer lives.
-        """
         return pulumi.get(self, "state")
 
 
@@ -1049,18 +987,6 @@ class ProfileMailingAddress(dict):
                  postal_code: Optional[str] = None,
                  province: Optional[str] = None,
                  state: Optional[str] = None):
-        """
-        :param str address1: The first line of a customer address.
-        :param str address2: The second line of a customer address.
-        :param str address3: The third line of a customer address.
-        :param str address4: The fourth line of a customer address.
-        :param str city: The city in which a customer lives.
-        :param str country: The country in which a customer lives.
-        :param str county: The county in which a customer lives.
-        :param str postal_code: The postal code of a customer address.
-        :param str province: The province in which a customer lives.
-        :param str state: The state in which a customer lives.
-        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -1085,81 +1011,51 @@ class ProfileMailingAddress(dict):
     @property
     @pulumi.getter
     def address1(self) -> Optional[str]:
-        """
-        The first line of a customer address.
-        """
         return pulumi.get(self, "address1")
 
     @property
     @pulumi.getter
     def address2(self) -> Optional[str]:
-        """
-        The second line of a customer address.
-        """
         return pulumi.get(self, "address2")
 
     @property
     @pulumi.getter
     def address3(self) -> Optional[str]:
-        """
-        The third line of a customer address.
-        """
         return pulumi.get(self, "address3")
 
     @property
     @pulumi.getter
     def address4(self) -> Optional[str]:
-        """
-        The fourth line of a customer address.
-        """
         return pulumi.get(self, "address4")
 
     @property
     @pulumi.getter
     def city(self) -> Optional[str]:
-        """
-        The city in which a customer lives.
-        """
         return pulumi.get(self, "city")
 
     @property
     @pulumi.getter
     def country(self) -> Optional[str]:
-        """
-        The country in which a customer lives.
-        """
         return pulumi.get(self, "country")
 
     @property
     @pulumi.getter
     def county(self) -> Optional[str]:
-        """
-        The county in which a customer lives.
-        """
         return pulumi.get(self, "county")
 
     @property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[str]:
-        """
-        The postal code of a customer address.
-        """
         return pulumi.get(self, "postal_code")
 
     @property
     @pulumi.getter
     def province(self) -> Optional[str]:
-        """
-        The province in which a customer lives.
-        """
         return pulumi.get(self, "province")
 
     @property
     @pulumi.getter
     def state(self) -> Optional[str]:
-        """
-        The state in which a customer lives.
-        """
         return pulumi.get(self, "state")
 
 
@@ -1193,18 +1089,6 @@ class ProfileShippingAddress(dict):
                  postal_code: Optional[str] = None,
                  province: Optional[str] = None,
                  state: Optional[str] = None):
-        """
-        :param str address1: The first line of a customer address.
-        :param str address2: The second line of a customer address.
-        :param str address3: The third line of a customer address.
-        :param str address4: The fourth line of a customer address.
-        :param str city: The city in which a customer lives.
-        :param str country: The country in which a customer lives.
-        :param str county: The county in which a customer lives.
-        :param str postal_code: The postal code of a customer address.
-        :param str province: The province in which a customer lives.
-        :param str state: The state in which a customer lives.
-        """
         if address1 is not None:
             pulumi.set(__self__, "address1", address1)
         if address2 is not None:
@@ -1229,81 +1113,51 @@ class ProfileShippingAddress(dict):
     @property
     @pulumi.getter
     def address1(self) -> Optional[str]:
-        """
-        The first line of a customer address.
-        """
         return pulumi.get(self, "address1")
 
     @property
     @pulumi.getter
     def address2(self) -> Optional[str]:
-        """
-        The second line of a customer address.
-        """
         return pulumi.get(self, "address2")
 
     @property
     @pulumi.getter
     def address3(self) -> Optional[str]:
-        """
-        The third line of a customer address.
-        """
         return pulumi.get(self, "address3")
 
     @property
     @pulumi.getter
     def address4(self) -> Optional[str]:
-        """
-        The fourth line of a customer address.
-        """
         return pulumi.get(self, "address4")
 
     @property
     @pulumi.getter
     def city(self) -> Optional[str]:
-        """
-        The city in which a customer lives.
-        """
         return pulumi.get(self, "city")
 
     @property
     @pulumi.getter
     def country(self) -> Optional[str]:
-        """
-        The country in which a customer lives.
-        """
         return pulumi.get(self, "country")
 
     @property
     @pulumi.getter
     def county(self) -> Optional[str]:
-        """
-        The county in which a customer lives.
-        """
         return pulumi.get(self, "county")
 
     @property
     @pulumi.getter(name="postalCode")
     def postal_code(self) -> Optional[str]:
-        """
-        The postal code of a customer address.
-        """
         return pulumi.get(self, "postal_code")
 
     @property
     @pulumi.getter
     def province(self) -> Optional[str]:
-        """
-        The province in which a customer lives.
-        """
         return pulumi.get(self, "province")
 
     @property
     @pulumi.getter
     def state(self) -> Optional[str]:
-        """
-        The state in which a customer lives.
-        """
         return pulumi.get(self, "state")
 
 

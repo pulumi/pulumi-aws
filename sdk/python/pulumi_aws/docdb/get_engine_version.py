@@ -150,14 +150,12 @@ def get_engine_version(engine: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.docdb.get_engine_version(version="3.6.0")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str engine: DB engine. (Default: `docdb`)
@@ -197,14 +195,12 @@ def get_engine_version_output(engine: Optional[pulumi.Input[Optional[str]]] = No
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.docdb.get_engine_version(version="3.6.0")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str engine: DB engine. (Default: `docdb`)

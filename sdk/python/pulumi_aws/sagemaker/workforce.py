@@ -238,7 +238,6 @@ class Workforce(pulumi.CustomResource):
 
         ### Cognito Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,11 +257,9 @@ class Workforce(pulumi.CustomResource):
                 user_pool=example_user_pool_domain.user_pool_id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Oidc Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,7 +277,6 @@ class Workforce(pulumi.CustomResource):
                 user_info_endpoint="https://example.com",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -311,7 +307,6 @@ class Workforce(pulumi.CustomResource):
 
         ### Cognito Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,11 +326,9 @@ class Workforce(pulumi.CustomResource):
                 user_pool=example_user_pool_domain.user_pool_id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Oidc Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,7 +346,6 @@ class Workforce(pulumi.CustomResource):
                 user_info_endpoint="https://example.com",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("aws:lakeformation/getResource:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.LakeFormation
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws:lakeformation/getResource:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());

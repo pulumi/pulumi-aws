@@ -18,7 +18,6 @@ import (
 //
 // Basic usage:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,11 +74,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // With the `disallowedCidrs` attribute:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -139,7 +136,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

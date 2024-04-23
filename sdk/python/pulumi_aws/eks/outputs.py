@@ -870,7 +870,7 @@ class NodeGroupResourceAutoscalingGroup(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None):
         """
-        :param str name: Name of the EC2 Launch Template. Conflicts with `id`.
+        :param str name: Name of the AutoScaling Group.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -879,7 +879,7 @@ class NodeGroupResourceAutoscalingGroup(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the EC2 Launch Template. Conflicts with `id`.
+        Name of the AutoScaling Group.
         """
         return pulumi.get(self, "name")
 

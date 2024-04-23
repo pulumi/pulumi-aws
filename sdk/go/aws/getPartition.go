@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,7 +56,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetPartition(ctx *pulumi.Context, args *GetPartitionArgs, opts ...pulumi.InvokeOption) (*GetPartitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPartitionResult

@@ -249,7 +249,6 @@ class Member(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,7 +262,6 @@ class Member(pulumi.CustomResource):
             invite=True,
             invitation_message="please accept guardduty invitation")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -293,7 +291,6 @@ class Member(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,7 +304,6 @@ class Member(pulumi.CustomResource):
             invite=True,
             invitation_message="please accept guardduty invitation")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

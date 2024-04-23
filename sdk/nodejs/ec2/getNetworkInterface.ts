@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     id: "eni-01234567",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     args = args || {};
@@ -133,7 +131,6 @@ export interface GetNetworkInterfaceResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -142,7 +139,6 @@ export interface GetNetworkInterfaceResult {
  *     id: "eni-01234567",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNetworkInterfaceOutput(args?: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkInterface(a, opts))

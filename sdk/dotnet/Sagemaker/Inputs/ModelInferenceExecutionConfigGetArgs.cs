@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class ModelInferenceExecutionConfigGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-        /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 

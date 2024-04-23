@@ -23,7 +23,6 @@ namespace Pulumi.Aws.Acm
     /// 
     /// ### DNS Validation with Route 53
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,11 +86,9 @@ namespace Pulumi.Aws.Acm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Alternative Domains DNS Validation with Route 53
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -172,13 +169,11 @@ namespace Pulumi.Aws.Acm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Email Validation
     /// 
     /// In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -200,7 +195,6 @@ namespace Pulumi.Aws.Acm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:acm/certificateValidation:CertificateValidation")]
     public partial class CertificateValidation : global::Pulumi.CustomResource

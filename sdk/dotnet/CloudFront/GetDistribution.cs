@@ -16,7 +16,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDistributionResult> InvokeAsync(GetDistributionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionResult>("aws:cloudfront/getDistribution:getDistribution", args ?? new GetDistributionArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDistributionResult> Invoke(GetDistributionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionResult>("aws:cloudfront/getDistribution:getDistribution", args ?? new GetDistributionInvokeArgs(), options.WithDefaults());

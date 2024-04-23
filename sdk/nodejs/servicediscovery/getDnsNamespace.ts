@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     type: "DNS_PRIVATE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDnsNamespace(args: GetDnsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsNamespaceResult> {
 
@@ -81,7 +79,6 @@ export interface GetDnsNamespaceResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -91,7 +88,6 @@ export interface GetDnsNamespaceResult {
  *     type: "DNS_PRIVATE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDnsNamespaceOutput(args: GetDnsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getDnsNamespace(a, opts))

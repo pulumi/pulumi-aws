@@ -367,7 +367,6 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -392,7 +391,6 @@ class EventSubscription(pulumi.CustomResource):
                 "Name": "default",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -424,7 +422,6 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -449,7 +446,6 @@ class EventSubscription(pulumi.CustomResource):
                 "Name": "default",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

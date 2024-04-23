@@ -18,7 +18,6 @@ import (
 //
 // Create required roles and then create a DMS instance, setting the dependsOn to the required role policy attachments.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -133,7 +132,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

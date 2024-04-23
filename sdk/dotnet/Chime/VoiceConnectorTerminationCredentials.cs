@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,13 +61,12 @@ namespace Pulumi.Aws.Chime
     ///     {
     ///         DependsOn =
     ///         {
-    ///             defaultVoiceConnectorTermination, 
+    ///             defaultVoiceConnectorTermination,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

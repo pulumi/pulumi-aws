@@ -186,7 +186,6 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,7 +201,6 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
                 endpoint_id=example_aws_subnet["id"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -230,7 +228,6 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,7 +243,6 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
                 endpoint_id=example_aws_subnet["id"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

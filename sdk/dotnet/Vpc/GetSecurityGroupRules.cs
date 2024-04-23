@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Vpc
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.Vpc
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSecurityGroupRulesResult> InvokeAsync(GetSecurityGroupRulesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupRulesResult>("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", args ?? new GetSecurityGroupRulesArgs(), options.WithDefaults());
@@ -52,7 +50,6 @@ namespace Pulumi.Aws.Vpc
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.Aws.Vpc
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSecurityGroupRulesResult> Invoke(GetSecurityGroupRulesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupRulesResult>("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", args ?? new GetSecurityGroupRulesInvokeArgs(), options.WithDefaults());

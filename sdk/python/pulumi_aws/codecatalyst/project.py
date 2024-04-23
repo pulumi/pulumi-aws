@@ -161,7 +161,6 @@ class Project(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -171,7 +170,6 @@ class Project(pulumi.CustomResource):
             display_name="MyProject",
             description="My CodeCatalyst Project created using Pulumi")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -202,7 +200,6 @@ class Project(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -212,7 +209,6 @@ class Project(pulumi.CustomResource):
             display_name="MyProject",
             description="My CodeCatalyst Project created using Pulumi")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

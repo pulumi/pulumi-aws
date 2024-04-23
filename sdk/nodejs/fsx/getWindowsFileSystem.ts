@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Root volume Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     id: "fs-12345678",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWindowsFileSystem(args: GetWindowsFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetWindowsFileSystemResult> {
 
@@ -152,7 +150,6 @@ export interface GetWindowsFileSystemResult {
  *
  * ### Root volume Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -161,7 +158,6 @@ export interface GetWindowsFileSystemResult {
  *     id: "fs-12345678",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWindowsFileSystemOutput(args: GetWindowsFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWindowsFileSystemResult> {
     return pulumi.output(args).apply((a: any) => getWindowsFileSystem(a, opts))

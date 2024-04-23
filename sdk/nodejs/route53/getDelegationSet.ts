@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * The following example shows how to get a delegation set from its id.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     id: "MQWGHCBFAKEID",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegationSetResult> {
 
@@ -62,7 +60,6 @@ export interface GetDelegationSetResult {
  *
  * The following example shows how to get a delegation set from its id.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,7 +68,6 @@ export interface GetDelegationSetResult {
  *     id: "MQWGHCBFAKEID",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDelegationSetOutput(args: GetDelegationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegationSetResult> {
     return pulumi.output(args).apply((a: any) => getDelegationSet(a, opts))

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,7 +28,6 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFunctionsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", InvokeArgs.Empty, options.WithDefaults());
@@ -39,7 +37,6 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -52,7 +49,6 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFunctionsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", InvokeArgs.Empty, options.WithDefaults());

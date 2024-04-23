@@ -539,7 +539,6 @@ class Directory(pulumi.CustomResource):
 
         ### SimpleAD
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -568,11 +567,9 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Microsoft Active Directory (MicrosoftAD)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -602,11 +599,9 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Microsoft Active Directory Connector (ADConnector)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -635,7 +630,6 @@ class Directory(pulumi.CustomResource):
                 vpc_id=main.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -674,7 +668,6 @@ class Directory(pulumi.CustomResource):
 
         ### SimpleAD
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -703,11 +696,9 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Microsoft Active Directory (MicrosoftAD)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -737,11 +728,9 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Microsoft Active Directory Connector (ADConnector)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -770,7 +759,6 @@ class Directory(pulumi.CustomResource):
                 vpc_id=main.id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

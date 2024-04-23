@@ -60,14 +60,12 @@ def get_web_acl(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.waf.get_web_acl(name="tfWAFWebACL")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAF Web ACL.
@@ -90,14 +88,12 @@ def get_web_acl_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.waf.get_web_acl(name="tfWAFWebACL")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAF Web ACL.

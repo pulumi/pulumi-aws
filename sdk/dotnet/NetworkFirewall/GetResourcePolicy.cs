@@ -16,7 +16,6 @@ namespace Pulumi.Aws.NetworkFirewall
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.NetworkFirewall
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResourcePolicyResult> InvokeAsync(GetResourcePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourcePolicyResult>("aws:networkfirewall/getResourcePolicy:getResourcePolicy", args ?? new GetResourcePolicyArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.NetworkFirewall
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.NetworkFirewall
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws:networkfirewall/getResourcePolicy:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());

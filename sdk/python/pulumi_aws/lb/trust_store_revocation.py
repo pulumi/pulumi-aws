@@ -185,7 +185,6 @@ class TrustStoreRevocation(pulumi.CustomResource):
 
         ### Trust Store With Revocations
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,7 +198,6 @@ class TrustStoreRevocation(pulumi.CustomResource):
             revocations_s3_bucket="...",
             revocations_s3_key="...")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -229,7 +227,6 @@ class TrustStoreRevocation(pulumi.CustomResource):
 
         ### Trust Store With Revocations
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -243,7 +240,6 @@ class TrustStoreRevocation(pulumi.CustomResource):
             revocations_s3_bucket="...",
             revocations_s3_key="...")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

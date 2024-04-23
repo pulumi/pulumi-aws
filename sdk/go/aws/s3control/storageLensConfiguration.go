@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,7 +82,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -97,7 +95,7 @@ type StorageLensConfiguration struct {
 
 	// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+	// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringOutput `pulumi:"configId"`
@@ -149,7 +147,7 @@ func GetStorageLensConfiguration(ctx *pulumi.Context,
 type storageLensConfigurationState struct {
 	// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+	// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
 	Arn *string `pulumi:"arn"`
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId *string `pulumi:"configId"`
@@ -166,7 +164,7 @@ type storageLensConfigurationState struct {
 type StorageLensConfigurationState struct {
 	// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+	// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
 	Arn pulumi.StringPtrInput
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringPtrInput
@@ -299,7 +297,7 @@ func (o StorageLensConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
 func (o StorageLensConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -308,7 +308,6 @@ class SafetyRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -324,9 +323,7 @@ class SafetyRule(pulumi.CustomResource):
                 type="ATLEAST",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,7 +340,6 @@ class SafetyRule(pulumi.CustomResource):
                 type="ATLEAST",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -376,7 +372,6 @@ class SafetyRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -392,9 +387,7 @@ class SafetyRule(pulumi.CustomResource):
                 type="ATLEAST",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -411,7 +404,6 @@ class SafetyRule(pulumi.CustomResource):
                 type="ATLEAST",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     type: "AWS_SERVICE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResourceCollection(args: GetResourceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceCollectionResult> {
 
@@ -78,7 +76,6 @@ export interface GetResourceCollectionResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -87,7 +84,6 @@ export interface GetResourceCollectionResult {
  *     type: "AWS_SERVICE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResourceCollectionOutput(args: GetResourceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceCollectionResult> {
     return pulumi.output(args).apply((a: any) => getResourceCollection(a, opts))

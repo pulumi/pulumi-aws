@@ -135,7 +135,6 @@ class ResolverRuleAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,7 +143,6 @@ class ResolverRuleAssociation(pulumi.CustomResource):
             resolver_rule_id=sys["id"],
             vpc_id=foo["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -171,7 +169,6 @@ class ResolverRuleAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +177,6 @@ class ResolverRuleAssociation(pulumi.CustomResource):
             resolver_rule_id=sys["id"],
             vpc_id=foo["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

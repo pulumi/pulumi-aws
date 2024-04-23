@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGlobalNetworks(args?: GetGlobalNetworksArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalNetworksResult> {
     args = args || {};
@@ -60,7 +58,6 @@ export interface GetGlobalNetworksResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,7 +68,6 @@ export interface GetGlobalNetworksResult {
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGlobalNetworksOutput(args?: GetGlobalNetworksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalNetworksResult> {
     return pulumi.output(args).apply((a: any) => getGlobalNetworks(a, opts))

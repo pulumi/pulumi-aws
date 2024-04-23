@@ -622,7 +622,6 @@ class OntapVolume(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -634,13 +633,11 @@ class OntapVolume(pulumi.CustomResource):
             storage_efficiency_enabled=True,
             storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using Tiering Policy
 
         Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -656,7 +653,6 @@ class OntapVolume(pulumi.CustomResource):
                 cooling_period=31,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -698,7 +694,6 @@ class OntapVolume(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -710,13 +705,11 @@ class OntapVolume(pulumi.CustomResource):
             storage_efficiency_enabled=True,
             storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using Tiering Policy
 
         Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -732,7 +725,6 @@ class OntapVolume(pulumi.CustomResource):
                 cooling_period=31,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

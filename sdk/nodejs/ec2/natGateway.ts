@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Public NAT
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +25,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleAwsInternetGateway],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Public NAT with Secondary Private IP Addresses
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -42,11 +39,9 @@ import * as utilities from "../utilities";
  *     secondaryPrivateIpAddresses: ["10.0.1.5"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Private NAT
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,11 +51,9 @@ import * as utilities from "../utilities";
  *     subnetId: exampleAwsSubnet.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Private NAT with Secondary Private IP Addresses
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,7 +64,6 @@ import * as utilities from "../utilities";
  *     secondaryPrivateIpAddressCount: 7,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

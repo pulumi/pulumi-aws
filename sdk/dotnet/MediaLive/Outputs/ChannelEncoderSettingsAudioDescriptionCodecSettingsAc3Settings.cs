@@ -22,7 +22,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? BitstreamMode;
         /// <summary>
-        /// Mono, Stereo, or 5.1 channel layout.
+        /// Dolby Digital coding mode.
         /// </summary>
         public readonly string? CodingMode;
         /// <summary>

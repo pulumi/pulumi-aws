@@ -106,7 +106,6 @@ def get_spot_price(availability_zone: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -118,7 +117,6 @@ def get_spot_price(availability_zone: Optional[str] = None,
             values=["Linux/UNIX"],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str availability_zone: Availability zone in which to query Spot price information.
@@ -151,7 +149,6 @@ def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[str]
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -163,7 +160,6 @@ def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[str]
             values=["Linux/UNIX"],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str availability_zone: Availability zone in which to query Spot price information.

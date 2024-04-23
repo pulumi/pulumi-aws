@@ -190,7 +190,6 @@ class SamlProvider(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -200,7 +199,6 @@ class SamlProvider(pulumi.CustomResource):
             name="myprovider",
             saml_metadata_document=std.file(input="saml-metadata.xml").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -227,7 +225,6 @@ class SamlProvider(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,7 +234,6 @@ class SamlProvider(pulumi.CustomResource):
             name="myprovider",
             saml_metadata_document=std.file(input="saml-metadata.xml").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

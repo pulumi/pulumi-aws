@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,7 +55,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCustomerGatewayResult> InvokeAsync(GetCustomerGatewayArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomerGatewayResult>("aws:ec2/getCustomerGateway:getCustomerGateway", args ?? new GetCustomerGatewayArgs(), options.WithDefaults());
@@ -66,7 +64,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -106,7 +103,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCustomerGatewayResult> Invoke(GetCustomerGatewayInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomerGatewayResult>("aws:ec2/getCustomerGateway:getCustomerGateway", args ?? new GetCustomerGatewayInvokeArgs(), options.WithDefaults());

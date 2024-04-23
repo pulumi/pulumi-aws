@@ -585,7 +585,6 @@ class LocationHdfs(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -599,11 +598,9 @@ class LocationHdfs(pulumi.CustomResource):
                 port=80,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Kerberos Authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -620,7 +617,6 @@ class LocationHdfs(pulumi.CustomResource):
             kerberos_keytab_base64=std.filebase64(input="user.keytab").result,
             kerberos_krb5_conf=std.file(input="krb5.conf").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -661,7 +657,6 @@ class LocationHdfs(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -675,11 +670,9 @@ class LocationHdfs(pulumi.CustomResource):
                 port=80,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Kerberos Authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -696,7 +689,6 @@ class LocationHdfs(pulumi.CustomResource):
             kerberos_keytab_base64=std.filebase64(input="user.keytab").result,
             kerberos_krb5_conf=std.file(input="krb5.conf").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -233,7 +233,6 @@ class UserPoolDomain(pulumi.CustomResource):
 
         ### Amazon Cognito domain
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -243,11 +242,9 @@ class UserPoolDomain(pulumi.CustomResource):
             domain="example-domain",
             user_pool_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Cognito domain
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,7 +265,6 @@ class UserPoolDomain(pulumi.CustomResource):
                 zone_id=main.cloudfront_distribution_zone_id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -297,7 +293,6 @@ class UserPoolDomain(pulumi.CustomResource):
 
         ### Amazon Cognito domain
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,11 +302,9 @@ class UserPoolDomain(pulumi.CustomResource):
             domain="example-domain",
             user_pool_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Cognito domain
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,7 +325,6 @@ class UserPoolDomain(pulumi.CustomResource):
                 zone_id=main.cloudfront_distribution_zone_id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

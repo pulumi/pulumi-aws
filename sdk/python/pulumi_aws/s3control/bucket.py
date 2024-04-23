@@ -207,7 +207,6 @@ class Bucket(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,7 +215,6 @@ class Bucket(pulumi.CustomResource):
             bucket="example",
             outpost_id=example_aws_outposts_outpost["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -245,7 +243,6 @@ class Bucket(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,7 +251,6 @@ class Bucket(pulumi.CustomResource):
             bucket="example",
             outpost_id=example_aws_outposts_outpost["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

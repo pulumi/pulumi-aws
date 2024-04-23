@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,17 +47,15 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///             exampleAwsSsmincidentsReplicationSet,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Usage with Weekly Settings and Shift Coverages Fields
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -134,17 +131,15 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///             exampleAwsSsmincidentsReplicationSet,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Usage with Monthly Settings Fields
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -191,13 +186,12 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///             exampleAwsSsmincidentsReplicationSet,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

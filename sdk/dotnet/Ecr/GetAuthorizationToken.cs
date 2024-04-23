@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,7 +28,6 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAuthorizationTokenResult> InvokeAsync(GetAuthorizationTokenArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationTokenResult>("aws:ecr/getAuthorizationToken:getAuthorizationToken", args ?? new GetAuthorizationTokenArgs(), options.WithDefaults());
@@ -39,7 +37,6 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -52,7 +49,6 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAuthorizationTokenResult> Invoke(GetAuthorizationTokenInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationTokenResult>("aws:ecr/getAuthorizationToken:getAuthorizationToken", args ?? new GetAuthorizationTokenInvokeArgs(), options.WithDefaults());

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### By Transit Gateway Identifier
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     transitGatewayRouteTableId: exampleAwsEc2TransitGatewayRouteTable.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRouteTablePropagations(args: GetRouteTablePropagationsArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablePropagationsResult> {
 
@@ -75,7 +73,6 @@ export interface GetRouteTablePropagationsResult {
  *
  * ### By Transit Gateway Identifier
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,7 +81,6 @@ export interface GetRouteTablePropagationsResult {
  *     transitGatewayRouteTableId: exampleAwsEc2TransitGatewayRouteTable.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRouteTablePropagationsOutput(args: GetRouteTablePropagationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTablePropagationsResult> {
     return pulumi.output(args).apply((a: any) => getRouteTablePropagations(a, opts))

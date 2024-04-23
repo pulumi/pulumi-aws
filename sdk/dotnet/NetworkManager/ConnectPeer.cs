@@ -16,7 +16,6 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,11 +58,9 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Usage with attachment accepter
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -98,7 +95,7 @@ namespace Pulumi.Aws.NetworkManager
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test, 
+    ///             test,
     ///         },
     ///     });
     /// 
@@ -124,17 +121,15 @@ namespace Pulumi.Aws.NetworkManager
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example2, 
+    ///             example2,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Usage with a Tunnel-less Connect attachment
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -174,7 +169,6 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

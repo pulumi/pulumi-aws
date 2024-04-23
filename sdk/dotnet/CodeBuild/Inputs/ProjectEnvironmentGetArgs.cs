@@ -61,7 +61,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<Inputs.ProjectEnvironmentRegistryCredentialGetArgs>? RegistryCredential { get; set; }
 
         /// <summary>
-        /// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
+        /// Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`, `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

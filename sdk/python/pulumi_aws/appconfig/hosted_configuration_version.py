@@ -233,7 +233,6 @@ class HostedConfigurationVersion(pulumi.CustomResource):
 
         ### Freeform
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -254,11 +253,9 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                 "isThingEnabled": True,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Feature Flags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -308,7 +305,6 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                 "version": "1",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -339,7 +335,6 @@ class HostedConfigurationVersion(pulumi.CustomResource):
 
         ### Freeform
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -360,11 +355,9 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                 "isThingEnabled": True,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Feature Flags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -414,7 +407,6 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                 "version": "1",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

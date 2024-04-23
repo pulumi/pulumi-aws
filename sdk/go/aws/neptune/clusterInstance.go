@@ -21,7 +21,6 @@ import (
 //
 // The following example will create a neptune cluster with two neptune instances(one writer and one reader).
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,7 +65,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

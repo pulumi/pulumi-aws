@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterLoggingInfoBrokerLogsFirehose {
-    /**
-     * @return Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-     * 
-     */
     private @Nullable String deliveryStream;
-    /**
-     * @return Controls whether provisioned throughput is enabled or not. Default value: `false`.
-     * 
-     */
     private Boolean enabled;
 
     private ClusterLoggingInfoBrokerLogsFirehose() {}
-    /**
-     * @return Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-     * 
-     */
     public Optional<String> deliveryStream() {
         return Optional.ofNullable(this.deliveryStream);
     }
-    /**
-     * @return Controls whether provisioned throughput is enabled or not. Default value: `false`.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

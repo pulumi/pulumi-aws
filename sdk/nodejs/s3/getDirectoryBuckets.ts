@@ -9,14 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.s3.getDirectoryBuckets({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDirectoryBuckets(opts?: pulumi.InvokeOptions): Promise<GetDirectoryBucketsResult> {
 
@@ -44,14 +42,12 @@ export interface GetDirectoryBucketsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.s3.getDirectoryBuckets({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDirectoryBucketsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryBucketsResult> {
     return pulumi.output(getDirectoryBuckets(opts))

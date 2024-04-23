@@ -422,7 +422,6 @@ class Directory(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -509,11 +508,9 @@ class Directory(pulumi.CustomResource):
                     workspaces_default_self_service_access,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### IP Groups
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -523,7 +520,6 @@ class Directory(pulumi.CustomResource):
             directory_id=example_aws_directory_service_directory["id"],
             ip_group_ids=[example_ip_group.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -556,7 +552,6 @@ class Directory(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -643,11 +638,9 @@ class Directory(pulumi.CustomResource):
                     workspaces_default_self_service_access,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### IP Groups
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -657,7 +650,6 @@ class Directory(pulumi.CustomResource):
             directory_id=example_aws_directory_service_directory["id"],
             ip_group_ids=[example_ip_group.id])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

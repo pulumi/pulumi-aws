@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Domain Identity MAIL FROM
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,11 +40,9 @@ import * as utilities from "../utilities";
  *     records: ["v=spf1 include:amazonses.com -all"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Email Identity MAIL FROM
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -57,7 +54,6 @@ import * as utilities from "../utilities";
  *     mailFromDomain: "mail.example.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

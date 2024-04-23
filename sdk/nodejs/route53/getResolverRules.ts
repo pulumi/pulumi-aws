@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Retrieving the default resolver rule
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,11 +21,9 @@ import * as utilities from "../utilities";
  *     shareStatus: "NOT_SHARED",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Retrieving forward rules shared with me
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,13 +33,11 @@ import * as utilities from "../utilities";
  *     shareStatus: "SHARED_WITH_ME",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Retrieving rules by name regex
  *
  * Resolver rules whose name contains `abc`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,7 +46,6 @@ import * as utilities from "../utilities";
  *     nameRegex: ".*abc.*",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverRules(args?: GetResolverRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRulesResult> {
     args = args || {};
@@ -119,7 +113,6 @@ export interface GetResolverRulesResult {
  *
  * ### Retrieving the default resolver rule
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -130,11 +123,9 @@ export interface GetResolverRulesResult {
  *     shareStatus: "NOT_SHARED",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Retrieving forward rules shared with me
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -144,13 +135,11 @@ export interface GetResolverRulesResult {
  *     shareStatus: "SHARED_WITH_ME",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Retrieving rules by name regex
  *
  * Resolver rules whose name contains `abc`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -159,7 +148,6 @@ export interface GetResolverRulesResult {
  *     nameRegex: ".*abc.*",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverRulesOutput(args?: GetResolverRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRulesResult> {
     return pulumi.output(args).apply((a: any) => getResolverRules(a, opts))

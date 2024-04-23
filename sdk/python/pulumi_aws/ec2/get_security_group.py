@@ -121,7 +121,6 @@ def get_security_group(filters: Optional[Sequence[pulumi.InputType['GetSecurityG
     The following example shows how one might accept a Security Group id as a variable
     and use this data source to obtain the data necessary to create a subnet.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -133,7 +132,6 @@ def get_security_group(filters: Optional[Sequence[pulumi.InputType['GetSecurityG
         vpc_id=selected.vpc_id,
         cidr_block="10.0.1.0/24")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupFilterArgs']] filters: Custom filter block as described below.
@@ -185,7 +183,6 @@ def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     The following example shows how one might accept a Security Group id as a variable
     and use this data source to obtain the data necessary to create a subnet.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -197,7 +194,6 @@ def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[p
         vpc_id=selected.vpc_id,
         cidr_block="10.0.1.0/24")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupFilterArgs']] filters: Custom filter block as described below.

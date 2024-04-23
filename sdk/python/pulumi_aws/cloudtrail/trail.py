@@ -638,7 +638,6 @@ class Trail(pulumi.CustomResource):
         Enable CloudTrail to capture all compatible management events in region.
         For capturing events from services like IAM, `include_global_service_events` must be enabled.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -698,7 +697,6 @@ class Trail(pulumi.CustomResource):
             include_global_service_events=False,
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Data Event Logging
 
@@ -709,7 +707,6 @@ class Trail(pulumi.CustomResource):
 
         ### Logging All Lambda Function Invocations By Using Basic Event Selectors
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -723,11 +720,9 @@ class Trail(pulumi.CustomResource):
             )],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging All S3 Object Events By Using Basic Event Selectors
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -741,11 +736,9 @@ class Trail(pulumi.CustomResource):
             )],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -760,11 +753,9 @@ class Trail(pulumi.CustomResource):
             )],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -801,11 +792,9 @@ class Trail(pulumi.CustomResource):
             ),
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -872,11 +861,9 @@ class Trail(pulumi.CustomResource):
             ),
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Sending Events to CloudWatch Logs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -884,7 +871,6 @@ class Trail(pulumi.CustomResource):
         example = aws.cloudwatch.LogGroup("example", name="Example")
         example_trail = aws.cloudtrail.Trail("example", cloud_watch_logs_group_arn=example.arn.apply(lambda arn: f"{arn}:*"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -935,7 +921,6 @@ class Trail(pulumi.CustomResource):
         Enable CloudTrail to capture all compatible management events in region.
         For capturing events from services like IAM, `include_global_service_events` must be enabled.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -995,7 +980,6 @@ class Trail(pulumi.CustomResource):
             include_global_service_events=False,
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Data Event Logging
 
@@ -1006,7 +990,6 @@ class Trail(pulumi.CustomResource):
 
         ### Logging All Lambda Function Invocations By Using Basic Event Selectors
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1020,11 +1003,9 @@ class Trail(pulumi.CustomResource):
             )],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging All S3 Object Events By Using Basic Event Selectors
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1038,11 +1019,9 @@ class Trail(pulumi.CustomResource):
             )],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1057,11 +1036,9 @@ class Trail(pulumi.CustomResource):
             )],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1098,11 +1075,9 @@ class Trail(pulumi.CustomResource):
             ),
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1169,11 +1144,9 @@ class Trail(pulumi.CustomResource):
             ),
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Sending Events to CloudWatch Logs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1181,7 +1154,6 @@ class Trail(pulumi.CustomResource):
         example = aws.cloudwatch.LogGroup("example", name="Example")
         example_trail = aws.cloudtrail.Trail("example", cloud_watch_logs_group_arn=example.arn.apply(lambda arn: f"{arn}:*"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

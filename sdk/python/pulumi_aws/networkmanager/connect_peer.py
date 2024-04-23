@@ -405,7 +405,6 @@ class ConnectPeer(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -429,11 +428,9 @@ class ConnectPeer(pulumi.CustomResource):
             ),
             inside_cidr_blocks=["172.16.0.0/16"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with attachment accepter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -465,11 +462,9 @@ class ConnectPeer(pulumi.CustomResource):
             inside_cidr_blocks=["172.16.0.0/16"],
             opts=pulumi.ResourceOptions(depends_on=[example2]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with a Tunnel-less Connect attachment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -493,7 +488,6 @@ class ConnectPeer(pulumi.CustomResource):
             ),
             subnet_arn=test2["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -528,7 +522,6 @@ class ConnectPeer(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -552,11 +545,9 @@ class ConnectPeer(pulumi.CustomResource):
             ),
             inside_cidr_blocks=["172.16.0.0/16"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with attachment accepter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -588,11 +579,9 @@ class ConnectPeer(pulumi.CustomResource):
             inside_cidr_blocks=["172.16.0.0/16"],
             opts=pulumi.ResourceOptions(depends_on=[example2]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with a Tunnel-less Connect attachment
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -616,7 +605,6 @@ class ConnectPeer(pulumi.CustomResource):
             ),
             subnet_arn=test2["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

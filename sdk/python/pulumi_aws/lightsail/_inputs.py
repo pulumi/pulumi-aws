@@ -757,7 +757,7 @@ class DistributionLocationArgs:
                  region_name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] availability_zone: The Availability Zone. Follows the format us-east-2a (case-sensitive).
-        :param pulumi.Input[str] region_name: The AWS Region name of the origin resource.
+        :param pulumi.Input[str] region_name: The AWS Region name.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "region_name", region_name)
@@ -778,7 +778,7 @@ class DistributionLocationArgs:
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Input[str]:
         """
-        The AWS Region name of the origin resource.
+        The AWS Region name.
         """
         return pulumi.get(self, "region_name")
 

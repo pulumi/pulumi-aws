@@ -134,7 +134,6 @@ class PolicyTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,7 +142,6 @@ class PolicyTableAssociation(pulumi.CustomResource):
             transit_gateway_attachment_id=example_aws_networkmanager_transit_gateway_peering["transitGatewayPeeringAttachmentId"],
             transit_gateway_policy_table_id=example_aws_ec2_transit_gateway_policy_table["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -169,7 +167,6 @@ class PolicyTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,7 +175,6 @@ class PolicyTableAssociation(pulumi.CustomResource):
             transit_gateway_attachment_id=example_aws_networkmanager_transit_gateway_peering["transitGatewayPeeringAttachmentId"],
             transit_gateway_policy_table_id=example_aws_ec2_transit_gateway_policy_table["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

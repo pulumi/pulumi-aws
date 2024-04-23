@@ -135,7 +135,6 @@ class CidrLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -149,7 +148,6 @@ class CidrLocation(pulumi.CustomResource):
                 "200.6.3.0/24",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -176,7 +174,6 @@ class CidrLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -190,7 +187,6 @@ class CidrLocation(pulumi.CustomResource):
                 "200.6.3.0/24",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -149,7 +149,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,11 +165,9 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 allow_remote_vpc_dns_resolution=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Cross-Account Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -211,7 +208,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 allow_remote_vpc_dns_resolution=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -249,7 +245,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -266,11 +261,9 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 allow_remote_vpc_dns_resolution=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Cross-Account Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -311,7 +304,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 allow_remote_vpc_dns_resolution=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

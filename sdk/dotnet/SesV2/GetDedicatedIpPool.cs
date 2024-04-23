@@ -18,7 +18,6 @@ namespace Pulumi.Aws.SesV2
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.SesV2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDedicatedIpPoolResult> InvokeAsync(GetDedicatedIpPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedIpPoolResult>("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", args ?? new GetDedicatedIpPoolArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.SesV2
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.SesV2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDedicatedIpPoolResult> Invoke(GetDedicatedIpPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedIpPoolResult>("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", args ?? new GetDedicatedIpPoolInvokeArgs(), options.WithDefaults());

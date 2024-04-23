@@ -22,7 +22,6 @@ import (
 //
 // ### Policy on untagged image
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,11 +71,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Policy on tagged image
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -126,7 +123,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

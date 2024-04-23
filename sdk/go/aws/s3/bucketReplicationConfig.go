@@ -22,7 +22,6 @@ import (
 //
 // ### Using replication configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -186,11 +185,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Bi-Directional Replication
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -283,7 +280,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

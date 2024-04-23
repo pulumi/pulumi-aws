@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,7 +50,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetInstanceTypeOffering(ctx *pulumi.Context, args *GetInstanceTypeOfferingArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypeOfferingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstanceTypeOfferingResult

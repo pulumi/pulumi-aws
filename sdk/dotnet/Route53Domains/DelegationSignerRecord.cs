@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Route53Domains
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -117,7 +116,7 @@ namespace Pulumi.Aws.Route53Domains
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleKeySigningKey, 
+    ///             exampleKeySigningKey,
     ///         },
     ///     });
     /// 
@@ -134,7 +133,6 @@ namespace Pulumi.Aws.Route53Domains
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

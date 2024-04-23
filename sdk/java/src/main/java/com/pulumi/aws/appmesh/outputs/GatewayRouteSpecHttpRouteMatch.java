@@ -38,7 +38,7 @@ public final class GatewayRouteSpecHttpRouteMatch {
      */
     private @Nullable Integer port;
     /**
-     * @return Header value sent by the client must begin with the specified characters.
+     * @return Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
      * 
      */
     private @Nullable String prefix;
@@ -78,7 +78,7 @@ public final class GatewayRouteSpecHttpRouteMatch {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return Header value sent by the client must begin with the specified characters.
+     * @return Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
      * 
      */
     public Optional<String> prefix() {

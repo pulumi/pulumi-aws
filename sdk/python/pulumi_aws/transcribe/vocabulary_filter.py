@@ -261,7 +261,6 @@ class VocabularyFilter(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,7 +277,6 @@ class VocabularyFilter(pulumi.CustomResource):
                 "tag2": "value3",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -311,7 +309,6 @@ class VocabularyFilter(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,7 +325,6 @@ class VocabularyFilter(pulumi.CustomResource):
                 "tag2": "value3",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

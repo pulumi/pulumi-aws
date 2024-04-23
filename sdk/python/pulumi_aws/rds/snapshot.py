@@ -454,7 +454,6 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -474,7 +473,6 @@ class Snapshot(pulumi.CustomResource):
             db_instance_identifier=bar.identifier,
             db_snapshot_identifier="testsnapshot1234")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -502,7 +500,6 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -522,7 +519,6 @@ class Snapshot(pulumi.CustomResource):
             db_instance_identifier=bar.identifier,
             db_snapshot_identifier="testsnapshot1234")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

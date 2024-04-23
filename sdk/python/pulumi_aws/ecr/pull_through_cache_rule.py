@@ -154,7 +154,6 @@ class PullThroughCacheRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -164,7 +163,6 @@ class PullThroughCacheRule(pulumi.CustomResource):
             upstream_registry_url="public.ecr.aws",
             credential_arn="arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -194,7 +192,6 @@ class PullThroughCacheRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -204,7 +201,6 @@ class PullThroughCacheRule(pulumi.CustomResource):
             upstream_registry_url="public.ecr.aws",
             credential_arn="arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

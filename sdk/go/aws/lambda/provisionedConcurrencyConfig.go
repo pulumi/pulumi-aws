@@ -20,7 +20,6 @@ import (
 //
 // ### Alias Name
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,11 +45,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Function Version
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,7 +73,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

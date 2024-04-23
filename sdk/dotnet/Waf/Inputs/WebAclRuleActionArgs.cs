@@ -13,8 +13,7 @@ namespace Pulumi.Aws.Waf.Inputs
     public sealed class WebAclRuleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
-        /// e.g., `ALLOW` or `BLOCK`
+        /// valid values are: `BLOCK`, `ALLOW`, or `COUNT`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

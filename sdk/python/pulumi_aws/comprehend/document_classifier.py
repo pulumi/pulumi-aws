@@ -557,7 +557,6 @@ class DocumentClassifier(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -573,7 +572,6 @@ class DocumentClassifier(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         entities = aws.s3.BucketObjectv2("entities")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -632,7 +630,6 @@ class DocumentClassifier(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -648,7 +645,6 @@ class DocumentClassifier(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         entities = aws.s3.BucketObjectv2("entities")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

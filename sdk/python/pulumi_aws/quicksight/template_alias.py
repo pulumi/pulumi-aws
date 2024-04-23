@@ -193,7 +193,6 @@ class TemplateAlias(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,7 +202,6 @@ class TemplateAlias(pulumi.CustomResource):
             template_id=test["templateId"],
             template_version_number=test["versionNumber"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -235,7 +233,6 @@ class TemplateAlias(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +242,6 @@ class TemplateAlias(pulumi.CustomResource):
             template_id=test["templateId"],
             template_version_number=test["versionNumber"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

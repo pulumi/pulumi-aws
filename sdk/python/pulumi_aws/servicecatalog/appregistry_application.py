@@ -148,18 +148,15 @@ class AppregistryApplication(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicecatalog.AppregistryApplication("example", name="example-app")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Connecting Resources
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -169,7 +166,6 @@ class AppregistryApplication(pulumi.CustomResource):
             bucket="example-bucket",
             tags=example.application_tag)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -201,18 +197,15 @@ class AppregistryApplication(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicecatalog.AppregistryApplication("example", name="example-app")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Connecting Resources
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,7 +215,6 @@ class AppregistryApplication(pulumi.CustomResource):
             bucket="example-bucket",
             tags=example.application_tag)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

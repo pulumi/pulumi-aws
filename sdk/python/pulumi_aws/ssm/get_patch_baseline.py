@@ -225,7 +225,6 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
 
     To retrieve a baseline provided by AWS:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -234,11 +233,9 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
         name_prefix="AWS-",
         operating_system="CENTOS")
     ```
-    <!--End PulumiCodeChooser -->
 
     To retrieve a baseline on your account:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -248,7 +245,6 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
         default_baseline=True,
         operating_system="WINDOWS")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool default_baseline: Filters the results against the baselines default_baseline field.
@@ -298,7 +294,6 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
 
     To retrieve a baseline provided by AWS:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -307,11 +302,9 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
         name_prefix="AWS-",
         operating_system="CENTOS")
     ```
-    <!--End PulumiCodeChooser -->
 
     To retrieve a baseline on your account:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -321,7 +314,6 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
         default_baseline=True,
         operating_system="WINDOWS")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param bool default_baseline: Filters the results against the baselines default_baseline field.

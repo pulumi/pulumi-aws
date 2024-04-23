@@ -206,14 +206,12 @@ def get_theme(aws_account_id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.quicksight.get_theme(theme_id="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str aws_account_id: AWS account ID.
@@ -258,14 +256,12 @@ def get_theme_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = Non
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.quicksight.get_theme(theme_id="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str aws_account_id: AWS account ID.

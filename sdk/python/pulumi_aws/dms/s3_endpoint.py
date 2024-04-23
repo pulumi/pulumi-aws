@@ -1720,7 +1720,6 @@ class S3Endpoint(pulumi.CustomResource):
 
         This is the minimal configuration for an `dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1732,11 +1731,9 @@ class S3Endpoint(pulumi.CustomResource):
             service_access_role_arn=example_aws_iam_role["arn"],
             opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Complete Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1793,7 +1790,6 @@ class S3Endpoint(pulumi.CustomResource):
             glue_catalog_generation=True,
             opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1875,7 +1871,6 @@ class S3Endpoint(pulumi.CustomResource):
 
         This is the minimal configuration for an `dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1887,11 +1882,9 @@ class S3Endpoint(pulumi.CustomResource):
             service_access_role_arn=example_aws_iam_role["arn"],
             opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Complete Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1948,7 +1941,6 @@ class S3Endpoint(pulumi.CustomResource):
             glue_catalog_generation=True,
             opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

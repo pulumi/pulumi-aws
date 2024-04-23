@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### By name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,7 +25,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBotAssociation(args: GetBotAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAssociationResult> {
 
@@ -69,7 +67,6 @@ export interface GetBotAssociationResult {
  *
  * ### By name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -81,7 +78,6 @@ export interface GetBotAssociationResult {
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBotAssociationOutput(args: GetBotAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotAssociationResult> {
     return pulumi.output(args).apply((a: any) => getBotAssociation(a, opts))

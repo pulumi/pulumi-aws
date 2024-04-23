@@ -463,7 +463,6 @@ class MetricStream(pulumi.CustomResource):
 
         ### Filters
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -551,11 +550,9 @@ class MetricStream(pulumi.CustomResource):
             role=firehose_to_s3_role.id,
             policy=firehose_to_s3.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Additional Statistics
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -585,7 +582,6 @@ class MetricStream(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -623,7 +619,6 @@ class MetricStream(pulumi.CustomResource):
 
         ### Filters
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -711,11 +706,9 @@ class MetricStream(pulumi.CustomResource):
             role=firehose_to_s3_role.id,
             policy=firehose_to_s3.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Additional Statistics
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -745,7 +738,6 @@ class MetricStream(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

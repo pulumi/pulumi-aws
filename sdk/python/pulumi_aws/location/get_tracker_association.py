@@ -72,7 +72,6 @@ def get_tracker_association(consumer_arn: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -80,7 +79,6 @@ def get_tracker_association(consumer_arn: Optional[str] = None,
     example = aws.location.get_tracker_association(consumer_arn="arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer",
         tracker_name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str consumer_arn: ARN of the geofence collection associated to tracker resource.
@@ -109,7 +107,6 @@ def get_tracker_association_output(consumer_arn: Optional[pulumi.Input[str]] = N
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -117,7 +114,6 @@ def get_tracker_association_output(consumer_arn: Optional[pulumi.Input[str]] = N
     example = aws.location.get_tracker_association(consumer_arn="arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer",
         tracker_name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str consumer_arn: ARN of the geofence collection associated to tracker resource.

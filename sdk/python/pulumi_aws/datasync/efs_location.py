@@ -321,7 +321,6 @@ class EfsLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -333,7 +332,6 @@ class EfsLocation(pulumi.CustomResource):
                 subnet_arn=example_aws_subnet["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -366,7 +364,6 @@ class EfsLocation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -378,7 +375,6 @@ class EfsLocation(pulumi.CustomResource):
                 subnet_arn=example_aws_subnet["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

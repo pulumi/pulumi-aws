@@ -168,7 +168,6 @@ class DefaultPatchBaseline(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +179,6 @@ class DefaultPatchBaseline(pulumi.CustomResource):
             baseline_id=example_patch_baseline.id,
             operating_system=example_patch_baseline.operating_system)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -240,7 +238,6 @@ class DefaultPatchBaseline(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -252,7 +249,6 @@ class DefaultPatchBaseline(pulumi.CustomResource):
             baseline_id=example_patch_baseline.id,
             operating_system=example_patch_baseline.operating_system)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

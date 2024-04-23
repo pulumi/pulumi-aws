@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetIdentityPoolResult> InvokeAsync(GetIdentityPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityPoolResult>("aws:cognito/getIdentityPool:getIdentityPool", args ?? new GetIdentityPoolArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetIdentityPoolResult> Invoke(GetIdentityPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityPoolResult>("aws:cognito/getIdentityPool:getIdentityPool", args ?? new GetIdentityPoolInvokeArgs(), options.WithDefaults());

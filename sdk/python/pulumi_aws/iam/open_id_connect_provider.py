@@ -205,7 +205,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,7 +214,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             client_id_lists=["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
             thumbprint_lists=["cf23df2207d99a74fbe169e3eba035e633b65d94"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -243,7 +241,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,7 +250,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             client_id_lists=["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
             thumbprint_lists=["cf23df2207d99a74fbe169e3eba035e633b65d94"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

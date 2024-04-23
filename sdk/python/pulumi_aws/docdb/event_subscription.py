@@ -347,7 +347,6 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -374,7 +373,6 @@ class EventSubscription(pulumi.CustomResource):
             source_ids=[example.id],
             sns_topic_arn=example_topic.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -405,7 +403,6 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -432,7 +429,6 @@ class EventSubscription(pulumi.CustomResource):
             source_ids=[example.id],
             sns_topic_arn=example_topic.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

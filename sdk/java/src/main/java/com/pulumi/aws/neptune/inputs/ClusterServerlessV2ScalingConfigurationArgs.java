@@ -15,32 +15,16 @@ public final class ClusterServerlessV2ScalingConfigurationArgs extends com.pulum
 
     public static final ClusterServerlessV2ScalingConfigurationArgs Empty = new ClusterServerlessV2ScalingConfigurationArgs();
 
-    /**
-     * The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-     * 
-     */
     @Import(name="maxCapacity")
     private @Nullable Output<Double> maxCapacity;
 
-    /**
-     * @return The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-     * 
-     */
     public Optional<Output<Double>> maxCapacity() {
         return Optional.ofNullable(this.maxCapacity);
     }
 
-    /**
-     * The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-     * 
-     */
     @Import(name="minCapacity")
     private @Nullable Output<Double> minCapacity;
 
-    /**
-     * @return The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-     * 
-     */
     public Optional<Output<Double>> minCapacity() {
         return Optional.ofNullable(this.minCapacity);
     }
@@ -70,44 +54,20 @@ public final class ClusterServerlessV2ScalingConfigurationArgs extends com.pulum
             $ = new ClusterServerlessV2ScalingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maxCapacity The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCapacity(@Nullable Output<Double> maxCapacity) {
             $.maxCapacity = maxCapacity;
             return this;
         }
 
-        /**
-         * @param maxCapacity The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxCapacity(Double maxCapacity) {
             return maxCapacity(Output.of(maxCapacity));
         }
 
-        /**
-         * @param minCapacity The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minCapacity(@Nullable Output<Double> minCapacity) {
             $.minCapacity = minCapacity;
             return this;
         }
 
-        /**
-         * @param minCapacity The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minCapacity(Double minCapacity) {
             return minCapacity(Output.of(minCapacity));
         }

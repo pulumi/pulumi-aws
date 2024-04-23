@@ -21,7 +21,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,7 +70,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
 //

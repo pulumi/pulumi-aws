@@ -13,7 +13,6 @@ import {Role} from "./index";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,7 +37,6 @@ import {Role} from "./index";
  *     role: role.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

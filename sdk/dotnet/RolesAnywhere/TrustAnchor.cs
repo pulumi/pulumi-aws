@@ -14,7 +14,6 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,13 +74,12 @@ namespace Pulumi.Aws.RolesAnywhere
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleCertificateAuthorityCertificate, 
+    ///             exampleCertificateAuthorityCertificate,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

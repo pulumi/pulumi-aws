@@ -19,13 +19,13 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? BucketOwnerAccess { get; set; }
 
         /// <summary>
-        /// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+        /// Whether to disable encrypting S3 logs. Defaults to `false`.
         /// </summary>
         [Input("encryptionDisabled")]
         public Input<bool>? EncryptionDisabled { get; set; }
 
         /// <summary>
-        /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+        /// Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

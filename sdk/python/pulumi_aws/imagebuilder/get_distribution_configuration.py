@@ -134,14 +134,12 @@ def get_distribution_configuration(arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_distribution_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the distribution configuration.
@@ -173,14 +171,12 @@ def get_distribution_configuration_output(arn: Optional[pulumi.Input[str]] = Non
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_distribution_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the distribution configuration.

@@ -31,7 +31,7 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
      */
     private @Nullable MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration sentimentConfiguration;
     /**
-     * @return Element type.
+     * @return Rule type.
      * 
      */
     private String type;
@@ -59,7 +59,7 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
         return Optional.ofNullable(this.sentimentConfiguration);
     }
     /**
-     * @return Element type.
+     * @return Rule type.
      * 
      */
     public String type() {

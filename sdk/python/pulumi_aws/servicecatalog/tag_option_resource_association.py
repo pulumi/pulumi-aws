@@ -170,7 +170,6 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,7 +178,6 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
             resource_id="prod-dnigbtea24ste",
             tag_option_id="tag-pjtvyakdlyo3m")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -209,7 +207,6 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,7 +215,6 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
             resource_id="prod-dnigbtea24ste",
             tag_option_id="tag-pjtvyakdlyo3m")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  *
  * Using `approvedPatches` only.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,11 +29,9 @@ import * as utilities from "../utilities";
  *     approvedPatches: ["KB123456"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Advanced Usage, specifying patch filters
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,11 +95,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Advanced usage, specifying Microsoft application and Windows patch rules
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -150,11 +145,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Advanced usage, specifying alternate patch source repository
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -169,7 +162,7 @@ import * as utilities from "../utilities";
  *         products: ["AmazonLinux2017.09"],
  *         configuration: `[amzn-main]
  * name=amzn-main-Base
- * mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
+ * mirrorlist=http://repo./awsregion./awsdomain//releasever/main/mirror.list
  * mirrorlist_expire=300
  * metadata_expire=300
  * priority=10
@@ -185,7 +178,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

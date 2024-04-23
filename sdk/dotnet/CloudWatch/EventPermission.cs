@@ -20,7 +20,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ### Account Access
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,11 +36,9 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Organization Access
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

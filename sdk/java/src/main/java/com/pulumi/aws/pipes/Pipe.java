@@ -294,14 +294,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:pipes/pipe:Pipe")
 public class Pipe extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+     * ARN of this pipe.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+     * @return ARN of this pipe.
      * 
      */
     public Output<String> arn() {

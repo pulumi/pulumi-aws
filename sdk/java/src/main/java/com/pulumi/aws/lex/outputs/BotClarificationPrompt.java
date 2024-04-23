@@ -15,49 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BotClarificationPrompt {
-    /**
-     * @return The number of times to prompt the user for information.
-     * 
-     */
     private Integer maxAttempts;
-    /**
-     * @return A set of messages, each of which provides a message string and its type.
-     * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-     * Attributes are documented under message.
-     * 
-     */
     private List<BotClarificationPromptMessage> messages;
-    /**
-     * @return The response card. Amazon Lex will substitute session attributes and
-     * slot values into the response card. For more information, see
-     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
-     * 
-     */
     private @Nullable String responseCard;
 
     private BotClarificationPrompt() {}
-    /**
-     * @return The number of times to prompt the user for information.
-     * 
-     */
     public Integer maxAttempts() {
         return this.maxAttempts;
     }
-    /**
-     * @return A set of messages, each of which provides a message string and its type.
-     * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
-     * Attributes are documented under message.
-     * 
-     */
     public List<BotClarificationPromptMessage> messages() {
         return this.messages;
     }
-    /**
-     * @return The response card. Amazon Lex will substitute session attributes and
-     * slot values into the response card. For more information, see
-     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
-     * 
-     */
     public Optional<String> responseCard() {
         return Optional.ofNullable(this.responseCard);
     }

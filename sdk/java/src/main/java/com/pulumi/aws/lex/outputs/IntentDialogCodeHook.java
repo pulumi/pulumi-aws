@@ -10,33 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class IntentDialogCodeHook {
-    /**
-     * @return The version of the request-response that you want Amazon Lex to use
-     * to invoke your Lambda function. For more information, see
-     * [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
-     * 
-     */
     private String messageVersion;
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function.
-     * 
-     */
     private String uri;
 
     private IntentDialogCodeHook() {}
-    /**
-     * @return The version of the request-response that you want Amazon Lex to use
-     * to invoke your Lambda function. For more information, see
-     * [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
-     * 
-     */
     public String messageVersion() {
         return this.messageVersion;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function.
-     * 
-     */
     public String uri() {
         return this.uri;
     }

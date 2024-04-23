@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,7 +29,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogDeliveryCanonicalUserId(args?: GetLogDeliveryCanonicalUserIdArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDeliveryCanonicalUserIdResult> {
     args = args || {};
@@ -67,7 +65,6 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -87,7 +84,6 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogDeliveryCanonicalUserIdOutput(args?: GetLogDeliveryCanonicalUserIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDeliveryCanonicalUserIdResult> {
     return pulumi.output(args).apply((a: any) => getLogDeliveryCanonicalUserId(a, opts))

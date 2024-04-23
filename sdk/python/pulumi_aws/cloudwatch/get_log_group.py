@@ -133,14 +133,12 @@ def get_log_group(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudwatch.get_log_group(name="MyImportantLogs")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the Cloudwatch log group
@@ -172,14 +170,12 @@ def get_log_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudwatch.get_log_group(name="MyImportantLogs")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the Cloudwatch log group

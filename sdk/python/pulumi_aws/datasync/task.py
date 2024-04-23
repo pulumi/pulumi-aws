@@ -406,7 +406,6 @@ class Task(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,11 +418,9 @@ class Task(pulumi.CustomResource):
                 bytes_per_second=-1,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Scheduling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -436,11 +433,9 @@ class Task(pulumi.CustomResource):
                 schedule_expression="cron(0 12 ? * SUN,WED *)",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Filtering
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -458,7 +453,6 @@ class Task(pulumi.CustomResource):
                 value="/folder1|/folder2",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -492,7 +486,6 @@ class Task(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -505,11 +498,9 @@ class Task(pulumi.CustomResource):
                 bytes_per_second=-1,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Scheduling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -522,11 +513,9 @@ class Task(pulumi.CustomResource):
                 schedule_expression="cron(0 12 ? * SUN,WED *)",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Filtering
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -544,7 +533,6 @@ class Task(pulumi.CustomResource):
                 value="/folder1|/folder2",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

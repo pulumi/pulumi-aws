@@ -7,7 +7,6 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,11 +26,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## FIFO queue
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -42,11 +39,9 @@ import * as utilities from "../utilities";
  *     contentBasedDeduplication: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## High-throughput FIFO queue
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -58,11 +53,9 @@ import * as utilities from "../utilities";
  *     fifoThroughputLimit: "perMessageGroupId",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Dead-letter queue
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -83,13 +76,11 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Server-side encryption (SSE)
  *
  * Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -99,11 +90,9 @@ import * as utilities from "../utilities";
  *     sqsManagedSseEnabled: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -114,7 +103,6 @@ import * as utilities from "../utilities";
  *     kmsDataKeyReusePeriodSeconds: 300,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -136,7 +136,6 @@ class LinkAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,7 +145,6 @@ class LinkAssociation(pulumi.CustomResource):
             link_id=example_aws_networkmanager_link["id"],
             device_id=example_aws_networkmanager_device["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -175,7 +173,6 @@ class LinkAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,7 +182,6 @@ class LinkAssociation(pulumi.CustomResource):
             link_id=example_aws_networkmanager_link["id"],
             device_id=example_aws_networkmanager_device["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

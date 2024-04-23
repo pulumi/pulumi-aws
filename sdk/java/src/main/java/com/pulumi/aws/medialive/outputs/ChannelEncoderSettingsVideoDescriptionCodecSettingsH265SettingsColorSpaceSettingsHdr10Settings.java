@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings {
-    /**
-     * @return Sets the MaxCLL value for HDR10.
-     * 
-     */
     private @Nullable Integer maxCll;
-    /**
-     * @return Sets the MaxFALL value for HDR10.
-     * 
-     */
     private @Nullable Integer maxFall;
 
     private ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings() {}
-    /**
-     * @return Sets the MaxCLL value for HDR10.
-     * 
-     */
     public Optional<Integer> maxCll() {
         return Optional.ofNullable(this.maxCll);
     }
-    /**
-     * @return Sets the MaxFALL value for HDR10.
-     * 
-     */
     public Optional<Integer> maxFall() {
         return Optional.ofNullable(this.maxFall);
     }

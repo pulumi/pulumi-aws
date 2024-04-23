@@ -14,7 +14,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,7 +78,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:opensearch/domainPolicy:DomainPolicy")]
     public partial class DomainPolicy : global::Pulumi.CustomResource

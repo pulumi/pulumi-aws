@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  *     policyDocument: exampleAwsNetworkmanagerCoreNetworkPolicyDocument.json,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With VPC Attachment (Single Region)
  *
@@ -35,7 +33,6 @@ import * as utilities from "../utilities";
  *
  * ### Option 1 - using basePolicyDocument
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -86,11 +83,9 @@ import * as utilities from "../utilities";
  *     policyDocument: example.apply(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Option 2 - createBasePolicy only
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -127,7 +122,6 @@ import * as utilities from "../utilities";
  *     policyDocument: example.apply(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With VPC Attachment (Multi-Region)
  *
@@ -138,7 +132,6 @@ import * as utilities from "../utilities";
  *
  * ### Option 1 - using basePolicyDocument
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -219,11 +212,9 @@ import * as utilities from "../utilities";
  *     policyDocument: example.apply(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Option 2 - using basePolicyRegions
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -287,7 +278,6 @@ import * as utilities from "../utilities";
  *     policyDocument: example.apply(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

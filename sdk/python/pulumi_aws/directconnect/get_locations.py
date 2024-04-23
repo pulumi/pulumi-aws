@@ -65,14 +65,12 @@ def get_locations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLo
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     available = aws.directconnect.get_locations()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -93,13 +91,11 @@ def get_locations_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     available = aws.directconnect.get_locations()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

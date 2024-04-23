@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulumi.InvokeOption) (*GetBrokerNodesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBrokerNodesResult

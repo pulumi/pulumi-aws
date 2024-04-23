@@ -170,7 +170,6 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,7 +192,6 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -220,7 +218,6 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -243,7 +240,6 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

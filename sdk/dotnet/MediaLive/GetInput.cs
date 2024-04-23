@@ -18,7 +18,6 @@ namespace Pulumi.Aws.MediaLive
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.MediaLive
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("aws:medialive/getInput:getInput", args ?? new GetInputArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.MediaLive
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.MediaLive
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInputResult>("aws:medialive/getInput:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());

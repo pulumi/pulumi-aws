@@ -25,7 +25,6 @@ import (
 //
 // ### Network Load Balancers
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,11 +51,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Gateway Load Balancers
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,7 +80,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

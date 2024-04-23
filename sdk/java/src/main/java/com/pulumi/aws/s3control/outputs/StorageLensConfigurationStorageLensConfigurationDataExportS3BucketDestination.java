@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination {
     /**
-     * @return The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * @return The account ID of the owner of the S3 Storage Lens metrics export bucket.
      * 
      */
     private String accountId;
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * @return The Amazon Resource Name (ARN) of the bucket.
      * 
      */
     private String arn;
@@ -46,14 +46,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
 
     private StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination() {}
     /**
-     * @return The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * @return The account ID of the owner of the S3 Storage Lens metrics export bucket.
      * 
      */
     public String accountId() {
         return this.accountId;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * @return The Amazon Resource Name (ARN) of the bucket.
      * 
      */
     public String arn() {

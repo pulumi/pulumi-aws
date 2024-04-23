@@ -14,10 +14,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
     {
         [Input("adMarkers")]
         private InputList<string>? _adMarkers;
-
-        /// <summary>
-        /// The ad marker type for this output group.
-        /// </summary>
         public InputList<string> AdMarkers
         {
             get => _adMarkers ?? (_adMarkers = new InputList<string>());
@@ -56,9 +52,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("constantIv")]
         public Input<string>? ConstantIv { get; set; }
 
-        /// <summary>
-        /// A director and base filename where archive files should be written. See Destination for more details.
-        /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationGetArgs> Destination { get; set; } = null!;
 
@@ -91,9 +84,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("indexNSegments")]
         public Input<int>? IndexNSegments { get; set; }
 
-        /// <summary>
-        /// Controls the behavior of the RTMP group if input becomes unavailable.
-        /// </summary>
         [Input("inputLossAction")]
         public Input<string>? InputLossAction { get; set; }
 
@@ -151,9 +141,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("streamInfResolution")]
         public Input<string>? StreamInfResolution { get; set; }
 
-        /// <summary>
-        /// Indicates ID3 frame that has the timecode.
-        /// </summary>
         [Input("timedMetadataId3Frame")]
         public Input<string>? TimedMetadataId3Frame { get; set; }
 

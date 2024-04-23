@@ -290,8 +290,8 @@ class GroupInstanceRefreshPreferencesArgs:
         :param pulumi.Input[str] checkpoint_delay: Number of seconds to wait after a checkpoint. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] checkpoint_percentages: List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
         :param pulumi.Input[str] instance_warmup: Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
-        :param pulumi.Input[int] max_healthy_percentage: Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
-        :param pulumi.Input[int] min_healthy_percentage: Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+        :param pulumi.Input[int] max_healthy_percentage: Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
+        :param pulumi.Input[int] min_healthy_percentage: Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
         :param pulumi.Input[str] scale_in_protected_instances: Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
         :param pulumi.Input[bool] skip_matching: Replace instances that already have your desired configuration. Defaults to `false`.
         :param pulumi.Input[str] standby_instances: Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
@@ -381,7 +381,7 @@ class GroupInstanceRefreshPreferencesArgs:
     @pulumi.getter(name="maxHealthyPercentage")
     def max_healthy_percentage(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+        Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
         """
         return pulumi.get(self, "max_healthy_percentage")
 
@@ -393,7 +393,7 @@ class GroupInstanceRefreshPreferencesArgs:
     @pulumi.getter(name="minHealthyPercentage")
     def min_healthy_percentage(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+        Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
         """
         return pulumi.get(self, "min_healthy_percentage")
 
@@ -442,18 +442,12 @@ class GroupInstanceRefreshPreferencesArgs:
 class GroupInstanceRefreshPreferencesAlarmSpecificationArgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarms: List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
-        """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
 
     @property
     @pulumi.getter
     def alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
-        """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
@@ -563,14 +557,6 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
                  spot_allocation_strategy: Optional[pulumi.Input[str]] = None,
                  spot_instance_pools: Optional[pulumi.Input[int]] = None,
                  spot_max_price: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] on_demand_allocation_strategy: Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
-        :param pulumi.Input[int] on_demand_base_capacity: Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-        :param pulumi.Input[int] on_demand_percentage_above_base_capacity: Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-        :param pulumi.Input[str] spot_allocation_strategy: How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
-        :param pulumi.Input[int] spot_instance_pools: Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
-        :param pulumi.Input[str] spot_max_price: Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
-        """
         if on_demand_allocation_strategy is not None:
             pulumi.set(__self__, "on_demand_allocation_strategy", on_demand_allocation_strategy)
         if on_demand_base_capacity is not None:
@@ -587,9 +573,6 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
     @property
     @pulumi.getter(name="onDemandAllocationStrategy")
     def on_demand_allocation_strategy(self) -> Optional[pulumi.Input[str]]:
-        """
-        Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
-        """
         return pulumi.get(self, "on_demand_allocation_strategy")
 
     @on_demand_allocation_strategy.setter
@@ -599,9 +582,6 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
     @property
     @pulumi.getter(name="onDemandBaseCapacity")
     def on_demand_base_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
-        """
         return pulumi.get(self, "on_demand_base_capacity")
 
     @on_demand_base_capacity.setter
@@ -611,9 +591,6 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
     @property
     @pulumi.getter(name="onDemandPercentageAboveBaseCapacity")
     def on_demand_percentage_above_base_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
-        """
         return pulumi.get(self, "on_demand_percentage_above_base_capacity")
 
     @on_demand_percentage_above_base_capacity.setter
@@ -623,9 +600,6 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
     @property
     @pulumi.getter(name="spotAllocationStrategy")
     def spot_allocation_strategy(self) -> Optional[pulumi.Input[str]]:
-        """
-        How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
-        """
         return pulumi.get(self, "spot_allocation_strategy")
 
     @spot_allocation_strategy.setter
@@ -635,9 +609,6 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
     @property
     @pulumi.getter(name="spotInstancePools")
     def spot_instance_pools(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
-        """
         return pulumi.get(self, "spot_instance_pools")
 
     @spot_instance_pools.setter
@@ -647,9 +618,6 @@ class GroupMixedInstancesPolicyInstancesDistributionArgs:
     @property
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[pulumi.Input[str]]:
-        """
-        Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
-        """
         return pulumi.get(self, "spot_max_price")
 
     @spot_max_price.setter
@@ -662,10 +630,6 @@ class GroupMixedInstancesPolicyLaunchTemplateArgs:
     def __init__(__self__, *,
                  launch_template_specification: pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs'],
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideArgs']]]] = None):
-        """
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs'] launch_template_specification: Override the instance launch template specification in the Launch Template.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideArgs']]] overrides: List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
-        """
         pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if overrides is not None:
             pulumi.set(__self__, "overrides", overrides)
@@ -673,9 +637,6 @@ class GroupMixedInstancesPolicyLaunchTemplateArgs:
     @property
     @pulumi.getter(name="launchTemplateSpecification")
     def launch_template_specification(self) -> pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs']:
-        """
-        Override the instance launch template specification in the Launch Template.
-        """
         return pulumi.get(self, "launch_template_specification")
 
     @launch_template_specification.setter
@@ -685,9 +646,6 @@ class GroupMixedInstancesPolicyLaunchTemplateArgs:
     @property
     @pulumi.getter
     def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideArgs']]]]:
-        """
-        List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
-        """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
@@ -701,11 +659,6 @@ class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs:
                  launch_template_id: Optional[pulumi.Input[str]] = None,
                  launch_template_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] launch_template_id: ID of the launch template. Conflicts with `launch_template_name`.
-        :param pulumi.Input[str] launch_template_name: Name of the launch template. Conflicts with `launch_template_id`.
-        :param pulumi.Input[str] version: Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-        """
         if launch_template_id is not None:
             pulumi.set(__self__, "launch_template_id", launch_template_id)
         if launch_template_name is not None:
@@ -716,9 +669,6 @@ class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs:
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the launch template. Conflicts with `launch_template_name`.
-        """
         return pulumi.get(self, "launch_template_id")
 
     @launch_template_id.setter
@@ -728,9 +678,6 @@ class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs:
     @property
     @pulumi.getter(name="launchTemplateName")
     def launch_template_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the launch template. Conflicts with `launch_template_id`.
-        """
         return pulumi.get(self, "launch_template_name")
 
     @launch_template_name.setter
@@ -740,9 +687,6 @@ class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -757,12 +701,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs:
                  instance_type: Optional[pulumi.Input[str]] = None,
                  launch_template_specification: Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs']] = None,
                  weighted_capacity: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs'] instance_requirements: Override the instance type in the Launch Template with instance types that satisfy the requirements.
-        :param pulumi.Input[str] instance_type: Override the instance type in the Launch Template.
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs'] launch_template_specification: Override the instance launch template specification in the Launch Template.
-        :param pulumi.Input[str] weighted_capacity: Number of capacity units, which gives the instance type a proportional weight to other instance types.
-        """
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
@@ -775,9 +713,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs:
     @property
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs']]:
-        """
-        Override the instance type in the Launch Template with instance types that satisfy the requirements.
-        """
         return pulumi.get(self, "instance_requirements")
 
     @instance_requirements.setter
@@ -787,9 +722,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Override the instance type in the Launch Template.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -799,9 +731,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs:
     @property
     @pulumi.getter(name="launchTemplateSpecification")
     def launch_template_specification(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs']]:
-        """
-        Override the instance launch template specification in the Launch Template.
-        """
         return pulumi.get(self, "launch_template_specification")
 
     @launch_template_specification.setter
@@ -811,9 +740,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs:
     @property
     @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> Optional[pulumi.Input[str]]:
-        """
-        Number of capacity units, which gives the instance type a proportional weight to other instance types.
-        """
         return pulumi.get(self, "weighted_capacity")
 
     @weighted_capacity.setter
@@ -847,86 +773,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
                  spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  total_local_storage_gb: Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs']] = None,
                  vcpu_count: Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs']] = None):
-        """
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
-               
-               ```
-               Valid names:
-               * amazon-web-services
-               * amd
-               * nvidia
-               * xilinx
-               ```
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: List of accelerator names. Default is any acclerator.
-               
-               ```
-               Valid names:
-               * a100            - NVIDIA A100 GPUs
-               * v100            - NVIDIA V100 GPUs
-               * k80             - NVIDIA K80 GPUs
-               * t4              - NVIDIA T4 GPUs
-               * m60             - NVIDIA M60 GPUs
-               * radeon-pro-v520 - AMD Radeon Pro V520 GPUs
-               * vu9p            - Xilinx VU9P FPGAs
-               ```
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
-               
-               ```
-               Valid types:
-               * fpga
-               * gpu
-               * inference
-               ```
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
-               
-               > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
-        :param pulumi.Input[str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
-        :param pulumi.Input[str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
-               
-               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-               
-               ```
-               Valid names:
-               * amazon-web-services
-               * amd
-               * intel
-               ```
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
-               
-               > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: List of instance generation names. Default is any generation.
-               
-               ```
-               Valid names:
-               * current  - Recommended for best performance.
-               * previous - For existing applications optimized for older instance types.
-               ```
-        :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Default any storage type.
-               
-               ```
-               Value names:
-               * hdd - hard disk drive
-               * ssd - solid state drive
-               ```
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs'] memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
-        :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
-               
-               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-        :param pulumi.Input[bool] require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
-        :param pulumi.Input[int] spot_max_price_percentage_over_lowest_price: Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
-               
-               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs'] total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
-        :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
-        """
         if accelerator_count is not None:
             pulumi.set(__self__, "accelerator_count", accelerator_count)
         if accelerator_manufacturers is not None:
@@ -977,9 +823,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="acceleratorCount")
     def accelerator_count(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs']]:
-        """
-        Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
-        """
         return pulumi.get(self, "accelerator_count")
 
     @accelerator_count.setter
@@ -989,17 +832,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="acceleratorManufacturers")
     def accelerator_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of accelerator manufacturer names. Default is any manufacturer.
-
-        ```
-        Valid names:
-        * amazon-web-services
-        * amd
-        * nvidia
-        * xilinx
-        ```
-        """
         return pulumi.get(self, "accelerator_manufacturers")
 
     @accelerator_manufacturers.setter
@@ -1009,20 +841,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="acceleratorNames")
     def accelerator_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of accelerator names. Default is any acclerator.
-
-        ```
-        Valid names:
-        * a100            - NVIDIA A100 GPUs
-        * v100            - NVIDIA V100 GPUs
-        * k80             - NVIDIA K80 GPUs
-        * t4              - NVIDIA T4 GPUs
-        * m60             - NVIDIA M60 GPUs
-        * radeon-pro-v520 - AMD Radeon Pro V520 GPUs
-        * vu9p            - Xilinx VU9P FPGAs
-        ```
-        """
         return pulumi.get(self, "accelerator_names")
 
     @accelerator_names.setter
@@ -1032,9 +850,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="acceleratorTotalMemoryMib")
     def accelerator_total_memory_mib(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']]:
-        """
-        Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
-        """
         return pulumi.get(self, "accelerator_total_memory_mib")
 
     @accelerator_total_memory_mib.setter
@@ -1044,16 +859,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="acceleratorTypes")
     def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of accelerator types. Default is any accelerator type.
-
-        ```
-        Valid types:
-        * fpga
-        * gpu
-        * inference
-        ```
-        """
         return pulumi.get(self, "accelerator_types")
 
     @accelerator_types.setter
@@ -1063,11 +868,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="allowedInstanceTypes")
     def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
-
-        > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
-        """
         return pulumi.get(self, "allowed_instance_types")
 
     @allowed_instance_types.setter
@@ -1077,9 +877,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="bareMetal")
     def bare_metal(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        """
         return pulumi.get(self, "bare_metal")
 
     @bare_metal.setter
@@ -1089,9 +886,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="baselineEbsBandwidthMbps")
     def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]:
-        """
-        Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
-        """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
 
     @baseline_ebs_bandwidth_mbps.setter
@@ -1101,9 +895,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="burstablePerformance")
     def burstable_performance(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        """
         return pulumi.get(self, "burstable_performance")
 
     @burstable_performance.setter
@@ -1113,18 +904,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="cpuManufacturers")
     def cpu_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of CPU manufacturer names. Default is any manufacturer.
-
-        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-
-        ```
-        Valid names:
-        * amazon-web-services
-        * amd
-        * intel
-        ```
-        """
         return pulumi.get(self, "cpu_manufacturers")
 
     @cpu_manufacturers.setter
@@ -1134,11 +913,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="excludedInstanceTypes")
     def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
-
-        > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
-        """
         return pulumi.get(self, "excluded_instance_types")
 
     @excluded_instance_types.setter
@@ -1148,15 +922,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="instanceGenerations")
     def instance_generations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of instance generation names. Default is any generation.
-
-        ```
-        Valid names:
-        * current  - Recommended for best performance.
-        * previous - For existing applications optimized for older instance types.
-        ```
-        """
         return pulumi.get(self, "instance_generations")
 
     @instance_generations.setter
@@ -1166,9 +931,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="localStorage")
     def local_storage(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
-        """
         return pulumi.get(self, "local_storage")
 
     @local_storage.setter
@@ -1178,15 +940,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="localStorageTypes")
     def local_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of local storage type names. Default any storage type.
-
-        ```
-        Value names:
-        * hdd - hard disk drive
-        * ssd - solid state drive
-        ```
-        """
         return pulumi.get(self, "local_storage_types")
 
     @local_storage_types.setter
@@ -1196,9 +949,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="memoryGibPerVcpu")
     def memory_gib_per_vcpu(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs']]:
-        """
-        Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-        """
         return pulumi.get(self, "memory_gib_per_vcpu")
 
     @memory_gib_per_vcpu.setter
@@ -1208,9 +958,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="memoryMib")
     def memory_mib(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs']]:
-        """
-        Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
-        """
         return pulumi.get(self, "memory_mib")
 
     @memory_mib.setter
@@ -1220,9 +967,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="networkBandwidthGbps")
     def network_bandwidth_gbps(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']]:
-        """
-        Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
-        """
         return pulumi.get(self, "network_bandwidth_gbps")
 
     @network_bandwidth_gbps.setter
@@ -1232,9 +976,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="networkInterfaceCount")
     def network_interface_count(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs']]:
-        """
-        Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
-        """
         return pulumi.get(self, "network_interface_count")
 
     @network_interface_count.setter
@@ -1244,11 +985,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="onDemandMaxPricePercentageOverLowestPrice")
     def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
-        """
-        Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
-
-        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-        """
         return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
 
     @on_demand_max_price_percentage_over_lowest_price.setter
@@ -1258,9 +994,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="requireHibernateSupport")
     def require_hibernate_support(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
-        """
         return pulumi.get(self, "require_hibernate_support")
 
     @require_hibernate_support.setter
@@ -1270,11 +1003,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
     def spot_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
-        """
-        Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
-
-        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-        """
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
     @spot_max_price_percentage_over_lowest_price.setter
@@ -1284,9 +1012,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="totalLocalStorageGb")
     def total_local_storage_gb(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs']]:
-        """
-        Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
-        """
         return pulumi.get(self, "total_local_storage_gb")
 
     @total_local_storage_gb.setter
@@ -1296,9 +1021,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="vcpuCount")
     def vcpu_count(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs']]:
-        """
-        Block describing the minimum and maximum number of vCPUs. Default is no maximum.
-        """
         return pulumi.get(self, "vcpu_count")
 
     @vcpu_count.setter
@@ -1311,10 +1033,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceler
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] max: Maximum.
-        :param pulumi.Input[int] min: Minimum.
-        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -1323,9 +1041,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceler
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum.
-        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -1335,9 +1050,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceler
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
-        """
-        Minimum.
-        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -1350,10 +1062,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceler
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] max: Maximum.
-        :param pulumi.Input[int] min: Minimum.
-        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -1362,9 +1070,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceler
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum.
-        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -1374,9 +1079,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceler
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
-        """
-        Minimum.
-        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -1389,10 +1091,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselin
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] max: Maximum.
-        :param pulumi.Input[int] min: Minimum.
-        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -1401,9 +1099,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselin
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum.
-        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -1413,9 +1108,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselin
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
-        """
-        Minimum.
-        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -1428,10 +1120,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryG
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
-        """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
-        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -1440,9 +1128,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryG
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
-        """
-        Maximum.
-        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -1452,9 +1137,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryG
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
-        """
-        Minimum.
-        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -1467,10 +1149,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryM
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] max: Maximum.
-        :param pulumi.Input[int] min: Minimum.
-        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -1479,9 +1157,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryM
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum.
-        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -1491,9 +1166,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryM
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
-        """
-        Minimum.
-        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -1506,10 +1178,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwork
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
-        """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
-        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -1518,9 +1186,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwork
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
-        """
-        Maximum.
-        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -1530,9 +1195,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwork
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
-        """
-        Minimum.
-        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -1545,10 +1207,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwork
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] max: Maximum.
-        :param pulumi.Input[int] min: Minimum.
-        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -1557,9 +1215,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwork
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum.
-        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -1569,9 +1224,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwork
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
-        """
-        Minimum.
-        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -1584,10 +1236,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLo
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
-        """
-        :param pulumi.Input[float] max: Maximum.
-        :param pulumi.Input[float] min: Minimum.
-        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -1596,9 +1244,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLo
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[float]]:
-        """
-        Maximum.
-        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -1608,9 +1253,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLo
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[float]]:
-        """
-        Minimum.
-        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -1623,10 +1265,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCou
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] max: Maximum.
-        :param pulumi.Input[int] min: Minimum.
-        """
         if max is not None:
             pulumi.set(__self__, "max", max)
         if min is not None:
@@ -1635,9 +1273,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCou
     @property
     @pulumi.getter
     def max(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum.
-        """
         return pulumi.get(self, "max")
 
     @max.setter
@@ -1647,9 +1282,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCou
     @property
     @pulumi.getter
     def min(self) -> Optional[pulumi.Input[int]]:
-        """
-        Minimum.
-        """
         return pulumi.get(self, "min")
 
     @min.setter
@@ -1663,11 +1295,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification
                  launch_template_id: Optional[pulumi.Input[str]] = None,
                  launch_template_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] launch_template_id: ID of the launch template. Conflicts with `launch_template_name`.
-        :param pulumi.Input[str] launch_template_name: Name of the launch template. Conflicts with `launch_template_id`.
-        :param pulumi.Input[str] version: Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-        """
         if launch_template_id is not None:
             pulumi.set(__self__, "launch_template_id", launch_template_id)
         if launch_template_name is not None:
@@ -1678,9 +1305,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the launch template. Conflicts with `launch_template_name`.
-        """
         return pulumi.get(self, "launch_template_id")
 
     @launch_template_id.setter
@@ -1690,9 +1314,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification
     @property
     @pulumi.getter(name="launchTemplateName")
     def launch_template_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the launch template. Conflicts with `launch_template_id`.
-        """
         return pulumi.get(self, "launch_template_name")
 
     @launch_template_name.setter
@@ -1702,9 +1323,6 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-        """
         return pulumi.get(self, "version")
 
     @version.setter

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.AppIntegrations
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.AppIntegrations
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEventIntegrationResult> InvokeAsync(GetEventIntegrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventIntegrationResult>("aws:appintegrations/getEventIntegration:getEventIntegration", args ?? new GetEventIntegrationArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.AppIntegrations
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.AppIntegrations
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEventIntegrationResult> Invoke(GetEventIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventIntegrationResult>("aws:appintegrations/getEventIntegration:getEventIntegration", args ?? new GetEventIntegrationInvokeArgs(), options.WithDefaults());

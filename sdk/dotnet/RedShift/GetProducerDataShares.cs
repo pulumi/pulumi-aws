@@ -18,7 +18,6 @@ namespace Pulumi.Aws.RedShift
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.RedShift
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetProducerDataSharesResult> InvokeAsync(GetProducerDataSharesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProducerDataSharesResult>("aws:redshift/getProducerDataShares:getProducerDataShares", args ?? new GetProducerDataSharesArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.RedShift
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.RedShift
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetProducerDataSharesResult> Invoke(GetProducerDataSharesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProducerDataSharesResult>("aws:redshift/getProducerDataShares:getProducerDataShares", args ?? new GetProducerDataSharesInvokeArgs(), options.WithDefaults());

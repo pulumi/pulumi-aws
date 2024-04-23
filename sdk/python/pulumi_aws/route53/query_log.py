@@ -124,7 +124,6 @@ class QueryLog(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -155,7 +154,6 @@ class QueryLog(pulumi.CustomResource):
             zone_id=example_com.zone_id,
             opts=pulumi.ResourceOptions(depends_on=[route53_query_logging_policy_log_resource_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -187,7 +185,6 @@ class QueryLog(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,7 +215,6 @@ class QueryLog(pulumi.CustomResource):
             zone_id=example_com.zone_id,
             opts=pulumi.ResourceOptions(depends_on=[route53_query_logging_policy_log_resource_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

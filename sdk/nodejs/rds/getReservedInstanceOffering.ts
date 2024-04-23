@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     productDescription: "mysql",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getReservedInstanceOffering(args: GetReservedInstanceOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetReservedInstanceOfferingResult> {
 
@@ -93,7 +91,6 @@ export interface GetReservedInstanceOfferingResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -106,7 +103,6 @@ export interface GetReservedInstanceOfferingResult {
  *     productDescription: "mysql",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getReservedInstanceOfferingOutput(args: GetReservedInstanceOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReservedInstanceOfferingResult> {
     return pulumi.output(args).apply((a: any) => getReservedInstanceOffering(a, opts))

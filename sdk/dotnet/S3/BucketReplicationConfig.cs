@@ -20,7 +20,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### Using replication configuration
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -180,17 +179,15 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             sourceBucketVersioningV2, 
+    ///             sourceBucketVersioningV2,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Bi-Directional Replication
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -253,7 +250,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             eastBucketVersioningV2, 
+    ///             eastBucketVersioningV2,
     ///         },
     ///     });
     /// 
@@ -282,13 +279,12 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             westBucketVersioningV2, 
+    ///             westBucketVersioningV2,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

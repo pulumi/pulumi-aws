@@ -23,7 +23,6 @@ import (
 //
 // ### Create MACSec key with CKN and CAK
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,11 +54,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create MACSec key with existing Secrets Manager secret
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,7 +94,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type MacsecKeyAssociation struct {
 	pulumi.CustomResourceState
 

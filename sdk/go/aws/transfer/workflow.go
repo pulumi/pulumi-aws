@@ -18,7 +18,6 @@ import (
 //
 // ### Basic single step example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,11 +49,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Multistep example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -101,7 +98,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

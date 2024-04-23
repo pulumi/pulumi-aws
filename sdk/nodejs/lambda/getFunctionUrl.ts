@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     functionName: functionName,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFunctionUrl(args: GetFunctionUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionUrlResult> {
 
@@ -96,7 +94,6 @@ export interface GetFunctionUrlResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -107,7 +104,6 @@ export interface GetFunctionUrlResult {
  *     functionName: functionName,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFunctionUrlOutput(args: GetFunctionUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionUrlResult> {
     return pulumi.output(args).apply((a: any) => getFunctionUrl(a, opts))

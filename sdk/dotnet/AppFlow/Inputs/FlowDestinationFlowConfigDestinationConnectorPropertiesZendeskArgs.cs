@@ -12,33 +12,20 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-        /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }
 
         [Input("idFieldNames")]
         private InputList<string>? _idFieldNames;
-
-        /// <summary>
-        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-        /// </summary>
         public InputList<string> IdFieldNames
         {
             get => _idFieldNames ?? (_idFieldNames = new InputList<string>());
             set => _idFieldNames = value;
         }
 
-        /// <summary>
-        /// Object specified in the flow destination.
-        /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 
-        /// <summary>
-        /// Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-        /// </summary>
         [Input("writeOperationType")]
         public Input<string>? WriteOperationType { get; set; }
 

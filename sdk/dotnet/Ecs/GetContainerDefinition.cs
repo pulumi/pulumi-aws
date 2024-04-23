@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetContainerDefinitionResult> InvokeAsync(GetContainerDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? new GetContainerDefinitionArgs(), options.WithDefaults());
@@ -45,7 +43,6 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetContainerDefinitionResult> Invoke(GetContainerDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? new GetContainerDefinitionInvokeArgs(), options.WithDefaults());

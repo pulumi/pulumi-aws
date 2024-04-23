@@ -73,7 +73,6 @@ class EventSourcesConfig(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -84,7 +83,6 @@ class EventSourcesConfig(pulumi.CustomResource):
             )],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -109,7 +107,6 @@ class EventSourcesConfig(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -120,7 +117,6 @@ class EventSourcesConfig(pulumi.CustomResource):
             )],
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

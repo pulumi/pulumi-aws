@@ -136,14 +136,12 @@ def get_geofence_collection(collection_name: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.location.get_geofence_collection(collection_name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str collection_name: Name of the geofence collection.
@@ -180,14 +178,12 @@ def get_geofence_collection_output(collection_name: Optional[pulumi.Input[str]] 
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.location.get_geofence_collection(collection_name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str collection_name: Name of the geofence collection.

@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws:ec2/getRouteTable:getRouteTable", args ?? new GetRouteTableArgs(), options.WithDefaults());
@@ -59,7 +57,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -84,7 +81,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("aws:ec2/getRouteTable:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithDefaults());

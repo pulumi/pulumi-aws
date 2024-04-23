@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  *
  * ### AWS Account ID
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,11 +31,9 @@ import * as utilities from "../utilities";
  *     resourceShareArn: example.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### AWS Organization
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,7 +43,6 @@ import * as utilities from "../utilities";
  *     resourceShareArn: exampleAwsRamResourceShare.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

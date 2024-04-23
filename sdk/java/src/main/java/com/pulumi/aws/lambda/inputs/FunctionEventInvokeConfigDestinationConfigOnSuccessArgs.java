@@ -14,17 +14,9 @@ public final class FunctionEventInvokeConfigDestinationConfigOnSuccessArgs exten
 
     public static final FunctionEventInvokeConfigDestinationConfigOnSuccessArgs Empty = new FunctionEventInvokeConfigDestinationConfigOnSuccessArgs();
 
-    /**
-     * Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<String> destination;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-     * 
-     */
     public Output<String> destination() {
         return this.destination;
     }
@@ -53,23 +45,11 @@ public final class FunctionEventInvokeConfigDestinationConfigOnSuccessArgs exten
             $ = new FunctionEventInvokeConfigDestinationConfigOnSuccessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<String> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(String destination) {
             return destination(Output.of(destination));
         }

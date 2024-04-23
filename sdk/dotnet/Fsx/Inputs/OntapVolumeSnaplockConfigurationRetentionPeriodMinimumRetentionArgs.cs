@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Fsx.Inputs
 
     public sealed class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
-        /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }
 

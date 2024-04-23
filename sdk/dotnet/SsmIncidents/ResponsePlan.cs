@@ -16,7 +16,6 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,17 +40,15 @@ namespace Pulumi.Aws.SsmIncidents
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///             exampleAwsSsmincidentsReplicationSet,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Usage With All Fields
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -152,13 +149,12 @@ namespace Pulumi.Aws.SsmIncidents
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleAwsSsmincidentsReplicationSet, 
+    ///             exampleAwsSsmincidentsReplicationSet,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -171,9 +167,6 @@ namespace Pulumi.Aws.SsmIncidents
     [AwsResourceType("aws:ssmincidents/responsePlan:ResponsePlan")]
     public partial class ResponsePlan : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The actions that the response plan starts at the beginning of an incident.
-        /// </summary>
         [Output("action")]
         public Output<Outputs.ResponsePlanAction?> Action { get; private set; } = null!;
 
@@ -183,30 +176,18 @@ namespace Pulumi.Aws.SsmIncidents
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The Chatbot chat channel used for collaboration during an incident.
-        /// </summary>
         [Output("chatChannels")]
         public Output<ImmutableArray<string>> ChatChannels { get; private set; } = null!;
 
-        /// <summary>
-        /// The long format of the response plan name. This field can contain spaces.
-        /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        /// </summary>
         [Output("engagements")]
         public Output<ImmutableArray<string>> Engagements { get; private set; } = null!;
 
         [Output("incidentTemplate")]
         public Output<Outputs.ResponsePlanIncidentTemplate> IncidentTemplate { get; private set; } = null!;
 
-        /// <summary>
-        /// Information about third-party services integrated into the response plan. The following values are supported:
-        /// </summary>
         [Output("integration")]
         public Output<Outputs.ResponsePlanIntegration?> Integration { get; private set; } = null!;
 
@@ -216,9 +197,6 @@ namespace Pulumi.Aws.SsmIncidents
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The tags applied to the response plan.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -274,36 +252,22 @@ namespace Pulumi.Aws.SsmIncidents
 
     public sealed class ResponsePlanArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The actions that the response plan starts at the beginning of an incident.
-        /// </summary>
         [Input("action")]
         public Input<Inputs.ResponsePlanActionArgs>? Action { get; set; }
 
         [Input("chatChannels")]
         private InputList<string>? _chatChannels;
-
-        /// <summary>
-        /// The Chatbot chat channel used for collaboration during an incident.
-        /// </summary>
         public InputList<string> ChatChannels
         {
             get => _chatChannels ?? (_chatChannels = new InputList<string>());
             set => _chatChannels = value;
         }
 
-        /// <summary>
-        /// The long format of the response plan name. This field can contain spaces.
-        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         [Input("engagements")]
         private InputList<string>? _engagements;
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        /// </summary>
         public InputList<string> Engagements
         {
             get => _engagements ?? (_engagements = new InputList<string>());
@@ -313,9 +277,6 @@ namespace Pulumi.Aws.SsmIncidents
         [Input("incidentTemplate", required: true)]
         public Input<Inputs.ResponsePlanIncidentTemplateArgs> IncidentTemplate { get; set; } = null!;
 
-        /// <summary>
-        /// Information about third-party services integrated into the response plan. The following values are supported:
-        /// </summary>
         [Input("integration")]
         public Input<Inputs.ResponsePlanIntegrationArgs>? Integration { get; set; }
 
@@ -327,10 +288,6 @@ namespace Pulumi.Aws.SsmIncidents
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The tags applied to the response plan.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -345,9 +302,6 @@ namespace Pulumi.Aws.SsmIncidents
 
     public sealed class ResponsePlanState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The actions that the response plan starts at the beginning of an incident.
-        /// </summary>
         [Input("action")]
         public Input<Inputs.ResponsePlanActionGetArgs>? Action { get; set; }
 
@@ -359,28 +313,17 @@ namespace Pulumi.Aws.SsmIncidents
 
         [Input("chatChannels")]
         private InputList<string>? _chatChannels;
-
-        /// <summary>
-        /// The Chatbot chat channel used for collaboration during an incident.
-        /// </summary>
         public InputList<string> ChatChannels
         {
             get => _chatChannels ?? (_chatChannels = new InputList<string>());
             set => _chatChannels = value;
         }
 
-        /// <summary>
-        /// The long format of the response plan name. This field can contain spaces.
-        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         [Input("engagements")]
         private InputList<string>? _engagements;
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
-        /// </summary>
         public InputList<string> Engagements
         {
             get => _engagements ?? (_engagements = new InputList<string>());
@@ -390,9 +333,6 @@ namespace Pulumi.Aws.SsmIncidents
         [Input("incidentTemplate")]
         public Input<Inputs.ResponsePlanIncidentTemplateGetArgs>? IncidentTemplate { get; set; }
 
-        /// <summary>
-        /// Information about third-party services integrated into the response plan. The following values are supported:
-        /// </summary>
         [Input("integration")]
         public Input<Inputs.ResponsePlanIntegrationGetArgs>? Integration { get; set; }
 
@@ -404,10 +344,6 @@ namespace Pulumi.Aws.SsmIncidents
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// The tags applied to the response plan.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

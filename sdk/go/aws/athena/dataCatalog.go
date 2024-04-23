@@ -20,7 +20,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,11 +51,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Hive based Data Catalog
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,11 +82,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Glue based Data Catalog
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -118,11 +113,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Lambda based Data Catalog
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -152,7 +145,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -248,7 +248,6 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.In
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -263,7 +262,6 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.In
             assign_public_ip=False,
         ))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetTaskExecutionCapacityProviderStrategyArgs']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.
@@ -361,7 +359,6 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -376,7 +373,6 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
             assign_public_ip=False,
         ))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetTaskExecutionCapacityProviderStrategyArgs']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.

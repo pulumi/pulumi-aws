@@ -17,7 +17,6 @@ import (
 //
 // The following example shows how one might accept a local gateway id as a variable.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetLocalGateway(ctx *pulumi.Context, args *GetLocalGatewayArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewayResult

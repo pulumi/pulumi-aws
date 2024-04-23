@@ -22,7 +22,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,7 +58,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
 //

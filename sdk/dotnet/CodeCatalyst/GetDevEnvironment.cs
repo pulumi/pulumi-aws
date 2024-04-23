@@ -18,7 +18,6 @@ namespace Pulumi.Aws.CodeCatalyst
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.CodeCatalyst
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDevEnvironmentResult> InvokeAsync(GetDevEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevEnvironmentResult>("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args ?? new GetDevEnvironmentArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Aws.CodeCatalyst
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Aws.CodeCatalyst
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDevEnvironmentResult> Invoke(GetDevEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevEnvironmentResult>("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args ?? new GetDevEnvironmentInvokeArgs(), options.WithDefaults());

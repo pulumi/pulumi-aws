@@ -150,7 +150,6 @@ class CustomDomainAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -165,7 +164,6 @@ class CustomDomainAssociation(pulumi.CustomResource):
             custom_domain_name="example.com",
             custom_domain_certificate_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -192,7 +190,6 @@ class CustomDomainAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,7 +204,6 @@ class CustomDomainAssociation(pulumi.CustomResource):
             custom_domain_name="example.com",
             custom_domain_certificate_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -204,7 +204,6 @@ class Host(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,7 +213,6 @@ class Host(pulumi.CustomResource):
             provider_endpoint="https://example.com",
             provider_type="GitHubEnterpriseServer")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -244,7 +242,6 @@ class Host(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,7 +251,6 @@ class Host(pulumi.CustomResource):
             provider_endpoint="https://example.com",
             provider_type="GitHubEnterpriseServer")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

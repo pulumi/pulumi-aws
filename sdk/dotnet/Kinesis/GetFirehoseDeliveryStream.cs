@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Kinesis
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Kinesis
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFirehoseDeliveryStreamResult> InvokeAsync(GetFirehoseDeliveryStreamArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirehoseDeliveryStreamResult>("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", args ?? new GetFirehoseDeliveryStreamArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.Kinesis
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Kinesis
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFirehoseDeliveryStreamResult> Invoke(GetFirehoseDeliveryStreamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirehoseDeliveryStreamResult>("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", args ?? new GetFirehoseDeliveryStreamInvokeArgs(), options.WithDefaults());

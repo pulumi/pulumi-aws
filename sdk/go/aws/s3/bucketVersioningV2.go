@@ -26,7 +26,6 @@ import (
 //
 // ### With Versioning Enabled
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,11 +65,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Versioning Disabled
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,7 +107,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Object Dependency On Versioning
 //
@@ -120,7 +116,6 @@ import (
 //
 // This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,7 +156,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -87,14 +87,12 @@ class RetentionConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cfg.RetentionConfiguration("example", retention_period_in_days=90)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -120,14 +118,12 @@ class RetentionConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cfg.RetentionConfiguration("example", retention_period_in_days=90)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

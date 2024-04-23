@@ -102,7 +102,6 @@ class FleetStackAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -119,7 +118,6 @@ class FleetStackAssociation(pulumi.CustomResource):
             fleet_name=example.name,
             stack_name=example_stack.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -145,7 +143,6 @@ class FleetStackAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -162,7 +159,6 @@ class FleetStackAssociation(pulumi.CustomResource):
             fleet_name=example.name,
             stack_name=example_stack.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

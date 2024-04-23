@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     name: "tfWAFRateBasedRule",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRateBasedRule(args: GetRateBasedRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedRuleResult> {
 
@@ -53,7 +51,6 @@ export interface GetRateBasedRuleResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,7 +59,6 @@ export interface GetRateBasedRuleResult {
  *     name: "tfWAFRateBasedRule",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRateBasedRuleOutput(args: GetRateBasedRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRateBasedRuleResult> {
     return pulumi.output(args).apply((a: any) => getRateBasedRule(a, opts))

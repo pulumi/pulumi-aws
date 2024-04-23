@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeSourceParametersFilterCriteria {
-    /**
-     * @return An array of up to 5 event patterns. Detailed below.
-     * 
-     */
     private @Nullable List<PipeSourceParametersFilterCriteriaFilter> filters;
 
     private PipeSourceParametersFilterCriteria() {}
-    /**
-     * @return An array of up to 5 event patterns. Detailed below.
-     * 
-     */
     public List<PipeSourceParametersFilterCriteriaFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }

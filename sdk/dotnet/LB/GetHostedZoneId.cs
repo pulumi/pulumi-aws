@@ -16,7 +16,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetHostedZoneIdResult> InvokeAsync(GetHostedZoneIdArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:lb/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdArgs(), options.WithDefaults());
@@ -55,7 +53,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -84,7 +81,6 @@ namespace Pulumi.Aws.LB
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetHostedZoneIdResult> Invoke(GetHostedZoneIdInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostedZoneIdResult>("aws:lb/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdInvokeArgs(), options.WithDefaults());

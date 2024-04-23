@@ -13,7 +13,7 @@ namespace Pulumi.Aws.GuardDuty.Inputs
     public sealed class OrganizationConfigurationDatasourcesS3LogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        /// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
         /// </summary>
         [Input("autoEnable", required: true)]
         public Input<bool> AutoEnable { get; set; } = null!;

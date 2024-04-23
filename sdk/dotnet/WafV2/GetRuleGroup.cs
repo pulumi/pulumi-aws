@@ -16,7 +16,6 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRuleGroupResult> InvokeAsync(GetRuleGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleGroupResult>("aws:wafv2/getRuleGroup:getRuleGroup", args ?? new GetRuleGroupArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRuleGroupResult> Invoke(GetRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleGroupResult>("aws:wafv2/getRuleGroup:getRuleGroup", args ?? new GetRuleGroupInvokeArgs(), options.WithDefaults());

@@ -493,7 +493,6 @@ class EventRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -523,7 +522,6 @@ class EventRule(pulumi.CustomResource):
             arn=aws_logins.arn,
             policy=sns_topic_policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -570,7 +568,6 @@ class EventRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -600,7 +597,6 @@ class EventRule(pulumi.CustomResource):
             arn=aws_logins.arn,
             policy=sns_topic_policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

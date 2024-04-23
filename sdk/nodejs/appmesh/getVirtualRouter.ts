@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     meshName: "example-mesh-name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterResult> {
 
@@ -95,7 +93,6 @@ export interface GetVirtualRouterResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -105,7 +102,6 @@ export interface GetVirtualRouterResult {
  *     meshName: "example-mesh-name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterResult> {
     return pulumi.output(args).apply((a: any) => getVirtualRouter(a, opts))

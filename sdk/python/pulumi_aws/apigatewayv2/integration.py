@@ -683,7 +683,6 @@ class Integration(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -692,11 +691,9 @@ class Integration(pulumi.CustomResource):
             api_id=example_aws_apigatewayv2_api["id"],
             integration_type="MOCK")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda Integration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -717,11 +714,9 @@ class Integration(pulumi.CustomResource):
             integration_uri=example.invoke_arn,
             passthrough_behavior="WHEN_NO_MATCH")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS Service Integration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -737,11 +732,9 @@ class Integration(pulumi.CustomResource):
                 "MessageBody": "$request.body.message",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Private Integration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -777,7 +770,6 @@ class Integration(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -831,7 +823,6 @@ class Integration(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -840,11 +831,9 @@ class Integration(pulumi.CustomResource):
             api_id=example_aws_apigatewayv2_api["id"],
             integration_type="MOCK")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda Integration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -865,11 +854,9 @@ class Integration(pulumi.CustomResource):
             integration_uri=example.invoke_arn,
             passthrough_behavior="WHEN_NO_MATCH")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS Service Integration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -885,11 +872,9 @@ class Integration(pulumi.CustomResource):
                 "MessageBody": "$request.body.message",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Private Integration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -925,7 +910,6 @@ class Integration(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -174,7 +174,6 @@ class Alias(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,7 +183,6 @@ class Alias(pulumi.CustomResource):
             name="alias/my-key-alias",
             target_key_id=a.key_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -214,7 +212,6 @@ class Alias(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -224,7 +221,6 @@ class Alias(pulumi.CustomResource):
             name="alias/my-key-alias",
             target_key_id=a.key_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

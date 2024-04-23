@@ -16,7 +16,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetComponentsResult> InvokeAsync(GetComponentsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentsResult>("aws:imagebuilder/getComponents:getComponents", args ?? new GetComponentsArgs(), options.WithDefaults());
@@ -53,7 +51,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -80,7 +77,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetComponentsResult> Invoke(GetComponentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentsResult>("aws:imagebuilder/getComponents:getComponents", args ?? new GetComponentsInvokeArgs(), options.WithDefaults());

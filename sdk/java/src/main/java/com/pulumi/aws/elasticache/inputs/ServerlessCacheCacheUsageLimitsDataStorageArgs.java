@@ -17,47 +17,23 @@ public final class ServerlessCacheCacheUsageLimitsDataStorageArgs extends com.pu
 
     public static final ServerlessCacheCacheUsageLimitsDataStorageArgs Empty = new ServerlessCacheCacheUsageLimitsDataStorageArgs();
 
-    /**
-     * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-     * 
-     */
     @Import(name="maximum")
     private @Nullable Output<Integer> maximum;
 
-    /**
-     * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-     * 
-     */
     public Optional<Output<Integer>> maximum() {
         return Optional.ofNullable(this.maximum);
     }
 
-    /**
-     * The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
-     * 
-     */
     @Import(name="minimum")
     private @Nullable Output<Integer> minimum;
 
-    /**
-     * @return The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
-     * 
-     */
     public Optional<Output<Integer>> minimum() {
         return Optional.ofNullable(this.minimum);
     }
 
-    /**
-     * The unit that the storage is measured in, in GB.
-     * 
-     */
     @Import(name="unit", required=true)
     private Output<String> unit;
 
-    /**
-     * @return The unit that the storage is measured in, in GB.
-     * 
-     */
     public Output<String> unit() {
         return this.unit;
     }
@@ -88,65 +64,29 @@ public final class ServerlessCacheCacheUsageLimitsDataStorageArgs extends com.pu
             $ = new ServerlessCacheCacheUsageLimitsDataStorageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maximum The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximum(@Nullable Output<Integer> maximum) {
             $.maximum = maximum;
             return this;
         }
 
-        /**
-         * @param maximum The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximum(Integer maximum) {
             return maximum(Output.of(maximum));
         }
 
-        /**
-         * @param minimum The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimum(@Nullable Output<Integer> minimum) {
             $.minimum = minimum;
             return this;
         }
 
-        /**
-         * @param minimum The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimum(Integer minimum) {
             return minimum(Output.of(minimum));
         }
 
-        /**
-         * @param unit The unit that the storage is measured in, in GB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit The unit that the storage is measured in, in GB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }

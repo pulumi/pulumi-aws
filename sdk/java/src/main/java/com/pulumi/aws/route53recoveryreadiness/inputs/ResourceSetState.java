@@ -19,14 +19,16 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
     public static final ResourceSetState Empty = new ResourceSetState();
 
     /**
-     * NLB resource ARN.
+     * ARN of the resource set
+     * * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return NLB resource ARN.
+     * @return ARN of the resource set
+     * * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -150,7 +152,8 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn NLB resource ARN.
+         * @param arn ARN of the resource set
+         * * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
          * 
          * @return builder
          * 
@@ -161,7 +164,8 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn NLB resource ARN.
+         * @param arn ARN of the resource set
+         * * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
          * 
          * @return builder
          * 

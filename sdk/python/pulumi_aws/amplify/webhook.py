@@ -167,7 +167,6 @@ class Webhook(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -181,7 +180,6 @@ class Webhook(pulumi.CustomResource):
             branch_name=master.branch_name,
             description="triggermaster")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -208,7 +206,6 @@ class Webhook(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,7 +219,6 @@ class Webhook(pulumi.CustomResource):
             branch_name=master.branch_name,
             description="triggermaster")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

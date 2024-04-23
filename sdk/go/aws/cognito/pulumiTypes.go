@@ -129,14 +129,10 @@ func (o IdentityPoolCognitoIdentityProviderArrayOutput) Index(i pulumi.IntInput)
 }
 
 type IdentityPoolRoleAttachmentRoleMapping struct {
-	// Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-	AmbiguousRoleResolution *string `pulumi:"ambiguousRoleResolution"`
-	// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognitoIdentityProviders` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
-	IdentityProvider string `pulumi:"identityProvider"`
-	// The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-	MappingRules []IdentityPoolRoleAttachmentRoleMappingMappingRule `pulumi:"mappingRules"`
-	// The role mapping type.
-	Type string `pulumi:"type"`
+	AmbiguousRoleResolution *string                                            `pulumi:"ambiguousRoleResolution"`
+	IdentityProvider        string                                             `pulumi:"identityProvider"`
+	MappingRules            []IdentityPoolRoleAttachmentRoleMappingMappingRule `pulumi:"mappingRules"`
+	Type                    string                                             `pulumi:"type"`
 }
 
 // IdentityPoolRoleAttachmentRoleMappingInput is an input type that accepts IdentityPoolRoleAttachmentRoleMappingArgs and IdentityPoolRoleAttachmentRoleMappingOutput values.
@@ -151,14 +147,10 @@ type IdentityPoolRoleAttachmentRoleMappingInput interface {
 }
 
 type IdentityPoolRoleAttachmentRoleMappingArgs struct {
-	// Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-	AmbiguousRoleResolution pulumi.StringPtrInput `pulumi:"ambiguousRoleResolution"`
-	// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognitoIdentityProviders` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
-	IdentityProvider pulumi.StringInput `pulumi:"identityProvider"`
-	// The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-	MappingRules IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayInput `pulumi:"mappingRules"`
-	// The role mapping type.
-	Type pulumi.StringInput `pulumi:"type"`
+	AmbiguousRoleResolution pulumi.StringPtrInput                                      `pulumi:"ambiguousRoleResolution"`
+	IdentityProvider        pulumi.StringInput                                         `pulumi:"identityProvider"`
+	MappingRules            IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayInput `pulumi:"mappingRules"`
+	Type                    pulumi.StringInput                                         `pulumi:"type"`
 }
 
 func (IdentityPoolRoleAttachmentRoleMappingArgs) ElementType() reflect.Type {
@@ -212,24 +204,20 @@ func (o IdentityPoolRoleAttachmentRoleMappingOutput) ToIdentityPoolRoleAttachmen
 	return o
 }
 
-// Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
 func (o IdentityPoolRoleAttachmentRoleMappingOutput) AmbiguousRoleResolution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMapping) *string { return v.AmbiguousRoleResolution }).(pulumi.StringPtrOutput)
 }
 
-// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognitoIdentityProviders` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
 func (o IdentityPoolRoleAttachmentRoleMappingOutput) IdentityProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMapping) string { return v.IdentityProvider }).(pulumi.StringOutput)
 }
 
-// The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
 func (o IdentityPoolRoleAttachmentRoleMappingOutput) MappingRules() IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayOutput {
 	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMapping) []IdentityPoolRoleAttachmentRoleMappingMappingRule {
 		return v.MappingRules
 	}).(IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayOutput)
 }
 
-// The role mapping type.
 func (o IdentityPoolRoleAttachmentRoleMappingOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMapping) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -255,14 +243,10 @@ func (o IdentityPoolRoleAttachmentRoleMappingArrayOutput) Index(i pulumi.IntInpu
 }
 
 type IdentityPoolRoleAttachmentRoleMappingMappingRule struct {
-	// The claim name that must be present in the token, for example, "isAdmin" or "paid".
-	Claim string `pulumi:"claim"`
-	// The match condition that specifies how closely the claim value in the IdP token must match Value.
+	Claim     string `pulumi:"claim"`
 	MatchType string `pulumi:"matchType"`
-	// The role ARN.
-	RoleArn string `pulumi:"roleArn"`
-	// A brief string that the claim must match, for example, "paid" or "yes".
-	Value string `pulumi:"value"`
+	RoleArn   string `pulumi:"roleArn"`
+	Value     string `pulumi:"value"`
 }
 
 // IdentityPoolRoleAttachmentRoleMappingMappingRuleInput is an input type that accepts IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs and IdentityPoolRoleAttachmentRoleMappingMappingRuleOutput values.
@@ -277,14 +261,10 @@ type IdentityPoolRoleAttachmentRoleMappingMappingRuleInput interface {
 }
 
 type IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs struct {
-	// The claim name that must be present in the token, for example, "isAdmin" or "paid".
-	Claim pulumi.StringInput `pulumi:"claim"`
-	// The match condition that specifies how closely the claim value in the IdP token must match Value.
+	Claim     pulumi.StringInput `pulumi:"claim"`
 	MatchType pulumi.StringInput `pulumi:"matchType"`
-	// The role ARN.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// A brief string that the claim must match, for example, "paid" or "yes".
-	Value pulumi.StringInput `pulumi:"value"`
+	RoleArn   pulumi.StringInput `pulumi:"roleArn"`
+	Value     pulumi.StringInput `pulumi:"value"`
 }
 
 func (IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs) ElementType() reflect.Type {
@@ -338,22 +318,18 @@ func (o IdentityPoolRoleAttachmentRoleMappingMappingRuleOutput) ToIdentityPoolRo
 	return o
 }
 
-// The claim name that must be present in the token, for example, "isAdmin" or "paid".
 func (o IdentityPoolRoleAttachmentRoleMappingMappingRuleOutput) Claim() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMappingMappingRule) string { return v.Claim }).(pulumi.StringOutput)
 }
 
-// The match condition that specifies how closely the claim value in the IdP token must match Value.
 func (o IdentityPoolRoleAttachmentRoleMappingMappingRuleOutput) MatchType() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMappingMappingRule) string { return v.MatchType }).(pulumi.StringOutput)
 }
 
-// The role ARN.
 func (o IdentityPoolRoleAttachmentRoleMappingMappingRuleOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMappingMappingRule) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A brief string that the claim must match, for example, "paid" or "yes".
 func (o IdentityPoolRoleAttachmentRoleMappingMappingRuleOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMappingMappingRule) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -767,10 +743,8 @@ func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) RefreshToken() pulumi.
 }
 
 type ResourceServerScope struct {
-	// The scope description.
 	ScopeDescription string `pulumi:"scopeDescription"`
-	// The scope name.
-	ScopeName string `pulumi:"scopeName"`
+	ScopeName        string `pulumi:"scopeName"`
 }
 
 // ResourceServerScopeInput is an input type that accepts ResourceServerScopeArgs and ResourceServerScopeOutput values.
@@ -785,10 +759,8 @@ type ResourceServerScopeInput interface {
 }
 
 type ResourceServerScopeArgs struct {
-	// The scope description.
 	ScopeDescription pulumi.StringInput `pulumi:"scopeDescription"`
-	// The scope name.
-	ScopeName pulumi.StringInput `pulumi:"scopeName"`
+	ScopeName        pulumi.StringInput `pulumi:"scopeName"`
 }
 
 func (ResourceServerScopeArgs) ElementType() reflect.Type {
@@ -842,12 +814,10 @@ func (o ResourceServerScopeOutput) ToResourceServerScopeOutputWithContext(ctx co
 	return o
 }
 
-// The scope description.
 func (o ResourceServerScopeOutput) ScopeDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceServerScope) string { return v.ScopeDescription }).(pulumi.StringOutput)
 }
 
-// The scope name.
 func (o ResourceServerScopeOutput) ScopeName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceServerScope) string { return v.ScopeName }).(pulumi.StringOutput)
 }
@@ -1214,10 +1184,8 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput) Mediu
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction struct {
-	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction string `pulumi:"eventAction"`
-	// Whether to send a notification.
-	Notify bool `pulumi:"notify"`
+	Notify      bool   `pulumi:"notify"`
 }
 
 // RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput values.
@@ -1232,10 +1200,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionInput int
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs struct {
-	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction pulumi.StringInput `pulumi:"eventAction"`
-	// Whether to send a notification.
-	Notify pulumi.BoolInput `pulumi:"notify"`
+	Notify      pulumi.BoolInput   `pulumi:"notify"`
 }
 
 func (RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs) ElementType() reflect.Type {
@@ -1315,14 +1281,12 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput)
 }
 
-// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput) EventAction() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) string {
 		return v.EventAction
 	}).(pulumi.StringOutput)
 }
 
-// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput) Notify() pulumi.BoolOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) bool { return v.Notify }).(pulumi.BoolOutput)
 }
@@ -1351,7 +1315,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOut
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput)
 }
 
-// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput) EventAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) *string {
 		if v == nil {
@@ -1361,7 +1324,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) *bool {
 		if v == nil {
@@ -1372,10 +1334,8 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOut
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction struct {
-	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction string `pulumi:"eventAction"`
-	// Whether to send a notification.
-	Notify bool `pulumi:"notify"`
+	Notify      bool   `pulumi:"notify"`
 }
 
 // RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput values.
@@ -1390,10 +1350,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionInput inte
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs struct {
-	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction pulumi.StringInput `pulumi:"eventAction"`
-	// Whether to send a notification.
-	Notify pulumi.BoolInput `pulumi:"notify"`
+	Notify      pulumi.BoolInput   `pulumi:"notify"`
 }
 
 func (RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs) ElementType() reflect.Type {
@@ -1473,12 +1431,10 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput)
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput)
 }
 
-// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput) EventAction() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) string { return v.EventAction }).(pulumi.StringOutput)
 }
 
-// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput) Notify() pulumi.BoolOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) bool { return v.Notify }).(pulumi.BoolOutput)
 }
@@ -1507,7 +1463,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutp
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput)
 }
 
-// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput) EventAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) *string {
 		if v == nil {
@@ -1517,7 +1472,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) *bool {
 		if v == nil {
@@ -1528,10 +1482,8 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutp
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction struct {
-	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction string `pulumi:"eventAction"`
-	// Whether to send a notification.
-	Notify bool `pulumi:"notify"`
+	Notify      bool   `pulumi:"notify"`
 }
 
 // RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput values.
@@ -1546,10 +1498,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionInput i
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs struct {
-	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction pulumi.StringInput `pulumi:"eventAction"`
-	// Whether to send a notification.
-	Notify pulumi.BoolInput `pulumi:"notify"`
+	Notify      pulumi.BoolInput   `pulumi:"notify"`
 }
 
 func (RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs) ElementType() reflect.Type {
@@ -1629,14 +1579,12 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutp
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput)
 }
 
-// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput) EventAction() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) string {
 		return v.EventAction
 	}).(pulumi.StringOutput)
 }
 
-// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput) Notify() pulumi.BoolOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) bool { return v.Notify }).(pulumi.BoolOutput)
 }
@@ -1665,7 +1613,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrO
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput)
 }
 
-// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput) EventAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) *string {
 		if v == nil {
@@ -1675,7 +1622,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) *bool {
 		if v == nil {
@@ -1926,11 +1872,8 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrO
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail struct {
-	// The email HTML body.
 	HtmlBody string `pulumi:"htmlBody"`
-	// The email subject.
-	Subject string `pulumi:"subject"`
-	// The email text body.
+	Subject  string `pulumi:"subject"`
 	TextBody string `pulumi:"textBody"`
 }
 
@@ -1946,11 +1889,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEm
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs struct {
-	// The email HTML body.
 	HtmlBody pulumi.StringInput `pulumi:"htmlBody"`
-	// The email subject.
-	Subject pulumi.StringInput `pulumi:"subject"`
-	// The email text body.
+	Subject  pulumi.StringInput `pulumi:"subject"`
 	TextBody pulumi.StringInput `pulumi:"textBody"`
 }
 
@@ -2031,21 +1971,18 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBloc
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput)
 }
 
-// The email HTML body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput) HtmlBody() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) string {
 		return v.HtmlBody
 	}).(pulumi.StringOutput)
 }
 
-// The email subject.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) string {
 		return v.Subject
 	}).(pulumi.StringOutput)
 }
 
-// The email text body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput) TextBody() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) string {
 		return v.TextBody
@@ -2076,7 +2013,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBloc
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput)
 }
 
-// The email HTML body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput) HtmlBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) *string {
 		if v == nil {
@@ -2086,7 +2022,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBloc
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email subject.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) *string {
 		if v == nil {
@@ -2096,7 +2031,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBloc
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email text body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput) TextBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) *string {
 		if v == nil {
@@ -2107,11 +2041,8 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBloc
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail struct {
-	// The email HTML body.
 	HtmlBody string `pulumi:"htmlBody"`
-	// The email subject.
-	Subject string `pulumi:"subject"`
-	// The email text body.
+	Subject  string `pulumi:"subject"`
 	TextBody string `pulumi:"textBody"`
 }
 
@@ -2127,11 +2058,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmai
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs struct {
-	// The email HTML body.
 	HtmlBody pulumi.StringInput `pulumi:"htmlBody"`
-	// The email subject.
-	Subject pulumi.StringInput `pulumi:"subject"`
-	// The email text body.
+	Subject  pulumi.StringInput `pulumi:"subject"`
 	TextBody pulumi.StringInput `pulumi:"textBody"`
 }
 
@@ -2212,21 +2140,18 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaE
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput)
 }
 
-// The email HTML body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput) HtmlBody() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) string {
 		return v.HtmlBody
 	}).(pulumi.StringOutput)
 }
 
-// The email subject.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) string {
 		return v.Subject
 	}).(pulumi.StringOutput)
 }
 
-// The email text body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput) TextBody() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) string {
 		return v.TextBody
@@ -2257,7 +2182,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaE
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput)
 }
 
-// The email HTML body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput) HtmlBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) *string {
 		if v == nil {
@@ -2267,7 +2191,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaE
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email subject.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) *string {
 		if v == nil {
@@ -2277,7 +2200,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaE
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email text body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput) TextBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) *string {
 		if v == nil {
@@ -2288,11 +2210,8 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaE
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail struct {
-	// The email HTML body.
 	HtmlBody string `pulumi:"htmlBody"`
-	// The email subject.
-	Subject string `pulumi:"subject"`
-	// The email text body.
+	Subject  string `pulumi:"subject"`
 	TextBody string `pulumi:"textBody"`
 }
 
@@ -2308,11 +2227,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActio
 }
 
 type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs struct {
-	// The email HTML body.
 	HtmlBody pulumi.StringInput `pulumi:"htmlBody"`
-	// The email subject.
-	Subject pulumi.StringInput `pulumi:"subject"`
-	// The email text body.
+	Subject  pulumi.StringInput `pulumi:"subject"`
 	TextBody pulumi.StringInput `pulumi:"textBody"`
 }
 
@@ -2393,21 +2309,18 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoAc
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput)
 }
 
-// The email HTML body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput) HtmlBody() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) string {
 		return v.HtmlBody
 	}).(pulumi.StringOutput)
 }
 
-// The email subject.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) string {
 		return v.Subject
 	}).(pulumi.StringOutput)
 }
 
-// The email text body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput) TextBody() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) string {
 		return v.TextBody
@@ -2438,7 +2351,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoAc
 	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput)
 }
 
-// The email HTML body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput) HtmlBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) *string {
 		if v == nil {
@@ -2448,7 +2360,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoAc
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email subject.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) *string {
 		if v == nil {
@@ -2458,7 +2369,6 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoAc
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email text body.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput) TextBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) *string {
 		if v == nil {
@@ -3075,9 +2985,7 @@ func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolAc
 }
 
 type UserPoolAccountRecoverySettingRecoveryMechanism struct {
-	// Name of the user pool.
-	//
-	// The following arguments are optional:
+	// Recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
 	Name string `pulumi:"name"`
 	// Positive integer specifying priority of a method with 1 being the highest priority.
 	Priority int `pulumi:"priority"`
@@ -3095,9 +3003,7 @@ type UserPoolAccountRecoverySettingRecoveryMechanismInput interface {
 }
 
 type UserPoolAccountRecoverySettingRecoveryMechanismArgs struct {
-	// Name of the user pool.
-	//
-	// The following arguments are optional:
+	// Recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Positive integer specifying priority of a method with 1 being the highest priority.
 	Priority pulumi.IntInput `pulumi:"priority"`
@@ -3154,9 +3060,7 @@ func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) ToUserPoolAccount
 	return o
 }
 
-// Name of the user pool.
-//
-// The following arguments are optional:
+// Recovery method for a user. Can be of the following: `verifiedEmail`, `verifiedPhoneNumber`, and `adminOnly`.
 func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolAccountRecoverySettingRecoveryMechanism) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4975,9 +4879,7 @@ func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) LambdaVersion() pulumi.Str
 }
 
 type UserPoolLambdaConfigPreTokenGenerationConfig struct {
-	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
-	LambdaArn string `pulumi:"lambdaArn"`
-	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
+	LambdaArn     string `pulumi:"lambdaArn"`
 	LambdaVersion string `pulumi:"lambdaVersion"`
 }
 
@@ -4993,9 +4895,7 @@ type UserPoolLambdaConfigPreTokenGenerationConfigInput interface {
 }
 
 type UserPoolLambdaConfigPreTokenGenerationConfigArgs struct {
-	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
-	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
-	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
+	LambdaArn     pulumi.StringInput `pulumi:"lambdaArn"`
 	LambdaVersion pulumi.StringInput `pulumi:"lambdaVersion"`
 }
 
@@ -5076,12 +4976,10 @@ func (o UserPoolLambdaConfigPreTokenGenerationConfigOutput) ToUserPoolLambdaConf
 	}).(UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput)
 }
 
-// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
 func (o UserPoolLambdaConfigPreTokenGenerationConfigOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfigPreTokenGenerationConfig) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
 
-// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
 func (o UserPoolLambdaConfigPreTokenGenerationConfigOutput) LambdaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfigPreTokenGenerationConfig) string { return v.LambdaVersion }).(pulumi.StringOutput)
 }
@@ -5110,7 +5008,6 @@ func (o UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput) Elem() UserPoolLa
 	}).(UserPoolLambdaConfigPreTokenGenerationConfigOutput)
 }
 
-// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
 func (o UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfigPreTokenGenerationConfig) *string {
 		if v == nil {
@@ -5120,7 +5017,6 @@ func (o UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput) LambdaArn() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
 func (o UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfigPreTokenGenerationConfig) *string {
 		if v == nil {

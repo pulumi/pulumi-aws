@@ -19,7 +19,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ### AWS Service
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -50,11 +49,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Non-AWS Service
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,11 +67,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Filter
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -100,7 +95,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcEndpointServiceResult> InvokeAsync(GetVpcEndpointServiceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointServiceResult>("aws:ec2/getVpcEndpointService:getVpcEndpointService", args ?? new GetVpcEndpointServiceArgs(), options.WithDefaults());
@@ -113,7 +107,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ### AWS Service
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -144,11 +137,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Non-AWS Service
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -164,11 +155,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Filter
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -194,7 +183,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcEndpointServiceResult> Invoke(GetVpcEndpointServiceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcEndpointServiceResult>("aws:ec2/getVpcEndpointService:getVpcEndpointService", args ?? new GetVpcEndpointServiceInvokeArgs(), options.WithDefaults());

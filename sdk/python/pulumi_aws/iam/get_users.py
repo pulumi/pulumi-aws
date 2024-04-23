@@ -96,38 +96,32 @@ def get_users(name_regex: Optional[str] = None,
 
     ### All users in an account
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     users = aws.iam.get_users()
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Users filtered by name regex
 
     Users whose username contains `abc`
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     users = aws.iam.get_users(name_regex=".*abc.*")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Users filtered by path prefix
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     users = aws.iam.get_users(path_prefix="/custom-path")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name_regex: Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
@@ -158,38 +152,32 @@ def get_users_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
 
     ### All users in an account
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     users = aws.iam.get_users()
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Users filtered by name regex
 
     Users whose username contains `abc`
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     users = aws.iam.get_users(name_regex=".*abc.*")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Users filtered by path prefix
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     users = aws.iam.get_users(path_prefix="/custom-path")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name_regex: Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.

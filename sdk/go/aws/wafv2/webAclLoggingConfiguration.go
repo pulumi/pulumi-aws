@@ -20,7 +20,6 @@ import (
 //
 // ### With Redacted Fields
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,11 +53,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Logging Filter
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,7 +114,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

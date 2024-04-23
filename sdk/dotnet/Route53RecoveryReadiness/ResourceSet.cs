@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -52,7 +50,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     public partial class ResourceSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// NLB resource ARN.
+        /// ARN of the resource set
+        /// * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -182,7 +181,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     public sealed class ResourceSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// NLB resource ARN.
+        /// ARN of the resource set
+        /// * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

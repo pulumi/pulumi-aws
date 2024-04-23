@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector {
-    /**
-     * @return Custom properties that are specific to the connector when it&#39;s used as a destination in the flow. Maximum of 50 items.
-     * 
-     */
     private @Nullable Map<String,String> customProperties;
-    /**
-     * @return Entity specified in the custom connector as a destination in the flow.
-     * 
-     */
     private String entityName;
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig errorHandlingConfig;
-    /**
-     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-     * 
-     */
     private @Nullable List<String> idFieldNames;
-    /**
-     * @return Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-     * 
-     */
     private @Nullable String writeOperationType;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector() {}
-    /**
-     * @return Custom properties that are specific to the connector when it&#39;s used as a destination in the flow. Maximum of 50 items.
-     * 
-     */
     public Map<String,String> customProperties() {
         return this.customProperties == null ? Map.of() : this.customProperties;
     }
-    /**
-     * @return Entity specified in the custom connector as a destination in the flow.
-     * 
-     */
     public String entityName() {
         return this.entityName;
     }
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
-    /**
-     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-     * 
-     */
     public List<String> idFieldNames() {
         return this.idFieldNames == null ? List.of() : this.idFieldNames;
     }
-    /**
-     * @return Type of write operation to be performed in the custom connector when it&#39;s used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-     * 
-     */
     public Optional<String> writeOperationType() {
         return Optional.ofNullable(this.writeOperationType);
     }

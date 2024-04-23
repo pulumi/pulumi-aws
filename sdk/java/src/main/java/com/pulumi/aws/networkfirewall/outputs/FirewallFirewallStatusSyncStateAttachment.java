@@ -17,7 +17,7 @@ public final class FirewallFirewallStatusSyncStateAttachment {
      */
     private @Nullable String endpointId;
     /**
-     * @return The unique identifier for the subnet.
+     * @return The unique identifier of the subnet that you&#39;ve specified to be used for a firewall endpoint.
      * 
      */
     private @Nullable String subnetId;
@@ -31,7 +31,7 @@ public final class FirewallFirewallStatusSyncStateAttachment {
         return Optional.ofNullable(this.endpointId);
     }
     /**
-     * @return The unique identifier for the subnet.
+     * @return The unique identifier of the subnet that you&#39;ve specified to be used for a firewall endpoint.
      * 
      */
     public Optional<String> subnetId() {

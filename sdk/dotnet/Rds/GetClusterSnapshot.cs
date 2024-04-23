@@ -19,7 +19,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -52,7 +51,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetClusterSnapshotResult> InvokeAsync(GetClusterSnapshotArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterSnapshotResult>("aws:rds/getClusterSnapshot:getClusterSnapshot", args ?? new GetClusterSnapshotArgs(), options.WithDefaults());
@@ -65,7 +63,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -98,7 +95,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetClusterSnapshotResult> Invoke(GetClusterSnapshotInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterSnapshotResult>("aws:rds/getClusterSnapshot:getClusterSnapshot", args ?? new GetClusterSnapshotInvokeArgs(), options.WithDefaults());

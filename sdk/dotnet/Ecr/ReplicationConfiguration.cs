@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,11 +49,9 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Multiple Region Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -95,11 +92,9 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Repository Filter Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -143,7 +138,6 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -157,7 +151,7 @@ namespace Pulumi.Aws.Ecr
     public partial class ReplicationConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The account ID of the destination registry to replicate to.
+        /// The registry ID where the replication configuration was created.
         /// </summary>
         [Output("registryId")]
         public Output<string> RegistryId { get; private set; } = null!;
@@ -229,7 +223,7 @@ namespace Pulumi.Aws.Ecr
     public sealed class ReplicationConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The account ID of the destination registry to replicate to.
+        /// The registry ID where the replication configuration was created.
         /// </summary>
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }

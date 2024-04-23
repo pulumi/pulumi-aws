@@ -19,77 +19,37 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
     public static final WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs();
 
-    /**
-     * Instructs AWS WAF to allow the web request. See `allow` below for details.
-     * 
-     */
     @Import(name="allow")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs> allow;
 
-    /**
-     * @return Instructs AWS WAF to allow the web request. See `allow` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs>> allow() {
         return Optional.ofNullable(this.allow);
     }
 
-    /**
-     * Instructs AWS WAF to block the web request. See `block` below for details.
-     * 
-     */
     @Import(name="block")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs> block;
 
-    /**
-     * @return Instructs AWS WAF to block the web request. See `block` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs>> block() {
         return Optional.ofNullable(this.block);
     }
 
-    /**
-     * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-     * 
-     */
     @Import(name="captcha")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs> captcha;
 
-    /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs>> captcha() {
         return Optional.ofNullable(this.captcha);
     }
 
-    /**
-     * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-     * 
-     */
     @Import(name="challenge")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs> challenge;
 
-    /**
-     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs>> challenge() {
         return Optional.ofNullable(this.challenge);
     }
 
-    /**
-     * Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-     * 
-     */
     @Import(name="count")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs> count;
 
-    /**
-     * @return Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs>> count() {
         return Optional.ofNullable(this.count);
     }
@@ -122,107 +82,47 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
             $ = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allow Instructs AWS WAF to allow the web request. See `allow` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allow(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs> allow) {
             $.allow = allow;
             return this;
         }
 
-        /**
-         * @param allow Instructs AWS WAF to allow the web request. See `allow` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allow(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs allow) {
             return allow(Output.of(allow));
         }
 
-        /**
-         * @param block Instructs AWS WAF to block the web request. See `block` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder block(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs> block) {
             $.block = block;
             return this;
         }
 
-        /**
-         * @param block Instructs AWS WAF to block the web request. See `block` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder block(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs block) {
             return block(Output.of(block));
         }
 
-        /**
-         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captcha(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs> captcha) {
             $.captcha = captcha;
             return this;
         }
 
-        /**
-         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captcha(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs captcha) {
             return captcha(Output.of(captcha));
         }
 
-        /**
-         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder challenge(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs> challenge) {
             $.challenge = challenge;
             return this;
         }
 
-        /**
-         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder challenge(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs challenge) {
             return challenge(Output.of(challenge));
         }
 
-        /**
-         * @param count Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs> count) {
             $.count = count;
             return this;
         }
 
-        /**
-         * @param count Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs count) {
             return count(Output.of(count));
         }

@@ -21,7 +21,6 @@ import (
 //
 // ### DynamoDB
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,11 +46,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Kinesis
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,11 +74,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Managed Streaming for Apache Kafka (MSK)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,11 +105,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Self Managed Apache Kafka
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,11 +154,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### SQS
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -190,11 +181,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### SQS with event filter
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -249,11 +238,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Amazon MQ (ActiveMQ)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -287,11 +274,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Amazon MQ (RabbitMQ)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -329,7 +314,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

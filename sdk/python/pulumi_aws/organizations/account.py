@@ -407,7 +407,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -416,7 +415,6 @@ class Account(pulumi.CustomResource):
             name="my_new_account",
             email="john@doe.org")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -455,7 +453,6 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -464,7 +461,6 @@ class Account(pulumi.CustomResource):
             name="my_new_account",
             email="john@doe.org")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

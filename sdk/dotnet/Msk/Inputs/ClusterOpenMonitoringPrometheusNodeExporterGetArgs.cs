@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterOpenMonitoringPrometheusNodeExporterGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether you want to enable or disable the Node Exporter.
-        /// </summary>
         [Input("enabledInBroker", required: true)]
         public Input<bool> EnabledInBroker { get; set; } = null!;
 

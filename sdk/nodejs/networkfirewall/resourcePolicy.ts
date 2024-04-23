@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### For a Firewall Policy resource
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,11 +35,9 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### For a Rule Group resource
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,7 +61,6 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

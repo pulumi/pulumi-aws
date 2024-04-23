@@ -21,7 +21,6 @@ import (
 //
 // ### Create New Key Pair
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,11 +45,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create New Key Pair with PGP Encrypted Private Key
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,11 +72,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Existing Public Key Import
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,7 +106,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

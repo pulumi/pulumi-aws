@@ -308,7 +308,6 @@ class App(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -319,7 +318,6 @@ class App(pulumi.CustomResource):
             app_name="example",
             app_type="JupyterServer")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -352,7 +350,6 @@ class App(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -363,7 +360,6 @@ class App(pulumi.CustomResource):
             app_name="example",
             app_type="JupyterServer")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

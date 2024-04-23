@@ -110,17 +110,9 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         return Optional.ofNullable(this.codecSettings);
     }
 
-    /**
-     * Selects a specific three-letter language code from within an audio source.
-     * 
-     */
     @Import(name="languageCode")
     private @Nullable Output<String> languageCode;
 
-    /**
-     * @return Selects a specific three-letter language code from within an audio source.
-     * 
-     */
     public Optional<Output<String>> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
@@ -154,17 +146,9 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         return Optional.ofNullable(this.remixSettings);
     }
 
-    /**
-     * Stream name RTMP destinations (URLs of type rtmp://)
-     * 
-     */
     @Import(name="streamName")
     private @Nullable Output<String> streamName;
 
-    /**
-     * @return Stream name RTMP destinations (URLs of type rtmp://)
-     * 
-     */
     public Optional<Output<String>> streamName() {
         return Optional.ofNullable(this.streamName);
     }
@@ -329,23 +313,11 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
             return codecSettings(Output.of(codecSettings));
         }
 
-        /**
-         * @param languageCode Selects a specific three-letter language code from within an audio source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageCode(@Nullable Output<String> languageCode) {
             $.languageCode = languageCode;
             return this;
         }
 
-        /**
-         * @param languageCode Selects a specific three-letter language code from within an audio source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder languageCode(String languageCode) {
             return languageCode(Output.of(languageCode));
         }
@@ -389,23 +361,11 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
             return remixSettings(Output.of(remixSettings));
         }
 
-        /**
-         * @param streamName Stream name RTMP destinations (URLs of type rtmp://)
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamName(@Nullable Output<String> streamName) {
             $.streamName = streamName;
             return this;
         }
 
-        /**
-         * @param streamName Stream name RTMP destinations (URLs of type rtmp://)
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamName(String streamName) {
             return streamName(Output.of(streamName));
         }

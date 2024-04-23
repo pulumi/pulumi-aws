@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
-    /**
-     * @return The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
-     * 
-     */
     private LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration encryptionConfiguration;
-    /**
-     * @return Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule retainRule;
-    /**
-     * @return The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-     * 
-     */
     private String target;
 
     private LifecyclePolicyPolicyDetailsActionCrossRegionCopy() {}
-    /**
-     * @return The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
-     * 
-     */
     public LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration encryptionConfiguration() {
         return this.encryptionConfiguration;
     }
-    /**
-     * @return Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule> retainRule() {
         return Optional.ofNullable(this.retainRule);
     }
-    /**
-     * @return The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-     * 
-     */
     public String target() {
         return this.target;
     }

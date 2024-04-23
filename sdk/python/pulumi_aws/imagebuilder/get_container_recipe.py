@@ -254,14 +254,12 @@ def get_container_recipe(arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_container_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the container recipe.
@@ -303,14 +301,12 @@ def get_container_recipe_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_container_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the container recipe.

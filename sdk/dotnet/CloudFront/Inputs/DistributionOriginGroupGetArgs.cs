@@ -12,27 +12,17 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionOriginGroupGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The failover criteria for when to failover to the secondary origin.
-        /// </summary>
         [Input("failoverCriteria", required: true)]
         public Input<Inputs.DistributionOriginGroupFailoverCriteriaGetArgs> FailoverCriteria { get; set; } = null!;
 
         [Input("members", required: true)]
         private InputList<Inputs.DistributionOriginGroupMemberGetArgs>? _members;
-
-        /// <summary>
-        /// Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
-        /// </summary>
         public InputList<Inputs.DistributionOriginGroupMemberGetArgs> Members
         {
             get => _members ?? (_members = new InputList<Inputs.DistributionOriginGroupMemberGetArgs>());
             set => _members = value;
         }
 
-        /// <summary>
-        /// Unique identifier of the member origin.
-        /// </summary>
         [Input("originId", required: true)]
         public Input<string> OriginId { get; set; } = null!;
 

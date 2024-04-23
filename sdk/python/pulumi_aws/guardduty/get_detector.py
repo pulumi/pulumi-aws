@@ -97,14 +97,12 @@ def get_detector(id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.guardduty.get_detector()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the detector.
@@ -130,14 +128,12 @@ def get_detector_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.guardduty.get_detector()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the detector.

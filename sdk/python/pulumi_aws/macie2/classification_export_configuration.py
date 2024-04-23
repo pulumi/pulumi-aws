@@ -73,7 +73,6 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -86,7 +85,6 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         ),
         opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -111,7 +109,6 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -124,7 +121,6 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         ),
         opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

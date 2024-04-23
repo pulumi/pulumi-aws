@@ -12,31 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerDefaultActionForwardTargetGroup {
-    /**
-     * @return ID or Amazon Resource Name (ARN) of the target group.
-     * 
-     */
     private @Nullable String targetGroupIdentifier;
-    /**
-     * @return Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
-     * weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
-     * 
-     */
     private @Nullable Integer weight;
 
     private ListenerDefaultActionForwardTargetGroup() {}
-    /**
-     * @return ID or Amazon Resource Name (ARN) of the target group.
-     * 
-     */
     public Optional<String> targetGroupIdentifier() {
         return Optional.ofNullable(this.targetGroupIdentifier);
     }
-    /**
-     * @return Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
-     * weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
-     * 
-     */
     public Optional<Integer> weight() {
         return Optional.ofNullable(this.weight);
     }

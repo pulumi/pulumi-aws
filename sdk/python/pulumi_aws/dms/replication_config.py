@@ -437,7 +437,6 @@ class ReplicationConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -460,7 +459,6 @@ class ReplicationConfig(pulumi.CustomResource):
                 preferred_maintenance_window="sun:23:45-mon:00:30",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -497,7 +495,6 @@ class ReplicationConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -520,7 +517,6 @@ class ReplicationConfig(pulumi.CustomResource):
                 preferred_maintenance_window="sun:23:45-mon:00:30",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

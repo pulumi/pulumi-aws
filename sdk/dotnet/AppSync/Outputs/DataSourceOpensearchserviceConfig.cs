@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     [OutputType]
     public sealed class DataSourceOpensearchserviceConfig
     {
-        /// <summary>
-        /// HTTP endpoint of the Elasticsearch domain.
-        /// </summary>
         public readonly string Endpoint;
-        /// <summary>
-        /// AWS region of the DynamoDB table. Defaults to current region.
-        /// </summary>
         public readonly string? Region;
 
         [OutputConstructor]

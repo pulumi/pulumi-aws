@@ -17,7 +17,6 @@ import (
 //
 // ### By Transit Gateway Identifier
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetRouteTablePropagations(ctx *pulumi.Context, args *GetRouteTablePropagationsArgs, opts ...pulumi.InvokeOption) (*GetRouteTablePropagationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteTablePropagationsResult

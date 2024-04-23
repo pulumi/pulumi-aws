@@ -373,7 +373,6 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -398,7 +397,6 @@ class Workspace(pulumi.CustomResource):
                 "Department": "IT",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -432,7 +430,6 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -457,7 +454,6 @@ class Workspace(pulumi.CustomResource):
                 "Department": "IT",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

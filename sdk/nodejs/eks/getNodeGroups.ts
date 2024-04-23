@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     nodeGroupName: __value,
  * }) })));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNodeGroups(args: GetNodeGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeGroupsResult> {
 
@@ -61,7 +59,6 @@ export interface GetNodeGroupsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,7 +71,6 @@ export interface GetNodeGroupsResult {
  *     nodeGroupName: __value,
  * }) })));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getNodeGroupsOutput(args: GetNodeGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeGroupsResult> {
     return pulumi.output(args).apply((a: any) => getNodeGroups(a, opts))

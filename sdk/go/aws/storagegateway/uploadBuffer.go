@@ -20,7 +20,6 @@ import (
 //
 // ### Cached and VTL Gateway Type
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,11 +51,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Stored Gateway Type
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,7 +85,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

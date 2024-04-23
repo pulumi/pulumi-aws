@@ -29,7 +29,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,11 +75,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### AWS Cloud Map Service Discovery
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -138,11 +135,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Listener Health Check
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -197,11 +192,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Logging
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -255,7 +248,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

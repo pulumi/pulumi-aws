@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,11 +31,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Usage with Filter
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPublicIpv4PoolsResult> InvokeAsync(GetPublicIpv4PoolsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpv4PoolsResult>("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", args ?? new GetPublicIpv4PoolsArgs(), options.WithDefaults());
@@ -74,7 +70,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -88,11 +83,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Usage with Filter
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -118,7 +111,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPublicIpv4PoolsResult> Invoke(GetPublicIpv4PoolsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpv4PoolsResult>("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", args ?? new GetPublicIpv4PoolsInvokeArgs(), options.WithDefaults());

@@ -20,7 +20,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,11 +50,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Short-lived certificate
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,11 +83,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Enable Certificate Revocation List
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -177,7 +172,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

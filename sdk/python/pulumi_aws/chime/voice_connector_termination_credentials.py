@@ -106,7 +106,6 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -131,7 +130,6 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -159,7 +157,6 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,7 +181,6 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

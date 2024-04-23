@@ -256,7 +256,6 @@ class Invocation(pulumi.CustomResource):
 
         ### Dynamic Invocation Example Using Triggers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -273,11 +272,9 @@ class Invocation(pulumi.CustomResource):
                 "key2": "value2",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### CRUD Lifecycle Scope
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -291,7 +288,6 @@ class Invocation(pulumi.CustomResource):
             }),
             lifecycle_scope="CRUD")
         ```
-        <!--End PulumiCodeChooser -->
 
         > **NOTE:** `lifecycle_scope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
 
@@ -333,7 +329,6 @@ class Invocation(pulumi.CustomResource):
 
         ### Dynamic Invocation Example Using Triggers
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -350,11 +345,9 @@ class Invocation(pulumi.CustomResource):
                 "key2": "value2",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### CRUD Lifecycle Scope
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -368,7 +361,6 @@ class Invocation(pulumi.CustomResource):
             }),
             lifecycle_scope="CRUD")
         ```
-        <!--End PulumiCodeChooser -->
 
         > **NOTE:** `lifecycle_scope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
 

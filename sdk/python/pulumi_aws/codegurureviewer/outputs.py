@@ -283,7 +283,7 @@ class RepositoryAssociationRepositoryS3Bucket(dict):
                  name: str):
         """
         :param str bucket_name: The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        :param str name: The name of the third party source repository.
+        :param str name: The name of the repository in the S3 bucket.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "name", name)
@@ -300,7 +300,7 @@ class RepositoryAssociationRepositoryS3Bucket(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the third party source repository.
+        The name of the repository in the S3 bucket.
         """
         return pulumi.get(self, "name")
 
@@ -329,9 +329,6 @@ class RepositoryAssociationS3RepositoryDetail(dict):
     def __init__(__self__, *,
                  bucket_name: Optional[str] = None,
                  code_artifacts: Optional[Sequence['outputs.RepositoryAssociationS3RepositoryDetailCodeArtifact']] = None):
-        """
-        :param str bucket_name: The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        """
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if code_artifacts is not None:
@@ -340,9 +337,6 @@ class RepositoryAssociationS3RepositoryDetail(dict):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[str]:
-        """
-        The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        """
         return pulumi.get(self, "bucket_name")
 
     @property

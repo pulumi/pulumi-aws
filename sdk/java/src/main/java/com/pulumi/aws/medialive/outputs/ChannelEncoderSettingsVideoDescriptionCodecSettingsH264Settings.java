@@ -46,7 +46,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
      */
     private @Nullable String entropyEncoding;
     /**
-     * @return Filters to apply to an encode. See H265 Filter Settings for more details.
+     * @return Filters to apply to an encode. See H264 Filter Settings for more details.
      * 
      */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings filterSettings;
@@ -102,7 +102,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
      */
     private @Nullable String gopSizeUnits;
     /**
-     * @return H265 level.
+     * @return H264 level.
      * 
      */
     private @Nullable String level;
@@ -138,7 +138,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
      */
     private @Nullable Integer parNumerator;
     /**
-     * @return AAC profile.
+     * @return H264 profile.
      * 
      */
     private @Nullable String profile;
@@ -153,7 +153,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
      */
     private @Nullable Integer qvbrQualityLevel;
     /**
-     * @return The rate control mode.
+     * @return Rate control mode.
      * 
      */
     private @Nullable String rateControlMode;
@@ -250,7 +250,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         return Optional.ofNullable(this.entropyEncoding);
     }
     /**
-     * @return Filters to apply to an encode. See H265 Filter Settings for more details.
+     * @return Filters to apply to an encode. See H264 Filter Settings for more details.
      * 
      */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings> filterSettings() {
@@ -330,7 +330,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         return Optional.ofNullable(this.gopSizeUnits);
     }
     /**
-     * @return H265 level.
+     * @return H264 level.
      * 
      */
     public Optional<String> level() {
@@ -382,7 +382,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         return Optional.ofNullable(this.parNumerator);
     }
     /**
-     * @return AAC profile.
+     * @return H264 profile.
      * 
      */
     public Optional<String> profile() {
@@ -403,7 +403,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         return Optional.ofNullable(this.qvbrQualityLevel);
     }
     /**
-     * @return The rate control mode.
+     * @return Rate control mode.
      * 
      */
     public Optional<String> rateControlMode() {

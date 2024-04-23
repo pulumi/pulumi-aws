@@ -18,7 +18,6 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -89,7 +88,6 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLogDataProtectionPolicyDocumentResult> InvokeAsync(GetLogDataProtectionPolicyDocumentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogDataProtectionPolicyDocumentResult>("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args ?? new GetLogDataProtectionPolicyDocumentArgs(), options.WithDefaults());
@@ -101,7 +99,6 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -172,7 +169,6 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLogDataProtectionPolicyDocumentResult> Invoke(GetLogDataProtectionPolicyDocumentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogDataProtectionPolicyDocumentResult>("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args ?? new GetLogDataProtectionPolicyDocumentInvokeArgs(), options.WithDefaults());

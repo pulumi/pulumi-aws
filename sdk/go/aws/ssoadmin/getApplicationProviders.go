@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetApplicationProviders(ctx *pulumi.Context, args *GetApplicationProvidersArgs, opts ...pulumi.InvokeOption) (*GetApplicationProvidersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetApplicationProvidersResult

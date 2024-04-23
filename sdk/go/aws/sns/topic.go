@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,11 +38,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Example with Delivery Policy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,11 +84,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Example with Server-side encryption (SSE)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -116,11 +111,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Example with First-In-First-Out (FIFO)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -146,7 +139,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Message Delivery Status Arguments
 //

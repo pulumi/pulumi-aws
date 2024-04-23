@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -168,7 +167,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -211,7 +209,7 @@ export class ListenerRule extends pulumi.CustomResource {
      */
     public readonly actions!: pulumi.Output<outputs.lb.ListenerRuleAction[]>;
     /**
-     * The Amazon Resource Name (ARN) of the target group.
+     * The ARN of the rule (matches `id`)
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -292,7 +290,7 @@ export interface ListenerRuleState {
      */
     actions?: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleAction>[]>;
     /**
-     * The Amazon Resource Name (ARN) of the target group.
+     * The ARN of the rule (matches `id`)
      */
     arn?: pulumi.Input<string>;
     /**

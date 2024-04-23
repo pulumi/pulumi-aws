@@ -116,7 +116,6 @@ class NotificationChannel(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -125,11 +124,9 @@ class NotificationChannel(pulumi.CustomResource):
             topic_arn=example_aws_sns_topic["arn"],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Filters
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,7 +140,6 @@ class NotificationChannel(pulumi.CustomResource):
                 severities=["HIGH"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -173,7 +169,6 @@ class NotificationChannel(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,11 +177,9 @@ class NotificationChannel(pulumi.CustomResource):
             topic_arn=example_aws_sns_topic["arn"],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Filters
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -200,7 +193,6 @@ class NotificationChannel(pulumi.CustomResource):
                 severities=["HIGH"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

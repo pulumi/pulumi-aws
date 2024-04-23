@@ -16,7 +16,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ### For a Firewall Policy resource
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,11 +55,9 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### For a Rule Group resource
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,7 +96,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

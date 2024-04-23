@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +25,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example with Secret
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,7 +50,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleSecretVersion],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

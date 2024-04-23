@@ -19,7 +19,6 @@ import (
 //
 // ### Csv Classifier
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,11 +53,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Grok Classifier
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,11 +83,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### JSON Classifier
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,11 +112,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### XML Classifier
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -149,7 +142,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

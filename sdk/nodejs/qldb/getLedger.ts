@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     name: "an_example_ledger",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
 
@@ -60,7 +58,6 @@ export interface GetLedgerResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -69,7 +66,6 @@ export interface GetLedgerResult {
  *     name: "an_example_ledger",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
     return pulumi.output(args).apply((a: any) => getLedger(a, opts))

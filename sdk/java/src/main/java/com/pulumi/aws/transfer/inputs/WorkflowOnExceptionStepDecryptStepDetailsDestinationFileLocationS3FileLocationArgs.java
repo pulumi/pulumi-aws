@@ -31,14 +31,14 @@ public final class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocat
     }
 
     /**
-     * The name assigned to the tag that you create.
+     * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return The name assigned to the tag that you create.
+     * @return The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
      * 
      */
     public Optional<Output<String>> key() {
@@ -92,7 +92,7 @@ public final class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocat
         }
 
         /**
-         * @param key The name assigned to the tag that you create.
+         * @param key The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocat
         }
 
         /**
-         * @param key The name assigned to the tag that you create.
+         * @param key The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          * 
          * @return builder
          * 

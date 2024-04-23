@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     containerName: "mongodb",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerDefinitionResult> {
 
@@ -94,7 +92,6 @@ export interface GetContainerDefinitionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -104,7 +101,6 @@ export interface GetContainerDefinitionResult {
  *     containerName: "mongodb",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getContainerDefinitionOutput(args: GetContainerDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getContainerDefinition(a, opts))

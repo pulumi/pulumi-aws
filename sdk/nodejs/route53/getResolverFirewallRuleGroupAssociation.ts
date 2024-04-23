@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * The following example shows how to get a firewall rule group association from its id.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     firewallRuleGroupAssociationId: "rslvr-frgassoc-example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverFirewallRuleGroupAssociation(args: GetResolverFirewallRuleGroupAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallRuleGroupAssociationResult> {
 
@@ -75,7 +73,6 @@ export interface GetResolverFirewallRuleGroupAssociationResult {
  *
  * The following example shows how to get a firewall rule group association from its id.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,7 +81,6 @@ export interface GetResolverFirewallRuleGroupAssociationResult {
  *     firewallRuleGroupAssociationId: "rslvr-frgassoc-example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverFirewallRuleGroupAssociationOutput(args: GetResolverFirewallRuleGroupAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallRuleGroupAssociationResult> {
     return pulumi.output(args).apply((a: any) => getResolverFirewallRuleGroupAssociation(a, opts))

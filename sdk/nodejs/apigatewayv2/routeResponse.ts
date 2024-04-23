@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     routeResponseKey: "$default",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Enabling Two-Way Communication
  *

@@ -149,7 +149,6 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,7 +159,6 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
             fleet_arn=test_aws_worklink_fleet["arn"],
             certificate=std.file(input="certificate.pem").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -185,7 +183,6 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,7 +193,6 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
             fleet_arn=test_aws_worklink_fleet["arn"],
             certificate=std.file(input="certificate.pem").result)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

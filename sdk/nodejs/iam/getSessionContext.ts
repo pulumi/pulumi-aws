@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +21,11 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Find the Runner's Source Role
  *
  * Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`issuerArn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,7 +35,6 @@ import * as utilities from "../utilities";
  *     arn: current.arn,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSessionContext(args: GetSessionContextArgs, opts?: pulumi.InvokeOptions): Promise<GetSessionContextResult> {
 
@@ -95,7 +91,6 @@ export interface GetSessionContextResult {
  *
  * ### Basic Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -104,13 +99,11 @@ export interface GetSessionContextResult {
  *     arn: "arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Find the Runner's Source Role
  *
  * Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`issuerArn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -120,7 +113,6 @@ export interface GetSessionContextResult {
  *     arn: current.arn,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSessionContextOutput(args: GetSessionContextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSessionContextResult> {
     return pulumi.output(args).apply((a: any) => getSessionContext(a, opts))

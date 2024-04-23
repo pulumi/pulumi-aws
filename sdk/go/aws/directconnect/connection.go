@@ -18,7 +18,6 @@ import (
 //
 // ### Create a connection
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,11 +43,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Request a MACsec-capable connection
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,13 +72,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Configure encryption mode for MACsec-capable connections
 //
 // > **NOTE:** You can only specify the `encryptionMode` argument once the connection is in an `Available` state.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,7 +104,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

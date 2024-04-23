@@ -518,7 +518,6 @@ class CapacityReservation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -529,7 +528,6 @@ class CapacityReservation(pulumi.CustomResource):
             availability_zone="eu-west-1a",
             instance_count=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -566,7 +564,6 @@ class CapacityReservation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -577,7 +574,6 @@ class CapacityReservation(pulumi.CustomResource):
             availability_zone="eu-west-1a",
             instance_count=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

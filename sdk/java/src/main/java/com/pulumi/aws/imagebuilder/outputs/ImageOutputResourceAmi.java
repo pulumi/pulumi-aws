@@ -27,7 +27,7 @@ public final class ImageOutputResourceAmi {
      */
     private @Nullable String image;
     /**
-     * @return The name of the Workflow parameter.
+     * @return Name of the AMI.
      * 
      */
     private @Nullable String name;
@@ -60,7 +60,7 @@ public final class ImageOutputResourceAmi {
         return Optional.ofNullable(this.image);
     }
     /**
-     * @return The name of the Workflow parameter.
+     * @return Name of the AMI.
      * 
      */
     public Optional<String> name() {

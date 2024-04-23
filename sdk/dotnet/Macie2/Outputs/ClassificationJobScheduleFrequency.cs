@@ -19,8 +19,6 @@ namespace Pulumi.Aws.Macie2.Outputs
         public readonly bool? DailySchedule;
         /// <summary>
         /// Specifies a monthly recurrence pattern for running the job.
-        /// 
-        /// The `s3_job_definition` object supports the following:
         /// </summary>
         public readonly int? MonthlySchedule;
         /// <summary>

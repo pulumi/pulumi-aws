@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### From Source Template
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,7 +33,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -73,7 +71,7 @@ export class Dashboard extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * ARN of the dashboard.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -214,7 +212,7 @@ export class Dashboard extends pulumi.CustomResource {
  */
 export interface DashboardState {
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * ARN of the dashboard.
      */
     arn?: pulumi.Input<string>;
     /**

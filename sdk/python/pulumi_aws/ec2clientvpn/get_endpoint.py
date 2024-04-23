@@ -300,7 +300,6 @@ def get_endpoint(client_vpn_endpoint_id: Optional[str] = None,
 
     ### By Filter
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -310,18 +309,15 @@ def get_endpoint(client_vpn_endpoint_id: Optional[str] = None,
         values=["ExampleVpn"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Identifier
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2clientvpn.get_endpoint(client_vpn_endpoint_id="cvpn-endpoint-083cf50d6eb314f21")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str client_vpn_endpoint_id: ID of the Client VPN endpoint.
@@ -372,7 +368,6 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[s
 
     ### By Filter
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -382,18 +377,15 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[s
         values=["ExampleVpn"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Identifier
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2clientvpn.get_endpoint(client_vpn_endpoint_id="cvpn-endpoint-083cf50d6eb314f21")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str client_vpn_endpoint_id: ID of the Client VPN endpoint.

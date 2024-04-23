@@ -17,7 +17,6 @@ import (
 //
 // ### Get Service DNS Name
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,11 +45,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Use Service Reverse DNS Name to Get Components
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,11 +71,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Determine Regional Support for a Service
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,7 +97,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceResult

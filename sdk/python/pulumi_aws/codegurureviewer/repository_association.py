@@ -90,8 +90,8 @@ class _RepositoryAssociationState:
         :param pulumi.Input[str] association_id: The ID of the repository association.
         :param pulumi.Input[str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
         :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
-        :param pulumi.Input[str] name: The name of the third party source repository.
-        :param pulumi.Input[str] owner: The username for the account that owns the repository.
+        :param pulumi.Input[str] name: The name of the repository.
+        :param pulumi.Input[str] owner: The owner of the repository.
         :param pulumi.Input[str] provider_type: The provider type of the repository association.
         :param pulumi.Input['RepositoryAssociationRepositoryArgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
                
@@ -181,7 +181,7 @@ class _RepositoryAssociationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the third party source repository.
+        The name of the repository.
         """
         return pulumi.get(self, "name")
 
@@ -193,7 +193,7 @@ class _RepositoryAssociationState:
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[str]]:
         """
-        The username for the account that owns the repository.
+        The owner of the repository.
         """
         return pulumi.get(self, "owner")
 
@@ -296,7 +296,6 @@ class RepositoryAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,7 +313,6 @@ class RepositoryAssociation(pulumi.CustomResource):
                 kms_key_id=example.key_id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,7 +332,6 @@ class RepositoryAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,7 +349,6 @@ class RepositoryAssociation(pulumi.CustomResource):
                 kms_key_id=example.key_id,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param RepositoryAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -430,8 +426,8 @@ class RepositoryAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] association_id: The ID of the repository association.
         :param pulumi.Input[str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
         :param pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArgs']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
-        :param pulumi.Input[str] name: The name of the third party source repository.
-        :param pulumi.Input[str] owner: The username for the account that owns the repository.
+        :param pulumi.Input[str] name: The name of the repository.
+        :param pulumi.Input[str] owner: The owner of the repository.
         :param pulumi.Input[str] provider_type: The provider type of the repository association.
         :param pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArgs']] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
                
@@ -494,7 +490,7 @@ class RepositoryAssociation(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the third party source repository.
+        The name of the repository.
         """
         return pulumi.get(self, "name")
 
@@ -502,7 +498,7 @@ class RepositoryAssociation(pulumi.CustomResource):
     @pulumi.getter
     def owner(self) -> pulumi.Output[str]:
         """
-        The username for the account that owns the repository.
+        The owner of the repository.
         """
         return pulumi.get(self, "owner")
 

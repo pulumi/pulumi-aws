@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetDnsNamespace(ctx *pulumi.Context, args *GetDnsNamespaceArgs, opts ...pulumi.InvokeOption) (*GetDnsNamespaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDnsNamespaceResult

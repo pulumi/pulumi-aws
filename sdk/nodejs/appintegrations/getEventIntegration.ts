@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEventIntegration(args: GetEventIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetEventIntegrationResult> {
 
@@ -81,7 +79,6 @@ export interface GetEventIntegrationResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,7 +87,6 @@ export interface GetEventIntegrationResult {
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEventIntegrationOutput(args: GetEventIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventIntegrationResult> {
     return pulumi.output(args).apply((a: any) => getEventIntegration(a, opts))

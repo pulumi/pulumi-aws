@@ -186,14 +186,12 @@ class ConnectionAlias(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.workspaces.ConnectionAlias("example", connection_string="testdomain.test")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -221,14 +219,12 @@ class ConnectionAlias(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.workspaces.ConnectionAlias("example", connection_string="testdomain.test")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.CloudControl
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.CloudControl
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("aws:cloudcontrol/getResource:getResource", args ?? new GetResourceArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Aws.CloudControl
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.CloudControl
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws:cloudcontrol/getResource:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());

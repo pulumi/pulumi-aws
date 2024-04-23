@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * By `name`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,11 +20,9 @@ import * as utilities from "../utilities";
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * By `vocabularyId`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,7 +32,6 @@ import * as utilities from "../utilities";
  *     vocabularyId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVocabulary(args: GetVocabularyArgs, opts?: pulumi.InvokeOptions): Promise<GetVocabularyResult> {
 
@@ -120,7 +116,6 @@ export interface GetVocabularyResult {
  *
  * By `name`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -130,11 +125,9 @@ export interface GetVocabularyResult {
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * By `vocabularyId`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -144,7 +137,6 @@ export interface GetVocabularyResult {
  *     vocabularyId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getVocabularyOutput(args: GetVocabularyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVocabularyResult> {
     return pulumi.output(args).apply((a: any) => getVocabulary(a, opts))

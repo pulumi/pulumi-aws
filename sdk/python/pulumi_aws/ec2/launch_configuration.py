@@ -660,7 +660,6 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -682,7 +681,6 @@ class LaunchConfiguration(pulumi.CustomResource):
             image_id=ubuntu.id,
             instance_type="t2.micro")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -730,7 +728,6 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -752,7 +749,6 @@ class LaunchConfiguration(pulumi.CustomResource):
             image_id=ubuntu.id,
             instance_type="t2.micro")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

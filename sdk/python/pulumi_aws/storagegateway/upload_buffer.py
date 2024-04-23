@@ -140,7 +140,6 @@ class UploadBuffer(pulumi.CustomResource):
 
         ### Cached and VTL Gateway Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -151,11 +150,9 @@ class UploadBuffer(pulumi.CustomResource):
             disk_path=test.disk_path,
             gateway_arn=test_aws_storagegateway_gateway["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Stored Gateway Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,7 +163,6 @@ class UploadBuffer(pulumi.CustomResource):
             disk_id=example_aws_storagegateway_local_disk["id"],
             gateway_arn=example_aws_storagegateway_gateway["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -197,7 +193,6 @@ class UploadBuffer(pulumi.CustomResource):
 
         ### Cached and VTL Gateway Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -208,11 +203,9 @@ class UploadBuffer(pulumi.CustomResource):
             disk_path=test.disk_path,
             gateway_arn=test_aws_storagegateway_gateway["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Stored Gateway Type
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,7 +216,6 @@ class UploadBuffer(pulumi.CustomResource):
             disk_id=example_aws_storagegateway_local_disk["id"],
             gateway_arn=example_aws_storagegateway_gateway["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

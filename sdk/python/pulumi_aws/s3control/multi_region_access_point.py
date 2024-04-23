@@ -173,7 +173,6 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
 
         ### Multiple AWS Buckets in Different Regions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -192,7 +191,6 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
             ],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,7 +220,6 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
 
         ### Multiple AWS Buckets in Different Regions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,7 +238,6 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
             ],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

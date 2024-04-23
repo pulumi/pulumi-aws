@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogs
     {
-        /// <summary>
-        /// Controls whether provisioned throughput is enabled or not. Default value: `false`.
-        /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// Name of the Cloudwatch Log Group to deliver logs to.
-        /// </summary>
         public readonly string? LogGroup;
 
         [OutputConstructor]

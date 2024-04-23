@@ -232,7 +232,6 @@ class ApiCache(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,7 +245,6 @@ class ApiCache(pulumi.CustomResource):
             type="LARGE",
             ttl=900)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -276,7 +274,6 @@ class ApiCache(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -290,7 +287,6 @@ class ApiCache(pulumi.CustomResource):
             type="LARGE",
             ttl=900)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

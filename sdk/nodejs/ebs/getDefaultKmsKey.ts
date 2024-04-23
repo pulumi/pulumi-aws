@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     kmsKeyId: current.then(current => current.keyArn),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDefaultKmsKey(opts?: pulumi.InvokeOptions): Promise<GetDefaultKmsKeyResult> {
 
@@ -48,7 +46,6 @@ export interface GetDefaultKmsKeyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,7 +57,6 @@ export interface GetDefaultKmsKeyResult {
  *     kmsKeyId: current.then(current => current.keyArn),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDefaultKmsKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultKmsKeyResult> {
     return pulumi.output(getDefaultKmsKey(opts))

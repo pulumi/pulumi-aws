@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -48,7 +47,6 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTaskExecutionResult> InvokeAsync(GetTaskExecutionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskExecutionResult>("aws:ecs/getTaskExecution:getTaskExecution", args ?? new GetTaskExecutionArgs(), options.WithDefaults());
@@ -62,7 +60,6 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -90,7 +87,6 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTaskExecutionResult> Invoke(GetTaskExecutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskExecutionResult>("aws:ecs/getTaskExecution:getTaskExecution", args ?? new GetTaskExecutionInvokeArgs(), options.WithDefaults());

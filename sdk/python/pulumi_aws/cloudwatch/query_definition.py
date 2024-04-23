@@ -152,7 +152,6 @@ class QueryDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,7 +167,6 @@ class QueryDefinition(pulumi.CustomResource):
         | limit 25
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -195,7 +193,6 @@ class QueryDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -211,7 +208,6 @@ class QueryDefinition(pulumi.CustomResource):
         | limit 25
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

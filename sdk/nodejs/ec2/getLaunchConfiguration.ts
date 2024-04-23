@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     name: "test-launch-config",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchConfigurationResult> {
 
@@ -123,7 +121,6 @@ export interface GetLaunchConfigurationResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -132,7 +129,6 @@ export interface GetLaunchConfigurationResult {
  *     name: "test-launch-config",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLaunchConfigurationOutput(args: GetLaunchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getLaunchConfiguration(a, opts))

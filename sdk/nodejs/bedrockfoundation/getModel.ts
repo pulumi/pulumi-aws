@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     modelId: test.modelSummaries?.[0]?.modelId,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getModel(args: GetModelArgs, opts?: pulumi.InvokeOptions): Promise<GetModelResult> {
 
@@ -87,7 +85,6 @@ export interface GetModelResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -97,7 +94,6 @@ export interface GetModelResult {
  *     modelId: test.modelSummaries?.[0]?.modelId,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getModelOutput(args: GetModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelResult> {
     return pulumi.output(args).apply((a: any) => getModel(a, opts))

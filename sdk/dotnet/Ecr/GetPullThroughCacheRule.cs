@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPullThroughCacheRuleResult> InvokeAsync(GetPullThroughCacheRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPullThroughCacheRuleResult>("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args ?? new GetPullThroughCacheRuleArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPullThroughCacheRuleResult> Invoke(GetPullThroughCacheRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPullThroughCacheRuleResult>("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args ?? new GetPullThroughCacheRuleInvokeArgs(), options.WithDefaults());

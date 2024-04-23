@@ -18,7 +18,6 @@ import (
 //
 // ### With CSR
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,11 +49,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Without CSR
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,11 +75,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### From existing certificate without a CA
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,7 +109,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type Certificate struct {
 	pulumi.CustomResourceState
 

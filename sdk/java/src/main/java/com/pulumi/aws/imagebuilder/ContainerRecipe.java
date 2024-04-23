@@ -192,14 +192,14 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dockerfileTemplateUri);
     }
     /**
-     * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+     * A flag that indicates if the target container is encrypted.
      * 
      */
     @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> encrypted;
 
     /**
-     * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+     * @return A flag that indicates if the target container is encrypted.
      * 
      */
     public Output<Boolean> encrypted() {

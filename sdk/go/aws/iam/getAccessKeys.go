@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetAccessKeys(ctx *pulumi.Context, args *GetAccessKeysArgs, opts ...pulumi.InvokeOption) (*GetAccessKeysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccessKeysResult

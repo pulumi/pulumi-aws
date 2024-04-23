@@ -36,14 +36,14 @@ public final class DefaultSecurityGroupState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Description of this rule.
+     * Description of the security group.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of this rule.
+     * @return Description of the security group.
      * 
      */
     public Optional<Output<String>> description() {
@@ -233,7 +233,7 @@ public final class DefaultSecurityGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description Description of this rule.
+         * @param description Description of the security group.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class DefaultSecurityGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description Description of this rule.
+         * @param description Description of the security group.
          * 
          * @return builder
          * 

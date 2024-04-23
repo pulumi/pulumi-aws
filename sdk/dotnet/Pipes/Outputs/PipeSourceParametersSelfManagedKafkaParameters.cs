@@ -13,41 +13,14 @@ namespace Pulumi.Aws.Pipes.Outputs
     [OutputType]
     public sealed class PipeSourceParametersSelfManagedKafkaParameters
     {
-        /// <summary>
-        /// An array of server URLs. Maximum number of 2 items, each of maximum length 300.
-        /// </summary>
         public readonly ImmutableArray<string> AdditionalBootstrapServers;
-        /// <summary>
-        /// The maximum number of records to include in each batch. Maximum value of 10000.
-        /// </summary>
         public readonly int? BatchSize;
-        /// <summary>
-        /// The name of the destination queue to consume. Maximum value of 200.
-        /// </summary>
         public readonly string? ConsumerGroupId;
-        /// <summary>
-        /// The credentials needed to access the resource. Detailed below.
-        /// </summary>
         public readonly Outputs.PipeSourceParametersSelfManagedKafkaParametersCredentials? Credentials;
-        /// <summary>
-        /// The maximum length of a time to wait for events. Maximum value of 300.
-        /// </summary>
         public readonly int? MaximumBatchingWindowInSeconds;
-        /// <summary>
-        /// The ARN of the Secrets Manager secret used for certification.
-        /// </summary>
         public readonly string? ServerRootCaCertificate;
-        /// <summary>
-        /// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-        /// </summary>
         public readonly string? StartingPosition;
-        /// <summary>
-        /// The name of the topic that the pipe will read from. Maximum length of 249.
-        /// </summary>
         public readonly string TopicName;
-        /// <summary>
-        /// This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
-        /// </summary>
         public readonly Outputs.PipeSourceParametersSelfManagedKafkaParametersVpc? Vpc;
 
         [OutputConstructor]

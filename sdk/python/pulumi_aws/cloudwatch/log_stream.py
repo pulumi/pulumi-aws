@@ -119,7 +119,6 @@ class LogStream(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -129,7 +128,6 @@ class LogStream(pulumi.CustomResource):
             name="SampleLogStream1234",
             log_group_name=yada.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -155,7 +153,6 @@ class LogStream(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -165,7 +162,6 @@ class LogStream(pulumi.CustomResource):
             name="SampleLogStream1234",
             log_group_name=yada.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

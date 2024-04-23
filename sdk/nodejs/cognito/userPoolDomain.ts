@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Amazon Cognito domain
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,11 +21,9 @@ import * as utilities from "../utilities";
  *     userPoolId: example.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Custom Cognito domain
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,7 +48,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -278,7 +278,6 @@ class EipAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,7 +294,6 @@ class EipAssociation(pulumi.CustomResource):
             instance_id=web.id,
             allocation_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -340,7 +338,6 @@ class EipAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,7 +354,6 @@ class EipAssociation(pulumi.CustomResource):
             instance_id=web.id,
             allocation_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

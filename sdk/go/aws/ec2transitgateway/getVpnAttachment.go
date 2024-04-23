@@ -19,7 +19,6 @@ import (
 //
 // ### By Transit Gateway and VPN Connection Identifiers
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,11 +43,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Filter
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,7 +76,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetVpnAttachment(ctx *pulumi.Context, args *GetVpnAttachmentArgs, opts ...pulumi.InvokeOption) (*GetVpnAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpnAttachmentResult

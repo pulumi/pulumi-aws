@@ -105,7 +105,6 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -115,7 +114,6 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
             email_identity=example.email_identity,
             email_forwarding_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -143,7 +141,6 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -153,7 +150,6 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
             email_identity=example.email_identity,
             email_forwarding_enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

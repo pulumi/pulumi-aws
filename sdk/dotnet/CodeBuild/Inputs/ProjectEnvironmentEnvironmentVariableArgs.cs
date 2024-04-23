@@ -13,13 +13,13 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectEnvironmentEnvironmentVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Project's name.
+        /// Environment variable's name or key.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+        /// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

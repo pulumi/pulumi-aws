@@ -1246,8 +1246,6 @@ func (o ProjectDataDeliveryPtrOutput) S3Destination() ProjectDataDeliveryS3Desti
 
 type ProjectDataDeliveryCloudwatchLogs struct {
 	// The name of the log group where the project stores evaluation events.
-	//
-	// The `s3Destination` block supports the following arguments:
 	LogGroup *string `pulumi:"logGroup"`
 }
 
@@ -1264,8 +1262,6 @@ type ProjectDataDeliveryCloudwatchLogsInput interface {
 
 type ProjectDataDeliveryCloudwatchLogsArgs struct {
 	// The name of the log group where the project stores evaluation events.
-	//
-	// The `s3Destination` block supports the following arguments:
 	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
 }
 
@@ -1347,8 +1343,6 @@ func (o ProjectDataDeliveryCloudwatchLogsOutput) ToProjectDataDeliveryCloudwatch
 }
 
 // The name of the log group where the project stores evaluation events.
-//
-// The `s3Destination` block supports the following arguments:
 func (o ProjectDataDeliveryCloudwatchLogsOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectDataDeliveryCloudwatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
@@ -1378,8 +1372,6 @@ func (o ProjectDataDeliveryCloudwatchLogsPtrOutput) Elem() ProjectDataDeliveryCl
 }
 
 // The name of the log group where the project stores evaluation events.
-//
-// The `s3Destination` block supports the following arguments:
 func (o ProjectDataDeliveryCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectDataDeliveryCloudwatchLogs) *string {
 		if v == nil {

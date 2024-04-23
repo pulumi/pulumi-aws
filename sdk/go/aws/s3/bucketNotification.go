@@ -22,7 +22,6 @@ import (
 //
 // ### Add notification configuration to SNS Topic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,11 +101,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Add notification configuration to SQS Queue
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -186,11 +183,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Add notification configuration to Lambda Function
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -282,11 +277,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Trigger multiple Lambda functions
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -406,11 +399,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Add multiple notification configurations to SQS Queue
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -499,13 +490,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // For JSON syntax, use an array instead of defining the `queue` key twice.
 //
 // ### Emit events to EventBridge
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -536,7 +525,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

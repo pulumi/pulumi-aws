@@ -16,7 +16,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ### Logging to S3
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,11 +47,9 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Logging to CloudWatch
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -83,11 +80,9 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Logging to Kinesis Data Firehose
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -118,7 +113,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

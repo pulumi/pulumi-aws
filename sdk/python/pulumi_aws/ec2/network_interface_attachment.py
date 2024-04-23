@@ -166,7 +166,6 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -176,7 +175,6 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             network_interface_id=test_aws_network_interface["id"],
             device_index=0)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -203,7 +201,6 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -213,7 +210,6 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             network_interface_id=test_aws_network_interface["id"],
             device_index=0)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

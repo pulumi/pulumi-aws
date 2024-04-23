@@ -479,7 +479,6 @@ class Volume(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -491,7 +490,6 @@ class Volume(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         > **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
 
@@ -531,7 +529,6 @@ class Volume(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -543,7 +540,6 @@ class Volume(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         > **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
 

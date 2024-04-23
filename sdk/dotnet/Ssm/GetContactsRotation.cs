@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetContactsRotationResult> InvokeAsync(GetContactsRotationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactsRotationResult>("aws:ssm/getContactsRotation:getContactsRotation", args ?? new GetContactsRotationArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetContactsRotationResult> Invoke(GetContactsRotationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactsRotationResult>("aws:ssm/getContactsRotation:getContactsRotation", args ?? new GetContactsRotationInvokeArgs(), options.WithDefaults());

@@ -175,7 +175,6 @@ class Recorder(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,11 +194,9 @@ class Recorder(pulumi.CustomResource):
             name="example",
             role_arn=r.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Exclude Resources Types Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,11 +214,9 @@ class Recorder(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Periodic Recording
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,7 +241,6 @@ class Recorder(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -278,7 +272,6 @@ class Recorder(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,11 +291,9 @@ class Recorder(pulumi.CustomResource):
             name="example",
             role_arn=r.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Exclude Resources Types Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -320,11 +311,9 @@ class Recorder(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Periodic Recording
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -349,7 +338,6 @@ class Recorder(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

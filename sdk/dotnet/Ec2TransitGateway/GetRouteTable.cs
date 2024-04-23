@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// ### By Filter
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -52,11 +51,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### By Identifier
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws:ec2transitgateway/getRouteTable:getRouteTable", args ?? new GetRouteTableArgs(), options.WithDefaults());
@@ -84,7 +80,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// ### By Filter
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -118,11 +113,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### By Identifier
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -138,7 +131,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("aws:ec2transitgateway/getRouteTable:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithDefaults());

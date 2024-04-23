@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     id: "application-1234",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAppregistryApplication(args: GetAppregistryApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetAppregistryApplicationResult> {
 
@@ -69,7 +67,6 @@ export interface GetAppregistryApplicationResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -78,7 +75,6 @@ export interface GetAppregistryApplicationResult {
  *     id: "application-1234",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAppregistryApplicationOutput(args: GetAppregistryApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppregistryApplicationResult> {
     return pulumi.output(args).apply((a: any) => getAppregistryApplication(a, opts))

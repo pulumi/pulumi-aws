@@ -152,14 +152,12 @@ class Keyspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.keyspaces.Keyspace("example", name="my_keyspace")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -189,14 +187,12 @@ class Keyspace(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.keyspaces.Keyspace("example", name="my_keyspace")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

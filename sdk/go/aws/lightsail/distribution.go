@@ -20,7 +20,6 @@ import (
 //
 // Below is a basic example with a bucket as an origin.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,13 +74,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### instance origin example
 //
 // Below is an example of an instance as the origin.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -152,13 +149,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### lb origin example
 //
 // # Below is an example with a load balancer as an origin
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -234,7 +229,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -278,7 +272,7 @@ type Distribution struct {
 	Origin DistributionOriginOutput `pulumi:"origin"`
 	// The public DNS of the origin.
 	OriginPublicDns pulumi.StringOutput `pulumi:"originPublicDns"`
-	// The resource type of the origin resource (e.g., Instance).
+	// The Lightsail resource type (e.g., Distribution).
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// The status of the distribution.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -366,7 +360,7 @@ type distributionState struct {
 	Origin *DistributionOrigin `pulumi:"origin"`
 	// The public DNS of the origin.
 	OriginPublicDns *string `pulumi:"originPublicDns"`
-	// The resource type of the origin resource (e.g., Instance).
+	// The Lightsail resource type (e.g., Distribution).
 	ResourceType *string `pulumi:"resourceType"`
 	// The status of the distribution.
 	Status *string `pulumi:"status"`
@@ -416,7 +410,7 @@ type DistributionState struct {
 	Origin DistributionOriginPtrInput
 	// The public DNS of the origin.
 	OriginPublicDns pulumi.StringPtrInput
-	// The resource type of the origin resource (e.g., Instance).
+	// The Lightsail resource type (e.g., Distribution).
 	ResourceType pulumi.StringPtrInput
 	// The status of the distribution.
 	Status pulumi.StringPtrInput
@@ -658,7 +652,7 @@ func (o DistributionOutput) OriginPublicDns() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.OriginPublicDns }).(pulumi.StringOutput)
 }
 
-// The resource type of the origin resource (e.g., Instance).
+// The Lightsail resource type (e.g., Distribution).
 func (o DistributionOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }

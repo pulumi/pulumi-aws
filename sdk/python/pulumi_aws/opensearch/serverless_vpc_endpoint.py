@@ -205,7 +205,6 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,7 +214,6 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
             subnet_ids=[example_aws_subnet["id"]],
             vpc_id=example_aws_vpc["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -247,7 +245,6 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,7 +254,6 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
             subnet_ids=[example_aws_subnet["id"]],
             vpc_id=example_aws_vpc["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

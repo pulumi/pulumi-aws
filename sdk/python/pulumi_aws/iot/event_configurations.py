@@ -72,7 +72,6 @@ class EventConfigurations(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -91,7 +90,6 @@ class EventConfigurations(pulumi.CustomResource):
             "CA_CERTIFICATE": False,
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -118,7 +116,6 @@ class EventConfigurations(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -137,7 +134,6 @@ class EventConfigurations(pulumi.CustomResource):
             "CA_CERTIFICATE": False,
         })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

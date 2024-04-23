@@ -16,14 +16,14 @@ public final class NodeGroupResourceAutoscalingGroupArgs extends com.pulumi.reso
     public static final NodeGroupResourceAutoscalingGroupArgs Empty = new NodeGroupResourceAutoscalingGroupArgs();
 
     /**
-     * Name of the EC2 Launch Template. Conflicts with `id`.
+     * Name of the AutoScaling Group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the EC2 Launch Template. Conflicts with `id`.
+     * @return Name of the AutoScaling Group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -55,7 +55,7 @@ public final class NodeGroupResourceAutoscalingGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name Name of the EC2 Launch Template. Conflicts with `id`.
+         * @param name Name of the AutoScaling Group.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class NodeGroupResourceAutoscalingGroupArgs extends com.pulumi.reso
         }
 
         /**
-         * @param name Name of the EC2 Launch Template. Conflicts with `id`.
+         * @param name Name of the AutoScaling Group.
          * 
          * @return builder
          * 

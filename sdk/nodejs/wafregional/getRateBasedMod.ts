@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     name: "tfWAFRegionalRateBasedRule",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRateBasedMod(args: GetRateBasedModArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedModResult> {
 
@@ -53,7 +51,6 @@ export interface GetRateBasedModResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,7 +59,6 @@ export interface GetRateBasedModResult {
  *     name: "tfWAFRegionalRateBasedRule",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRateBasedModOutput(args: GetRateBasedModOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRateBasedModResult> {
     return pulumi.output(args).apply((a: any) => getRateBasedMod(a, opts))

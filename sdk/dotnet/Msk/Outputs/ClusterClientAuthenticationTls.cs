@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Msk.Outputs
     [OutputType]
     public sealed class ClusterClientAuthenticationTls
     {
-        /// <summary>
-        /// List of ACM Certificate Authority Amazon Resource Names (ARNs).
-        /// </summary>
         public readonly ImmutableArray<string> CertificateAuthorityArns;
 
         [OutputConstructor]

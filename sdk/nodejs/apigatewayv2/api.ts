@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic WebSocket API
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,11 +26,9 @@ import * as utilities from "../utilities";
  *     routeSelectionExpression: "$request.body.action",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Basic HTTP API
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,7 +38,6 @@ import * as utilities from "../utilities";
  *     protocolType: "HTTP",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

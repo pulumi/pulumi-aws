@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
     {
-        /// <summary>
-        /// The access token used to access the connector on your behalf.
-        /// </summary>
         public readonly string? AccessToken;
-        /// <summary>
-        /// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest? OauthRequest;
-        /// <summary>
-        /// The refresh token used to refresh an expired access token.
-        /// </summary>
         public readonly string? RefreshToken;
 
         [OutputConstructor]

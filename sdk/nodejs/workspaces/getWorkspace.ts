@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Filter By Workspace ID
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,11 +22,9 @@ import * as utilities from "../utilities";
  *     workspaceId: "ws-cj5xcxsz5",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter By Directory ID & User Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,7 +34,6 @@ import * as utilities from "../utilities";
  *     userName: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWorkspace(args?: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     args = args || {};
@@ -110,7 +106,6 @@ export interface GetWorkspaceResult {
  *
  * ### Filter By Workspace ID
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -119,11 +114,9 @@ export interface GetWorkspaceResult {
  *     workspaceId: "ws-cj5xcxsz5",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter By Directory ID & User Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -133,7 +126,6 @@ export interface GetWorkspaceResult {
  *     userName: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWorkspaceOutput(args?: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

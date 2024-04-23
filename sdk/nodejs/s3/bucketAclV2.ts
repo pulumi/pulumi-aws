@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * ### With `private` ACL
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,14 +36,12 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleBucketOwnershipControls],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With `public-read` ACL
  *
  * > This example explicitly disables the default S3 bucket security settings. This
  * should be done with caution, as all bucket objects become publicly exposed.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -73,11 +70,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Grants
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -117,7 +112,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleBucketOwnershipControls],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

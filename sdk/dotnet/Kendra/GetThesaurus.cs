@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetThesaurusResult> InvokeAsync(GetThesaurusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetThesaurusResult>("aws:kendra/getThesaurus:getThesaurus", args ?? new GetThesaurusArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetThesaurusResult> Invoke(GetThesaurusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThesaurusResult>("aws:kendra/getThesaurus:getThesaurus", args ?? new GetThesaurusInvokeArgs(), options.WithDefaults());

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ebs
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.Ebs
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDefaultKmsKeyResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultKmsKeyResult>("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", InvokeArgs.Empty, options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.Ebs
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Aws.Ebs
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDefaultKmsKeyResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultKmsKeyResult>("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", InvokeArgs.Empty, options.WithDefaults());

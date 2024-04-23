@@ -144,18 +144,15 @@ def get_secret_version(secret_id: Optional[str] = None,
 
     By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     secret_version = aws.secretsmanager.get_secret_version(secret_id=example["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Retrieve Specific Secret Version
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -163,7 +160,6 @@ def get_secret_version(secret_id: Optional[str] = None,
     by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
         version_stage="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
@@ -203,18 +199,15 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
 
     By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     secret_version = aws.secretsmanager.get_secret_version(secret_id=example["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Retrieve Specific Secret Version
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -222,7 +215,6 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
     by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
         version_stage="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.

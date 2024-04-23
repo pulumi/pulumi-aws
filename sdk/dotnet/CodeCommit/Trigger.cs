@@ -14,7 +14,6 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,7 +46,6 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:codecommit/trigger:Trigger")]
     public partial class Trigger : global::Pulumi.CustomResource

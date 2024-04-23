@@ -246,10 +246,6 @@ func (o KxClusterAutoScalingConfigurationPtrOutput) ScaleOutCooldownSeconds() pu
 }
 
 type KxClusterCacheStorageConfiguration struct {
-	// Size of cache in Gigabytes.
-	//
-	// Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
-	// volume of data being cached, as noted in the example configuration.
 	Size int `pulumi:"size"`
 	// Type of KDB database. The following types are available:
 	// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -272,10 +268,6 @@ type KxClusterCacheStorageConfigurationInput interface {
 }
 
 type KxClusterCacheStorageConfigurationArgs struct {
-	// Size of cache in Gigabytes.
-	//
-	// Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
-	// volume of data being cached, as noted in the example configuration.
 	Size pulumi.IntInput `pulumi:"size"`
 	// Type of KDB database. The following types are available:
 	// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -337,10 +329,6 @@ func (o KxClusterCacheStorageConfigurationOutput) ToKxClusterCacheStorageConfigu
 	return o
 }
 
-// Size of cache in Gigabytes.
-//
-// Please note that create/update timeouts may have to be adjusted from the default 4 hours depending upon the
-// volume of data being cached, as noted in the example configuration.
 func (o KxClusterCacheStorageConfigurationOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v KxClusterCacheStorageConfiguration) int { return v.Size }).(pulumi.IntOutput)
 }
@@ -2633,7 +2621,7 @@ func (o KxVolumeAttachedClusterArrayOutput) Index(i pulumi.IntInput) KxVolumeAtt
 type KxVolumeNas1Configuration struct {
 	// The size of the network attached storage.
 	Size int `pulumi:"size"`
-	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+	// The type of the network attached storage.
 	Type string `pulumi:"type"`
 }
 
@@ -2651,7 +2639,7 @@ type KxVolumeNas1ConfigurationInput interface {
 type KxVolumeNas1ConfigurationArgs struct {
 	// The size of the network attached storage.
 	Size pulumi.IntInput `pulumi:"size"`
-	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+	// The type of the network attached storage.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2711,7 +2699,7 @@ func (o KxVolumeNas1ConfigurationOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v KxVolumeNas1Configuration) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+// The type of the network attached storage.
 func (o KxVolumeNas1ConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v KxVolumeNas1Configuration) string { return v.Type }).(pulumi.StringOutput)
 }

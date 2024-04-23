@@ -203,7 +203,6 @@ class ContactChannel(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,11 +215,9 @@ class ContactChannel(pulumi.CustomResource):
             name="Example contact channel",
             type="EMAIL")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with SSM Contact
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,7 +233,6 @@ class ContactChannel(pulumi.CustomResource):
             name="Example contact channel",
             type="EMAIL")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -266,7 +262,6 @@ class ContactChannel(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -279,11 +274,9 @@ class ContactChannel(pulumi.CustomResource):
             name="Example contact channel",
             type="EMAIL")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with SSM Contact
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,7 +292,6 @@ class ContactChannel(pulumi.CustomResource):
             name="Example contact channel",
             type="EMAIL")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeatureGroupOnlineStoreConfig {
-    /**
-     * @return Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
-     * 
-     */
     private @Nullable Boolean enableOnlineStore;
     /**
      * @return Security config for at-rest encryption of your OnlineStore. See Security Config Below.
@@ -36,10 +32,6 @@ public final class FeatureGroupOnlineStoreConfig {
     private @Nullable FeatureGroupOnlineStoreConfigTtlDuration ttlDuration;
 
     private FeatureGroupOnlineStoreConfig() {}
-    /**
-     * @return Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
-     * 
-     */
     public Optional<Boolean> enableOnlineStore() {
         return Optional.ofNullable(this.enableOnlineStore);
     }

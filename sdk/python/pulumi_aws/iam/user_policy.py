@@ -170,7 +170,6 @@ class UserPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -192,7 +191,6 @@ class UserPolicy(pulumi.CustomResource):
             }))
         lb_access_key = aws.iam.AccessKey("lb", user=lb.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -222,7 +220,6 @@ class UserPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -244,7 +241,6 @@ class UserPolicy(pulumi.CustomResource):
             }))
         lb_access_key = aws.iam.AccessKey("lb", user=lb.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

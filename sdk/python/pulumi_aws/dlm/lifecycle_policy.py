@@ -242,7 +242,6 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,11 +306,9 @@ class LifecyclePolicy(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Cross-Region Snapshot Copy Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -367,11 +364,9 @@ class LifecyclePolicy(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Event Based Policy Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -407,7 +402,6 @@ class LifecyclePolicy(pulumi.CustomResource):
             role=example_aws_iam_role["id"],
             policy_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -438,7 +432,6 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -503,11 +496,9 @@ class LifecyclePolicy(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Cross-Region Snapshot Copy Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -563,11 +554,9 @@ class LifecyclePolicy(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Event Based Policy Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -603,7 +592,6 @@ class LifecyclePolicy(pulumi.CustomResource):
             role=example_aws_iam_role["id"],
             policy_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

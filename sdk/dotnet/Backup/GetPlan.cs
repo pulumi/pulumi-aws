@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Backup
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.Backup
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPlanResult> InvokeAsync(GetPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlanResult>("aws:backup/getPlan:getPlan", args ?? new GetPlanArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.Backup
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.Backup
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanResult>("aws:backup/getPlan:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());

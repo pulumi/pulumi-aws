@@ -13,29 +13,11 @@ namespace Pulumi.Aws.Dlm.Outputs
     [OutputType]
     public sealed class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
-        /// </summary>
         public readonly string? CmkArn;
-        /// <summary>
-        /// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-        /// </summary>
         public readonly bool? CopyTags;
-        /// <summary>
-        /// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
-        /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule? DeprecateRule;
-        /// <summary>
-        /// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
-        /// </summary>
         public readonly bool Encrypted;
-        /// <summary>
-        /// Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-        /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule? RetainRule;
-        /// <summary>
-        /// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-        /// </summary>
         public readonly string Target;
 
         [OutputConstructor]

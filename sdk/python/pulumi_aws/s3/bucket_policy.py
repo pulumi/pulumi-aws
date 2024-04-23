@@ -106,7 +106,6 @@ class BucketPolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -130,7 +129,6 @@ class BucketPolicy(pulumi.CustomResource):
             bucket=example.id,
             policy=allow_access_from_another_account.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -160,7 +158,6 @@ class BucketPolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,7 +181,6 @@ class BucketPolicy(pulumi.CustomResource):
             bucket=example.id,
             policy=allow_access_from_another_account.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -104,7 +104,6 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -115,11 +114,10 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
         },
         projection_expression="#P",
         key=\"\"\"{
-    	"hashKey": {"S": "example"}
+    \\x09"hashKey": {"S": "example"}
     }
     \"\"\")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
@@ -160,7 +158,6 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -171,11 +168,10 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
         },
         projection_expression="#P",
         key=\"\"\"{
-    	"hashKey": {"S": "example"}
+    \\x09"hashKey": {"S": "example"}
     }
     \"\"\")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str key: A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.

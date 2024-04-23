@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,11 +59,9 @@ import * as utilities from "../utilities";
  *     ipProtocol: "-1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,7 +74,6 @@ import * as utilities from "../utilities";
  *     ipv6CidrBlocks: ["::/0"],
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Usage With Prefix List IDs
  *
@@ -86,7 +82,6 @@ import * as utilities from "../utilities";
  * AWS are associated with a prefix list name, or service name, that is linked to a specific region.
  * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -99,7 +94,6 @@ import * as utilities from "../utilities";
  *     prefixListIds: [myEndpoint.prefixListId],
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
  *
@@ -107,7 +101,6 @@ import * as utilities from "../utilities";
  *
  * The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -119,7 +112,6 @@ import * as utilities from "../utilities";
  *     egress: [],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Recreating a Security Group
  *
@@ -139,14 +131,12 @@ import * as utilities from "../utilities";
  *
  * If destroying a security group takes a long time, it may be because the provider cannot distinguish between a dependent object (_e.g._, a security group rule or EC2 instance) that is _in the process of being deleted_ and one that is not. In other words, it may be waiting for a train that isn't scheduled to arrive. To fail faster, shorten the `delete` timeout from the default timeout:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.SecurityGroup("example", {name: "izizavle"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Provisioners
  *
@@ -154,7 +144,6 @@ import * as utilities from "../utilities";
  *
  * **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as _null from "@pulumi/null";
@@ -192,7 +181,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleResource],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

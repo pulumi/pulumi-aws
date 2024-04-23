@@ -422,7 +422,6 @@ class Feature(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -441,11 +440,9 @@ class Feature(pulumi.CustomResource):
                 "Key1": "example Feature",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With default variation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -469,11 +466,9 @@ class Feature(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With entity overrides
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -499,11 +494,9 @@ class Feature(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With evaluation strategy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -522,7 +515,6 @@ class Feature(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -556,7 +548,6 @@ class Feature(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -575,11 +566,9 @@ class Feature(pulumi.CustomResource):
                 "Key1": "example Feature",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With default variation
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -603,11 +592,9 @@ class Feature(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With entity overrides
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -633,11 +620,9 @@ class Feature(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With evaluation strategy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -656,7 +641,6 @@ class Feature(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

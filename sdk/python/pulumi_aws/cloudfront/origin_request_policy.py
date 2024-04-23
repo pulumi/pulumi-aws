@@ -218,7 +218,6 @@ class OriginRequestPolicy(pulumi.CustomResource):
 
         The following example below creates a CloudFront origin request policy.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +244,6 @@ class OriginRequestPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -274,7 +272,6 @@ class OriginRequestPolicy(pulumi.CustomResource):
 
         The following example below creates a CloudFront origin request policy.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,7 +298,6 @@ class OriginRequestPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

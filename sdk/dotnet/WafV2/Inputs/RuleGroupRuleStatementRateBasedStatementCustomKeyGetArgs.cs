@@ -55,13 +55,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentGetArgs>? QueryArgument { get; set; }
 
         /// <summary>
-        /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        /// (Optional) Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
         /// </summary>
         [Input("queryString")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringGetArgs>? QueryString { get; set; }
 
         /// <summary>
-        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        /// (Optional) Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         /// </summary>
         [Input("uriPath")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathGetArgs>? UriPath { get; set; }

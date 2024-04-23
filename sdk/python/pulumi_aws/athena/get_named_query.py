@@ -103,14 +103,12 @@ def get_named_query(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.athena.get_named_query(name="athenaQueryName")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The plain language name for the query. Maximum length of 128.
@@ -140,14 +138,12 @@ def get_named_query_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.athena.get_named_query(name="athenaQueryName")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The plain language name for the query. Maximum length of 128.

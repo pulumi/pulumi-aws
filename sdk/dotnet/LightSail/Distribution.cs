@@ -18,7 +18,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// Below is a basic example with a bucket as an origin.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,13 +69,11 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### instance origin example
     /// 
     /// Below is an example of an instance as the origin.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -137,19 +134,17 @@ namespace Pulumi.Aws.LightSail
     ///     {
     ///         DependsOn =
     ///         {
-    ///             test, 
+    ///             test,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### lb origin example
     /// 
     /// Below is an example with a load balancer as an origin
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -216,13 +211,12 @@ namespace Pulumi.Aws.LightSail
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testLbAttachment, 
+    ///             testLbAttachment,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -328,7 +322,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> OriginPublicDns { get; private set; } = null!;
 
         /// <summary>
-        /// The resource type of the origin resource (e.g., Instance).
+        /// The Lightsail resource type (e.g., Distribution).
         /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
@@ -602,7 +596,7 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? OriginPublicDns { get; set; }
 
         /// <summary>
-        /// The resource type of the origin resource (e.g., Instance).
+        /// The Lightsail resource type (e.g., Distribution).
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }

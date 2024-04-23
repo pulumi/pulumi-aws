@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,13 +30,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Creating special IAM role
  *
  * If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,7 +71,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

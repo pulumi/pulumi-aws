@@ -180,14 +180,12 @@ def get_certificate(certificate_id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.dms.get_certificate(certificate_id=test["certificateId"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str certificate_id: A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
@@ -224,14 +222,12 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.dms.get_certificate(certificate_id=test["certificateId"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str certificate_id: A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.

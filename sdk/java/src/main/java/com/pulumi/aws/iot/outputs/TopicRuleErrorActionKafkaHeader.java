@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class TopicRuleErrorActionKafkaHeader {
     /**
-     * @return The name of the HTTP header.
+     * @return The key of the Kafka header.
      * 
      */
     private String key;
     /**
-     * @return The value of the HTTP header.
+     * @return The value of the Kafka header.
      * 
      */
     private String value;
 
     private TopicRuleErrorActionKafkaHeader() {}
     /**
-     * @return The name of the HTTP header.
+     * @return The key of the Kafka header.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return The value of the HTTP header.
+     * @return The value of the Kafka header.
      * 
      */
     public String value() {

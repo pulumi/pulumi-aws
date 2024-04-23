@@ -33,17 +33,9 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
         return this.action;
     }
 
-    /**
-     * Criteria for determining an gRPC request match.
-     * 
-     */
     @Import(name="match")
     private @Nullable Output<RouteSpecTcpRouteMatchArgs> match;
 
-    /**
-     * @return Criteria for determining an gRPC request match.
-     * 
-     */
     public Optional<Output<RouteSpecTcpRouteMatchArgs>> match() {
         return Optional.ofNullable(this.match);
     }
@@ -110,23 +102,11 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
             return action(Output.of(action));
         }
 
-        /**
-         * @param match Criteria for determining an gRPC request match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(@Nullable Output<RouteSpecTcpRouteMatchArgs> match) {
             $.match = match;
             return this;
         }
 
-        /**
-         * @param match Criteria for determining an gRPC request match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(RouteSpecTcpRouteMatchArgs match) {
             return match(Output.of(match));
         }

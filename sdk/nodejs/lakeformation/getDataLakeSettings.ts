@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     catalogId: "14916253649",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDataLakeSettings(args?: GetDataLakeSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataLakeSettingsResult> {
     args = args || {};
@@ -89,7 +87,6 @@ export interface GetDataLakeSettingsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,7 +95,6 @@ export interface GetDataLakeSettingsResult {
  *     catalogId: "14916253649",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDataLakeSettingsOutput(args?: GetDataLakeSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataLakeSettingsResult> {
     return pulumi.output(args).apply((a: any) => getDataLakeSettings(a, opts))

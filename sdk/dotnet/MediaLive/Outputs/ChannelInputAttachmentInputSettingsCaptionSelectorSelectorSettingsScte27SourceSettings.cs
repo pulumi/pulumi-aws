@@ -13,13 +13,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings
     {
-        /// <summary>
-        /// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
-        /// </summary>
         public readonly string? OcrLanguage;
-        /// <summary>
-        /// Selects a specific PID from within a source.
-        /// </summary>
         public readonly int? Pid;
 
         [OutputConstructor]

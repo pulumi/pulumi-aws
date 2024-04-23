@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ### Lookup by DHCP Options ID
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,11 +33,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Lookup by Filter
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcDhcpOptionsResult> InvokeAsync(GetVpcDhcpOptionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args ?? new GetVpcDhcpOptionsArgs(), options.WithDefaults());
@@ -84,7 +80,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ### Lookup by DHCP Options ID
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -100,11 +95,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Lookup by Filter
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -138,7 +131,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcDhcpOptionsResult> Invoke(GetVpcDhcpOptionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args ?? new GetVpcDhcpOptionsInvokeArgs(), options.WithDefaults());

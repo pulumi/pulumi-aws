@@ -149,7 +149,6 @@ def get_listener(arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -162,7 +161,6 @@ def get_listener(arn: Optional[str] = None,
     selected443 = aws.lb.get_listener(load_balancer_arn=selected.arn,
         port=443)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
@@ -206,7 +204,6 @@ def get_listener_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -219,7 +216,6 @@ def get_listener_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     selected443 = aws.lb.get_listener(load_balancer_arn=selected.arn,
         port=443)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the listener. Required if `load_balancer_arn` and `port` is not set.

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
         public Input<Inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationGetArgs>? SentimentConfiguration { get; set; }
 
         /// <summary>
-        /// Element type.
+        /// Rule type.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

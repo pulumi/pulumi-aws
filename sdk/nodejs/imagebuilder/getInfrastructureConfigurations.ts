@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInfrastructureConfigurations(args?: GetInfrastructureConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureConfigurationsResult> {
     args = args || {};
@@ -68,7 +66,6 @@ export interface GetInfrastructureConfigurationsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -80,7 +77,6 @@ export interface GetInfrastructureConfigurationsResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInfrastructureConfigurationsOutput(args?: GetInfrastructureConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfrastructureConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => getInfrastructureConfigurations(a, opts))

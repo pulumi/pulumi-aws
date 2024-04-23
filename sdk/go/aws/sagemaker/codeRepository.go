@@ -18,7 +18,6 @@ import (
 //
 // ### Basic usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,11 +44,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Example with Secret
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,7 +100,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

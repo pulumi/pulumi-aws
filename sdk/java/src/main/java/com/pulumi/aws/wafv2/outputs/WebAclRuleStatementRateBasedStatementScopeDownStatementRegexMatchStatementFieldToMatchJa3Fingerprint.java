@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
     /**
-     * @return Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+     * @return The match status to assign to the web request if the request doesn&#39;t have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
     private String fallbackBehavior;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint() {}
     /**
-     * @return Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+     * @return The match status to assign to the web request if the request doesn&#39;t have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
     public String fallbackBehavior() {

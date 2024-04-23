@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class InsightFiltersProductField {
-    /**
-     * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-     * 
-     */
     private String comparison;
-    /**
-     * @return The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
-     * 
-     */
     private String key;
-    /**
-     * @return A date range value for the date filter, provided as an Integer.
-     * 
-     */
     private String value;
 
     private InsightFiltersProductField() {}
-    /**
-     * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-     * 
-     */
     public String comparison() {
         return this.comparison;
     }
-    /**
-     * @return The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return A date range value for the date filter, provided as an Integer.
-     * 
-     */
     public String value() {
         return this.value;
     }

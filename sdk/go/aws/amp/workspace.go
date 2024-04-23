@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,11 +41,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### CloudWatch Logging
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,11 +80,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### AWS KMS Customer Managed Keys (CMK)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -120,7 +115,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

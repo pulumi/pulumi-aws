@@ -204,7 +204,6 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,11 +217,9 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             data_retention=7,
             streaming_notification_targets=["SQS"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Usage With Media Insights
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,7 +268,6 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
                 configuration_arn=example.arn,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -301,7 +297,6 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -315,11 +310,9 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             data_retention=7,
             streaming_notification_targets=["SQS"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Usage With Media Insights
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -368,7 +361,6 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
                 configuration_arn=example.arn,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

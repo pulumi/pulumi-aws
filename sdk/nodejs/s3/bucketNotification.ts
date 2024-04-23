@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * ### Add notification configuration to SNS Topic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,11 +52,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Add notification configuration to SQS Queue
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -92,11 +89,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Add notification configuration to Lambda Function
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -142,11 +137,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [allowBucket],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Trigger multiple Lambda functions
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -216,11 +209,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Add multiple notification configurations to SQS Queue
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -264,13 +255,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * For JSON syntax, use an array instead of defining the `queue` key twice.
  *
  * ### Emit events to EventBridge
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -281,7 +270,6 @@ import * as utilities from "../utilities";
  *     eventbridge: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

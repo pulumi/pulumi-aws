@@ -133,14 +133,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:scheduler/schedule:Schedule")
 public class Schedule extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the SQS queue specified as the destination for the dead-letter queue.
+     * ARN of the schedule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
+     * @return ARN of the schedule.
      * 
      */
     public Output<String> arn() {

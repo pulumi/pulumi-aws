@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     applicationId: "a1d3rpe",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEnvironments(args: GetEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentsResult> {
 
@@ -63,7 +61,6 @@ export interface GetEnvironmentsResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,7 +69,6 @@ export interface GetEnvironmentsResult {
  *     applicationId: "a1d3rpe",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEnvironmentsOutput(args: GetEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentsResult> {
     return pulumi.output(args).apply((a: any) => getEnvironments(a, opts))

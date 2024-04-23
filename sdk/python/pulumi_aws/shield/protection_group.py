@@ -275,7 +275,6 @@ class ProtectionGroup(pulumi.CustomResource):
 
         ### Create protection group for all resources
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,11 +284,9 @@ class ProtectionGroup(pulumi.CustomResource):
             aggregation="MAX",
             pattern="ALL")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create protection group for arbitrary number of resources
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,11 +304,9 @@ class ProtectionGroup(pulumi.CustomResource):
             members=[example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}")],
             opts=pulumi.ResourceOptions(depends_on=[example_protection]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create protection group for a type of resource
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,7 +317,6 @@ class ProtectionGroup(pulumi.CustomResource):
             pattern="BY_RESOURCE_TYPE",
             resource_type="ELASTIC_IP_ALLOCATION")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -356,7 +350,6 @@ class ProtectionGroup(pulumi.CustomResource):
 
         ### Create protection group for all resources
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -366,11 +359,9 @@ class ProtectionGroup(pulumi.CustomResource):
             aggregation="MAX",
             pattern="ALL")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create protection group for arbitrary number of resources
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,11 +379,9 @@ class ProtectionGroup(pulumi.CustomResource):
             members=[example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}")],
             opts=pulumi.ResourceOptions(depends_on=[example_protection]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create protection group for a type of resource
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,7 +392,6 @@ class ProtectionGroup(pulumi.CustomResource):
             pattern="BY_RESOURCE_TYPE",
             resource_type="ELASTIC_IP_ALLOCATION")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

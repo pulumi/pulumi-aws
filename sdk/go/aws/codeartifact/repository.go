@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,11 +54,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Upstream Repository
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,11 +93,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With External Connection
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -135,7 +130,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

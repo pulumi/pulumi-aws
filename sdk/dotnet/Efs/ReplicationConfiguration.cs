@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Efs
     /// 
     /// Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,11 +39,9 @@ namespace Pulumi.Aws.Efs
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,11 +64,9 @@ namespace Pulumi.Aws.Efs
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,7 +89,6 @@ namespace Pulumi.Aws.Efs
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

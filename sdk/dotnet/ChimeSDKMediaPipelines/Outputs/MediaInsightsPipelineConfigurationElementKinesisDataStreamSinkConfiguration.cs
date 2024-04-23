@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
     public sealed class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration
     {
         /// <summary>
-        /// SQS queue to deliver results.
+        /// Kinesis Data Stream to deliver results.
         /// </summary>
         public readonly string InsightsTarget;
 

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Connectivity and HTTP Status Code Check
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,11 +27,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Connectivity and String Matching Check
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,11 +44,9 @@ import * as utilities from "../utilities";
  *     type: "HTTPS_STR_MATCH",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Aggregate Check
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,11 +60,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### CloudWatch Alarm Check
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -92,7 +85,6 @@ import * as utilities from "../utilities";
  *     insufficientDataHealthStatus: "Healthy",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceNetworkResult> InvokeAsync(GetServiceNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceNetworkResult>("aws:vpclattice/getServiceNetwork:getServiceNetwork", args ?? new GetServiceNetworkArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.VpcLattice
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceNetworkResult> Invoke(GetServiceNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceNetworkResult>("aws:vpclattice/getServiceNetwork:getServiceNetwork", args ?? new GetServiceNetworkInvokeArgs(), options.WithDefaults());

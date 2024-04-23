@@ -15,47 +15,23 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplate
 
     public static final GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs Empty = new GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs();
 
-    /**
-     * ID of the launch template. Conflicts with `launch_template_name`.
-     * 
-     */
     @Import(name="launchTemplateId")
     private @Nullable Output<String> launchTemplateId;
 
-    /**
-     * @return ID of the launch template. Conflicts with `launch_template_name`.
-     * 
-     */
     public Optional<Output<String>> launchTemplateId() {
         return Optional.ofNullable(this.launchTemplateId);
     }
 
-    /**
-     * Name of the launch template. Conflicts with `launch_template_id`.
-     * 
-     */
     @Import(name="launchTemplateName")
     private @Nullable Output<String> launchTemplateName;
 
-    /**
-     * @return Name of the launch template. Conflicts with `launch_template_id`.
-     * 
-     */
     public Optional<Output<String>> launchTemplateName() {
         return Optional.ofNullable(this.launchTemplateName);
     }
 
-    /**
-     * Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -86,65 +62,29 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplate
             $ = new GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param launchTemplateId ID of the launch template. Conflicts with `launch_template_name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateId(@Nullable Output<String> launchTemplateId) {
             $.launchTemplateId = launchTemplateId;
             return this;
         }
 
-        /**
-         * @param launchTemplateId ID of the launch template. Conflicts with `launch_template_name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateId(String launchTemplateId) {
             return launchTemplateId(Output.of(launchTemplateId));
         }
 
-        /**
-         * @param launchTemplateName Name of the launch template. Conflicts with `launch_template_id`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateName(@Nullable Output<String> launchTemplateName) {
             $.launchTemplateName = launchTemplateName;
             return this;
         }
 
-        /**
-         * @param launchTemplateName Name of the launch template. Conflicts with `launch_template_id`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateName(String launchTemplateName) {
             return launchTemplateName(Output.of(launchTemplateName));
         }
 
-        /**
-         * @param version Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Template version. Can be version number, `$Latest`, or `$Default`. (Default: `$Default`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

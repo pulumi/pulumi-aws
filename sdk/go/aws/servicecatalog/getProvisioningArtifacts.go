@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetProvisioningArtifacts(ctx *pulumi.Context, args *GetProvisioningArtifactsArgs, opts ...pulumi.InvokeOption) (*GetProvisioningArtifactsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetProvisioningArtifactsResult

@@ -11,7 +11,6 @@ import {LogGroup} from "./index";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +24,6 @@ import {LogGroup} from "./index";
  *     distribution: "Random",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

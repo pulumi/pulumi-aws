@@ -10,7 +10,6 @@ import {Group, Role, User} from "./index";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,7 +50,6 @@ import {Group, Role, User} from "./index";
  *     policyArn: policyPolicy.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**

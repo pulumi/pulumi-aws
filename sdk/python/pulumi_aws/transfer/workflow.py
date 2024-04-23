@@ -211,7 +211,6 @@ class Workflow(pulumi.CustomResource):
 
         ### Basic single step example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -224,11 +223,9 @@ class Workflow(pulumi.CustomResource):
             type="DELETE",
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Multistep example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,7 +253,6 @@ class Workflow(pulumi.CustomResource):
             ),
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -286,7 +282,6 @@ class Workflow(pulumi.CustomResource):
 
         ### Basic single step example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,11 +294,9 @@ class Workflow(pulumi.CustomResource):
             type="DELETE",
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Multistep example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,7 +324,6 @@ class Workflow(pulumi.CustomResource):
             ),
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

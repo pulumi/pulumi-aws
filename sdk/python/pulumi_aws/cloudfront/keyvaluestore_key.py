@@ -152,7 +152,6 @@ class KeyvaluestoreKey(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -165,7 +164,6 @@ class KeyvaluestoreKey(pulumi.CustomResource):
             key="Test Key",
             value="Test Value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -194,7 +192,6 @@ class KeyvaluestoreKey(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,7 +204,6 @@ class KeyvaluestoreKey(pulumi.CustomResource):
             key="Test Key",
             value="Test Value")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

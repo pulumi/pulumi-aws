@@ -15,7 +15,6 @@ import (
 //
 // Basic usage:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,11 +38,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Network Configuration Usage:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,11 +71,9 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Identity Provider Configuration Usage:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,7 +108,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

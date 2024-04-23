@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic S3
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,11 +27,9 @@ import * as utilities from "../utilities";
  *     homeDirectory: `/${exampleAwsS3Bucket.id}/`,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Basic EFS
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,7 +45,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

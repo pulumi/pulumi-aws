@@ -82,7 +82,6 @@ def get_kafka_version(preferred_versions: Optional[Sequence[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -94,7 +93,6 @@ def get_kafka_version(preferred_versions: Optional[Sequence[str]] = None,
     ])
     example = aws.msk.get_kafka_version(version="2.8.0")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] preferred_versions: Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
@@ -122,7 +120,6 @@ def get_kafka_version_output(preferred_versions: Optional[pulumi.Input[Optional[
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -134,7 +131,6 @@ def get_kafka_version_output(preferred_versions: Optional[pulumi.Input[Optional[
     ])
     example = aws.msk.get_kafka_version(version="2.8.0")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] preferred_versions: Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.

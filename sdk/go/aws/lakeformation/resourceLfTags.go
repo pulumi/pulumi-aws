@@ -18,7 +18,6 @@ import (
 //
 // ### Database Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,11 +65,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Multiple Tags Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -137,7 +134,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type ResourceLfTags struct {
 	pulumi.CustomResourceState
 

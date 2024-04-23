@@ -370,7 +370,6 @@ class VpcAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -380,7 +379,6 @@ class VpcAttachment(pulumi.CustomResource):
             transit_gateway_id=example_aws_ec2_transit_gateway["id"],
             vpc_id=example_aws_vpc["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -413,7 +411,6 @@ class VpcAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -423,7 +420,6 @@ class VpcAttachment(pulumi.CustomResource):
             transit_gateway_id=example_aws_ec2_transit_gateway["id"],
             vpc_id=example_aws_vpc["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

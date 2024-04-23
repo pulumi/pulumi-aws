@@ -121,31 +121,15 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<CustomActionTypeConfigurationProperty>>> configurationProperties() {
         return Codegen.optional(this.configurationProperties);
     }
-    /**
-     * The details of the input artifact for the action.
-     * 
-     */
     @Export(name="inputArtifactDetails", refs={CustomActionTypeInputArtifactDetails.class}, tree="[0]")
     private Output<CustomActionTypeInputArtifactDetails> inputArtifactDetails;
 
-    /**
-     * @return The details of the input artifact for the action.
-     * 
-     */
     public Output<CustomActionTypeInputArtifactDetails> inputArtifactDetails() {
         return this.inputArtifactDetails;
     }
-    /**
-     * The details of the output artifact of the action.
-     * 
-     */
     @Export(name="outputArtifactDetails", refs={CustomActionTypeOutputArtifactDetails.class}, tree="[0]")
     private Output<CustomActionTypeOutputArtifactDetails> outputArtifactDetails;
 
-    /**
-     * @return The details of the output artifact of the action.
-     * 
-     */
     public Output<CustomActionTypeOutputArtifactDetails> outputArtifactDetails() {
         return this.outputArtifactDetails;
     }
@@ -163,45 +147,21 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
     public Output<String> owner() {
         return this.owner;
     }
-    /**
-     * The provider of the service used in the custom action
-     * 
-     */
     @Export(name="providerName", refs={String.class}, tree="[0]")
     private Output<String> providerName;
 
-    /**
-     * @return The provider of the service used in the custom action
-     * 
-     */
     public Output<String> providerName() {
         return this.providerName;
     }
-    /**
-     * The settings for an action type.
-     * 
-     */
     @Export(name="settings", refs={CustomActionTypeSettings.class}, tree="[0]")
     private Output</* @Nullable */ CustomActionTypeSettings> settings;
 
-    /**
-     * @return The settings for an action type.
-     * 
-     */
     public Output<Optional<CustomActionTypeSettings>> settings() {
         return Codegen.optional(this.settings);
     }
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -223,17 +183,9 @@ public class CustomActionType extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The version identifier of the custom action.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return The version identifier of the custom action.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }

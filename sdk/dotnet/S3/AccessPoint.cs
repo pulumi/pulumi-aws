@@ -22,7 +22,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### AWS Partition General Purpose Bucket
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,11 +43,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### S3 on Outposts Bucket
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,7 +76,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

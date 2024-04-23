@@ -150,7 +150,6 @@ class Resource(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -163,7 +162,6 @@ class Resource(pulumi.CustomResource):
             parent_id=my_demo_api.root_resource_id,
             path_part="mydemoresource")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -190,7 +188,6 @@ class Resource(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,7 +200,6 @@ class Resource(pulumi.CustomResource):
             parent_id=my_demo_api.root_resource_id,
             path_part="mydemoresource")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

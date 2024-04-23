@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,11 +43,9 @@ import * as utilities from "../utilities";
  *     toPort: 443,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,7 +57,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> {
     args = args || {};
@@ -123,7 +119,6 @@ export interface GetPrefixListResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -147,11 +142,9 @@ export interface GetPrefixListResult {
  *     toPort: 443,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -163,7 +156,6 @@ export interface GetPrefixListResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPrefixListOutput(args?: GetPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixListResult> {
     return pulumi.output(args).apply((a: any) => getPrefixList(a, opts))

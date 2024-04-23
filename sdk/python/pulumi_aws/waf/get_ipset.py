@@ -60,14 +60,12 @@ def get_ipset(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.waf.get_ipset(name="tfWAFIPSet")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAF IP set.
@@ -90,14 +88,12 @@ def get_ipset_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.waf.get_ipset(name="tfWAFIPSet")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAF IP set.

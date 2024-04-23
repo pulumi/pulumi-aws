@@ -6910,11 +6910,9 @@ func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutp
 }
 
 type DataSetOutputColumn struct {
-	// Field folder description.
 	Description *string `pulumi:"description"`
 	// Display name for the dataset.
 	Name *string `pulumi:"name"`
-	// Data type of the column.
 	Type *string `pulumi:"type"`
 }
 
@@ -6930,11 +6928,9 @@ type DataSetOutputColumnInput interface {
 }
 
 type DataSetOutputColumnArgs struct {
-	// Field folder description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Display name for the dataset.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Data type of the column.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -6989,7 +6985,6 @@ func (o DataSetOutputColumnOutput) ToDataSetOutputColumnOutputWithContext(ctx co
 	return o
 }
 
-// Field folder description.
 func (o DataSetOutputColumnOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -6999,7 +6994,6 @@ func (o DataSetOutputColumnOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Data type of the column.
 func (o DataSetOutputColumnOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

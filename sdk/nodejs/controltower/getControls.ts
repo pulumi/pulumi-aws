@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     targetIdentifier: .filter(x => x.name == "Security").map(x => (x.arn))[0],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getControls(args: GetControlsArgs, opts?: pulumi.InvokeOptions): Promise<GetControlsResult> {
 
@@ -61,7 +59,6 @@ export interface GetControlsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,7 +71,6 @@ export interface GetControlsResult {
  *     targetIdentifier: .filter(x => x.name == "Security").map(x => (x.arn))[0],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControlsResult> {
     return pulumi.output(args).apply((a: any) => getControls(a, opts))

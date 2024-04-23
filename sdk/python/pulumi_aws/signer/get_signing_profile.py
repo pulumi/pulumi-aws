@@ -170,14 +170,12 @@ def get_signing_profile(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     production_signing_profile = aws.signer.get_signing_profile(name="prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the target signing profile.
@@ -212,14 +210,12 @@ def get_signing_profile_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     production_signing_profile = aws.signer.get_signing_profile(name="prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the target signing profile.

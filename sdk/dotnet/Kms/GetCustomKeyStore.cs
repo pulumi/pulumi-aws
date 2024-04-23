@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Kms
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Kms
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCustomKeyStoreResult> InvokeAsync(GetCustomKeyStoreArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.Kms
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Kms
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCustomKeyStoreResult> Invoke(GetCustomKeyStoreInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomKeyStoreResult>("aws:kms/getCustomKeyStore:getCustomKeyStore", args ?? new GetCustomKeyStoreInvokeArgs(), options.WithDefaults());

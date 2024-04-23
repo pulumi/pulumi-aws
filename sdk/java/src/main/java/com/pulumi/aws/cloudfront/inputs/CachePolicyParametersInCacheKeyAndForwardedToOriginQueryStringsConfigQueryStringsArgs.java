@@ -16,17 +16,9 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
 
     public static final CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs Empty = new CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs();
 
-    /**
-     * List of item names, such as cookies, headers, or query strings.
-     * 
-     */
     @Import(name="items")
     private @Nullable Output<List<String>> items;
 
-    /**
-     * @return List of item names, such as cookies, headers, or query strings.
-     * 
-     */
     public Optional<Output<List<String>>> items() {
         return Optional.ofNullable(this.items);
     }
@@ -55,33 +47,15 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
             $ = new CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param items List of item names, such as cookies, headers, or query strings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(@Nullable Output<List<String>> items) {
             $.items = items;
             return this;
         }
 
-        /**
-         * @param items List of item names, such as cookies, headers, or query strings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(List<String> items) {
             return items(Output.of(items));
         }
 
-        /**
-         * @param items List of item names, such as cookies, headers, or query strings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(String... items) {
             return items(List.of(items));
         }

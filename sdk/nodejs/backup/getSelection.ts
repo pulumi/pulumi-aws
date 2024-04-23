@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     selectionId: "selection-id-example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSelection(args: GetSelectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSelectionResult> {
 
@@ -72,7 +70,6 @@ export interface GetSelectionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -82,7 +79,6 @@ export interface GetSelectionResult {
  *     selectionId: "selection-id-example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSelectionOutput(args: GetSelectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSelectionResult> {
     return pulumi.output(args).apply((a: any) => getSelection(a, opts))

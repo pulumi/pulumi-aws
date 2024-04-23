@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     id: exampleAwsMedialiveInput.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
 
@@ -113,7 +111,6 @@ export interface GetInputResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -122,7 +119,6 @@ export interface GetInputResult {
  *     id: exampleAwsMedialiveInput.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
     return pulumi.output(args).apply((a: any) => getInput(a, opts))

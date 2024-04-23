@@ -112,7 +112,6 @@ class CertificateValidation(pulumi.CustomResource):
 
         ### DNS Validation with Route 53
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,11 +142,9 @@ class CertificateValidation(pulumi.CustomResource):
             validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
         example_listener = aws.lb.Listener("example", certificate_arn=example_certificate_validation.certificate_arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Alternative Domains DNS Validation with Route 53
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,13 +182,11 @@ class CertificateValidation(pulumi.CustomResource):
             validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
         example_listener = aws.lb.Listener("example", certificate_arn=example_certificate_validation.certificate_arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Email Validation
 
         In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -201,7 +196,6 @@ class CertificateValidation(pulumi.CustomResource):
             validation_method="EMAIL")
         example_certificate_validation = aws.acm.CertificateValidation("example", certificate_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,7 +222,6 @@ class CertificateValidation(pulumi.CustomResource):
 
         ### DNS Validation with Route 53
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,11 +252,9 @@ class CertificateValidation(pulumi.CustomResource):
             validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
         example_listener = aws.lb.Listener("example", certificate_arn=example_certificate_validation.certificate_arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Alternative Domains DNS Validation with Route 53
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,13 +292,11 @@ class CertificateValidation(pulumi.CustomResource):
             validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
         example_listener = aws.lb.Listener("example", certificate_arn=example_certificate_validation.certificate_arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Email Validation
 
         In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,7 +306,6 @@ class CertificateValidation(pulumi.CustomResource):
             validation_method="EMAIL")
         example_certificate_validation = aws.acm.CertificateValidation("example", certificate_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param CertificateValidationArgs args: The arguments to use to populate this resource's properties.

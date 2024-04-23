@@ -18,7 +18,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,11 +42,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With description
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,11 +70,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With tags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -105,11 +100,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With targetTable
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -138,7 +131,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

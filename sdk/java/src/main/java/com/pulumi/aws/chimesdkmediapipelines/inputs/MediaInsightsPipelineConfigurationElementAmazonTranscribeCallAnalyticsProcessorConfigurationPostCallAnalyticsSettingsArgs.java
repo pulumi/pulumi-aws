@@ -16,62 +16,30 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
 
     public static final MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs Empty = new MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs();
 
-    /**
-     * Should output be redacted.
-     * 
-     */
     @Import(name="contentRedactionOutput")
     private @Nullable Output<String> contentRedactionOutput;
 
-    /**
-     * @return Should output be redacted.
-     * 
-     */
     public Optional<Output<String>> contentRedactionOutput() {
         return Optional.ofNullable(this.contentRedactionOutput);
     }
 
-    /**
-     * ARN of the role used by AWS Transcribe to upload your post call analysis.
-     * 
-     */
     @Import(name="dataAccessRoleArn", required=true)
     private Output<String> dataAccessRoleArn;
 
-    /**
-     * @return ARN of the role used by AWS Transcribe to upload your post call analysis.
-     * 
-     */
     public Output<String> dataAccessRoleArn() {
         return this.dataAccessRoleArn;
     }
 
-    /**
-     * ID of the KMS key used to encrypt the output.
-     * 
-     */
     @Import(name="outputEncryptionKmsKeyId")
     private @Nullable Output<String> outputEncryptionKmsKeyId;
 
-    /**
-     * @return ID of the KMS key used to encrypt the output.
-     * 
-     */
     public Optional<Output<String>> outputEncryptionKmsKeyId() {
         return Optional.ofNullable(this.outputEncryptionKmsKeyId);
     }
 
-    /**
-     * The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
-     * 
-     */
     @Import(name="outputLocation", required=true)
     private Output<String> outputLocation;
 
-    /**
-     * @return The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
-     * 
-     */
     public Output<String> outputLocation() {
         return this.outputLocation;
     }
@@ -103,86 +71,38 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
             $ = new MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contentRedactionOutput Should output be redacted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentRedactionOutput(@Nullable Output<String> contentRedactionOutput) {
             $.contentRedactionOutput = contentRedactionOutput;
             return this;
         }
 
-        /**
-         * @param contentRedactionOutput Should output be redacted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentRedactionOutput(String contentRedactionOutput) {
             return contentRedactionOutput(Output.of(contentRedactionOutput));
         }
 
-        /**
-         * @param dataAccessRoleArn ARN of the role used by AWS Transcribe to upload your post call analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataAccessRoleArn(Output<String> dataAccessRoleArn) {
             $.dataAccessRoleArn = dataAccessRoleArn;
             return this;
         }
 
-        /**
-         * @param dataAccessRoleArn ARN of the role used by AWS Transcribe to upload your post call analysis.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataAccessRoleArn(String dataAccessRoleArn) {
             return dataAccessRoleArn(Output.of(dataAccessRoleArn));
         }
 
-        /**
-         * @param outputEncryptionKmsKeyId ID of the KMS key used to encrypt the output.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputEncryptionKmsKeyId(@Nullable Output<String> outputEncryptionKmsKeyId) {
             $.outputEncryptionKmsKeyId = outputEncryptionKmsKeyId;
             return this;
         }
 
-        /**
-         * @param outputEncryptionKmsKeyId ID of the KMS key used to encrypt the output.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputEncryptionKmsKeyId(String outputEncryptionKmsKeyId) {
             return outputEncryptionKmsKeyId(Output.of(outputEncryptionKmsKeyId));
         }
 
-        /**
-         * @param outputLocation The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputLocation(Output<String> outputLocation) {
             $.outputLocation = outputLocation;
             return this;
         }
 
-        /**
-         * @param outputLocation The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputLocation(String outputLocation) {
             return outputLocation(Output.of(outputLocation));
         }

@@ -168,7 +168,7 @@ class FirewallFirewallStatusSyncStateAttachmentArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] endpoint_id: The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-        :param pulumi.Input[str] subnet_id: The unique identifier for the subnet.
+        :param pulumi.Input[str] subnet_id: The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
         """
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
@@ -191,7 +191,7 @@ class FirewallFirewallStatusSyncStateAttachmentArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique identifier for the subnet.
+        The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -971,19 +971,12 @@ class RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs:
     def __init__(__self__, *,
                  ip_set_references: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs']]],
                  key: pulumi.Input[str]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs']]] ip_set_references: Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-        :param pulumi.Input[str] key: A unique alphanumeric string to identify the `ip_set`.
-        """
         pulumi.set(__self__, "ip_set_references", ip_set_references)
         pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter(name="ipSetReferences")
     def ip_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs']]]:
-        """
-        Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-        """
         return pulumi.get(self, "ip_set_references")
 
     @ip_set_references.setter
@@ -993,9 +986,6 @@ class RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        A unique alphanumeric string to identify the `ip_set`.
-        """
         return pulumi.get(self, "key")
 
     @key.setter

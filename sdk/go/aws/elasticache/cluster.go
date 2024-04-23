@@ -35,7 +35,6 @@ import (
 //
 // ### Memcached Cluster
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,11 +63,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Redis Instance
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,13 +95,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Redis Cluster Mode Disabled Read Replica Instance
 //
 // These inherit their settings from the replication group.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -129,11 +124,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Redis Log Delivery configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -176,7 +169,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -65,7 +65,6 @@ def get_canonical_user_id(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -73,7 +72,6 @@ def get_canonical_user_id(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     current = aws.s3.get_canonical_user_id()
     pulumi.export("canonicalUserId", current.id)
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -94,7 +92,6 @@ def get_canonical_user_id_output(opts: Optional[pulumi.InvokeOptions] = None) ->
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,6 +99,5 @@ def get_canonical_user_id_output(opts: Optional[pulumi.InvokeOptions] = None) ->
     current = aws.s3.get_canonical_user_id()
     pulumi.export("canonicalUserId", current.id)
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

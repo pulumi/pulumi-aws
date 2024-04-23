@@ -108,7 +108,6 @@ class InstancePublicPorts(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -126,7 +125,6 @@ class InstancePublicPorts(pulumi.CustomResource):
                 to_port=80,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +146,6 @@ class InstancePublicPorts(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,7 +163,6 @@ class InstancePublicPorts(pulumi.CustomResource):
                 to_port=80,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param InstancePublicPortsArgs args: The arguments to use to populate this resource's properties.

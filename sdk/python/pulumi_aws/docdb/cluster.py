@@ -1076,7 +1076,6 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1090,7 +1089,6 @@ class Cluster(pulumi.CustomResource):
             preferred_backup_window="07:00-09:00",
             skip_final_snapshot=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1159,7 +1157,6 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1173,7 +1170,6 @@ class Cluster(pulumi.CustomResource):
             preferred_backup_window="07:00-09:00",
             skip_final_snapshot=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

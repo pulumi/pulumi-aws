@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Object specified in the flow destination.
-        /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 

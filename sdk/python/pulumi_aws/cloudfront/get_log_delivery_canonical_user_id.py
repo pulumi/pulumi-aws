@@ -61,7 +61,6 @@ def get_log_delivery_canonical_user_id(region: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -80,7 +79,6 @@ def get_log_delivery_canonical_user_id(region: Optional[str] = None,
             )],
         ))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str region: Region you'd like the zone for. By default, fetches the current region.
@@ -104,7 +102,6 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -123,7 +120,6 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
             )],
         ))
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str region: Region you'd like the zone for. By default, fetches the current region.

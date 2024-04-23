@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
     args = args || {};
@@ -149,7 +147,6 @@ export interface GetOrderableDbInstanceResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -163,7 +160,6 @@ export interface GetOrderableDbInstanceResult {
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOrderableDbInstanceOutput(args?: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableDbInstanceResult> {
     return pulumi.output(args).apply((a: any) => getOrderableDbInstance(a, opts))

@@ -18,14 +18,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
     public static final StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs Empty = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs();
 
     /**
-     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * The account ID of the owner of the S3 Storage Lens metrics export bucket.
      * 
      */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * @return The account ID of the owner of the S3 Storage Lens metrics export bucket.
      * 
      */
     public Output<String> accountId() {
@@ -33,14 +33,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * The Amazon Resource Name (ARN) of the bucket.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * @return The Amazon Resource Name (ARN) of the bucket.
      * 
      */
     public Output<String> arn() {
@@ -137,7 +137,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId The account ID of the owner of the S3 Storage Lens metrics export bucket.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId The account ID of the owner of the S3 Storage Lens metrics export bucket.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+         * @param arn The Amazon Resource Name (ARN) of the bucket.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+         * @param arn The Amazon Resource Name (ARN) of the bucket.
          * 
          * @return builder
          * 

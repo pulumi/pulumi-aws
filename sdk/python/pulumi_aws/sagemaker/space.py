@@ -341,7 +341,6 @@ class Space(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -350,7 +349,6 @@ class Space(pulumi.CustomResource):
             domain_id=test["id"],
             space_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -383,7 +381,6 @@ class Space(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -392,7 +389,6 @@ class Space(pulumi.CustomResource):
             domain_id=test["id"],
             space_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

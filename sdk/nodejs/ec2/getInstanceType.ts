@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     instanceType: "t2.micro",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInstanceType(args: GetInstanceTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeResult> {
 
@@ -254,7 +252,6 @@ export interface GetInstanceTypeResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -263,7 +260,6 @@ export interface GetInstanceTypeResult {
  *     instanceType: "t2.micro",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInstanceTypeOutput(args: GetInstanceTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeResult> {
     return pulumi.output(args).apply((a: any) => getInstanceType(a, opts))

@@ -492,7 +492,6 @@ class ContainerService(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -507,11 +506,9 @@ class ContainerService(pulumi.CustomResource):
                 "foo2": "",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Public Domain Names
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -523,11 +520,9 @@ class ContainerService(pulumi.CustomResource):
             )],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Private Registry Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -552,7 +547,6 @@ class ContainerService(pulumi.CustomResource):
             repository=default_aws_ecr_repository["name"],
             policy=default.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -601,7 +595,6 @@ class ContainerService(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -616,11 +609,9 @@ class ContainerService(pulumi.CustomResource):
                 "foo2": "",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Public Domain Names
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -632,11 +623,9 @@ class ContainerService(pulumi.CustomResource):
             )],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Private Registry Access
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -661,7 +650,6 @@ class ContainerService(pulumi.CustomResource):
             repository=default_aws_ecr_repository["name"],
             policy=default.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

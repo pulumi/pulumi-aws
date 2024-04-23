@@ -23,14 +23,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:wafv2/ruleGroup:RuleGroup")
 public class RuleGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * The ARN of the WAF rule group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * @return The ARN of the WAF rule group.
      * 
      */
     public Output<String> arn() {

@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -86,7 +85,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
  */
@@ -152,7 +150,6 @@ export interface GetCoreNetworkPolicyDocumentResult {
  *
  * ### Basic Example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -222,7 +219,6 @@ export interface GetCoreNetworkPolicyDocumentResult {
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
  */

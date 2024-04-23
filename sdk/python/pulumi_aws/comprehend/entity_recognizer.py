@@ -471,7 +471,6 @@ class EntityRecognizer(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -500,7 +499,6 @@ class EntityRecognizer(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -552,7 +550,6 @@ class EntityRecognizer(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -581,7 +578,6 @@ class EntityRecognizer(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,11 +38,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Language Code
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,7 +64,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetVoices(ctx *pulumi.Context, args *GetVoicesArgs, opts ...pulumi.InvokeOption) (*GetVoicesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVoicesResult

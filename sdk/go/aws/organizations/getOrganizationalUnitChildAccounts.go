@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,7 +42,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetOrganizationalUnitChildAccounts(ctx *pulumi.Context, args *GetOrganizationalUnitChildAccountsArgs, opts ...pulumi.InvokeOption) (*GetOrganizationalUnitChildAccountsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationalUnitChildAccountsResult

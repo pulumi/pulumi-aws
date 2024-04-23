@@ -16,17 +16,9 @@ public final class GroupInstanceRefreshPreferencesAlarmSpecificationArgs extends
 
     public static final GroupInstanceRefreshPreferencesAlarmSpecificationArgs Empty = new GroupInstanceRefreshPreferencesAlarmSpecificationArgs();
 
-    /**
-     * List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
-     * 
-     */
     @Import(name="alarms")
     private @Nullable Output<List<String>> alarms;
 
-    /**
-     * @return List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
-     * 
-     */
     public Optional<Output<List<String>>> alarms() {
         return Optional.ofNullable(this.alarms);
     }
@@ -55,33 +47,15 @@ public final class GroupInstanceRefreshPreferencesAlarmSpecificationArgs extends
             $ = new GroupInstanceRefreshPreferencesAlarmSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alarms List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarms(@Nullable Output<List<String>> alarms) {
             $.alarms = alarms;
             return this;
         }
 
-        /**
-         * @param alarms List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarms(List<String> alarms) {
             return alarms(Output.of(alarms));
         }
 
-        /**
-         * @param alarms List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarms(String... alarms) {
             return alarms(List.of(alarms));
         }

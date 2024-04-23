@@ -17,82 +17,30 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
 
     public static final ByteMatchSetByteMatchTupleArgs Empty = new ByteMatchSetByteMatchTupleArgs();
 
-    /**
-     * The part of a web request that you want to search, such as a specified header or a query string.
-     * 
-     */
     @Import(name="fieldToMatch", required=true)
     private Output<ByteMatchSetByteMatchTupleFieldToMatchArgs> fieldToMatch;
 
-    /**
-     * @return The part of a web request that you want to search, such as a specified header or a query string.
-     * 
-     */
     public Output<ByteMatchSetByteMatchTupleFieldToMatchArgs> fieldToMatch() {
         return this.fieldToMatch;
     }
 
-    /**
-     * Within the portion of a web request that you want to search
-     * (for example, in the query string, if any), specify where you want to search.
-     * e.g., `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
-     * for all supported values.
-     * 
-     */
     @Import(name="positionalConstraint", required=true)
     private Output<String> positionalConstraint;
 
-    /**
-     * @return Within the portion of a web request that you want to search
-     * (for example, in the query string, if any), specify where you want to search.
-     * e.g., `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
-     * for all supported values.
-     * 
-     */
     public Output<String> positionalConstraint() {
         return this.positionalConstraint;
     }
 
-    /**
-     * The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
-     * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
-     * for all supported values.
-     * 
-     */
     @Import(name="targetString")
     private @Nullable Output<String> targetString;
 
-    /**
-     * @return The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
-     * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
-     * for all supported values.
-     * 
-     */
     public Optional<Output<String>> targetString() {
         return Optional.ofNullable(this.targetString);
     }
 
-    /**
-     * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
-     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-     * for all supported values.
-     * 
-     */
     @Import(name="textTransformation", required=true)
     private Output<String> textTransformation;
 
-    /**
-     * @return Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-     * If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
-     * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-     * for all supported values.
-     * 
-     */
     public Output<String> textTransformation() {
         return this.textTransformation;
     }
@@ -124,106 +72,38 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
             $ = new ByteMatchSetByteMatchTupleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fieldToMatch The part of a web request that you want to search, such as a specified header or a query string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(Output<ByteMatchSetByteMatchTupleFieldToMatchArgs> fieldToMatch) {
             $.fieldToMatch = fieldToMatch;
             return this;
         }
 
-        /**
-         * @param fieldToMatch The part of a web request that you want to search, such as a specified header or a query string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(ByteMatchSetByteMatchTupleFieldToMatchArgs fieldToMatch) {
             return fieldToMatch(Output.of(fieldToMatch));
         }
 
-        /**
-         * @param positionalConstraint Within the portion of a web request that you want to search
-         * (for example, in the query string, if any), specify where you want to search.
-         * e.g., `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
-         * for all supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder positionalConstraint(Output<String> positionalConstraint) {
             $.positionalConstraint = positionalConstraint;
             return this;
         }
 
-        /**
-         * @param positionalConstraint Within the portion of a web request that you want to search
-         * (for example, in the query string, if any), specify where you want to search.
-         * e.g., `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
-         * for all supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder positionalConstraint(String positionalConstraint) {
             return positionalConstraint(Output.of(positionalConstraint));
         }
 
-        /**
-         * @param targetString The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
-         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
-         * for all supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetString(@Nullable Output<String> targetString) {
             $.targetString = targetString;
             return this;
         }
 
-        /**
-         * @param targetString The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
-         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
-         * for all supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetString(String targetString) {
             return targetString(Output.of(targetString));
         }
 
-        /**
-         * @param textTransformation Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
-         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-         * for all supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformation(Output<String> textTransformation) {
             $.textTransformation = textTransformation;
             return this;
         }
 
-        /**
-         * @param textTransformation Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
-         * If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
-         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
-         * for all supported values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformation(String textTransformation) {
             return textTransformation(Output.of(textTransformation));
         }

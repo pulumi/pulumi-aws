@@ -18,7 +18,6 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,7 +35,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
@@ -49,13 +48,12 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             cisAwsFoundationsBenchmark, 
+    ///             cisAwsFoundationsBenchmark,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:securityhub/standardsControl:StandardsControl")]
     public partial class StandardsControl : global::Pulumi.CustomResource

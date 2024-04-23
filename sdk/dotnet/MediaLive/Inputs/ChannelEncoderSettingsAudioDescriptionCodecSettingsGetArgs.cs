@@ -12,27 +12,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Aac Settings. See AAC Settings for more details.
-        /// </summary>
         [Input("aacSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsGetArgs>? AacSettings { get; set; }
 
-        /// <summary>
-        /// Ac3 Settings. See AC3 Settings for more details.
-        /// </summary>
         [Input("ac3Settings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsGetArgs>? Ac3Settings { get; set; }
 
-        /// <summary>
-        /// Eac3 Atmos Settings. See EAC3 Atmos Settings
-        /// </summary>
         [Input("eac3AtmosSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsGetArgs>? Eac3AtmosSettings { get; set; }
 
-        /// <summary>
-        /// Eac3 Settings. See EAC3 Settings
-        /// </summary>
         [Input("eac3Settings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsGetArgs>? Eac3Settings { get; set; }
 

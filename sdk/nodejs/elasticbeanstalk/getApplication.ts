@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  * export const arn = example.then(example => example.arn);
  * export const description = example.then(example => example.description);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -67,7 +65,6 @@ export interface GetApplicationResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -78,7 +75,6 @@ export interface GetApplicationResult {
  * export const arn = example.then(example => example.arn);
  * export const description = example.then(example => example.description);
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

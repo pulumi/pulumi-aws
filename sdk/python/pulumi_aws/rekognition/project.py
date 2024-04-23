@@ -188,7 +188,6 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -198,7 +197,6 @@ class Project(pulumi.CustomResource):
             auto_update="ENABLED",
             feature="CONTENT_MODERATION")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -227,7 +225,6 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,7 +234,6 @@ class Project(pulumi.CustomResource):
             auto_update="ENABLED",
             feature="CONTENT_MODERATION")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

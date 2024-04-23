@@ -235,7 +235,6 @@ class TargetGroup(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -249,11 +248,9 @@ class TargetGroup(pulumi.CustomResource):
                 protocol="HTTPS",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic usage with Health check
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,13 +280,11 @@ class TargetGroup(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### ALB
 
         If the type is ALB, `health_check` block is not supported.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -304,13 +299,11 @@ class TargetGroup(pulumi.CustomResource):
                 protocol_version="HTTP1",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda
 
         If the type is Lambda, `config` block is not supported.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -319,7 +312,6 @@ class TargetGroup(pulumi.CustomResource):
             name="example",
             type="LAMBDA")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -351,7 +343,6 @@ class TargetGroup(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -365,11 +356,9 @@ class TargetGroup(pulumi.CustomResource):
                 protocol="HTTPS",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic usage with Health check
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -399,13 +388,11 @@ class TargetGroup(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### ALB
 
         If the type is ALB, `health_check` block is not supported.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -420,13 +407,11 @@ class TargetGroup(pulumi.CustomResource):
                 protocol_version="HTTP1",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda
 
         If the type is Lambda, `config` block is not supported.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,7 +420,6 @@ class TargetGroup(pulumi.CustomResource):
             name="example",
             type="LAMBDA")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

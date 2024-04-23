@@ -16,7 +16,6 @@ namespace Pulumi.Aws.RedshiftServerless
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.RedshiftServerless
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("aws:redshiftserverless/getNamespace:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.RedshiftServerless
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.RedshiftServerless
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("aws:redshiftserverless/getNamespace:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());

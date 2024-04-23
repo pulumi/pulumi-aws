@@ -778,27 +778,17 @@ class SelectionConditionStringEqual(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        """
-        :param str key: The key in a key-value pair.
-        :param str value: The value in a key-value pair.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        The key in a key-value pair.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value in a key-value pair.
-        """
         return pulumi.get(self, "value")
 
 
@@ -807,27 +797,17 @@ class SelectionConditionStringLike(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        """
-        :param str key: The key in a key-value pair.
-        :param str value: The value in a key-value pair.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        The key in a key-value pair.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value in a key-value pair.
-        """
         return pulumi.get(self, "value")
 
 
@@ -836,27 +816,17 @@ class SelectionConditionStringNotEqual(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        """
-        :param str key: The key in a key-value pair.
-        :param str value: The value in a key-value pair.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        The key in a key-value pair.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value in a key-value pair.
-        """
         return pulumi.get(self, "value")
 
 
@@ -865,27 +835,17 @@ class SelectionConditionStringNotLike(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        """
-        :param str key: The key in a key-value pair.
-        :param str value: The value in a key-value pair.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        The key in a key-value pair.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value in a key-value pair.
-        """
         return pulumi.get(self, "value")
 
 

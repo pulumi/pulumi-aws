@@ -62,14 +62,12 @@ def get_sites(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesR
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     all = aws.outposts.get_sites()
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -87,13 +85,11 @@ def get_sites_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Outp
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     all = aws.outposts.get_sites()
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

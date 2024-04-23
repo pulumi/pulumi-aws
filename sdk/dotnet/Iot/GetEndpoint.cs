@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Iot
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,7 +62,6 @@ namespace Pulumi.Aws.Iot
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("aws:iot/getEndpoint:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
@@ -73,7 +71,6 @@ namespace Pulumi.Aws.Iot
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -120,7 +117,6 @@ namespace Pulumi.Aws.Iot
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("aws:iot/getEndpoint:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());

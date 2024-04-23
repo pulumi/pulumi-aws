@@ -273,7 +273,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,7 +286,6 @@ class Policy(pulumi.CustomResource):
             name="example",
             content=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -317,7 +315,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,7 +328,6 @@ class Policy(pulumi.CustomResource):
             name="example",
             content=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

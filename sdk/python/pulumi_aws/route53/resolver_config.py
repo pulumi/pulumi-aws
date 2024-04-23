@@ -118,7 +118,6 @@ class ResolverConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -131,7 +130,6 @@ class ResolverConfig(pulumi.CustomResource):
             resource_id=example.id,
             autodefined_reverse_flag="DISABLE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -157,7 +155,6 @@ class ResolverConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -170,7 +167,6 @@ class ResolverConfig(pulumi.CustomResource):
             resource_id=example.id,
             autodefined_reverse_flag="DISABLE")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

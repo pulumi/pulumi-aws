@@ -9,14 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const all = aws.outposts.getSites({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSites(opts?: pulumi.InvokeOptions): Promise<GetSitesResult> {
 
@@ -43,14 +41,12 @@ export interface GetSitesResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const all = aws.outposts.getSites({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSitesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSitesResult> {
     return pulumi.output(getSites(opts))

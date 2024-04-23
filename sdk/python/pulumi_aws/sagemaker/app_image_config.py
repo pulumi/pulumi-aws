@@ -203,7 +203,6 @@ class AppImageConfig(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,11 +215,9 @@ class AppImageConfig(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Default File System Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,7 +231,6 @@ class AppImageConfig(pulumi.CustomResource):
                 file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -263,7 +259,6 @@ class AppImageConfig(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,11 +271,9 @@ class AppImageConfig(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Default File System Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -294,7 +287,6 @@ class AppImageConfig(pulumi.CustomResource):
                 file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

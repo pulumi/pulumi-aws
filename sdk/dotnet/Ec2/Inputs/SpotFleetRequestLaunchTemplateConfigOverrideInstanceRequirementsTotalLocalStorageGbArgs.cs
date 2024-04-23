@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Maximum.
+        /// Maximum. May be a decimal number, e.g. `0.5`.
         /// </summary>
         [Input("max")]
         public Input<double>? Max { get; set; }
 
         /// <summary>
-        /// Minimum.
+        /// Minimum. May be a decimal number, e.g. `0.5`.
         /// </summary>
         [Input("min")]
         public Input<double>? Min { get; set; }

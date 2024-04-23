@@ -18,11 +18,11 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly bool? IsValueSecret;
         /// <summary>
-        /// Header Name.
+        /// The key for the parameter.
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// Header Value. Created and stored in AWS Secrets Manager.
+        /// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         /// </summary>
         public readonly string? Value;
 

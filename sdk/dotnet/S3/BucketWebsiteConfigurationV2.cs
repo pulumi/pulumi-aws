@@ -18,7 +18,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### With `routing_rule` configured
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,11 +55,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With `routing_rules` configured
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,7 +90,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

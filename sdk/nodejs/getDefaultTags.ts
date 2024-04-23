@@ -13,18 +13,15 @@ import * as utilities from "./utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.getDefaultTags({});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Dynamically Apply Default Tags to Auto Scaling Group
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,7 +33,6 @@ import * as utilities from "./utilities";
  *     propagateAtLaunch: true,
  * }))});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDefaultTags(args?: GetDefaultTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultTagsResult> {
     args = args || {};
@@ -73,18 +69,15 @@ export interface GetDefaultTagsResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.getDefaultTags({});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Dynamically Apply Default Tags to Auto Scaling Group
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -96,7 +89,6 @@ export interface GetDefaultTagsResult {
  *     propagateAtLaunch: true,
  * }))});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDefaultTagsOutput(args?: GetDefaultTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultTagsResult> {
     return pulumi.output(args).apply((a: any) => getDefaultTags(a, opts))

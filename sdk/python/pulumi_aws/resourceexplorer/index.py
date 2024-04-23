@@ -168,14 +168,12 @@ class Index(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.resourceexplorer.Index("example", type="LOCAL")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -201,14 +199,12 @@ class Index(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.resourceexplorer.Index("example", type="LOCAL")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

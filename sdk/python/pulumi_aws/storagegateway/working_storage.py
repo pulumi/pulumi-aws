@@ -104,7 +104,6 @@ class WorkingStorage(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -113,7 +112,6 @@ class WorkingStorage(pulumi.CustomResource):
             disk_id=example_aws_storagegateway_local_disk["id"],
             gateway_arn=example_aws_storagegateway_gateway["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -141,7 +139,6 @@ class WorkingStorage(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,7 +147,6 @@ class WorkingStorage(pulumi.CustomResource):
             disk_id=example_aws_storagegateway_local_disk["id"],
             gateway_arn=example_aws_storagegateway_gateway["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

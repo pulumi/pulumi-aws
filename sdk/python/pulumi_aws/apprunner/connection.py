@@ -191,7 +191,6 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,7 +202,6 @@ class Connection(pulumi.CustomResource):
                 "Name": "example-apprunner-connection",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -232,7 +230,6 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,7 +241,6 @@ class Connection(pulumi.CustomResource):
                 "Name": "example-apprunner-connection",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

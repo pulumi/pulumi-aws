@@ -1212,8 +1212,8 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Outpu
                  local_path: Optional[str] = None,
                  s3_upload_mode: Optional[str] = None):
         """
-        :param str s3_uri: The Amazon S3 URI for the constraints resource.
-        :param str local_path: Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+        :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
+        :param str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
         :param str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -1226,7 +1226,7 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Outpu
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         """
-        The Amazon S3 URI for the constraints resource.
+        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -1234,7 +1234,7 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Outpu
     @pulumi.getter(name="localPath")
     def local_path(self) -> Optional[str]:
         """
-        Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
         """
         return pulumi.get(self, "local_path")
 
@@ -5245,21 +5245,6 @@ class EndpointConfigurationShadowProductionVariant(dict):
                  serverless_config: Optional['outputs.EndpointConfigurationShadowProductionVariantServerlessConfig'] = None,
                  variant_name: Optional[str] = None,
                  volume_size_in_gb: Optional[int] = None):
-        """
-        :param str model_name: The name of the model to use.
-        :param str accelerator_type: The size of the Elastic Inference (EI) instance to use for the production variant.
-        :param int container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
-        :param 'EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs' core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
-        :param bool enable_ssm_access: You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
-        :param int initial_instance_count: Initial number of instances used for auto-scaling.
-        :param float initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
-        :param str instance_type: The type of instance to start.
-        :param int model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
-        :param Sequence['EndpointConfigurationShadowProductionVariantRoutingConfigArgs'] routing_configs: Sets how the endpoint routes incoming traffic. See routing_config below.
-        :param 'EndpointConfigurationShadowProductionVariantServerlessConfigArgs' serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
-        :param str variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
-        :param int volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
-        """
         pulumi.set(__self__, "model_name", model_name)
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
@@ -5289,105 +5274,66 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @property
     @pulumi.getter(name="modelName")
     def model_name(self) -> str:
-        """
-        The name of the model to use.
-        """
         return pulumi.get(self, "model_name")
 
     @property
     @pulumi.getter(name="acceleratorType")
     def accelerator_type(self) -> Optional[str]:
-        """
-        The size of the Elastic Inference (EI) instance to use for the production variant.
-        """
         return pulumi.get(self, "accelerator_type")
 
     @property
     @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
     def container_startup_health_check_timeout_in_seconds(self) -> Optional[int]:
-        """
-        The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
-        """
         return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
 
     @property
     @pulumi.getter(name="coreDumpConfig")
     def core_dump_config(self) -> Optional['outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig']:
-        """
-        Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
-        """
         return pulumi.get(self, "core_dump_config")
 
     @property
     @pulumi.getter(name="enableSsmAccess")
     def enable_ssm_access(self) -> Optional[bool]:
-        """
-        You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
-        """
         return pulumi.get(self, "enable_ssm_access")
 
     @property
     @pulumi.getter(name="initialInstanceCount")
     def initial_instance_count(self) -> Optional[int]:
-        """
-        Initial number of instances used for auto-scaling.
-        """
         return pulumi.get(self, "initial_instance_count")
 
     @property
     @pulumi.getter(name="initialVariantWeight")
     def initial_variant_weight(self) -> Optional[float]:
-        """
-        Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
-        """
         return pulumi.get(self, "initial_variant_weight")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
-        """
-        The type of instance to start.
-        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
     def model_data_download_timeout_in_seconds(self) -> Optional[int]:
-        """
-        The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
-        """
         return pulumi.get(self, "model_data_download_timeout_in_seconds")
 
     @property
     @pulumi.getter(name="routingConfigs")
     def routing_configs(self) -> Optional[Sequence['outputs.EndpointConfigurationShadowProductionVariantRoutingConfig']]:
-        """
-        Sets how the endpoint routes incoming traffic. See routing_config below.
-        """
         return pulumi.get(self, "routing_configs")
 
     @property
     @pulumi.getter(name="serverlessConfig")
     def serverless_config(self) -> Optional['outputs.EndpointConfigurationShadowProductionVariantServerlessConfig']:
-        """
-        Specifies configuration for how an endpoint performs asynchronous inference.
-        """
         return pulumi.get(self, "serverless_config")
 
     @property
     @pulumi.getter(name="variantName")
     def variant_name(self) -> Optional[str]:
-        """
-        The name of the variant. If omitted, this provider will assign a random, unique name.
-        """
         return pulumi.get(self, "variant_name")
 
     @property
     @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> Optional[int]:
-        """
-        The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
-        """
         return pulumi.get(self, "volume_size_in_gb")
 
 
@@ -5681,11 +5627,6 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicy(dict):
                  traffic_routing_configuration: 'outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration',
                  maximum_execution_timeout_in_seconds: Optional[int] = None,
                  termination_wait_in_seconds: Optional[int] = None):
-        """
-        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs' traffic_routing_configuration: Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
-        :param int maximum_execution_timeout_in_seconds: Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
-        :param int termination_wait_in_seconds: Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
-        """
         pulumi.set(__self__, "traffic_routing_configuration", traffic_routing_configuration)
         if maximum_execution_timeout_in_seconds is not None:
             pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
@@ -5695,25 +5636,16 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicy(dict):
     @property
     @pulumi.getter(name="trafficRoutingConfiguration")
     def traffic_routing_configuration(self) -> 'outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration':
-        """
-        Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
-        """
         return pulumi.get(self, "traffic_routing_configuration")
 
     @property
     @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
     def maximum_execution_timeout_in_seconds(self) -> Optional[int]:
-        """
-        Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
-        """
         return pulumi.get(self, "maximum_execution_timeout_in_seconds")
 
     @property
     @pulumi.getter(name="terminationWaitInSeconds")
     def termination_wait_in_seconds(self) -> Optional[int]:
-        """
-        Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
-        """
         return pulumi.get(self, "termination_wait_in_seconds")
 
 
@@ -6066,7 +5998,6 @@ class FeatureGroupOfflineStoreConfig(dict):
         """
         :param 'FeatureGroupOfflineStoreConfigS3StorageConfigArgs' s3_storage_config: The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
         :param 'FeatureGroupOfflineStoreConfigDataCatalogConfigArgs' data_catalog_config: The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
-        :param bool disable_glue_table_creation: Set to `true` to turn Online Store On.
         :param str table_format: Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
         """
         pulumi.set(__self__, "s3_storage_config", s3_storage_config)
@@ -6096,9 +6027,6 @@ class FeatureGroupOfflineStoreConfig(dict):
     @property
     @pulumi.getter(name="disableGlueTableCreation")
     def disable_glue_table_creation(self) -> Optional[bool]:
-        """
-        Set to `true` to turn Online Store On.
-        """
         return pulumi.get(self, "disable_glue_table_creation")
 
     @property
@@ -6264,7 +6192,6 @@ class FeatureGroupOnlineStoreConfig(dict):
                  storage_type: Optional[str] = None,
                  ttl_duration: Optional['outputs.FeatureGroupOnlineStoreConfigTtlDuration'] = None):
         """
-        :param bool enable_online_store: Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
         :param 'FeatureGroupOnlineStoreConfigSecurityConfigArgs' security_config: Security config for at-rest encryption of your OnlineStore. See Security Config Below.
         :param str storage_type: Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
         :param 'FeatureGroupOnlineStoreConfigTtlDurationArgs' ttl_duration: Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
@@ -6281,9 +6208,6 @@ class FeatureGroupOnlineStoreConfig(dict):
     @property
     @pulumi.getter(name="enableOnlineStore")
     def enable_online_store(self) -> Optional[bool]:
-        """
-        Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
-        """
         return pulumi.get(self, "enable_online_store")
 
     @property
@@ -7146,17 +7070,11 @@ class ModelContainerModelDataSourceS3DataSource(dict):
 class ModelInferenceExecutionConfig(dict):
     def __init__(__self__, *,
                  mode: str):
-        """
-        :param str mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-        """
         pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
     def mode(self) -> str:
-        """
-        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-        """
         return pulumi.get(self, "mode")
 
 
@@ -7196,17 +7114,6 @@ class ModelPrimaryContainer(dict):
                  model_data_source: Optional['outputs.ModelPrimaryContainerModelDataSource'] = None,
                  model_data_url: Optional[str] = None,
                  model_package_name: Optional[str] = None):
-        """
-        :param str container_hostname: The DNS host name for the container.
-        :param Mapping[str, str] environment: Environment variables for the Docker container.
-               A list of key value pairs.
-        :param str image: The registry path where the inference code image is stored in Amazon ECR.
-        :param 'ModelPrimaryContainerImageConfigArgs' image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
-        :param str mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-        :param 'ModelPrimaryContainerModelDataSourceArgs' model_data_source: The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
-        :param str model_data_url: The URL for the S3 location where model artifacts are stored.
-        :param str model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
-        """
         if container_hostname is not None:
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
@@ -7227,66 +7134,41 @@ class ModelPrimaryContainer(dict):
     @property
     @pulumi.getter(name="containerHostname")
     def container_hostname(self) -> Optional[str]:
-        """
-        The DNS host name for the container.
-        """
         return pulumi.get(self, "container_hostname")
 
     @property
     @pulumi.getter
     def environment(self) -> Optional[Mapping[str, str]]:
-        """
-        Environment variables for the Docker container.
-        A list of key value pairs.
-        """
         return pulumi.get(self, "environment")
 
     @property
     @pulumi.getter
     def image(self) -> Optional[str]:
-        """
-        The registry path where the inference code image is stored in Amazon ECR.
-        """
         return pulumi.get(self, "image")
 
     @property
     @pulumi.getter(name="imageConfig")
     def image_config(self) -> Optional['outputs.ModelPrimaryContainerImageConfig']:
-        """
-        Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
-        """
         return pulumi.get(self, "image_config")
 
     @property
     @pulumi.getter
     def mode(self) -> Optional[str]:
-        """
-        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-        """
         return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter(name="modelDataSource")
     def model_data_source(self) -> Optional['outputs.ModelPrimaryContainerModelDataSource']:
-        """
-        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
-        """
         return pulumi.get(self, "model_data_source")
 
     @property
     @pulumi.getter(name="modelDataUrl")
     def model_data_url(self) -> Optional[str]:
-        """
-        The URL for the S3 location where model artifacts are stored.
-        """
         return pulumi.get(self, "model_data_url")
 
     @property
     @pulumi.getter(name="modelPackageName")
     def model_package_name(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of the model package to use to create the model.
-        """
         return pulumi.get(self, "model_package_name")
 
 
@@ -9749,7 +9631,6 @@ class UserProfileUserSettingsJupyterLabAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
         :param Sequence['UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-        :param Sequence['UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
         :param 'UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
@@ -9773,9 +9654,6 @@ class UserProfileUserSettingsJupyterLabAppSettings(dict):
     @property
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[Sequence['outputs.UserProfileUserSettingsJupyterLabAppSettingsCustomImage']]:
-        """
-        A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        """
         return pulumi.get(self, "custom_images")
 
     @property

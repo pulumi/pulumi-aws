@@ -377,7 +377,6 @@ class BudgetAction(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -431,7 +430,6 @@ class BudgetAction(pulumi.CustomResource):
                 subscription_type="EMAIL",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -464,7 +462,6 @@ class BudgetAction(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -518,7 +515,6 @@ class BudgetAction(pulumi.CustomResource):
                 subscription_type="EMAIL",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

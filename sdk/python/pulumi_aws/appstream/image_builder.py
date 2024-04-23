@@ -546,7 +546,6 @@ class ImageBuilder(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -565,7 +564,6 @@ class ImageBuilder(pulumi.CustomResource):
                 "Name": "Example Image Builder",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -604,7 +602,6 @@ class ImageBuilder(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -623,7 +620,6 @@ class ImageBuilder(pulumi.CustomResource):
                 "Name": "Example Image Builder",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

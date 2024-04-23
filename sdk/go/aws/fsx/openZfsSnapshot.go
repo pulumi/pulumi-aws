@@ -19,7 +19,6 @@ import (
 //
 // ### Root volume Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,11 +52,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Child volume Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,7 +95,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

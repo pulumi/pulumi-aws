@@ -86,14 +86,12 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         main = aws.ses.ActiveReceiptRuleSet("main", rule_set_name="primary-rules")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -118,14 +116,12 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         main = aws.ses.ActiveReceiptRuleSet("main", rule_set_name="primary-rules")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

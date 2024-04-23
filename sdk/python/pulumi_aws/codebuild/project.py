@@ -873,7 +873,6 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1045,7 +1044,6 @@ class Project(pulumi.CustomResource):
                 "Environment": "Test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1094,7 +1092,6 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1266,7 +1263,6 @@ class Project(pulumi.CustomResource):
                 "Environment": "Test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

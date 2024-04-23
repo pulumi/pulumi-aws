@@ -202,25 +202,21 @@ class AccessGrantsInstance(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3control.AccessGrantsInstance("example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS IAM Identity Center
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3control.AccessGrantsInstance("example", identity_center_arn="arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -249,25 +245,21 @@ class AccessGrantsInstance(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3control.AccessGrantsInstance("example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS IAM Identity Center
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3control.AccessGrantsInstance("example", identity_center_arn="arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

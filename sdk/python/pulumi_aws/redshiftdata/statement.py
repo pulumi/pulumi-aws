@@ -337,7 +337,6 @@ class Statement(pulumi.CustomResource):
 
         ### cluster_identifier
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -348,11 +347,9 @@ class Statement(pulumi.CustomResource):
             db_user=example_aws_redshift_cluster["masterUsername"],
             sql="CREATE GROUP group_name;")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### workgroup_name
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -362,7 +359,6 @@ class Statement(pulumi.CustomResource):
             database="dev",
             sql="CREATE GROUP group_name;")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -398,7 +394,6 @@ class Statement(pulumi.CustomResource):
 
         ### cluster_identifier
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -409,11 +404,9 @@ class Statement(pulumi.CustomResource):
             db_user=example_aws_redshift_cluster["masterUsername"],
             sql="CREATE GROUP group_name;")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### workgroup_name
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -423,7 +416,6 @@ class Statement(pulumi.CustomResource):
             database="dev",
             sql="CREATE GROUP group_name;")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

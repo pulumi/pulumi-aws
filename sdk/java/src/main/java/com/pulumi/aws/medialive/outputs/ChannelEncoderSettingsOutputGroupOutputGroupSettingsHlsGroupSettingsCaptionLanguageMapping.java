@@ -12,32 +12,16 @@ import java.util.Objects;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping {
     private Integer captionChannel;
-    /**
-     * @return Selects a specific three-letter language code from within an audio source.
-     * 
-     */
     private String languageCode;
-    /**
-     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
-     * 
-     */
     private String languageDescription;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping() {}
     public Integer captionChannel() {
         return this.captionChannel;
     }
-    /**
-     * @return Selects a specific three-letter language code from within an audio source.
-     * 
-     */
     public String languageCode() {
         return this.languageCode;
     }
-    /**
-     * @return Human readable information to indicate captions available for players (eg. English, or Spanish).
-     * 
-     */
     public String languageDescription() {
         return this.languageDescription;
     }

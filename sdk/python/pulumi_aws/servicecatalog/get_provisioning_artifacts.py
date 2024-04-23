@@ -85,14 +85,12 @@ def get_provisioning_artifacts(accept_language: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.servicecatalog.get_provisioning_artifacts(product_id="prod-yakog5pdriver")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -124,14 +122,12 @@ def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Opt
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.servicecatalog.get_provisioning_artifacts(product_id="prod-yakog5pdriver")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.

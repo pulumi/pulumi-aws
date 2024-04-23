@@ -14,21 +14,9 @@ public final class LoggingConfigurationDestinationConfigurationS3Args extends co
 
     public static final LoggingConfigurationDestinationConfigurationS3Args Empty = new LoggingConfigurationDestinationConfigurationS3Args();
 
-    /**
-     * Name of the Amazon S3 bucket where chat activity will be logged.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return Name of the Amazon S3 bucket where chat activity will be logged.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
@@ -57,27 +45,11 @@ public final class LoggingConfigurationDestinationConfigurationS3Args extends co
             $ = new LoggingConfigurationDestinationConfigurationS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName Name of the Amazon S3 bucket where chat activity will be logged.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName Name of the Amazon S3 bucket where chat activity will be logged.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }

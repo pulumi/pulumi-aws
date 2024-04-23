@@ -156,17 +156,11 @@ class EventSourceMappingDestinationConfigArgs:
 class EventSourceMappingDestinationConfigOnFailureArgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the destination resource.
-        """
         pulumi.set(__self__, "destination_arn", destination_arn)
 
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the destination resource.
-        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -255,18 +249,12 @@ class EventSourceMappingFilterCriteriaArgs:
 class EventSourceMappingFilterCriteriaFilterArgs:
     def __init__(__self__, *,
                  pattern: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] pattern: A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
-        """
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
 
     @property
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
-        """
-        A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -490,17 +478,11 @@ class FunctionEventInvokeConfigDestinationConfigArgs:
 class FunctionEventInvokeConfigDestinationConfigOnFailureArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] destination: Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -512,17 +494,11 @@ class FunctionEventInvokeConfigDestinationConfigOnFailureArgs:
 class FunctionEventInvokeConfigDestinationConfigOnSuccessArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] destination: Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter

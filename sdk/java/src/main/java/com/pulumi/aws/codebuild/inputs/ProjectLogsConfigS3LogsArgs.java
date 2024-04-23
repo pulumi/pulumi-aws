@@ -32,14 +32,14 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+     * Whether to disable encrypting S3 logs. Defaults to `false`.
      * 
      */
     @Import(name="encryptionDisabled")
     private @Nullable Output<Boolean> encryptionDisabled;
 
     /**
-     * @return Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+     * @return Whether to disable encrypting S3 logs. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> encryptionDisabled() {
@@ -47,14 +47,14 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+     * Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+     * @return Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
      * 
      */
     public Optional<Output<String>> location() {
@@ -125,7 +125,7 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param encryptionDisabled Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+         * @param encryptionDisabled Whether to disable encrypting S3 logs. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param encryptionDisabled Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+         * @param encryptionDisabled Whether to disable encrypting S3 logs. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param location Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+         * @param location Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param location Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+         * @param location Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
          * 
          * @return builder
          * 

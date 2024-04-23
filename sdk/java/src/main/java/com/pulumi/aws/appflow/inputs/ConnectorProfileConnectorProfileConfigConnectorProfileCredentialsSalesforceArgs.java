@@ -16,92 +16,44 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs();
 
-    /**
-     * The access token used to access the connector on your behalf.
-     * 
-     */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
-    /**
-     * @return The access token used to access the connector on your behalf.
-     * 
-     */
     public Optional<Output<String>> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
 
-    /**
-     * The secret manager ARN, which contains the client ID and client secret of the connected app.
-     * 
-     */
     @Import(name="clientCredentialsArn")
     private @Nullable Output<String> clientCredentialsArn;
 
-    /**
-     * @return The secret manager ARN, which contains the client ID and client secret of the connected app.
-     * 
-     */
     public Optional<Output<String>> clientCredentialsArn() {
         return Optional.ofNullable(this.clientCredentialsArn);
     }
 
-    /**
-     * A JSON web token (JWT) that authorizes access to Salesforce records.
-     * 
-     */
     @Import(name="jwtToken")
     private @Nullable Output<String> jwtToken;
 
-    /**
-     * @return A JSON web token (JWT) that authorizes access to Salesforce records.
-     * 
-     */
     public Optional<Output<String>> jwtToken() {
         return Optional.ofNullable(this.jwtToken);
     }
 
-    /**
-     * The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-     * 
-     */
     @Import(name="oauth2GrantType")
     private @Nullable Output<String> oauth2GrantType;
 
-    /**
-     * @return The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-     * 
-     */
     public Optional<Output<String>> oauth2GrantType() {
         return Optional.ofNullable(this.oauth2GrantType);
     }
 
-    /**
-     * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-     * 
-     */
     @Import(name="oauthRequest")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs> oauthRequest;
 
-    /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-     * 
-     */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs>> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
 
-    /**
-     * The refresh token used to refresh an expired access token.
-     * 
-     */
     @Import(name="refreshToken")
     private @Nullable Output<String> refreshToken;
 
-    /**
-     * @return The refresh token used to refresh an expired access token.
-     * 
-     */
     public Optional<Output<String>> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }
@@ -135,128 +87,56 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessToken The access token used to access the connector on your behalf.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessToken(@Nullable Output<String> accessToken) {
             $.accessToken = accessToken;
             return this;
         }
 
-        /**
-         * @param accessToken The access token used to access the connector on your behalf.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessToken(String accessToken) {
             return accessToken(Output.of(accessToken));
         }
 
-        /**
-         * @param clientCredentialsArn The secret manager ARN, which contains the client ID and client secret of the connected app.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientCredentialsArn(@Nullable Output<String> clientCredentialsArn) {
             $.clientCredentialsArn = clientCredentialsArn;
             return this;
         }
 
-        /**
-         * @param clientCredentialsArn The secret manager ARN, which contains the client ID and client secret of the connected app.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientCredentialsArn(String clientCredentialsArn) {
             return clientCredentialsArn(Output.of(clientCredentialsArn));
         }
 
-        /**
-         * @param jwtToken A JSON web token (JWT) that authorizes access to Salesforce records.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwtToken(@Nullable Output<String> jwtToken) {
             $.jwtToken = jwtToken;
             return this;
         }
 
-        /**
-         * @param jwtToken A JSON web token (JWT) that authorizes access to Salesforce records.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwtToken(String jwtToken) {
             return jwtToken(Output.of(jwtToken));
         }
 
-        /**
-         * @param oauth2GrantType The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauth2GrantType(@Nullable Output<String> oauth2GrantType) {
             $.oauth2GrantType = oauth2GrantType;
             return this;
         }
 
-        /**
-         * @param oauth2GrantType The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauth2GrantType(String oauth2GrantType) {
             return oauth2GrantType(Output.of(oauth2GrantType));
         }
 
-        /**
-         * @param oauthRequest Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthRequest(@Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs> oauthRequest) {
             $.oauthRequest = oauthRequest;
             return this;
         }
 
-        /**
-         * @param oauthRequest Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthRequest(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs oauthRequest) {
             return oauthRequest(Output.of(oauthRequest));
         }
 
-        /**
-         * @param refreshToken The refresh token used to refresh an expired access token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder refreshToken(@Nullable Output<String> refreshToken) {
             $.refreshToken = refreshToken;
             return this;
         }
 
-        /**
-         * @param refreshToken The refresh token used to refresh an expired access token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder refreshToken(String refreshToken) {
             return refreshToken(Output.of(refreshToken));
         }

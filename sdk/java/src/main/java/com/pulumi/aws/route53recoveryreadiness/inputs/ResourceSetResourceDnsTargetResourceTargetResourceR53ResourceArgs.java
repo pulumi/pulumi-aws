@@ -16,14 +16,14 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
     public static final ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs Empty = new ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs();
 
     /**
-     * DNS Name that acts as the ingress point to a portion of application.
+     * Domain name that is targeted.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return DNS Name that acts as the ingress point to a portion of application.
+     * @return Domain name that is targeted.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -31,14 +31,14 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
     }
 
     /**
-     * Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+     * Resource record set ID that is targeted.
      * 
      */
     @Import(name="recordSetId")
     private @Nullable Output<String> recordSetId;
 
     /**
-     * @return Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+     * @return Resource record set ID that is targeted.
      * 
      */
     public Optional<Output<String>> recordSetId() {
@@ -71,7 +71,7 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
         }
 
         /**
-         * @param domainName DNS Name that acts as the ingress point to a portion of application.
+         * @param domainName Domain name that is targeted.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
         }
 
         /**
-         * @param domainName DNS Name that acts as the ingress point to a portion of application.
+         * @param domainName Domain name that is targeted.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
         }
 
         /**
-         * @param recordSetId Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+         * @param recordSetId Resource record set ID that is targeted.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
         }
 
         /**
-         * @param recordSetId Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+         * @param recordSetId Resource record set ID that is targeted.
          * 
          * @return builder
          * 

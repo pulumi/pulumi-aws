@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,7 +62,6 @@ import * as utilities from "../utilities";
  *     policyDocument: example.then(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogDataProtectionPolicyDocument(args: GetLogDataProtectionPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDataProtectionPolicyDocumentResult> {
 
@@ -120,7 +118,6 @@ export interface GetLogDataProtectionPolicyDocumentResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -169,7 +166,6 @@ export interface GetLogDataProtectionPolicyDocumentResult {
  *     policyDocument: example.then(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogDataProtectionPolicyDocumentOutput(args: GetLogDataProtectionPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDataProtectionPolicyDocumentResult> {
     return pulumi.output(args).apply((a: any) => getLogDataProtectionPolicyDocument(a, opts))

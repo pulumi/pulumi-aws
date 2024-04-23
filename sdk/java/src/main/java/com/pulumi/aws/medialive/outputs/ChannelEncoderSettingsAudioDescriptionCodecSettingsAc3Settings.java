@@ -24,7 +24,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
      */
     private @Nullable String bitstreamMode;
     /**
-     * @return Mono, Stereo, or 5.1 channel layout.
+     * @return Dolby Digital coding mode.
      * 
      */
     private @Nullable String codingMode;
@@ -65,7 +65,7 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
         return Optional.ofNullable(this.bitstreamMode);
     }
     /**
-     * @return Mono, Stereo, or 5.1 channel layout.
+     * @return Dolby Digital coding mode.
      * 
      */
     public Optional<String> codingMode() {

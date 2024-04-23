@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,11 +31,9 @@ import * as utilities from "../utilities";
  *     permanentDeletionTimeInDays: 7,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Short-lived certificate
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,11 +49,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Enable Certificate Revocation List
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -108,7 +103,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleBucketPolicy],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

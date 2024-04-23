@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,11 +38,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Filter by Inference Type
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,7 +64,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetModels(ctx *pulumi.Context, args *GetModelsArgs, opts ...pulumi.InvokeOption) (*GetModelsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetModelsResult

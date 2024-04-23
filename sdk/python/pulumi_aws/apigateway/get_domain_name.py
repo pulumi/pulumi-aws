@@ -218,14 +218,12 @@ def get_domain_name(domain_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.apigateway.get_domain_name(domain_name="api.example.com")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
@@ -264,14 +262,12 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.apigateway.get_domain_name(domain_name="api.example.com")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.

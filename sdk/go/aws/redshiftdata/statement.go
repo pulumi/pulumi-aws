@@ -18,7 +18,6 @@ import (
 //
 // ### clusterIdentifier
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,11 +44,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### workgroupName
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,7 +72,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -156,7 +156,6 @@ class ApiKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,7 +167,6 @@ class ApiKey(pulumi.CustomResource):
             api_id=example.id,
             expires="2018-05-03T04:00:00Z")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -195,7 +193,6 @@ class ApiKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,7 +204,6 @@ class ApiKey(pulumi.CustomResource):
             api_id=example.id,
             expires="2018-05-03T04:00:00Z")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

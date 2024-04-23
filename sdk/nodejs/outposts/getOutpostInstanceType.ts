@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleEc2Instance = new aws.index.Ec2Instance("example", {instanceType: example.instanceType});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostInstanceTypeResult> {
 
@@ -72,7 +70,6 @@ export interface GetOutpostInstanceTypeResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -86,7 +83,6 @@ export interface GetOutpostInstanceTypeResult {
  * });
  * const exampleEc2Instance = new aws.index.Ec2Instance("example", {instanceType: example.instanceType});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostInstanceTypeResult> {
     return pulumi.output(args).apply((a: any) => getOutpostInstanceType(a, opts))

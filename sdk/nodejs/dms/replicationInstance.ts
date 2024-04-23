@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * Create required roles and then create a DMS instance, setting the dependsOn to the required role policy attachments.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -81,7 +80,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

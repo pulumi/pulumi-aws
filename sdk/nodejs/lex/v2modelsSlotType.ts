@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,7 +51,6 @@ import * as utilities from "../utilities";
  *     localeId: testV2modelsBotLocale.localeId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -124,9 +122,6 @@ export class V2modelsSlotType extends pulumi.CustomResource {
      * Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
      */
     public readonly parentSlotTypeSignature!: pulumi.Output<string | undefined>;
-    /**
-     * Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-     */
     public /*out*/ readonly slotTypeId!: pulumi.Output<string>;
     /**
      * List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
@@ -230,9 +225,6 @@ export interface V2modelsSlotTypeState {
      * Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
      */
     parentSlotTypeSignature?: pulumi.Input<string>;
-    /**
-     * Unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-     */
     slotTypeId?: pulumi.Input<string>;
     /**
      * List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.

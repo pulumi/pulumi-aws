@@ -560,7 +560,6 @@ class StackSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -616,7 +615,6 @@ class StackSet(pulumi.CustomResource):
             policy=a_ws_cloud_formation_stack_set_administration_role_execution_policy.json,
             role=a_ws_cloud_formation_stack_set_administration_role.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -665,7 +663,6 @@ class StackSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -721,7 +718,6 @@ class StackSet(pulumi.CustomResource):
             policy=a_ws_cloud_formation_stack_set_administration_role_execution_policy.json,
             role=a_ws_cloud_formation_stack_set_administration_role.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

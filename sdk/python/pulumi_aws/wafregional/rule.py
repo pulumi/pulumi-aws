@@ -209,7 +209,6 @@ class Rule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -229,7 +228,6 @@ class Rule(pulumi.CustomResource):
                 negated=False,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Nested Fields
 
@@ -269,7 +267,6 @@ class Rule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,7 +286,6 @@ class Rule(pulumi.CustomResource):
                 negated=False,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Nested Fields
 

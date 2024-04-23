@@ -20,7 +20,6 @@ import (
 //
 // ### Add inventory configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,11 +66,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Add inventory configuration with S3 object prefix
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -122,7 +119,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

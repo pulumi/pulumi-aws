@@ -12,66 +12,37 @@ namespace Pulumi.Aws.Dlm.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailsScheduleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-        /// </summary>
         [Input("copyTags")]
         public Input<bool>? CopyTags { get; set; }
 
-        /// <summary>
-        /// See the `create_rule` block. Max of 1 per schedule.
-        /// </summary>
         [Input("createRule", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleGetArgs> CreateRule { get; set; } = null!;
 
         [Input("crossRegionCopyRules")]
         private InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleGetArgs>? _crossRegionCopyRules;
-
-        /// <summary>
-        /// See the `cross_region_copy_rule` block. Max of 3 per schedule.
-        /// </summary>
         public InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleGetArgs> CrossRegionCopyRules
         {
             get => _crossRegionCopyRules ?? (_crossRegionCopyRules = new InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleGetArgs>());
             set => _crossRegionCopyRules = value;
         }
 
-        /// <summary>
-        /// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
-        /// </summary>
         [Input("deprecateRule")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRuleGetArgs>? DeprecateRule { get; set; }
 
-        /// <summary>
-        /// See the `fast_restore_rule` block. Max of 1 per schedule.
-        /// </summary>
         [Input("fastRestoreRule")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleGetArgs>? FastRestoreRule { get; set; }
 
-        /// <summary>
-        /// A descriptive name for the action.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-        /// </summary>
         [Input("retainRule", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleGetArgs> RetainRule { get; set; } = null!;
 
-        /// <summary>
-        /// See the `share_rule` block. Max of 1 per schedule.
-        /// </summary>
         [Input("shareRule")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleShareRuleGetArgs>? ShareRule { get; set; }
 
         [Input("tagsToAdd")]
         private InputMap<string>? _tagsToAdd;
-
-        /// <summary>
-        /// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-        /// </summary>
         public InputMap<string> TagsToAdd
         {
             get => _tagsToAdd ?? (_tagsToAdd = new InputMap<string>());
@@ -80,10 +51,6 @@ namespace Pulumi.Aws.Dlm.Inputs
 
         [Input("variableTags")]
         private InputMap<string>? _variableTags;
-
-        /// <summary>
-        /// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
-        /// </summary>
         public InputMap<string> VariableTags
         {
             get => _variableTags ?? (_variableTags = new InputMap<string>());

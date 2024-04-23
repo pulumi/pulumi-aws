@@ -88,7 +88,6 @@ def get_clusters(filters: Optional[Sequence[pulumi.InputType['GetClustersFilterA
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -98,7 +97,6 @@ def get_clusters(filters: Optional[Sequence[pulumi.InputType['GetClustersFilterA
         values=["aurora-postgresql"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetClustersFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -125,7 +123,6 @@ def get_clusters_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -135,7 +132,6 @@ def get_clusters_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
         values=["aurora-postgresql"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetClustersFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

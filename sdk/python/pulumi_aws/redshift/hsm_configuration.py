@@ -301,7 +301,6 @@ class HsmConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,7 +313,6 @@ class HsmConfiguration(pulumi.CustomResource):
             hsm_partition_password="example",
             hsm_server_public_certificate="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -345,7 +343,6 @@ class HsmConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,7 +355,6 @@ class HsmConfiguration(pulumi.CustomResource):
             hsm_partition_password="example",
             hsm_server_public_certificate="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

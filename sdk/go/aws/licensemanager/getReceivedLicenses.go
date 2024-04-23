@@ -17,7 +17,6 @@ import (
 //
 // The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetReceivedLicenses(ctx *pulumi.Context, args *GetReceivedLicensesArgs, opts ...pulumi.InvokeOption) (*GetReceivedLicensesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReceivedLicensesResult

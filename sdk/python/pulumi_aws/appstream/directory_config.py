@@ -152,7 +152,6 @@ class DirectoryConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -165,7 +164,6 @@ class DirectoryConfig(pulumi.CustomResource):
                 account_password="PASSWORD OF ACCOUNT",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -192,7 +190,6 @@ class DirectoryConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,7 +202,6 @@ class DirectoryConfig(pulumi.CustomResource):
                 account_password="PASSWORD OF ACCOUNT",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

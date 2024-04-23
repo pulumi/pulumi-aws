@@ -120,14 +120,12 @@ def get_repository(repository_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.codecommit.get_repository(repository_name="MyTestRepository")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str repository_name: Name for the repository. This needs to be less than 100 characters.
@@ -155,14 +153,12 @@ def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.codecommit.get_repository(repository_name="MyTestRepository")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str repository_name: Name for the repository. This needs to be less than 100 characters.

@@ -120,14 +120,12 @@ def get_arn(arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     db_instance = aws.get_arn(arn="arn:aws:rds:eu-west-1:123456789012:db:mysql-db")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN to parse.
@@ -157,14 +155,12 @@ def get_arn_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     db_instance = aws.get_arn(arn="arn:aws:rds:eu-west-1:123456789012:db:mysql-db")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN to parse.

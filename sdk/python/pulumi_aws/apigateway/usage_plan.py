@@ -29,9 +29,8 @@ class UsagePlanArgs:
         :param pulumi.Input[str] description: Description of a usage plan.
         :param pulumi.Input[str] name: Name of the usage plan.
         :param pulumi.Input[str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-        :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota_settings: The quota settings of the usage plan.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle_settings: The throttling limits of the usage plan.
+        :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota_settings: Quota of the usage plan.
+        :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle_settings: Throttling limits of the usage plan.
         """
         if api_stages is not None:
             pulumi.set(__self__, "api_stages", api_stages)
@@ -100,7 +99,7 @@ class UsagePlanArgs:
     @pulumi.getter(name="quotaSettings")
     def quota_settings(self) -> Optional[pulumi.Input['UsagePlanQuotaSettingsArgs']]:
         """
-        The quota settings of the usage plan.
+        Quota of the usage plan.
         """
         return pulumi.get(self, "quota_settings")
 
@@ -111,9 +110,6 @@ class UsagePlanArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -124,7 +120,7 @@ class UsagePlanArgs:
     @pulumi.getter(name="throttleSettings")
     def throttle_settings(self) -> Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']]:
         """
-        The throttling limits of the usage plan.
+        Throttling limits of the usage plan.
         """
         return pulumi.get(self, "throttle_settings")
 
@@ -152,10 +148,9 @@ class _UsagePlanState:
         :param pulumi.Input[str] description: Description of a usage plan.
         :param pulumi.Input[str] name: Name of the usage plan.
         :param pulumi.Input[str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-        :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota_settings: The quota settings of the usage plan.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota_settings: Quota of the usage plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle_settings: The throttling limits of the usage plan.
+        :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle_settings: Throttling limits of the usage plan.
         """
         if api_stages is not None:
             pulumi.set(__self__, "api_stages", api_stages)
@@ -243,7 +238,7 @@ class _UsagePlanState:
     @pulumi.getter(name="quotaSettings")
     def quota_settings(self) -> Optional[pulumi.Input['UsagePlanQuotaSettingsArgs']]:
         """
-        The quota settings of the usage plan.
+        Quota of the usage plan.
         """
         return pulumi.get(self, "quota_settings")
 
@@ -254,9 +249,6 @@ class _UsagePlanState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -282,7 +274,7 @@ class _UsagePlanState:
     @pulumi.getter(name="throttleSettings")
     def throttle_settings(self) -> Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']]:
         """
-        The throttling limits of the usage plan.
+        Throttling limits of the usage plan.
         """
         return pulumi.get(self, "throttle_settings")
 
@@ -321,9 +313,8 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of a usage plan.
         :param pulumi.Input[str] name: Name of the usage plan.
         :param pulumi.Input[str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-        :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota_settings: The quota settings of the usage plan.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle_settings: The throttling limits of the usage plan.
+        :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota_settings: Quota of the usage plan.
+        :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle_settings: Throttling limits of the usage plan.
         """
         ...
     @overload
@@ -413,10 +404,9 @@ class UsagePlan(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of a usage plan.
         :param pulumi.Input[str] name: Name of the usage plan.
         :param pulumi.Input[str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-        :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota_settings: The quota settings of the usage plan.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota_settings: Quota of the usage plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle_settings: The throttling limits of the usage plan.
+        :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle_settings: Throttling limits of the usage plan.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -477,16 +467,13 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter(name="quotaSettings")
     def quota_settings(self) -> pulumi.Output[Optional['outputs.UsagePlanQuotaSettings']]:
         """
-        The quota settings of the usage plan.
+        Quota of the usage plan.
         """
         return pulumi.get(self, "quota_settings")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -504,7 +491,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter(name="throttleSettings")
     def throttle_settings(self) -> pulumi.Output[Optional['outputs.UsagePlanThrottleSettings']]:
         """
-        The throttling limits of the usage plan.
+        Throttling limits of the usage plan.
         """
         return pulumi.get(self, "throttle_settings")
 

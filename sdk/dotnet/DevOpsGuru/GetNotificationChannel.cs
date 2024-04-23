@@ -18,7 +18,6 @@ namespace Pulumi.Aws.DevOpsGuru
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.DevOpsGuru
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNotificationChannelResult> InvokeAsync(GetNotificationChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationChannelResult>("aws:devopsguru/getNotificationChannel:getNotificationChannel", args ?? new GetNotificationChannelArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.DevOpsGuru
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.DevOpsGuru
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNotificationChannelResult> Invoke(GetNotificationChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationChannelResult>("aws:devopsguru/getNotificationChannel:getNotificationChannel", args ?? new GetNotificationChannelInvokeArgs(), options.WithDefaults());

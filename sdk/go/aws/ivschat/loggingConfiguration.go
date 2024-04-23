@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage - Logging to CloudWatch
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,11 +49,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Basic Usage - Logging to Kinesis Firehose with Extended S3
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -140,7 +137,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

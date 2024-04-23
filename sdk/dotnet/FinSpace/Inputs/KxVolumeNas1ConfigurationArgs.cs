@@ -19,7 +19,7 @@ namespace Pulumi.Aws.FinSpace.Inputs
         public Input<int> Size { get; set; } = null!;
 
         /// <summary>
-        /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+        /// The type of the network attached storage.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

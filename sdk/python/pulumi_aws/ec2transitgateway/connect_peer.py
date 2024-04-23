@@ -303,7 +303,6 @@ class ConnectPeer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,7 +315,6 @@ class ConnectPeer(pulumi.CustomResource):
             inside_cidr_blocks=["169.254.100.0/29"],
             transit_gateway_attachment_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -346,7 +344,6 @@ class ConnectPeer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,7 +356,6 @@ class ConnectPeer(pulumi.CustomResource):
             inside_cidr_blocks=["169.254.100.0/29"],
             transit_gateway_attachment_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ResourceGroups
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Aws.ResourceGroups
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

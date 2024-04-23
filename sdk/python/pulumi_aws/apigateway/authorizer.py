@@ -354,7 +354,6 @@ class Authorizer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -405,7 +404,6 @@ class Authorizer(pulumi.CustomResource):
             role=invocation_role.id,
             policy=invocation_policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -439,7 +437,6 @@ class Authorizer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -490,7 +487,6 @@ class Authorizer(pulumi.CustomResource):
             role=invocation_role.id,
             policy=invocation_policy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -899,7 +899,6 @@ class EventSourceMapping(pulumi.CustomResource):
 
         ### DynamoDB
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -909,11 +908,9 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Kinesis
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -923,11 +920,9 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Managed Streaming for Apache Kafka (MSK)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -938,11 +933,9 @@ class EventSourceMapping(pulumi.CustomResource):
             topics=["Example"],
             starting_position="TRIM_HORIZON")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Self Managed Apache Kafka
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -971,11 +964,9 @@ class EventSourceMapping(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SQS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -984,11 +975,9 @@ class EventSourceMapping(pulumi.CustomResource):
             event_source_arn=sqs_queue_test["arn"],
             function_name=example_aws_lambda_function["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SQS with event filter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1015,11 +1004,9 @@ class EventSourceMapping(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Amazon MQ (ActiveMQ)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1035,11 +1022,9 @@ class EventSourceMapping(pulumi.CustomResource):
                 uri=example_aws_secretsmanager_secret_version["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Amazon MQ (RabbitMQ)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1061,7 +1046,6 @@ class EventSourceMapping(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1113,7 +1097,6 @@ class EventSourceMapping(pulumi.CustomResource):
 
         ### DynamoDB
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1123,11 +1106,9 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Kinesis
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1137,11 +1118,9 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Managed Streaming for Apache Kafka (MSK)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1152,11 +1131,9 @@ class EventSourceMapping(pulumi.CustomResource):
             topics=["Example"],
             starting_position="TRIM_HORIZON")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Self Managed Apache Kafka
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1185,11 +1162,9 @@ class EventSourceMapping(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SQS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1198,11 +1173,9 @@ class EventSourceMapping(pulumi.CustomResource):
             event_source_arn=sqs_queue_test["arn"],
             function_name=example_aws_lambda_function["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SQS with event filter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1229,11 +1202,9 @@ class EventSourceMapping(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Amazon MQ (ActiveMQ)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1249,11 +1220,9 @@ class EventSourceMapping(pulumi.CustomResource):
                 uri=example_aws_secretsmanager_secret_version["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Amazon MQ (RabbitMQ)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1275,7 +1244,6 @@ class EventSourceMapping(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

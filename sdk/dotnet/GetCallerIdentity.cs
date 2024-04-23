@@ -17,7 +17,6 @@ namespace Pulumi.Aws
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCallerIdentityResult> InvokeAsync(GetCallerIdentityArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCallerIdentityResult>("aws:index/getCallerIdentity:getCallerIdentity", args ?? new GetCallerIdentityArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Aws
         ///     };
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCallerIdentityResult> Invoke(GetCallerIdentityInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCallerIdentityResult>("aws:index/getCallerIdentity:getCallerIdentity", args ?? new GetCallerIdentityInvokeArgs(), options.WithDefaults());

@@ -206,7 +206,6 @@ class DeploymentConfig(pulumi.CustomResource):
 
         ### Server Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,11 +240,9 @@ class DeploymentConfig(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -274,7 +271,6 @@ class DeploymentConfig(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -304,7 +300,6 @@ class DeploymentConfig(pulumi.CustomResource):
 
         ### Server Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -339,11 +334,9 @@ class DeploymentConfig(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -372,7 +365,6 @@ class DeploymentConfig(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

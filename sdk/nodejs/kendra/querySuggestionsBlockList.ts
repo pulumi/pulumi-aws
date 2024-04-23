@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,7 +31,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -74,9 +72,6 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
      * ARN of the block list.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Description for a block list.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the index for a block list.
@@ -96,14 +91,9 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * S3 path where your block list text file is located. See details below.
-     *
-     * The `sourceS3Path` configuration block supports the following arguments:
      */
     public readonly sourceS3Path!: pulumi.Output<outputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
@@ -170,9 +160,6 @@ export interface QuerySuggestionsBlockListState {
      * ARN of the block list.
      */
     arn?: pulumi.Input<string>;
-    /**
-     * Description for a block list.
-     */
     description?: pulumi.Input<string>;
     /**
      * Identifier of the index for a block list.
@@ -192,14 +179,9 @@ export interface QuerySuggestionsBlockListState {
     roleArn?: pulumi.Input<string>;
     /**
      * S3 path where your block list text file is located. See details below.
-     *
-     * The `sourceS3Path` configuration block supports the following arguments:
      */
     sourceS3Path?: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
     status?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
@@ -213,9 +195,6 @@ export interface QuerySuggestionsBlockListState {
  * The set of arguments for constructing a QuerySuggestionsBlockList resource.
  */
 export interface QuerySuggestionsBlockListArgs {
-    /**
-     * Description for a block list.
-     */
     description?: pulumi.Input<string>;
     /**
      * Identifier of the index for a block list.
@@ -231,12 +210,7 @@ export interface QuerySuggestionsBlockListArgs {
     roleArn: pulumi.Input<string>;
     /**
      * S3 path where your block list text file is located. See details below.
-     *
-     * The `sourceS3Path` configuration block supports the following arguments:
      */
     sourceS3Path: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

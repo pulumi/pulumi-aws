@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetDelegatedServices(ctx *pulumi.Context, args *GetDelegatedServicesArgs, opts ...pulumi.InvokeOption) (*GetDelegatedServicesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDelegatedServicesResult

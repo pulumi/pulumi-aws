@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo
     {
-        /// <summary>
-        /// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-        /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig? ErrorHandlingConfig;
-        /// <summary>
-        /// Object specified in the flow destination.
-        /// </summary>
         public readonly string Object;
 
         [OutputConstructor]

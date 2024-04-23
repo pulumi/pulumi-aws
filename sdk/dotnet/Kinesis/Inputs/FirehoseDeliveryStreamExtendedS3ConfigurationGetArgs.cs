@@ -12,33 +12,18 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the S3 bucket
-        /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
 
-        /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
-        /// </summary>
         [Input("bufferingInterval")]
         public Input<int>? BufferingInterval { get; set; }
 
-        /// <summary>
-        /// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-        /// </summary>
         [Input("bufferingSize")]
         public Input<int>? BufferingSize { get; set; }
 
-        /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
-        /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
 
-        /// <summary>
-        /// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
-        /// </summary>
         [Input("compressionFormat")]
         public Input<string>? CompressionFormat { get; set; }
 
@@ -60,9 +45,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         [Input("dynamicPartitioningConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationGetArgs>? DynamicPartitioningConfiguration { get; set; }
 
-        /// <summary>
-        /// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
-        /// </summary>
         [Input("errorOutputPrefix")]
         public Input<string>? ErrorOutputPrefix { get; set; }
 
@@ -72,16 +54,9 @@ namespace Pulumi.Aws.Kinesis.Inputs
         [Input("fileExtension")]
         public Input<string>? FileExtension { get; set; }
 
-        /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
-        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
-        /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
@@ -91,9 +66,6 @@ namespace Pulumi.Aws.Kinesis.Inputs
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
 
-        /// <summary>
-        /// The ARN of the role used to access the Amazon MSK cluster.
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
@@ -104,7 +76,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationGetArgs>? S3BackupConfiguration { get; set; }
 
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }

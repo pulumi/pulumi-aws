@@ -201,7 +201,6 @@ class Model(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -219,7 +218,6 @@ class Model(pulumi.CustomResource):
                 "type": "object",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -248,7 +246,6 @@ class Model(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -266,7 +263,6 @@ class Model(pulumi.CustomResource):
                 "type": "object",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

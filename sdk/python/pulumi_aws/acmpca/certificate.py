@@ -293,7 +293,6 @@ class Certificate(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,7 +322,6 @@ class Certificate(pulumi.CustomResource):
                 value="1",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -361,7 +359,6 @@ class Certificate(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,7 +388,6 @@ class Certificate(pulumi.CustomResource):
                 value="1",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

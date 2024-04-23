@@ -18,14 +18,14 @@ public final class DistributionTrustedKeyGroupArgs extends com.pulumi.resources.
     public static final DistributionTrustedKeyGroupArgs Empty = new DistributionTrustedKeyGroupArgs();
 
     /**
-     * Whether Origin Shield is enabled.
+     * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether Origin Shield is enabled.
+     * @return `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -73,7 +73,7 @@ public final class DistributionTrustedKeyGroupArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param enabled Whether Origin Shield is enabled.
+         * @param enabled `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DistributionTrustedKeyGroupArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param enabled Whether Origin Shield is enabled.
+         * @param enabled `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
          * 
          * @return builder
          * 

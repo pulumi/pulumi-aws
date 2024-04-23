@@ -333,7 +333,6 @@ class Control(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -346,7 +345,6 @@ class Control(pulumi.CustomResource):
                 source_type="MANUAL",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -381,7 +379,6 @@ class Control(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -394,7 +391,6 @@ class Control(pulumi.CustomResource):
                 source_type="MANUAL",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

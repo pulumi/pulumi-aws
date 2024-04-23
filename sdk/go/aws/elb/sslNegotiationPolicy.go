@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,7 +89,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type SslNegotiationPolicy struct {
 	pulumi.CustomResourceState
 
@@ -103,7 +101,7 @@ type SslNegotiationPolicy struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
-	// The name of the attribute
+	// The name of the SSL negotiation policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
@@ -164,7 +162,7 @@ type sslNegotiationPolicyState struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer *string `pulumi:"loadBalancer"`
-	// The name of the attribute
+	// The name of the SSL negotiation policy.
 	Name *string `pulumi:"name"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
@@ -184,7 +182,7 @@ type SslNegotiationPolicyState struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer pulumi.StringPtrInput
-	// The name of the attribute
+	// The name of the SSL negotiation policy.
 	Name pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
@@ -208,7 +206,7 @@ type sslNegotiationPolicyArgs struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer string `pulumi:"loadBalancer"`
-	// The name of the attribute
+	// The name of the SSL negotiation policy.
 	Name *string `pulumi:"name"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
@@ -229,7 +227,7 @@ type SslNegotiationPolicyArgs struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer pulumi.StringInput
-	// The name of the attribute
+	// The name of the SSL negotiation policy.
 	Name pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
@@ -344,7 +342,7 @@ func (o SslNegotiationPolicyOutput) LoadBalancer() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringOutput { return v.LoadBalancer }).(pulumi.StringOutput)
 }
 
-// The name of the attribute
+// The name of the SSL negotiation policy.
 func (o SslNegotiationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

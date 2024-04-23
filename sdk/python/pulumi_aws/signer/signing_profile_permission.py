@@ -233,7 +233,6 @@ class SigningProfilePermission(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,7 +264,6 @@ class SigningProfilePermission(pulumi.CustomResource):
             profile_version=prod_sp.version,
             statement_id_prefix="version-permission-")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -295,7 +293,6 @@ class SigningProfilePermission(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,7 +324,6 @@ class SigningProfilePermission(pulumi.CustomResource):
             profile_version=prod_sp.version,
             statement_id_prefix="version-permission-")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -21,7 +21,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,11 +48,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Including a sample Lex bot
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -131,7 +128,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

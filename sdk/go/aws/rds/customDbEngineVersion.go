@@ -18,7 +18,6 @@ import (
 //
 // ### RDS Custom for Oracle Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,11 +57,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### RDS Custom for Oracle External Manifest Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,11 +107,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### RDS Custom for SQL Server Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -141,11 +136,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### RDS Custom for SQL Server Usage with AMI from another region
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -182,7 +175,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

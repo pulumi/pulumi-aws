@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTagsFilterTags {
-    /**
-     * @return Unique name of the Cost Category.
-     * 
-     */
     private @Nullable String key;
-    /**
-     * @return Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-     * 
-     */
     private @Nullable List<String> matchOptions;
-    /**
-     * @return Specific value of the Cost Category.
-     * 
-     */
     private @Nullable List<String> values;
 
     private GetTagsFilterTags() {}
-    /**
-     * @return Unique name of the Cost Category.
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
-    /**
-     * @return Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
-     * 
-     */
     public List<String> matchOptions() {
         return this.matchOptions == null ? List.of() : this.matchOptions;
     }
-    /**
-     * @return Specific value of the Cost Category.
-     * 
-     */
     public List<String> values() {
         return this.values == null ? List.of() : this.values;
     }

@@ -18,12 +18,12 @@ public final class ProjectLogsConfigS3Logs {
      */
     private @Nullable String bucketOwnerAccess;
     /**
-     * @return Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+     * @return Whether to disable encrypting S3 logs. Defaults to `false`.
      * 
      */
     private @Nullable Boolean encryptionDisabled;
     /**
-     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+     * @return Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
      * 
      */
     private @Nullable String location;
@@ -42,14 +42,14 @@ public final class ProjectLogsConfigS3Logs {
         return Optional.ofNullable(this.bucketOwnerAccess);
     }
     /**
-     * @return Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+     * @return Whether to disable encrypting S3 logs. Defaults to `false`.
      * 
      */
     public Optional<Boolean> encryptionDisabled() {
         return Optional.ofNullable(this.encryptionDisabled);
     }
     /**
-     * @return Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+     * @return Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
      * 
      */
     public Optional<String> location() {

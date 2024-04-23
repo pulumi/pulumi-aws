@@ -177,7 +177,6 @@ class BucketAclV2(pulumi.CustomResource):
 
         ### With `private` ACL
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,14 +192,12 @@ class BucketAclV2(pulumi.CustomResource):
             acl="private",
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With `public-read` ACL
 
         > This example explicitly disables the default S3 bucket security settings. This
         should be done with caution, as all bucket objects become publicly exposed.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,11 +222,9 @@ class BucketAclV2(pulumi.CustomResource):
                     example_bucket_public_access_block,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Grants
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -266,7 +261,6 @@ class BucketAclV2(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -326,7 +320,6 @@ class BucketAclV2(pulumi.CustomResource):
 
         ### With `private` ACL
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,14 +335,12 @@ class BucketAclV2(pulumi.CustomResource):
             acl="private",
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With `public-read` ACL
 
         > This example explicitly disables the default S3 bucket security settings. This
         should be done with caution, as all bucket objects become publicly exposed.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -374,11 +365,9 @@ class BucketAclV2(pulumi.CustomResource):
                     example_bucket_public_access_block,
                 ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Grants
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -415,7 +404,6 @@ class BucketAclV2(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

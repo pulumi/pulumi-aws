@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTrafficPolicyDocumentRuleSecondary {
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     private @Nullable String endpointReference;
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     private @Nullable Boolean evaluateTargetHealth;
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     private @Nullable String healthCheck;
-    /**
-     * @return References to a rule.
-     * 
-     */
     private @Nullable String ruleReference;
 
     private GetTrafficPolicyDocumentRuleSecondary() {}
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<String> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     public Optional<Boolean> evaluateTargetHealth() {
         return Optional.ofNullable(this.evaluateTargetHealth);
     }
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<String> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
-    /**
-     * @return References to a rule.
-     * 
-     */
     public Optional<String> ruleReference() {
         return Optional.ofNullable(this.ruleReference);
     }

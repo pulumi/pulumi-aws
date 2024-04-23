@@ -100,7 +100,6 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -119,7 +118,6 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
             cluster_identifier=default.id,
             schedule_identifier=default_snapshot_schedule.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -143,7 +141,6 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -162,7 +159,6 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
             cluster_identifier=default.id,
             schedule_identifier=default_snapshot_schedule.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OntapVolumeSnaplockConfigurationRetentionPeriod {
-    /**
-     * @return The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
-     * 
-     */
     private @Nullable OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention defaultRetention;
-    /**
-     * @return The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-     * 
-     */
     private @Nullable OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention maximumRetention;
-    /**
-     * @return The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-     * 
-     */
     private @Nullable OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention minimumRetention;
 
     private OntapVolumeSnaplockConfigurationRetentionPeriod() {}
-    /**
-     * @return The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
-     * 
-     */
     public Optional<OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention> defaultRetention() {
         return Optional.ofNullable(this.defaultRetention);
     }
-    /**
-     * @return The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-     * 
-     */
     public Optional<OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention> maximumRetention() {
         return Optional.ofNullable(this.maximumRetention);
     }
-    /**
-     * @return The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-     * 
-     */
     public Optional<OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention> minimumRetention() {
         return Optional.ofNullable(this.minimumRetention);
     }

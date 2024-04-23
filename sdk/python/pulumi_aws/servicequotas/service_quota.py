@@ -258,7 +258,6 @@ class ServiceQuota(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,7 +267,6 @@ class ServiceQuota(pulumi.CustomResource):
             service_code="vpc",
             value=75)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -299,7 +297,6 @@ class ServiceQuota(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -309,7 +306,6 @@ class ServiceQuota(pulumi.CustomResource):
             service_code="vpc",
             value=75)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

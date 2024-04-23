@@ -305,7 +305,6 @@ class GatewayAssociation(pulumi.CustomResource):
 
         ### VPN Gateway Association
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -319,11 +318,9 @@ class GatewayAssociation(pulumi.CustomResource):
             dx_gateway_id=example.id,
             associated_gateway_id=example_vpn_gateway.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Transit Gateway Association
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -340,11 +337,9 @@ class GatewayAssociation(pulumi.CustomResource):
                 "10.255.255.8/30",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Allowed Prefixes
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -362,7 +357,6 @@ class GatewayAssociation(pulumi.CustomResource):
                 "175.45.176.0/22",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -400,7 +394,6 @@ class GatewayAssociation(pulumi.CustomResource):
 
         ### VPN Gateway Association
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -414,11 +407,9 @@ class GatewayAssociation(pulumi.CustomResource):
             dx_gateway_id=example.id,
             associated_gateway_id=example_vpn_gateway.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Transit Gateway Association
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,11 +426,9 @@ class GatewayAssociation(pulumi.CustomResource):
                 "10.255.255.8/30",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Allowed Prefixes
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -457,7 +446,6 @@ class GatewayAssociation(pulumi.CustomResource):
                 "175.45.176.0/22",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

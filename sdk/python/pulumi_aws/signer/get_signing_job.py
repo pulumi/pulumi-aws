@@ -241,14 +241,12 @@ def get_signing_job(job_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     build_signing_job = aws.signer.get_signing_job(job_id="9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str job_id: ID of the signing job on output.
@@ -286,14 +284,12 @@ def get_signing_job_output(job_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     build_signing_job = aws.signer.get_signing_job(job_id="9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str job_id: ID of the signing job on output.

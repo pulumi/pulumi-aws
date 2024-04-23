@@ -16,18 +16,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs 
     public static final RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs Empty = new RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs();
 
     /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
+     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
      * 
      */
     @Import(name="textTransformations", required=true)
     private Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs>> textTransformations;
 
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
      * 
      */
     public Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs>> textTransformations() {
@@ -59,9 +55,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs 
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
          * 
          * @return builder
          * 
@@ -72,9 +66,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs 
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
          * 
          * @return builder
          * 
@@ -84,9 +76,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs 
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
          * 
          * @return builder
          * 

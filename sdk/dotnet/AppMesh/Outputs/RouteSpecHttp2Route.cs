@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteAction Action;
         /// <summary>
-        /// Criteria for determining an gRPC request match.
+        /// Criteria for determining an HTTP request match.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteMatch Match;
         /// <summary>

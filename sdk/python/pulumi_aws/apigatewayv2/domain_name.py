@@ -230,7 +230,6 @@ class DomainName(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -243,11 +242,9 @@ class DomainName(pulumi.CustomResource):
                 security_policy="TLS_1_2",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Associated Route 53 Resource Record
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,7 +266,6 @@ class DomainName(pulumi.CustomResource):
                 evaluate_target_health=False,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -303,7 +299,6 @@ class DomainName(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,11 +311,9 @@ class DomainName(pulumi.CustomResource):
                 security_policy="TLS_1_2",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Associated Route 53 Resource Record
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,7 +335,6 @@ class DomainName(pulumi.CustomResource):
                 evaluate_target_health=False,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

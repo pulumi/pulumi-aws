@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,11 +40,9 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### For the Calling Account
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,7 +68,6 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:inspector2/enabler:Enabler")]
     public partial class Enabler : global::Pulumi.CustomResource

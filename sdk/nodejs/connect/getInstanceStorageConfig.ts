@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     resourceType: "CONTACT_TRACE_RECORDS",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInstanceStorageConfig(args: GetInstanceStorageConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceStorageConfigResult> {
 
@@ -74,7 +72,6 @@ export interface GetInstanceStorageConfigResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -85,7 +82,6 @@ export interface GetInstanceStorageConfigResult {
  *     resourceType: "CONTACT_TRACE_RECORDS",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInstanceStorageConfigOutput(args: GetInstanceStorageConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceStorageConfigResult> {
     return pulumi.output(args).apply((a: any) => getInstanceStorageConfig(a, opts))

@@ -128,14 +128,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mskconnect/connector:Connector")
 public class Connector extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the custom plugin.
+     * The Amazon Resource Name (ARN) of the connector.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the custom plugin.
+     * @return The Amazon Resource Name (ARN) of the connector.
      * 
      */
     public Output<String> arn() {

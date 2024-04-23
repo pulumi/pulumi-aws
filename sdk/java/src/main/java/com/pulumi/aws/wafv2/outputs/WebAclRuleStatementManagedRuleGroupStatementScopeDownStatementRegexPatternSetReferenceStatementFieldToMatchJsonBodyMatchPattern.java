@@ -13,18 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll all;
     private @Nullable List<String> includedPaths;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern() {}
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll> all() {
         return Optional.ofNullable(this.all);
     }

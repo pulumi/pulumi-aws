@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### With `routingRule` configured
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,11 +38,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With `routingRules` configured
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -67,7 +64,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

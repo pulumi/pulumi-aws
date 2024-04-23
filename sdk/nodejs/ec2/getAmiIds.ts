@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
 
@@ -100,7 +98,6 @@ export interface GetAmiIdsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,7 +110,6 @@ export interface GetAmiIdsResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAmiIdsOutput(args: GetAmiIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiIdsResult> {
     return pulumi.output(args).apply((a: any) => getAmiIds(a, opts))

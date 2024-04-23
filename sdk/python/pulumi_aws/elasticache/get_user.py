@@ -131,14 +131,12 @@ def get_user(access_string: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     bar = aws.elasticache.get_user(user_id="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str access_string: String for what access a user possesses within the associated ElastiCache replication groups or clusters.
@@ -181,14 +179,12 @@ def get_user_output(access_string: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     bar = aws.elasticache.get_user(user_id="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str access_string: String for what access a user possesses within the associated ElastiCache replication groups or clusters.

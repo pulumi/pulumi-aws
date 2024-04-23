@@ -18,7 +18,6 @@ import (
 //
 // ### From Source Template
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,7 +53,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -68,7 +66,7 @@ type Analysis struct {
 
 	// Identifier for the analysis.
 	AnalysisId pulumi.StringOutput `pulumi:"analysisId"`
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the analysis.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
@@ -136,7 +134,7 @@ func GetAnalysis(ctx *pulumi.Context,
 type analysisState struct {
 	// Identifier for the analysis.
 	AnalysisId *string `pulumi:"analysisId"`
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the analysis.
 	Arn *string `pulumi:"arn"`
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
@@ -172,7 +170,7 @@ type analysisState struct {
 type AnalysisState struct {
 	// Identifier for the analysis.
 	AnalysisId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the analysis.
 	Arn pulumi.StringPtrInput
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
@@ -348,7 +346,7 @@ func (o AnalysisOutput) AnalysisId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.AnalysisId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// ARN of the analysis.
 func (o AnalysisOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

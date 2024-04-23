@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ### From Source Template
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,7 +48,6 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -63,7 +61,7 @@ namespace Pulumi.Aws.Quicksight
     public partial class Dashboard : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
+        /// ARN of the dashboard.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -298,7 +296,7 @@ namespace Pulumi.Aws.Quicksight
     public sealed class DashboardState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
+        /// ARN of the dashboard.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

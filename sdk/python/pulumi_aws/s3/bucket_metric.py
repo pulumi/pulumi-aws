@@ -142,7 +142,6 @@ class BucketMetric(pulumi.CustomResource):
 
         ### Add metrics configuration for entire S3 bucket
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -152,11 +151,9 @@ class BucketMetric(pulumi.CustomResource):
             bucket=example.id,
             name="EntireBucket")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Add metrics configuration with S3 object filter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -173,11 +170,9 @@ class BucketMetric(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Add metrics configuration with S3 object filter for S3 Access Point
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -197,7 +192,6 @@ class BucketMetric(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -228,7 +222,6 @@ class BucketMetric(pulumi.CustomResource):
 
         ### Add metrics configuration for entire S3 bucket
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -238,11 +231,9 @@ class BucketMetric(pulumi.CustomResource):
             bucket=example.id,
             name="EntireBucket")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Add metrics configuration with S3 object filter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,11 +250,9 @@ class BucketMetric(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Add metrics configuration with S3 object filter for S3 Access Point
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,7 +272,6 @@ class BucketMetric(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

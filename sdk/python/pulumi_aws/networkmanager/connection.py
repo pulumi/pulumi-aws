@@ -305,7 +305,6 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -315,7 +314,6 @@ class Connection(pulumi.CustomResource):
             device_id=example1["id"],
             connected_device_id=example2["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -347,7 +345,6 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,7 +354,6 @@ class Connection(pulumi.CustomResource):
             device_id=example1["id"],
             connected_device_id=example2["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

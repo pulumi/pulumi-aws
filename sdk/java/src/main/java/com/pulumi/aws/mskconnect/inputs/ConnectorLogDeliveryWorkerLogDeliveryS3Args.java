@@ -33,14 +33,14 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
     }
 
     /**
-     * Whether log delivery to Amazon CloudWatch Logs is enabled.
+     * Specifies whether connector logs get sent to the specified Amazon S3 destination.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Whether log delivery to Amazon CloudWatch Logs is enabled.
+     * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
      * 
      */
     public Output<Boolean> enabled() {
@@ -110,7 +110,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
         }
 
         /**
-         * @param enabled Whether log delivery to Amazon CloudWatch Logs is enabled.
+         * @param enabled Specifies whether connector logs get sent to the specified Amazon S3 destination.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3Args extends com.pulum
         }
 
         /**
-         * @param enabled Whether log delivery to Amazon CloudWatch Logs is enabled.
+         * @param enabled Specifies whether connector logs get sent to the specified Amazon S3 destination.
          * 
          * @return builder
          * 

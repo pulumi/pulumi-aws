@@ -21,7 +21,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,7 +51,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -121,10 +119,6 @@ namespace Pulumi.Aws.Ec2
         [Output("hypervisor")]
         public Output<string> Hypervisor { get; private set; } = null!;
 
-        /// <summary>
-        /// Path to an S3 object containing an image manifest, e.g., created
-        /// by the `ec2-upload-bundle` command in the EC2 command line tools.
-        /// </summary>
         [Output("imageLocation")]
         public Output<string> ImageLocation { get; private set; } = null!;
 
@@ -146,10 +140,6 @@ namespace Pulumi.Aws.Ec2
         [Output("imdsSupport")]
         public Output<string?> ImdsSupport { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of the kernel image (AKI) that will be used as the paravirtual
-        /// kernel in created instances.
-        /// </summary>
         [Output("kernelId")]
         public Output<string?> KernelId { get; private set; } = null!;
 
@@ -186,10 +176,6 @@ namespace Pulumi.Aws.Ec2
         [Output("public")]
         public Output<bool> Public { get; private set; } = null!;
 
-        /// <summary>
-        /// ID of an initrd image (ARI) that will be used when booting the
-        /// created instances.
-        /// </summary>
         [Output("ramdiskId")]
         public Output<string?> RamdiskId { get; private set; } = null!;
 
@@ -205,10 +191,6 @@ namespace Pulumi.Aws.Ec2
         [Output("rootSnapshotId")]
         public Output<string> RootSnapshotId { get; private set; } = null!;
 
-        /// <summary>
-        /// When set to "simple" (the default), enables enhanced networking
-        /// for created instances. No other value is supported at this time.
-        /// </summary>
         [Output("sriovNetSupport")]
         public Output<string?> SriovNetSupport { get; private set; } = null!;
 
@@ -346,10 +328,6 @@ namespace Pulumi.Aws.Ec2
             set => _ephemeralBlockDevices = value;
         }
 
-        /// <summary>
-        /// Path to an S3 object containing an image manifest, e.g., created
-        /// by the `ec2-upload-bundle` command in the EC2 command line tools.
-        /// </summary>
         [Input("imageLocation")]
         public Input<string>? ImageLocation { get; set; }
 
@@ -359,10 +337,6 @@ namespace Pulumi.Aws.Ec2
         [Input("imdsSupport")]
         public Input<string>? ImdsSupport { get; set; }
 
-        /// <summary>
-        /// ID of the kernel image (AKI) that will be used as the paravirtual
-        /// kernel in created instances.
-        /// </summary>
         [Input("kernelId")]
         public Input<string>? KernelId { get; set; }
 
@@ -372,10 +346,6 @@ namespace Pulumi.Aws.Ec2
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// ID of an initrd image (ARI) that will be used when booting the
-        /// created instances.
-        /// </summary>
         [Input("ramdiskId")]
         public Input<string>? RamdiskId { get; set; }
 
@@ -385,10 +355,6 @@ namespace Pulumi.Aws.Ec2
         [Input("rootDeviceName")]
         public Input<string>? RootDeviceName { get; set; }
 
-        /// <summary>
-        /// When set to "simple" (the default), enables enhanced networking
-        /// for created instances. No other value is supported at this time.
-        /// </summary>
         [Input("sriovNetSupport")]
         public Input<string>? SriovNetSupport { get; set; }
 
@@ -494,10 +460,6 @@ namespace Pulumi.Aws.Ec2
         [Input("hypervisor")]
         public Input<string>? Hypervisor { get; set; }
 
-        /// <summary>
-        /// Path to an S3 object containing an image manifest, e.g., created
-        /// by the `ec2-upload-bundle` command in the EC2 command line tools.
-        /// </summary>
         [Input("imageLocation")]
         public Input<string>? ImageLocation { get; set; }
 
@@ -519,10 +481,6 @@ namespace Pulumi.Aws.Ec2
         [Input("imdsSupport")]
         public Input<string>? ImdsSupport { get; set; }
 
-        /// <summary>
-        /// ID of the kernel image (AKI) that will be used as the paravirtual
-        /// kernel in created instances.
-        /// </summary>
         [Input("kernelId")]
         public Input<string>? KernelId { get; set; }
 
@@ -559,10 +517,6 @@ namespace Pulumi.Aws.Ec2
         [Input("public")]
         public Input<bool>? Public { get; set; }
 
-        /// <summary>
-        /// ID of an initrd image (ARI) that will be used when booting the
-        /// created instances.
-        /// </summary>
         [Input("ramdiskId")]
         public Input<string>? RamdiskId { get; set; }
 
@@ -578,10 +532,6 @@ namespace Pulumi.Aws.Ec2
         [Input("rootSnapshotId")]
         public Input<string>? RootSnapshotId { get; set; }
 
-        /// <summary>
-        /// When set to "simple" (the default), enables enhanced networking
-        /// for created instances. No other value is supported at this time.
-        /// </summary>
         [Input("sriovNetSupport")]
         public Input<string>? SriovNetSupport { get; set; }
 

@@ -885,7 +885,6 @@ class LustreFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -895,7 +894,6 @@ class LustreFileSystem(pulumi.CustomResource):
             storage_capacity=1200,
             subnet_ids=example_aws_subnet["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -944,7 +942,6 @@ class LustreFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -954,7 +951,6 @@ class LustreFileSystem(pulumi.CustomResource):
             storage_capacity=1200,
             subnet_ids=example_aws_subnet["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

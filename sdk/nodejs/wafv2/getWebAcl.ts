@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     scope: "REGIONAL",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> {
 
@@ -68,7 +66,6 @@ export interface GetWebAclResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -78,7 +75,6 @@ export interface GetWebAclResult {
  *     scope: "REGIONAL",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWebAclOutput(args: GetWebAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAclResult> {
     return pulumi.output(args).apply((a: any) => getWebAcl(a, opts))

@@ -62,7 +62,6 @@ def get_default_kms_key(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -73,7 +72,6 @@ def get_default_kms_key(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
         encrypted=True,
         kms_key_id=current.key_arn)
     ```
-    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -91,7 +89,6 @@ def get_default_kms_key_output(opts: Optional[pulumi.InvokeOptions] = None) -> p
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,6 +99,5 @@ def get_default_kms_key_output(opts: Optional[pulumi.InvokeOptions] = None) -> p
         encrypted=True,
         kms_key_id=current.key_arn)
     ```
-    <!--End PulumiCodeChooser -->
     """
     ...

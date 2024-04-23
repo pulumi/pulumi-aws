@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,11 +31,9 @@ import * as utilities from "../utilities";
  *     serviceName: "com.amazonaws.us-west-2.s3",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Basic w/ Tags
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,11 +46,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Interface Endpoint Type
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,11 +61,9 @@ import * as utilities from "../utilities";
  *     privateDnsEnabled: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Gateway Load Balancer Endpoint Type
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -88,7 +81,6 @@ import * as utilities from "../utilities";
  *     vpcId: exampleAwsVpc.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

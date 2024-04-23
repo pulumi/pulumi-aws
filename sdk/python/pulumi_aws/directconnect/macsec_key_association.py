@@ -216,7 +216,6 @@ class MacsecKeyAssociation(pulumi.CustomResource):
 
         ### Create MACSec key with CKN and CAK
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,11 +226,9 @@ class MacsecKeyAssociation(pulumi.CustomResource):
             ckn="0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
             cak="abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create MACSec key with existing Secrets Manager secret
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -242,7 +239,6 @@ class MacsecKeyAssociation(pulumi.CustomResource):
             connection_id=example.id,
             secret_arn=example_get_secret.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,7 +267,6 @@ class MacsecKeyAssociation(pulumi.CustomResource):
 
         ### Create MACSec key with CKN and CAK
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -282,11 +277,9 @@ class MacsecKeyAssociation(pulumi.CustomResource):
             ckn="0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
             cak="abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create MACSec key with existing Secrets Manager secret
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,7 +290,6 @@ class MacsecKeyAssociation(pulumi.CustomResource):
             connection_id=example.id,
             secret_arn=example_get_secret.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param MacsecKeyAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// ### Latest
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:imagebuilder/getImage:getImage", args ?? new GetImageArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// ### Latest
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:imagebuilder/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Polly
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,11 +30,9 @@ namespace Pulumi.Aws.Polly
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### With Language Code
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -51,7 +48,6 @@ namespace Pulumi.Aws.Polly
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVoicesResult> InvokeAsync(GetVoicesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVoicesResult>("aws:polly/getVoices:getVoices", args ?? new GetVoicesArgs(), options.WithDefaults());
@@ -63,7 +59,6 @@ namespace Pulumi.Aws.Polly
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -76,11 +71,9 @@ namespace Pulumi.Aws.Polly
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### With Language Code
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -96,7 +89,6 @@ namespace Pulumi.Aws.Polly
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVoicesResult> Invoke(GetVoicesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVoicesResult>("aws:polly/getVoices:getVoices", args ?? new GetVoicesInvokeArgs(), options.WithDefaults());

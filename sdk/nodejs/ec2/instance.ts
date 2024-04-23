@@ -16,7 +16,6 @@ import {InstanceProfile} from "../iam";
  *
  * ### Basic example using AMI lookup
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,11 +42,9 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Spot instance example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,11 +76,9 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Network and credit specification example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -121,11 +116,9 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### CPU options example
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -165,7 +158,6 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Host resource group or Licence Manager registered AMI example
  *
@@ -173,7 +165,6 @@ import {InstanceProfile} from "../iam";
  *
  * > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `hostResourceGroupArn` argument to explicitly associate the instance with the host resource group.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -185,7 +176,6 @@ import {InstanceProfile} from "../iam";
  *     tenancy: "host",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Tag Guide
  *

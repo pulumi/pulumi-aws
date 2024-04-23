@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,13 +86,12 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         DependsOn =
     ///         {
-    ///             route53_query_logging_policyLogResourcePolicy, 
+    ///             route53_query_logging_policyLogResourcePolicy,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

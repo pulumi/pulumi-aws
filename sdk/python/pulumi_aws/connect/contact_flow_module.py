@@ -331,7 +331,6 @@ class ContactFlowModule(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -387,7 +386,6 @@ class ContactFlowModule(pulumi.CustomResource):
                 "Method": "Create",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With External Content
 
@@ -395,7 +393,6 @@ class ContactFlowModule(pulumi.CustomResource):
 
         Use the generated file as input:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -413,7 +410,6 @@ class ContactFlowModule(pulumi.CustomResource):
                 "Method": "Create",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -453,7 +449,6 @@ class ContactFlowModule(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -509,7 +504,6 @@ class ContactFlowModule(pulumi.CustomResource):
                 "Method": "Create",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With External Content
 
@@ -517,7 +511,6 @@ class ContactFlowModule(pulumi.CustomResource):
 
         Use the generated file as input:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -535,7 +528,6 @@ class ContactFlowModule(pulumi.CustomResource):
                 "Method": "Create",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

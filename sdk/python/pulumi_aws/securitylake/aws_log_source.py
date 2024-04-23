@@ -75,7 +75,6 @@ class AwsLogSource(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -87,7 +86,6 @@ class AwsLogSource(pulumi.CustomResource):
             source_version="1.0",
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -114,7 +112,6 @@ class AwsLogSource(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -126,7 +123,6 @@ class AwsLogSource(pulumi.CustomResource):
             source_version="1.0",
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ import (
 //
 // The following example below creates a CloudFront key group.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,7 +58,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

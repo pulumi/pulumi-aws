@@ -17,7 +17,7 @@ public final class KxVolumeNas1Configuration {
      */
     private Integer size;
     /**
-     * @return The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+     * @return The type of the network attached storage.
      * 
      */
     private String type;
@@ -31,7 +31,7 @@ public final class KxVolumeNas1Configuration {
         return this.size;
     }
     /**
-     * @return The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
+     * @return The type of the network attached storage.
      * 
      */
     public String type() {

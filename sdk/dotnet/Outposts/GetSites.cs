@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -29,7 +28,6 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSitesResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSitesResult>("aws:outposts/getSites:getSites", InvokeArgs.Empty, options.WithDefaults());
@@ -39,7 +37,6 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -52,7 +49,6 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSitesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesResult>("aws:outposts/getSites:getSites", InvokeArgs.Empty, options.WithDefaults());

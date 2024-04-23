@@ -22,255 +22,127 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
 
     public static final DistributionDefaultCacheBehaviorArgs Empty = new DistributionDefaultCacheBehaviorArgs();
 
-    /**
-     * Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-     * 
-     */
     @Import(name="allowedMethods", required=true)
     private Output<List<String>> allowedMethods;
 
-    /**
-     * @return Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-     * 
-     */
     public Output<List<String>> allowedMethods() {
         return this.allowedMethods;
     }
 
-    /**
-     * Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
-     * 
-     */
     @Import(name="cachePolicyId")
     private @Nullable Output<String> cachePolicyId;
 
-    /**
-     * @return Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
-     * 
-     */
     public Optional<Output<String>> cachePolicyId() {
         return Optional.ofNullable(this.cachePolicyId);
     }
 
-    /**
-     * Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-     * 
-     */
     @Import(name="cachedMethods", required=true)
     private Output<List<String>> cachedMethods;
 
-    /**
-     * @return Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-     * 
-     */
     public Output<List<String>> cachedMethods() {
         return this.cachedMethods;
     }
 
-    /**
-     * Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
-     * 
-     */
     @Import(name="compress")
     private @Nullable Output<Boolean> compress;
 
-    /**
-     * @return Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
-     * 
-     */
     public Optional<Output<Boolean>> compress() {
         return Optional.ofNullable(this.compress);
     }
 
-    /**
-     * Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
-     * 
-     */
     @Import(name="defaultTtl")
     private @Nullable Output<Integer> defaultTtl;
 
-    /**
-     * @return Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
-     * 
-     */
     public Optional<Output<Integer>> defaultTtl() {
         return Optional.ofNullable(this.defaultTtl);
     }
 
-    /**
-     * Field level encryption configuration ID.
-     * 
-     */
     @Import(name="fieldLevelEncryptionId")
     private @Nullable Output<String> fieldLevelEncryptionId;
 
-    /**
-     * @return Field level encryption configuration ID.
-     * 
-     */
     public Optional<Output<String>> fieldLevelEncryptionId() {
         return Optional.ofNullable(this.fieldLevelEncryptionId);
     }
 
-    /**
-     * The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-     * 
-     */
     @Import(name="forwardedValues")
     private @Nullable Output<DistributionDefaultCacheBehaviorForwardedValuesArgs> forwardedValues;
 
-    /**
-     * @return The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-     * 
-     */
     public Optional<Output<DistributionDefaultCacheBehaviorForwardedValuesArgs>> forwardedValues() {
         return Optional.ofNullable(this.forwardedValues);
     }
 
-    /**
-     * A config block that triggers a cloudfront function with specific actions (maximum 2).
-     * 
-     */
     @Import(name="functionAssociations")
     private @Nullable Output<List<DistributionDefaultCacheBehaviorFunctionAssociationArgs>> functionAssociations;
 
-    /**
-     * @return A config block that triggers a cloudfront function with specific actions (maximum 2).
-     * 
-     */
     public Optional<Output<List<DistributionDefaultCacheBehaviorFunctionAssociationArgs>>> functionAssociations() {
         return Optional.ofNullable(this.functionAssociations);
     }
 
-    /**
-     * A config block that triggers a lambda function with specific actions (maximum 4).
-     * 
-     */
     @Import(name="lambdaFunctionAssociations")
     private @Nullable Output<List<DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs>> lambdaFunctionAssociations;
 
-    /**
-     * @return A config block that triggers a lambda function with specific actions (maximum 4).
-     * 
-     */
     public Optional<Output<List<DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs>>> lambdaFunctionAssociations() {
         return Optional.ofNullable(this.lambdaFunctionAssociations);
     }
 
-    /**
-     * Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
-     * 
-     */
     @Import(name="maxTtl")
     private @Nullable Output<Integer> maxTtl;
 
-    /**
-     * @return Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
-     * 
-     */
     public Optional<Output<Integer>> maxTtl() {
         return Optional.ofNullable(this.maxTtl);
     }
 
-    /**
-     * Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
-     * 
-     */
     @Import(name="minTtl")
     private @Nullable Output<Integer> minTtl;
 
-    /**
-     * @return Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
-     * 
-     */
     public Optional<Output<Integer>> minTtl() {
         return Optional.ofNullable(this.minTtl);
     }
 
-    /**
-     * Unique identifier of the origin request policy that is attached to the behavior.
-     * 
-     */
     @Import(name="originRequestPolicyId")
     private @Nullable Output<String> originRequestPolicyId;
 
-    /**
-     * @return Unique identifier of the origin request policy that is attached to the behavior.
-     * 
-     */
     public Optional<Output<String>> originRequestPolicyId() {
         return Optional.ofNullable(this.originRequestPolicyId);
     }
 
-    /**
-     * ARN of the real-time log configuration that is attached to this cache behavior.
-     * 
-     */
     @Import(name="realtimeLogConfigArn")
     private @Nullable Output<String> realtimeLogConfigArn;
 
-    /**
-     * @return ARN of the real-time log configuration that is attached to this cache behavior.
-     * 
-     */
     public Optional<Output<String>> realtimeLogConfigArn() {
         return Optional.ofNullable(this.realtimeLogConfigArn);
     }
 
-    /**
-     * Identifier for a response headers policy.
-     * 
-     */
     @Import(name="responseHeadersPolicyId")
     private @Nullable Output<String> responseHeadersPolicyId;
 
-    /**
-     * @return Identifier for a response headers policy.
-     * 
-     */
     public Optional<Output<String>> responseHeadersPolicyId() {
         return Optional.ofNullable(this.responseHeadersPolicyId);
     }
 
-    /**
-     * Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
-     * 
-     */
     @Import(name="smoothStreaming")
     private @Nullable Output<Boolean> smoothStreaming;
 
-    /**
-     * @return Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
-     * 
-     */
     public Optional<Output<Boolean>> smoothStreaming() {
         return Optional.ofNullable(this.smoothStreaming);
     }
 
-    /**
-     * Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-     * 
-     */
     @Import(name="targetOriginId", required=true)
     private Output<String> targetOriginId;
 
-    /**
-     * @return Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-     * 
-     */
     public Output<String> targetOriginId() {
         return this.targetOriginId;
     }
 
     /**
-     * List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      * 
      */
     @Import(name="trustedKeyGroups")
     private @Nullable Output<List<String>> trustedKeyGroups;
 
     /**
-     * @return List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * @return List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      * 
      */
     public Optional<Output<List<String>>> trustedKeyGroups() {
@@ -278,31 +150,23 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
     }
 
     /**
-     * List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
      * 
      */
     @Import(name="trustedSigners")
     private @Nullable Output<List<String>> trustedSigners;
 
     /**
-     * @return List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+     * @return List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
      * 
      */
     public Optional<Output<List<String>>> trustedSigners() {
         return Optional.ofNullable(this.trustedSigners);
     }
 
-    /**
-     * Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-     * 
-     */
     @Import(name="viewerProtocolPolicy", required=true)
     private Output<String> viewerProtocolPolicy;
 
-    /**
-     * @return Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-     * 
-     */
     public Output<String> viewerProtocolPolicy() {
         return this.viewerProtocolPolicy;
     }
@@ -349,384 +213,168 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
             $ = new DistributionDefaultCacheBehaviorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowedMethods Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedMethods(Output<List<String>> allowedMethods) {
             $.allowedMethods = allowedMethods;
             return this;
         }
 
-        /**
-         * @param allowedMethods Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedMethods(List<String> allowedMethods) {
             return allowedMethods(Output.of(allowedMethods));
         }
 
-        /**
-         * @param allowedMethods Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowedMethods(String... allowedMethods) {
             return allowedMethods(List.of(allowedMethods));
         }
 
-        /**
-         * @param cachePolicyId Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachePolicyId(@Nullable Output<String> cachePolicyId) {
             $.cachePolicyId = cachePolicyId;
             return this;
         }
 
-        /**
-         * @param cachePolicyId Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachePolicyId(String cachePolicyId) {
             return cachePolicyId(Output.of(cachePolicyId));
         }
 
-        /**
-         * @param cachedMethods Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachedMethods(Output<List<String>> cachedMethods) {
             $.cachedMethods = cachedMethods;
             return this;
         }
 
-        /**
-         * @param cachedMethods Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachedMethods(List<String> cachedMethods) {
             return cachedMethods(Output.of(cachedMethods));
         }
 
-        /**
-         * @param cachedMethods Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachedMethods(String... cachedMethods) {
             return cachedMethods(List.of(cachedMethods));
         }
 
-        /**
-         * @param compress Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder compress(@Nullable Output<Boolean> compress) {
             $.compress = compress;
             return this;
         }
 
-        /**
-         * @param compress Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder compress(Boolean compress) {
             return compress(Output.of(compress));
         }
 
-        /**
-         * @param defaultTtl Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultTtl(@Nullable Output<Integer> defaultTtl) {
             $.defaultTtl = defaultTtl;
             return this;
         }
 
-        /**
-         * @param defaultTtl Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultTtl(Integer defaultTtl) {
             return defaultTtl(Output.of(defaultTtl));
         }
 
-        /**
-         * @param fieldLevelEncryptionId Field level encryption configuration ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldLevelEncryptionId(@Nullable Output<String> fieldLevelEncryptionId) {
             $.fieldLevelEncryptionId = fieldLevelEncryptionId;
             return this;
         }
 
-        /**
-         * @param fieldLevelEncryptionId Field level encryption configuration ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldLevelEncryptionId(String fieldLevelEncryptionId) {
             return fieldLevelEncryptionId(Output.of(fieldLevelEncryptionId));
         }
 
-        /**
-         * @param forwardedValues The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwardedValues(@Nullable Output<DistributionDefaultCacheBehaviorForwardedValuesArgs> forwardedValues) {
             $.forwardedValues = forwardedValues;
             return this;
         }
 
-        /**
-         * @param forwardedValues The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwardedValues(DistributionDefaultCacheBehaviorForwardedValuesArgs forwardedValues) {
             return forwardedValues(Output.of(forwardedValues));
         }
 
-        /**
-         * @param functionAssociations A config block that triggers a cloudfront function with specific actions (maximum 2).
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionAssociations(@Nullable Output<List<DistributionDefaultCacheBehaviorFunctionAssociationArgs>> functionAssociations) {
             $.functionAssociations = functionAssociations;
             return this;
         }
 
-        /**
-         * @param functionAssociations A config block that triggers a cloudfront function with specific actions (maximum 2).
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionAssociations(List<DistributionDefaultCacheBehaviorFunctionAssociationArgs> functionAssociations) {
             return functionAssociations(Output.of(functionAssociations));
         }
 
-        /**
-         * @param functionAssociations A config block that triggers a cloudfront function with specific actions (maximum 2).
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionAssociations(DistributionDefaultCacheBehaviorFunctionAssociationArgs... functionAssociations) {
             return functionAssociations(List.of(functionAssociations));
         }
 
-        /**
-         * @param lambdaFunctionAssociations A config block that triggers a lambda function with specific actions (maximum 4).
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctionAssociations(@Nullable Output<List<DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs>> lambdaFunctionAssociations) {
             $.lambdaFunctionAssociations = lambdaFunctionAssociations;
             return this;
         }
 
-        /**
-         * @param lambdaFunctionAssociations A config block that triggers a lambda function with specific actions (maximum 4).
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctionAssociations(List<DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs> lambdaFunctionAssociations) {
             return lambdaFunctionAssociations(Output.of(lambdaFunctionAssociations));
         }
 
-        /**
-         * @param lambdaFunctionAssociations A config block that triggers a lambda function with specific actions (maximum 4).
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaFunctionAssociations(DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs... lambdaFunctionAssociations) {
             return lambdaFunctionAssociations(List.of(lambdaFunctionAssociations));
         }
 
-        /**
-         * @param maxTtl Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTtl(@Nullable Output<Integer> maxTtl) {
             $.maxTtl = maxTtl;
             return this;
         }
 
-        /**
-         * @param maxTtl Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxTtl(Integer maxTtl) {
             return maxTtl(Output.of(maxTtl));
         }
 
-        /**
-         * @param minTtl Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minTtl(@Nullable Output<Integer> minTtl) {
             $.minTtl = minTtl;
             return this;
         }
 
-        /**
-         * @param minTtl Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minTtl(Integer minTtl) {
             return minTtl(Output.of(minTtl));
         }
 
-        /**
-         * @param originRequestPolicyId Unique identifier of the origin request policy that is attached to the behavior.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originRequestPolicyId(@Nullable Output<String> originRequestPolicyId) {
             $.originRequestPolicyId = originRequestPolicyId;
             return this;
         }
 
-        /**
-         * @param originRequestPolicyId Unique identifier of the origin request policy that is attached to the behavior.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originRequestPolicyId(String originRequestPolicyId) {
             return originRequestPolicyId(Output.of(originRequestPolicyId));
         }
 
-        /**
-         * @param realtimeLogConfigArn ARN of the real-time log configuration that is attached to this cache behavior.
-         * 
-         * @return builder
-         * 
-         */
         public Builder realtimeLogConfigArn(@Nullable Output<String> realtimeLogConfigArn) {
             $.realtimeLogConfigArn = realtimeLogConfigArn;
             return this;
         }
 
-        /**
-         * @param realtimeLogConfigArn ARN of the real-time log configuration that is attached to this cache behavior.
-         * 
-         * @return builder
-         * 
-         */
         public Builder realtimeLogConfigArn(String realtimeLogConfigArn) {
             return realtimeLogConfigArn(Output.of(realtimeLogConfigArn));
         }
 
-        /**
-         * @param responseHeadersPolicyId Identifier for a response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseHeadersPolicyId(@Nullable Output<String> responseHeadersPolicyId) {
             $.responseHeadersPolicyId = responseHeadersPolicyId;
             return this;
         }
 
-        /**
-         * @param responseHeadersPolicyId Identifier for a response headers policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseHeadersPolicyId(String responseHeadersPolicyId) {
             return responseHeadersPolicyId(Output.of(responseHeadersPolicyId));
         }
 
-        /**
-         * @param smoothStreaming Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smoothStreaming(@Nullable Output<Boolean> smoothStreaming) {
             $.smoothStreaming = smoothStreaming;
             return this;
         }
 
-        /**
-         * @param smoothStreaming Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
-         * 
-         * @return builder
-         * 
-         */
         public Builder smoothStreaming(Boolean smoothStreaming) {
             return smoothStreaming(Output.of(smoothStreaming));
         }
 
-        /**
-         * @param targetOriginId Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetOriginId(Output<String> targetOriginId) {
             $.targetOriginId = targetOriginId;
             return this;
         }
 
-        /**
-         * @param targetOriginId Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetOriginId(String targetOriginId) {
             return targetOriginId(Output.of(targetOriginId));
         }
 
         /**
-         * @param trustedKeyGroups List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedKeyGroups List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
          * 
          * @return builder
          * 
@@ -737,7 +385,7 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trustedKeyGroups List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedKeyGroups List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
          * 
          * @return builder
          * 
@@ -747,7 +395,7 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trustedKeyGroups List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedKeyGroups List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
          * 
          * @return builder
          * 
@@ -757,7 +405,7 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedSigners List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
          * 
          * @return builder
          * 
@@ -768,7 +416,7 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedSigners List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
          * 
          * @return builder
          * 
@@ -778,7 +426,7 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
         }
 
         /**
-         * @param trustedSigners List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+         * @param trustedSigners List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
          * 
          * @return builder
          * 
@@ -787,23 +435,11 @@ public final class DistributionDefaultCacheBehaviorArgs extends com.pulumi.resou
             return trustedSigners(List.of(trustedSigners));
         }
 
-        /**
-         * @param viewerProtocolPolicy Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder viewerProtocolPolicy(Output<String> viewerProtocolPolicy) {
             $.viewerProtocolPolicy = viewerProtocolPolicy;
             return this;
         }
 
-        /**
-         * @param viewerProtocolPolicy Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder viewerProtocolPolicy(String viewerProtocolPolicy) {
             return viewerProtocolPolicy(Output.of(viewerProtocolPolicy));
         }

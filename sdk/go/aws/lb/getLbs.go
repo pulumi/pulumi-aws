@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetLbs(ctx *pulumi.Context, args *GetLbsArgs, opts ...pulumi.InvokeOption) (*GetLbsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLbsResult

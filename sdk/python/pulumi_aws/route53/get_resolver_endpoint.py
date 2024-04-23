@@ -146,16 +146,13 @@ def get_resolver_endpoint(filters: Optional[Sequence[pulumi.InputType['GetResolv
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_resolver_endpoint(resolver_endpoint_id="rslvr-in-1abc2345ef678g91h")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -165,7 +162,6 @@ def get_resolver_endpoint(filters: Optional[Sequence[pulumi.InputType['GetResolv
         values=["MyResolverExampleName"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetResolverEndpointFilterArgs']] filters: One or more name/value pairs to use as filters. There are
@@ -206,16 +202,13 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_resolver_endpoint(resolver_endpoint_id="rslvr-in-1abc2345ef678g91h")
     ```
-    <!--End PulumiCodeChooser -->
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -225,7 +218,6 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
         values=["MyResolverExampleName"],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetResolverEndpointFilterArgs']] filters: One or more name/value pairs to use as filters. There are

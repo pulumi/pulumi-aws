@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Alias Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,11 +23,9 @@ import * as utilities from "../utilities";
  *     qualifier: exampleAwsLambdaAlias.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Function Version
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,7 +36,6 @@ import * as utilities from "../utilities";
  *     qualifier: exampleAwsLambdaFunction.version,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

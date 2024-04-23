@@ -18,7 +18,6 @@ import (
 //
 // ### Public NAT
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,11 +47,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Public NAT with Secondary Private IP Addresses
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,11 +80,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Private NAT
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,11 +107,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Private NAT with Secondary Private IP Addresses
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,7 +135,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -228,7 +228,6 @@ class CustomPlugin(pulumi.CustomResource):
 
         ### Basic configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -248,7 +247,6 @@ class CustomPlugin(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -280,7 +278,6 @@ class CustomPlugin(pulumi.CustomResource):
 
         ### Basic configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -300,7 +297,6 @@ class CustomPlugin(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

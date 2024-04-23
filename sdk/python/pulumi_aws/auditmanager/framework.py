@@ -267,7 +267,6 @@ class Framework(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,7 +280,6 @@ class Framework(pulumi.CustomResource):
                 )],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -314,7 +312,6 @@ class Framework(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,7 +325,6 @@ class Framework(pulumi.CustomResource):
                 )],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Job Queue
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,11 +53,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Job Queue with a fair share scheduling policy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,7 +108,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

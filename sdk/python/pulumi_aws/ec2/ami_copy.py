@@ -773,7 +773,6 @@ class AmiCopy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -787,7 +786,6 @@ class AmiCopy(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -829,7 +827,6 @@ class AmiCopy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -843,7 +840,6 @@ class AmiCopy(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param AmiCopyArgs args: The arguments to use to populate this resource's properties.

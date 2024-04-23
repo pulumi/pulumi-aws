@@ -150,7 +150,6 @@ class VaultNotifications(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,7 +177,6 @@ class VaultNotifications(pulumi.CustomResource):
                 "RESTORE_JOB_COMPLETED",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -205,7 +203,6 @@ class VaultNotifications(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,7 +230,6 @@ class VaultNotifications(pulumi.CustomResource):
                 "RESTORE_JOB_COMPLETED",
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

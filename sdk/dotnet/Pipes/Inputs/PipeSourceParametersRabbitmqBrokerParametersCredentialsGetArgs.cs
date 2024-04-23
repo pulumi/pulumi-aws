@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Pipes.Inputs
 
     public sealed class PipeSourceParametersRabbitmqBrokerParametersCredentialsGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ARN of the Secrets Manager secret containing the credentials.
-        /// </summary>
         [Input("basicAuth", required: true)]
         public Input<string> BasicAuth { get; set; } = null!;
 

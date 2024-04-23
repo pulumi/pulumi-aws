@@ -220,7 +220,6 @@ class Contact(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,11 +229,9 @@ class Contact(pulumi.CustomResource):
             type="PERSONAL",
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage With All Fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -248,7 +245,6 @@ class Contact(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -281,7 +277,6 @@ class Contact(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,11 +286,9 @@ class Contact(pulumi.CustomResource):
             type="PERSONAL",
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage With All Fields
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -309,7 +302,6 @@ class Contact(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[example_aws_ssmincidents_replication_set]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

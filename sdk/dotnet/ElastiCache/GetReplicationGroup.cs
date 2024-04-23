@@ -16,7 +16,6 @@ namespace Pulumi.Aws.ElastiCache
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.ElastiCache
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetReplicationGroupResult> InvokeAsync(GetReplicationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args ?? new GetReplicationGroupArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.ElastiCache
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.ElastiCache
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetReplicationGroupResult> Invoke(GetReplicationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args ?? new GetReplicationGroupInvokeArgs(), options.WithDefaults());

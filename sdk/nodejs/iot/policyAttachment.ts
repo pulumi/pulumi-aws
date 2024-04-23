@@ -12,7 +12,6 @@ import {Policy} from "./index";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,7 +39,6 @@ import {Policy} from "./index";
  *     target: cert.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**

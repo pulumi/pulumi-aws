@@ -14,7 +14,6 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// Use the `aws.cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,7 +69,6 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

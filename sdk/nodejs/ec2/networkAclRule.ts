@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,7 +31,6 @@ import * as utilities from "../utilities";
  *     toPort: 22,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
  *

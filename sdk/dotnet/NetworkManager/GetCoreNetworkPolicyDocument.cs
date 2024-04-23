@@ -22,7 +22,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// ### Basic Example
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -132,7 +131,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
         /// 
@@ -226,7 +224,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// ### Basic Example
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -336,7 +333,6 @@ namespace Pulumi.Aws.NetworkManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
         /// 

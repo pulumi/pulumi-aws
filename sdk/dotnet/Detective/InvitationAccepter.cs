@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Detective
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +39,12 @@ namespace Pulumi.Aws.Detective
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primaryMember, 
+    ///             primaryMember,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

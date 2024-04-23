@@ -175,7 +175,7 @@ class _RuleGroupState:
                  visibility_config: Optional[pulumi.Input['RuleGroupVisibilityConfigArgs']] = None):
         """
         Input properties used for looking up and filtering RuleGroup resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        :param pulumi.Input[str] arn: The ARN of the WAF rule group.
         :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[str] description: A friendly description of the rule group.
@@ -218,7 +218,7 @@ class _RuleGroupState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        The ARN of the WAF rule group.
         """
         return pulumi.get(self, "arn")
 
@@ -472,7 +472,7 @@ class RuleGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        :param pulumi.Input[str] arn: The ARN of the WAF rule group.
         :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[str] description: A friendly description of the rule group.
@@ -505,7 +505,7 @@ class RuleGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        The ARN of the WAF rule group.
         """
         return pulumi.get(self, "arn")
 

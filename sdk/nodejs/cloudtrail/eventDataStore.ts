@@ -20,14 +20,12 @@ import * as utilities from "../utilities";
  *
  * The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multiRegionEnabled` must be `true`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudtrail.EventDataStore("example", {name: "example-event-data-store"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Data Event Logging
  *
@@ -37,7 +35,6 @@ import * as utilities from "../utilities";
  *
  * ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -67,7 +64,6 @@ import * as utilities from "../utilities";
  *     ],
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

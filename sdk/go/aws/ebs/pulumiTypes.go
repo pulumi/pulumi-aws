@@ -718,7 +718,6 @@ type GetEbsVolumesFilter struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 	// For example, if matching against the `size` filter, use:
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -747,7 +746,6 @@ type GetEbsVolumesFilter struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// EBS Volume IDs will be selected if any one of the given values match.
@@ -770,7 +768,6 @@ type GetEbsVolumesFilterArgs struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 	// For example, if matching against the `size` filter, use:
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -799,7 +796,6 @@ type GetEbsVolumesFilterArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// EBS Volume IDs will be selected if any one of the given values match.
@@ -861,7 +857,6 @@ func (o GetEbsVolumesFilterOutput) ToGetEbsVolumesFilterOutputWithContext(ctx co
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 // For example, if matching against the `size` filter, use:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -893,7 +888,6 @@ func (o GetEbsVolumesFilterOutput) ToGetEbsVolumesFilterOutputWithContext(ctx co
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func (o GetEbsVolumesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEbsVolumesFilter) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -124,7 +124,6 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ### Policy on untagged image
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -151,11 +150,9 @@ class LifecyclePolicy(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Policy on tagged image
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,7 +179,6 @@ class LifecyclePolicy(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -214,7 +210,6 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ### Policy on untagged image
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,11 +236,9 @@ class LifecyclePolicy(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Policy on tagged image
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -272,7 +265,6 @@ class LifecyclePolicy(pulumi.CustomResource):
         }
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

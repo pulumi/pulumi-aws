@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValue {
-    /**
-     * @return Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-     * 
-     */
     private @Nullable String interpretedValue;
 
     private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValue() {}
-    /**
-     * @return Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
-     * 
-     */
     public Optional<String> interpretedValue() {
         return Optional.ofNullable(this.interpretedValue);
     }

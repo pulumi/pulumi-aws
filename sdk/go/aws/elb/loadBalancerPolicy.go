@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,7 +141,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type LoadBalancerPolicy struct {
 	pulumi.CustomResourceState
 

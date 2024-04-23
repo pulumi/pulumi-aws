@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### With CloudWatch Logging
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,11 +28,9 @@ import * as utilities from "../utilities";
  *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Kinesis Data Firehose Logging
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,11 +45,9 @@ import * as utilities from "../utilities";
  *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With S3 logging
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -68,11 +63,9 @@ import * as utilities from "../utilities";
  *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With all three logging options
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -95,11 +88,9 @@ import * as utilities from "../utilities";
  *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With `includeTrustContext`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -111,11 +102,9 @@ import * as utilities from "../utilities";
  *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With `logVersion`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -127,7 +116,6 @@ import * as utilities from "../utilities";
  *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

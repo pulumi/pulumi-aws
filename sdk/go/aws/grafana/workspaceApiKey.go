@@ -18,7 +18,6 @@ import (
 //
 // ### Basic configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type WorkspaceApiKey struct {
 	pulumi.CustomResourceState
 

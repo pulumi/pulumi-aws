@@ -774,7 +774,6 @@ class Profile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -782,7 +781,6 @@ class Profile(pulumi.CustomResource):
         example = aws.customerprofiles.Domain("example", domain_name="example")
         example_profile = aws.customerprofiles.Profile("example", domain_name=example.domain_name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -831,7 +829,6 @@ class Profile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -839,7 +836,6 @@ class Profile(pulumi.CustomResource):
         example = aws.customerprofiles.Domain("example", domain_name="example")
         example_profile = aws.customerprofiles.Profile("example", domain_name=example.domain_name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

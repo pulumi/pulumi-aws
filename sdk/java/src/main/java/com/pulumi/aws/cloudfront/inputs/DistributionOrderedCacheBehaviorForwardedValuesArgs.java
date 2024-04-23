@@ -19,62 +19,30 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
 
     public static final DistributionOrderedCacheBehaviorForwardedValuesArgs Empty = new DistributionOrderedCacheBehaviorForwardedValuesArgs();
 
-    /**
-     * The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
-     * 
-     */
     @Import(name="cookies", required=true)
     private Output<DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs> cookies;
 
-    /**
-     * @return The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
-     * 
-     */
     public Output<DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs> cookies() {
         return this.cookies;
     }
 
-    /**
-     * Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
-     * 
-     */
     @Import(name="headers")
     private @Nullable Output<List<String>> headers;
 
-    /**
-     * @return Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
-     * 
-     */
     public Optional<Output<List<String>>> headers() {
         return Optional.ofNullable(this.headers);
     }
 
-    /**
-     * Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
-     * 
-     */
     @Import(name="queryString", required=true)
     private Output<Boolean> queryString;
 
-    /**
-     * @return Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
-     * 
-     */
     public Output<Boolean> queryString() {
         return this.queryString;
     }
 
-    /**
-     * When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
-     * 
-     */
     @Import(name="queryStringCacheKeys")
     private @Nullable Output<List<String>> queryStringCacheKeys;
 
-    /**
-     * @return When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
-     * 
-     */
     public Optional<Output<List<String>>> queryStringCacheKeys() {
         return Optional.ofNullable(this.queryStringCacheKeys);
     }
@@ -106,106 +74,46 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesArgs extends c
             $ = new DistributionOrderedCacheBehaviorForwardedValuesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cookies The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder cookies(Output<DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs> cookies) {
             $.cookies = cookies;
             return this;
         }
 
-        /**
-         * @param cookies The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
-         * 
-         * @return builder
-         * 
-         */
         public Builder cookies(DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs cookies) {
             return cookies(Output.of(cookies));
         }
 
-        /**
-         * @param headers Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(@Nullable Output<List<String>> headers) {
             $.headers = headers;
             return this;
         }
 
-        /**
-         * @param headers Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(List<String> headers) {
             return headers(Output.of(headers));
         }
 
-        /**
-         * @param headers Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(String... headers) {
             return headers(List.of(headers));
         }
 
-        /**
-         * @param queryString Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryString(Output<Boolean> queryString) {
             $.queryString = queryString;
             return this;
         }
 
-        /**
-         * @param queryString Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryString(Boolean queryString) {
             return queryString(Output.of(queryString));
         }
 
-        /**
-         * @param queryStringCacheKeys When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryStringCacheKeys(@Nullable Output<List<String>> queryStringCacheKeys) {
             $.queryStringCacheKeys = queryStringCacheKeys;
             return this;
         }
 
-        /**
-         * @param queryStringCacheKeys When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryStringCacheKeys(List<String> queryStringCacheKeys) {
             return queryStringCacheKeys(Output.of(queryStringCacheKeys));
         }
 
-        /**
-         * @param queryStringCacheKeys When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryStringCacheKeys(String... queryStringCacheKeys) {
             return queryStringCacheKeys(List.of(queryStringCacheKeys));
         }

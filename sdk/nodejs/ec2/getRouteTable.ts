@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,7 +31,6 @@ import * as utilities from "../utilities";
  *     vpcPeeringConnectionId: "pcx-45ff3dc1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     args = args || {};
@@ -127,7 +125,6 @@ export interface GetRouteTableResult {
  *
  * The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -143,7 +140,6 @@ export interface GetRouteTableResult {
  *     vpcPeeringConnectionId: "pcx-45ff3dc1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRouteTableOutput(args?: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
     return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))

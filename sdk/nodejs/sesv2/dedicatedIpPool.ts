@@ -11,18 +11,15 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sesv2.DedicatedIpPool("example", {poolName: "my-pool"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Managed Pool
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,7 +29,6 @@ import * as utilities from "../utilities";
  *     scalingMode: "MANAGED",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

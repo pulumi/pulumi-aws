@@ -19,7 +19,6 @@ import (
 //
 // ### Data Lake Admins
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,11 +45,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create Default Permissions
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,11 +92,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Enable EMR access to LakeFormation resources
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -152,7 +147,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type DataLakeSettings struct {
 	pulumi.CustomResourceState
 

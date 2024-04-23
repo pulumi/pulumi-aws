@@ -242,7 +242,6 @@ def get_vpc(cidr_block: Optional[str] = None,
     and use this data source to obtain the data necessary to create a subnet
     within it.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -258,7 +257,6 @@ def get_vpc(cidr_block: Optional[str] = None,
             newbits=4,
             netnum=1).result)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cidr_block: Cidr block of the desired VPC.
@@ -328,7 +326,6 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
     and use this data source to obtain the data necessary to create a subnet
     within it.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -344,7 +341,6 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
             newbits=4,
             netnum=1).result)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cidr_block: Cidr block of the desired VPC.

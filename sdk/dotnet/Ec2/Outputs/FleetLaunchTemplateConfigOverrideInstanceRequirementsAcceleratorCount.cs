@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount
     {
         /// <summary>
-        /// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        /// Maximum. Set to `0` to exclude instance types with accelerators.
         /// </summary>
         public readonly int? Max;
         /// <summary>
-        /// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        /// Minimum.
         /// </summary>
         public readonly int? Min;
 

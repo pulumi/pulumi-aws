@@ -277,15 +277,6 @@ class ClusterS3Import(dict):
                  source_engine: str,
                  source_engine_version: str,
                  bucket_prefix: Optional[str] = None):
-        """
-        :param str bucket_name: Bucket name where your backup is stored
-        :param str ingestion_role: Role applied to load the data.
-        :param str source_engine: Source engine for the backup
-        :param str source_engine_version: Version of the source engine used to make the backup
-               
-               This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
-        :param str bucket_prefix: Can be blank, but is the path to your backup
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "ingestion_role", ingestion_role)
         pulumi.set(__self__, "source_engine", source_engine)
@@ -296,43 +287,26 @@ class ClusterS3Import(dict):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
-        """
-        Bucket name where your backup is stored
-        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="ingestionRole")
     def ingestion_role(self) -> str:
-        """
-        Role applied to load the data.
-        """
         return pulumi.get(self, "ingestion_role")
 
     @property
     @pulumi.getter(name="sourceEngine")
     def source_engine(self) -> str:
-        """
-        Source engine for the backup
-        """
         return pulumi.get(self, "source_engine")
 
     @property
     @pulumi.getter(name="sourceEngineVersion")
     def source_engine_version(self) -> str:
-        """
-        Version of the source engine used to make the backup
-
-        This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
-        """
         return pulumi.get(self, "source_engine_version")
 
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[str]:
-        """
-        Can be blank, but is the path to your backup
-        """
         return pulumi.get(self, "bucket_prefix")
 
 
@@ -453,8 +427,8 @@ class ClusterServerlessv2ScalingConfiguration(dict):
                  max_capacity: float,
                  min_capacity: float):
         """
-        :param float max_capacity: Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
-        :param float min_capacity: Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+        :param float max_capacity: Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
+        :param float min_capacity: Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
         """
         pulumi.set(__self__, "max_capacity", max_capacity)
         pulumi.set(__self__, "min_capacity", min_capacity)
@@ -463,7 +437,7 @@ class ClusterServerlessv2ScalingConfiguration(dict):
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> float:
         """
-        Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+        Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -471,7 +445,7 @@ class ClusterServerlessv2ScalingConfiguration(dict):
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> float:
         """
-        Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+        Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
         """
         return pulumi.get(self, "min_capacity")
 
@@ -843,15 +817,6 @@ class InstanceS3Import(dict):
                  source_engine: str,
                  source_engine_version: str,
                  bucket_prefix: Optional[str] = None):
-        """
-        :param str bucket_name: The bucket name where your backup is stored
-        :param str ingestion_role: Role applied to load the data.
-        :param str source_engine: Source engine for the backup
-        :param str source_engine_version: Version of the source engine used to make the backup
-               
-               This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
-        :param str bucket_prefix: Can be blank, but is the path to your backup
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "ingestion_role", ingestion_role)
         pulumi.set(__self__, "source_engine", source_engine)
@@ -862,43 +827,26 @@ class InstanceS3Import(dict):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
-        """
-        The bucket name where your backup is stored
-        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="ingestionRole")
     def ingestion_role(self) -> str:
-        """
-        Role applied to load the data.
-        """
         return pulumi.get(self, "ingestion_role")
 
     @property
     @pulumi.getter(name="sourceEngine")
     def source_engine(self) -> str:
-        """
-        Source engine for the backup
-        """
         return pulumi.get(self, "source_engine")
 
     @property
     @pulumi.getter(name="sourceEngineVersion")
     def source_engine_version(self) -> str:
-        """
-        Version of the source engine used to make the backup
-
-        This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
-        """
         return pulumi.get(self, "source_engine_version")
 
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[str]:
-        """
-        Can be blank, but is the path to your backup
-        """
         return pulumi.get(self, "bucket_prefix")
 
 

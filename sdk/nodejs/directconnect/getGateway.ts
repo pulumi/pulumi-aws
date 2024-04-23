@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
 
@@ -61,7 +59,6 @@ export interface GetGatewayResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,7 +67,6 @@ export interface GetGatewayResult {
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
     return pulumi.output(args).apply((a: any) => getGateway(a, opts))

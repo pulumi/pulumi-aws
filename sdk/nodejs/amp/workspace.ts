@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,11 +23,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### CloudWatch Logging
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,11 +35,9 @@ import * as utilities from "../utilities";
  *     logGroupArn: pulumi.interpolate`${example.arn}:*`,
  * }});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### AWS KMS Customer Managed Keys (CMK)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,7 +51,6 @@ import * as utilities from "../utilities";
  *     kmsKeyArn: exampleKey.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -301,7 +301,6 @@ class ScheduledAction(pulumi.CustomResource):
 
         ### Pause Cluster Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,11 +341,9 @@ class ScheduledAction(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Resize Cluster Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -364,7 +361,6 @@ class ScheduledAction(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -396,7 +392,6 @@ class ScheduledAction(pulumi.CustomResource):
 
         ### Pause Cluster Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -437,11 +432,9 @@ class ScheduledAction(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Resize Cluster Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -459,7 +452,6 @@ class ScheduledAction(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

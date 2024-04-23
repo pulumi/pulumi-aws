@@ -90,14 +90,12 @@ def get_resource_collection(cloudformations: Optional[Sequence[pulumi.InputType[
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.devopsguru.get_resource_collection(type="AWS_SERVICE")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetResourceCollectionCloudformationArgs']] cloudformations: A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
@@ -130,14 +128,12 @@ def get_resource_collection_output(cloudformations: Optional[pulumi.Input[Option
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.devopsguru.get_resource_collection(type="AWS_SERVICE")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetResourceCollectionCloudformationArgs']] cloudformations: A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.

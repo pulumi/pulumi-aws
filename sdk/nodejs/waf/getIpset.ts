@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     name: "tfWAFIPSet",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> {
 
@@ -53,7 +51,6 @@ export interface GetIpsetResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,7 +59,6 @@ export interface GetIpsetResult {
  *     name: "tfWAFIPSet",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIpsetOutput(args: GetIpsetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpsetResult> {
     return pulumi.output(args).apply((a: any) => getIpset(a, opts))

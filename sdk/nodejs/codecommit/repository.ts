@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,11 +18,9 @@ import * as utilities from "../utilities";
  *     description: "This is the Sample App Repository",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### AWS KMS Customer Managed Keys (CMK)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,7 +35,6 @@ import * as utilities from "../utilities";
  *     kmsKeyId: testKey.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -124,25 +124,21 @@ def get_connection(arn: Optional[str] = None,
 
     ### By ARN
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.codestarconnections.get_connection(arn=example_aws_codestarconnections_connection["arn"])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Name
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.codestarconnections.get_connection(name=example_aws_codestarconnections_connection["name"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: CodeStar Connection ARN.
@@ -180,25 +176,21 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ### By ARN
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.codestarconnections.get_connection(arn=example_aws_codestarconnections_connection["arn"])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### By Name
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.codestarconnections.get_connection(name=example_aws_codestarconnections_connection["name"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: CodeStar Connection ARN.

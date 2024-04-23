@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb {
-    /**
-     * @return Maximum.
-     * 
-     */
     private @Nullable Double max;
-    /**
-     * @return Minimum.
-     * 
-     */
     private @Nullable Double min;
 
     private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb() {}
-    /**
-     * @return Maximum.
-     * 
-     */
     public Optional<Double> max() {
         return Optional.ofNullable(this.max);
     }
-    /**
-     * @return Minimum.
-     * 
-     */
     public Optional<Double> min() {
         return Optional.ofNullable(this.min);
     }

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class FeatureGroupOnlineStoreConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
-        /// </summary>
         [Input("enableOnlineStore")]
         public Input<bool>? EnableOnlineStore { get; set; }
 

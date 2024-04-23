@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getContainerRecipe(args: GetContainerRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRecipeResult> {
 
@@ -125,7 +123,6 @@ export interface GetContainerRecipeResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -134,7 +131,6 @@ export interface GetContainerRecipeResult {
  *     arn: "arn:aws:imagebuilder:us-east-1:aws:container-recipe/example/1.0.0",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getContainerRecipeOutput(args: GetContainerRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRecipeResult> {
     return pulumi.output(args).apply((a: any) => getContainerRecipe(a, opts))

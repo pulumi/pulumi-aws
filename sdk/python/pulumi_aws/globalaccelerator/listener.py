@@ -169,7 +169,6 @@ class Listener(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -192,7 +191,6 @@ class Listener(pulumi.CustomResource):
                 to_port=80,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -220,7 +218,6 @@ class Listener(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -243,7 +240,6 @@ class Listener(pulumi.CustomResource):
                 to_port=80,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

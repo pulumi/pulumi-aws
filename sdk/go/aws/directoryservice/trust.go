@@ -24,7 +24,6 @@ import (
 //
 // ### Two-Way Trust
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,11 +75,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### One-Way Trust
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -132,7 +129,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

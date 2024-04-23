@@ -104,7 +104,6 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -132,7 +131,6 @@ class ResourcePolicy(pulumi.CustomResource):
                 }],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -160,7 +158,6 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -188,7 +185,6 @@ class ResourcePolicy(pulumi.CustomResource):
                 }],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

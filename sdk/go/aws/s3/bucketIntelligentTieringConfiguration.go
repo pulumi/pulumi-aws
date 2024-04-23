@@ -20,7 +20,6 @@ import (
 //
 // ### Add intelligent tiering configuration for entire S3 bucket
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,11 +60,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Add intelligent tiering configuration with S3 object filter
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,7 +107,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

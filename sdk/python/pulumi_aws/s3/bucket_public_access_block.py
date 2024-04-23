@@ -224,7 +224,6 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,7 +236,6 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
             ignore_public_acls=True,
             restrict_public_buckets=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -273,7 +271,6 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,7 +283,6 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
             ignore_public_acls=True,
             restrict_public_buckets=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

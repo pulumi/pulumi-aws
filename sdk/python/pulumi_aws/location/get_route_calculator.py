@@ -133,14 +133,12 @@ def get_route_calculator(calculator_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.location.get_route_calculator(calculator_name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str calculator_name: Name of the route calculator resource.
@@ -172,14 +170,12 @@ def get_route_calculator_output(calculator_name: Optional[pulumi.Input[str]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.location.get_route_calculator(calculator_name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str calculator_name: Name of the route calculator resource.

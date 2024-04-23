@@ -18,7 +18,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### Add inventory configuration
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,11 +57,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Add inventory configuration with S3 object prefix
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -107,7 +104,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

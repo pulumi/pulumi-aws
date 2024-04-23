@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ### Account Access
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,11 +36,9 @@ import * as utilities from "../utilities";
  *     eventBusName: testAwsCloudwatchEventBus.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Organization Access
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,11 +73,9 @@ import * as utilities from "../utilities";
  *     eventBusName: testAwsCloudwatchEventBus.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Multiple Statements
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -127,7 +122,6 @@ import * as utilities from "../utilities";
  *     eventBusName: testAwsCloudwatchEventBus.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

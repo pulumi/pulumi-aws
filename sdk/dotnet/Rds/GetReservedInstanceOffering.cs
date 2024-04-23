@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetReservedInstanceOfferingResult> InvokeAsync(GetReservedInstanceOfferingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReservedInstanceOfferingResult>("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", args ?? new GetReservedInstanceOfferingArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetReservedInstanceOfferingResult> Invoke(GetReservedInstanceOfferingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReservedInstanceOfferingResult>("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", args ?? new GetReservedInstanceOfferingInvokeArgs(), options.WithDefaults());

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,13 +37,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Ignoring Changes to Desired Size
  *
  * You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,11 +50,9 @@ import * as utilities from "../utilities";
  *     desiredSize: 2,
  * }});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example IAM Role for EKS Node Group
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -88,11 +83,9 @@ import * as utilities from "../utilities";
  *     role: example.name,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example Subnets for EKS Node Group
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -114,7 +107,6 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

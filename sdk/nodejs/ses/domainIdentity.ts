@@ -11,18 +11,15 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With Route53 Record
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,7 +33,6 @@ import * as utilities from "../utilities";
  *     records: [example.verificationToken],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

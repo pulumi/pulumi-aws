@@ -178,7 +178,6 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
         To create a basic traffic mirror filter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,7 +186,6 @@ class TrafficMirrorFilter(pulumi.CustomResource):
             description="traffic mirror filter - example",
             network_services=["amazon-dns"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -217,7 +215,6 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
         To create a basic traffic mirror filter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,7 +223,6 @@ class TrafficMirrorFilter(pulumi.CustomResource):
             description="traffic mirror filter - example",
             network_services=["amazon-dns"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

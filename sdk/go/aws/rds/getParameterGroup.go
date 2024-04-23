@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, opts ...pulumi.InvokeOption) (*LookupParameterGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupParameterGroupResult

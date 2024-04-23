@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     replicationGroupId: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
 
@@ -124,7 +122,6 @@ export interface GetReplicationGroupResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -133,7 +130,6 @@ export interface GetReplicationGroupResult {
  *     replicationGroupId: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getReplicationGroupOutput(args: GetReplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationGroupResult> {
     return pulumi.output(args).apply((a: any) => getReplicationGroup(a, opts))

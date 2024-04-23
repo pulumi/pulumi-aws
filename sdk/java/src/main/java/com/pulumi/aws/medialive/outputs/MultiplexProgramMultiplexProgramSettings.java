@@ -15,53 +15,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultiplexProgramMultiplexProgramSettings {
-    /**
-     * @return Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
-     * 
-     */
     private String preferredChannelPipeline;
-    /**
-     * @return Unique program number.
-     * 
-     */
     private Integer programNumber;
-    /**
-     * @return Service Descriptor. See Service Descriptor for more details.
-     * 
-     */
     private @Nullable MultiplexProgramMultiplexProgramSettingsServiceDescriptor serviceDescriptor;
-    /**
-     * @return Video settings. See Video Settings for more details.
-     * 
-     */
     private @Nullable MultiplexProgramMultiplexProgramSettingsVideoSettings videoSettings;
 
     private MultiplexProgramMultiplexProgramSettings() {}
-    /**
-     * @return Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
-     * 
-     */
     public String preferredChannelPipeline() {
         return this.preferredChannelPipeline;
     }
-    /**
-     * @return Unique program number.
-     * 
-     */
     public Integer programNumber() {
         return this.programNumber;
     }
-    /**
-     * @return Service Descriptor. See Service Descriptor for more details.
-     * 
-     */
     public Optional<MultiplexProgramMultiplexProgramSettingsServiceDescriptor> serviceDescriptor() {
         return Optional.ofNullable(this.serviceDescriptor);
     }
-    /**
-     * @return Video settings. See Video Settings for more details.
-     * 
-     */
     public Optional<MultiplexProgramMultiplexProgramSettingsVideoSettings> videoSettings() {
         return Optional.ofNullable(this.videoSettings);
     }

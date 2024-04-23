@@ -13,17 +13,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings
     {
-        /// <summary>
-        /// Set a prefix on the burned in timecode.
-        /// </summary>
         public readonly string? Prefix;
-        /// <summary>
-        /// Sets the size of the burned in timecode.
-        /// </summary>
         public readonly string? TimecodeBurninFontSize;
-        /// <summary>
-        /// Sets the position of the burned in timecode.
-        /// </summary>
         public readonly string? TimecodeBurninPosition;
 
         [OutputConstructor]

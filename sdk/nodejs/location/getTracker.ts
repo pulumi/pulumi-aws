@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     trackerName: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTracker(args: GetTrackerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerResult> {
 
@@ -86,7 +84,6 @@ export interface GetTrackerResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -95,7 +92,6 @@ export interface GetTrackerResult {
  *     trackerName: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerResult> {
     return pulumi.output(args).apply((a: any) => getTracker(a, opts))

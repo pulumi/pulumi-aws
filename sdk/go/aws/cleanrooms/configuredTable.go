@@ -18,7 +18,6 @@ import (
 //
 // ### Configured table with tags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,7 +55,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

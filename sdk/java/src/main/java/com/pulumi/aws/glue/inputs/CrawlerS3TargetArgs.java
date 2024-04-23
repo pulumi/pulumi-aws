@@ -19,14 +19,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     public static final CrawlerS3TargetArgs Empty = new CrawlerS3TargetArgs();
 
     /**
-     * The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+     * The name of a connection which allows crawler to access data in S3 within a VPC.
      * 
      */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
     /**
-     * @return The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+     * @return The name of a connection which allows crawler to access data in S3 within a VPC.
      * 
      */
     public Optional<Output<String>> connectionName() {
@@ -34,22 +34,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A valid Amazon SQS ARN.
-     * 
-     * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
-     * 
-     * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
+     * The ARN of the dead-letter SQS queue.
      * 
      */
     @Import(name="dlqEventQueueArn")
     private @Nullable Output<String> dlqEventQueueArn;
 
     /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
-     * 
-     * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
+     * @return The ARN of the dead-letter SQS queue.
      * 
      */
     public Optional<Output<String>> dlqEventQueueArn() {
@@ -57,14 +49,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A valid Amazon SQS ARN.
+     * The ARN of the SQS queue to receive S3 notifications from.
      * 
      */
     @Import(name="eventQueueArn")
     private @Nullable Output<String> eventQueueArn;
 
     /**
-     * @return A valid Amazon SQS ARN.
+     * @return The ARN of the SQS queue to receive S3 notifications from.
      * 
      */
     public Optional<Output<String>> eventQueueArn() {
@@ -87,14 +79,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the DynamoDB table to crawl.
+     * The path to the Amazon S3 target.
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return The name of the DynamoDB table to crawl.
+     * @return The path to the Amazon S3 target.
      * 
      */
     public Output<String> path() {
@@ -146,7 +138,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param connectionName The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+         * @param connectionName The name of a connection which allows crawler to access data in S3 within a VPC.
          * 
          * @return builder
          * 
@@ -157,7 +149,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param connectionName The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+         * @param connectionName The name of a connection which allows crawler to access data in S3 within a VPC.
          * 
          * @return builder
          * 
@@ -167,11 +159,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dlqEventQueueArn A valid Amazon SQS ARN.
-         * 
-         * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
-         * 
-         * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
+         * @param dlqEventQueueArn The ARN of the dead-letter SQS queue.
          * 
          * @return builder
          * 
@@ -182,11 +170,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dlqEventQueueArn A valid Amazon SQS ARN.
-         * 
-         * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
-         * 
-         * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
+         * @param dlqEventQueueArn The ARN of the dead-letter SQS queue.
          * 
          * @return builder
          * 
@@ -196,7 +180,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventQueueArn A valid Amazon SQS ARN.
+         * @param eventQueueArn The ARN of the SQS queue to receive S3 notifications from.
          * 
          * @return builder
          * 
@@ -207,7 +191,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventQueueArn A valid Amazon SQS ARN.
+         * @param eventQueueArn The ARN of the SQS queue to receive S3 notifications from.
          * 
          * @return builder
          * 
@@ -248,7 +232,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param path The name of the DynamoDB table to crawl.
+         * @param path The path to the Amazon S3 target.
          * 
          * @return builder
          * 
@@ -259,7 +243,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param path The name of the DynamoDB table to crawl.
+         * @param path The path to the Amazon S3 target.
          * 
          * @return builder
          * 

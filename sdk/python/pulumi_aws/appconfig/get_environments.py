@@ -75,14 +75,12 @@ def get_environments(application_id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.appconfig.get_environments(application_id="a1d3rpe")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ID of the AppConfig Application.
@@ -109,14 +107,12 @@ def get_environments_output(application_id: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.appconfig.get_environments(application_id="a1d3rpe")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ID of the AppConfig Application.

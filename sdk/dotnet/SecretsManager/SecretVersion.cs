@@ -18,7 +18,6 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// ### Simple String Value
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +34,11 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Key-Value Pairs
     /// 
     /// Secrets Manager also accepts key-value pairs in JSON.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,7 +62,6 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Reading key-value pairs from JSON back into a native map
     /// 

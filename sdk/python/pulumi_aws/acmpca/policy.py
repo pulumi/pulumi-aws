@@ -104,7 +104,6 @@ class Policy(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,7 +145,6 @@ class Policy(pulumi.CustomResource):
             resource_arn=example_aws_acmpca_certificate_authority["arn"],
             policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -174,7 +172,6 @@ class Policy(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,7 +213,6 @@ class Policy(pulumi.CustomResource):
             resource_arn=example_aws_acmpca_certificate_authority["arn"],
             policy=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

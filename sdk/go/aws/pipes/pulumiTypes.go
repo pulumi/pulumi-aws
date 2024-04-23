@@ -170,11 +170,8 @@ func (o PipeEnrichmentParametersPtrOutput) InputTemplate() pulumi.StringPtrOutpu
 }
 
 type PipeEnrichmentParametersHttpParameters struct {
-	// Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-	HeaderParameters map[string]string `pulumi:"headerParameters"`
-	// The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
-	PathParameterValues *string `pulumi:"pathParameterValues"`
-	// Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
+	HeaderParameters      map[string]string `pulumi:"headerParameters"`
+	PathParameterValues   *string           `pulumi:"pathParameterValues"`
 	QueryStringParameters map[string]string `pulumi:"queryStringParameters"`
 }
 
@@ -190,11 +187,8 @@ type PipeEnrichmentParametersHttpParametersInput interface {
 }
 
 type PipeEnrichmentParametersHttpParametersArgs struct {
-	// Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-	HeaderParameters pulumi.StringMapInput `pulumi:"headerParameters"`
-	// The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
-	PathParameterValues pulumi.StringPtrInput `pulumi:"pathParameterValues"`
-	// Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
+	HeaderParameters      pulumi.StringMapInput `pulumi:"headerParameters"`
+	PathParameterValues   pulumi.StringPtrInput `pulumi:"pathParameterValues"`
 	QueryStringParameters pulumi.StringMapInput `pulumi:"queryStringParameters"`
 }
 
@@ -275,17 +269,14 @@ func (o PipeEnrichmentParametersHttpParametersOutput) ToPipeEnrichmentParameters
 	}).(PipeEnrichmentParametersHttpParametersPtrOutput)
 }
 
-// Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
 func (o PipeEnrichmentParametersHttpParametersOutput) HeaderParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipeEnrichmentParametersHttpParameters) map[string]string { return v.HeaderParameters }).(pulumi.StringMapOutput)
 }
 
-// The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
 func (o PipeEnrichmentParametersHttpParametersOutput) PathParameterValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeEnrichmentParametersHttpParameters) *string { return v.PathParameterValues }).(pulumi.StringPtrOutput)
 }
 
-// Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
 func (o PipeEnrichmentParametersHttpParametersOutput) QueryStringParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipeEnrichmentParametersHttpParameters) map[string]string { return v.QueryStringParameters }).(pulumi.StringMapOutput)
 }
@@ -314,7 +305,6 @@ func (o PipeEnrichmentParametersHttpParametersPtrOutput) Elem() PipeEnrichmentPa
 	}).(PipeEnrichmentParametersHttpParametersOutput)
 }
 
-// Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
 func (o PipeEnrichmentParametersHttpParametersPtrOutput) HeaderParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PipeEnrichmentParametersHttpParameters) map[string]string {
 		if v == nil {
@@ -324,7 +314,6 @@ func (o PipeEnrichmentParametersHttpParametersPtrOutput) HeaderParameters() pulu
 	}).(pulumi.StringMapOutput)
 }
 
-// The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
 func (o PipeEnrichmentParametersHttpParametersPtrOutput) PathParameterValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeEnrichmentParametersHttpParameters) *string {
 		if v == nil {
@@ -334,7 +323,6 @@ func (o PipeEnrichmentParametersHttpParametersPtrOutput) PathParameterValues() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
 func (o PipeEnrichmentParametersHttpParametersPtrOutput) QueryStringParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PipeEnrichmentParametersHttpParameters) map[string]string {
 		if v == nil {
@@ -627,14 +615,10 @@ func (o PipeSourceParametersPtrOutput) SqsQueueParameters() PipeSourceParameters
 }
 
 type PipeSourceParametersActivemqBrokerParameters struct {
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize *int `pulumi:"batchSize"`
-	// The credentials needed to access the resource. Detailed below.
-	Credentials PipeSourceParametersActivemqBrokerParametersCredentials `pulumi:"credentials"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
-	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
-	// The name of the destination queue to consume. Maximum length of 1000.
-	QueueName string `pulumi:"queueName"`
+	BatchSize                      *int                                                    `pulumi:"batchSize"`
+	Credentials                    PipeSourceParametersActivemqBrokerParametersCredentials `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds *int                                                    `pulumi:"maximumBatchingWindowInSeconds"`
+	QueueName                      string                                                  `pulumi:"queueName"`
 }
 
 // PipeSourceParametersActivemqBrokerParametersInput is an input type that accepts PipeSourceParametersActivemqBrokerParametersArgs and PipeSourceParametersActivemqBrokerParametersOutput values.
@@ -649,14 +633,10 @@ type PipeSourceParametersActivemqBrokerParametersInput interface {
 }
 
 type PipeSourceParametersActivemqBrokerParametersArgs struct {
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
-	// The credentials needed to access the resource. Detailed below.
-	Credentials PipeSourceParametersActivemqBrokerParametersCredentialsInput `pulumi:"credentials"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput `pulumi:"maximumBatchingWindowInSeconds"`
-	// The name of the destination queue to consume. Maximum length of 1000.
-	QueueName pulumi.StringInput `pulumi:"queueName"`
+	BatchSize                      pulumi.IntPtrInput                                           `pulumi:"batchSize"`
+	Credentials                    PipeSourceParametersActivemqBrokerParametersCredentialsInput `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                                           `pulumi:"maximumBatchingWindowInSeconds"`
+	QueueName                      pulumi.StringInput                                           `pulumi:"queueName"`
 }
 
 func (PipeSourceParametersActivemqBrokerParametersArgs) ElementType() reflect.Type {
@@ -736,24 +716,20 @@ func (o PipeSourceParametersActivemqBrokerParametersOutput) ToPipeSourceParamete
 	}).(PipeSourceParametersActivemqBrokerParametersPtrOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersActivemqBrokerParametersOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersActivemqBrokerParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-// The credentials needed to access the resource. Detailed below.
 func (o PipeSourceParametersActivemqBrokerParametersOutput) Credentials() PipeSourceParametersActivemqBrokerParametersCredentialsOutput {
 	return o.ApplyT(func(v PipeSourceParametersActivemqBrokerParameters) PipeSourceParametersActivemqBrokerParametersCredentials {
 		return v.Credentials
 	}).(PipeSourceParametersActivemqBrokerParametersCredentialsOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersActivemqBrokerParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersActivemqBrokerParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The name of the destination queue to consume. Maximum length of 1000.
 func (o PipeSourceParametersActivemqBrokerParametersOutput) QueueName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersActivemqBrokerParameters) string { return v.QueueName }).(pulumi.StringOutput)
 }
@@ -782,7 +758,6 @@ func (o PipeSourceParametersActivemqBrokerParametersPtrOutput) Elem() PipeSource
 	}).(PipeSourceParametersActivemqBrokerParametersOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersActivemqBrokerParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersActivemqBrokerParameters) *int {
 		if v == nil {
@@ -792,7 +767,6 @@ func (o PipeSourceParametersActivemqBrokerParametersPtrOutput) BatchSize() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// The credentials needed to access the resource. Detailed below.
 func (o PipeSourceParametersActivemqBrokerParametersPtrOutput) Credentials() PipeSourceParametersActivemqBrokerParametersCredentialsPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersActivemqBrokerParameters) *PipeSourceParametersActivemqBrokerParametersCredentials {
 		if v == nil {
@@ -802,7 +776,6 @@ func (o PipeSourceParametersActivemqBrokerParametersPtrOutput) Credentials() Pip
 	}).(PipeSourceParametersActivemqBrokerParametersCredentialsPtrOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersActivemqBrokerParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersActivemqBrokerParameters) *int {
 		if v == nil {
@@ -812,7 +785,6 @@ func (o PipeSourceParametersActivemqBrokerParametersPtrOutput) MaximumBatchingWi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the destination queue to consume. Maximum length of 1000.
 func (o PipeSourceParametersActivemqBrokerParametersPtrOutput) QueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersActivemqBrokerParameters) *string {
 		if v == nil {
@@ -823,7 +795,6 @@ func (o PipeSourceParametersActivemqBrokerParametersPtrOutput) QueueName() pulum
 }
 
 type PipeSourceParametersActivemqBrokerParametersCredentials struct {
-	// The ARN of the Secrets Manager secret containing the credentials.
 	BasicAuth string `pulumi:"basicAuth"`
 }
 
@@ -839,7 +810,6 @@ type PipeSourceParametersActivemqBrokerParametersCredentialsInput interface {
 }
 
 type PipeSourceParametersActivemqBrokerParametersCredentialsArgs struct {
-	// The ARN of the Secrets Manager secret containing the credentials.
 	BasicAuth pulumi.StringInput `pulumi:"basicAuth"`
 }
 
@@ -920,7 +890,6 @@ func (o PipeSourceParametersActivemqBrokerParametersCredentialsOutput) ToPipeSou
 	}).(PipeSourceParametersActivemqBrokerParametersCredentialsPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersActivemqBrokerParametersCredentialsOutput) BasicAuth() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersActivemqBrokerParametersCredentials) string { return v.BasicAuth }).(pulumi.StringOutput)
 }
@@ -949,7 +918,6 @@ func (o PipeSourceParametersActivemqBrokerParametersCredentialsPtrOutput) Elem()
 	}).(PipeSourceParametersActivemqBrokerParametersCredentialsOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersActivemqBrokerParametersCredentialsPtrOutput) BasicAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersActivemqBrokerParametersCredentials) *string {
 		if v == nil {
@@ -960,22 +928,14 @@ func (o PipeSourceParametersActivemqBrokerParametersCredentialsPtrOutput) BasicA
 }
 
 type PipeSourceParametersDynamodbStreamParameters struct {
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize *int `pulumi:"batchSize"`
-	// Define the target queue to send dead-letter queue events to. Detailed below.
-	DeadLetterConfig *PipeSourceParametersDynamodbStreamParametersDeadLetterConfig `pulumi:"deadLetterConfig"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
-	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
-	// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
-	MaximumRecordAgeInSeconds *int `pulumi:"maximumRecordAgeInSeconds"`
-	// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
-	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
-	// Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
-	OnPartialBatchItemFailure *string `pulumi:"onPartialBatchItemFailure"`
-	// The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
-	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
-	// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-	StartingPosition string `pulumi:"startingPosition"`
+	BatchSize                      *int                                                          `pulumi:"batchSize"`
+	DeadLetterConfig               *PipeSourceParametersDynamodbStreamParametersDeadLetterConfig `pulumi:"deadLetterConfig"`
+	MaximumBatchingWindowInSeconds *int                                                          `pulumi:"maximumBatchingWindowInSeconds"`
+	MaximumRecordAgeInSeconds      *int                                                          `pulumi:"maximumRecordAgeInSeconds"`
+	MaximumRetryAttempts           *int                                                          `pulumi:"maximumRetryAttempts"`
+	OnPartialBatchItemFailure      *string                                                       `pulumi:"onPartialBatchItemFailure"`
+	ParallelizationFactor          *int                                                          `pulumi:"parallelizationFactor"`
+	StartingPosition               string                                                        `pulumi:"startingPosition"`
 }
 
 // PipeSourceParametersDynamodbStreamParametersInput is an input type that accepts PipeSourceParametersDynamodbStreamParametersArgs and PipeSourceParametersDynamodbStreamParametersOutput values.
@@ -990,22 +950,14 @@ type PipeSourceParametersDynamodbStreamParametersInput interface {
 }
 
 type PipeSourceParametersDynamodbStreamParametersArgs struct {
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
-	// Define the target queue to send dead-letter queue events to. Detailed below.
-	DeadLetterConfig PipeSourceParametersDynamodbStreamParametersDeadLetterConfigPtrInput `pulumi:"deadLetterConfig"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput `pulumi:"maximumBatchingWindowInSeconds"`
-	// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
-	MaximumRecordAgeInSeconds pulumi.IntPtrInput `pulumi:"maximumRecordAgeInSeconds"`
-	// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
-	MaximumRetryAttempts pulumi.IntPtrInput `pulumi:"maximumRetryAttempts"`
-	// Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
-	OnPartialBatchItemFailure pulumi.StringPtrInput `pulumi:"onPartialBatchItemFailure"`
-	// The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
-	ParallelizationFactor pulumi.IntPtrInput `pulumi:"parallelizationFactor"`
-	// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-	StartingPosition pulumi.StringInput `pulumi:"startingPosition"`
+	BatchSize                      pulumi.IntPtrInput                                                   `pulumi:"batchSize"`
+	DeadLetterConfig               PipeSourceParametersDynamodbStreamParametersDeadLetterConfigPtrInput `pulumi:"deadLetterConfig"`
+	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                                                   `pulumi:"maximumBatchingWindowInSeconds"`
+	MaximumRecordAgeInSeconds      pulumi.IntPtrInput                                                   `pulumi:"maximumRecordAgeInSeconds"`
+	MaximumRetryAttempts           pulumi.IntPtrInput                                                   `pulumi:"maximumRetryAttempts"`
+	OnPartialBatchItemFailure      pulumi.StringPtrInput                                                `pulumi:"onPartialBatchItemFailure"`
+	ParallelizationFactor          pulumi.IntPtrInput                                                   `pulumi:"parallelizationFactor"`
+	StartingPosition               pulumi.StringInput                                                   `pulumi:"startingPosition"`
 }
 
 func (PipeSourceParametersDynamodbStreamParametersArgs) ElementType() reflect.Type {
@@ -1085,44 +1037,36 @@ func (o PipeSourceParametersDynamodbStreamParametersOutput) ToPipeSourceParamete
 	}).(PipeSourceParametersDynamodbStreamParametersPtrOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersDynamodbStreamParametersOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersDynamodbStreamParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-// Define the target queue to send dead-letter queue events to. Detailed below.
 func (o PipeSourceParametersDynamodbStreamParametersOutput) DeadLetterConfig() PipeSourceParametersDynamodbStreamParametersDeadLetterConfigPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersDynamodbStreamParameters) *PipeSourceParametersDynamodbStreamParametersDeadLetterConfig {
 		return v.DeadLetterConfig
 	}).(PipeSourceParametersDynamodbStreamParametersDeadLetterConfigPtrOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersDynamodbStreamParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersDynamodbStreamParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
 func (o PipeSourceParametersDynamodbStreamParametersOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersDynamodbStreamParameters) *int { return v.MaximumRecordAgeInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
 func (o PipeSourceParametersDynamodbStreamParametersOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersDynamodbStreamParameters) *int { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
 }
 
-// Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
 func (o PipeSourceParametersDynamodbStreamParametersOutput) OnPartialBatchItemFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersDynamodbStreamParameters) *string { return v.OnPartialBatchItemFailure }).(pulumi.StringPtrOutput)
 }
 
-// The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
 func (o PipeSourceParametersDynamodbStreamParametersOutput) ParallelizationFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersDynamodbStreamParameters) *int { return v.ParallelizationFactor }).(pulumi.IntPtrOutput)
 }
 
-// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
 func (o PipeSourceParametersDynamodbStreamParametersOutput) StartingPosition() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersDynamodbStreamParameters) string { return v.StartingPosition }).(pulumi.StringOutput)
 }
@@ -1151,7 +1095,6 @@ func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) Elem() PipeSource
 	}).(PipeSourceParametersDynamodbStreamParametersOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersDynamodbStreamParameters) *int {
 		if v == nil {
@@ -1161,7 +1104,6 @@ func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) BatchSize() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// Define the target queue to send dead-letter queue events to. Detailed below.
 func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) DeadLetterConfig() PipeSourceParametersDynamodbStreamParametersDeadLetterConfigPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersDynamodbStreamParameters) *PipeSourceParametersDynamodbStreamParametersDeadLetterConfig {
 		if v == nil {
@@ -1171,7 +1113,6 @@ func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) DeadLetterConfig(
 	}).(PipeSourceParametersDynamodbStreamParametersDeadLetterConfigPtrOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersDynamodbStreamParameters) *int {
 		if v == nil {
@@ -1181,7 +1122,6 @@ func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) MaximumBatchingWi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
 func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersDynamodbStreamParameters) *int {
 		if v == nil {
@@ -1191,7 +1131,6 @@ func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) MaximumRecordAgeI
 	}).(pulumi.IntPtrOutput)
 }
 
-// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
 func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersDynamodbStreamParameters) *int {
 		if v == nil {
@@ -1201,7 +1140,6 @@ func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) MaximumRetryAttem
 	}).(pulumi.IntPtrOutput)
 }
 
-// Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
 func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) OnPartialBatchItemFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersDynamodbStreamParameters) *string {
 		if v == nil {
@@ -1211,7 +1149,6 @@ func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) OnPartialBatchIte
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
 func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) ParallelizationFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersDynamodbStreamParameters) *int {
 		if v == nil {
@@ -1221,7 +1158,6 @@ func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) ParallelizationFa
 	}).(pulumi.IntPtrOutput)
 }
 
-// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
 func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) StartingPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersDynamodbStreamParameters) *string {
 		if v == nil {
@@ -1232,7 +1168,7 @@ func (o PipeSourceParametersDynamodbStreamParametersPtrOutput) StartingPosition(
 }
 
 type PipeSourceParametersDynamodbStreamParametersDeadLetterConfig struct {
-	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+	// ARN of this pipe.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -1248,7 +1184,7 @@ type PipeSourceParametersDynamodbStreamParametersDeadLetterConfigInput interface
 }
 
 type PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs struct {
-	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+	// ARN of this pipe.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -1329,7 +1265,7 @@ func (o PipeSourceParametersDynamodbStreamParametersDeadLetterConfigOutput) ToPi
 	}).(PipeSourceParametersDynamodbStreamParametersDeadLetterConfigPtrOutput)
 }
 
-// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+// ARN of this pipe.
 func (o PipeSourceParametersDynamodbStreamParametersDeadLetterConfigOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersDynamodbStreamParametersDeadLetterConfig) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -1358,7 +1294,7 @@ func (o PipeSourceParametersDynamodbStreamParametersDeadLetterConfigPtrOutput) E
 	}).(PipeSourceParametersDynamodbStreamParametersDeadLetterConfigOutput)
 }
 
-// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+// ARN of this pipe.
 func (o PipeSourceParametersDynamodbStreamParametersDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersDynamodbStreamParametersDeadLetterConfig) *string {
 		if v == nil {
@@ -1369,7 +1305,6 @@ func (o PipeSourceParametersDynamodbStreamParametersDeadLetterConfigPtrOutput) A
 }
 
 type PipeSourceParametersFilterCriteria struct {
-	// An array of up to 5 event patterns. Detailed below.
 	Filters []PipeSourceParametersFilterCriteriaFilter `pulumi:"filters"`
 }
 
@@ -1385,7 +1320,6 @@ type PipeSourceParametersFilterCriteriaInput interface {
 }
 
 type PipeSourceParametersFilterCriteriaArgs struct {
-	// An array of up to 5 event patterns. Detailed below.
 	Filters PipeSourceParametersFilterCriteriaFilterArrayInput `pulumi:"filters"`
 }
 
@@ -1466,7 +1400,6 @@ func (o PipeSourceParametersFilterCriteriaOutput) ToPipeSourceParametersFilterCr
 	}).(PipeSourceParametersFilterCriteriaPtrOutput)
 }
 
-// An array of up to 5 event patterns. Detailed below.
 func (o PipeSourceParametersFilterCriteriaOutput) Filters() PipeSourceParametersFilterCriteriaFilterArrayOutput {
 	return o.ApplyT(func(v PipeSourceParametersFilterCriteria) []PipeSourceParametersFilterCriteriaFilter {
 		return v.Filters
@@ -1497,7 +1430,6 @@ func (o PipeSourceParametersFilterCriteriaPtrOutput) Elem() PipeSourceParameters
 	}).(PipeSourceParametersFilterCriteriaOutput)
 }
 
-// An array of up to 5 event patterns. Detailed below.
 func (o PipeSourceParametersFilterCriteriaPtrOutput) Filters() PipeSourceParametersFilterCriteriaFilterArrayOutput {
 	return o.ApplyT(func(v *PipeSourceParametersFilterCriteria) []PipeSourceParametersFilterCriteriaFilter {
 		if v == nil {
@@ -1508,7 +1440,6 @@ func (o PipeSourceParametersFilterCriteriaPtrOutput) Filters() PipeSourceParamet
 }
 
 type PipeSourceParametersFilterCriteriaFilter struct {
-	// The event pattern. At most 4096 characters.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -1524,7 +1455,6 @@ type PipeSourceParametersFilterCriteriaFilterInput interface {
 }
 
 type PipeSourceParametersFilterCriteriaFilterArgs struct {
-	// The event pattern. At most 4096 characters.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -1579,7 +1509,6 @@ func (o PipeSourceParametersFilterCriteriaFilterOutput) ToPipeSourceParametersFi
 	return o
 }
 
-// The event pattern. At most 4096 characters.
 func (o PipeSourceParametersFilterCriteriaFilterOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersFilterCriteriaFilter) string { return v.Pattern }).(pulumi.StringOutput)
 }
@@ -1605,24 +1534,15 @@ func (o PipeSourceParametersFilterCriteriaFilterArrayOutput) Index(i pulumi.IntI
 }
 
 type PipeSourceParametersKinesisStreamParameters struct {
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize *int `pulumi:"batchSize"`
-	// Define the target queue to send dead-letter queue events to. Detailed below.
-	DeadLetterConfig *PipeSourceParametersKinesisStreamParametersDeadLetterConfig `pulumi:"deadLetterConfig"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
-	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
-	// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
-	MaximumRecordAgeInSeconds *int `pulumi:"maximumRecordAgeInSeconds"`
-	// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
-	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
-	// Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
-	OnPartialBatchItemFailure *string `pulumi:"onPartialBatchItemFailure"`
-	// The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
-	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
-	// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-	StartingPosition string `pulumi:"startingPosition"`
-	// With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
-	StartingPositionTimestamp *string `pulumi:"startingPositionTimestamp"`
+	BatchSize                      *int                                                         `pulumi:"batchSize"`
+	DeadLetterConfig               *PipeSourceParametersKinesisStreamParametersDeadLetterConfig `pulumi:"deadLetterConfig"`
+	MaximumBatchingWindowInSeconds *int                                                         `pulumi:"maximumBatchingWindowInSeconds"`
+	MaximumRecordAgeInSeconds      *int                                                         `pulumi:"maximumRecordAgeInSeconds"`
+	MaximumRetryAttempts           *int                                                         `pulumi:"maximumRetryAttempts"`
+	OnPartialBatchItemFailure      *string                                                      `pulumi:"onPartialBatchItemFailure"`
+	ParallelizationFactor          *int                                                         `pulumi:"parallelizationFactor"`
+	StartingPosition               string                                                       `pulumi:"startingPosition"`
+	StartingPositionTimestamp      *string                                                      `pulumi:"startingPositionTimestamp"`
 }
 
 // PipeSourceParametersKinesisStreamParametersInput is an input type that accepts PipeSourceParametersKinesisStreamParametersArgs and PipeSourceParametersKinesisStreamParametersOutput values.
@@ -1637,24 +1557,15 @@ type PipeSourceParametersKinesisStreamParametersInput interface {
 }
 
 type PipeSourceParametersKinesisStreamParametersArgs struct {
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
-	// Define the target queue to send dead-letter queue events to. Detailed below.
-	DeadLetterConfig PipeSourceParametersKinesisStreamParametersDeadLetterConfigPtrInput `pulumi:"deadLetterConfig"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput `pulumi:"maximumBatchingWindowInSeconds"`
-	// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
-	MaximumRecordAgeInSeconds pulumi.IntPtrInput `pulumi:"maximumRecordAgeInSeconds"`
-	// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
-	MaximumRetryAttempts pulumi.IntPtrInput `pulumi:"maximumRetryAttempts"`
-	// Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
-	OnPartialBatchItemFailure pulumi.StringPtrInput `pulumi:"onPartialBatchItemFailure"`
-	// The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
-	ParallelizationFactor pulumi.IntPtrInput `pulumi:"parallelizationFactor"`
-	// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-	StartingPosition pulumi.StringInput `pulumi:"startingPosition"`
-	// With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
-	StartingPositionTimestamp pulumi.StringPtrInput `pulumi:"startingPositionTimestamp"`
+	BatchSize                      pulumi.IntPtrInput                                                  `pulumi:"batchSize"`
+	DeadLetterConfig               PipeSourceParametersKinesisStreamParametersDeadLetterConfigPtrInput `pulumi:"deadLetterConfig"`
+	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                                                  `pulumi:"maximumBatchingWindowInSeconds"`
+	MaximumRecordAgeInSeconds      pulumi.IntPtrInput                                                  `pulumi:"maximumRecordAgeInSeconds"`
+	MaximumRetryAttempts           pulumi.IntPtrInput                                                  `pulumi:"maximumRetryAttempts"`
+	OnPartialBatchItemFailure      pulumi.StringPtrInput                                               `pulumi:"onPartialBatchItemFailure"`
+	ParallelizationFactor          pulumi.IntPtrInput                                                  `pulumi:"parallelizationFactor"`
+	StartingPosition               pulumi.StringInput                                                  `pulumi:"startingPosition"`
+	StartingPositionTimestamp      pulumi.StringPtrInput                                               `pulumi:"startingPositionTimestamp"`
 }
 
 func (PipeSourceParametersKinesisStreamParametersArgs) ElementType() reflect.Type {
@@ -1734,49 +1645,40 @@ func (o PipeSourceParametersKinesisStreamParametersOutput) ToPipeSourceParameter
 	}).(PipeSourceParametersKinesisStreamParametersPtrOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersKinesisStreamParametersOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersKinesisStreamParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-// Define the target queue to send dead-letter queue events to. Detailed below.
 func (o PipeSourceParametersKinesisStreamParametersOutput) DeadLetterConfig() PipeSourceParametersKinesisStreamParametersDeadLetterConfigPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersKinesisStreamParameters) *PipeSourceParametersKinesisStreamParametersDeadLetterConfig {
 		return v.DeadLetterConfig
 	}).(PipeSourceParametersKinesisStreamParametersDeadLetterConfigPtrOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersKinesisStreamParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersKinesisStreamParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
 func (o PipeSourceParametersKinesisStreamParametersOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersKinesisStreamParameters) *int { return v.MaximumRecordAgeInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
 func (o PipeSourceParametersKinesisStreamParametersOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersKinesisStreamParameters) *int { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
 }
 
-// Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
 func (o PipeSourceParametersKinesisStreamParametersOutput) OnPartialBatchItemFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersKinesisStreamParameters) *string { return v.OnPartialBatchItemFailure }).(pulumi.StringPtrOutput)
 }
 
-// The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
 func (o PipeSourceParametersKinesisStreamParametersOutput) ParallelizationFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersKinesisStreamParameters) *int { return v.ParallelizationFactor }).(pulumi.IntPtrOutput)
 }
 
-// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
 func (o PipeSourceParametersKinesisStreamParametersOutput) StartingPosition() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersKinesisStreamParameters) string { return v.StartingPosition }).(pulumi.StringOutput)
 }
 
-// With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
 func (o PipeSourceParametersKinesisStreamParametersOutput) StartingPositionTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersKinesisStreamParameters) *string { return v.StartingPositionTimestamp }).(pulumi.StringPtrOutput)
 }
@@ -1805,7 +1707,6 @@ func (o PipeSourceParametersKinesisStreamParametersPtrOutput) Elem() PipeSourceP
 	}).(PipeSourceParametersKinesisStreamParametersOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersKinesisStreamParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersKinesisStreamParameters) *int {
 		if v == nil {
@@ -1815,7 +1716,6 @@ func (o PipeSourceParametersKinesisStreamParametersPtrOutput) BatchSize() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Define the target queue to send dead-letter queue events to. Detailed below.
 func (o PipeSourceParametersKinesisStreamParametersPtrOutput) DeadLetterConfig() PipeSourceParametersKinesisStreamParametersDeadLetterConfigPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersKinesisStreamParameters) *PipeSourceParametersKinesisStreamParametersDeadLetterConfig {
 		if v == nil {
@@ -1825,7 +1725,6 @@ func (o PipeSourceParametersKinesisStreamParametersPtrOutput) DeadLetterConfig()
 	}).(PipeSourceParametersKinesisStreamParametersDeadLetterConfigPtrOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersKinesisStreamParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersKinesisStreamParameters) *int {
 		if v == nil {
@@ -1835,7 +1734,6 @@ func (o PipeSourceParametersKinesisStreamParametersPtrOutput) MaximumBatchingWin
 	}).(pulumi.IntPtrOutput)
 }
 
-// Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
 func (o PipeSourceParametersKinesisStreamParametersPtrOutput) MaximumRecordAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersKinesisStreamParameters) *int {
 		if v == nil {
@@ -1845,7 +1743,6 @@ func (o PipeSourceParametersKinesisStreamParametersPtrOutput) MaximumRecordAgeIn
 	}).(pulumi.IntPtrOutput)
 }
 
-// Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
 func (o PipeSourceParametersKinesisStreamParametersPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersKinesisStreamParameters) *int {
 		if v == nil {
@@ -1855,7 +1752,6 @@ func (o PipeSourceParametersKinesisStreamParametersPtrOutput) MaximumRetryAttemp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
 func (o PipeSourceParametersKinesisStreamParametersPtrOutput) OnPartialBatchItemFailure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersKinesisStreamParameters) *string {
 		if v == nil {
@@ -1865,7 +1761,6 @@ func (o PipeSourceParametersKinesisStreamParametersPtrOutput) OnPartialBatchItem
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
 func (o PipeSourceParametersKinesisStreamParametersPtrOutput) ParallelizationFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersKinesisStreamParameters) *int {
 		if v == nil {
@@ -1875,7 +1770,6 @@ func (o PipeSourceParametersKinesisStreamParametersPtrOutput) ParallelizationFac
 	}).(pulumi.IntPtrOutput)
 }
 
-// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
 func (o PipeSourceParametersKinesisStreamParametersPtrOutput) StartingPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersKinesisStreamParameters) *string {
 		if v == nil {
@@ -1885,7 +1779,6 @@ func (o PipeSourceParametersKinesisStreamParametersPtrOutput) StartingPosition()
 	}).(pulumi.StringPtrOutput)
 }
 
-// With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
 func (o PipeSourceParametersKinesisStreamParametersPtrOutput) StartingPositionTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersKinesisStreamParameters) *string {
 		if v == nil {
@@ -1896,7 +1789,7 @@ func (o PipeSourceParametersKinesisStreamParametersPtrOutput) StartingPositionTi
 }
 
 type PipeSourceParametersKinesisStreamParametersDeadLetterConfig struct {
-	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+	// ARN of this pipe.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -1912,7 +1805,7 @@ type PipeSourceParametersKinesisStreamParametersDeadLetterConfigInput interface 
 }
 
 type PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs struct {
-	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+	// ARN of this pipe.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -1993,7 +1886,7 @@ func (o PipeSourceParametersKinesisStreamParametersDeadLetterConfigOutput) ToPip
 	}).(PipeSourceParametersKinesisStreamParametersDeadLetterConfigPtrOutput)
 }
 
-// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+// ARN of this pipe.
 func (o PipeSourceParametersKinesisStreamParametersDeadLetterConfigOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersKinesisStreamParametersDeadLetterConfig) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -2022,7 +1915,7 @@ func (o PipeSourceParametersKinesisStreamParametersDeadLetterConfigPtrOutput) El
 	}).(PipeSourceParametersKinesisStreamParametersDeadLetterConfigOutput)
 }
 
-// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+// ARN of this pipe.
 func (o PipeSourceParametersKinesisStreamParametersDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersKinesisStreamParametersDeadLetterConfig) *string {
 		if v == nil {
@@ -2033,18 +1926,12 @@ func (o PipeSourceParametersKinesisStreamParametersDeadLetterConfigPtrOutput) Ar
 }
 
 type PipeSourceParametersManagedStreamingKafkaParameters struct {
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize *int `pulumi:"batchSize"`
-	// The name of the destination queue to consume. Maximum value of 200.
-	ConsumerGroupId *string `pulumi:"consumerGroupId"`
-	// The credentials needed to access the resource. Detailed below.
-	Credentials *PipeSourceParametersManagedStreamingKafkaParametersCredentials `pulumi:"credentials"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
-	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
-	// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-	StartingPosition *string `pulumi:"startingPosition"`
-	// The name of the topic that the pipe will read from. Maximum length of 249.
-	TopicName string `pulumi:"topicName"`
+	BatchSize                      *int                                                            `pulumi:"batchSize"`
+	ConsumerGroupId                *string                                                         `pulumi:"consumerGroupId"`
+	Credentials                    *PipeSourceParametersManagedStreamingKafkaParametersCredentials `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds *int                                                            `pulumi:"maximumBatchingWindowInSeconds"`
+	StartingPosition               *string                                                         `pulumi:"startingPosition"`
+	TopicName                      string                                                          `pulumi:"topicName"`
 }
 
 // PipeSourceParametersManagedStreamingKafkaParametersInput is an input type that accepts PipeSourceParametersManagedStreamingKafkaParametersArgs and PipeSourceParametersManagedStreamingKafkaParametersOutput values.
@@ -2059,18 +1946,12 @@ type PipeSourceParametersManagedStreamingKafkaParametersInput interface {
 }
 
 type PipeSourceParametersManagedStreamingKafkaParametersArgs struct {
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
-	// The name of the destination queue to consume. Maximum value of 200.
-	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
-	// The credentials needed to access the resource. Detailed below.
-	Credentials PipeSourceParametersManagedStreamingKafkaParametersCredentialsPtrInput `pulumi:"credentials"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput `pulumi:"maximumBatchingWindowInSeconds"`
-	// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-	StartingPosition pulumi.StringPtrInput `pulumi:"startingPosition"`
-	// The name of the topic that the pipe will read from. Maximum length of 249.
-	TopicName pulumi.StringInput `pulumi:"topicName"`
+	BatchSize                      pulumi.IntPtrInput                                                     `pulumi:"batchSize"`
+	ConsumerGroupId                pulumi.StringPtrInput                                                  `pulumi:"consumerGroupId"`
+	Credentials                    PipeSourceParametersManagedStreamingKafkaParametersCredentialsPtrInput `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                                                     `pulumi:"maximumBatchingWindowInSeconds"`
+	StartingPosition               pulumi.StringPtrInput                                                  `pulumi:"startingPosition"`
+	TopicName                      pulumi.StringInput                                                     `pulumi:"topicName"`
 }
 
 func (PipeSourceParametersManagedStreamingKafkaParametersArgs) ElementType() reflect.Type {
@@ -2150,36 +2031,30 @@ func (o PipeSourceParametersManagedStreamingKafkaParametersOutput) ToPipeSourceP
 	}).(PipeSourceParametersManagedStreamingKafkaParametersPtrOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersManagedStreamingKafkaParametersOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersManagedStreamingKafkaParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-// The name of the destination queue to consume. Maximum value of 200.
 func (o PipeSourceParametersManagedStreamingKafkaParametersOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersManagedStreamingKafkaParameters) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The credentials needed to access the resource. Detailed below.
 func (o PipeSourceParametersManagedStreamingKafkaParametersOutput) Credentials() PipeSourceParametersManagedStreamingKafkaParametersCredentialsPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersManagedStreamingKafkaParameters) *PipeSourceParametersManagedStreamingKafkaParametersCredentials {
 		return v.Credentials
 	}).(PipeSourceParametersManagedStreamingKafkaParametersCredentialsPtrOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersManagedStreamingKafkaParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersManagedStreamingKafkaParameters) *int {
 		return v.MaximumBatchingWindowInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
-// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
 func (o PipeSourceParametersManagedStreamingKafkaParametersOutput) StartingPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersManagedStreamingKafkaParameters) *string { return v.StartingPosition }).(pulumi.StringPtrOutput)
 }
 
-// The name of the topic that the pipe will read from. Maximum length of 249.
 func (o PipeSourceParametersManagedStreamingKafkaParametersOutput) TopicName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersManagedStreamingKafkaParameters) string { return v.TopicName }).(pulumi.StringOutput)
 }
@@ -2208,7 +2083,6 @@ func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) Elem() Pip
 	}).(PipeSourceParametersManagedStreamingKafkaParametersOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersManagedStreamingKafkaParameters) *int {
 		if v == nil {
@@ -2218,7 +2092,6 @@ func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) BatchSize(
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the destination queue to consume. Maximum value of 200.
 func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersManagedStreamingKafkaParameters) *string {
 		if v == nil {
@@ -2228,7 +2101,6 @@ func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) ConsumerGr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The credentials needed to access the resource. Detailed below.
 func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) Credentials() PipeSourceParametersManagedStreamingKafkaParametersCredentialsPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersManagedStreamingKafkaParameters) *PipeSourceParametersManagedStreamingKafkaParametersCredentials {
 		if v == nil {
@@ -2238,7 +2110,6 @@ func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) Credential
 	}).(PipeSourceParametersManagedStreamingKafkaParametersCredentialsPtrOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersManagedStreamingKafkaParameters) *int {
 		if v == nil {
@@ -2248,7 +2119,6 @@ func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) MaximumBat
 	}).(pulumi.IntPtrOutput)
 }
 
-// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
 func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) StartingPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersManagedStreamingKafkaParameters) *string {
 		if v == nil {
@@ -2258,7 +2128,6 @@ func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) StartingPo
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the topic that the pipe will read from. Maximum length of 249.
 func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) TopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersManagedStreamingKafkaParameters) *string {
 		if v == nil {
@@ -2269,10 +2138,8 @@ func (o PipeSourceParametersManagedStreamingKafkaParametersPtrOutput) TopicName(
 }
 
 type PipeSourceParametersManagedStreamingKafkaParametersCredentials struct {
-	// The ARN of the Secrets Manager secret containing the credentials.
 	ClientCertificateTlsAuth *string `pulumi:"clientCertificateTlsAuth"`
-	// The ARN of the Secrets Manager secret containing the credentials.
-	SaslScram512Auth *string `pulumi:"saslScram512Auth"`
+	SaslScram512Auth         *string `pulumi:"saslScram512Auth"`
 }
 
 // PipeSourceParametersManagedStreamingKafkaParametersCredentialsInput is an input type that accepts PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs and PipeSourceParametersManagedStreamingKafkaParametersCredentialsOutput values.
@@ -2287,10 +2154,8 @@ type PipeSourceParametersManagedStreamingKafkaParametersCredentialsInput interfa
 }
 
 type PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs struct {
-	// The ARN of the Secrets Manager secret containing the credentials.
 	ClientCertificateTlsAuth pulumi.StringPtrInput `pulumi:"clientCertificateTlsAuth"`
-	// The ARN of the Secrets Manager secret containing the credentials.
-	SaslScram512Auth pulumi.StringPtrInput `pulumi:"saslScram512Auth"`
+	SaslScram512Auth         pulumi.StringPtrInput `pulumi:"saslScram512Auth"`
 }
 
 func (PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs) ElementType() reflect.Type {
@@ -2370,14 +2235,12 @@ func (o PipeSourceParametersManagedStreamingKafkaParametersCredentialsOutput) To
 	}).(PipeSourceParametersManagedStreamingKafkaParametersCredentialsPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersManagedStreamingKafkaParametersCredentialsOutput) ClientCertificateTlsAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersManagedStreamingKafkaParametersCredentials) *string {
 		return v.ClientCertificateTlsAuth
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersManagedStreamingKafkaParametersCredentialsOutput) SaslScram512Auth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersManagedStreamingKafkaParametersCredentials) *string {
 		return v.SaslScram512Auth
@@ -2408,7 +2271,6 @@ func (o PipeSourceParametersManagedStreamingKafkaParametersCredentialsPtrOutput)
 	}).(PipeSourceParametersManagedStreamingKafkaParametersCredentialsOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersManagedStreamingKafkaParametersCredentialsPtrOutput) ClientCertificateTlsAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersManagedStreamingKafkaParametersCredentials) *string {
 		if v == nil {
@@ -2418,7 +2280,6 @@ func (o PipeSourceParametersManagedStreamingKafkaParametersCredentialsPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersManagedStreamingKafkaParametersCredentialsPtrOutput) SaslScram512Auth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersManagedStreamingKafkaParametersCredentials) *string {
 		if v == nil {
@@ -2429,16 +2290,11 @@ func (o PipeSourceParametersManagedStreamingKafkaParametersCredentialsPtrOutput)
 }
 
 type PipeSourceParametersRabbitmqBrokerParameters struct {
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize *int `pulumi:"batchSize"`
-	// The credentials needed to access the resource. Detailed below.
-	Credentials PipeSourceParametersRabbitmqBrokerParametersCredentials `pulumi:"credentials"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
-	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
-	// The name of the destination queue to consume. Maximum length of 1000.
-	QueueName string `pulumi:"queueName"`
-	// The name of the virtual host associated with the source broker. Maximum length of 200.
-	VirtualHost *string `pulumi:"virtualHost"`
+	BatchSize                      *int                                                    `pulumi:"batchSize"`
+	Credentials                    PipeSourceParametersRabbitmqBrokerParametersCredentials `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds *int                                                    `pulumi:"maximumBatchingWindowInSeconds"`
+	QueueName                      string                                                  `pulumi:"queueName"`
+	VirtualHost                    *string                                                 `pulumi:"virtualHost"`
 }
 
 // PipeSourceParametersRabbitmqBrokerParametersInput is an input type that accepts PipeSourceParametersRabbitmqBrokerParametersArgs and PipeSourceParametersRabbitmqBrokerParametersOutput values.
@@ -2453,16 +2309,11 @@ type PipeSourceParametersRabbitmqBrokerParametersInput interface {
 }
 
 type PipeSourceParametersRabbitmqBrokerParametersArgs struct {
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
-	// The credentials needed to access the resource. Detailed below.
-	Credentials PipeSourceParametersRabbitmqBrokerParametersCredentialsInput `pulumi:"credentials"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput `pulumi:"maximumBatchingWindowInSeconds"`
-	// The name of the destination queue to consume. Maximum length of 1000.
-	QueueName pulumi.StringInput `pulumi:"queueName"`
-	// The name of the virtual host associated with the source broker. Maximum length of 200.
-	VirtualHost pulumi.StringPtrInput `pulumi:"virtualHost"`
+	BatchSize                      pulumi.IntPtrInput                                           `pulumi:"batchSize"`
+	Credentials                    PipeSourceParametersRabbitmqBrokerParametersCredentialsInput `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                                           `pulumi:"maximumBatchingWindowInSeconds"`
+	QueueName                      pulumi.StringInput                                           `pulumi:"queueName"`
+	VirtualHost                    pulumi.StringPtrInput                                        `pulumi:"virtualHost"`
 }
 
 func (PipeSourceParametersRabbitmqBrokerParametersArgs) ElementType() reflect.Type {
@@ -2542,29 +2393,24 @@ func (o PipeSourceParametersRabbitmqBrokerParametersOutput) ToPipeSourceParamete
 	}).(PipeSourceParametersRabbitmqBrokerParametersPtrOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersRabbitmqBrokerParametersOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersRabbitmqBrokerParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-// The credentials needed to access the resource. Detailed below.
 func (o PipeSourceParametersRabbitmqBrokerParametersOutput) Credentials() PipeSourceParametersRabbitmqBrokerParametersCredentialsOutput {
 	return o.ApplyT(func(v PipeSourceParametersRabbitmqBrokerParameters) PipeSourceParametersRabbitmqBrokerParametersCredentials {
 		return v.Credentials
 	}).(PipeSourceParametersRabbitmqBrokerParametersCredentialsOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersRabbitmqBrokerParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersRabbitmqBrokerParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The name of the destination queue to consume. Maximum length of 1000.
 func (o PipeSourceParametersRabbitmqBrokerParametersOutput) QueueName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersRabbitmqBrokerParameters) string { return v.QueueName }).(pulumi.StringOutput)
 }
 
-// The name of the virtual host associated with the source broker. Maximum length of 200.
 func (o PipeSourceParametersRabbitmqBrokerParametersOutput) VirtualHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersRabbitmqBrokerParameters) *string { return v.VirtualHost }).(pulumi.StringPtrOutput)
 }
@@ -2593,7 +2439,6 @@ func (o PipeSourceParametersRabbitmqBrokerParametersPtrOutput) Elem() PipeSource
 	}).(PipeSourceParametersRabbitmqBrokerParametersOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersRabbitmqBrokerParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersRabbitmqBrokerParameters) *int {
 		if v == nil {
@@ -2603,7 +2448,6 @@ func (o PipeSourceParametersRabbitmqBrokerParametersPtrOutput) BatchSize() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// The credentials needed to access the resource. Detailed below.
 func (o PipeSourceParametersRabbitmqBrokerParametersPtrOutput) Credentials() PipeSourceParametersRabbitmqBrokerParametersCredentialsPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersRabbitmqBrokerParameters) *PipeSourceParametersRabbitmqBrokerParametersCredentials {
 		if v == nil {
@@ -2613,7 +2457,6 @@ func (o PipeSourceParametersRabbitmqBrokerParametersPtrOutput) Credentials() Pip
 	}).(PipeSourceParametersRabbitmqBrokerParametersCredentialsPtrOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersRabbitmqBrokerParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersRabbitmqBrokerParameters) *int {
 		if v == nil {
@@ -2623,7 +2466,6 @@ func (o PipeSourceParametersRabbitmqBrokerParametersPtrOutput) MaximumBatchingWi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the destination queue to consume. Maximum length of 1000.
 func (o PipeSourceParametersRabbitmqBrokerParametersPtrOutput) QueueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersRabbitmqBrokerParameters) *string {
 		if v == nil {
@@ -2633,7 +2475,6 @@ func (o PipeSourceParametersRabbitmqBrokerParametersPtrOutput) QueueName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the virtual host associated with the source broker. Maximum length of 200.
 func (o PipeSourceParametersRabbitmqBrokerParametersPtrOutput) VirtualHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersRabbitmqBrokerParameters) *string {
 		if v == nil {
@@ -2644,7 +2485,6 @@ func (o PipeSourceParametersRabbitmqBrokerParametersPtrOutput) VirtualHost() pul
 }
 
 type PipeSourceParametersRabbitmqBrokerParametersCredentials struct {
-	// The ARN of the Secrets Manager secret containing the credentials.
 	BasicAuth string `pulumi:"basicAuth"`
 }
 
@@ -2660,7 +2500,6 @@ type PipeSourceParametersRabbitmqBrokerParametersCredentialsInput interface {
 }
 
 type PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs struct {
-	// The ARN of the Secrets Manager secret containing the credentials.
 	BasicAuth pulumi.StringInput `pulumi:"basicAuth"`
 }
 
@@ -2741,7 +2580,6 @@ func (o PipeSourceParametersRabbitmqBrokerParametersCredentialsOutput) ToPipeSou
 	}).(PipeSourceParametersRabbitmqBrokerParametersCredentialsPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersRabbitmqBrokerParametersCredentialsOutput) BasicAuth() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersRabbitmqBrokerParametersCredentials) string { return v.BasicAuth }).(pulumi.StringOutput)
 }
@@ -2770,7 +2608,6 @@ func (o PipeSourceParametersRabbitmqBrokerParametersCredentialsPtrOutput) Elem()
 	}).(PipeSourceParametersRabbitmqBrokerParametersCredentialsOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersRabbitmqBrokerParametersCredentialsPtrOutput) BasicAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersRabbitmqBrokerParametersCredentials) *string {
 		if v == nil {
@@ -2781,24 +2618,15 @@ func (o PipeSourceParametersRabbitmqBrokerParametersCredentialsPtrOutput) BasicA
 }
 
 type PipeSourceParametersSelfManagedKafkaParameters struct {
-	// An array of server URLs. Maximum number of 2 items, each of maximum length 300.
-	AdditionalBootstrapServers []string `pulumi:"additionalBootstrapServers"`
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize *int `pulumi:"batchSize"`
-	// The name of the destination queue to consume. Maximum value of 200.
-	ConsumerGroupId *string `pulumi:"consumerGroupId"`
-	// The credentials needed to access the resource. Detailed below.
-	Credentials *PipeSourceParametersSelfManagedKafkaParametersCredentials `pulumi:"credentials"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
-	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
-	// The ARN of the Secrets Manager secret used for certification.
-	ServerRootCaCertificate *string `pulumi:"serverRootCaCertificate"`
-	// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-	StartingPosition *string `pulumi:"startingPosition"`
-	// The name of the topic that the pipe will read from. Maximum length of 249.
-	TopicName string `pulumi:"topicName"`
-	// This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
-	Vpc *PipeSourceParametersSelfManagedKafkaParametersVpc `pulumi:"vpc"`
+	AdditionalBootstrapServers     []string                                                   `pulumi:"additionalBootstrapServers"`
+	BatchSize                      *int                                                       `pulumi:"batchSize"`
+	ConsumerGroupId                *string                                                    `pulumi:"consumerGroupId"`
+	Credentials                    *PipeSourceParametersSelfManagedKafkaParametersCredentials `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds *int                                                       `pulumi:"maximumBatchingWindowInSeconds"`
+	ServerRootCaCertificate        *string                                                    `pulumi:"serverRootCaCertificate"`
+	StartingPosition               *string                                                    `pulumi:"startingPosition"`
+	TopicName                      string                                                     `pulumi:"topicName"`
+	Vpc                            *PipeSourceParametersSelfManagedKafkaParametersVpc         `pulumi:"vpc"`
 }
 
 // PipeSourceParametersSelfManagedKafkaParametersInput is an input type that accepts PipeSourceParametersSelfManagedKafkaParametersArgs and PipeSourceParametersSelfManagedKafkaParametersOutput values.
@@ -2813,24 +2641,15 @@ type PipeSourceParametersSelfManagedKafkaParametersInput interface {
 }
 
 type PipeSourceParametersSelfManagedKafkaParametersArgs struct {
-	// An array of server URLs. Maximum number of 2 items, each of maximum length 300.
-	AdditionalBootstrapServers pulumi.StringArrayInput `pulumi:"additionalBootstrapServers"`
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
-	// The name of the destination queue to consume. Maximum value of 200.
-	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
-	// The credentials needed to access the resource. Detailed below.
-	Credentials PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrInput `pulumi:"credentials"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput `pulumi:"maximumBatchingWindowInSeconds"`
-	// The ARN of the Secrets Manager secret used for certification.
-	ServerRootCaCertificate pulumi.StringPtrInput `pulumi:"serverRootCaCertificate"`
-	// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-	StartingPosition pulumi.StringPtrInput `pulumi:"startingPosition"`
-	// The name of the topic that the pipe will read from. Maximum length of 249.
-	TopicName pulumi.StringInput `pulumi:"topicName"`
-	// This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
-	Vpc PipeSourceParametersSelfManagedKafkaParametersVpcPtrInput `pulumi:"vpc"`
+	AdditionalBootstrapServers     pulumi.StringArrayInput                                           `pulumi:"additionalBootstrapServers"`
+	BatchSize                      pulumi.IntPtrInput                                                `pulumi:"batchSize"`
+	ConsumerGroupId                pulumi.StringPtrInput                                             `pulumi:"consumerGroupId"`
+	Credentials                    PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrInput `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                                                `pulumi:"maximumBatchingWindowInSeconds"`
+	ServerRootCaCertificate        pulumi.StringPtrInput                                             `pulumi:"serverRootCaCertificate"`
+	StartingPosition               pulumi.StringPtrInput                                             `pulumi:"startingPosition"`
+	TopicName                      pulumi.StringInput                                                `pulumi:"topicName"`
+	Vpc                            PipeSourceParametersSelfManagedKafkaParametersVpcPtrInput         `pulumi:"vpc"`
 }
 
 func (PipeSourceParametersSelfManagedKafkaParametersArgs) ElementType() reflect.Type {
@@ -2910,49 +2729,40 @@ func (o PipeSourceParametersSelfManagedKafkaParametersOutput) ToPipeSourceParame
 	}).(PipeSourceParametersSelfManagedKafkaParametersPtrOutput)
 }
 
-// An array of server URLs. Maximum number of 2 items, each of maximum length 300.
 func (o PipeSourceParametersSelfManagedKafkaParametersOutput) AdditionalBootstrapServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParameters) []string { return v.AdditionalBootstrapServers }).(pulumi.StringArrayOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersSelfManagedKafkaParametersOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-// The name of the destination queue to consume. Maximum value of 200.
 func (o PipeSourceParametersSelfManagedKafkaParametersOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParameters) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The credentials needed to access the resource. Detailed below.
 func (o PipeSourceParametersSelfManagedKafkaParametersOutput) Credentials() PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParameters) *PipeSourceParametersSelfManagedKafkaParametersCredentials {
 		return v.Credentials
 	}).(PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersSelfManagedKafkaParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret used for certification.
 func (o PipeSourceParametersSelfManagedKafkaParametersOutput) ServerRootCaCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParameters) *string { return v.ServerRootCaCertificate }).(pulumi.StringPtrOutput)
 }
 
-// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
 func (o PipeSourceParametersSelfManagedKafkaParametersOutput) StartingPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParameters) *string { return v.StartingPosition }).(pulumi.StringPtrOutput)
 }
 
-// The name of the topic that the pipe will read from. Maximum length of 249.
 func (o PipeSourceParametersSelfManagedKafkaParametersOutput) TopicName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParameters) string { return v.TopicName }).(pulumi.StringOutput)
 }
 
-// This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
 func (o PipeSourceParametersSelfManagedKafkaParametersOutput) Vpc() PipeSourceParametersSelfManagedKafkaParametersVpcPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParameters) *PipeSourceParametersSelfManagedKafkaParametersVpc {
 		return v.Vpc
@@ -2983,7 +2793,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) Elem() PipeSour
 	}).(PipeSourceParametersSelfManagedKafkaParametersOutput)
 }
 
-// An array of server URLs. Maximum number of 2 items, each of maximum length 300.
 func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) AdditionalBootstrapServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParameters) []string {
 		if v == nil {
@@ -2993,7 +2802,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) AdditionalBoots
 	}).(pulumi.StringArrayOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParameters) *int {
 		if v == nil {
@@ -3003,7 +2811,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) BatchSize() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the destination queue to consume. Maximum value of 200.
 func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParameters) *string {
 		if v == nil {
@@ -3013,7 +2820,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) ConsumerGroupId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The credentials needed to access the resource. Detailed below.
 func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) Credentials() PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParameters) *PipeSourceParametersSelfManagedKafkaParametersCredentials {
 		if v == nil {
@@ -3023,7 +2829,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) Credentials() P
 	}).(PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParameters) *int {
 		if v == nil {
@@ -3033,7 +2838,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) MaximumBatching
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret used for certification.
 func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) ServerRootCaCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParameters) *string {
 		if v == nil {
@@ -3043,7 +2847,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) ServerRootCaCer
 	}).(pulumi.StringPtrOutput)
 }
 
-// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
 func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) StartingPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParameters) *string {
 		if v == nil {
@@ -3053,7 +2856,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) StartingPositio
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the topic that the pipe will read from. Maximum length of 249.
 func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) TopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParameters) *string {
 		if v == nil {
@@ -3063,7 +2865,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) TopicName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
 func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) Vpc() PipeSourceParametersSelfManagedKafkaParametersVpcPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParameters) *PipeSourceParametersSelfManagedKafkaParametersVpc {
 		if v == nil {
@@ -3074,14 +2875,10 @@ func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) Vpc() PipeSourc
 }
 
 type PipeSourceParametersSelfManagedKafkaParametersCredentials struct {
-	// The ARN of the Secrets Manager secret containing the credentials.
-	BasicAuth string `pulumi:"basicAuth"`
-	// The ARN of the Secrets Manager secret containing the credentials.
+	BasicAuth                string  `pulumi:"basicAuth"`
 	ClientCertificateTlsAuth *string `pulumi:"clientCertificateTlsAuth"`
-	// The ARN of the Secrets Manager secret containing the credentials.
-	SaslScram256Auth *string `pulumi:"saslScram256Auth"`
-	// The ARN of the Secrets Manager secret containing the credentials.
-	SaslScram512Auth *string `pulumi:"saslScram512Auth"`
+	SaslScram256Auth         *string `pulumi:"saslScram256Auth"`
+	SaslScram512Auth         *string `pulumi:"saslScram512Auth"`
 }
 
 // PipeSourceParametersSelfManagedKafkaParametersCredentialsInput is an input type that accepts PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs and PipeSourceParametersSelfManagedKafkaParametersCredentialsOutput values.
@@ -3096,14 +2893,10 @@ type PipeSourceParametersSelfManagedKafkaParametersCredentialsInput interface {
 }
 
 type PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs struct {
-	// The ARN of the Secrets Manager secret containing the credentials.
-	BasicAuth pulumi.StringInput `pulumi:"basicAuth"`
-	// The ARN of the Secrets Manager secret containing the credentials.
+	BasicAuth                pulumi.StringInput    `pulumi:"basicAuth"`
 	ClientCertificateTlsAuth pulumi.StringPtrInput `pulumi:"clientCertificateTlsAuth"`
-	// The ARN of the Secrets Manager secret containing the credentials.
-	SaslScram256Auth pulumi.StringPtrInput `pulumi:"saslScram256Auth"`
-	// The ARN of the Secrets Manager secret containing the credentials.
-	SaslScram512Auth pulumi.StringPtrInput `pulumi:"saslScram512Auth"`
+	SaslScram256Auth         pulumi.StringPtrInput `pulumi:"saslScram256Auth"`
+	SaslScram512Auth         pulumi.StringPtrInput `pulumi:"saslScram512Auth"`
 }
 
 func (PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs) ElementType() reflect.Type {
@@ -3183,24 +2976,20 @@ func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsOutput) ToPipeS
 	}).(PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsOutput) BasicAuth() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParametersCredentials) string { return v.BasicAuth }).(pulumi.StringOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsOutput) ClientCertificateTlsAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParametersCredentials) *string {
 		return v.ClientCertificateTlsAuth
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsOutput) SaslScram256Auth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParametersCredentials) *string { return v.SaslScram256Auth }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsOutput) SaslScram512Auth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParametersCredentials) *string { return v.SaslScram512Auth }).(pulumi.StringPtrOutput)
 }
@@ -3229,7 +3018,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput) Elem
 	}).(PipeSourceParametersSelfManagedKafkaParametersCredentialsOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput) BasicAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParametersCredentials) *string {
 		if v == nil {
@@ -3239,7 +3027,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput) Basi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput) ClientCertificateTlsAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParametersCredentials) *string {
 		if v == nil {
@@ -3249,7 +3036,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput) Clie
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput) SaslScram256Auth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParametersCredentials) *string {
 		if v == nil {
@@ -3259,7 +3045,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput) Sasl
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput) SaslScram512Auth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParametersCredentials) *string {
 		if v == nil {
@@ -3270,10 +3055,8 @@ func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput) Sasl
 }
 
 type PipeSourceParametersSelfManagedKafkaParametersVpc struct {
-	// List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-	Subnets []string `pulumi:"subnets"`
+	Subnets        []string `pulumi:"subnets"`
 }
 
 // PipeSourceParametersSelfManagedKafkaParametersVpcInput is an input type that accepts PipeSourceParametersSelfManagedKafkaParametersVpcArgs and PipeSourceParametersSelfManagedKafkaParametersVpcOutput values.
@@ -3288,10 +3071,8 @@ type PipeSourceParametersSelfManagedKafkaParametersVpcInput interface {
 }
 
 type PipeSourceParametersSelfManagedKafkaParametersVpcArgs struct {
-	// List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (PipeSourceParametersSelfManagedKafkaParametersVpcArgs) ElementType() reflect.Type {
@@ -3371,12 +3152,10 @@ func (o PipeSourceParametersSelfManagedKafkaParametersVpcOutput) ToPipeSourcePar
 	}).(PipeSourceParametersSelfManagedKafkaParametersVpcPtrOutput)
 }
 
-// List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
 func (o PipeSourceParametersSelfManagedKafkaParametersVpcOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParametersVpc) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
 func (o PipeSourceParametersSelfManagedKafkaParametersVpcOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParametersVpc) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -3405,7 +3184,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersVpcPtrOutput) Elem() PipeS
 	}).(PipeSourceParametersSelfManagedKafkaParametersVpcOutput)
 }
 
-// List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
 func (o PipeSourceParametersSelfManagedKafkaParametersVpcPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParametersVpc) []string {
 		if v == nil {
@@ -3415,7 +3193,6 @@ func (o PipeSourceParametersSelfManagedKafkaParametersVpcPtrOutput) SecurityGrou
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
 func (o PipeSourceParametersSelfManagedKafkaParametersVpcPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParametersVpc) []string {
 		if v == nil {
@@ -3426,9 +3203,7 @@ func (o PipeSourceParametersSelfManagedKafkaParametersVpcPtrOutput) Subnets() pu
 }
 
 type PipeSourceParametersSqsQueueParameters struct {
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize *int `pulumi:"batchSize"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
+	BatchSize                      *int `pulumi:"batchSize"`
 	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
 }
 
@@ -3444,9 +3219,7 @@ type PipeSourceParametersSqsQueueParametersInput interface {
 }
 
 type PipeSourceParametersSqsQueueParametersArgs struct {
-	// The maximum number of records to include in each batch. Maximum value of 10000.
-	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
-	// The maximum length of a time to wait for events. Maximum value of 300.
+	BatchSize                      pulumi.IntPtrInput `pulumi:"batchSize"`
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput `pulumi:"maximumBatchingWindowInSeconds"`
 }
 
@@ -3527,12 +3300,10 @@ func (o PipeSourceParametersSqsQueueParametersOutput) ToPipeSourceParametersSqsQ
 	}).(PipeSourceParametersSqsQueueParametersPtrOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersSqsQueueParametersOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersSqsQueueParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersSqsQueueParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeSourceParametersSqsQueueParameters) *int { return v.MaximumBatchingWindowInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -3561,7 +3332,6 @@ func (o PipeSourceParametersSqsQueueParametersPtrOutput) Elem() PipeSourceParame
 	}).(PipeSourceParametersSqsQueueParametersOutput)
 }
 
-// The maximum number of records to include in each batch. Maximum value of 10000.
 func (o PipeSourceParametersSqsQueueParametersPtrOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSqsQueueParameters) *int {
 		if v == nil {
@@ -3571,7 +3341,6 @@ func (o PipeSourceParametersSqsQueueParametersPtrOutput) BatchSize() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum length of a time to wait for events. Maximum value of 300.
 func (o PipeSourceParametersSqsQueueParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSqsQueueParameters) *int {
 		if v == nil {
@@ -3942,20 +3711,13 @@ func (o PipeTargetParametersPtrOutput) StepFunctionStateMachineParameters() Pipe
 }
 
 type PipeTargetParametersBatchJobParameters struct {
-	// The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
-	ArrayProperties *PipeTargetParametersBatchJobParametersArrayProperties `pulumi:"arrayProperties"`
-	// The overrides that are sent to a container. Detailed below.
+	ArrayProperties    *PipeTargetParametersBatchJobParametersArrayProperties    `pulumi:"arrayProperties"`
 	ContainerOverrides *PipeTargetParametersBatchJobParametersContainerOverrides `pulumi:"containerOverrides"`
-	// A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
-	DependsOns []PipeTargetParametersBatchJobParametersDependsOn `pulumi:"dependsOns"`
-	// The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
-	JobDefinition string `pulumi:"jobDefinition"`
-	// The name of the job. It can be up to 128 letters long.
-	JobName string `pulumi:"jobName"`
-	// Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
-	Parameters map[string]string `pulumi:"parameters"`
-	// The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
-	RetryStrategy *PipeTargetParametersBatchJobParametersRetryStrategy `pulumi:"retryStrategy"`
+	DependsOns         []PipeTargetParametersBatchJobParametersDependsOn         `pulumi:"dependsOns"`
+	JobDefinition      string                                                    `pulumi:"jobDefinition"`
+	JobName            string                                                    `pulumi:"jobName"`
+	Parameters         map[string]string                                         `pulumi:"parameters"`
+	RetryStrategy      *PipeTargetParametersBatchJobParametersRetryStrategy      `pulumi:"retryStrategy"`
 }
 
 // PipeTargetParametersBatchJobParametersInput is an input type that accepts PipeTargetParametersBatchJobParametersArgs and PipeTargetParametersBatchJobParametersOutput values.
@@ -3970,20 +3732,13 @@ type PipeTargetParametersBatchJobParametersInput interface {
 }
 
 type PipeTargetParametersBatchJobParametersArgs struct {
-	// The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
-	ArrayProperties PipeTargetParametersBatchJobParametersArrayPropertiesPtrInput `pulumi:"arrayProperties"`
-	// The overrides that are sent to a container. Detailed below.
+	ArrayProperties    PipeTargetParametersBatchJobParametersArrayPropertiesPtrInput    `pulumi:"arrayProperties"`
 	ContainerOverrides PipeTargetParametersBatchJobParametersContainerOverridesPtrInput `pulumi:"containerOverrides"`
-	// A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
-	DependsOns PipeTargetParametersBatchJobParametersDependsOnArrayInput `pulumi:"dependsOns"`
-	// The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
-	JobDefinition pulumi.StringInput `pulumi:"jobDefinition"`
-	// The name of the job. It can be up to 128 letters long.
-	JobName pulumi.StringInput `pulumi:"jobName"`
-	// Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
-	RetryStrategy PipeTargetParametersBatchJobParametersRetryStrategyPtrInput `pulumi:"retryStrategy"`
+	DependsOns         PipeTargetParametersBatchJobParametersDependsOnArrayInput        `pulumi:"dependsOns"`
+	JobDefinition      pulumi.StringInput                                               `pulumi:"jobDefinition"`
+	JobName            pulumi.StringInput                                               `pulumi:"jobName"`
+	Parameters         pulumi.StringMapInput                                            `pulumi:"parameters"`
+	RetryStrategy      PipeTargetParametersBatchJobParametersRetryStrategyPtrInput      `pulumi:"retryStrategy"`
 }
 
 func (PipeTargetParametersBatchJobParametersArgs) ElementType() reflect.Type {
@@ -4063,43 +3818,36 @@ func (o PipeTargetParametersBatchJobParametersOutput) ToPipeTargetParametersBatc
 	}).(PipeTargetParametersBatchJobParametersPtrOutput)
 }
 
-// The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
 func (o PipeTargetParametersBatchJobParametersOutput) ArrayProperties() PipeTargetParametersBatchJobParametersArrayPropertiesPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParameters) *PipeTargetParametersBatchJobParametersArrayProperties {
 		return v.ArrayProperties
 	}).(PipeTargetParametersBatchJobParametersArrayPropertiesPtrOutput)
 }
 
-// The overrides that are sent to a container. Detailed below.
 func (o PipeTargetParametersBatchJobParametersOutput) ContainerOverrides() PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParameters) *PipeTargetParametersBatchJobParametersContainerOverrides {
 		return v.ContainerOverrides
 	}).(PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput)
 }
 
-// A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
 func (o PipeTargetParametersBatchJobParametersOutput) DependsOns() PipeTargetParametersBatchJobParametersDependsOnArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParameters) []PipeTargetParametersBatchJobParametersDependsOn {
 		return v.DependsOns
 	}).(PipeTargetParametersBatchJobParametersDependsOnArrayOutput)
 }
 
-// The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
 func (o PipeTargetParametersBatchJobParametersOutput) JobDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParameters) string { return v.JobDefinition }).(pulumi.StringOutput)
 }
 
-// The name of the job. It can be up to 128 letters long.
 func (o PipeTargetParametersBatchJobParametersOutput) JobName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParameters) string { return v.JobName }).(pulumi.StringOutput)
 }
 
-// Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
 func (o PipeTargetParametersBatchJobParametersOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParameters) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
 func (o PipeTargetParametersBatchJobParametersOutput) RetryStrategy() PipeTargetParametersBatchJobParametersRetryStrategyPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParameters) *PipeTargetParametersBatchJobParametersRetryStrategy {
 		return v.RetryStrategy
@@ -4130,7 +3878,6 @@ func (o PipeTargetParametersBatchJobParametersPtrOutput) Elem() PipeTargetParame
 	}).(PipeTargetParametersBatchJobParametersOutput)
 }
 
-// The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
 func (o PipeTargetParametersBatchJobParametersPtrOutput) ArrayProperties() PipeTargetParametersBatchJobParametersArrayPropertiesPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParameters) *PipeTargetParametersBatchJobParametersArrayProperties {
 		if v == nil {
@@ -4140,7 +3887,6 @@ func (o PipeTargetParametersBatchJobParametersPtrOutput) ArrayProperties() PipeT
 	}).(PipeTargetParametersBatchJobParametersArrayPropertiesPtrOutput)
 }
 
-// The overrides that are sent to a container. Detailed below.
 func (o PipeTargetParametersBatchJobParametersPtrOutput) ContainerOverrides() PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParameters) *PipeTargetParametersBatchJobParametersContainerOverrides {
 		if v == nil {
@@ -4150,7 +3896,6 @@ func (o PipeTargetParametersBatchJobParametersPtrOutput) ContainerOverrides() Pi
 	}).(PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput)
 }
 
-// A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
 func (o PipeTargetParametersBatchJobParametersPtrOutput) DependsOns() PipeTargetParametersBatchJobParametersDependsOnArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParameters) []PipeTargetParametersBatchJobParametersDependsOn {
 		if v == nil {
@@ -4160,7 +3905,6 @@ func (o PipeTargetParametersBatchJobParametersPtrOutput) DependsOns() PipeTarget
 	}).(PipeTargetParametersBatchJobParametersDependsOnArrayOutput)
 }
 
-// The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
 func (o PipeTargetParametersBatchJobParametersPtrOutput) JobDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParameters) *string {
 		if v == nil {
@@ -4170,7 +3914,6 @@ func (o PipeTargetParametersBatchJobParametersPtrOutput) JobDefinition() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the job. It can be up to 128 letters long.
 func (o PipeTargetParametersBatchJobParametersPtrOutput) JobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParameters) *string {
 		if v == nil {
@@ -4180,7 +3923,6 @@ func (o PipeTargetParametersBatchJobParametersPtrOutput) JobName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
 func (o PipeTargetParametersBatchJobParametersPtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParameters) map[string]string {
 		if v == nil {
@@ -4190,7 +3932,6 @@ func (o PipeTargetParametersBatchJobParametersPtrOutput) Parameters() pulumi.Str
 	}).(pulumi.StringMapOutput)
 }
 
-// The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
 func (o PipeTargetParametersBatchJobParametersPtrOutput) RetryStrategy() PipeTargetParametersBatchJobParametersRetryStrategyPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParameters) *PipeTargetParametersBatchJobParametersRetryStrategy {
 		if v == nil {
@@ -4201,7 +3942,6 @@ func (o PipeTargetParametersBatchJobParametersPtrOutput) RetryStrategy() PipeTar
 }
 
 type PipeTargetParametersBatchJobParametersArrayProperties struct {
-	// The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
 	Size *int `pulumi:"size"`
 }
 
@@ -4217,7 +3957,6 @@ type PipeTargetParametersBatchJobParametersArrayPropertiesInput interface {
 }
 
 type PipeTargetParametersBatchJobParametersArrayPropertiesArgs struct {
-	// The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
 	Size pulumi.IntPtrInput `pulumi:"size"`
 }
 
@@ -4298,7 +4037,6 @@ func (o PipeTargetParametersBatchJobParametersArrayPropertiesOutput) ToPipeTarge
 	}).(PipeTargetParametersBatchJobParametersArrayPropertiesPtrOutput)
 }
 
-// The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
 func (o PipeTargetParametersBatchJobParametersArrayPropertiesOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersArrayProperties) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
@@ -4327,7 +4065,6 @@ func (o PipeTargetParametersBatchJobParametersArrayPropertiesPtrOutput) Elem() P
 	}).(PipeTargetParametersBatchJobParametersArrayPropertiesOutput)
 }
 
-// The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
 func (o PipeTargetParametersBatchJobParametersArrayPropertiesPtrOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParametersArrayProperties) *int {
 		if v == nil {
@@ -4338,13 +4075,9 @@ func (o PipeTargetParametersBatchJobParametersArrayPropertiesPtrOutput) Size() p
 }
 
 type PipeTargetParametersBatchJobParametersContainerOverrides struct {
-	// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-	Commands []string `pulumi:"commands"`
-	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-	Environments []PipeTargetParametersBatchJobParametersContainerOverridesEnvironment `pulumi:"environments"`
-	// The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-	InstanceType *string `pulumi:"instanceType"`
-	// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+	Commands             []string                                                                      `pulumi:"commands"`
+	Environments         []PipeTargetParametersBatchJobParametersContainerOverridesEnvironment         `pulumi:"environments"`
+	InstanceType         *string                                                                       `pulumi:"instanceType"`
 	ResourceRequirements []PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement `pulumi:"resourceRequirements"`
 }
 
@@ -4360,13 +4093,9 @@ type PipeTargetParametersBatchJobParametersContainerOverridesInput interface {
 }
 
 type PipeTargetParametersBatchJobParametersContainerOverridesArgs struct {
-	// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-	Environments PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArrayInput `pulumi:"environments"`
-	// The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+	Commands             pulumi.StringArrayInput                                                               `pulumi:"commands"`
+	Environments         PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArrayInput         `pulumi:"environments"`
+	InstanceType         pulumi.StringPtrInput                                                                 `pulumi:"instanceType"`
 	ResourceRequirements PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArrayInput `pulumi:"resourceRequirements"`
 }
 
@@ -4447,24 +4176,20 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesOutput) ToPipeTa
 	}).(PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput)
 }
 
-// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverrides) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesOutput) Environments() PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverrides) []PipeTargetParametersBatchJobParametersContainerOverridesEnvironment {
 		return v.Environments
 	}).(PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArrayOutput)
 }
 
-// The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverrides) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesOutput) ResourceRequirements() PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverrides) []PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement {
 		return v.ResourceRequirements
@@ -4495,7 +4220,6 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Elem(
 	}).(PipeTargetParametersBatchJobParametersContainerOverridesOutput)
 }
 
-// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParametersContainerOverrides) []string {
 		if v == nil {
@@ -4505,7 +4229,6 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Comma
 	}).(pulumi.StringArrayOutput)
 }
 
-// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Environments() PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParametersContainerOverrides) []PipeTargetParametersBatchJobParametersContainerOverridesEnvironment {
 		if v == nil {
@@ -4515,7 +4238,6 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Envir
 	}).(PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArrayOutput)
 }
 
-// The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParametersContainerOverrides) *string {
 		if v == nil {
@@ -4525,7 +4247,6 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Insta
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) ResourceRequirements() PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParametersContainerOverrides) []PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement {
 		if v == nil {
@@ -4537,8 +4258,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Resou
 
 type PipeTargetParametersBatchJobParametersContainerOverridesEnvironment struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -4555,8 +4275,7 @@ type PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentInput in
 
 type PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -4616,7 +4335,6 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentOutpu
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverridesEnvironment) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverridesEnvironment) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4642,9 +4360,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArray
 }
 
 type PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement struct {
-	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-	Type string `pulumi:"type"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	Type  string `pulumi:"type"`
 	Value string `pulumi:"value"`
 }
 
@@ -4660,9 +4376,7 @@ type PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement
 }
 
 type PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs struct {
-	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	Type  pulumi.StringInput `pulumi:"type"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -4717,14 +4431,12 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirem
 	return o
 }
 
-// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement) string {
 		return v.Type
 	}).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement) string {
 		return v.Value
@@ -4752,10 +4464,8 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirem
 }
 
 type PipeTargetParametersBatchJobParametersDependsOn struct {
-	// The job ID of the AWS Batch job that's associated with this dependency.
 	JobId *string `pulumi:"jobId"`
-	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-	Type *string `pulumi:"type"`
+	Type  *string `pulumi:"type"`
 }
 
 // PipeTargetParametersBatchJobParametersDependsOnInput is an input type that accepts PipeTargetParametersBatchJobParametersDependsOnArgs and PipeTargetParametersBatchJobParametersDependsOnOutput values.
@@ -4770,10 +4480,8 @@ type PipeTargetParametersBatchJobParametersDependsOnInput interface {
 }
 
 type PipeTargetParametersBatchJobParametersDependsOnArgs struct {
-	// The job ID of the AWS Batch job that's associated with this dependency.
 	JobId pulumi.StringPtrInput `pulumi:"jobId"`
-	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (PipeTargetParametersBatchJobParametersDependsOnArgs) ElementType() reflect.Type {
@@ -4827,12 +4535,10 @@ func (o PipeTargetParametersBatchJobParametersDependsOnOutput) ToPipeTargetParam
 	return o
 }
 
-// The job ID of the AWS Batch job that's associated with this dependency.
 func (o PipeTargetParametersBatchJobParametersDependsOnOutput) JobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersDependsOn) *string { return v.JobId }).(pulumi.StringPtrOutput)
 }
 
-// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 func (o PipeTargetParametersBatchJobParametersDependsOnOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersDependsOn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4858,7 +4564,6 @@ func (o PipeTargetParametersBatchJobParametersDependsOnArrayOutput) Index(i pulu
 }
 
 type PipeTargetParametersBatchJobParametersRetryStrategy struct {
-	// The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
 	Attempts *int `pulumi:"attempts"`
 }
 
@@ -4874,7 +4579,6 @@ type PipeTargetParametersBatchJobParametersRetryStrategyInput interface {
 }
 
 type PipeTargetParametersBatchJobParametersRetryStrategyArgs struct {
-	// The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
 	Attempts pulumi.IntPtrInput `pulumi:"attempts"`
 }
 
@@ -4955,7 +4659,6 @@ func (o PipeTargetParametersBatchJobParametersRetryStrategyOutput) ToPipeTargetP
 	}).(PipeTargetParametersBatchJobParametersRetryStrategyPtrOutput)
 }
 
-// The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
 func (o PipeTargetParametersBatchJobParametersRetryStrategyOutput) Attempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersRetryStrategy) *int { return v.Attempts }).(pulumi.IntPtrOutput)
 }
@@ -4984,7 +4687,6 @@ func (o PipeTargetParametersBatchJobParametersRetryStrategyPtrOutput) Elem() Pip
 	}).(PipeTargetParametersBatchJobParametersRetryStrategyOutput)
 }
 
-// The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
 func (o PipeTargetParametersBatchJobParametersRetryStrategyPtrOutput) Attempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParametersRetryStrategy) *int {
 		if v == nil {
@@ -4995,10 +4697,8 @@ func (o PipeTargetParametersBatchJobParametersRetryStrategyPtrOutput) Attempts()
 }
 
 type PipeTargetParametersCloudwatchLogsParameters struct {
-	// The name of the log stream.
 	LogStreamName *string `pulumi:"logStreamName"`
-	// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
-	Timestamp *string `pulumi:"timestamp"`
+	Timestamp     *string `pulumi:"timestamp"`
 }
 
 // PipeTargetParametersCloudwatchLogsParametersInput is an input type that accepts PipeTargetParametersCloudwatchLogsParametersArgs and PipeTargetParametersCloudwatchLogsParametersOutput values.
@@ -5013,10 +4713,8 @@ type PipeTargetParametersCloudwatchLogsParametersInput interface {
 }
 
 type PipeTargetParametersCloudwatchLogsParametersArgs struct {
-	// The name of the log stream.
 	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
-	// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
-	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
+	Timestamp     pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
 func (PipeTargetParametersCloudwatchLogsParametersArgs) ElementType() reflect.Type {
@@ -5096,12 +4794,10 @@ func (o PipeTargetParametersCloudwatchLogsParametersOutput) ToPipeTargetParamete
 	}).(PipeTargetParametersCloudwatchLogsParametersPtrOutput)
 }
 
-// The name of the log stream.
 func (o PipeTargetParametersCloudwatchLogsParametersOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersCloudwatchLogsParameters) *string { return v.LogStreamName }).(pulumi.StringPtrOutput)
 }
 
-// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
 func (o PipeTargetParametersCloudwatchLogsParametersOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersCloudwatchLogsParameters) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -5130,7 +4826,6 @@ func (o PipeTargetParametersCloudwatchLogsParametersPtrOutput) Elem() PipeTarget
 	}).(PipeTargetParametersCloudwatchLogsParametersOutput)
 }
 
-// The name of the log stream.
 func (o PipeTargetParametersCloudwatchLogsParametersPtrOutput) LogStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersCloudwatchLogsParameters) *string {
 		if v == nil {
@@ -5140,7 +4835,6 @@ func (o PipeTargetParametersCloudwatchLogsParametersPtrOutput) LogStreamName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
 func (o PipeTargetParametersCloudwatchLogsParametersPtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersCloudwatchLogsParameters) *string {
 		if v == nil {
@@ -5151,36 +4845,22 @@ func (o PipeTargetParametersCloudwatchLogsParametersPtrOutput) Timestamp() pulum
 }
 
 type PipeTargetParametersEcsTaskParameters struct {
-	// List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
 	CapacityProviderStrategies []PipeTargetParametersEcsTaskParametersCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
-	// Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
-	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
-	// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
-	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
-	// Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
-	Group *string `pulumi:"group"`
-	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
-	LaunchType *string `pulumi:"launchType"`
-	// Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
-	NetworkConfiguration *PipeTargetParametersEcsTaskParametersNetworkConfiguration `pulumi:"networkConfiguration"`
-	// The overrides that are associated with a task. Detailed below.
-	Overrides *PipeTargetParametersEcsTaskParametersOverrides `pulumi:"overrides"`
-	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
-	PlacementConstraints []PipeTargetParametersEcsTaskParametersPlacementConstraint `pulumi:"placementConstraints"`
-	// The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
-	PlacementStrategies []PipeTargetParametersEcsTaskParametersPlacementStrategy `pulumi:"placementStrategies"`
-	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
-	PlatformVersion *string `pulumi:"platformVersion"`
-	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
-	PropagateTags *string `pulumi:"propagateTags"`
-	// The reference ID to use for the task. Maximum length of 1,024.
-	ReferenceId *string `pulumi:"referenceId"`
+	EnableEcsManagedTags       *bool                                                           `pulumi:"enableEcsManagedTags"`
+	EnableExecuteCommand       *bool                                                           `pulumi:"enableExecuteCommand"`
+	Group                      *string                                                         `pulumi:"group"`
+	LaunchType                 *string                                                         `pulumi:"launchType"`
+	NetworkConfiguration       *PipeTargetParametersEcsTaskParametersNetworkConfiguration      `pulumi:"networkConfiguration"`
+	Overrides                  *PipeTargetParametersEcsTaskParametersOverrides                 `pulumi:"overrides"`
+	PlacementConstraints       []PipeTargetParametersEcsTaskParametersPlacementConstraint      `pulumi:"placementConstraints"`
+	PlacementStrategies        []PipeTargetParametersEcsTaskParametersPlacementStrategy        `pulumi:"placementStrategies"`
+	PlatformVersion            *string                                                         `pulumi:"platformVersion"`
+	PropagateTags              *string                                                         `pulumi:"propagateTags"`
+	ReferenceId                *string                                                         `pulumi:"referenceId"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// The number of tasks to create based on TaskDefinition. The default is 1.
-	TaskCount *int `pulumi:"taskCount"`
-	// The ARN of the task definition to use if the event target is an Amazon ECS task.
-	TaskDefinitionArn string `pulumi:"taskDefinitionArn"`
+	Tags              map[string]string `pulumi:"tags"`
+	TaskCount         *int              `pulumi:"taskCount"`
+	TaskDefinitionArn string            `pulumi:"taskDefinitionArn"`
 }
 
 // PipeTargetParametersEcsTaskParametersInput is an input type that accepts PipeTargetParametersEcsTaskParametersArgs and PipeTargetParametersEcsTaskParametersOutput values.
@@ -5195,36 +4875,22 @@ type PipeTargetParametersEcsTaskParametersInput interface {
 }
 
 type PipeTargetParametersEcsTaskParametersArgs struct {
-	// List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
 	CapacityProviderStrategies PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArrayInput `pulumi:"capacityProviderStrategies"`
-	// Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
-	EnableEcsManagedTags pulumi.BoolPtrInput `pulumi:"enableEcsManagedTags"`
-	// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
-	EnableExecuteCommand pulumi.BoolPtrInput `pulumi:"enableExecuteCommand"`
-	// Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
-	Group pulumi.StringPtrInput `pulumi:"group"`
-	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
-	LaunchType pulumi.StringPtrInput `pulumi:"launchType"`
-	// Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
-	NetworkConfiguration PipeTargetParametersEcsTaskParametersNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
-	// The overrides that are associated with a task. Detailed below.
-	Overrides PipeTargetParametersEcsTaskParametersOverridesPtrInput `pulumi:"overrides"`
-	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
-	PlacementConstraints PipeTargetParametersEcsTaskParametersPlacementConstraintArrayInput `pulumi:"placementConstraints"`
-	// The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
-	PlacementStrategies PipeTargetParametersEcsTaskParametersPlacementStrategyArrayInput `pulumi:"placementStrategies"`
-	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
-	PlatformVersion pulumi.StringPtrInput `pulumi:"platformVersion"`
-	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
-	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
-	// The reference ID to use for the task. Maximum length of 1,024.
-	ReferenceId pulumi.StringPtrInput `pulumi:"referenceId"`
+	EnableEcsManagedTags       pulumi.BoolPtrInput                                                     `pulumi:"enableEcsManagedTags"`
+	EnableExecuteCommand       pulumi.BoolPtrInput                                                     `pulumi:"enableExecuteCommand"`
+	Group                      pulumi.StringPtrInput                                                   `pulumi:"group"`
+	LaunchType                 pulumi.StringPtrInput                                                   `pulumi:"launchType"`
+	NetworkConfiguration       PipeTargetParametersEcsTaskParametersNetworkConfigurationPtrInput       `pulumi:"networkConfiguration"`
+	Overrides                  PipeTargetParametersEcsTaskParametersOverridesPtrInput                  `pulumi:"overrides"`
+	PlacementConstraints       PipeTargetParametersEcsTaskParametersPlacementConstraintArrayInput      `pulumi:"placementConstraints"`
+	PlacementStrategies        PipeTargetParametersEcsTaskParametersPlacementStrategyArrayInput        `pulumi:"placementStrategies"`
+	PlatformVersion            pulumi.StringPtrInput                                                   `pulumi:"platformVersion"`
+	PropagateTags              pulumi.StringPtrInput                                                   `pulumi:"propagateTags"`
+	ReferenceId                pulumi.StringPtrInput                                                   `pulumi:"referenceId"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The number of tasks to create based on TaskDefinition. The default is 1.
-	TaskCount pulumi.IntPtrInput `pulumi:"taskCount"`
-	// The ARN of the task definition to use if the event target is an Amazon ECS task.
-	TaskDefinitionArn pulumi.StringInput `pulumi:"taskDefinitionArn"`
+	Tags              pulumi.StringMapInput `pulumi:"tags"`
+	TaskCount         pulumi.IntPtrInput    `pulumi:"taskCount"`
+	TaskDefinitionArn pulumi.StringInput    `pulumi:"taskDefinitionArn"`
 }
 
 func (PipeTargetParametersEcsTaskParametersArgs) ElementType() reflect.Type {
@@ -5304,72 +4970,60 @@ func (o PipeTargetParametersEcsTaskParametersOutput) ToPipeTargetParametersEcsTa
 	}).(PipeTargetParametersEcsTaskParametersPtrOutput)
 }
 
-// List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOutput) CapacityProviderStrategies() PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) []PipeTargetParametersEcsTaskParametersCapacityProviderStrategy {
 		return v.CapacityProviderStrategies
 	}).(PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArrayOutput)
 }
 
-// Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
 func (o PipeTargetParametersEcsTaskParametersOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) *bool { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
 }
 
-// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
 func (o PipeTargetParametersEcsTaskParametersOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
 func (o PipeTargetParametersEcsTaskParametersOutput) Group() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) *string { return v.Group }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
 func (o PipeTargetParametersEcsTaskParametersOutput) LaunchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) *string { return v.LaunchType }).(pulumi.StringPtrOutput)
 }
 
-// Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOutput) NetworkConfiguration() PipeTargetParametersEcsTaskParametersNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) *PipeTargetParametersEcsTaskParametersNetworkConfiguration {
 		return v.NetworkConfiguration
 	}).(PipeTargetParametersEcsTaskParametersNetworkConfigurationPtrOutput)
 }
 
-// The overrides that are associated with a task. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOutput) Overrides() PipeTargetParametersEcsTaskParametersOverridesPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) *PipeTargetParametersEcsTaskParametersOverrides {
 		return v.Overrides
 	}).(PipeTargetParametersEcsTaskParametersOverridesPtrOutput)
 }
 
-// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOutput) PlacementConstraints() PipeTargetParametersEcsTaskParametersPlacementConstraintArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) []PipeTargetParametersEcsTaskParametersPlacementConstraint {
 		return v.PlacementConstraints
 	}).(PipeTargetParametersEcsTaskParametersPlacementConstraintArrayOutput)
 }
 
-// The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOutput) PlacementStrategies() PipeTargetParametersEcsTaskParametersPlacementStrategyArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) []PipeTargetParametersEcsTaskParametersPlacementStrategy {
 		return v.PlacementStrategies
 	}).(PipeTargetParametersEcsTaskParametersPlacementStrategyArrayOutput)
 }
 
-// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
 func (o PipeTargetParametersEcsTaskParametersOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) *string { return v.PlatformVersion }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
 func (o PipeTargetParametersEcsTaskParametersOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) *string { return v.PropagateTags }).(pulumi.StringPtrOutput)
 }
 
-// The reference ID to use for the task. Maximum length of 1,024.
 func (o PipeTargetParametersEcsTaskParametersOutput) ReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) *string { return v.ReferenceId }).(pulumi.StringPtrOutput)
 }
@@ -5379,12 +5033,10 @@ func (o PipeTargetParametersEcsTaskParametersOutput) Tags() pulumi.StringMapOutp
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The number of tasks to create based on TaskDefinition. The default is 1.
 func (o PipeTargetParametersEcsTaskParametersOutput) TaskCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) *int { return v.TaskCount }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the task definition to use if the event target is an Amazon ECS task.
 func (o PipeTargetParametersEcsTaskParametersOutput) TaskDefinitionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParameters) string { return v.TaskDefinitionArn }).(pulumi.StringOutput)
 }
@@ -5413,7 +5065,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) Elem() PipeTargetParamet
 	}).(PipeTargetParametersEcsTaskParametersOutput)
 }
 
-// List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) CapacityProviderStrategies() PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) []PipeTargetParametersEcsTaskParametersCapacityProviderStrategy {
 		if v == nil {
@@ -5423,7 +5074,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) CapacityProviderStrategi
 	}).(PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArrayOutput)
 }
 
-// Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) *bool {
 		if v == nil {
@@ -5433,7 +5083,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) EnableEcsManagedTags() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) *bool {
 		if v == nil {
@@ -5443,7 +5092,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) EnableExecuteCommand() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) Group() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) *string {
 		if v == nil {
@@ -5453,7 +5101,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) Group() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) LaunchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) *string {
 		if v == nil {
@@ -5463,7 +5110,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) LaunchType() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) NetworkConfiguration() PipeTargetParametersEcsTaskParametersNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) *PipeTargetParametersEcsTaskParametersNetworkConfiguration {
 		if v == nil {
@@ -5473,7 +5119,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) NetworkConfiguration() P
 	}).(PipeTargetParametersEcsTaskParametersNetworkConfigurationPtrOutput)
 }
 
-// The overrides that are associated with a task. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) Overrides() PipeTargetParametersEcsTaskParametersOverridesPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) *PipeTargetParametersEcsTaskParametersOverrides {
 		if v == nil {
@@ -5483,7 +5128,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) Overrides() PipeTargetPa
 	}).(PipeTargetParametersEcsTaskParametersOverridesPtrOutput)
 }
 
-// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) PlacementConstraints() PipeTargetParametersEcsTaskParametersPlacementConstraintArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) []PipeTargetParametersEcsTaskParametersPlacementConstraint {
 		if v == nil {
@@ -5493,7 +5137,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) PlacementConstraints() P
 	}).(PipeTargetParametersEcsTaskParametersPlacementConstraintArrayOutput)
 }
 
-// The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) PlacementStrategies() PipeTargetParametersEcsTaskParametersPlacementStrategyArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) []PipeTargetParametersEcsTaskParametersPlacementStrategy {
 		if v == nil {
@@ -5503,7 +5146,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) PlacementStrategies() Pi
 	}).(PipeTargetParametersEcsTaskParametersPlacementStrategyArrayOutput)
 }
 
-// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) *string {
 		if v == nil {
@@ -5513,7 +5155,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) PlatformVersion() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) *string {
 		if v == nil {
@@ -5523,7 +5164,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) PropagateTags() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reference ID to use for the task. Maximum length of 1,024.
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) ReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) *string {
 		if v == nil {
@@ -5543,7 +5183,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) Tags() pulumi.StringMapO
 	}).(pulumi.StringMapOutput)
 }
 
-// The number of tasks to create based on TaskDefinition. The default is 1.
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) TaskCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) *int {
 		if v == nil {
@@ -5553,7 +5192,6 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) TaskCount() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the task definition to use if the event target is an Amazon ECS task.
 func (o PipeTargetParametersEcsTaskParametersPtrOutput) TaskDefinitionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParameters) *string {
 		if v == nil {
@@ -5564,12 +5202,9 @@ func (o PipeTargetParametersEcsTaskParametersPtrOutput) TaskDefinitionArn() pulu
 }
 
 type PipeTargetParametersEcsTaskParametersCapacityProviderStrategy struct {
-	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
-	Base *int `pulumi:"base"`
-	// The short name of the capacity provider. Maximum value of 255.
+	Base             *int   `pulumi:"base"`
 	CapacityProvider string `pulumi:"capacityProvider"`
-	// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
-	Weight *int `pulumi:"weight"`
+	Weight           *int   `pulumi:"weight"`
 }
 
 // PipeTargetParametersEcsTaskParametersCapacityProviderStrategyInput is an input type that accepts PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs and PipeTargetParametersEcsTaskParametersCapacityProviderStrategyOutput values.
@@ -5584,12 +5219,9 @@ type PipeTargetParametersEcsTaskParametersCapacityProviderStrategyInput interfac
 }
 
 type PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs struct {
-	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
-	Base pulumi.IntPtrInput `pulumi:"base"`
-	// The short name of the capacity provider. Maximum value of 255.
+	Base             pulumi.IntPtrInput `pulumi:"base"`
 	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
-	// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Weight           pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs) ElementType() reflect.Type {
@@ -5643,19 +5275,16 @@ func (o PipeTargetParametersEcsTaskParametersCapacityProviderStrategyOutput) ToP
 	return o
 }
 
-// The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
 func (o PipeTargetParametersEcsTaskParametersCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-// The short name of the capacity provider. Maximum value of 255.
 func (o PipeTargetParametersEcsTaskParametersCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersCapacityProviderStrategy) string {
 		return v.CapacityProvider
 	}).(pulumi.StringOutput)
 }
 
-// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
 func (o PipeTargetParametersEcsTaskParametersCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -5681,7 +5310,6 @@ func (o PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArrayOutput
 }
 
 type PipeTargetParametersEcsTaskParametersNetworkConfiguration struct {
-	// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
 	AwsVpcConfiguration *PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration `pulumi:"awsVpcConfiguration"`
 }
 
@@ -5697,7 +5325,6 @@ type PipeTargetParametersEcsTaskParametersNetworkConfigurationInput interface {
 }
 
 type PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs struct {
-	// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
 	AwsVpcConfiguration PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationPtrInput `pulumi:"awsVpcConfiguration"`
 }
 
@@ -5778,7 +5405,6 @@ func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationOutput) ToPipeT
 	}).(PipeTargetParametersEcsTaskParametersNetworkConfigurationPtrOutput)
 }
 
-// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationOutput) AwsVpcConfiguration() PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersNetworkConfiguration) *PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration {
 		return v.AwsVpcConfiguration
@@ -5809,7 +5435,6 @@ func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationPtrOutput) Elem
 	}).(PipeTargetParametersEcsTaskParametersNetworkConfigurationOutput)
 }
 
-// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationPtrOutput) AwsVpcConfiguration() PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersNetworkConfiguration) *PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration {
 		if v == nil {
@@ -5820,12 +5445,9 @@ func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationPtrOutput) AwsV
 }
 
 type PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration struct {
-	// Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
-	AssignPublicIp *string `pulumi:"assignPublicIp"`
-	// List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+	AssignPublicIp *string  `pulumi:"assignPublicIp"`
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-	Subnets []string `pulumi:"subnets"`
+	Subnets        []string `pulumi:"subnets"`
 }
 
 // PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationInput is an input type that accepts PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs and PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationOutput values.
@@ -5840,12 +5462,9 @@ type PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguratio
 }
 
 type PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs struct {
-	// Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
-	AssignPublicIp pulumi.StringPtrInput `pulumi:"assignPublicIp"`
-	// List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+	AssignPublicIp pulumi.StringPtrInput   `pulumi:"assignPublicIp"`
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
-	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs) ElementType() reflect.Type {
@@ -5925,21 +5544,18 @@ func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigura
 	}).(PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationPtrOutput)
 }
 
-// Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
 func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationOutput) AssignPublicIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration) *string {
 		return v.AssignPublicIp
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
 func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration) []string {
 		return v.SecurityGroups
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
 func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration) []string {
 		return v.Subnets
@@ -5970,7 +5586,6 @@ func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigura
 	}).(PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationOutput)
 }
 
-// Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
 func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationPtrOutput) AssignPublicIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration) *string {
 		if v == nil {
@@ -5980,7 +5595,6 @@ func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigura
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
 func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration) []string {
 		if v == nil {
@@ -5990,7 +5604,6 @@ func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigura
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
 func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration) []string {
 		if v == nil {
@@ -6001,20 +5614,13 @@ func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigura
 }
 
 type PipeTargetParametersEcsTaskParametersOverrides struct {
-	// One or more container overrides that are sent to a task. Detailed below.
-	ContainerOverrides []PipeTargetParametersEcsTaskParametersOverridesContainerOverride `pulumi:"containerOverrides"`
-	// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-	Cpu *string `pulumi:"cpu"`
-	// The ephemeral storage setting override for the task.  Detailed below.
-	EphemeralStorage *PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage `pulumi:"ephemeralStorage"`
-	// The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
-	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// List of Elastic Inference accelerator overrides for the task. Detailed below.
+	ContainerOverrides            []PipeTargetParametersEcsTaskParametersOverridesContainerOverride            `pulumi:"containerOverrides"`
+	Cpu                           *string                                                                      `pulumi:"cpu"`
+	EphemeralStorage              *PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage              `pulumi:"ephemeralStorage"`
+	ExecutionRoleArn              *string                                                                      `pulumi:"executionRoleArn"`
 	InferenceAcceleratorOverrides []PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride `pulumi:"inferenceAcceleratorOverrides"`
-	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-	Memory *string `pulumi:"memory"`
-	// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
-	TaskRoleArn *string `pulumi:"taskRoleArn"`
+	Memory                        *string                                                                      `pulumi:"memory"`
+	TaskRoleArn                   *string                                                                      `pulumi:"taskRoleArn"`
 }
 
 // PipeTargetParametersEcsTaskParametersOverridesInput is an input type that accepts PipeTargetParametersEcsTaskParametersOverridesArgs and PipeTargetParametersEcsTaskParametersOverridesOutput values.
@@ -6029,20 +5635,13 @@ type PipeTargetParametersEcsTaskParametersOverridesInput interface {
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesArgs struct {
-	// One or more container overrides that are sent to a task. Detailed below.
-	ContainerOverrides PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrayInput `pulumi:"containerOverrides"`
-	// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
-	// The ephemeral storage setting override for the task.  Detailed below.
-	EphemeralStorage PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrInput `pulumi:"ephemeralStorage"`
-	// The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
-	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
-	// List of Elastic Inference accelerator overrides for the task. Detailed below.
+	ContainerOverrides            PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrayInput            `pulumi:"containerOverrides"`
+	Cpu                           pulumi.StringPtrInput                                                                `pulumi:"cpu"`
+	EphemeralStorage              PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrInput               `pulumi:"ephemeralStorage"`
+	ExecutionRoleArn              pulumi.StringPtrInput                                                                `pulumi:"executionRoleArn"`
 	InferenceAcceleratorOverrides PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArrayInput `pulumi:"inferenceAcceleratorOverrides"`
-	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-	Memory pulumi.StringPtrInput `pulumi:"memory"`
-	// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
-	TaskRoleArn pulumi.StringPtrInput `pulumi:"taskRoleArn"`
+	Memory                        pulumi.StringPtrInput                                                                `pulumi:"memory"`
+	TaskRoleArn                   pulumi.StringPtrInput                                                                `pulumi:"taskRoleArn"`
 }
 
 func (PipeTargetParametersEcsTaskParametersOverridesArgs) ElementType() reflect.Type {
@@ -6122,43 +5721,36 @@ func (o PipeTargetParametersEcsTaskParametersOverridesOutput) ToPipeTargetParame
 	}).(PipeTargetParametersEcsTaskParametersOverridesPtrOutput)
 }
 
-// One or more container overrides that are sent to a task. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOverridesOutput) ContainerOverrides() PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverrides) []PipeTargetParametersEcsTaskParametersOverridesContainerOverride {
 		return v.ContainerOverrides
 	}).(PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrayOutput)
 }
 
-// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverrides) *string { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
-// The ephemeral storage setting override for the task.  Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOverridesOutput) EphemeralStorage() PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverrides) *PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage {
 		return v.EphemeralStorage
 	}).(PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
 func (o PipeTargetParametersEcsTaskParametersOverridesOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverrides) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// List of Elastic Inference accelerator overrides for the task. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOverridesOutput) InferenceAcceleratorOverrides() PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverrides) []PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride {
 		return v.InferenceAcceleratorOverrides
 	}).(PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArrayOutput)
 }
 
-// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverrides) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
 func (o PipeTargetParametersEcsTaskParametersOverridesOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverrides) *string { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -6187,7 +5779,6 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) Elem() PipeTarg
 	}).(PipeTargetParametersEcsTaskParametersOverridesOutput)
 }
 
-// One or more container overrides that are sent to a task. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) ContainerOverrides() PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersOverrides) []PipeTargetParametersEcsTaskParametersOverridesContainerOverride {
 		if v == nil {
@@ -6197,7 +5788,6 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) ContainerOverri
 	}).(PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrayOutput)
 }
 
-// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersOverrides) *string {
 		if v == nil {
@@ -6207,7 +5797,6 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) Cpu() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ephemeral storage setting override for the task.  Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) EphemeralStorage() PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersOverrides) *PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage {
 		if v == nil {
@@ -6217,7 +5806,6 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) EphemeralStorag
 	}).(PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
 func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersOverrides) *string {
 		if v == nil {
@@ -6227,7 +5815,6 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) ExecutionRoleAr
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of Elastic Inference accelerator overrides for the task. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) InferenceAcceleratorOverrides() PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersOverrides) []PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride {
 		if v == nil {
@@ -6237,7 +5824,6 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) InferenceAccele
 	}).(PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArrayOutput)
 }
 
-// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersOverrides) *string {
 		if v == nil {
@@ -6247,7 +5833,6 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) Memory() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
 func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersOverrides) *string {
 		if v == nil {
@@ -6258,21 +5843,14 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) TaskRoleArn() p
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverride struct {
-	// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-	Commands []string `pulumi:"commands"`
-	// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-	Cpu *int `pulumi:"cpu"`
-	// A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
-	EnvironmentFiles []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile `pulumi:"environmentFiles"`
-	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-	Environments []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment `pulumi:"environments"`
-	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-	Memory *int `pulumi:"memory"`
-	// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
-	MemoryReservation *int `pulumi:"memoryReservation"`
+	Commands          []string                                                                         `pulumi:"commands"`
+	Cpu               *int                                                                             `pulumi:"cpu"`
+	EnvironmentFiles  []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile `pulumi:"environmentFiles"`
+	Environments      []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment     `pulumi:"environments"`
+	Memory            *int                                                                             `pulumi:"memory"`
+	MemoryReservation *int                                                                             `pulumi:"memoryReservation"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+	Name                 *string                                                                              `pulumi:"name"`
 	ResourceRequirements []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement `pulumi:"resourceRequirements"`
 }
 
@@ -6288,21 +5866,14 @@ type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideInput interf
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs struct {
-	// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
-	// A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
-	EnvironmentFiles PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArrayInput `pulumi:"environmentFiles"`
-	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-	Environments PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArrayInput `pulumi:"environments"`
-	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-	Memory pulumi.IntPtrInput `pulumi:"memory"`
-	// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
-	MemoryReservation pulumi.IntPtrInput `pulumi:"memoryReservation"`
+	Commands          pulumi.StringArrayInput                                                                  `pulumi:"commands"`
+	Cpu               pulumi.IntPtrInput                                                                       `pulumi:"cpu"`
+	EnvironmentFiles  PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArrayInput `pulumi:"environmentFiles"`
+	Environments      PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArrayInput     `pulumi:"environments"`
+	Memory            pulumi.IntPtrInput                                                                       `pulumi:"memory"`
+	MemoryReservation pulumi.IntPtrInput                                                                       `pulumi:"memoryReservation"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+	Name                 pulumi.StringPtrInput                                                                        `pulumi:"name"`
 	ResourceRequirements PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArrayInput `pulumi:"resourceRequirements"`
 }
 
@@ -6357,36 +5928,30 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) T
 	return o
 }
 
-// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
 
-// A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) EnvironmentFiles() PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile {
 		return v.EnvironmentFiles
 	}).(PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArrayOutput)
 }
 
-// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) Environments() PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment {
 		return v.Environments
 	}).(PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArrayOutput)
 }
 
-// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) Memory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) *int { return v.Memory }).(pulumi.IntPtrOutput)
 }
 
-// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) MemoryReservation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) *int {
 		return v.MemoryReservation
@@ -6398,7 +5963,6 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) N
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) ResourceRequirements() PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement {
 		return v.ResourceRequirements
@@ -6427,8 +5991,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrayOutp
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name *string `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -6445,8 +6008,7 @@ type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentI
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -6508,7 +6070,6 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironme
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment) *string {
 		return v.Value
@@ -6536,9 +6097,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironme
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile struct {
-	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-	Type string `pulumi:"type"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	Type  string `pulumi:"type"`
 	Value string `pulumi:"value"`
 }
 
@@ -6554,9 +6113,7 @@ type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentF
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs struct {
-	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	Type  pulumi.StringInput `pulumi:"type"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6611,14 +6168,12 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironme
 	return o
 }
 
-// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile) string {
 		return v.Type
 	}).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile) string {
 		return v.Value
@@ -6646,9 +6201,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironme
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement struct {
-	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-	Type string `pulumi:"type"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	Type  string `pulumi:"type"`
 	Value string `pulumi:"value"`
 }
 
@@ -6664,9 +6217,7 @@ type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequ
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs struct {
-	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	Type  pulumi.StringInput `pulumi:"type"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6721,14 +6272,12 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceR
 	return o
 }
 
-// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement) string {
 		return v.Type
 	}).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement) string {
 		return v.Value
@@ -6756,7 +6305,6 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceR
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage struct {
-	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
 	SizeInGib int `pulumi:"sizeInGib"`
 }
 
@@ -6772,7 +6320,6 @@ type PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageInput interfa
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs struct {
-	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
 	SizeInGib pulumi.IntInput `pulumi:"sizeInGib"`
 }
 
@@ -6853,7 +6400,6 @@ func (o PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageOutput) To
 	}).(PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrOutput)
 }
 
-// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
 func (o PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageOutput) SizeInGib() pulumi.IntOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage) int { return v.SizeInGib }).(pulumi.IntOutput)
 }
@@ -6882,7 +6428,6 @@ func (o PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrOutput)
 	}).(PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageOutput)
 }
 
-// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
 func (o PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrOutput) SizeInGib() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage) *int {
 		if v == nil {
@@ -6893,9 +6438,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrOutput)
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride struct {
-	// The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
 	DeviceName *string `pulumi:"deviceName"`
-	// The Elastic Inference accelerator type to use.
 	DeviceType *string `pulumi:"deviceType"`
 }
 
@@ -6911,9 +6454,7 @@ type PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideI
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs struct {
-	// The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
 	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
-	// The Elastic Inference accelerator type to use.
 	DeviceType pulumi.StringPtrInput `pulumi:"deviceType"`
 }
 
@@ -6968,14 +6509,12 @@ func (o PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverri
 	return o
 }
 
-// The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
 func (o PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride) *string {
 		return v.DeviceName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Elastic Inference accelerator type to use.
 func (o PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideOutput) DeviceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride) *string {
 		return v.DeviceType
@@ -7003,10 +6542,8 @@ func (o PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverri
 }
 
 type PipeTargetParametersEcsTaskParametersPlacementConstraint struct {
-	// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
 	Expression *string `pulumi:"expression"`
-	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-	Type *string `pulumi:"type"`
+	Type       *string `pulumi:"type"`
 }
 
 // PipeTargetParametersEcsTaskParametersPlacementConstraintInput is an input type that accepts PipeTargetParametersEcsTaskParametersPlacementConstraintArgs and PipeTargetParametersEcsTaskParametersPlacementConstraintOutput values.
@@ -7021,10 +6558,8 @@ type PipeTargetParametersEcsTaskParametersPlacementConstraintInput interface {
 }
 
 type PipeTargetParametersEcsTaskParametersPlacementConstraintArgs struct {
-	// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type       pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (PipeTargetParametersEcsTaskParametersPlacementConstraintArgs) ElementType() reflect.Type {
@@ -7078,12 +6613,10 @@ func (o PipeTargetParametersEcsTaskParametersPlacementConstraintOutput) ToPipeTa
 	return o
 }
 
-// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
 func (o PipeTargetParametersEcsTaskParametersPlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersPlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 func (o PipeTargetParametersEcsTaskParametersPlacementConstraintOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersPlacementConstraint) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -7109,10 +6642,8 @@ func (o PipeTargetParametersEcsTaskParametersPlacementConstraintArrayOutput) Ind
 }
 
 type PipeTargetParametersEcsTaskParametersPlacementStrategy struct {
-	// The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
 	Field *string `pulumi:"field"`
-	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-	Type *string `pulumi:"type"`
+	Type  *string `pulumi:"type"`
 }
 
 // PipeTargetParametersEcsTaskParametersPlacementStrategyInput is an input type that accepts PipeTargetParametersEcsTaskParametersPlacementStrategyArgs and PipeTargetParametersEcsTaskParametersPlacementStrategyOutput values.
@@ -7127,10 +6658,8 @@ type PipeTargetParametersEcsTaskParametersPlacementStrategyInput interface {
 }
 
 type PipeTargetParametersEcsTaskParametersPlacementStrategyArgs struct {
-	// The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
 	Field pulumi.StringPtrInput `pulumi:"field"`
-	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (PipeTargetParametersEcsTaskParametersPlacementStrategyArgs) ElementType() reflect.Type {
@@ -7184,12 +6713,10 @@ func (o PipeTargetParametersEcsTaskParametersPlacementStrategyOutput) ToPipeTarg
 	return o
 }
 
-// The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
 func (o PipeTargetParametersEcsTaskParametersPlacementStrategyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersPlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
-// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 func (o PipeTargetParametersEcsTaskParametersPlacementStrategyOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersPlacementStrategy) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -7215,16 +6742,12 @@ func (o PipeTargetParametersEcsTaskParametersPlacementStrategyArrayOutput) Index
 }
 
 type PipeTargetParametersEventbridgeEventBusParameters struct {
-	// A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
-	DetailType *string `pulumi:"detailType"`
-	// The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
-	EndpointId *string `pulumi:"endpointId"`
-	// List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
-	Resources []string `pulumi:"resources"`
+	DetailType *string  `pulumi:"detailType"`
+	EndpointId *string  `pulumi:"endpointId"`
+	Resources  []string `pulumi:"resources"`
 	// Source resource of the pipe (typically an ARN).
 	Source *string `pulumi:"source"`
-	// The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
-	Time *string `pulumi:"time"`
+	Time   *string `pulumi:"time"`
 }
 
 // PipeTargetParametersEventbridgeEventBusParametersInput is an input type that accepts PipeTargetParametersEventbridgeEventBusParametersArgs and PipeTargetParametersEventbridgeEventBusParametersOutput values.
@@ -7239,16 +6762,12 @@ type PipeTargetParametersEventbridgeEventBusParametersInput interface {
 }
 
 type PipeTargetParametersEventbridgeEventBusParametersArgs struct {
-	// A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
-	DetailType pulumi.StringPtrInput `pulumi:"detailType"`
-	// The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
-	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
-	// List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
-	Resources pulumi.StringArrayInput `pulumi:"resources"`
+	DetailType pulumi.StringPtrInput   `pulumi:"detailType"`
+	EndpointId pulumi.StringPtrInput   `pulumi:"endpointId"`
+	Resources  pulumi.StringArrayInput `pulumi:"resources"`
 	// Source resource of the pipe (typically an ARN).
 	Source pulumi.StringPtrInput `pulumi:"source"`
-	// The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
-	Time pulumi.StringPtrInput `pulumi:"time"`
+	Time   pulumi.StringPtrInput `pulumi:"time"`
 }
 
 func (PipeTargetParametersEventbridgeEventBusParametersArgs) ElementType() reflect.Type {
@@ -7328,17 +6847,14 @@ func (o PipeTargetParametersEventbridgeEventBusParametersOutput) ToPipeTargetPar
 	}).(PipeTargetParametersEventbridgeEventBusParametersPtrOutput)
 }
 
-// A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
 func (o PipeTargetParametersEventbridgeEventBusParametersOutput) DetailType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEventbridgeEventBusParameters) *string { return v.DetailType }).(pulumi.StringPtrOutput)
 }
 
-// The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
 func (o PipeTargetParametersEventbridgeEventBusParametersOutput) EndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEventbridgeEventBusParameters) *string { return v.EndpointId }).(pulumi.StringPtrOutput)
 }
 
-// List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
 func (o PipeTargetParametersEventbridgeEventBusParametersOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEventbridgeEventBusParameters) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
@@ -7348,7 +6864,6 @@ func (o PipeTargetParametersEventbridgeEventBusParametersOutput) Source() pulumi
 	return o.ApplyT(func(v PipeTargetParametersEventbridgeEventBusParameters) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
 func (o PipeTargetParametersEventbridgeEventBusParametersOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEventbridgeEventBusParameters) *string { return v.Time }).(pulumi.StringPtrOutput)
 }
@@ -7377,7 +6892,6 @@ func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) Elem() PipeT
 	}).(PipeTargetParametersEventbridgeEventBusParametersOutput)
 }
 
-// A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
 func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) DetailType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEventbridgeEventBusParameters) *string {
 		if v == nil {
@@ -7387,7 +6901,6 @@ func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) DetailType()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
 func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) EndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEventbridgeEventBusParameters) *string {
 		if v == nil {
@@ -7397,7 +6910,6 @@ func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) EndpointId()
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
 func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEventbridgeEventBusParameters) []string {
 		if v == nil {
@@ -7417,7 +6929,6 @@ func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) Source() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
 func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEventbridgeEventBusParameters) *string {
 		if v == nil {
@@ -7428,11 +6939,8 @@ func (o PipeTargetParametersEventbridgeEventBusParametersPtrOutput) Time() pulum
 }
 
 type PipeTargetParametersHttpParameters struct {
-	// Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-	HeaderParameters map[string]string `pulumi:"headerParameters"`
-	// The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
-	PathParameterValues *string `pulumi:"pathParameterValues"`
-	// Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
+	HeaderParameters      map[string]string `pulumi:"headerParameters"`
+	PathParameterValues   *string           `pulumi:"pathParameterValues"`
 	QueryStringParameters map[string]string `pulumi:"queryStringParameters"`
 }
 
@@ -7448,11 +6956,8 @@ type PipeTargetParametersHttpParametersInput interface {
 }
 
 type PipeTargetParametersHttpParametersArgs struct {
-	// Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-	HeaderParameters pulumi.StringMapInput `pulumi:"headerParameters"`
-	// The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
-	PathParameterValues pulumi.StringPtrInput `pulumi:"pathParameterValues"`
-	// Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
+	HeaderParameters      pulumi.StringMapInput `pulumi:"headerParameters"`
+	PathParameterValues   pulumi.StringPtrInput `pulumi:"pathParameterValues"`
 	QueryStringParameters pulumi.StringMapInput `pulumi:"queryStringParameters"`
 }
 
@@ -7533,17 +7038,14 @@ func (o PipeTargetParametersHttpParametersOutput) ToPipeTargetParametersHttpPara
 	}).(PipeTargetParametersHttpParametersPtrOutput)
 }
 
-// Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
 func (o PipeTargetParametersHttpParametersOutput) HeaderParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipeTargetParametersHttpParameters) map[string]string { return v.HeaderParameters }).(pulumi.StringMapOutput)
 }
 
-// The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
 func (o PipeTargetParametersHttpParametersOutput) PathParameterValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersHttpParameters) *string { return v.PathParameterValues }).(pulumi.StringPtrOutput)
 }
 
-// Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
 func (o PipeTargetParametersHttpParametersOutput) QueryStringParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipeTargetParametersHttpParameters) map[string]string { return v.QueryStringParameters }).(pulumi.StringMapOutput)
 }
@@ -7572,7 +7074,6 @@ func (o PipeTargetParametersHttpParametersPtrOutput) Elem() PipeTargetParameters
 	}).(PipeTargetParametersHttpParametersOutput)
 }
 
-// Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
 func (o PipeTargetParametersHttpParametersPtrOutput) HeaderParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PipeTargetParametersHttpParameters) map[string]string {
 		if v == nil {
@@ -7582,7 +7083,6 @@ func (o PipeTargetParametersHttpParametersPtrOutput) HeaderParameters() pulumi.S
 	}).(pulumi.StringMapOutput)
 }
 
-// The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
 func (o PipeTargetParametersHttpParametersPtrOutput) PathParameterValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersHttpParameters) *string {
 		if v == nil {
@@ -7592,7 +7092,6 @@ func (o PipeTargetParametersHttpParametersPtrOutput) PathParameterValues() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
 func (o PipeTargetParametersHttpParametersPtrOutput) QueryStringParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PipeTargetParametersHttpParameters) map[string]string {
 		if v == nil {
@@ -7603,7 +7102,6 @@ func (o PipeTargetParametersHttpParametersPtrOutput) QueryStringParameters() pul
 }
 
 type PipeTargetParametersKinesisStreamParameters struct {
-	// Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
 	PartitionKey string `pulumi:"partitionKey"`
 }
 
@@ -7619,7 +7117,6 @@ type PipeTargetParametersKinesisStreamParametersInput interface {
 }
 
 type PipeTargetParametersKinesisStreamParametersArgs struct {
-	// Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
 	PartitionKey pulumi.StringInput `pulumi:"partitionKey"`
 }
 
@@ -7700,7 +7197,6 @@ func (o PipeTargetParametersKinesisStreamParametersOutput) ToPipeTargetParameter
 	}).(PipeTargetParametersKinesisStreamParametersPtrOutput)
 }
 
-// Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
 func (o PipeTargetParametersKinesisStreamParametersOutput) PartitionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersKinesisStreamParameters) string { return v.PartitionKey }).(pulumi.StringOutput)
 }
@@ -7729,7 +7225,6 @@ func (o PipeTargetParametersKinesisStreamParametersPtrOutput) Elem() PipeTargetP
 	}).(PipeTargetParametersKinesisStreamParametersOutput)
 }
 
-// Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
 func (o PipeTargetParametersKinesisStreamParametersPtrOutput) PartitionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersKinesisStreamParameters) *string {
 		if v == nil {
@@ -7740,7 +7235,6 @@ func (o PipeTargetParametersKinesisStreamParametersPtrOutput) PartitionKey() pul
 }
 
 type PipeTargetParametersLambdaFunctionParameters struct {
-	// Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
 	InvocationType string `pulumi:"invocationType"`
 }
 
@@ -7756,7 +7250,6 @@ type PipeTargetParametersLambdaFunctionParametersInput interface {
 }
 
 type PipeTargetParametersLambdaFunctionParametersArgs struct {
-	// Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
 	InvocationType pulumi.StringInput `pulumi:"invocationType"`
 }
 
@@ -7837,7 +7330,6 @@ func (o PipeTargetParametersLambdaFunctionParametersOutput) ToPipeTargetParamete
 	}).(PipeTargetParametersLambdaFunctionParametersPtrOutput)
 }
 
-// Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
 func (o PipeTargetParametersLambdaFunctionParametersOutput) InvocationType() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersLambdaFunctionParameters) string { return v.InvocationType }).(pulumi.StringOutput)
 }
@@ -7866,7 +7358,6 @@ func (o PipeTargetParametersLambdaFunctionParametersPtrOutput) Elem() PipeTarget
 	}).(PipeTargetParametersLambdaFunctionParametersOutput)
 }
 
-// Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
 func (o PipeTargetParametersLambdaFunctionParametersPtrOutput) InvocationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersLambdaFunctionParameters) *string {
 		if v == nil {
@@ -7877,18 +7368,12 @@ func (o PipeTargetParametersLambdaFunctionParametersPtrOutput) InvocationType() 
 }
 
 type PipeTargetParametersRedshiftDataParameters struct {
-	// The name of the database. Required when authenticating using temporary credentials.
-	Database string `pulumi:"database"`
-	// The database user name. Required when authenticating using temporary credentials.
-	DbUser *string `pulumi:"dbUser"`
-	// The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
-	SecretManagerArn *string `pulumi:"secretManagerArn"`
-	// List of SQL statements text to run, each of maximum length of 100,000.
-	Sqls []string `pulumi:"sqls"`
-	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-	StatementName *string `pulumi:"statementName"`
-	// Indicates whether to send an event back to EventBridge after the SQL statement runs.
-	WithEvent *bool `pulumi:"withEvent"`
+	Database         string   `pulumi:"database"`
+	DbUser           *string  `pulumi:"dbUser"`
+	SecretManagerArn *string  `pulumi:"secretManagerArn"`
+	Sqls             []string `pulumi:"sqls"`
+	StatementName    *string  `pulumi:"statementName"`
+	WithEvent        *bool    `pulumi:"withEvent"`
 }
 
 // PipeTargetParametersRedshiftDataParametersInput is an input type that accepts PipeTargetParametersRedshiftDataParametersArgs and PipeTargetParametersRedshiftDataParametersOutput values.
@@ -7903,18 +7388,12 @@ type PipeTargetParametersRedshiftDataParametersInput interface {
 }
 
 type PipeTargetParametersRedshiftDataParametersArgs struct {
-	// The name of the database. Required when authenticating using temporary credentials.
-	Database pulumi.StringInput `pulumi:"database"`
-	// The database user name. Required when authenticating using temporary credentials.
-	DbUser pulumi.StringPtrInput `pulumi:"dbUser"`
-	// The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
-	SecretManagerArn pulumi.StringPtrInput `pulumi:"secretManagerArn"`
-	// List of SQL statements text to run, each of maximum length of 100,000.
-	Sqls pulumi.StringArrayInput `pulumi:"sqls"`
-	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-	StatementName pulumi.StringPtrInput `pulumi:"statementName"`
-	// Indicates whether to send an event back to EventBridge after the SQL statement runs.
-	WithEvent pulumi.BoolPtrInput `pulumi:"withEvent"`
+	Database         pulumi.StringInput      `pulumi:"database"`
+	DbUser           pulumi.StringPtrInput   `pulumi:"dbUser"`
+	SecretManagerArn pulumi.StringPtrInput   `pulumi:"secretManagerArn"`
+	Sqls             pulumi.StringArrayInput `pulumi:"sqls"`
+	StatementName    pulumi.StringPtrInput   `pulumi:"statementName"`
+	WithEvent        pulumi.BoolPtrInput     `pulumi:"withEvent"`
 }
 
 func (PipeTargetParametersRedshiftDataParametersArgs) ElementType() reflect.Type {
@@ -7994,32 +7473,26 @@ func (o PipeTargetParametersRedshiftDataParametersOutput) ToPipeTargetParameters
 	}).(PipeTargetParametersRedshiftDataParametersPtrOutput)
 }
 
-// The name of the database. Required when authenticating using temporary credentials.
 func (o PipeTargetParametersRedshiftDataParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersRedshiftDataParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The database user name. Required when authenticating using temporary credentials.
 func (o PipeTargetParametersRedshiftDataParametersOutput) DbUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersRedshiftDataParameters) *string { return v.DbUser }).(pulumi.StringPtrOutput)
 }
 
-// The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
 func (o PipeTargetParametersRedshiftDataParametersOutput) SecretManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersRedshiftDataParameters) *string { return v.SecretManagerArn }).(pulumi.StringPtrOutput)
 }
 
-// List of SQL statements text to run, each of maximum length of 100,000.
 func (o PipeTargetParametersRedshiftDataParametersOutput) Sqls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersRedshiftDataParameters) []string { return v.Sqls }).(pulumi.StringArrayOutput)
 }
 
-// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 func (o PipeTargetParametersRedshiftDataParametersOutput) StatementName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersRedshiftDataParameters) *string { return v.StatementName }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to send an event back to EventBridge after the SQL statement runs.
 func (o PipeTargetParametersRedshiftDataParametersOutput) WithEvent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersRedshiftDataParameters) *bool { return v.WithEvent }).(pulumi.BoolPtrOutput)
 }
@@ -8048,7 +7521,6 @@ func (o PipeTargetParametersRedshiftDataParametersPtrOutput) Elem() PipeTargetPa
 	}).(PipeTargetParametersRedshiftDataParametersOutput)
 }
 
-// The name of the database. Required when authenticating using temporary credentials.
 func (o PipeTargetParametersRedshiftDataParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersRedshiftDataParameters) *string {
 		if v == nil {
@@ -8058,7 +7530,6 @@ func (o PipeTargetParametersRedshiftDataParametersPtrOutput) Database() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The database user name. Required when authenticating using temporary credentials.
 func (o PipeTargetParametersRedshiftDataParametersPtrOutput) DbUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersRedshiftDataParameters) *string {
 		if v == nil {
@@ -8068,7 +7539,6 @@ func (o PipeTargetParametersRedshiftDataParametersPtrOutput) DbUser() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
 func (o PipeTargetParametersRedshiftDataParametersPtrOutput) SecretManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersRedshiftDataParameters) *string {
 		if v == nil {
@@ -8078,7 +7548,6 @@ func (o PipeTargetParametersRedshiftDataParametersPtrOutput) SecretManagerArn() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of SQL statements text to run, each of maximum length of 100,000.
 func (o PipeTargetParametersRedshiftDataParametersPtrOutput) Sqls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersRedshiftDataParameters) []string {
 		if v == nil {
@@ -8088,7 +7557,6 @@ func (o PipeTargetParametersRedshiftDataParametersPtrOutput) Sqls() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 func (o PipeTargetParametersRedshiftDataParametersPtrOutput) StatementName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersRedshiftDataParameters) *string {
 		if v == nil {
@@ -8098,7 +7566,6 @@ func (o PipeTargetParametersRedshiftDataParametersPtrOutput) StatementName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to send an event back to EventBridge after the SQL statement runs.
 func (o PipeTargetParametersRedshiftDataParametersPtrOutput) WithEvent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersRedshiftDataParameters) *bool {
 		if v == nil {
@@ -8109,7 +7576,6 @@ func (o PipeTargetParametersRedshiftDataParametersPtrOutput) WithEvent() pulumi.
 }
 
 type PipeTargetParametersSagemakerPipelineParameters struct {
-	// List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
 	PipelineParameters []PipeTargetParametersSagemakerPipelineParametersPipelineParameter `pulumi:"pipelineParameters"`
 }
 
@@ -8125,7 +7591,6 @@ type PipeTargetParametersSagemakerPipelineParametersInput interface {
 }
 
 type PipeTargetParametersSagemakerPipelineParametersArgs struct {
-	// List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
 	PipelineParameters PipeTargetParametersSagemakerPipelineParametersPipelineParameterArrayInput `pulumi:"pipelineParameters"`
 }
 
@@ -8206,7 +7671,6 @@ func (o PipeTargetParametersSagemakerPipelineParametersOutput) ToPipeTargetParam
 	}).(PipeTargetParametersSagemakerPipelineParametersPtrOutput)
 }
 
-// List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
 func (o PipeTargetParametersSagemakerPipelineParametersOutput) PipelineParameters() PipeTargetParametersSagemakerPipelineParametersPipelineParameterArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersSagemakerPipelineParameters) []PipeTargetParametersSagemakerPipelineParametersPipelineParameter {
 		return v.PipelineParameters
@@ -8237,7 +7701,6 @@ func (o PipeTargetParametersSagemakerPipelineParametersPtrOutput) Elem() PipeTar
 	}).(PipeTargetParametersSagemakerPipelineParametersOutput)
 }
 
-// List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
 func (o PipeTargetParametersSagemakerPipelineParametersPtrOutput) PipelineParameters() PipeTargetParametersSagemakerPipelineParametersPipelineParameterArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersSagemakerPipelineParameters) []PipeTargetParametersSagemakerPipelineParametersPipelineParameter {
 		if v == nil {
@@ -8249,8 +7712,7 @@ func (o PipeTargetParametersSagemakerPipelineParametersPtrOutput) PipelineParame
 
 type PipeTargetParametersSagemakerPipelineParametersPipelineParameter struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name string `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -8267,8 +7729,7 @@ type PipeTargetParametersSagemakerPipelineParametersPipelineParameterInput inter
 
 type PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -8328,7 +7789,6 @@ func (o PipeTargetParametersSagemakerPipelineParametersPipelineParameterOutput) 
 	return o.ApplyT(func(v PipeTargetParametersSagemakerPipelineParametersPipelineParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersSagemakerPipelineParametersPipelineParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersSagemakerPipelineParametersPipelineParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -8354,10 +7814,8 @@ func (o PipeTargetParametersSagemakerPipelineParametersPipelineParameterArrayOut
 }
 
 type PipeTargetParametersSqsQueueParameters struct {
-	// This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
 	MessageDeduplicationId *string `pulumi:"messageDeduplicationId"`
-	// The FIFO message group ID to use as the target.
-	MessageGroupId *string `pulumi:"messageGroupId"`
+	MessageGroupId         *string `pulumi:"messageGroupId"`
 }
 
 // PipeTargetParametersSqsQueueParametersInput is an input type that accepts PipeTargetParametersSqsQueueParametersArgs and PipeTargetParametersSqsQueueParametersOutput values.
@@ -8372,10 +7830,8 @@ type PipeTargetParametersSqsQueueParametersInput interface {
 }
 
 type PipeTargetParametersSqsQueueParametersArgs struct {
-	// This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
 	MessageDeduplicationId pulumi.StringPtrInput `pulumi:"messageDeduplicationId"`
-	// The FIFO message group ID to use as the target.
-	MessageGroupId pulumi.StringPtrInput `pulumi:"messageGroupId"`
+	MessageGroupId         pulumi.StringPtrInput `pulumi:"messageGroupId"`
 }
 
 func (PipeTargetParametersSqsQueueParametersArgs) ElementType() reflect.Type {
@@ -8455,12 +7911,10 @@ func (o PipeTargetParametersSqsQueueParametersOutput) ToPipeTargetParametersSqsQ
 	}).(PipeTargetParametersSqsQueueParametersPtrOutput)
 }
 
-// This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
 func (o PipeTargetParametersSqsQueueParametersOutput) MessageDeduplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersSqsQueueParameters) *string { return v.MessageDeduplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The FIFO message group ID to use as the target.
 func (o PipeTargetParametersSqsQueueParametersOutput) MessageGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersSqsQueueParameters) *string { return v.MessageGroupId }).(pulumi.StringPtrOutput)
 }
@@ -8489,7 +7943,6 @@ func (o PipeTargetParametersSqsQueueParametersPtrOutput) Elem() PipeTargetParame
 	}).(PipeTargetParametersSqsQueueParametersOutput)
 }
 
-// This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
 func (o PipeTargetParametersSqsQueueParametersPtrOutput) MessageDeduplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersSqsQueueParameters) *string {
 		if v == nil {
@@ -8499,7 +7952,6 @@ func (o PipeTargetParametersSqsQueueParametersPtrOutput) MessageDeduplicationId(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The FIFO message group ID to use as the target.
 func (o PipeTargetParametersSqsQueueParametersPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersSqsQueueParameters) *string {
 		if v == nil {
@@ -8510,7 +7962,6 @@ func (o PipeTargetParametersSqsQueueParametersPtrOutput) MessageGroupId() pulumi
 }
 
 type PipeTargetParametersStepFunctionStateMachineParameters struct {
-	// Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
 	InvocationType string `pulumi:"invocationType"`
 }
 
@@ -8526,7 +7977,6 @@ type PipeTargetParametersStepFunctionStateMachineParametersInput interface {
 }
 
 type PipeTargetParametersStepFunctionStateMachineParametersArgs struct {
-	// Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
 	InvocationType pulumi.StringInput `pulumi:"invocationType"`
 }
 
@@ -8607,7 +8057,6 @@ func (o PipeTargetParametersStepFunctionStateMachineParametersOutput) ToPipeTarg
 	}).(PipeTargetParametersStepFunctionStateMachineParametersPtrOutput)
 }
 
-// Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
 func (o PipeTargetParametersStepFunctionStateMachineParametersOutput) InvocationType() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersStepFunctionStateMachineParameters) string { return v.InvocationType }).(pulumi.StringOutput)
 }
@@ -8636,7 +8085,6 @@ func (o PipeTargetParametersStepFunctionStateMachineParametersPtrOutput) Elem() 
 	}).(PipeTargetParametersStepFunctionStateMachineParametersOutput)
 }
 
-// Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
 func (o PipeTargetParametersStepFunctionStateMachineParametersPtrOutput) InvocationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersStepFunctionStateMachineParameters) *string {
 		if v == nil {

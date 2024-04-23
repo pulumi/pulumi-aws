@@ -102,7 +102,6 @@ class AuthenticationProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -116,7 +115,6 @@ class AuthenticationProfile(pulumi.CustomResource):
                 "App_ID": "example",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -142,7 +140,6 @@ class AuthenticationProfile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -156,7 +153,6 @@ class AuthenticationProfile(pulumi.CustomResource):
                 "App_ID": "example",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// 
         /// ### Get All Resource Tag Mappings
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,11 +30,9 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Filter By Tag Key and Value
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,11 +59,9 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Filter By Resource Type
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -85,7 +80,6 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResourcesResult> InvokeAsync(GetResourcesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesArgs(), options.WithDefaults());
@@ -97,7 +91,6 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// 
         /// ### Get All Resource Tag Mappings
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -110,11 +103,9 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Filter By Tag Key and Value
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -141,11 +132,9 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Filter By Resource Type
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -164,7 +153,6 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResourcesResult> Invoke(GetResourcesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithDefaults());

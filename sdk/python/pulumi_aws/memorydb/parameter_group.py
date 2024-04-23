@@ -285,7 +285,6 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,7 +297,6 @@ class ParameterGroup(pulumi.CustomResource):
                 value="yes",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -332,7 +330,6 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -345,7 +342,6 @@ class ParameterGroup(pulumi.CustomResource):
                 value="yes",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

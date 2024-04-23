@@ -17,7 +17,6 @@ namespace Pulumi.Aws.LicenseManager.Inputs
         /// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
         /// For example, if filtering using `ProductSKU`, use:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.LicenseManager.Inputs
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     securityGroupRuleId: securityGroupRuleId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSecurityGroupRule(args?: GetSecurityGroupRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupRuleResult> {
     args = args || {};
@@ -108,7 +106,6 @@ export interface GetSecurityGroupRuleResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -117,7 +114,6 @@ export interface GetSecurityGroupRuleResult {
  *     securityGroupRuleId: securityGroupRuleId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSecurityGroupRuleOutput(args?: GetSecurityGroupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupRuleResult> {
     return pulumi.output(args).apply((a: any) => getSecurityGroupRule(a, opts))

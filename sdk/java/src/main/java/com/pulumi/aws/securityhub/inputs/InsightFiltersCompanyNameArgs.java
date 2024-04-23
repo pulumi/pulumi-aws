@@ -14,32 +14,16 @@ public final class InsightFiltersCompanyNameArgs extends com.pulumi.resources.Re
 
     public static final InsightFiltersCompanyNameArgs Empty = new InsightFiltersCompanyNameArgs();
 
-    /**
-     * The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-     * 
-     */
     @Import(name="comparison", required=true)
     private Output<String> comparison;
 
-    /**
-     * @return The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-     * 
-     */
     public Output<String> comparison() {
         return this.comparison;
     }
 
-    /**
-     * A date range value for the date filter, provided as an Integer.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return A date range value for the date filter, provided as an Integer.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class InsightFiltersCompanyNameArgs extends com.pulumi.resources.Re
             $ = new InsightFiltersCompanyNameArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comparison The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparison(Output<String> comparison) {
             $.comparison = comparison;
             return this;
         }
 
-        /**
-         * @param comparison The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparison(String comparison) {
             return comparison(Output.of(comparison));
         }
 
-        /**
-         * @param value A date range value for the date filter, provided as an Integer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value A date range value for the date filter, provided as an Integer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

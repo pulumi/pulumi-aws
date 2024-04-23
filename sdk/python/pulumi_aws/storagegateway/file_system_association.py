@@ -307,7 +307,6 @@ class FileSystemAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -319,11 +318,9 @@ class FileSystemAssociation(pulumi.CustomResource):
             password="avoid-plaintext-passwords",
             audit_destination_arn=example_aws_s3_bucket["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Required Services Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -366,7 +363,6 @@ class FileSystemAssociation(pulumi.CustomResource):
             ),
             audit_destination_arn=test_aws_cloudwatch_log_group["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -399,7 +395,6 @@ class FileSystemAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -411,11 +406,9 @@ class FileSystemAssociation(pulumi.CustomResource):
             password="avoid-plaintext-passwords",
             audit_destination_arn=example_aws_s3_bucket["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Required Services Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -458,7 +451,6 @@ class FileSystemAssociation(pulumi.CustomResource):
             ),
             audit_destination_arn=test_aws_cloudwatch_log_group["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// The following example below creates a CloudFront public key.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

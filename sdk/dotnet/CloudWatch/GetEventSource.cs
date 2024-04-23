@@ -18,7 +18,6 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEventSourceResult> InvokeAsync(GetEventSourceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceResult>("aws:cloudwatch/getEventSource:getEventSource", args ?? new GetEventSourceArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEventSourceResult> Invoke(GetEventSourceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventSourceResult>("aws:cloudwatch/getEventSource:getEventSource", args ?? new GetEventSourceInvokeArgs(), options.WithDefaults());

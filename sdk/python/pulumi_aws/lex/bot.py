@@ -616,7 +616,6 @@ class Bot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -648,7 +647,6 @@ class Bot(pulumi.CustomResource):
             process_behavior="BUILD",
             voice_id="Salli")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -687,7 +685,6 @@ class Bot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -719,7 +716,6 @@ class Bot(pulumi.CustomResource):
             process_behavior="BUILD",
             voice_id="Salli")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

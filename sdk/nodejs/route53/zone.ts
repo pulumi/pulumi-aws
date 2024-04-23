@@ -14,14 +14,12 @@ import * as utilities from "../utilities";
  *
  * ### Public Zone
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.route53.Zone("primary", {name: "example.com"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Public Subdomain Zone
  *
@@ -29,7 +27,6 @@ import * as utilities from "../utilities";
  * `aws.route53.Record` of type `NS` as well as the subdomain
  * zone.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,7 +46,6 @@ import * as utilities from "../utilities";
  *     records: dev.nameServers,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Private Zone
  *
@@ -57,7 +53,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Private zones require at least one VPC association at all times.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -69,7 +64,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

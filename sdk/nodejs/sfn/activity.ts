@@ -9,14 +9,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const sfnActivity = new aws.sfn.Activity("sfn_activity", {name: "my-activity"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

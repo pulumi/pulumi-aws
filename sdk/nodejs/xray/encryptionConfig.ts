@@ -11,18 +11,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.xray.EncryptionConfig("example", {type: "NONE"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With KMS Key
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,7 +47,6 @@ import * as utilities from "../utilities";
  *     keyId: exampleKey.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

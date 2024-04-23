@@ -506,7 +506,6 @@ class PatchBaseline(pulumi.CustomResource):
 
         Using `approved_patches` only.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -515,11 +514,9 @@ class PatchBaseline(pulumi.CustomResource):
             name="patch-baseline",
             approved_patches=["KB123456"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Advanced Usage, specifying patch filters
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -582,11 +579,9 @@ class PatchBaseline(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Advanced usage, specifying Microsoft application and Windows patch rules
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -633,11 +628,9 @@ class PatchBaseline(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Advanced usage, specifying alternate patch source repository
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -667,7 +660,6 @@ class PatchBaseline(pulumi.CustomResource):
         \"\"\",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -713,7 +705,6 @@ class PatchBaseline(pulumi.CustomResource):
 
         Using `approved_patches` only.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -722,11 +713,9 @@ class PatchBaseline(pulumi.CustomResource):
             name="patch-baseline",
             approved_patches=["KB123456"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Advanced Usage, specifying patch filters
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -789,11 +778,9 @@ class PatchBaseline(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Advanced usage, specifying Microsoft application and Windows patch rules
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -840,11 +827,9 @@ class PatchBaseline(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Advanced usage, specifying alternate patch source repository
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -874,7 +859,6 @@ class PatchBaseline(pulumi.CustomResource):
         \"\"\",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

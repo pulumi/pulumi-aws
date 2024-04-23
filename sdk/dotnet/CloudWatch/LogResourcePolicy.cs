@@ -16,7 +16,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ### Elasticsearch Log Publishing
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,11 +63,9 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Route53 Query Logging
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -115,7 +112,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -17,7 +17,7 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLo
      */
     private @Nullable String bucket;
     /**
-     * @return The name assigned to the tag that you create.
+     * @return The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
      * 
      */
     private @Nullable String key;
@@ -31,7 +31,7 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLo
         return Optional.ofNullable(this.bucket);
     }
     /**
-     * @return The name assigned to the tag that you create.
+     * @return The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
      * 
      */
     public Optional<String> key() {

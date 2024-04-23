@@ -386,7 +386,6 @@ class ReplicaKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -400,7 +399,6 @@ class ReplicaKey(pulumi.CustomResource):
             deletion_window_in_days=7,
             primary_key_arn=primary.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -435,7 +433,6 @@ class ReplicaKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -449,7 +446,6 @@ class ReplicaKey(pulumi.CustomResource):
             deletion_window_in_days=7,
             primary_key_arn=primary.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

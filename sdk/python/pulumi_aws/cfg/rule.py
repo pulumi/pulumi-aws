@@ -363,7 +363,6 @@ class Rule(pulumi.CustomResource):
 
         AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -399,13 +398,11 @@ class Rule(pulumi.CustomResource):
             role=r_role.id,
             policy=p.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Rules
 
         Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -426,11 +423,9 @@ class Rule(pulumi.CustomResource):
                 example_permission,
             ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Policies
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -444,21 +439,20 @@ class Rule(pulumi.CustomResource):
                 )],
                 custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArgs(
                     policy_runtime="guard-2.x.x",
-                    policy_text=\"\"\"	  rule tableisactive when
-        		  resourceType == "AWS::DynamoDB::Table" {
-        		  configuration.tableStatus == ['ACTIVE']
-        	  }
-        	  
-        	  rule checkcompliance when
-        		  resourceType == "AWS::DynamoDB::Table"
-        		  tableisactive {
-        			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
-        	  }
+                    policy_text=\"\"\"\\x09  rule tableisactive when
+        \\x09\\x09  resourceType == "AWS::DynamoDB::Table" {
+        \\x09\\x09  configuration.tableStatus == ['ACTIVE']
+        \\x09  }
+        \\x09  
+        \\x09  rule checkcompliance when
+        \\x09\\x09  resourceType == "AWS::DynamoDB::Table"
+        \\x09\\x09  tableisactive {
+        \\x09\\x09\\x09  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
+        \\x09  }
         \"\"\",
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -496,7 +490,6 @@ class Rule(pulumi.CustomResource):
 
         AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -532,13 +525,11 @@ class Rule(pulumi.CustomResource):
             role=r_role.id,
             policy=p.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Rules
 
         Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -559,11 +550,9 @@ class Rule(pulumi.CustomResource):
                 example_permission,
             ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Policies
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -577,21 +566,20 @@ class Rule(pulumi.CustomResource):
                 )],
                 custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArgs(
                     policy_runtime="guard-2.x.x",
-                    policy_text=\"\"\"	  rule tableisactive when
-        		  resourceType == "AWS::DynamoDB::Table" {
-        		  configuration.tableStatus == ['ACTIVE']
-        	  }
-        	  
-        	  rule checkcompliance when
-        		  resourceType == "AWS::DynamoDB::Table"
-        		  tableisactive {
-        			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
-        	  }
+                    policy_text=\"\"\"\\x09  rule tableisactive when
+        \\x09\\x09  resourceType == "AWS::DynamoDB::Table" {
+        \\x09\\x09  configuration.tableStatus == ['ACTIVE']
+        \\x09  }
+        \\x09  
+        \\x09  rule checkcompliance when
+        \\x09\\x09  resourceType == "AWS::DynamoDB::Table"
+        \\x09\\x09  tableisactive {
+        \\x09\\x09\\x09  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
+        \\x09  }
         \"\"\",
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

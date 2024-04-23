@@ -22,7 +22,6 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// The example below creates a CloudFront distribution with an S3 origin.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -198,13 +197,11 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With Failover Routing
     /// 
     /// The example below creates a CloudFront distribution with an origin group for failover routing.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -272,13 +269,11 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With Managed Caching Policy
     /// 
     /// The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -340,7 +335,6 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -353,9 +347,6 @@ namespace Pulumi.Aws.CloudFront
     [AwsResourceType("aws:cloudfront/distribution:Distribution")]
     public partial class Distribution : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Extra CNAMEs (alternate domain names), if any, for this distribution.
-        /// </summary>
         [Output("aliases")]
         public Output<ImmutableArray<string>> Aliases { get; private set; } = null!;
 
@@ -371,44 +362,29 @@ namespace Pulumi.Aws.CloudFront
         [Output("callerReference")]
         public Output<string> CallerReference { get; private set; } = null!;
 
-        /// <summary>
-        /// Any comments you want to include about the distribution.
-        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
-        /// <summary>
-        /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-        /// </summary>
         [Output("continuousDeploymentPolicyId")]
         public Output<string> ContinuousDeploymentPolicyId { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more custom error response elements (multiples allowed).
-        /// </summary>
         [Output("customErrorResponses")]
         public Output<ImmutableArray<Outputs.DistributionCustomErrorResponse>> CustomErrorResponses { get; private set; } = null!;
 
-        /// <summary>
-        /// Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
-        /// </summary>
         [Output("defaultCacheBehavior")]
         public Output<Outputs.DistributionDefaultCacheBehavior> DefaultCacheBehavior { get; private set; } = null!;
 
-        /// <summary>
-        /// Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
-        /// </summary>
         [Output("defaultRootObject")]
         public Output<string?> DefaultRootObject { get; private set; } = null!;
 
         /// <summary>
-        /// DNS domain name of either the S3 bucket, or web site of your custom origin.
+        /// Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Origin Shield is enabled.
+        /// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -425,9 +401,6 @@ namespace Pulumi.Aws.CloudFront
         [Output("hostedZoneId")]
         public Output<string> HostedZoneId { get; private set; } = null!;
 
-        /// <summary>
-        /// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
-        /// </summary>
         [Output("httpVersion")]
         public Output<string?> HttpVersion { get; private set; } = null!;
 
@@ -437,9 +410,6 @@ namespace Pulumi.Aws.CloudFront
         [Output("inProgressValidationBatches")]
         public Output<int> InProgressValidationBatches { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether the IPv6 is enabled for the distribution.
-        /// </summary>
         [Output("isIpv6Enabled")]
         public Output<bool?> IsIpv6Enabled { get; private set; } = null!;
 
@@ -449,51 +419,27 @@ namespace Pulumi.Aws.CloudFront
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// The logging configuration that controls how logs are written to your distribution (maximum one).
-        /// </summary>
         [Output("loggingConfig")]
         public Output<Outputs.DistributionLoggingConfig?> LoggingConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
-        /// </summary>
         [Output("orderedCacheBehaviors")]
         public Output<ImmutableArray<Outputs.DistributionOrderedCacheBehavior>> OrderedCacheBehaviors { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more origin_group for this distribution (multiples allowed).
-        /// </summary>
         [Output("originGroups")]
         public Output<ImmutableArray<Outputs.DistributionOriginGroup>> OriginGroups { get; private set; } = null!;
 
-        /// <summary>
-        /// One or more origins for this distribution (multiples allowed).
-        /// </summary>
         [Output("origins")]
         public Output<ImmutableArray<Outputs.DistributionOrigin>> Origins { get; private set; } = null!;
 
-        /// <summary>
-        /// Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
-        /// </summary>
         [Output("priceClass")]
         public Output<string?> PriceClass { get; private set; } = null!;
 
-        /// <summary>
-        /// The restriction configuration for this distribution (maximum one).
-        /// </summary>
         [Output("restrictions")]
         public Output<Outputs.DistributionRestrictions> Restrictions { get; private set; } = null!;
 
-        /// <summary>
-        /// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
-        /// </summary>
         [Output("retainOnDelete")]
         public Output<bool?> RetainOnDelete { get; private set; } = null!;
 
-        /// <summary>
-        /// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
-        /// </summary>
         [Output("staging")]
         public Output<bool?> Staging { get; private set; } = null!;
 
@@ -503,9 +449,6 @@ namespace Pulumi.Aws.CloudFront
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -516,32 +459,23 @@ namespace Pulumi.Aws.CloudFront
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        /// List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
         /// </summary>
         [Output("trustedKeyGroups")]
         public Output<ImmutableArray<Outputs.DistributionTrustedKeyGroup>> TrustedKeyGroups { get; private set; } = null!;
 
         /// <summary>
-        /// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        /// List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
         /// </summary>
         [Output("trustedSigners")]
         public Output<ImmutableArray<Outputs.DistributionTrustedSigner>> TrustedSigners { get; private set; } = null!;
 
-        /// <summary>
-        /// The SSL configuration for this distribution (maximum one).
-        /// </summary>
         [Output("viewerCertificate")]
         public Output<Outputs.DistributionViewerCertificate> ViewerCertificate { get; private set; } = null!;
 
-        /// <summary>
-        /// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
-        /// </summary>
         [Output("waitForDeployment")]
         public Output<bool?> WaitForDeployment { get; private set; } = null!;
 
-        /// <summary>
-        /// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
-        /// </summary>
         [Output("webAclId")]
         public Output<string?> WebAclId { get; private set; } = null!;
 
@@ -593,82 +527,49 @@ namespace Pulumi.Aws.CloudFront
     {
         [Input("aliases")]
         private InputList<string>? _aliases;
-
-        /// <summary>
-        /// Extra CNAMEs (alternate domain names), if any, for this distribution.
-        /// </summary>
         public InputList<string> Aliases
         {
             get => _aliases ?? (_aliases = new InputList<string>());
             set => _aliases = value;
         }
 
-        /// <summary>
-        /// Any comments you want to include about the distribution.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-        /// </summary>
         [Input("continuousDeploymentPolicyId")]
         public Input<string>? ContinuousDeploymentPolicyId { get; set; }
 
         [Input("customErrorResponses")]
         private InputList<Inputs.DistributionCustomErrorResponseArgs>? _customErrorResponses;
-
-        /// <summary>
-        /// One or more custom error response elements (multiples allowed).
-        /// </summary>
         public InputList<Inputs.DistributionCustomErrorResponseArgs> CustomErrorResponses
         {
             get => _customErrorResponses ?? (_customErrorResponses = new InputList<Inputs.DistributionCustomErrorResponseArgs>());
             set => _customErrorResponses = value;
         }
 
-        /// <summary>
-        /// Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
-        /// </summary>
         [Input("defaultCacheBehavior", required: true)]
         public Input<Inputs.DistributionDefaultCacheBehaviorArgs> DefaultCacheBehavior { get; set; } = null!;
 
-        /// <summary>
-        /// Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
-        /// </summary>
         [Input("defaultRootObject")]
         public Input<string>? DefaultRootObject { get; set; }
 
         /// <summary>
-        /// Whether Origin Shield is enabled.
+        /// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
-        /// </summary>
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }
 
-        /// <summary>
-        /// Whether the IPv6 is enabled for the distribution.
-        /// </summary>
         [Input("isIpv6Enabled")]
         public Input<bool>? IsIpv6Enabled { get; set; }
 
-        /// <summary>
-        /// The logging configuration that controls how logs are written to your distribution (maximum one).
-        /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.DistributionLoggingConfigArgs>? LoggingConfig { get; set; }
 
         [Input("orderedCacheBehaviors")]
         private InputList<Inputs.DistributionOrderedCacheBehaviorArgs>? _orderedCacheBehaviors;
-
-        /// <summary>
-        /// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
-        /// </summary>
         public InputList<Inputs.DistributionOrderedCacheBehaviorArgs> OrderedCacheBehaviors
         {
             get => _orderedCacheBehaviors ?? (_orderedCacheBehaviors = new InputList<Inputs.DistributionOrderedCacheBehaviorArgs>());
@@ -677,10 +578,6 @@ namespace Pulumi.Aws.CloudFront
 
         [Input("originGroups")]
         private InputList<Inputs.DistributionOriginGroupArgs>? _originGroups;
-
-        /// <summary>
-        /// One or more origin_group for this distribution (multiples allowed).
-        /// </summary>
         public InputList<Inputs.DistributionOriginGroupArgs> OriginGroups
         {
             get => _originGroups ?? (_originGroups = new InputList<Inputs.DistributionOriginGroupArgs>());
@@ -689,67 +586,38 @@ namespace Pulumi.Aws.CloudFront
 
         [Input("origins", required: true)]
         private InputList<Inputs.DistributionOriginArgs>? _origins;
-
-        /// <summary>
-        /// One or more origins for this distribution (multiples allowed).
-        /// </summary>
         public InputList<Inputs.DistributionOriginArgs> Origins
         {
             get => _origins ?? (_origins = new InputList<Inputs.DistributionOriginArgs>());
             set => _origins = value;
         }
 
-        /// <summary>
-        /// Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
-        /// </summary>
         [Input("priceClass")]
         public Input<string>? PriceClass { get; set; }
 
-        /// <summary>
-        /// The restriction configuration for this distribution (maximum one).
-        /// </summary>
         [Input("restrictions", required: true)]
         public Input<Inputs.DistributionRestrictionsArgs> Restrictions { get; set; } = null!;
 
-        /// <summary>
-        /// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
-        /// </summary>
         [Input("retainOnDelete")]
         public Input<bool>? RetainOnDelete { get; set; }
 
-        /// <summary>
-        /// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
-        /// </summary>
         [Input("staging")]
         public Input<bool>? Staging { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The SSL configuration for this distribution (maximum one).
-        /// </summary>
         [Input("viewerCertificate", required: true)]
         public Input<Inputs.DistributionViewerCertificateArgs> ViewerCertificate { get; set; } = null!;
 
-        /// <summary>
-        /// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
-        /// </summary>
         [Input("waitForDeployment")]
         public Input<bool>? WaitForDeployment { get; set; }
 
-        /// <summary>
-        /// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
-        /// </summary>
         [Input("webAclId")]
         public Input<string>? WebAclId { get; set; }
 
@@ -763,10 +631,6 @@ namespace Pulumi.Aws.CloudFront
     {
         [Input("aliases")]
         private InputList<string>? _aliases;
-
-        /// <summary>
-        /// Extra CNAMEs (alternate domain names), if any, for this distribution.
-        /// </summary>
         public InputList<string> Aliases
         {
             get => _aliases ?? (_aliases = new InputList<string>());
@@ -785,50 +649,34 @@ namespace Pulumi.Aws.CloudFront
         [Input("callerReference")]
         public Input<string>? CallerReference { get; set; }
 
-        /// <summary>
-        /// Any comments you want to include about the distribution.
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        /// <summary>
-        /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-        /// </summary>
         [Input("continuousDeploymentPolicyId")]
         public Input<string>? ContinuousDeploymentPolicyId { get; set; }
 
         [Input("customErrorResponses")]
         private InputList<Inputs.DistributionCustomErrorResponseGetArgs>? _customErrorResponses;
-
-        /// <summary>
-        /// One or more custom error response elements (multiples allowed).
-        /// </summary>
         public InputList<Inputs.DistributionCustomErrorResponseGetArgs> CustomErrorResponses
         {
             get => _customErrorResponses ?? (_customErrorResponses = new InputList<Inputs.DistributionCustomErrorResponseGetArgs>());
             set => _customErrorResponses = value;
         }
 
-        /// <summary>
-        /// Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
-        /// </summary>
         [Input("defaultCacheBehavior")]
         public Input<Inputs.DistributionDefaultCacheBehaviorGetArgs>? DefaultCacheBehavior { get; set; }
 
-        /// <summary>
-        /// Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
-        /// </summary>
         [Input("defaultRootObject")]
         public Input<string>? DefaultRootObject { get; set; }
 
         /// <summary>
-        /// DNS domain name of either the S3 bucket, or web site of your custom origin.
+        /// Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// Whether Origin Shield is enabled.
+        /// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -845,9 +693,6 @@ namespace Pulumi.Aws.CloudFront
         [Input("hostedZoneId")]
         public Input<string>? HostedZoneId { get; set; }
 
-        /// <summary>
-        /// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
-        /// </summary>
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }
 
@@ -857,9 +702,6 @@ namespace Pulumi.Aws.CloudFront
         [Input("inProgressValidationBatches")]
         public Input<int>? InProgressValidationBatches { get; set; }
 
-        /// <summary>
-        /// Whether the IPv6 is enabled for the distribution.
-        /// </summary>
         [Input("isIpv6Enabled")]
         public Input<bool>? IsIpv6Enabled { get; set; }
 
@@ -869,18 +711,11 @@ namespace Pulumi.Aws.CloudFront
         [Input("lastModifiedTime")]
         public Input<string>? LastModifiedTime { get; set; }
 
-        /// <summary>
-        /// The logging configuration that controls how logs are written to your distribution (maximum one).
-        /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.DistributionLoggingConfigGetArgs>? LoggingConfig { get; set; }
 
         [Input("orderedCacheBehaviors")]
         private InputList<Inputs.DistributionOrderedCacheBehaviorGetArgs>? _orderedCacheBehaviors;
-
-        /// <summary>
-        /// Ordered list of cache behaviors resource for this distribution. List from top to bottom in order of precedence. The topmost cache behavior will have precedence 0.
-        /// </summary>
         public InputList<Inputs.DistributionOrderedCacheBehaviorGetArgs> OrderedCacheBehaviors
         {
             get => _orderedCacheBehaviors ?? (_orderedCacheBehaviors = new InputList<Inputs.DistributionOrderedCacheBehaviorGetArgs>());
@@ -889,10 +724,6 @@ namespace Pulumi.Aws.CloudFront
 
         [Input("originGroups")]
         private InputList<Inputs.DistributionOriginGroupGetArgs>? _originGroups;
-
-        /// <summary>
-        /// One or more origin_group for this distribution (multiples allowed).
-        /// </summary>
         public InputList<Inputs.DistributionOriginGroupGetArgs> OriginGroups
         {
             get => _originGroups ?? (_originGroups = new InputList<Inputs.DistributionOriginGroupGetArgs>());
@@ -901,37 +732,21 @@ namespace Pulumi.Aws.CloudFront
 
         [Input("origins")]
         private InputList<Inputs.DistributionOriginGetArgs>? _origins;
-
-        /// <summary>
-        /// One or more origins for this distribution (multiples allowed).
-        /// </summary>
         public InputList<Inputs.DistributionOriginGetArgs> Origins
         {
             get => _origins ?? (_origins = new InputList<Inputs.DistributionOriginGetArgs>());
             set => _origins = value;
         }
 
-        /// <summary>
-        /// Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
-        /// </summary>
         [Input("priceClass")]
         public Input<string>? PriceClass { get; set; }
 
-        /// <summary>
-        /// The restriction configuration for this distribution (maximum one).
-        /// </summary>
         [Input("restrictions")]
         public Input<Inputs.DistributionRestrictionsGetArgs>? Restrictions { get; set; }
 
-        /// <summary>
-        /// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
-        /// </summary>
         [Input("retainOnDelete")]
         public Input<bool>? RetainOnDelete { get; set; }
 
-        /// <summary>
-        /// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
-        /// </summary>
         [Input("staging")]
         public Input<bool>? Staging { get; set; }
 
@@ -943,10 +758,6 @@ namespace Pulumi.Aws.CloudFront
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -970,7 +781,7 @@ namespace Pulumi.Aws.CloudFront
         private InputList<Inputs.DistributionTrustedKeyGroupGetArgs>? _trustedKeyGroups;
 
         /// <summary>
-        /// List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        /// List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
         /// </summary>
         public InputList<Inputs.DistributionTrustedKeyGroupGetArgs> TrustedKeyGroups
         {
@@ -982,7 +793,7 @@ namespace Pulumi.Aws.CloudFront
         private InputList<Inputs.DistributionTrustedSignerGetArgs>? _trustedSigners;
 
         /// <summary>
-        /// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
+        /// List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
         /// </summary>
         public InputList<Inputs.DistributionTrustedSignerGetArgs> TrustedSigners
         {
@@ -990,21 +801,12 @@ namespace Pulumi.Aws.CloudFront
             set => _trustedSigners = value;
         }
 
-        /// <summary>
-        /// The SSL configuration for this distribution (maximum one).
-        /// </summary>
         [Input("viewerCertificate")]
         public Input<Inputs.DistributionViewerCertificateGetArgs>? ViewerCertificate { get; set; }
 
-        /// <summary>
-        /// If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
-        /// </summary>
         [Input("waitForDeployment")]
         public Input<bool>? WaitForDeployment { get; set; }
 
-        /// <summary>
-        /// Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
-        /// </summary>
         [Input("webAclId")]
         public Input<string>? WebAclId { get; set; }
 

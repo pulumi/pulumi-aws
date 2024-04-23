@@ -174,14 +174,12 @@ class Registry(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Registry("example", registry_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -208,14 +206,12 @@ class Registry(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.Registry("example", registry_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

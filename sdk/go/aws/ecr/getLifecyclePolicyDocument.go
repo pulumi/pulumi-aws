@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,7 +60,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetLifecyclePolicyDocument(ctx *pulumi.Context, args *GetLifecyclePolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetLifecyclePolicyDocumentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLifecyclePolicyDocumentResult

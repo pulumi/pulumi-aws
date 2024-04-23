@@ -103,14 +103,12 @@ class ContributorInsights(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.dynamodb.ContributorInsights("test", table_name="ExampleTableName")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -136,14 +134,12 @@ class ContributorInsights(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.dynamodb.ContributorInsights("test", table_name="ExampleTableName")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

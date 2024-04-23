@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocalGatewayVirtualInterfaceResult> InvokeAsync(GetLocalGatewayVirtualInterfaceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayVirtualInterfaceResult>("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", args ?? new GetLocalGatewayVirtualInterfaceArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,7 +67,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocalGatewayVirtualInterfaceResult> Invoke(GetLocalGatewayVirtualInterfaceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayVirtualInterfaceResult>("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", args ?? new GetLocalGatewayVirtualInterfaceInvokeArgs(), options.WithDefaults());

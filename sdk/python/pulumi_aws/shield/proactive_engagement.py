@@ -108,7 +108,6 @@ class ProactiveEngagement(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -151,7 +150,6 @@ class ProactiveEngagement(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[test_aws_shield_drt_access_role_arn_association]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -180,7 +178,6 @@ class ProactiveEngagement(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -223,7 +220,6 @@ class ProactiveEngagement(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[test_aws_shield_drt_access_role_arn_association]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

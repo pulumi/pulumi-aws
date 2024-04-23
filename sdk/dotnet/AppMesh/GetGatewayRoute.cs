@@ -16,7 +16,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetGatewayRouteResult> InvokeAsync(GetGatewayRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayRouteResult>("aws:appmesh/getGatewayRoute:getGatewayRoute", args ?? new GetGatewayRouteArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetGatewayRouteResult> Invoke(GetGatewayRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayRouteResult>("aws:appmesh/getGatewayRoute:getGatewayRoute", args ?? new GetGatewayRouteInvokeArgs(), options.WithDefaults());

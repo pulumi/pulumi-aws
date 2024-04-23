@@ -389,7 +389,6 @@ class EndpointGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,7 +400,6 @@ class EndpointGroup(pulumi.CustomResource):
                 weight=100,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -436,7 +434,6 @@ class EndpointGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -448,7 +445,6 @@ class EndpointGroup(pulumi.CustomResource):
                 weight=100,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

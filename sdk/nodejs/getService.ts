@@ -11,7 +11,6 @@ import * as utilities from "./utilities";
  *
  * ### Get Service DNS Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,11 +21,9 @@ import * as utilities from "./utilities";
  *     serviceId: "ec2",
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Use Service Reverse DNS Name to Get Components
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,11 +32,9 @@ import * as utilities from "./utilities";
  *     reverseDnsName: "cn.com.amazonaws.cn-north-1.s3",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Determine Regional Support for a Service
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,7 +43,6 @@ import * as utilities from "./utilities";
  *     reverseDnsName: "com.amazonaws.us-gov-west-1.waf",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getService(args?: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     args = args || {};
@@ -114,7 +108,6 @@ export interface GetServiceResult {
  *
  * ### Get Service DNS Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -125,11 +118,9 @@ export interface GetServiceResult {
  *     serviceId: "ec2",
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Use Service Reverse DNS Name to Get Components
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -138,11 +129,9 @@ export interface GetServiceResult {
  *     reverseDnsName: "cn.com.amazonaws.cn-north-1.s3",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Determine Regional Support for a Service
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -151,7 +140,6 @@ export interface GetServiceResult {
  *     reverseDnsName: "com.amazonaws.us-gov-west-1.waf",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceOutput(args?: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

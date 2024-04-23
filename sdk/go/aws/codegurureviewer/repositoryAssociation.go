@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,7 +59,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type RepositoryAssociation struct {
 	pulumi.CustomResourceState
 
@@ -72,9 +70,9 @@ type RepositoryAssociation struct {
 	ConnectionArn pulumi.StringOutput `pulumi:"connectionArn"`
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails RepositoryAssociationKmsKeyDetailsPtrOutput `pulumi:"kmsKeyDetails"`
-	// The name of the third party source repository.
+	// The name of the repository.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The username for the account that owns the repository.
+	// The owner of the repository.
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The provider type of the repository association.
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
@@ -133,9 +131,9 @@ type repositoryAssociationState struct {
 	ConnectionArn *string `pulumi:"connectionArn"`
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails *RepositoryAssociationKmsKeyDetails `pulumi:"kmsKeyDetails"`
-	// The name of the third party source repository.
+	// The name of the repository.
 	Name *string `pulumi:"name"`
-	// The username for the account that owns the repository.
+	// The owner of the repository.
 	Owner *string `pulumi:"owner"`
 	// The provider type of the repository association.
 	ProviderType *string `pulumi:"providerType"`
@@ -162,9 +160,9 @@ type RepositoryAssociationState struct {
 	ConnectionArn pulumi.StringPtrInput
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails RepositoryAssociationKmsKeyDetailsPtrInput
-	// The name of the third party source repository.
+	// The name of the repository.
 	Name pulumi.StringPtrInput
-	// The username for the account that owns the repository.
+	// The owner of the repository.
 	Owner pulumi.StringPtrInput
 	// The provider type of the repository association.
 	ProviderType pulumi.StringPtrInput
@@ -314,12 +312,12 @@ func (o RepositoryAssociationOutput) KmsKeyDetails() RepositoryAssociationKmsKey
 	return o.ApplyT(func(v *RepositoryAssociation) RepositoryAssociationKmsKeyDetailsPtrOutput { return v.KmsKeyDetails }).(RepositoryAssociationKmsKeyDetailsPtrOutput)
 }
 
-// The name of the third party source repository.
+// The name of the repository.
 func (o RepositoryAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The username for the account that owns the repository.
+// The owner of the repository.
 func (o RepositoryAssociationOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }

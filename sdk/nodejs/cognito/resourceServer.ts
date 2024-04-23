@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Create a basic resource server
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +25,9 @@ import * as utilities from "../utilities";
  *     userPoolId: pool.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create a resource server with sample-scope
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,7 +43,6 @@ import * as utilities from "../utilities";
  *     userPoolId: pool.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

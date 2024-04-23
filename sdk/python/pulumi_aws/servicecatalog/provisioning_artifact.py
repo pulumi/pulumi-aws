@@ -415,7 +415,6 @@ class ProvisioningArtifact(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -426,7 +425,6 @@ class ProvisioningArtifact(pulumi.CustomResource):
             type="CLOUD_FORMATION_TEMPLATE",
             template_url=f"https://{example_aws_s3_bucket['bucketRegionalDomainName']}/{example_aws_s3_object['key']}")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -470,7 +468,6 @@ class ProvisioningArtifact(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -481,7 +478,6 @@ class ProvisioningArtifact(pulumi.CustomResource):
             type="CLOUD_FORMATION_TEMPLATE",
             template_url=f"https://{example_aws_s3_bucket['bucketRegionalDomainName']}/{example_aws_s3_object['key']}")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

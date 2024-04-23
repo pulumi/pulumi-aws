@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupActivatedRuleAction {
-    /**
-     * @return The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
-     * 
-     */
     private String type;
 
     private RuleGroupActivatedRuleAction() {}
-    /**
-     * @return The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
-     * 
-     */
     public String type() {
         return this.type;
     }

@@ -130,8 +130,8 @@ class ProvisionedProductOutput(dict):
                  value: Optional[str] = None):
         """
         :param str description: The description of the output.
-        :param str key: Parameter key.
-        :param str value: Parameter value.
+        :param str key: The output key.
+        :param str value: The output value.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -152,7 +152,7 @@ class ProvisionedProductOutput(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Parameter key.
+        The output key.
         """
         return pulumi.get(self, "key")
 
@@ -160,7 +160,7 @@ class ProvisionedProductOutput(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Parameter value.
+        The output value.
         """
         return pulumi.get(self, "value")
 

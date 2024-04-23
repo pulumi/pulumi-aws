@@ -104,7 +104,6 @@ class TransitGatewayRegistration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -115,7 +114,6 @@ class TransitGatewayRegistration(pulumi.CustomResource):
             global_network_id=example.id,
             transit_gateway_arn=example_transit_gateway.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -143,7 +141,6 @@ class TransitGatewayRegistration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,7 +151,6 @@ class TransitGatewayRegistration(pulumi.CustomResource):
             global_network_id=example.id,
             transit_gateway_arn=example_transit_gateway.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

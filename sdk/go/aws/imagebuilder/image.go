@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -76,7 +74,7 @@ type Image struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringOutput `pulumi:"infrastructureConfigurationArn"`
-	// The name of the Workflow parameter.
+	// Name of the AMI.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Operating System version of the image.
 	OsVersion pulumi.StringOutput `pulumi:"osVersion"`
@@ -151,7 +149,7 @@ type imageState struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
-	// The name of the Workflow parameter.
+	// Name of the AMI.
 	Name *string `pulumi:"name"`
 	// Operating System version of the image.
 	OsVersion *string `pulumi:"osVersion"`
@@ -194,7 +192,7 @@ type ImageState struct {
 	//
 	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringPtrInput
-	// The name of the Workflow parameter.
+	// Name of the AMI.
 	Name pulumi.StringPtrInput
 	// Operating System version of the image.
 	OsVersion pulumi.StringPtrInput
@@ -408,7 +406,7 @@ func (o ImageOutput) InfrastructureConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringOutput)
 }
 
-// The name of the Workflow parameter.
+// Name of the AMI.
 func (o ImageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

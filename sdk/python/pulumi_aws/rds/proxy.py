@@ -420,7 +420,6 @@ class Proxy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,7 +444,6 @@ class Proxy(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -479,7 +477,6 @@ class Proxy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -504,7 +501,6 @@ class Proxy(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

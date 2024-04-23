@@ -1143,17 +1143,9 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Specifies the table version for the output data schema. Defaults to `LATEST`.
-     * 
-     */
     @Export(name="versionId", refs={String.class}, tree="[0]")
     private Output<String> versionId;
 
-    /**
-     * @return Specifies the table version for the output data schema. Defaults to `LATEST`.
-     * 
-     */
     public Output<String> versionId() {
         return this.versionId;
     }

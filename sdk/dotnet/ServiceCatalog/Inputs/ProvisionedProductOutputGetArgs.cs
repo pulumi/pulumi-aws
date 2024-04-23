@@ -19,13 +19,13 @@ namespace Pulumi.Aws.ServiceCatalog.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Parameter key.
+        /// The output key.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Parameter value.
+        /// The output value.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

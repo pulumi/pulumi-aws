@@ -13,9 +13,6 @@ namespace Pulumi.Aws.CodeGuruReviewer.Outputs
     [OutputType]
     public sealed class RepositoryAssociationS3RepositoryDetail
     {
-        /// <summary>
-        /// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        /// </summary>
         public readonly string? BucketName;
         public readonly ImmutableArray<Outputs.RepositoryAssociationS3RepositoryDetailCodeArtifact> CodeArtifacts;
 

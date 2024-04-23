@@ -20,7 +20,6 @@ import (
 //
 // ### Email Address Identity
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,11 +43,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Domain Identity
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,11 +69,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Configuration Set
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,11 +102,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### DKIM Signing Attributes (BYODKIM)
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -139,7 +132,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

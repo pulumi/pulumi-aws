@@ -30,17 +30,9 @@ public final class ResponsePlanActionSsmAutomationParameterArgs extends com.pulu
         return this.name;
     }
 
-    /**
-     * The values for the associated parameter name.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return The values for the associated parameter name.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -91,33 +83,15 @@ public final class ResponsePlanActionSsmAutomationParameterArgs extends com.pulu
             return name(Output.of(name));
         }
 
-        /**
-         * @param values The values for the associated parameter name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values The values for the associated parameter name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values The values for the associated parameter name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ### From Source Template
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,7 +47,6 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -68,7 +66,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AnalysisId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
+        /// ARN of the analysis.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -279,7 +277,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AnalysisId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
+        /// ARN of the analysis.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

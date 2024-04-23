@@ -125,14 +125,12 @@ def get_serverless_security_config(id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.opensearch.get_serverless_security_config(id="saml/12345678912/example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The unique identifier of the security configuration.
@@ -165,14 +163,12 @@ def get_serverless_security_config_output(id: Optional[pulumi.Input[str]] = None
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.opensearch.get_serverless_security_config(id="saml/12345678912/example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: The unique identifier of the security configuration.

@@ -73,7 +73,6 @@ def get_organizational_unit_descendant_accounts(parent_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -81,7 +80,6 @@ def get_organizational_unit_descendant_accounts(parent_id: Optional[str] = None,
     org = aws.organizations.get_organization()
     accounts = aws.organizations.get_organizational_unit_descendant_accounts(parent_id=org.roots[0].id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str parent_id: The parent ID of the accounts.
@@ -105,7 +103,6 @@ def get_organizational_unit_descendant_accounts_output(parent_id: Optional[pulum
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -113,7 +110,6 @@ def get_organizational_unit_descendant_accounts_output(parent_id: Optional[pulum
     org = aws.organizations.get_organization()
     accounts = aws.organizations.get_organizational_unit_descendant_accounts(parent_id=org.roots[0].id)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str parent_id: The parent ID of the accounts.

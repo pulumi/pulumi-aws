@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,7 +33,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 /** @deprecated aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
 export function getVpcIamPools(args?: GetVpcIamPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolsResult> {
@@ -80,7 +78,6 @@ export interface GetVpcIamPoolsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,7 +95,6 @@ export interface GetVpcIamPoolsResult {
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 /** @deprecated aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
 export function getVpcIamPoolsOutput(args?: GetVpcIamPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolsResult> {

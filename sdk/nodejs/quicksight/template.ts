@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### From Source Template
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,7 +29,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -69,7 +67,7 @@ export class Template extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * ARN of the template.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -189,7 +187,7 @@ export class Template extends pulumi.CustomResource {
  */
 export interface TemplateState {
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * ARN of the template.
      */
     arn?: pulumi.Input<string>;
     /**

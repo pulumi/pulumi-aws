@@ -271,7 +271,6 @@ class PodIdentityAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,7 +298,6 @@ class PodIdentityAssociation(pulumi.CustomResource):
             service_account="example-sa",
             role_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -340,7 +338,6 @@ class PodIdentityAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -368,7 +365,6 @@ class PodIdentityAssociation(pulumi.CustomResource):
             service_account="example-sa",
             role_arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

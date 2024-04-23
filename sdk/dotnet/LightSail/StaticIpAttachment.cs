@@ -16,7 +16,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,7 +46,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:lightsail/staticIpAttachment:StaticIpAttachment")]
     public partial class StaticIpAttachment : global::Pulumi.CustomResource

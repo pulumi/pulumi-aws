@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.RouteSpecHttp2RouteActionGetArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// Criteria for determining an gRPC request match.
+        /// Criteria for determining an HTTP request match.
         /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.RouteSpecHttp2RouteMatchGetArgs> Match { get; set; } = null!;

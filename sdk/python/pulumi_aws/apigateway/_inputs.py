@@ -538,11 +538,6 @@ class UsagePlanApiStageArgs:
                  api_id: pulumi.Input[str],
                  stage: pulumi.Input[str],
                  throttles: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]] = None):
-        """
-        :param pulumi.Input[str] api_id: API Id of the associated API stage in a usage plan.
-        :param pulumi.Input[str] stage: API stage name of the associated API stage in a usage plan.
-        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]] throttles: The throttling limits of the usage plan.
-        """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "stage", stage)
         if throttles is not None:
@@ -551,9 +546,6 @@ class UsagePlanApiStageArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
-        """
-        API Id of the associated API stage in a usage plan.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -563,9 +555,6 @@ class UsagePlanApiStageArgs:
     @property
     @pulumi.getter
     def stage(self) -> pulumi.Input[str]:
-        """
-        API stage name of the associated API stage in a usage plan.
-        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -575,9 +564,6 @@ class UsagePlanApiStageArgs:
     @property
     @pulumi.getter
     def throttles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]]:
-        """
-        The throttling limits of the usage plan.
-        """
         return pulumi.get(self, "throttles")
 
     @throttles.setter
@@ -645,11 +631,6 @@ class UsagePlanQuotaSettingsArgs:
                  limit: pulumi.Input[int],
                  period: pulumi.Input[str],
                  offset: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] limit: Maximum number of requests that can be made in a given time period.
-        :param pulumi.Input[str] period: Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
-        :param pulumi.Input[int] offset: Number of requests subtracted from the given limit in the initial time period.
-        """
         pulumi.set(__self__, "limit", limit)
         pulumi.set(__self__, "period", period)
         if offset is not None:
@@ -658,9 +639,6 @@ class UsagePlanQuotaSettingsArgs:
     @property
     @pulumi.getter
     def limit(self) -> pulumi.Input[int]:
-        """
-        Maximum number of requests that can be made in a given time period.
-        """
         return pulumi.get(self, "limit")
 
     @limit.setter
@@ -670,9 +648,6 @@ class UsagePlanQuotaSettingsArgs:
     @property
     @pulumi.getter
     def period(self) -> pulumi.Input[str]:
-        """
-        Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
-        """
         return pulumi.get(self, "period")
 
     @period.setter
@@ -682,9 +657,6 @@ class UsagePlanQuotaSettingsArgs:
     @property
     @pulumi.getter
     def offset(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of requests subtracted from the given limit in the initial time period.
-        """
         return pulumi.get(self, "offset")
 
     @offset.setter
@@ -697,10 +669,6 @@ class UsagePlanThrottleSettingsArgs:
     def __init__(__self__, *,
                  burst_limit: Optional[pulumi.Input[int]] = None,
                  rate_limit: Optional[pulumi.Input[float]] = None):
-        """
-        :param pulumi.Input[int] burst_limit: The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-        :param pulumi.Input[float] rate_limit: The API request steady-state rate limit.
-        """
         if burst_limit is not None:
             pulumi.set(__self__, "burst_limit", burst_limit)
         if rate_limit is not None:
@@ -709,9 +677,6 @@ class UsagePlanThrottleSettingsArgs:
     @property
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-        """
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
@@ -721,9 +686,6 @@ class UsagePlanThrottleSettingsArgs:
     @property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> Optional[pulumi.Input[float]]:
-        """
-        The API request steady-state rate limit.
-        """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter

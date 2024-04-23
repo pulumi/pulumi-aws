@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  *     configurationProfileId: "qrbb1c1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
 
@@ -105,7 +103,6 @@ export interface GetConfigurationProfileResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -115,7 +112,6 @@ export interface GetConfigurationProfileResult {
  *     configurationProfileId: "qrbb1c1",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfile(a, opts))

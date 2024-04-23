@@ -13,17 +13,8 @@ namespace Pulumi.Aws.BedrockModel.Outputs
     [OutputType]
     public sealed class InvocationLoggingConfigurationLoggingConfigCloudwatchConfig
     {
-        /// <summary>
-        /// S3 configuration for delivering a large amount of data.
-        /// </summary>
         public readonly Outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3Config? LargeDataDeliveryS3Config;
-        /// <summary>
-        /// Log group name.
-        /// </summary>
         public readonly string? LogGroupName;
-        /// <summary>
-        /// The role ARN.
-        /// </summary>
         public readonly string? RoleArn;
 
         [OutputConstructor]

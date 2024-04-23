@@ -308,7 +308,6 @@ class AnomalySubscription(pulumi.CustomResource):
 
         ### Basic Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -333,13 +332,11 @@ class AnomalySubscription(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Threshold Expression Example
 
         ### Using a Percentage Threshold
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -360,11 +357,9 @@ class AnomalySubscription(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using an `and` Expression
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -396,11 +391,9 @@ class AnomalySubscription(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SNS Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -461,7 +454,6 @@ class AnomalySubscription(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[default]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -494,7 +486,6 @@ class AnomalySubscription(pulumi.CustomResource):
 
         ### Basic Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -519,13 +510,11 @@ class AnomalySubscription(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Threshold Expression Example
 
         ### Using a Percentage Threshold
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -546,11 +535,9 @@ class AnomalySubscription(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using an `and` Expression
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -582,11 +569,9 @@ class AnomalySubscription(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SNS Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -647,7 +632,6 @@ class AnomalySubscription(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[default]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

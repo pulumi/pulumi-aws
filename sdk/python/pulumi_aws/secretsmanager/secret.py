@@ -377,14 +377,12 @@ class Secret(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.secretsmanager.Secret("example", name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -419,14 +417,12 @@ class Secret(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.secretsmanager.Secret("example", name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,14 +14,12 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshift.getDataShares({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDataShares(args?: GetDataSharesArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSharesResult> {
     args = args || {};
@@ -62,14 +60,12 @@ export interface GetDataSharesResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.redshift.getDataShares({});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getDataSharesOutput(args?: GetDataSharesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSharesResult> {
     return pulumi.output(args).apply((a: any) => getDataShares(a, opts))

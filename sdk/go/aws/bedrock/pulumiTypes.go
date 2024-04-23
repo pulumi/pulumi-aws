@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CustomModelOutputDataConfig struct {
-	// The S3 URI where the validation data is stored.
+	// The S3 URI where the output data is stored.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -30,7 +30,7 @@ type CustomModelOutputDataConfigInput interface {
 }
 
 type CustomModelOutputDataConfigArgs struct {
-	// The S3 URI where the validation data is stored.
+	// The S3 URI where the output data is stored.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -111,7 +111,7 @@ func (o CustomModelOutputDataConfigOutput) ToCustomModelOutputDataConfigPtrOutpu
 	}).(CustomModelOutputDataConfigPtrOutput)
 }
 
-// The S3 URI where the validation data is stored.
+// The S3 URI where the output data is stored.
 func (o CustomModelOutputDataConfigOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomModelOutputDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -140,7 +140,7 @@ func (o CustomModelOutputDataConfigPtrOutput) Elem() CustomModelOutputDataConfig
 	}).(CustomModelOutputDataConfigOutput)
 }
 
-// The S3 URI where the validation data is stored.
+// The S3 URI where the output data is stored.
 func (o CustomModelOutputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomModelOutputDataConfig) *string {
 		if v == nil {
@@ -307,7 +307,7 @@ func (o CustomModelTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type CustomModelTrainingDataConfig struct {
-	// The S3 URI where the validation data is stored.
+	// The S3 URI where the training data is stored.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -323,7 +323,7 @@ type CustomModelTrainingDataConfigInput interface {
 }
 
 type CustomModelTrainingDataConfigArgs struct {
-	// The S3 URI where the validation data is stored.
+	// The S3 URI where the training data is stored.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -404,7 +404,7 @@ func (o CustomModelTrainingDataConfigOutput) ToCustomModelTrainingDataConfigPtrO
 	}).(CustomModelTrainingDataConfigPtrOutput)
 }
 
-// The S3 URI where the validation data is stored.
+// The S3 URI where the training data is stored.
 func (o CustomModelTrainingDataConfigOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomModelTrainingDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -433,7 +433,7 @@ func (o CustomModelTrainingDataConfigPtrOutput) Elem() CustomModelTrainingDataCo
 	}).(CustomModelTrainingDataConfigOutput)
 }
 
-// The S3 URI where the validation data is stored.
+// The S3 URI where the training data is stored.
 func (o CustomModelTrainingDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomModelTrainingDataConfig) *string {
 		if v == nil {
@@ -680,7 +680,6 @@ func (o CustomModelValidationDataConfigPtrOutput) Validators() CustomModelValida
 }
 
 type CustomModelValidationDataConfigValidator struct {
-	// The S3 URI where the validation data is stored.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -696,7 +695,6 @@ type CustomModelValidationDataConfigValidatorInput interface {
 }
 
 type CustomModelValidationDataConfigValidatorArgs struct {
-	// The S3 URI where the validation data is stored.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -751,7 +749,6 @@ func (o CustomModelValidationDataConfigValidatorOutput) ToCustomModelValidationD
 	return o
 }
 
-// The S3 URI where the validation data is stored.
 func (o CustomModelValidationDataConfigValidatorOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomModelValidationDataConfigValidator) string { return v.S3Uri }).(pulumi.StringOutput)
 }

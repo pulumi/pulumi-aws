@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * primary network interface via the `aws.ec2.NetworkInterfaceSecurityGroupAttachment` resource,
  * named `sgAttachment`:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,13 +51,11 @@ import * as utilities from "../utilities";
  *     networkInterfaceId: instance.primaryNetworkInterfaceId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * In this example, `instance` is provided by the `aws.ec2.Instance` data source,
  * fetching an external instance, possibly not managed by this provider.
  * `sgAttachment` then attaches to the output instance's `networkInterfaceId`:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,7 +71,6 @@ import * as utilities from "../utilities";
  *     networkInterfaceId: instance.then(instance => instance.networkInterfaceId),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

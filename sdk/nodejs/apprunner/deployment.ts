@@ -12,14 +12,12 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apprunner.Deployment("example", {serviceArn: exampleAwsApprunnerService.arn});
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class Deployment extends pulumi.CustomResource {
     /**

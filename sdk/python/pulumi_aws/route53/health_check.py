@@ -794,7 +794,6 @@ class HealthCheck(pulumi.CustomResource):
 
         ### Connectivity and HTTP Status Code Check
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -810,11 +809,9 @@ class HealthCheck(pulumi.CustomResource):
                 "Name": "tf-test-health-check",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Connectivity and String Matching Check
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -828,11 +825,9 @@ class HealthCheck(pulumi.CustomResource):
             search_string="example",
             type="HTTPS_STR_MATCH")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Aggregate Check
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -845,11 +840,9 @@ class HealthCheck(pulumi.CustomResource):
                 "Name": "tf-test-calculated-health-check",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### CloudWatch Alarm Check
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -870,7 +863,6 @@ class HealthCheck(pulumi.CustomResource):
             cloudwatch_alarm_region="us-west-2",
             insufficient_data_health_status="Healthy")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -923,7 +915,6 @@ class HealthCheck(pulumi.CustomResource):
 
         ### Connectivity and HTTP Status Code Check
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -939,11 +930,9 @@ class HealthCheck(pulumi.CustomResource):
                 "Name": "tf-test-health-check",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Connectivity and String Matching Check
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -957,11 +946,9 @@ class HealthCheck(pulumi.CustomResource):
             search_string="example",
             type="HTTPS_STR_MATCH")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Aggregate Check
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -974,11 +961,9 @@ class HealthCheck(pulumi.CustomResource):
                 "Name": "tf-test-calculated-health-check",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### CloudWatch Alarm Check
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -999,7 +984,6 @@ class HealthCheck(pulumi.CustomResource):
             cloudwatch_alarm_region="us-west-2",
             insufficient_data_health_status="Healthy")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

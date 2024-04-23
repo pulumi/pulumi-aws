@@ -155,7 +155,6 @@ def get_slot_type(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -163,7 +162,6 @@ def get_slot_type(name: Optional[str] = None,
     flower_types = aws.lex.get_slot_type(name="FlowerTypes",
         version="1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the slot type. The name is case sensitive.
@@ -196,7 +194,6 @@ def get_slot_type_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -204,7 +201,6 @@ def get_slot_type_output(name: Optional[pulumi.Input[str]] = None,
     flower_types = aws.lex.get_slot_type(name="FlowerTypes",
         version="1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the slot type. The name is case sensitive.

@@ -22,7 +22,6 @@ import (
 //
 // The following example below creates a CloudFront origin access identity.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,7 +45,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Using With CloudFront
 //
@@ -56,7 +54,6 @@ import (
 // The below snippet demonstrates use with the `s3OriginConfig` structure for the
 // `cloudfront.Distribution` resource:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,7 +83,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Updating your bucket policy
 //
@@ -95,7 +91,6 @@ import (
 // `s3.BucketV2` bucket policy, causing spurious diffs. If
 // you see this behaviour, use the `iamArn` instead:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -144,7 +139,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

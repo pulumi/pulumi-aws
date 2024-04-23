@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Latest
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
 
@@ -125,7 +123,6 @@ export interface GetImageResult {
  *
  * ### Latest
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -134,7 +131,6 @@ export interface GetImageResult {
  *     arn: "arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
     return pulumi.output(args).apply((a: any) => getImage(a, opts))

@@ -149,12 +149,6 @@ class IdentityPoolRoleAttachmentRoleMapping(dict):
                  type: str,
                  ambiguous_role_resolution: Optional[str] = None,
                  mapping_rules: Optional[Sequence['outputs.IdentityPoolRoleAttachmentRoleMappingMappingRule']] = None):
-        """
-        :param str identity_provider: A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
-        :param str type: The role mapping type.
-        :param str ambiguous_role_resolution: Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-        :param Sequence['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs'] mapping_rules: The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-        """
         pulumi.set(__self__, "identity_provider", identity_provider)
         pulumi.set(__self__, "type", type)
         if ambiguous_role_resolution is not None:
@@ -165,33 +159,21 @@ class IdentityPoolRoleAttachmentRoleMapping(dict):
     @property
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> str:
-        """
-        A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
-        """
         return pulumi.get(self, "identity_provider")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        The role mapping type.
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="ambiguousRoleResolution")
     def ambiguous_role_resolution(self) -> Optional[str]:
-        """
-        Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-        """
         return pulumi.get(self, "ambiguous_role_resolution")
 
     @property
     @pulumi.getter(name="mappingRules")
     def mapping_rules(self) -> Optional[Sequence['outputs.IdentityPoolRoleAttachmentRoleMappingMappingRule']]:
-        """
-        The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
-        """
         return pulumi.get(self, "mapping_rules")
 
 
@@ -221,12 +203,6 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
                  match_type: str,
                  role_arn: str,
                  value: str):
-        """
-        :param str claim: The claim name that must be present in the token, for example, "isAdmin" or "paid".
-        :param str match_type: The match condition that specifies how closely the claim value in the IdP token must match Value.
-        :param str role_arn: The role ARN.
-        :param str value: A brief string that the claim must match, for example, "paid" or "yes".
-        """
         pulumi.set(__self__, "claim", claim)
         pulumi.set(__self__, "match_type", match_type)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -235,33 +211,21 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
     @property
     @pulumi.getter
     def claim(self) -> str:
-        """
-        The claim name that must be present in the token, for example, "isAdmin" or "paid".
-        """
         return pulumi.get(self, "claim")
 
     @property
     @pulumi.getter(name="matchType")
     def match_type(self) -> str:
-        """
-        The match condition that specifies how closely the claim value in the IdP token must match Value.
-        """
         return pulumi.get(self, "match_type")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
-        """
-        The role ARN.
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        A brief string that the claim must match, for example, "paid" or "yes".
-        """
         return pulumi.get(self, "value")
 
 
@@ -445,27 +409,17 @@ class ResourceServerScope(dict):
     def __init__(__self__, *,
                  scope_description: str,
                  scope_name: str):
-        """
-        :param str scope_description: The scope description.
-        :param str scope_name: The scope name.
-        """
         pulumi.set(__self__, "scope_description", scope_description)
         pulumi.set(__self__, "scope_name", scope_name)
 
     @property
     @pulumi.getter(name="scopeDescription")
     def scope_description(self) -> str:
-        """
-        The scope description.
-        """
         return pulumi.get(self, "scope_description")
 
     @property
     @pulumi.getter(name="scopeName")
     def scope_name(self) -> str:
-        """
-        The scope name.
-        """
         return pulumi.get(self, "scope_name")
 
 
@@ -601,27 +555,17 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction(dict):
     def __init__(__self__, *,
                  event_action: str,
                  notify: bool):
-        """
-        :param str event_action: The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
-        :param bool notify: Whether to send a notification.
-        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
     @property
     @pulumi.getter(name="eventAction")
     def event_action(self) -> str:
-        """
-        The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
-        """
         return pulumi.get(self, "event_action")
 
     @property
     @pulumi.getter
     def notify(self) -> bool:
-        """
-        Whether to send a notification.
-        """
         return pulumi.get(self, "notify")
 
 
@@ -647,27 +591,17 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction(dict):
     def __init__(__self__, *,
                  event_action: str,
                  notify: bool):
-        """
-        :param str event_action: The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
-        :param bool notify: Whether to send a notification.
-        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
     @property
     @pulumi.getter(name="eventAction")
     def event_action(self) -> str:
-        """
-        The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
-        """
         return pulumi.get(self, "event_action")
 
     @property
     @pulumi.getter
     def notify(self) -> bool:
-        """
-        Whether to send a notification.
-        """
         return pulumi.get(self, "notify")
 
 
@@ -693,27 +627,17 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction(dict)
     def __init__(__self__, *,
                  event_action: str,
                  notify: bool):
-        """
-        :param str event_action: The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
-        :param bool notify: Whether to send a notification.
-        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
     @property
     @pulumi.getter(name="eventAction")
     def event_action(self) -> str:
-        """
-        The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
-        """
         return pulumi.get(self, "event_action")
 
     @property
     @pulumi.getter
     def notify(self) -> bool:
-        """
-        Whether to send a notification.
-        """
         return pulumi.get(self, "notify")
 
 
@@ -847,11 +771,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
                  html_body: str,
                  subject: str,
                  text_body: str):
-        """
-        :param str html_body: The email HTML body.
-        :param str subject: The email subject.
-        :param str text_body: The email text body.
-        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -859,25 +778,16 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
     @property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> str:
-        """
-        The email HTML body.
-        """
         return pulumi.get(self, "html_body")
 
     @property
     @pulumi.getter
     def subject(self) -> str:
-        """
-        The email subject.
-        """
         return pulumi.get(self, "subject")
 
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> str:
-        """
-        The email text body.
-        """
         return pulumi.get(self, "text_body")
 
 
@@ -906,11 +816,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
                  html_body: str,
                  subject: str,
                  text_body: str):
-        """
-        :param str html_body: The email HTML body.
-        :param str subject: The email subject.
-        :param str text_body: The email text body.
-        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -918,25 +823,16 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
     @property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> str:
-        """
-        The email HTML body.
-        """
         return pulumi.get(self, "html_body")
 
     @property
     @pulumi.getter
     def subject(self) -> str:
-        """
-        The email subject.
-        """
         return pulumi.get(self, "subject")
 
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> str:
-        """
-        The email text body.
-        """
         return pulumi.get(self, "text_body")
 
 
@@ -965,11 +861,6 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
                  html_body: str,
                  subject: str,
                  text_body: str):
-        """
-        :param str html_body: The email HTML body.
-        :param str subject: The email subject.
-        :param str text_body: The email text body.
-        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -977,25 +868,16 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
     @property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> str:
-        """
-        The email HTML body.
-        """
         return pulumi.get(self, "html_body")
 
     @property
     @pulumi.getter
     def subject(self) -> str:
-        """
-        The email subject.
-        """
         return pulumi.get(self, "subject")
 
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> str:
-        """
-        The email text body.
-        """
         return pulumi.get(self, "text_body")
 
 
@@ -1181,9 +1063,7 @@ class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
                  name: str,
                  priority: int):
         """
-        :param str name: Name of the user pool.
-               
-               The following arguments are optional:
+        :param str name: Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         :param int priority: Positive integer specifying priority of a method with 1 being the highest priority.
         """
         pulumi.set(__self__, "name", name)
@@ -1193,9 +1073,7 @@ class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the user pool.
-
-        The following arguments are optional:
+        Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         """
         return pulumi.get(self, "name")
 
@@ -1958,27 +1836,17 @@ class UserPoolLambdaConfigPreTokenGenerationConfig(dict):
     def __init__(__self__, *,
                  lambda_arn: str,
                  lambda_version: str):
-        """
-        :param str lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
-        :param str lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
-        """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "lambda_version", lambda_version)
 
     @property
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> str:
-        """
-        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
-        """
         return pulumi.get(self, "lambda_arn")
 
     @property
     @pulumi.getter(name="lambdaVersion")
     def lambda_version(self) -> str:
-        """
-        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
-        """
         return pulumi.get(self, "lambda_version")
 
 

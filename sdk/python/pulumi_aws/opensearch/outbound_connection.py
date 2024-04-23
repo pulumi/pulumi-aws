@@ -253,7 +253,6 @@ class OutboundConnection(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -274,7 +273,6 @@ class OutboundConnection(pulumi.CustomResource):
                 domain_name=remote_domain["domainName"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -306,7 +304,6 @@ class OutboundConnection(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,7 +324,6 @@ class OutboundConnection(pulumi.CustomResource):
                 domain_name=remote_domain["domainName"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

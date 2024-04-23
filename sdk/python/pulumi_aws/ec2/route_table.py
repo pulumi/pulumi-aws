@@ -250,7 +250,6 @@ class RouteTable(pulumi.CustomResource):
 
         ### Basic example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,11 +270,9 @@ class RouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         To subsequently remove all managed routes:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,7 +284,6 @@ class RouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Adopting an existing local route
 
@@ -295,7 +291,6 @@ class RouteTable(pulumi.CustomResource):
 
         First, adopt an existing AWS-created route:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,11 +303,9 @@ class RouteTable(pulumi.CustomResource):
                 gateway_id="local",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         Next, update the target of the route:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -329,7 +322,6 @@ class RouteTable(pulumi.CustomResource):
                 network_interface_id=test_network_interface.id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         The target could then be updated again back to `local`.
 
@@ -381,7 +373,6 @@ class RouteTable(pulumi.CustomResource):
 
         ### Basic example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -402,11 +393,9 @@ class RouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         To subsequently remove all managed routes:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -418,7 +407,6 @@ class RouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Adopting an existing local route
 
@@ -426,7 +414,6 @@ class RouteTable(pulumi.CustomResource):
 
         First, adopt an existing AWS-created route:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -439,11 +426,9 @@ class RouteTable(pulumi.CustomResource):
                 gateway_id="local",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         Next, update the target of the route:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -460,7 +445,6 @@ class RouteTable(pulumi.CustomResource):
                 network_interface_id=test_network_interface.id,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         The target could then be updated again back to `local`.
 

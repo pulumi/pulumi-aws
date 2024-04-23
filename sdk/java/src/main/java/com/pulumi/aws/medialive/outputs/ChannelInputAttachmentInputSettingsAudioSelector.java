@@ -20,10 +20,6 @@ public final class ChannelInputAttachmentInputSettingsAudioSelector {
      * 
      */
     private String name;
-    /**
-     * @return The audio selector settings. See Audio Selector Settings for more details.
-     * 
-     */
     private @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings selectorSettings;
 
     private ChannelInputAttachmentInputSettingsAudioSelector() {}
@@ -36,10 +32,6 @@ public final class ChannelInputAttachmentInputSettingsAudioSelector {
     public String name() {
         return this.name;
     }
-    /**
-     * @return The audio selector settings. See Audio Selector Settings for more details.
-     * 
-     */
     public Optional<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings> selectorSettings() {
         return Optional.ofNullable(this.selectorSettings);
     }

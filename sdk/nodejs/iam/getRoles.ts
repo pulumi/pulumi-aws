@@ -11,20 +11,17 @@ import * as utilities from "../utilities";
  *
  * ### All roles in an account
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const roles = aws.iam.getRoles({});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Roles filtered by name regex
  *
  * Roles whose role-name contains `project`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,11 +30,9 @@ import * as utilities from "../utilities";
  *     nameRegex: ".*project.*",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Roles filtered by path prefix
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,13 +41,11 @@ import * as utilities from "../utilities";
  *     pathPrefix: "/custom-path",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Roles provisioned by AWS SSO
  *
  * Roles in the account filtered by path prefix
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -61,11 +54,9 @@ import * as utilities from "../utilities";
  *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Specific role in the account filtered by name regex and path prefix
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -75,7 +66,6 @@ import * as utilities from "../utilities";
  *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetRolesResult> {
     args = args || {};
@@ -127,20 +117,17 @@ export interface GetRolesResult {
  *
  * ### All roles in an account
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const roles = aws.iam.getRoles({});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Roles filtered by name regex
  *
  * Roles whose role-name contains `project`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -149,11 +136,9 @@ export interface GetRolesResult {
  *     nameRegex: ".*project.*",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Roles filtered by path prefix
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -162,13 +147,11 @@ export interface GetRolesResult {
  *     pathPrefix: "/custom-path",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Roles provisioned by AWS SSO
  *
  * Roles in the account filtered by path prefix
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -177,11 +160,9 @@ export interface GetRolesResult {
  *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Specific role in the account filtered by name regex and path prefix
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -191,7 +172,6 @@ export interface GetRolesResult {
  *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolesResult> {
     return pulumi.output(args).apply((a: any) => getRoles(a, opts))

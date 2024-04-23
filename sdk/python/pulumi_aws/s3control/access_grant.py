@@ -333,7 +333,6 @@ class AccessGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,7 +353,6 @@ class AccessGrant(pulumi.CustomResource):
                 grantee_identifier=example_aws_iam_user["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -386,7 +384,6 @@ class AccessGrant(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -407,7 +404,6 @@ class AccessGrant(pulumi.CustomResource):
                 grantee_identifier=example_aws_iam_user["arn"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

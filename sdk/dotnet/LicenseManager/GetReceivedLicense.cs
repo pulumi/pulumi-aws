@@ -18,7 +18,6 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// The following shows getting the received license data using and ARN.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetReceivedLicenseResult> InvokeAsync(GetReceivedLicenseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReceivedLicenseResult>("aws:licensemanager/getReceivedLicense:getReceivedLicense", args ?? new GetReceivedLicenseArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// The following shows getting the received license data using and ARN.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetReceivedLicenseResult> Invoke(GetReceivedLicenseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReceivedLicenseResult>("aws:licensemanager/getReceivedLicense:getReceivedLicense", args ?? new GetReceivedLicenseInvokeArgs(), options.WithDefaults());

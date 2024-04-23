@@ -254,14 +254,12 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.codeartifact.Domain("example", domain="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -288,14 +286,12 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.codeartifact.Domain("example", domain="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

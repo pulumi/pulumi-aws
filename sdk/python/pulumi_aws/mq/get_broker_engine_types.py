@@ -78,14 +78,12 @@ def get_broker_engine_types(engine_type: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.mq.get_broker_engine_types(engine_type="ACTIVEMQ")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str engine_type: The MQ engine type to return version details for.
@@ -111,14 +109,12 @@ def get_broker_engine_types_output(engine_type: Optional[pulumi.Input[Optional[s
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.mq.get_broker_engine_types(engine_type="ACTIVEMQ")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str engine_type: The MQ engine type to return version details for.

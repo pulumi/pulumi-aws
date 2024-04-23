@@ -17,62 +17,30 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs extends c
 
     public static final GroupMixedInstancesPolicyLaunchTemplateOverrideArgs Empty = new GroupMixedInstancesPolicyLaunchTemplateOverrideArgs();
 
-    /**
-     * Override the instance type in the Launch Template with instance types that satisfy the requirements.
-     * 
-     */
     @Import(name="instanceRequirements")
     private @Nullable Output<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs> instanceRequirements;
 
-    /**
-     * @return Override the instance type in the Launch Template with instance types that satisfy the requirements.
-     * 
-     */
     public Optional<Output<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs>> instanceRequirements() {
         return Optional.ofNullable(this.instanceRequirements);
     }
 
-    /**
-     * Override the instance type in the Launch Template.
-     * 
-     */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
-    /**
-     * @return Override the instance type in the Launch Template.
-     * 
-     */
     public Optional<Output<String>> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
 
-    /**
-     * Override the instance launch template specification in the Launch Template.
-     * 
-     */
     @Import(name="launchTemplateSpecification")
     private @Nullable Output<GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs> launchTemplateSpecification;
 
-    /**
-     * @return Override the instance launch template specification in the Launch Template.
-     * 
-     */
     public Optional<Output<GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs>> launchTemplateSpecification() {
         return Optional.ofNullable(this.launchTemplateSpecification);
     }
 
-    /**
-     * Number of capacity units, which gives the instance type a proportional weight to other instance types.
-     * 
-     */
     @Import(name="weightedCapacity")
     private @Nullable Output<String> weightedCapacity;
 
-    /**
-     * @return Number of capacity units, which gives the instance type a proportional weight to other instance types.
-     * 
-     */
     public Optional<Output<String>> weightedCapacity() {
         return Optional.ofNullable(this.weightedCapacity);
     }
@@ -104,86 +72,38 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs extends c
             $ = new GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceRequirements Override the instance type in the Launch Template with instance types that satisfy the requirements.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceRequirements(@Nullable Output<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs> instanceRequirements) {
             $.instanceRequirements = instanceRequirements;
             return this;
         }
 
-        /**
-         * @param instanceRequirements Override the instance type in the Launch Template with instance types that satisfy the requirements.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceRequirements(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs instanceRequirements) {
             return instanceRequirements(Output.of(instanceRequirements));
         }
 
-        /**
-         * @param instanceType Override the instance type in the Launch Template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(@Nullable Output<String> instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
-        /**
-         * @param instanceType Override the instance type in the Launch Template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
         }
 
-        /**
-         * @param launchTemplateSpecification Override the instance launch template specification in the Launch Template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateSpecification(@Nullable Output<GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs> launchTemplateSpecification) {
             $.launchTemplateSpecification = launchTemplateSpecification;
             return this;
         }
 
-        /**
-         * @param launchTemplateSpecification Override the instance launch template specification in the Launch Template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs launchTemplateSpecification) {
             return launchTemplateSpecification(Output.of(launchTemplateSpecification));
         }
 
-        /**
-         * @param weightedCapacity Number of capacity units, which gives the instance type a proportional weight to other instance types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weightedCapacity(@Nullable Output<String> weightedCapacity) {
             $.weightedCapacity = weightedCapacity;
             return this;
         }
 
-        /**
-         * @param weightedCapacity Number of capacity units, which gives the instance type a proportional weight to other instance types.
-         * 
-         * @return builder
-         * 
-         */
         public Builder weightedCapacity(String weightedCapacity) {
             return weightedCapacity(Output.of(weightedCapacity));
         }

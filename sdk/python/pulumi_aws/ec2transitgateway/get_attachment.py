@@ -193,7 +193,6 @@ def get_attachment(filters: Optional[Sequence[pulumi.InputType['GetAttachmentFil
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -209,7 +208,6 @@ def get_attachment(filters: Optional[Sequence[pulumi.InputType['GetAttachmentFil
         ),
     ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
@@ -249,7 +247,6 @@ def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -265,7 +262,6 @@ def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
         ),
     ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.

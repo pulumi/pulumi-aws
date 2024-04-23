@@ -14,7 +14,6 @@ namespace Pulumi.Aws.CodeCatalyst
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,7 +50,6 @@ namespace Pulumi.Aws.CodeCatalyst
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:codecatalyst/devEnvironment:DevEnvironment")]
     public partial class DevEnvironment : global::Pulumi.CustomResource

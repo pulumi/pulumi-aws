@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +30,11 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
     /// 
     /// `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,7 +53,6 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Example add-on usage with custom configuration_values
     /// 
@@ -69,7 +65,6 @@ namespace Pulumi.Aws.Eks
     /// 
     /// Example to create a `coredns` managed addon with custom `configuration_values`.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -106,11 +101,9 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -198,7 +191,6 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

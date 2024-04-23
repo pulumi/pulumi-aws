@@ -559,7 +559,6 @@ class Domain(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -584,11 +583,9 @@ class Domain(pulumi.CustomResource):
                 execution_role=example_role.arn,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using Custom Images
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -621,7 +618,6 @@ class Domain(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -661,7 +657,6 @@ class Domain(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -686,11 +681,9 @@ class Domain(pulumi.CustomResource):
                 execution_role=example_role.arn,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using Custom Images
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -723,7 +716,6 @@ class Domain(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

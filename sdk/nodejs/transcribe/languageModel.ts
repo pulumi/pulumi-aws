@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,7 +70,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -129,9 +127,6 @@ export class LanguageModel extends pulumi.CustomResource {
      * The model name.
      */
     public readonly modelName!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Please use `tags` instead.
@@ -209,9 +204,6 @@ export interface LanguageModelState {
      * The model name.
      */
     modelName?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated Please use `tags` instead.
@@ -239,8 +231,5 @@ export interface LanguageModelArgs {
      * The model name.
      */
     modelName: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

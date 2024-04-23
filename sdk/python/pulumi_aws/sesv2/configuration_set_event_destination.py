@@ -138,7 +138,6 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
 
         ### Cloud Watch Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -159,11 +158,9 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Kinesis Firehose Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -181,11 +178,9 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Pinpoint Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,11 +197,9 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SNS Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,7 +216,6 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -252,7 +244,6 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
 
         ### Cloud Watch Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -273,11 +264,9 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Kinesis Firehose Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,11 +284,9 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Pinpoint Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,11 +303,9 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SNS Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -337,7 +322,6 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

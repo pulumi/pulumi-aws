@@ -318,7 +318,6 @@ class ResolverRule(pulumi.CustomResource):
 
         ### System rule
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,11 +326,9 @@ class ResolverRule(pulumi.CustomResource):
             domain_name="subdomain.example.com",
             rule_type="SYSTEM")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Forward rule
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -348,7 +345,6 @@ class ResolverRule(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -382,7 +378,6 @@ class ResolverRule(pulumi.CustomResource):
 
         ### System rule
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,11 +386,9 @@ class ResolverRule(pulumi.CustomResource):
             domain_name="subdomain.example.com",
             rule_type="SYSTEM")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Forward rule
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -412,7 +405,6 @@ class ResolverRule(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

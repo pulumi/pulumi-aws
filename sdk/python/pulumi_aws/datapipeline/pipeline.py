@@ -159,14 +159,12 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.datapipeline.Pipeline("default", name="tf-pipeline-default")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -193,14 +191,12 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         default = aws.datapipeline.Pipeline("default", name="tf-pipeline-default")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

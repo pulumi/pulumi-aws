@@ -272,7 +272,6 @@ class IPSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,7 +292,6 @@ class IPSet(pulumi.CustomResource):
             bucket=bucket.id,
             acl="private")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -325,7 +323,6 @@ class IPSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -346,7 +343,6 @@ class IPSet(pulumi.CustomResource):
             bucket=bucket.id,
             acl="private")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

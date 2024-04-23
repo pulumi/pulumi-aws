@@ -157,7 +157,6 @@ def get_task_definition(task_definition: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -188,7 +187,6 @@ def get_task_definition(task_definition: Optional[str] = None,
         desired_count=2,
         task_definition=mongo.arn)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str task_definition: Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
@@ -220,7 +218,6 @@ def get_task_definition_output(task_definition: Optional[pulumi.Input[str]] = No
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -251,7 +248,6 @@ def get_task_definition_output(task_definition: Optional[pulumi.Input[str]] = No
         desired_count=2,
         task_definition=mongo.arn)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str task_definition: Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.

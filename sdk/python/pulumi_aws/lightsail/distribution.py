@@ -230,7 +230,7 @@ class _DistributionState:
         :param pulumi.Input[str] name: Name of the distribution.
         :param pulumi.Input['DistributionOriginArgs'] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
         :param pulumi.Input[str] origin_public_dns: The public DNS of the origin.
-        :param pulumi.Input[str] resource_type: The resource type of the origin resource (e.g., Instance).
+        :param pulumi.Input[str] resource_type: The Lightsail resource type (e.g., Distribution).
         :param pulumi.Input[str] status: The status of the distribution.
         :param pulumi.Input[str] support_code: The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags for the Lightsail Distribution. If
@@ -469,7 +469,7 @@ class _DistributionState:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource type of the origin resource (e.g., Instance).
+        The Lightsail resource type (e.g., Distribution).
         """
         return pulumi.get(self, "resource_type")
 
@@ -557,7 +557,6 @@ class Distribution(pulumi.CustomResource):
 
         Below is a basic example with a bucket as an origin.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -592,13 +591,11 @@ class Distribution(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### instance origin example
 
         Below is an example of an instance as the origin.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -629,13 +626,11 @@ class Distribution(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### lb origin example
 
         Below is an example with a load balancer as an origin
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -672,7 +667,6 @@ class Distribution(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -715,7 +709,6 @@ class Distribution(pulumi.CustomResource):
 
         Below is a basic example with a bucket as an origin.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -750,13 +743,11 @@ class Distribution(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### instance origin example
 
         Below is an example of an instance as the origin.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -787,13 +778,11 @@ class Distribution(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### lb origin example
 
         Below is an example with a load balancer as an origin
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -830,7 +819,6 @@ class Distribution(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -954,7 +942,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the distribution.
         :param pulumi.Input[pulumi.InputType['DistributionOriginArgs']] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
         :param pulumi.Input[str] origin_public_dns: The public DNS of the origin.
-        :param pulumi.Input[str] resource_type: The resource type of the origin resource (e.g., Instance).
+        :param pulumi.Input[str] resource_type: The Lightsail resource type (e.g., Distribution).
         :param pulumi.Input[str] status: The status of the distribution.
         :param pulumi.Input[str] support_code: The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags for the Lightsail Distribution. If
@@ -1115,7 +1103,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[str]:
         """
-        The resource type of the origin resource (e.g., Instance).
+        The Lightsail resource type (e.g., Distribution).
         """
         return pulumi.get(self, "resource_type")
 

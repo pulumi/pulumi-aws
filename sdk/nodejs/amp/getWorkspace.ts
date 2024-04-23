@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic configuration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     workspaceId: "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -90,7 +88,6 @@ export interface GetWorkspaceResult {
  *
  * ### Basic configuration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -99,7 +96,6 @@ export interface GetWorkspaceResult {
  *     workspaceId: "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### New MySQL Global Cluster
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,11 +62,9 @@ import * as utilities from "../utilities";
  *     dbSubnetGroupName: "default",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### New PostgreSQL Global Cluster
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -115,11 +112,9 @@ import * as utilities from "../utilities";
  *     dbSubnetGroupName: "default",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### New Global Cluster From Existing DB Cluster
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -131,13 +126,11 @@ import * as utilities from "../utilities";
  *     sourceDbClusterIdentifier: example.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Upgrading Engine Versions
  *
  * When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignoreChanges` meta argument as shown below on the `aws.rds.Cluster`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -168,7 +161,6 @@ import * as utilities from "../utilities";
  *     instanceClass: aws.rds.InstanceType.R4_Large,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

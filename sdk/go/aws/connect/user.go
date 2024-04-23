@@ -19,7 +19,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,11 +56,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With hierarchyGroupId
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -100,11 +97,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With identityInfo filled
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -143,11 +138,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With phoneConfig phone type as desk phone
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -181,11 +174,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With multiple Security profile ids specified in securityProfileIds
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -222,7 +213,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

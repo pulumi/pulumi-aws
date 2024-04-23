@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMaintenanceWindows(args?: GetMaintenanceWindowsArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceWindowsResult> {
     args = args || {};
@@ -64,7 +62,6 @@ export interface GetMaintenanceWindowsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,7 +73,6 @@ export interface GetMaintenanceWindowsResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMaintenanceWindowsOutput(args?: GetMaintenanceWindowsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceWindowsResult> {
     return pulumi.output(args).apply((a: any) => getMaintenanceWindows(a, opts))

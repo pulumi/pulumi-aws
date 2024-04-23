@@ -14,17 +14,9 @@ public final class ResponseHeadersPolicyRemoveHeadersConfigItemArgs extends com.
 
     public static final ResponseHeadersPolicyRemoveHeadersConfigItemArgs Empty = new ResponseHeadersPolicyRemoveHeadersConfigItemArgs();
 
-    /**
-     * The HTTP response header name.
-     * 
-     */
     @Import(name="header", required=true)
     private Output<String> header;
 
-    /**
-     * @return The HTTP response header name.
-     * 
-     */
     public Output<String> header() {
         return this.header;
     }
@@ -53,23 +45,11 @@ public final class ResponseHeadersPolicyRemoveHeadersConfigItemArgs extends com.
             $ = new ResponseHeadersPolicyRemoveHeadersConfigItemArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param header The HTTP response header name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder header(Output<String> header) {
             $.header = header;
             return this;
         }
 
-        /**
-         * @param header The HTTP response header name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder header(String header) {
             return header(Output.of(header));
         }

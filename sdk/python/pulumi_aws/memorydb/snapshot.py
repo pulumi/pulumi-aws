@@ -276,7 +276,6 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,7 +284,6 @@ class Snapshot(pulumi.CustomResource):
             cluster_name=example_aws_memorydb_cluster["name"],
             name="my-snapshot")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -316,7 +314,6 @@ class Snapshot(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,7 +322,6 @@ class Snapshot(pulumi.CustomResource):
             cluster_name=example_aws_memorydb_cluster["name"],
             name="my-snapshot")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

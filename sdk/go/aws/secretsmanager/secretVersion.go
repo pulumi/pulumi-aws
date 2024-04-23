@@ -20,7 +20,6 @@ import (
 //
 // ### Simple String Value
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,13 +44,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Key-Value Pairs
 //
 // Secrets Manager also accepts key-value pairs in JSON.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,7 +89,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // # Reading key-value pairs from JSON back into a native map
 //

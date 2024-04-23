@@ -373,7 +373,6 @@ class ConnectAttachment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -390,11 +389,9 @@ class ConnectAttachment(pulumi.CustomResource):
                 protocol="GRE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with attachment accepter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -418,7 +415,6 @@ class ConnectAttachment(pulumi.CustomResource):
             attachment_id=example_connect_attachment.id,
             attachment_type=example_connect_attachment.attachment_type)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -451,7 +447,6 @@ class ConnectAttachment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -468,11 +463,9 @@ class ConnectAttachment(pulumi.CustomResource):
                 protocol="GRE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Usage with attachment accepter
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -496,7 +489,6 @@ class ConnectAttachment(pulumi.CustomResource):
             attachment_id=example_connect_attachment.id,
             attachment_type=example_connect_attachment.attachment_type)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

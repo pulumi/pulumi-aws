@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPublicIpv4PoolResult> InvokeAsync(GetPublicIpv4PoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpv4PoolResult>("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", args ?? new GetPublicIpv4PoolArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPublicIpv4PoolResult> Invoke(GetPublicIpv4PoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpv4PoolResult>("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", args ?? new GetPublicIpv4PoolInvokeArgs(), options.WithDefaults());

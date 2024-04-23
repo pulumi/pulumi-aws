@@ -13,29 +13,11 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
     [OutputType]
     public sealed class ResponsePlanActionSsmAutomation
     {
-        /// <summary>
-        /// The automation document's name.
-        /// </summary>
         public readonly string DocumentName;
-        /// <summary>
-        /// The version of the automation document to use at runtime.
-        /// </summary>
         public readonly string? DocumentVersion;
-        /// <summary>
-        /// The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? DynamicParameters;
-        /// <summary>
-        /// The key-value pair parameters to use when the automation document runs. The following values are supported:
-        /// </summary>
         public readonly ImmutableArray<Outputs.ResponsePlanActionSsmAutomationParameter> Parameters;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
-        /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// The account that the automation document runs in. This can be in either the management account or an application account.
-        /// </summary>
         public readonly string? TargetAccount;
 
         [OutputConstructor]

@@ -797,7 +797,6 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -811,7 +810,6 @@ class NetworkInterface(pulumi.CustomResource):
                 device_index=1,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example of Managing Multiple IPs on a Network Interface
 
@@ -873,7 +871,6 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -887,7 +884,6 @@ class NetworkInterface(pulumi.CustomResource):
                 device_index=1,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example of Managing Multiple IPs on a Network Interface
 

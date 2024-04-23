@@ -595,7 +595,6 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -612,7 +611,6 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
             ),
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInstanceFilterArgs']] filters: One or more name/value pairs to use as filters. There are
@@ -704,7 +702,6 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -721,7 +718,6 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
             ),
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInstanceFilterArgs']] filters: One or more name/value pairs to use as filters. There are

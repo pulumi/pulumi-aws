@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,7 +33,6 @@ import * as utilities from "../utilities";
  *     policy: example.then(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

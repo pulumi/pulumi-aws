@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ### New Neptune Global Cluster
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,17 +73,15 @@ namespace Pulumi.Aws.Neptune
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primaryClusterInstance, 
+    ///             primaryClusterInstance,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### New Global Cluster From Existing DB Cluster
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -103,7 +100,6 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

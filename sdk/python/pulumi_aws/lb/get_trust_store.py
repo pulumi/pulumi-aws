@@ -76,7 +76,6 @@ def get_trust_store(arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -91,7 +90,6 @@ def get_trust_store(arn: Optional[str] = None,
     test = aws.lb.get_trust_store(arn=lb_ts_arn,
         name=lb_ts_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Full ARN of the trust store.
@@ -126,7 +124,6 @@ def get_trust_store_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -141,7 +138,6 @@ def get_trust_store_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     test = aws.lb.get_trust_store(arn=lb_ts_arn,
         name=lb_ts_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Full ARN of the trust store.

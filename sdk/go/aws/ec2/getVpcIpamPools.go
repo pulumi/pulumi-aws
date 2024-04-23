@@ -19,7 +19,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,7 +55,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetVpcIpamPools(ctx *pulumi.Context, args *GetVpcIpamPoolsArgs, opts ...pulumi.InvokeOption) (*GetVpcIpamPoolsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIpamPoolsResult

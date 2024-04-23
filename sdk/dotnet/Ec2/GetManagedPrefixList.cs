@@ -19,7 +19,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ### Find the regional DynamoDB prefix list
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,11 +36,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Find a managed prefix list using filters
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,7 +64,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetManagedPrefixListResult> InvokeAsync(GetManagedPrefixListArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrefixListResult>("aws:ec2/getManagedPrefixList:getManagedPrefixList", args ?? new GetManagedPrefixListArgs(), options.WithDefaults());
@@ -80,7 +76,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ### Find the regional DynamoDB prefix list
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -98,11 +93,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Find a managed prefix list using filters
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -128,7 +121,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetManagedPrefixListResult> Invoke(GetManagedPrefixListInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrefixListResult>("aws:ec2/getManagedPrefixList:getManagedPrefixList", args ?? new GetManagedPrefixListInvokeArgs(), options.WithDefaults());

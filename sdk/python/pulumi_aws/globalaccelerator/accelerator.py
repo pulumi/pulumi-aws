@@ -328,7 +328,6 @@ class Accelerator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,7 +343,6 @@ class Accelerator(pulumi.CustomResource):
                 flow_logs_s3_prefix="flow-logs/",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -374,7 +372,6 @@ class Accelerator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -390,7 +387,6 @@ class Accelerator(pulumi.CustomResource):
                 flow_logs_s3_prefix="flow-logs/",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

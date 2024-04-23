@@ -16,14 +16,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
     public static final FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs Empty = new FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs();
 
     /**
-     * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
      * 
      */
     @Import(name="max")
     private @Nullable Output<Double> max;
 
     /**
-     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+     * @return The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
      * 
      */
     public Optional<Output<Double>> max() {
@@ -31,14 +31,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
     }
 
     /**
-     * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
      * 
      */
     @Import(name="min")
     private @Nullable Output<Double> min;
 
     /**
-     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+     * @return The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
      * 
      */
     public Optional<Output<Double>> min() {
@@ -71,7 +71,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
         }
 
         /**
-         * @param max The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * @param max The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
         }
 
         /**
-         * @param max The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+         * @param max The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
         }
 
         /**
-         * @param min The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * @param min The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
         }
 
         /**
-         * @param min The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+         * @param min The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
          * 
          * @return builder
          * 

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// ### By Transit Gateway Identifier
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRouteTablePropagationsResult> InvokeAsync(GetRouteTablePropagationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablePropagationsResult>("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", args ?? new GetRouteTablePropagationsArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// ### By Transit Gateway Identifier
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRouteTablePropagationsResult> Invoke(GetRouteTablePropagationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTablePropagationsResult>("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", args ?? new GetRouteTablePropagationsInvokeArgs(), options.WithDefaults());

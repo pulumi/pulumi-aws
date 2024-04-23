@@ -747,7 +747,6 @@ class Database(pulumi.CustomResource):
 
         ### Basic mysql blueprint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -761,11 +760,9 @@ class Database(pulumi.CustomResource):
             blueprint_id="mysql_8_0",
             bundle_id="micro_1_0")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic postrgres blueprint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -779,13 +776,11 @@ class Database(pulumi.CustomResource):
             blueprint_id="postgres_12",
             bundle_id="micro_1_0")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom backup and maintenance windows
 
         Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -801,13 +796,11 @@ class Database(pulumi.CustomResource):
             preferred_backup_window="16:00-16:30",
             preferred_maintenance_window="Tue:17:00-Tue:17:30")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Final Snapshots
 
         To enable creating a final snapshot of your database on deletion, use the `final_snapshot_name` argument to provide a name to be used for the snapshot.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -824,13 +817,11 @@ class Database(pulumi.CustomResource):
             preferred_maintenance_window="Tue:17:00-Tue:17:30",
             final_snapshot_name="MyFinalSnapshot")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Apply Immediately
 
         To enable applying changes immediately instead of waiting for a maintiance window, use the `apply_immediately` argument.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -845,7 +836,6 @@ class Database(pulumi.CustomResource):
             bundle_id="micro_1_0",
             apply_immediately=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Blueprint Ids
 
@@ -937,7 +927,6 @@ class Database(pulumi.CustomResource):
 
         ### Basic mysql blueprint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -951,11 +940,9 @@ class Database(pulumi.CustomResource):
             blueprint_id="mysql_8_0",
             bundle_id="micro_1_0")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Basic postrgres blueprint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -969,13 +956,11 @@ class Database(pulumi.CustomResource):
             blueprint_id="postgres_12",
             bundle_id="micro_1_0")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom backup and maintenance windows
 
         Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -991,13 +976,11 @@ class Database(pulumi.CustomResource):
             preferred_backup_window="16:00-16:30",
             preferred_maintenance_window="Tue:17:00-Tue:17:30")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Final Snapshots
 
         To enable creating a final snapshot of your database on deletion, use the `final_snapshot_name` argument to provide a name to be used for the snapshot.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1014,13 +997,11 @@ class Database(pulumi.CustomResource):
             preferred_maintenance_window="Tue:17:00-Tue:17:30",
             final_snapshot_name="MyFinalSnapshot")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Apply Immediately
 
         To enable applying changes immediately instead of waiting for a maintiance window, use the `apply_immediately` argument.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1035,7 +1016,6 @@ class Database(pulumi.CustomResource):
             bundle_id="micro_1_0",
             apply_immediately=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Blueprint Ids
 

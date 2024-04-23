@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,13 +81,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Complex Example
 //
 // The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -179,7 +176,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetTrafficPolicyDocument(ctx *pulumi.Context, args *GetTrafficPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetTrafficPolicyDocumentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTrafficPolicyDocumentResult

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Outputs
     public sealed class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration
     {
         /// <summary>
-        /// SQS queue to deliver results.
+        /// Lambda Function to deliver results.
         /// </summary>
         public readonly string InsightsTarget;
 

@@ -17,77 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkflowStep {
-    /**
-     * @return Details for a step that performs a file copy. See Copy Step Details below.
-     * 
-     */
     private @Nullable WorkflowStepCopyStepDetails copyStepDetails;
-    /**
-     * @return Details for a step that invokes a lambda function.
-     * 
-     */
     private @Nullable WorkflowStepCustomStepDetails customStepDetails;
-    /**
-     * @return Details for a step that decrypts the file.
-     * 
-     */
     private @Nullable WorkflowStepDecryptStepDetails decryptStepDetails;
-    /**
-     * @return Details for a step that deletes the file.
-     * 
-     */
     private @Nullable WorkflowStepDeleteStepDetails deleteStepDetails;
-    /**
-     * @return Details for a step that creates one or more tags.
-     * 
-     */
     private @Nullable WorkflowStepTagStepDetails tagStepDetails;
-    /**
-     * @return The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
-     * 
-     */
     private String type;
 
     private WorkflowStep() {}
-    /**
-     * @return Details for a step that performs a file copy. See Copy Step Details below.
-     * 
-     */
     public Optional<WorkflowStepCopyStepDetails> copyStepDetails() {
         return Optional.ofNullable(this.copyStepDetails);
     }
-    /**
-     * @return Details for a step that invokes a lambda function.
-     * 
-     */
     public Optional<WorkflowStepCustomStepDetails> customStepDetails() {
         return Optional.ofNullable(this.customStepDetails);
     }
-    /**
-     * @return Details for a step that decrypts the file.
-     * 
-     */
     public Optional<WorkflowStepDecryptStepDetails> decryptStepDetails() {
         return Optional.ofNullable(this.decryptStepDetails);
     }
-    /**
-     * @return Details for a step that deletes the file.
-     * 
-     */
     public Optional<WorkflowStepDeleteStepDetails> deleteStepDetails() {
         return Optional.ofNullable(this.deleteStepDetails);
     }
-    /**
-     * @return Details for a step that creates one or more tags.
-     * 
-     */
     public Optional<WorkflowStepTagStepDetails> tagStepDetails() {
         return Optional.ofNullable(this.tagStepDetails);
     }
-    /**
-     * @return The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
-     * 
-     */
     public String type() {
         return this.type;
     }

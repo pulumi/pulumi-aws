@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,11 +22,9 @@ import * as utilities from "../utilities";
  *     resourceTypes: ["EC2"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### For the Calling Account
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,7 +38,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class Enabler extends pulumi.CustomResource {
     /**

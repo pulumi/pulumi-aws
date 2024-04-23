@@ -104,7 +104,6 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -141,7 +140,6 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
             target_id="ou-abcd-12345678",
             policy_id=example_configuration_policy.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -169,7 +167,6 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -206,7 +203,6 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
             target_id="ou-abcd-12345678",
             policy_id=example_configuration_policy.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

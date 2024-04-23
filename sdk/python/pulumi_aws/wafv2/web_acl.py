@@ -233,7 +233,7 @@ class _WebAclState:
         """
         Input properties used for looking up and filtering WebAcl resources.
         :param pulumi.Input[str] application_integration_url: The URL to use in SDK integrations with managed rule groups.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        :param pulumi.Input[str] arn: The ARN of the WAF WebACL.
         :param pulumi.Input['WebAclAssociationConfigArgs'] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         :param pulumi.Input[int] capacity: Web ACL capacity units (WCUs) currently being used by this web ACL.
         :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
@@ -303,7 +303,7 @@ class _WebAclState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        The ARN of the WAF WebACL.
         """
         return pulumi.get(self, "arn")
 
@@ -629,7 +629,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_integration_url: The URL to use in SDK integrations with managed rule groups.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        :param pulumi.Input[str] arn: The ARN of the WAF WebACL.
         :param pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         :param pulumi.Input[int] capacity: Web ACL capacity units (WCUs) currently being used by this web ACL.
         :param pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
@@ -680,7 +680,7 @@ class WebAcl(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        The ARN of the WAF WebACL.
         """
         return pulumi.get(self, "arn")
 

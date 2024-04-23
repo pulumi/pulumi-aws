@@ -303,7 +303,6 @@ class UsageLimit(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,7 +313,6 @@ class UsageLimit(pulumi.CustomResource):
             limit_type="time",
             amount=60)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -345,7 +343,6 @@ class UsageLimit(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -356,7 +353,6 @@ class UsageLimit(pulumi.CustomResource):
             limit_type="time",
             amount=60)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

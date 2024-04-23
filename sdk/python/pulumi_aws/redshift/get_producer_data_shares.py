@@ -90,14 +90,12 @@ def get_producer_data_shares(data_shares: Optional[Sequence[pulumi.InputType['Ge
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.redshift.get_producer_data_shares(producer_arn="")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetProducerDataSharesDataShareArgs']] data_shares: An array of all data shares in the producer. See `data_shares` below.
@@ -132,14 +130,12 @@ def get_producer_data_shares_output(data_shares: Optional[pulumi.Input[Optional[
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.redshift.get_producer_data_shares(producer_arn="")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetProducerDataSharesDataShareArgs']] data_shares: An array of all data shares in the producer. See `data_shares` below.

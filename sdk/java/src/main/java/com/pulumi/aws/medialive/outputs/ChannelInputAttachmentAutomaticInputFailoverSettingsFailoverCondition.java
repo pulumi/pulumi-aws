@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition {
-    /**
-     * @return Failover condition type-specific settings. See Failover Condition Settings for more details.
-     * 
-     */
     private @Nullable ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings failoverConditionSettings;
 
     private ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition() {}
-    /**
-     * @return Failover condition type-specific settings. See Failover Condition Settings for more details.
-     * 
-     */
     public Optional<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings> failoverConditionSettings() {
         return Optional.ofNullable(this.failoverConditionSettings);
     }

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// ### Testing Glacier Vault Lock Policy
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,11 +67,9 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Permanently Applying Glacier Vault Lock Policy
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,7 +87,6 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -20,7 +20,6 @@ import (
 //
 // > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,11 +51,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Error Handling Configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,11 +79,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Configuration for Alias Name
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,11 +106,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Configuration for Function Latest Unpublished Version
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -140,11 +133,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Configuration for Function Published Version
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -169,7 +160,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

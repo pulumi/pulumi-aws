@@ -14,7 +14,6 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,7 +29,6 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:apprunner/deployment:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource

@@ -84,7 +84,6 @@ def get_organizational_unit(name: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -93,7 +92,6 @@ def get_organizational_unit(name: Optional[str] = None,
     ou = aws.organizations.get_organizational_unit(parent_id=org.roots[0].id,
         name="dev")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the organizational unit
@@ -123,7 +121,6 @@ def get_organizational_unit_output(name: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -132,7 +129,6 @@ def get_organizational_unit_output(name: Optional[pulumi.Input[str]] = None,
     ou = aws.organizations.get_organizational_unit(parent_id=org.roots[0].id,
         name="dev")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the organizational unit

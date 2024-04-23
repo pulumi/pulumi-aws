@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class TopicRuleErrorActionTimestreamDimension {
     /**
-     * @return The name of the rule.
+     * @return The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
      * 
      */
     private String name;
     /**
-     * @return The value of the HTTP header.
+     * @return The value to write in this column of the database record.
      * 
      */
     private String value;
 
     private TopicRuleErrorActionTimestreamDimension() {}
     /**
-     * @return The name of the rule.
+     * @return The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The value of the HTTP header.
+     * @return The value to write in this column of the database record.
      * 
      */
     public String value() {

@@ -18,7 +18,6 @@ import {InstanceProfile} from "../iam";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,7 +42,6 @@ import {InstanceProfile} from "../iam";
  *     instanceType: "t2.micro",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

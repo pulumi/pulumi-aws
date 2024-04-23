@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetApplicationAssignments(ctx *pulumi.Context, args *GetApplicationAssignmentsArgs, opts ...pulumi.InvokeOption) (*GetApplicationAssignmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetApplicationAssignmentsResult

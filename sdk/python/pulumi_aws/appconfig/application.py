@@ -175,7 +175,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,7 +186,6 @@ class Application(pulumi.CustomResource):
                 "Type": "AppConfig Application",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -214,7 +212,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,7 +223,6 @@ class Application(pulumi.CustomResource):
                 "Type": "AppConfig Application",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

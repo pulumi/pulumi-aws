@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     planId: "my_example_backup_plan_id",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanResult> {
 
@@ -74,7 +72,6 @@ export interface GetPlanResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -83,7 +80,6 @@ export interface GetPlanResult {
  *     planId: "my_example_backup_plan_id",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
     return pulumi.output(args).apply((a: any) => getPlan(a, opts))

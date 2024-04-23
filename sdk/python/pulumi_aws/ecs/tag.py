@@ -138,7 +138,6 @@ class Tag(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -152,7 +151,6 @@ class Tag(pulumi.CustomResource):
             key="Name",
             value="Hello World")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -183,7 +181,6 @@ class Tag(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -197,7 +194,6 @@ class Tag(pulumi.CustomResource):
             key="Name",
             value="Hello World")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

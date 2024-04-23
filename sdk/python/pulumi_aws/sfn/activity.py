@@ -142,14 +142,12 @@ class Activity(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         sfn_activity = aws.sfn.Activity("sfn_activity", name="my-activity")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -175,14 +173,12 @@ class Activity(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         sfn_activity = aws.sfn.Activity("sfn_activity", name="my-activity")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

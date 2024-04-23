@@ -194,7 +194,6 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -218,7 +217,6 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
                 ],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -250,7 +248,6 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -274,7 +271,6 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
                 ],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -312,7 +312,6 @@ class Lb(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,7 +324,6 @@ class Lb(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -353,7 +351,6 @@ class Lb(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -366,7 +363,6 @@ class Lb(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

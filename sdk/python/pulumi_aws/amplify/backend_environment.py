@@ -184,7 +184,6 @@ class BackendEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,7 +195,6 @@ class BackendEnvironment(pulumi.CustomResource):
             deployment_artifacts="app-example-deployment",
             stack_name="amplify-app-example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -224,7 +222,6 @@ class BackendEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,7 +233,6 @@ class BackendEnvironment(pulumi.CustomResource):
             deployment_artifacts="app-example-deployment",
             stack_name="amplify-app-example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

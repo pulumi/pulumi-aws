@@ -266,7 +266,6 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,7 +275,6 @@ class Endpoint(pulumi.CustomResource):
             security_group_id=example_aws_security_group["id"],
             subnet_id=example_aws_subnet["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -305,7 +303,6 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -315,7 +312,6 @@ class Endpoint(pulumi.CustomResource):
             security_group_id=example_aws_security_group["id"],
             subnet_id=example_aws_subnet["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

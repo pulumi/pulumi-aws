@@ -284,7 +284,6 @@ class IpSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -303,7 +302,6 @@ class IpSet(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -333,7 +331,6 @@ class IpSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,7 +349,6 @@ class IpSet(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

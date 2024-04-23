@@ -18,7 +18,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,11 +57,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Add analytics configuration with S3 object filter
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,7 +90,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow
     {
-        /// <summary>
-        /// The location of the Datadog resource.
-        /// </summary>
         public readonly string InstanceUrl;
 
         [OutputConstructor]

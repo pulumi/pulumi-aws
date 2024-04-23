@@ -273,7 +273,6 @@ class Segment(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,11 +284,9 @@ class Segment(pulumi.CustomResource):
                 "Key1": "example Segment",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With JSON object in pattern
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,11 +305,9 @@ class Segment(pulumi.CustomResource):
                 "Key1": "example Segment",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Description
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,7 +317,6 @@ class Segment(pulumi.CustomResource):
             pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
             description="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -352,7 +346,6 @@ class Segment(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -364,11 +357,9 @@ class Segment(pulumi.CustomResource):
                 "Key1": "example Segment",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With JSON object in pattern
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -387,11 +378,9 @@ class Segment(pulumi.CustomResource):
                 "Key1": "example Segment",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Description
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,7 +390,6 @@ class Segment(pulumi.CustomResource):
             pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
             description="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

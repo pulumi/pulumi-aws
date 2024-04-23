@@ -16,47 +16,23 @@ public final class PipeEnrichmentParametersHttpParametersArgs extends com.pulumi
 
     public static final PipeEnrichmentParametersHttpParametersArgs Empty = new PipeEnrichmentParametersHttpParametersArgs();
 
-    /**
-     * Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-     * 
-     */
     @Import(name="headerParameters")
     private @Nullable Output<Map<String,String>> headerParameters;
 
-    /**
-     * @return Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-     * 
-     */
     public Optional<Output<Map<String,String>>> headerParameters() {
         return Optional.ofNullable(this.headerParameters);
     }
 
-    /**
-     * The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards (&#34;*&#34;).
-     * 
-     */
     @Import(name="pathParameterValues")
     private @Nullable Output<String> pathParameterValues;
 
-    /**
-     * @return The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards (&#34;*&#34;).
-     * 
-     */
     public Optional<Output<String>> pathParameterValues() {
         return Optional.ofNullable(this.pathParameterValues);
     }
 
-    /**
-     * Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-     * 
-     */
     @Import(name="queryStringParameters")
     private @Nullable Output<Map<String,String>> queryStringParameters;
 
-    /**
-     * @return Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-     * 
-     */
     public Optional<Output<Map<String,String>>> queryStringParameters() {
         return Optional.ofNullable(this.queryStringParameters);
     }
@@ -87,65 +63,29 @@ public final class PipeEnrichmentParametersHttpParametersArgs extends com.pulumi
             $ = new PipeEnrichmentParametersHttpParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param headerParameters Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerParameters(@Nullable Output<Map<String,String>> headerParameters) {
             $.headerParameters = headerParameters;
             return this;
         }
 
-        /**
-         * @param headerParameters Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerParameters(Map<String,String> headerParameters) {
             return headerParameters(Output.of(headerParameters));
         }
 
-        /**
-         * @param pathParameterValues The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards (&#34;*&#34;).
-         * 
-         * @return builder
-         * 
-         */
         public Builder pathParameterValues(@Nullable Output<String> pathParameterValues) {
             $.pathParameterValues = pathParameterValues;
             return this;
         }
 
-        /**
-         * @param pathParameterValues The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards (&#34;*&#34;).
-         * 
-         * @return builder
-         * 
-         */
         public Builder pathParameterValues(String pathParameterValues) {
             return pathParameterValues(Output.of(pathParameterValues));
         }
 
-        /**
-         * @param queryStringParameters Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryStringParameters(@Nullable Output<Map<String,String>> queryStringParameters) {
             $.queryStringParameters = queryStringParameters;
             return this;
         }
 
-        /**
-         * @param queryStringParameters Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryStringParameters(Map<String,String> queryStringParameters) {
             return queryStringParameters(Output.of(queryStringParameters));
         }

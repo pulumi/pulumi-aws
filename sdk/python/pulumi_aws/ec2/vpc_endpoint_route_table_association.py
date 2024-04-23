@@ -102,7 +102,6 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -111,7 +110,6 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
             route_table_id=example_aws_route_table["id"],
             vpc_endpoint_id=example_aws_vpc_endpoint["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -137,7 +135,6 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,7 +143,6 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
             route_table_id=example_aws_route_table["id"],
             vpc_endpoint_id=example_aws_vpc_endpoint["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -153,9 +153,6 @@ func (o RecordingConfigurationDestinationConfigurationPtrOutput) S3() RecordingC
 }
 
 type RecordingConfigurationDestinationConfigurationS3 struct {
-	// S3 bucket name where recorded videos will be stored.
-	//
-	// The following arguments are optional:
 	BucketName string `pulumi:"bucketName"`
 }
 
@@ -171,9 +168,6 @@ type RecordingConfigurationDestinationConfigurationS3Input interface {
 }
 
 type RecordingConfigurationDestinationConfigurationS3Args struct {
-	// S3 bucket name where recorded videos will be stored.
-	//
-	// The following arguments are optional:
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
@@ -254,9 +248,6 @@ func (o RecordingConfigurationDestinationConfigurationS3Output) ToRecordingConfi
 	}).(RecordingConfigurationDestinationConfigurationS3PtrOutput)
 }
 
-// S3 bucket name where recorded videos will be stored.
-//
-// The following arguments are optional:
 func (o RecordingConfigurationDestinationConfigurationS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordingConfigurationDestinationConfigurationS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -285,9 +276,6 @@ func (o RecordingConfigurationDestinationConfigurationS3PtrOutput) Elem() Record
 	}).(RecordingConfigurationDestinationConfigurationS3Output)
 }
 
-// S3 bucket name where recorded videos will be stored.
-//
-// The following arguments are optional:
 func (o RecordingConfigurationDestinationConfigurationS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordingConfigurationDestinationConfigurationS3) *string {
 		if v == nil {

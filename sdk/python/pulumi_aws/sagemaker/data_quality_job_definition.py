@@ -405,7 +405,6 @@ class DataQualityJobDefinition(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -436,7 +435,6 @@ class DataQualityJobDefinition(pulumi.CustomResource):
             ),
             role_arn=my_role["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -472,7 +470,6 @@ class DataQualityJobDefinition(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -503,7 +500,6 @@ class DataQualityJobDefinition(pulumi.CustomResource):
             ),
             role_arn=my_role["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

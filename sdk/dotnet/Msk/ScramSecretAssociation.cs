@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -78,7 +77,7 @@ namespace Pulumi.Aws.Msk
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleSecretVersion, 
+    ///             exampleSecretVersion,
     ///         },
     ///     });
     /// 
@@ -121,7 +120,6 @@ namespace Pulumi.Aws.Msk
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

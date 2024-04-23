@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,7 +27,6 @@ import * as utilities from "../utilities";
  *     serviceCode: "vpc",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceQuotaResult> {
 
@@ -105,7 +103,6 @@ export interface GetServiceQuotaResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -119,7 +116,6 @@ export interface GetServiceQuotaResult {
  *     serviceCode: "vpc",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServiceQuotaOutput(args: GetServiceQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceQuotaResult> {
     return pulumi.output(args).apply((a: any) => getServiceQuota(a, opts))

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecHttp2RouteMatchQueryParameter
     {
         /// <summary>
-        /// Criteria for determining an gRPC request match.
+        /// The query parameter to match on.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteMatchQueryParameterMatch? Match;
         /// <summary>
-        /// Name to use for the route. Must be between 1 and 255 characters in length.
+        /// Name for the query parameter that will be matched on.
         /// </summary>
         public readonly string Name;
 

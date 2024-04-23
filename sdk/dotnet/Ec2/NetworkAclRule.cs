@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,7 +47,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
     /// 

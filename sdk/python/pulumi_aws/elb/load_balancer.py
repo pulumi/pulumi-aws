@@ -727,7 +727,6 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -776,7 +775,6 @@ class LoadBalancer(pulumi.CustomResource):
                 "Name": "foobar-elb",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Note on ECDSA Key Algorithm
 
@@ -841,7 +839,6 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -890,7 +887,6 @@ class LoadBalancer(pulumi.CustomResource):
                 "Name": "foobar-elb",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Note on ECDSA Key Algorithm
 

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem {
-    /**
-     * @return he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
-     * 
-     */
     private String contentType;
-    /**
-     * @return The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
-     * 
-     */
     private String format;
-    /**
-     * @return The profile ID for a field-level encryption content type-profile mapping.
-     * 
-     */
     private @Nullable String profileId;
 
     private FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem() {}
-    /**
-     * @return he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
-     * 
-     */
     public String contentType() {
         return this.contentType;
     }
-    /**
-     * @return The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
-     * 
-     */
     public String format() {
         return this.format;
     }
-    /**
-     * @return The profile ID for a field-level encryption content type-profile mapping.
-     * 
-     */
     public Optional<String> profileId() {
         return Optional.ofNullable(this.profileId);
     }

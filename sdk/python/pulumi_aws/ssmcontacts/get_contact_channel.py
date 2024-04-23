@@ -123,14 +123,12 @@ def get_contact_channel(arn: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ssmcontacts.get_contact_channel(arn="arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Amazon Resource Name (ARN) of the contact channel.
@@ -160,14 +158,12 @@ def get_contact_channel_output(arn: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ssmcontacts.get_contact_channel(arn="arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Amazon Resource Name (ARN) of the contact channel.

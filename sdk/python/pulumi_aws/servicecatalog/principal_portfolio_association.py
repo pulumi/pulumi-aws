@@ -178,7 +178,6 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,7 +186,6 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
             portfolio_id="port-68656c6c6f",
             principal_arn="arn:aws:iam::123456789012:user/Eleanor")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -219,7 +217,6 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,7 +225,6 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
             portfolio_id="port-68656c6c6f",
             principal_arn="arn:aws:iam::123456789012:user/Eleanor")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

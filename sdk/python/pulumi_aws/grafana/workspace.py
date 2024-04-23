@@ -641,7 +641,6 @@ class Workspace(pulumi.CustomResource):
 
         ### Basic configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -666,7 +665,6 @@ class Workspace(pulumi.CustomResource):
             permission_type="SERVICE_MANAGED",
             role_arn=assume.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -710,7 +708,6 @@ class Workspace(pulumi.CustomResource):
 
         ### Basic configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -735,7 +732,6 @@ class Workspace(pulumi.CustomResource):
             permission_type="SERVICE_MANAGED",
             role_arn=assume.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

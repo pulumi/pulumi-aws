@@ -19,8 +19,6 @@ type DetectorDatasources struct {
 	Kubernetes *DetectorDatasourcesKubernetes `pulumi:"kubernetes"`
 	// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
 	// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-	//
-	// The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
 	MalwareProtection *DetectorDatasourcesMalwareProtection `pulumi:"malwareProtection"`
 	// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
 	// See S3 Logs below for more details.
@@ -44,8 +42,6 @@ type DetectorDatasourcesArgs struct {
 	Kubernetes DetectorDatasourcesKubernetesPtrInput `pulumi:"kubernetes"`
 	// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
 	// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-	//
-	// The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
 	MalwareProtection DetectorDatasourcesMalwareProtectionPtrInput `pulumi:"malwareProtection"`
 	// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
 	// See S3 Logs below for more details.
@@ -137,8 +133,6 @@ func (o DetectorDatasourcesOutput) Kubernetes() DetectorDatasourcesKubernetesPtr
 
 // Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
 // See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-//
-// The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
 func (o DetectorDatasourcesOutput) MalwareProtection() DetectorDatasourcesMalwareProtectionPtrOutput {
 	return o.ApplyT(func(v DetectorDatasources) *DetectorDatasourcesMalwareProtection { return v.MalwareProtection }).(DetectorDatasourcesMalwareProtectionPtrOutput)
 }
@@ -186,8 +180,6 @@ func (o DetectorDatasourcesPtrOutput) Kubernetes() DetectorDatasourcesKubernetes
 
 // Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
 // See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-//
-// The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
 func (o DetectorDatasourcesPtrOutput) MalwareProtection() DetectorDatasourcesMalwareProtectionPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasources) *DetectorDatasourcesMalwareProtection {
 		if v == nil {
@@ -920,7 +912,8 @@ func (o DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolume
 }
 
 type DetectorDatasourcesS3Logs struct {
-	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+	// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// Defaults to `true`.
 	Enable bool `pulumi:"enable"`
 }
 
@@ -936,7 +929,8 @@ type DetectorDatasourcesS3LogsInput interface {
 }
 
 type DetectorDatasourcesS3LogsArgs struct {
-	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+	// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// Defaults to `true`.
 	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
@@ -1017,7 +1011,8 @@ func (o DetectorDatasourcesS3LogsOutput) ToDetectorDatasourcesS3LogsPtrOutputWit
 	}).(DetectorDatasourcesS3LogsPtrOutput)
 }
 
-// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+// Defaults to `true`.
 func (o DetectorDatasourcesS3LogsOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v DetectorDatasourcesS3Logs) bool { return v.Enable }).(pulumi.BoolOutput)
 }
@@ -1046,7 +1041,8 @@ func (o DetectorDatasourcesS3LogsPtrOutput) Elem() DetectorDatasourcesS3LogsOutp
 	}).(DetectorDatasourcesS3LogsOutput)
 }
 
-// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+// Defaults to `true`.
 func (o DetectorDatasourcesS3LogsPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasourcesS3Logs) *bool {
 		if v == nil {
@@ -2341,7 +2337,7 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 }
 
 type OrganizationConfigurationDatasourcesS3Logs struct {
-	// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 	AutoEnable bool `pulumi:"autoEnable"`
 }
 
@@ -2357,7 +2353,7 @@ type OrganizationConfigurationDatasourcesS3LogsInput interface {
 }
 
 type OrganizationConfigurationDatasourcesS3LogsArgs struct {
-	// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 	AutoEnable pulumi.BoolInput `pulumi:"autoEnable"`
 }
 
@@ -2438,7 +2434,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOrganizationConfigur
 	}).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
 }
 
-// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 func (o OrganizationConfigurationDatasourcesS3LogsOutput) AutoEnable() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasourcesS3Logs) bool { return v.AutoEnable }).(pulumi.BoolOutput)
 }
@@ -2467,7 +2463,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) Elem() Organization
 	}).(OrganizationConfigurationDatasourcesS3LogsOutput)
 }
 
-// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesS3Logs) *bool {
 		if v == nil {

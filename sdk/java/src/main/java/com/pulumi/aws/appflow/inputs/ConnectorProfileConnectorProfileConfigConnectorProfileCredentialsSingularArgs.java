@@ -14,17 +14,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs();
 
-    /**
-     * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-     * 
-     */
     @Import(name="apiKey", required=true)
     private Output<String> apiKey;
 
-    /**
-     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-     * 
-     */
     public Output<String> apiKey() {
         return this.apiKey;
     }
@@ -53,23 +45,11 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiKey Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
-        /**
-         * @param apiKey Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }

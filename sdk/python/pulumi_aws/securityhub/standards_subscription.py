@@ -110,7 +110,6 @@ class StandardsSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -122,7 +121,6 @@ class StandardsSubscription(pulumi.CustomResource):
         pci321 = aws.securityhub.StandardsSubscription("pci_321", standards_arn=f"arn:aws:securityhub:{current.name}::standards/pci-dss/v/3.2.1",
         opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -163,7 +161,6 @@ class StandardsSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -175,7 +172,6 @@ class StandardsSubscription(pulumi.CustomResource):
         pci321 = aws.securityhub.StandardsSubscription("pci_321", standards_arn=f"arn:aws:securityhub:{current.name}::standards/pci-dss/v/3.2.1",
         opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

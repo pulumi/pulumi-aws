@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Basic Example
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,13 +35,11 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Find the Runner's Source Role
         /// 
         /// Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSessionContextResult> InvokeAsync(GetSessionContextArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSessionContextResult>("aws:iam/getSessionContext:getSessionContext", args ?? new GetSessionContextArgs(), options.WithDefaults());
@@ -74,7 +70,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// ### Basic Example
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -90,13 +85,11 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// ### Find the Runner's Source Role
         /// 
         /// Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -114,7 +107,6 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSessionContextResult> Invoke(GetSessionContextInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSessionContextResult>("aws:iam/getSessionContext:getSessionContext", args ?? new GetSessionContextInvokeArgs(), options.WithDefaults());

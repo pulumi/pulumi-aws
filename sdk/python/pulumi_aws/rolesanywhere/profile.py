@@ -339,7 +339,6 @@ class Profile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -367,7 +366,6 @@ class Profile(pulumi.CustomResource):
             name="example",
             role_arns=[test.arn])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -399,7 +397,6 @@ class Profile(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -427,7 +424,6 @@ class Profile(pulumi.CustomResource):
             name="example",
             role_arns=[test.arn])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

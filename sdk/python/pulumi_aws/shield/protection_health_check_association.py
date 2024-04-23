@@ -107,7 +107,6 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
 
         ### Create an association between a protected EIP and a Route53 Health Check
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -137,7 +136,6 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
             health_check_arn=example_health_check.arn,
             shield_protection_id=example_protection.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -168,7 +166,6 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
 
         ### Create an association between a protected EIP and a Route53 Health Check
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -198,7 +195,6 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
             health_check_arn=example_health_check.arn,
             shield_protection_id=example_protection.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

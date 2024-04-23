@@ -282,7 +282,6 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -300,7 +299,6 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
         instance_class=aws.rds.InstanceType.T2_SMALL,
         db_subnet_group_name="my_db_subnet_group")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster
@@ -369,7 +367,6 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -387,7 +384,6 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
         instance_class=aws.rds.InstanceType.T2_SMALL,
         db_subnet_group_name="my_db_subnet_group")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster

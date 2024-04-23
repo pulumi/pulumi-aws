@@ -177,7 +177,6 @@ class PolicyTemplate(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,7 +185,6 @@ class PolicyTemplate(pulumi.CustomResource):
             policy_store_id=example_aws_verifiedpermissions_policy_store["id"],
             statement="permit (principal in ?principal, action in PhotoFlash::Action::\\"FullPhotoAccess\\", resource == ?resource) unless { resource.IsPrivate };")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -217,7 +215,6 @@ class PolicyTemplate(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,7 +223,6 @@ class PolicyTemplate(pulumi.CustomResource):
             policy_store_id=example_aws_verifiedpermissions_policy_store["id"],
             statement="permit (principal in ?principal, action in PhotoFlash::Action::\\"FullPhotoAccess\\", resource == ?resource) unless { resource.IsPrivate };")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

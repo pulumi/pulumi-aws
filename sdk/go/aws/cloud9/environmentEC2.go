@@ -18,7 +18,6 @@ import (
 //
 // Basic usage:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,11 +43,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Get the URL of the Cloud9 environment after creation:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,11 +85,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Allocate a static IP to the Cloud9 environment:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -137,7 +132,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 type EnvironmentEC2 struct {
 	pulumi.CustomResourceState
 

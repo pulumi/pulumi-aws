@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,7 +29,6 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGateways(args?: GetLocalGatewaysArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewaysResult> {
     args = args || {};
@@ -82,7 +80,6 @@ export interface GetLocalGatewaysResult {
  *
  * The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,7 +95,6 @@ export interface GetLocalGatewaysResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGatewaysOutput(args?: GetLocalGatewaysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewaysResult> {
     return pulumi.output(args).apply((a: any) => getLocalGateways(a, opts))

@@ -188,9 +188,7 @@ class _ListenerState:
         """
         Input properties used for looking up and filtering Listener resources.
         :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
-        :param pulumi.Input[str] arn: ARN of the target group.
-               
-               The following arguments are optional:
+        :param pulumi.Input[str] arn: ARN of the listener (matches `id`).
         :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]] default_actions: Configuration block for default actions. Detailed below.
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
@@ -247,9 +245,7 @@ class _ListenerState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the target group.
-
-        The following arguments are optional:
+        ARN of the listener (matches `id`).
         """
         return pulumi.get(self, "arn")
 
@@ -397,7 +393,6 @@ class Listener(pulumi.CustomResource):
 
         ### Forward Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -415,11 +410,9 @@ class Listener(pulumi.CustomResource):
                 target_group_arn=front_end_target_group.arn,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         To a NLB:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,11 +428,9 @@ class Listener(pulumi.CustomResource):
                 target_group_arn=front_end_aws_lb_target_group["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Redirect Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -458,11 +449,9 @@ class Listener(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Fixed-response Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -481,11 +470,9 @@ class Listener(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Authenticate-cognito Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -514,11 +501,9 @@ class Listener(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Authenticate-OIDC Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -547,11 +532,9 @@ class Listener(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Gateway Load Balancer Listener
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -578,11 +561,9 @@ class Listener(pulumi.CustomResource):
                 type="forward",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Mutual TLS Authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -600,7 +581,6 @@ class Listener(pulumi.CustomResource):
                 trust_store_arn="...",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -641,7 +621,6 @@ class Listener(pulumi.CustomResource):
 
         ### Forward Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -659,11 +638,9 @@ class Listener(pulumi.CustomResource):
                 target_group_arn=front_end_target_group.arn,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         To a NLB:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -679,11 +656,9 @@ class Listener(pulumi.CustomResource):
                 target_group_arn=front_end_aws_lb_target_group["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Redirect Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -702,11 +677,9 @@ class Listener(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Fixed-response Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -725,11 +698,9 @@ class Listener(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Authenticate-cognito Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -758,11 +729,9 @@ class Listener(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Authenticate-OIDC Action
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -791,11 +760,9 @@ class Listener(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Gateway Load Balancer Listener
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -822,11 +789,9 @@ class Listener(pulumi.CustomResource):
                 type="forward",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Mutual TLS Authentication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -844,7 +809,6 @@ class Listener(pulumi.CustomResource):
                 trust_store_arn="...",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -933,9 +897,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
-        :param pulumi.Input[str] arn: ARN of the target group.
-               
-               The following arguments are optional:
+        :param pulumi.Input[str] arn: ARN of the listener (matches `id`).
         :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]]] default_actions: Configuration block for default actions. Detailed below.
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
@@ -979,9 +941,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        ARN of the target group.
-
-        The following arguments are optional:
+        ARN of the listener (matches `id`).
         """
         return pulumi.get(self, "arn")
 

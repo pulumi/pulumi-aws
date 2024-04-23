@@ -18,7 +18,6 @@ namespace Pulumi.Aws.SsmContacts
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.SsmContacts
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetContactResult> InvokeAsync(GetContactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("aws:ssmcontacts/getContact:getContact", args ?? new GetContactArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.SsmContacts
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.SsmContacts
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactResult>("aws:ssmcontacts/getContact:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());

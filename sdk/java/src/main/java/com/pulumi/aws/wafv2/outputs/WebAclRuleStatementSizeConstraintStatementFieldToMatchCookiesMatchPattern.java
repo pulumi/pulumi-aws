@@ -13,19 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     private @Nullable WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll all;
     private @Nullable List<String> excludedCookies;
     private @Nullable List<String> includedCookies;
 
     private WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern() {}
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll> all() {
         return Optional.ofNullable(this.all);
     }

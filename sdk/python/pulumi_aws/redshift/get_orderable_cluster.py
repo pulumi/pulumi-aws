@@ -102,7 +102,6 @@ def get_orderable_cluster(cluster_type: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -113,7 +112,6 @@ def get_orderable_cluster(cluster_type: Optional[str] = None,
             "ds2.xlarge",
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_type: Reshift Cluster typeE.g., `multi-node` or `single-node`
@@ -149,7 +147,6 @@ def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[st
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -160,7 +157,6 @@ def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[st
             "ds2.xlarge",
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_type: Reshift Cluster typeE.g., `multi-node` or `single-node`

@@ -134,7 +134,6 @@ class LbStickinessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -151,7 +150,6 @@ class LbStickinessPolicy(pulumi.CustomResource):
             cookie_duration=900,
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -178,7 +176,6 @@ class LbStickinessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,7 +192,6 @@ class LbStickinessPolicy(pulumi.CustomResource):
             cookie_duration=900,
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

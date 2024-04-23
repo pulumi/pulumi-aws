@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Inspector.Inputs
 
     public sealed class AssessmentTemplateEventSubscriptionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
-        /// </summary>
         [Input("event", required: true)]
         public Input<string> Event { get; set; } = null!;
 
-        /// <summary>
-        /// The ARN of the SNS topic to which notifications are sent.
-        /// </summary>
         [Input("topicArn", required: true)]
         public Input<string> TopicArn { get; set; } = null!;
 

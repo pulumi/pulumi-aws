@@ -343,14 +343,12 @@ def get_windows_file_system(id: Optional[str] = None,
 
     ### Root volume Example
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.fsx.get_windows_file_system(id="fs-12345678")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier of the file system (e.g. `fs-12345678`).
@@ -402,14 +400,12 @@ def get_windows_file_system_output(id: Optional[pulumi.Input[str]] = None,
 
     ### Root volume Example
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.fsx.get_windows_file_system(id="fs-12345678")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier of the file system (e.g. `fs-12345678`).

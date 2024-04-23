@@ -88,7 +88,6 @@ class DelegatedAdminAccount(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -96,7 +95,6 @@ class DelegatedAdminAccount(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.inspector2.DelegatedAdminAccount("example", account_id=current.account_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -123,7 +121,6 @@ class DelegatedAdminAccount(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -131,7 +128,6 @@ class DelegatedAdminAccount(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.inspector2.DelegatedAdminAccount("example", account_id=current.account_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

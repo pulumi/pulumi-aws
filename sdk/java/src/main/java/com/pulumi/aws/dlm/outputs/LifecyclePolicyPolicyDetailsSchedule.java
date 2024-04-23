@@ -21,125 +21,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsSchedule {
-    /**
-     * @return Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-     * 
-     */
     private @Nullable Boolean copyTags;
-    /**
-     * @return See the `create_rule` block. Max of 1 per schedule.
-     * 
-     */
     private LifecyclePolicyPolicyDetailsScheduleCreateRule createRule;
-    /**
-     * @return See the `cross_region_copy_rule` block. Max of 3 per schedule.
-     * 
-     */
     private @Nullable List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> crossRegionCopyRules;
-    /**
-     * @return The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleDeprecateRule deprecateRule;
-    /**
-     * @return See the `fast_restore_rule` block. Max of 1 per schedule.
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleFastRestoreRule fastRestoreRule;
-    /**
-     * @return A descriptive name for the action.
-     * 
-     */
     private String name;
-    /**
-     * @return Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-     * 
-     */
     private LifecyclePolicyPolicyDetailsScheduleRetainRule retainRule;
-    /**
-     * @return See the `share_rule` block. Max of 1 per schedule.
-     * 
-     */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleShareRule shareRule;
-    /**
-     * @return A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-     * 
-     */
     private @Nullable Map<String,String> tagsToAdd;
-    /**
-     * @return A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
-     * 
-     */
     private @Nullable Map<String,String> variableTags;
 
     private LifecyclePolicyPolicyDetailsSchedule() {}
-    /**
-     * @return Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-     * 
-     */
     public Optional<Boolean> copyTags() {
         return Optional.ofNullable(this.copyTags);
     }
-    /**
-     * @return See the `create_rule` block. Max of 1 per schedule.
-     * 
-     */
     public LifecyclePolicyPolicyDetailsScheduleCreateRule createRule() {
         return this.createRule;
     }
-    /**
-     * @return See the `cross_region_copy_rule` block. Max of 3 per schedule.
-     * 
-     */
     public List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> crossRegionCopyRules() {
         return this.crossRegionCopyRules == null ? List.of() : this.crossRegionCopyRules;
     }
-    /**
-     * @return The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailsScheduleDeprecateRule> deprecateRule() {
         return Optional.ofNullable(this.deprecateRule);
     }
-    /**
-     * @return See the `fast_restore_rule` block. Max of 1 per schedule.
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailsScheduleFastRestoreRule> fastRestoreRule() {
         return Optional.ofNullable(this.fastRestoreRule);
     }
-    /**
-     * @return A descriptive name for the action.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-     * 
-     */
     public LifecyclePolicyPolicyDetailsScheduleRetainRule retainRule() {
         return this.retainRule;
     }
-    /**
-     * @return See the `share_rule` block. Max of 1 per schedule.
-     * 
-     */
     public Optional<LifecyclePolicyPolicyDetailsScheduleShareRule> shareRule() {
         return Optional.ofNullable(this.shareRule);
     }
-    /**
-     * @return A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
-     * 
-     */
     public Map<String,String> tagsToAdd() {
         return this.tagsToAdd == null ? Map.of() : this.tagsToAdd;
     }
-    /**
-     * @return A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
-     * 
-     */
     public Map<String,String> variableTags() {
         return this.variableTags == null ? Map.of() : this.variableTags;
     }

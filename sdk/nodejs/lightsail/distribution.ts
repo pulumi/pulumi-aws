@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * Below is a basic example with a bucket as an origin.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,13 +52,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### instance origin example
  *
  * Below is an example of an instance as the origin.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -96,13 +93,11 @@ import * as utilities from "../utilities";
  *     dependsOn: [test],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### lb origin example
  *
  * Below is an example with a load balancer as an origin
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -146,7 +141,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [testLbAttachment],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -247,7 +241,7 @@ export class Distribution extends pulumi.CustomResource {
      */
     public /*out*/ readonly originPublicDns!: pulumi.Output<string>;
     /**
-     * The resource type of the origin resource (e.g., Instance).
+     * The Lightsail resource type (e.g., Distribution).
      */
     public /*out*/ readonly resourceType!: pulumi.Output<string>;
     /**
@@ -409,7 +403,7 @@ export interface DistributionState {
      */
     originPublicDns?: pulumi.Input<string>;
     /**
-     * The resource type of the origin resource (e.g., Instance).
+     * The Lightsail resource type (e.g., Distribution).
      */
     resourceType?: pulumi.Input<string>;
     /**

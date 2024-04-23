@@ -104,7 +104,6 @@ class UserPolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -118,7 +117,6 @@ class UserPolicyAttachment(pulumi.CustomResource):
             user=user.name,
             policy_arn=policy.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -146,7 +144,6 @@ class UserPolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,7 +157,6 @@ class UserPolicyAttachment(pulumi.CustomResource):
             user=user.name,
             policy_arn=policy.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipeTargetParametersCloudwatchLogsParameters {
-    /**
-     * @return The name of the log stream.
-     * 
-     */
     private @Nullable String logStreamName;
-    /**
-     * @return The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
-     * 
-     */
     private @Nullable String timestamp;
 
     private PipeTargetParametersCloudwatchLogsParameters() {}
-    /**
-     * @return The name of the log stream.
-     * 
-     */
     public Optional<String> logStreamName() {
         return Optional.ofNullable(this.logStreamName);
     }
-    /**
-     * @return The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
-     * 
-     */
     public Optional<String> timestamp() {
         return Optional.ofNullable(this.timestamp);
     }

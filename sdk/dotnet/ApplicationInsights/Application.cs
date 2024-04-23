@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ApplicationInsights
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,7 +56,6 @@ namespace Pulumi.Aws.ApplicationInsights
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

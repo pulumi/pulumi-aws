@@ -13,9 +13,7 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class UserPoolAccountRecoverySettingRecoveryMechanismArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the user pool.
-        /// 
-        /// The following arguments are optional:
+        /// Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

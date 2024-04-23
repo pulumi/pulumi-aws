@@ -14,19 +14,12 @@ namespace Pulumi.Aws.Dlm.Inputs
     {
         [Input("crossRegionCopies", required: true)]
         private InputList<Inputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyGetArgs>? _crossRegionCopies;
-
-        /// <summary>
-        /// The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
-        /// </summary>
         public InputList<Inputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyGetArgs> CrossRegionCopies
         {
             get => _crossRegionCopies ?? (_crossRegionCopies = new InputList<Inputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyGetArgs>());
             set => _crossRegionCopies = value;
         }
 
-        /// <summary>
-        /// A descriptive name for the action.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

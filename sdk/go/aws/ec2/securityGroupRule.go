@@ -28,7 +28,6 @@ import (
 //
 // # Basic usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,7 +61,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Usage With Prefix List IDs
 //
@@ -72,7 +70,6 @@ import (
 //
 // Prefix list IDs are exported on VPC Endpoints, so you can use this format:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,12 +105,10 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // You can also find a specific Prefix List using the `ec2.getPrefixList`
 // or `ec2ManagedPrefixList` data sources:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -158,7 +153,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

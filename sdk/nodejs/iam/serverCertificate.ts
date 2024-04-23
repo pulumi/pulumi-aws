@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  *
  * **Using certs on file:**
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,11 +35,9 @@ import * as utilities from "../utilities";
  *     }).then(invoke => invoke.result),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * **Example with cert in-line:**
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -57,7 +54,6 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * **Use in combination with an AWS ELB resource:**
  *

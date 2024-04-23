@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSdkResult> InvokeAsync(GetSdkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSdkResult>("aws:apigateway/getSdk:getSdk", args ?? new GetSdkArgs(), options.WithDefaults());
@@ -47,7 +45,6 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -72,7 +69,6 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSdkResult> Invoke(GetSdkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSdkResult>("aws:apigateway/getSdk:getSdk", args ?? new GetSdkInvokeArgs(), options.WithDefaults());

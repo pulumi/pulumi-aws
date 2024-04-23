@@ -210,14 +210,12 @@ class ThingType(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.iot.ThingType("foo", name="my_iot_thing")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -245,14 +243,12 @@ class ThingType(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.iot.ThingType("foo", name="my_iot_thing")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

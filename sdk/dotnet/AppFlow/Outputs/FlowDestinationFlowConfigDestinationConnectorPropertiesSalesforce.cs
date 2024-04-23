@@ -13,21 +13,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce
     {
-        /// <summary>
-        /// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-        /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig? ErrorHandlingConfig;
-        /// <summary>
-        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-        /// </summary>
         public readonly ImmutableArray<string> IdFieldNames;
-        /// <summary>
-        /// Object specified in the flow destination.
-        /// </summary>
         public readonly string Object;
-        /// <summary>
-        /// Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-        /// </summary>
         public readonly string? WriteOperationType;
 
         [OutputConstructor]

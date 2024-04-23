@@ -118,7 +118,6 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -129,7 +128,6 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
             enable_dns_hostnames=True)
         example_resolver_dns_sec_config = aws.route53.ResolverDnsSecConfig("example", resource_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -154,7 +152,6 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -165,7 +162,6 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
             enable_dns_hostnames=True)
         example_resolver_dns_sec_config = aws.route53.ResolverDnsSecConfig("example", resource_id=example.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

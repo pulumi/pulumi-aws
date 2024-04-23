@@ -424,7 +424,6 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -436,7 +435,6 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
             address_family="ipv4",
             bgp_asn=65352)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -471,7 +469,6 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -483,7 +480,6 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
             address_family="ipv4",
             bgp_asn=65352)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

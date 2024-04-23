@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Sagemaker
         /// 
         /// Basic usage:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.Sagemaker
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPrebuiltEcrImageResult> InvokeAsync(GetPrebuiltEcrImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrebuiltEcrImageResult>("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args ?? new GetPrebuiltEcrImageArgs(), options.WithDefaults());
@@ -51,7 +49,6 @@ namespace Pulumi.Aws.Sagemaker
         /// 
         /// Basic usage:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Aws.Sagemaker
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPrebuiltEcrImageResult> Invoke(GetPrebuiltEcrImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrebuiltEcrImageResult>("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args ?? new GetPrebuiltEcrImageInvokeArgs(), options.WithDefaults());

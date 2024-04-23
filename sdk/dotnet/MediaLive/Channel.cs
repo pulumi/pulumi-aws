@@ -16,7 +16,6 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -136,7 +135,6 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -168,7 +166,7 @@ namespace Pulumi.Aws.MediaLive
         public Output<string> ChannelClass { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the channel in MediaPackage that is the destination for this output group.
+        /// ID of the Channel.
         /// </summary>
         [Output("channelId")]
         public Output<string> ChannelId { get; private set; } = null!;
@@ -415,7 +413,7 @@ namespace Pulumi.Aws.MediaLive
         public Input<string>? ChannelClass { get; set; }
 
         /// <summary>
-        /// ID of the channel in MediaPackage that is the destination for this output group.
+        /// ID of the Channel.
         /// </summary>
         [Input("channelId")]
         public Input<string>? ChannelId { get; set; }

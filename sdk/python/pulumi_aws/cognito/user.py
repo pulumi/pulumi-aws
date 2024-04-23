@@ -497,7 +497,6 @@ class User(pulumi.CustomResource):
 
         ### Basic configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -507,11 +506,9 @@ class User(pulumi.CustomResource):
             user_pool_id=example.id,
             username="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Setting user attributes
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -545,7 +542,6 @@ class User(pulumi.CustomResource):
                 "email_verified": "true",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -586,7 +582,6 @@ class User(pulumi.CustomResource):
 
         ### Basic configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -596,11 +591,9 @@ class User(pulumi.CustomResource):
             user_pool_id=example.id,
             username="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Setting user attributes
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -634,7 +627,6 @@ class User(pulumi.CustomResource):
                 "email_verified": "true",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

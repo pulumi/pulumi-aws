@@ -120,14 +120,12 @@ class MemberAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.inspector2.MemberAssociation("example", account_id="123456789012")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -154,14 +152,12 @@ class MemberAssociation(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.inspector2.MemberAssociation("example", account_id="123456789012")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -70,7 +70,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -82,7 +81,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("example", admin_account_id="123456789012",
         opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -107,7 +105,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -119,7 +116,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("example", admin_account_id="123456789012",
         opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

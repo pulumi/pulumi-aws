@@ -96,7 +96,6 @@ def get_prompt(instance_id: Optional[str] = None,
 
     By `name`
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -104,7 +103,6 @@ def get_prompt(instance_id: Optional[str] = None,
     example = aws.connect.get_prompt(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         name="Beep.wav")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str instance_id: Reference to the hosting Amazon Connect Instance
@@ -135,7 +133,6 @@ def get_prompt_output(instance_id: Optional[pulumi.Input[str]] = None,
 
     By `name`
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -143,7 +140,6 @@ def get_prompt_output(instance_id: Optional[pulumi.Input[str]] = None,
     example = aws.connect.get_prompt(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         name="Beep.wav")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str instance_id: Reference to the hosting Amazon Connect Instance

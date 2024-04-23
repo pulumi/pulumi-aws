@@ -861,7 +861,7 @@ type ProjectEnvironment struct {
 	PrivilegedMode *bool `pulumi:"privilegedMode"`
 	// Configuration block. Detailed below.
 	RegistryCredential *ProjectEnvironmentRegistryCredential `pulumi:"registryCredential"`
-	// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
+	// Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`, `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 	Type string `pulumi:"type"`
 }
 
@@ -891,7 +891,7 @@ type ProjectEnvironmentArgs struct {
 	PrivilegedMode pulumi.BoolPtrInput `pulumi:"privilegedMode"`
 	// Configuration block. Detailed below.
 	RegistryCredential ProjectEnvironmentRegistryCredentialPtrInput `pulumi:"registryCredential"`
-	// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
+	// Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`, `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1007,7 +1007,7 @@ func (o ProjectEnvironmentOutput) RegistryCredential() ProjectEnvironmentRegistr
 	return o.ApplyT(func(v ProjectEnvironment) *ProjectEnvironmentRegistryCredential { return v.RegistryCredential }).(ProjectEnvironmentRegistryCredentialPtrOutput)
 }
 
-// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
+// Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`, `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 func (o ProjectEnvironmentOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1106,7 +1106,7 @@ func (o ProjectEnvironmentPtrOutput) RegistryCredential() ProjectEnvironmentRegi
 	}).(ProjectEnvironmentRegistryCredentialPtrOutput)
 }
 
-// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
+// Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`, `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectEnvironment) *string {
 		if v == nil {
@@ -1117,9 +1117,9 @@ func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ProjectEnvironmentEnvironmentVariable struct {
-	// Project's name.
+	// Environment variable's name or key.
 	Name string `pulumi:"name"`
-	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+	// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
 	Type *string `pulumi:"type"`
 	// Environment variable's value.
 	Value string `pulumi:"value"`
@@ -1137,9 +1137,9 @@ type ProjectEnvironmentEnvironmentVariableInput interface {
 }
 
 type ProjectEnvironmentEnvironmentVariableArgs struct {
-	// Project's name.
+	// Environment variable's name or key.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+	// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Environment variable's value.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -1196,12 +1196,12 @@ func (o ProjectEnvironmentEnvironmentVariableOutput) ToProjectEnvironmentEnviron
 	return o
 }
 
-// Project's name.
+// Environment variable's name or key.
 func (o ProjectEnvironmentEnvironmentVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironmentEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+// Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
 func (o ProjectEnvironmentEnvironmentVariableOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironmentEnvironmentVariable) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1679,7 +1679,7 @@ func (o ProjectLogsConfigPtrOutput) S3Logs() ProjectLogsConfigS3LogsPtrOutput {
 type ProjectLogsConfigCloudwatchLogs struct {
 	// Group name of the logs in CloudWatch Logs.
 	GroupName *string `pulumi:"groupName"`
-	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+	// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
 	Status *string `pulumi:"status"`
 	// Prefix of the log stream name of the logs in CloudWatch Logs.
 	StreamName *string `pulumi:"streamName"`
@@ -1699,7 +1699,7 @@ type ProjectLogsConfigCloudwatchLogsInput interface {
 type ProjectLogsConfigCloudwatchLogsArgs struct {
 	// Group name of the logs in CloudWatch Logs.
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
-	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+	// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Prefix of the log stream name of the logs in CloudWatch Logs.
 	StreamName pulumi.StringPtrInput `pulumi:"streamName"`
@@ -1787,7 +1787,7 @@ func (o ProjectLogsConfigCloudwatchLogsOutput) GroupName() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v ProjectLogsConfigCloudwatchLogs) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
-// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
 func (o ProjectLogsConfigCloudwatchLogsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigCloudwatchLogs) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1831,7 +1831,7 @@ func (o ProjectLogsConfigCloudwatchLogsPtrOutput) GroupName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
+// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
 func (o ProjectLogsConfigCloudwatchLogsPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectLogsConfigCloudwatchLogs) *string {
 		if v == nil {
@@ -1854,9 +1854,9 @@ func (o ProjectLogsConfigCloudwatchLogsPtrOutput) StreamName() pulumi.StringPtrO
 type ProjectLogsConfigS3Logs struct {
 	// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
 	BucketOwnerAccess *string `pulumi:"bucketOwnerAccess"`
-	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+	// Whether to disable encrypting S3 logs. Defaults to `false`.
 	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
-	// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+	// Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
 	Location *string `pulumi:"location"`
 	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
 	Status *string `pulumi:"status"`
@@ -1876,9 +1876,9 @@ type ProjectLogsConfigS3LogsInput interface {
 type ProjectLogsConfigS3LogsArgs struct {
 	// Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
 	BucketOwnerAccess pulumi.StringPtrInput `pulumi:"bucketOwnerAccess"`
-	// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+	// Whether to disable encrypting S3 logs. Defaults to `false`.
 	EncryptionDisabled pulumi.BoolPtrInput `pulumi:"encryptionDisabled"`
-	// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+	// Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -1966,12 +1966,12 @@ func (o ProjectLogsConfigS3LogsOutput) BucketOwnerAccess() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v ProjectLogsConfigS3Logs) *string { return v.BucketOwnerAccess }).(pulumi.StringPtrOutput)
 }
 
-// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+// Whether to disable encrypting S3 logs. Defaults to `false`.
 func (o ProjectLogsConfigS3LogsOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigS3Logs) *bool { return v.EncryptionDisabled }).(pulumi.BoolPtrOutput)
 }
 
-// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+// Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
 func (o ProjectLogsConfigS3LogsOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectLogsConfigS3Logs) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -2015,7 +2015,7 @@ func (o ProjectLogsConfigS3LogsPtrOutput) BucketOwnerAccess() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
+// Whether to disable encrypting S3 logs. Defaults to `false`.
 func (o ProjectLogsConfigS3LogsPtrOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProjectLogsConfigS3Logs) *bool {
 		if v == nil {
@@ -2025,7 +2025,7 @@ func (o ProjectLogsConfigS3LogsPtrOutput) EncryptionDisabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
+// Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`, otherwise it must be empty.
 func (o ProjectLogsConfigS3LogsPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectLogsConfigS3Logs) *string {
 		if v == nil {

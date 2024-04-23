@@ -17,7 +17,6 @@ import (
 //
 // ### Public Zone
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Public Subdomain Zone
 //
@@ -49,7 +47,6 @@ import (
 // `route53.Record` of type `NS` as well as the subdomain
 // zone.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,7 +89,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Private Zone
 //
@@ -100,7 +96,6 @@ import (
 //
 // > **NOTE:** Private zones require at least one VPC association at all times.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -129,7 +124,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -186,7 +186,6 @@ class Template(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,10 +194,9 @@ class Template(pulumi.CustomResource):
             name="MyTemplate",
             subject="Greetings, {{name}}!",
             html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
-            text=\"\"\"Hello {{name}},
+            text=\"\"\"Hello {{name}},\\x0d
         Your favorite animal is {{favoriteanimal}}.\"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -226,7 +224,6 @@ class Template(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,10 +232,9 @@ class Template(pulumi.CustomResource):
             name="MyTemplate",
             subject="Greetings, {{name}}!",
             html="<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>",
-            text=\"\"\"Hello {{name}},
+            text=\"\"\"Hello {{name}},\\x0d
         Your favorite animal is {{favoriteanimal}}.\"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Batch
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.Batch
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSchedulingPolicyResult> InvokeAsync(GetSchedulingPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchedulingPolicyResult>("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args ?? new GetSchedulingPolicyArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.Batch
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.Batch
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSchedulingPolicyResult> Invoke(GetSchedulingPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchedulingPolicyResult>("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args ?? new GetSchedulingPolicyInvokeArgs(), options.WithDefaults());

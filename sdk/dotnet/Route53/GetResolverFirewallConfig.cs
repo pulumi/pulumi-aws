@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// The following example shows how to get a firewall config using the VPC ID.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetResolverFirewallConfigResult> InvokeAsync(GetResolverFirewallConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverFirewallConfigResult>("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args ?? new GetResolverFirewallConfigArgs(), options.WithDefaults());
@@ -50,7 +48,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// The following example shows how to get a firewall config using the VPC ID.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetResolverFirewallConfigResult> Invoke(GetResolverFirewallConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallConfigResult>("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args ?? new GetResolverFirewallConfigInvokeArgs(), options.WithDefaults());

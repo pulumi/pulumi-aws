@@ -121,7 +121,6 @@ def get_application(application_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -133,7 +132,6 @@ def get_application(application_id: Optional[str] = None,
         semantic_version=example.semantic_version,
         capabilities=example.required_capabilities)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ARN of the application.
@@ -164,7 +162,6 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -176,7 +173,6 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
         semantic_version=example.semantic_version,
         capabilities=example.required_capabilities)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ARN of the application.

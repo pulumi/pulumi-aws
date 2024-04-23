@@ -288,7 +288,6 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,11 +296,9 @@ class Repository(pulumi.CustomResource):
             repository_name="MyTestRepository",
             description="This is the Sample App Repository")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS KMS Customer Managed Keys (CMK)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,7 +311,6 @@ class Repository(pulumi.CustomResource):
             description="This is the Sample App Repository",
             kms_key_id=test_key.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -343,7 +339,6 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,11 +347,9 @@ class Repository(pulumi.CustomResource):
             repository_name="MyTestRepository",
             description="This is the Sample App Repository")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### AWS KMS Customer Managed Keys (CMK)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -369,7 +362,6 @@ class Repository(pulumi.CustomResource):
             description="This is the Sample App Repository",
             kms_key_id=test_key.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

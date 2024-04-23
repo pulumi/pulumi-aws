@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Add metrics configuration for entire S3 bucket
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,11 +26,9 @@ import * as utilities from "../utilities";
  *     name: "EntireBucket",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Add metrics configuration with S3 object filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,11 +46,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Add metrics configuration with S3 object filter for S3 Access Point
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -75,7 +70,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

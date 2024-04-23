@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServerlessCollection(args?: GetServerlessCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessCollectionResult> {
     args = args || {};
@@ -100,7 +98,6 @@ export interface GetServerlessCollectionResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -109,7 +106,6 @@ export interface GetServerlessCollectionResult {
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServerlessCollectionOutput(args?: GetServerlessCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessCollectionResult> {
     return pulumi.output(args).apply((a: any) => getServerlessCollection(a, opts))

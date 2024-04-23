@@ -72,14 +72,12 @@ def get_outpost_instance_types(arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.outposts.get_outpost_instance_types(arn=example_aws_outposts_outpost["arn"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Outpost ARN.
@@ -103,14 +101,12 @@ def get_outpost_instance_types_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.outposts.get_outpost_instance_types(arn=example_aws_outposts_outpost["arn"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Outpost ARN.

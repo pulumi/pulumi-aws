@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
         /// </summary>
         public readonly string? Bucket;
         /// <summary>
-        /// Whether log delivery to Amazon CloudWatch Logs is enabled.
+        /// Specifies whether connector logs get sent to the specified Amazon S3 destination.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

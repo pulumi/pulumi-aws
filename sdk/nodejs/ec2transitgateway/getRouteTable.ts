@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### By Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,11 +31,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### By Identifier
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,7 +42,6 @@ import * as utilities from "../utilities";
  *     id: "tgw-rtb-12345678",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     args = args || {};
@@ -113,7 +109,6 @@ export interface GetRouteTableResult {
  *
  * ### By Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -131,11 +126,9 @@ export interface GetRouteTableResult {
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### By Identifier
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -144,7 +137,6 @@ export interface GetRouteTableResult {
  *     id: "tgw-rtb-12345678",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRouteTableOutput(args?: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
     return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))

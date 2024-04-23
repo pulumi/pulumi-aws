@@ -199,7 +199,6 @@ class TrafficPolicyInstance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -211,7 +210,6 @@ class TrafficPolicyInstance(pulumi.CustomResource):
             hosted_zone_id="Z033120931TAQO548OGJC",
             ttl=360)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -240,7 +238,6 @@ class TrafficPolicyInstance(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -252,7 +249,6 @@ class TrafficPolicyInstance(pulumi.CustomResource):
             hosted_zone_id="Z033120931TAQO548OGJC",
             ttl=360)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

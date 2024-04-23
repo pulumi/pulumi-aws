@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupResourceCollection(ctx *pulumi.Context, args *LookupResourceCollectionArgs, opts ...pulumi.InvokeOption) (*LookupResourceCollectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceCollectionResult

@@ -16,10 +16,6 @@ public final class GetNetworkInsightsAnalysisExplanationNatGateway {
      */
     private String arn;
     private String id;
-    /**
-     * @return Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-     * 
-     */
     private String name;
 
     private GetNetworkInsightsAnalysisExplanationNatGateway() {}
@@ -33,10 +29,6 @@ public final class GetNetworkInsightsAnalysisExplanationNatGateway {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
-     * 
-     */
     public String name() {
         return this.name;
     }

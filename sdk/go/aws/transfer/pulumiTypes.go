@@ -295,22 +295,14 @@ func (o AccessPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 type ConnectorAs2Config struct {
-	// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
-	Compression string `pulumi:"compression"`
-	// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
-	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
-	// The unique identifier for the AS2 local profile.
-	LocalProfileId string `pulumi:"localProfileId"`
-	// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
-	MdnResponse string `pulumi:"mdnResponse"`
-	// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+	Compression         string  `pulumi:"compression"`
+	EncryptionAlgorithm string  `pulumi:"encryptionAlgorithm"`
+	LocalProfileId      string  `pulumi:"localProfileId"`
+	MdnResponse         string  `pulumi:"mdnResponse"`
 	MdnSigningAlgorithm *string `pulumi:"mdnSigningAlgorithm"`
-	// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
-	MessageSubject *string `pulumi:"messageSubject"`
-	// The unique identifier for the AS2 partner profile.
-	PartnerProfileId string `pulumi:"partnerProfileId"`
-	// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
-	SigningAlgorithm string `pulumi:"signingAlgorithm"`
+	MessageSubject      *string `pulumi:"messageSubject"`
+	PartnerProfileId    string  `pulumi:"partnerProfileId"`
+	SigningAlgorithm    string  `pulumi:"signingAlgorithm"`
 }
 
 // ConnectorAs2ConfigInput is an input type that accepts ConnectorAs2ConfigArgs and ConnectorAs2ConfigOutput values.
@@ -325,22 +317,14 @@ type ConnectorAs2ConfigInput interface {
 }
 
 type ConnectorAs2ConfigArgs struct {
-	// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
-	Compression pulumi.StringInput `pulumi:"compression"`
-	// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
-	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
-	// The unique identifier for the AS2 local profile.
-	LocalProfileId pulumi.StringInput `pulumi:"localProfileId"`
-	// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
-	MdnResponse pulumi.StringInput `pulumi:"mdnResponse"`
-	// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+	Compression         pulumi.StringInput    `pulumi:"compression"`
+	EncryptionAlgorithm pulumi.StringInput    `pulumi:"encryptionAlgorithm"`
+	LocalProfileId      pulumi.StringInput    `pulumi:"localProfileId"`
+	MdnResponse         pulumi.StringInput    `pulumi:"mdnResponse"`
 	MdnSigningAlgorithm pulumi.StringPtrInput `pulumi:"mdnSigningAlgorithm"`
-	// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
-	MessageSubject pulumi.StringPtrInput `pulumi:"messageSubject"`
-	// The unique identifier for the AS2 partner profile.
-	PartnerProfileId pulumi.StringInput `pulumi:"partnerProfileId"`
-	// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
-	SigningAlgorithm pulumi.StringInput `pulumi:"signingAlgorithm"`
+	MessageSubject      pulumi.StringPtrInput `pulumi:"messageSubject"`
+	PartnerProfileId    pulumi.StringInput    `pulumi:"partnerProfileId"`
+	SigningAlgorithm    pulumi.StringInput    `pulumi:"signingAlgorithm"`
 }
 
 func (ConnectorAs2ConfigArgs) ElementType() reflect.Type {
@@ -420,42 +404,34 @@ func (o ConnectorAs2ConfigOutput) ToConnectorAs2ConfigPtrOutputWithContext(ctx c
 	}).(ConnectorAs2ConfigPtrOutput)
 }
 
-// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
 func (o ConnectorAs2ConfigOutput) Compression() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) string { return v.Compression }).(pulumi.StringOutput)
 }
 
-// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
 func (o ConnectorAs2ConfigOutput) EncryptionAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
 }
 
-// The unique identifier for the AS2 local profile.
 func (o ConnectorAs2ConfigOutput) LocalProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) string { return v.LocalProfileId }).(pulumi.StringOutput)
 }
 
-// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
 func (o ConnectorAs2ConfigOutput) MdnResponse() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) string { return v.MdnResponse }).(pulumi.StringOutput)
 }
 
-// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
 func (o ConnectorAs2ConfigOutput) MdnSigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) *string { return v.MdnSigningAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
 func (o ConnectorAs2ConfigOutput) MessageSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) *string { return v.MessageSubject }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for the AS2 partner profile.
 func (o ConnectorAs2ConfigOutput) PartnerProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) string { return v.PartnerProfileId }).(pulumi.StringOutput)
 }
 
-// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
 func (o ConnectorAs2ConfigOutput) SigningAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) string { return v.SigningAlgorithm }).(pulumi.StringOutput)
 }
@@ -484,7 +460,6 @@ func (o ConnectorAs2ConfigPtrOutput) Elem() ConnectorAs2ConfigOutput {
 	}).(ConnectorAs2ConfigOutput)
 }
 
-// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
 func (o ConnectorAs2ConfigPtrOutput) Compression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -494,7 +469,6 @@ func (o ConnectorAs2ConfigPtrOutput) Compression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
 func (o ConnectorAs2ConfigPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -504,7 +478,6 @@ func (o ConnectorAs2ConfigPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for the AS2 local profile.
 func (o ConnectorAs2ConfigPtrOutput) LocalProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -514,7 +487,6 @@ func (o ConnectorAs2ConfigPtrOutput) LocalProfileId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
 func (o ConnectorAs2ConfigPtrOutput) MdnResponse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -524,7 +496,6 @@ func (o ConnectorAs2ConfigPtrOutput) MdnResponse() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
 func (o ConnectorAs2ConfigPtrOutput) MdnSigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -534,7 +505,6 @@ func (o ConnectorAs2ConfigPtrOutput) MdnSigningAlgorithm() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
 func (o ConnectorAs2ConfigPtrOutput) MessageSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -544,7 +514,6 @@ func (o ConnectorAs2ConfigPtrOutput) MessageSubject() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for the AS2 partner profile.
 func (o ConnectorAs2ConfigPtrOutput) PartnerProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -554,7 +523,6 @@ func (o ConnectorAs2ConfigPtrOutput) PartnerProfileId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
 func (o ConnectorAs2ConfigPtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -565,10 +533,8 @@ func (o ConnectorAs2ConfigPtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 }
 
 type ConnectorSftpConfig struct {
-	// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
 	TrustedHostKeys []string `pulumi:"trustedHostKeys"`
-	// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
-	UserSecretId *string `pulumi:"userSecretId"`
+	UserSecretId    *string  `pulumi:"userSecretId"`
 }
 
 // ConnectorSftpConfigInput is an input type that accepts ConnectorSftpConfigArgs and ConnectorSftpConfigOutput values.
@@ -583,10 +549,8 @@ type ConnectorSftpConfigInput interface {
 }
 
 type ConnectorSftpConfigArgs struct {
-	// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
 	TrustedHostKeys pulumi.StringArrayInput `pulumi:"trustedHostKeys"`
-	// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
-	UserSecretId pulumi.StringPtrInput `pulumi:"userSecretId"`
+	UserSecretId    pulumi.StringPtrInput   `pulumi:"userSecretId"`
 }
 
 func (ConnectorSftpConfigArgs) ElementType() reflect.Type {
@@ -666,12 +630,10 @@ func (o ConnectorSftpConfigOutput) ToConnectorSftpConfigPtrOutputWithContext(ctx
 	}).(ConnectorSftpConfigPtrOutput)
 }
 
-// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
 func (o ConnectorSftpConfigOutput) TrustedHostKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectorSftpConfig) []string { return v.TrustedHostKeys }).(pulumi.StringArrayOutput)
 }
 
-// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
 func (o ConnectorSftpConfigOutput) UserSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorSftpConfig) *string { return v.UserSecretId }).(pulumi.StringPtrOutput)
 }
@@ -700,7 +662,6 @@ func (o ConnectorSftpConfigPtrOutput) Elem() ConnectorSftpConfigOutput {
 	}).(ConnectorSftpConfigOutput)
 }
 
-// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
 func (o ConnectorSftpConfigPtrOutput) TrustedHostKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectorSftpConfig) []string {
 		if v == nil {
@@ -710,7 +671,6 @@ func (o ConnectorSftpConfigPtrOutput) TrustedHostKeys() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
 func (o ConnectorSftpConfigPtrOutput) UserSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorSftpConfig) *string {
 		if v == nil {
@@ -2028,18 +1988,12 @@ func (o UserPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 type WorkflowOnExceptionStep struct {
-	// Details for a step that performs a file copy. See Copy Step Details below.
-	CopyStepDetails *WorkflowOnExceptionStepCopyStepDetails `pulumi:"copyStepDetails"`
-	// Details for a step that invokes a lambda function.
-	CustomStepDetails *WorkflowOnExceptionStepCustomStepDetails `pulumi:"customStepDetails"`
-	// Details for a step that decrypts the file.
+	CopyStepDetails    *WorkflowOnExceptionStepCopyStepDetails    `pulumi:"copyStepDetails"`
+	CustomStepDetails  *WorkflowOnExceptionStepCustomStepDetails  `pulumi:"customStepDetails"`
 	DecryptStepDetails *WorkflowOnExceptionStepDecryptStepDetails `pulumi:"decryptStepDetails"`
-	// Details for a step that deletes the file.
-	DeleteStepDetails *WorkflowOnExceptionStepDeleteStepDetails `pulumi:"deleteStepDetails"`
-	// Details for a step that creates one or more tags.
-	TagStepDetails *WorkflowOnExceptionStepTagStepDetails `pulumi:"tagStepDetails"`
-	// The type of encryption used. Currently, this value must be `"PGP"`.
-	Type string `pulumi:"type"`
+	DeleteStepDetails  *WorkflowOnExceptionStepDeleteStepDetails  `pulumi:"deleteStepDetails"`
+	TagStepDetails     *WorkflowOnExceptionStepTagStepDetails     `pulumi:"tagStepDetails"`
+	Type               string                                     `pulumi:"type"`
 }
 
 // WorkflowOnExceptionStepInput is an input type that accepts WorkflowOnExceptionStepArgs and WorkflowOnExceptionStepOutput values.
@@ -2054,18 +2008,12 @@ type WorkflowOnExceptionStepInput interface {
 }
 
 type WorkflowOnExceptionStepArgs struct {
-	// Details for a step that performs a file copy. See Copy Step Details below.
-	CopyStepDetails WorkflowOnExceptionStepCopyStepDetailsPtrInput `pulumi:"copyStepDetails"`
-	// Details for a step that invokes a lambda function.
-	CustomStepDetails WorkflowOnExceptionStepCustomStepDetailsPtrInput `pulumi:"customStepDetails"`
-	// Details for a step that decrypts the file.
+	CopyStepDetails    WorkflowOnExceptionStepCopyStepDetailsPtrInput    `pulumi:"copyStepDetails"`
+	CustomStepDetails  WorkflowOnExceptionStepCustomStepDetailsPtrInput  `pulumi:"customStepDetails"`
 	DecryptStepDetails WorkflowOnExceptionStepDecryptStepDetailsPtrInput `pulumi:"decryptStepDetails"`
-	// Details for a step that deletes the file.
-	DeleteStepDetails WorkflowOnExceptionStepDeleteStepDetailsPtrInput `pulumi:"deleteStepDetails"`
-	// Details for a step that creates one or more tags.
-	TagStepDetails WorkflowOnExceptionStepTagStepDetailsPtrInput `pulumi:"tagStepDetails"`
-	// The type of encryption used. Currently, this value must be `"PGP"`.
-	Type pulumi.StringInput `pulumi:"type"`
+	DeleteStepDetails  WorkflowOnExceptionStepDeleteStepDetailsPtrInput  `pulumi:"deleteStepDetails"`
+	TagStepDetails     WorkflowOnExceptionStepTagStepDetailsPtrInput     `pulumi:"tagStepDetails"`
+	Type               pulumi.StringInput                                `pulumi:"type"`
 }
 
 func (WorkflowOnExceptionStepArgs) ElementType() reflect.Type {
@@ -2119,34 +2067,28 @@ func (o WorkflowOnExceptionStepOutput) ToWorkflowOnExceptionStepOutputWithContex
 	return o
 }
 
-// Details for a step that performs a file copy. See Copy Step Details below.
 func (o WorkflowOnExceptionStepOutput) CopyStepDetails() WorkflowOnExceptionStepCopyStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepCopyStepDetails { return v.CopyStepDetails }).(WorkflowOnExceptionStepCopyStepDetailsPtrOutput)
 }
 
-// Details for a step that invokes a lambda function.
 func (o WorkflowOnExceptionStepOutput) CustomStepDetails() WorkflowOnExceptionStepCustomStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepCustomStepDetails { return v.CustomStepDetails }).(WorkflowOnExceptionStepCustomStepDetailsPtrOutput)
 }
 
-// Details for a step that decrypts the file.
 func (o WorkflowOnExceptionStepOutput) DecryptStepDetails() WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepDecryptStepDetails {
 		return v.DecryptStepDetails
 	}).(WorkflowOnExceptionStepDecryptStepDetailsPtrOutput)
 }
 
-// Details for a step that deletes the file.
 func (o WorkflowOnExceptionStepOutput) DeleteStepDetails() WorkflowOnExceptionStepDeleteStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepDeleteStepDetails { return v.DeleteStepDetails }).(WorkflowOnExceptionStepDeleteStepDetailsPtrOutput)
 }
 
-// Details for a step that creates one or more tags.
 func (o WorkflowOnExceptionStepOutput) TagStepDetails() WorkflowOnExceptionStepTagStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepTagStepDetails { return v.TagStepDetails }).(WorkflowOnExceptionStepTagStepDetailsPtrOutput)
 }
 
-// The type of encryption used. Currently, this value must be `"PGP"`.
 func (o WorkflowOnExceptionStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2690,7 +2632,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLoca
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation struct {
 	// Specifies the S3 bucket for the customer input file.
 	Bucket *string `pulumi:"bucket"`
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key *string `pulumi:"key"`
 }
 
@@ -2708,7 +2650,7 @@ type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation
 type WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs struct {
 	// Specifies the S3 bucket for the customer input file.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 }
 
@@ -2796,7 +2738,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string {
 		return v.Key
@@ -2837,7 +2779,7 @@ func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string {
 		if v == nil {
@@ -3579,7 +3521,7 @@ func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileL
 type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation struct {
 	// Specifies the S3 bucket for the customer input file.
 	Bucket *string `pulumi:"bucket"`
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key *string `pulumi:"key"`
 }
 
@@ -3597,7 +3539,7 @@ type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocat
 type WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs struct {
 	// Specifies the S3 bucket for the customer input file.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 }
 
@@ -3685,7 +3627,7 @@ func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLo
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string {
 		return v.Key
@@ -3726,7 +3668,7 @@ func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLo
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string {
 		if v == nil {
@@ -4070,9 +4012,7 @@ func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) Tags() WorkflowOnExcepti
 }
 
 type WorkflowOnExceptionStepTagStepDetailsTag struct {
-	// The name assigned to the tag that you create.
-	Key string `pulumi:"key"`
-	// The value that corresponds to the key.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -4088,9 +4028,7 @@ type WorkflowOnExceptionStepTagStepDetailsTagInput interface {
 }
 
 type WorkflowOnExceptionStepTagStepDetailsTagArgs struct {
-	// The name assigned to the tag that you create.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value that corresponds to the key.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -4145,12 +4083,10 @@ func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) ToWorkflowOnExceptionSte
 	return o
 }
 
-// The name assigned to the tag that you create.
 func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepTagStepDetailsTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value that corresponds to the key.
 func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepTagStepDetailsTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4176,18 +4112,12 @@ func (o WorkflowOnExceptionStepTagStepDetailsTagArrayOutput) Index(i pulumi.IntI
 }
 
 type WorkflowStep struct {
-	// Details for a step that performs a file copy. See Copy Step Details below.
-	CopyStepDetails *WorkflowStepCopyStepDetails `pulumi:"copyStepDetails"`
-	// Details for a step that invokes a lambda function.
-	CustomStepDetails *WorkflowStepCustomStepDetails `pulumi:"customStepDetails"`
-	// Details for a step that decrypts the file.
+	CopyStepDetails    *WorkflowStepCopyStepDetails    `pulumi:"copyStepDetails"`
+	CustomStepDetails  *WorkflowStepCustomStepDetails  `pulumi:"customStepDetails"`
 	DecryptStepDetails *WorkflowStepDecryptStepDetails `pulumi:"decryptStepDetails"`
-	// Details for a step that deletes the file.
-	DeleteStepDetails *WorkflowStepDeleteStepDetails `pulumi:"deleteStepDetails"`
-	// Details for a step that creates one or more tags.
-	TagStepDetails *WorkflowStepTagStepDetails `pulumi:"tagStepDetails"`
-	// The type of encryption used. Currently, this value must be `"PGP"`.
-	Type string `pulumi:"type"`
+	DeleteStepDetails  *WorkflowStepDeleteStepDetails  `pulumi:"deleteStepDetails"`
+	TagStepDetails     *WorkflowStepTagStepDetails     `pulumi:"tagStepDetails"`
+	Type               string                          `pulumi:"type"`
 }
 
 // WorkflowStepInput is an input type that accepts WorkflowStepArgs and WorkflowStepOutput values.
@@ -4202,18 +4132,12 @@ type WorkflowStepInput interface {
 }
 
 type WorkflowStepArgs struct {
-	// Details for a step that performs a file copy. See Copy Step Details below.
-	CopyStepDetails WorkflowStepCopyStepDetailsPtrInput `pulumi:"copyStepDetails"`
-	// Details for a step that invokes a lambda function.
-	CustomStepDetails WorkflowStepCustomStepDetailsPtrInput `pulumi:"customStepDetails"`
-	// Details for a step that decrypts the file.
+	CopyStepDetails    WorkflowStepCopyStepDetailsPtrInput    `pulumi:"copyStepDetails"`
+	CustomStepDetails  WorkflowStepCustomStepDetailsPtrInput  `pulumi:"customStepDetails"`
 	DecryptStepDetails WorkflowStepDecryptStepDetailsPtrInput `pulumi:"decryptStepDetails"`
-	// Details for a step that deletes the file.
-	DeleteStepDetails WorkflowStepDeleteStepDetailsPtrInput `pulumi:"deleteStepDetails"`
-	// Details for a step that creates one or more tags.
-	TagStepDetails WorkflowStepTagStepDetailsPtrInput `pulumi:"tagStepDetails"`
-	// The type of encryption used. Currently, this value must be `"PGP"`.
-	Type pulumi.StringInput `pulumi:"type"`
+	DeleteStepDetails  WorkflowStepDeleteStepDetailsPtrInput  `pulumi:"deleteStepDetails"`
+	TagStepDetails     WorkflowStepTagStepDetailsPtrInput     `pulumi:"tagStepDetails"`
+	Type               pulumi.StringInput                     `pulumi:"type"`
 }
 
 func (WorkflowStepArgs) ElementType() reflect.Type {
@@ -4267,32 +4191,26 @@ func (o WorkflowStepOutput) ToWorkflowStepOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Details for a step that performs a file copy. See Copy Step Details below.
 func (o WorkflowStepOutput) CopyStepDetails() WorkflowStepCopyStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepCopyStepDetails { return v.CopyStepDetails }).(WorkflowStepCopyStepDetailsPtrOutput)
 }
 
-// Details for a step that invokes a lambda function.
 func (o WorkflowStepOutput) CustomStepDetails() WorkflowStepCustomStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepCustomStepDetails { return v.CustomStepDetails }).(WorkflowStepCustomStepDetailsPtrOutput)
 }
 
-// Details for a step that decrypts the file.
 func (o WorkflowStepOutput) DecryptStepDetails() WorkflowStepDecryptStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepDecryptStepDetails { return v.DecryptStepDetails }).(WorkflowStepDecryptStepDetailsPtrOutput)
 }
 
-// Details for a step that deletes the file.
 func (o WorkflowStepOutput) DeleteStepDetails() WorkflowStepDeleteStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepDeleteStepDetails { return v.DeleteStepDetails }).(WorkflowStepDeleteStepDetailsPtrOutput)
 }
 
-// Details for a step that creates one or more tags.
 func (o WorkflowStepOutput) TagStepDetails() WorkflowStepTagStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepTagStepDetails { return v.TagStepDetails }).(WorkflowStepTagStepDetailsPtrOutput)
 }
 
-// The type of encryption used. Currently, this value must be `"PGP"`.
 func (o WorkflowStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowStep) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4834,7 +4752,7 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationPtrOutp
 type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation struct {
 	// Specifies the S3 bucket for the customer input file.
 	Bucket *string `pulumi:"bucket"`
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key *string `pulumi:"key"`
 }
 
@@ -4852,7 +4770,7 @@ type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationInput inter
 type WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs struct {
 	// Specifies the S3 bucket for the customer input file.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 }
 
@@ -4938,7 +4856,7 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) 
 	return o.ApplyT(func(v WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -4977,7 +4895,7 @@ func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation) *string {
 		if v == nil {
@@ -5717,7 +5635,7 @@ func (o WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationPtrO
 type WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation struct {
 	// Specifies the S3 bucket for the customer input file.
 	Bucket *string `pulumi:"bucket"`
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key *string `pulumi:"key"`
 }
 
@@ -5735,7 +5653,7 @@ type WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationInput in
 type WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs struct {
 	// Specifies the S3 bucket for the customer input file.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// The name assigned to the tag that you create.
+	// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 }
 
@@ -5821,7 +5739,7 @@ func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutpu
 	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -5860,7 +5778,7 @@ func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name assigned to the tag that you create.
+// The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
 func (o WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation) *string {
 		if v == nil {
@@ -6202,9 +6120,7 @@ func (o WorkflowStepTagStepDetailsPtrOutput) Tags() WorkflowStepTagStepDetailsTa
 }
 
 type WorkflowStepTagStepDetailsTag struct {
-	// The name assigned to the tag that you create.
-	Key string `pulumi:"key"`
-	// The value that corresponds to the key.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -6220,9 +6136,7 @@ type WorkflowStepTagStepDetailsTagInput interface {
 }
 
 type WorkflowStepTagStepDetailsTagArgs struct {
-	// The name assigned to the tag that you create.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value that corresponds to the key.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6277,12 +6191,10 @@ func (o WorkflowStepTagStepDetailsTagOutput) ToWorkflowStepTagStepDetailsTagOutp
 	return o
 }
 
-// The name assigned to the tag that you create.
 func (o WorkflowStepTagStepDetailsTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowStepTagStepDetailsTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value that corresponds to the key.
 func (o WorkflowStepTagStepDetailsTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowStepTagStepDetailsTag) string { return v.Value }).(pulumi.StringOutput)
 }

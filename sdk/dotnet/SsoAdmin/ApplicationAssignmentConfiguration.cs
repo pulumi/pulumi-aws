@@ -21,7 +21,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// ### Basic Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// The following shows outputting all SVM IDs for a given FSx ONTAP File System.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -44,7 +43,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOntapStorageVirtualMachinesResult> InvokeAsync(GetOntapStorageVirtualMachinesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOntapStorageVirtualMachinesResult>("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", args ?? new GetOntapStorageVirtualMachinesArgs(), options.WithDefaults());
@@ -56,7 +54,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// The following shows outputting all SVM IDs for a given FSx ONTAP File System.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -82,7 +79,6 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOntapStorageVirtualMachinesResult> Invoke(GetOntapStorageVirtualMachinesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOntapStorageVirtualMachinesResult>("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", args ?? new GetOntapStorageVirtualMachinesInvokeArgs(), options.WithDefaults());

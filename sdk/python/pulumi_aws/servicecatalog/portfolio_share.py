@@ -300,7 +300,6 @@ class PortfolioShare(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,7 +309,6 @@ class PortfolioShare(pulumi.CustomResource):
             portfolio_id=example_aws_servicecatalog_portfolio["id"],
             type="ACCOUNT")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -353,7 +351,6 @@ class PortfolioShare(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -363,7 +360,6 @@ class PortfolioShare(pulumi.CustomResource):
             portfolio_id=example_aws_servicecatalog_portfolio["id"],
             type="ACCOUNT")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

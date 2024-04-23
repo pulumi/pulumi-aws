@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTags(args: GetTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetTagsResult> {
 
@@ -89,7 +87,6 @@ export interface GetTagsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -101,7 +98,6 @@ export interface GetTagsResult {
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTagsOutput(args: GetTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagsResult> {
     return pulumi.output(args).apply((a: any) => getTags(a, opts))

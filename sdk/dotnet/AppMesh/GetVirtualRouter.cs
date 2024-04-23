@@ -16,7 +16,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVirtualRouterResult> InvokeAsync(GetVirtualRouterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterResult>("aws:appmesh/getVirtualRouter:getVirtualRouter", args ?? new GetVirtualRouterArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVirtualRouterResult> Invoke(GetVirtualRouterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualRouterResult>("aws:appmesh/getVirtualRouter:getVirtualRouter", args ?? new GetVirtualRouterInvokeArgs(), options.WithDefaults());

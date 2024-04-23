@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// The following example shows how one might accept a local gateway id as a variable.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLocalGatewayResult> InvokeAsync(GetLocalGatewayArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayResult>("aws:ec2/getLocalGateway:getLocalGateway", args ?? new GetLocalGatewayArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// The following example shows how one might accept a local gateway id as a variable.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -66,7 +63,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLocalGatewayResult> Invoke(GetLocalGatewayInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayResult>("aws:ec2/getLocalGateway:getLocalGateway", args ?? new GetLocalGatewayInvokeArgs(), options.WithDefaults());

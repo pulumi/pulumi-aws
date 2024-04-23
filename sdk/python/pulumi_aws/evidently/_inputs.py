@@ -557,8 +557,6 @@ class ProjectDataDeliveryCloudwatchLogsArgs:
                  log_group: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] log_group: The name of the log group where the project stores evaluation events.
-               
-               The `s3_destination` block supports the following arguments:
         """
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
@@ -568,8 +566,6 @@ class ProjectDataDeliveryCloudwatchLogsArgs:
     def log_group(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the log group where the project stores evaluation events.
-
-        The `s3_destination` block supports the following arguments:
         """
         return pulumi.get(self, "log_group")
 

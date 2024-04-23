@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,7 +32,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTaskExecution(args: GetTaskExecutionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskExecutionResult> {
 
@@ -180,7 +178,6 @@ export interface GetTaskExecutionResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -197,7 +194,6 @@ export interface GetTaskExecutionResult {
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getTaskExecutionOutput(args: GetTaskExecutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskExecutionResult> {
     return pulumi.output(args).apply((a: any) => getTaskExecution(a, opts))

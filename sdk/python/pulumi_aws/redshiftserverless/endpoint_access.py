@@ -266,7 +266,6 @@ class EndpointAccess(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,7 +274,6 @@ class EndpointAccess(pulumi.CustomResource):
             endpoint_name="example",
             workgroup_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -304,7 +302,6 @@ class EndpointAccess(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,7 +310,6 @@ class EndpointAccess(pulumi.CustomResource):
             endpoint_name="example",
             workgroup_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

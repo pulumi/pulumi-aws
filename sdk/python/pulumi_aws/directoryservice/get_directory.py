@@ -233,14 +233,12 @@ def get_directory(directory_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.directoryservice.get_directory(directory_id=main["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str directory_id: ID of the directory.
@@ -281,14 +279,12 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.directoryservice.get_directory(directory_id=main["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str directory_id: ID of the directory.

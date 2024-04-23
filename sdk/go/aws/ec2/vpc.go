@@ -17,7 +17,6 @@ import (
 //
 // Basic usage:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,11 +40,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Basic usage with tags:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,11 +70,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // VPC with CIDR from AWS IPAM:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -134,7 +129,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

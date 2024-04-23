@@ -15,7 +15,6 @@ import (
 //
 // ## Lustre Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,11 +47,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Windows Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,11 +85,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## ONTAP Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -126,11 +121,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## OpenZFS Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -163,7 +156,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

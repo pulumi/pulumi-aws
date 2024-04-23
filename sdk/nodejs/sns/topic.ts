@@ -11,18 +11,15 @@ import {ARN} from "..";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const userUpdates = new aws.sns.Topic("user_updates", {name: "user-updates-topic"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Example with Delivery Policy
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,11 +46,9 @@ import {ARN} from "..";
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Example with Server-side encryption (SSE)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,11 +58,9 @@ import {ARN} from "..";
  *     kmsMasterKeyId: "alias/aws/sns",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Example with First-In-First-Out (FIFO)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -78,7 +71,6 @@ import {ARN} from "..";
  *     contentBasedDeduplication: true,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Message Delivery Status Arguments
  *

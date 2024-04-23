@@ -82,7 +82,6 @@ def get_sites(global_network_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -92,7 +91,6 @@ def get_sites(global_network_id: Optional[str] = None,
             "Env": "test",
         })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str global_network_id: ID of the Global Network of the sites to retrieve.
@@ -120,7 +118,6 @@ def get_sites_output(global_network_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -130,7 +127,6 @@ def get_sites_output(global_network_id: Optional[pulumi.Input[str]] = None,
             "Env": "test",
         })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str global_network_id: ID of the Global Network of the sites to retrieve.

@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// Basic usage:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -59,11 +58,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// Filtering:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -110,7 +107,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcIpamPoolCidrsResult> InvokeAsync(GetVpcIpamPoolCidrsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIpamPoolCidrsResult>("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", args ?? new GetVpcIpamPoolCidrsArgs(), options.WithDefaults());
@@ -124,7 +120,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// Basic usage:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -163,11 +158,9 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// Filtering:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -214,7 +207,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcIpamPoolCidrsResult> Invoke(GetVpcIpamPoolCidrsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIpamPoolCidrsResult>("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", args ?? new GetVpcIpamPoolCidrsInvokeArgs(), options.WithDefaults());

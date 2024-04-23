@@ -24,7 +24,6 @@ import (
 //
 // ### EC2 Type
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -183,11 +182,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Fargate Type
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -225,11 +222,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Setting Update Policy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -274,7 +269,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

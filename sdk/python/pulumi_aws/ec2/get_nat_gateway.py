@@ -208,18 +208,15 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     default = aws.ec2.get_nat_gateway(subnet_id=public["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### With tags
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -229,7 +226,6 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
             "Name": "gw NAT",
         })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetNatGatewayFilterArgs']] filters: Custom filter block as described below.
@@ -284,18 +280,15 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     default = aws.ec2.get_nat_gateway(subnet_id=public["id"])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### With tags
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -305,7 +298,6 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
             "Name": "gw NAT",
         })
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetNatGatewayFilterArgs']] filters: Custom filter block as described below.

@@ -635,7 +635,6 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -654,7 +653,6 @@ class Endpoint(pulumi.CustomResource):
                 cloudwatch_log_stream=ls["name"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -695,7 +693,6 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -714,7 +711,6 @@ class Endpoint(pulumi.CustomResource):
                 cloudwatch_log_stream=ls["name"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

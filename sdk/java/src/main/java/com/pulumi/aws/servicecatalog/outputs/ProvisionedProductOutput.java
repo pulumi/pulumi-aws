@@ -17,12 +17,12 @@ public final class ProvisionedProductOutput {
      */
     private @Nullable String description;
     /**
-     * @return Parameter key.
+     * @return The output key.
      * 
      */
     private @Nullable String key;
     /**
-     * @return Parameter value.
+     * @return The output value.
      * 
      */
     private @Nullable String value;
@@ -36,14 +36,14 @@ public final class ProvisionedProductOutput {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Parameter key.
+     * @return The output key.
      * 
      */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
     /**
-     * @return Parameter value.
+     * @return The output value.
      * 
      */
     public Optional<String> value() {

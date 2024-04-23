@@ -14,32 +14,16 @@ public final class CustomLogSourceConfigurationProviderIdentityArgs extends com.
 
     public static final CustomLogSourceConfigurationProviderIdentityArgs Empty = new CustomLogSourceConfigurationProviderIdentityArgs();
 
-    /**
-     * The external ID used to estalish trust relationship with the AWS identity.
-     * 
-     */
     @Import(name="externalId", required=true)
     private Output<String> externalId;
 
-    /**
-     * @return The external ID used to estalish trust relationship with the AWS identity.
-     * 
-     */
     public Output<String> externalId() {
         return this.externalId;
     }
 
-    /**
-     * The AWS identity principal.
-     * 
-     */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
-    /**
-     * @return The AWS identity principal.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
@@ -69,44 +53,20 @@ public final class CustomLogSourceConfigurationProviderIdentityArgs extends com.
             $ = new CustomLogSourceConfigurationProviderIdentityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param externalId The external ID used to estalish trust relationship with the AWS identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalId(Output<String> externalId) {
             $.externalId = externalId;
             return this;
         }
 
-        /**
-         * @param externalId The external ID used to estalish trust relationship with the AWS identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalId(String externalId) {
             return externalId(Output.of(externalId));
         }
 
-        /**
-         * @param principal The AWS identity principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(Output<String> principal) {
             $.principal = principal;
             return this;
         }
 
-        /**
-         * @param principal The AWS identity principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
         }

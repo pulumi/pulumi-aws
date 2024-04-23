@@ -70,14 +70,16 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53recoveryreadiness/resourceSet:ResourceSet")
 public class ResourceSet extends com.pulumi.resources.CustomResource {
     /**
-     * NLB resource ARN.
+     * ARN of the resource set
+     * * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return NLB resource ARN.
+     * @return ARN of the resource set
+     * * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
      * 
      */
     public Output<String> arn() {

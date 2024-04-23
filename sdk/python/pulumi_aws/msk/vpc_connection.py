@@ -269,7 +269,6 @@ class VpcConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,7 +280,6 @@ class VpcConnection(pulumi.CustomResource):
             client_subnets=[__item["id"] for __item in test_aws_subnet],
             security_groups=[test_aws_security_group["id"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -311,7 +309,6 @@ class VpcConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,7 +320,6 @@ class VpcConnection(pulumi.CustomResource):
             client_subnets=[__item["id"] for __item in test_aws_subnet],
             security_groups=[test_aws_security_group["id"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

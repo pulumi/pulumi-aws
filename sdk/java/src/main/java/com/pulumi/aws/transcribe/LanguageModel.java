@@ -200,17 +200,9 @@ public class LanguageModel extends com.pulumi.resources.CustomResource {
     public Output<String> modelName() {
         return this.modelName;
     }
-    /**
-     * A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

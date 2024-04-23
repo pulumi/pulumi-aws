@@ -299,7 +299,6 @@ class DevEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,7 +321,6 @@ class DevEnvironment(pulumi.CustomResource):
                 branch_name="main",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -347,7 +345,6 @@ class DevEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -370,7 +367,6 @@ class DevEnvironment(pulumi.CustomResource):
                 branch_name="main",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param DevEnvironmentArgs args: The arguments to use to populate this resource's properties.

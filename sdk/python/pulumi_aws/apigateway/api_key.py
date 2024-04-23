@@ -312,14 +312,12 @@ class ApiKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.apigateway.ApiKey("example", name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -351,14 +349,12 @@ class ApiKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.apigateway.ApiKey("example", name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

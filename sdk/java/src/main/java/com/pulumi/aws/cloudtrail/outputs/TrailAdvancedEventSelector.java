@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TrailAdvancedEventSelector {
-    /**
-     * @return Specifies the selector statements in an advanced event selector. Fields documented below.
-     * 
-     */
     private List<TrailAdvancedEventSelectorFieldSelector> fieldSelectors;
     /**
      * @return Name of the trail.
@@ -26,10 +22,6 @@ public final class TrailAdvancedEventSelector {
     private @Nullable String name;
 
     private TrailAdvancedEventSelector() {}
-    /**
-     * @return Specifies the selector statements in an advanced event selector. Fields documented below.
-     * 
-     */
     public List<TrailAdvancedEventSelectorFieldSelector> fieldSelectors() {
         return this.fieldSelectors;
     }

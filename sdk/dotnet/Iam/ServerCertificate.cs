@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// **Using certs on file:**
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,11 +49,9 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// **Example with cert in-line:**
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// **Use in combination with an AWS ELB resource:**
     /// 

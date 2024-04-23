@@ -16,7 +16,6 @@ namespace Pulumi.Aws.MskConnect
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.MskConnect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCustomPluginResult> InvokeAsync(GetCustomPluginArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomPluginResult>("aws:mskconnect/getCustomPlugin:getCustomPlugin", args ?? new GetCustomPluginArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.MskConnect
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.MskConnect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCustomPluginResult> Invoke(GetCustomPluginInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomPluginResult>("aws:mskconnect/getCustomPlugin:getCustomPlugin", args ?? new GetCustomPluginInvokeArgs(), options.WithDefaults());

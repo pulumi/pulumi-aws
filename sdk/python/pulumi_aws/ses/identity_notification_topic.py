@@ -168,7 +168,6 @@ class IdentityNotificationTopic(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,7 +178,6 @@ class IdentityNotificationTopic(pulumi.CustomResource):
             identity=example["domain"],
             include_original_headers=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -207,7 +205,6 @@ class IdentityNotificationTopic(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,7 +215,6 @@ class IdentityNotificationTopic(pulumi.CustomResource):
             identity=example["domain"],
             include_original_headers=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

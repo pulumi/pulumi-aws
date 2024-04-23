@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCodeSigningConfigResult> InvokeAsync(GetCodeSigningConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodeSigningConfigResult>("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args ?? new GetCodeSigningConfigArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCodeSigningConfigResult> Invoke(GetCodeSigningConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningConfigResult>("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args ?? new GetCodeSigningConfigInvokeArgs(), options.WithDefaults());

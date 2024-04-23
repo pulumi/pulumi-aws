@@ -13,13 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRuleGroupReferenceSetsIpSetReference
     {
-        /// <summary>
-        /// Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference> IpSetReferences;
-        /// <summary>
-        /// A unique alphanumeric string to identify the `ip_set`.
-        /// </summary>
         public readonly string Key;
 
         [OutputConstructor]

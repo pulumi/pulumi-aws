@@ -337,7 +337,6 @@ class DeploymentStrategy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,7 +353,6 @@ class DeploymentStrategy(pulumi.CustomResource):
                 "Type": "AppConfig Deployment Strategy",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -386,7 +384,6 @@ class DeploymentStrategy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,7 +400,6 @@ class DeploymentStrategy(pulumi.CustomResource):
                 "Type": "AppConfig Deployment Strategy",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

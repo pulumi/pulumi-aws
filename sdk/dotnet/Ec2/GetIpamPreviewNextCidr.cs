@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// Basic usage:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetIpamPreviewNextCidrResult> InvokeAsync(GetIpamPreviewNextCidrArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpamPreviewNextCidrResult>("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args ?? new GetIpamPreviewNextCidrArgs(), options.WithDefaults());
@@ -57,7 +55,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// Basic usage:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -80,7 +77,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetIpamPreviewNextCidrResult> Invoke(GetIpamPreviewNextCidrInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpamPreviewNextCidrResult>("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args ?? new GetIpamPreviewNextCidrInvokeArgs(), options.WithDefaults());

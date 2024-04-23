@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCertificateAuthorityRevocationConfigurationOcspConfiguration {
+    /**
+     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
+     * 
+     */
     private Boolean enabled;
+    /**
+     * @return A CNAME specifying a customized OCSP domain.
+     * 
+     */
     private String ocspCustomCname;
 
     private GetCertificateAuthorityRevocationConfigurationOcspConfiguration() {}
+    /**
+     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return A CNAME specifying a customized OCSP domain.
+     * 
+     */
     public String ocspCustomCname() {
         return this.ocspCustomCname;
     }

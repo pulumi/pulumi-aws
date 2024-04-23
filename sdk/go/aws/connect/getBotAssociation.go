@@ -17,7 +17,6 @@ import (
 //
 // ### By name
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupBotAssociation(ctx *pulumi.Context, args *LookupBotAssociationArgs, opts ...pulumi.InvokeOption) (*LookupBotAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBotAssociationResult

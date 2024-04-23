@@ -74,14 +74,12 @@ def get_state_machine_versions(statemachine_arn: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.sfn.get_state_machine_versions(statemachine_arn=test_aws_sfn_state_machine["arn"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str statemachine_arn: ARN of the State Machine.
@@ -107,14 +105,12 @@ def get_state_machine_versions_output(statemachine_arn: Optional[pulumi.Input[st
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.sfn.get_state_machine_versions(statemachine_arn=test_aws_sfn_state_machine["arn"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str statemachine_arn: ARN of the State Machine.

@@ -281,7 +281,6 @@ class PlaceIndex(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -290,7 +289,6 @@ class PlaceIndex(pulumi.CustomResource):
             data_source="Here",
             index_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -321,7 +319,6 @@ class PlaceIndex(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -330,7 +327,6 @@ class PlaceIndex(pulumi.CustomResource):
             data_source="Here",
             index_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -17,7 +17,6 @@ import (
 //
 // ### Retrieve Secret Rotation Configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupSecretRotation(ctx *pulumi.Context, args *LookupSecretRotationArgs, opts ...pulumi.InvokeOption) (*LookupSecretRotationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecretRotationResult

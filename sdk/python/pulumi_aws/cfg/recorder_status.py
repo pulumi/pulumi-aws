@@ -105,7 +105,6 @@ class RecorderStatus(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -148,7 +147,6 @@ class RecorderStatus(pulumi.CustomResource):
             role=r.id,
             policy=p.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -176,7 +174,6 @@ class RecorderStatus(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -219,7 +216,6 @@ class RecorderStatus(pulumi.CustomResource):
             role=r.id,
             policy=p.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

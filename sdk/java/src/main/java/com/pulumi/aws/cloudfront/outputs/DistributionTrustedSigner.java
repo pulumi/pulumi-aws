@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionTrustedSigner {
     /**
-     * @return Whether Origin Shield is enabled.
+     * @return `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
     private @Nullable Boolean enabled;
@@ -26,7 +26,7 @@ public final class DistributionTrustedSigner {
 
     private DistributionTrustedSigner() {}
     /**
-     * @return Whether Origin Shield is enabled.
+     * @return `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
     public Optional<Boolean> enabled() {

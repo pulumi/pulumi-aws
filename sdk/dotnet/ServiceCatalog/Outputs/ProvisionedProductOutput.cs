@@ -18,11 +18,11 @@ namespace Pulumi.Aws.ServiceCatalog.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Parameter key.
+        /// The output key.
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// Parameter value.
+        /// The output value.
         /// </summary>
         public readonly string? Value;
 

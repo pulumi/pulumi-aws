@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,11 +52,9 @@ import * as utilities from "../utilities";
  *     minUnits: 1,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Using file function
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,7 +69,6 @@ import * as utilities from "../utilities";
  *     minUnits: 1,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

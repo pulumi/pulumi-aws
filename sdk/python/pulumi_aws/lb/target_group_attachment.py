@@ -180,7 +180,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -192,11 +191,9 @@ class TargetGroupAttachment(pulumi.CustomResource):
             target_id=test_instance.id,
             port=80)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda Target
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,11 +213,9 @@ class TargetGroupAttachment(pulumi.CustomResource):
             target_id=test_function.arn,
             opts=pulumi.ResourceOptions(depends_on=[with_lb]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Registering Multiple Targets
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -239,7 +234,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         pulumi.Output.all({k: v for k, v in example}).apply(lambda resolved_outputs: create_example(resolved_outputs[0]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -269,7 +263,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,11 +274,9 @@ class TargetGroupAttachment(pulumi.CustomResource):
             target_id=test_instance.id,
             port=80)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Lambda Target
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -305,11 +296,9 @@ class TargetGroupAttachment(pulumi.CustomResource):
             target_id=test_function.arn,
             opts=pulumi.ResourceOptions(depends_on=[with_lb]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Registering Multiple Targets
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,7 +317,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         pulumi.Output.all({k: v for k, v in example}).apply(lambda resolved_outputs: create_example(resolved_outputs[0]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,7 +50,6 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:acmpca/permission:Permission")]
     public partial class Permission : global::Pulumi.CustomResource

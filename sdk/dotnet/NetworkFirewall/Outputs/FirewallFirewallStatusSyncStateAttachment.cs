@@ -18,7 +18,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// </summary>
         public readonly string? EndpointId;
         /// <summary>
-        /// The unique identifier for the subnet.
+        /// The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
         /// </summary>
         public readonly string? SubnetId;
 

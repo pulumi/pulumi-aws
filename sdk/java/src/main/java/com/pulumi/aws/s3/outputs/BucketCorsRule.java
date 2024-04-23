@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketCorsRule {
-    /**
-     * @return Specifies which headers are allowed.
-     * 
-     */
     private @Nullable List<String> allowedHeaders;
-    /**
-     * @return Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
-     * 
-     */
     private List<String> allowedMethods;
-    /**
-     * @return Specifies which origins are allowed.
-     * 
-     */
     private List<String> allowedOrigins;
-    /**
-     * @return Specifies expose header in the response.
-     * 
-     */
     private @Nullable List<String> exposeHeaders;
-    /**
-     * @return Specifies time in seconds that browser can cache the response for a preflight request.
-     * 
-     */
     private @Nullable Integer maxAgeSeconds;
 
     private BucketCorsRule() {}
-    /**
-     * @return Specifies which headers are allowed.
-     * 
-     */
     public List<String> allowedHeaders() {
         return this.allowedHeaders == null ? List.of() : this.allowedHeaders;
     }
-    /**
-     * @return Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
-     * 
-     */
     public List<String> allowedMethods() {
         return this.allowedMethods;
     }
-    /**
-     * @return Specifies which origins are allowed.
-     * 
-     */
     public List<String> allowedOrigins() {
         return this.allowedOrigins;
     }
-    /**
-     * @return Specifies expose header in the response.
-     * 
-     */
     public List<String> exposeHeaders() {
         return this.exposeHeaders == null ? List.of() : this.exposeHeaders;
     }
-    /**
-     * @return Specifies time in seconds that browser can cache the response for a preflight request.
-     * 
-     */
     public Optional<Integer> maxAgeSeconds() {
         return Optional.ofNullable(this.maxAgeSeconds);
     }

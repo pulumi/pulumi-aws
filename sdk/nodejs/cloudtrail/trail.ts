@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * Enable CloudTrail to capture all compatible management events in region.
  * For capturing events from services like IAM, `includeGlobalServiceEvents` must be enabled.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -87,7 +86,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleBucketPolicy],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Data Event Logging
  *
@@ -98,7 +96,6 @@ import * as utilities from "../utilities";
  *
  * ### Logging All Lambda Function Invocations By Using Basic Event Selectors
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -112,11 +109,9 @@ import * as utilities from "../utilities";
  *     }],
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Logging All S3 Object Events By Using Basic Event Selectors
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -130,11 +125,9 @@ import * as utilities from "../utilities";
  *     }],
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -151,11 +144,9 @@ import * as utilities from "../utilities";
  *     }],
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -196,11 +187,9 @@ import * as utilities from "../utilities";
  *     },
  * ]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -273,11 +262,9 @@ import * as utilities from "../utilities";
  *     },
  * ]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Sending Events to CloudWatch Logs
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -285,7 +272,6 @@ import * as utilities from "../utilities";
  * const example = new aws.cloudwatch.LogGroup("example", {name: "Example"});
  * const exampleTrail = new aws.cloudtrail.Trail("example", {cloudWatchLogsGroupArn: pulumi.interpolate`${example.arn}:*`});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

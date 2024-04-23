@@ -21,7 +21,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -68,7 +66,6 @@ type InstanceGroup struct {
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -103,7 +100,6 @@ type InstanceGroup struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	ConfigurationsJson pulumi.StringPtrOutput `pulumi:"configurationsJson"`
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs InstanceGroupEbsConfigArrayOutput `pulumi:"ebsConfigs"`
@@ -165,7 +161,6 @@ type instanceGroupState struct {
 	ClusterId *string `pulumi:"clusterId"`
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -200,7 +195,6 @@ type instanceGroupState struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	ConfigurationsJson *string `pulumi:"configurationsJson"`
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs []InstanceGroupEbsConfig `pulumi:"ebsConfigs"`
@@ -227,7 +221,6 @@ type InstanceGroupState struct {
 	ClusterId pulumi.StringPtrInput
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -262,7 +255,6 @@ type InstanceGroupState struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	ConfigurationsJson pulumi.StringPtrInput
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs InstanceGroupEbsConfigArrayInput
@@ -293,7 +285,6 @@ type instanceGroupArgs struct {
 	ClusterId string `pulumi:"clusterId"`
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -328,7 +319,6 @@ type instanceGroupArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	ConfigurationsJson *string `pulumi:"configurationsJson"`
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs []InstanceGroupEbsConfig `pulumi:"ebsConfigs"`
@@ -352,7 +342,6 @@ type InstanceGroupArgs struct {
 	ClusterId pulumi.StringInput
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 	//
-	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -387,7 +376,6 @@ type InstanceGroupArgs struct {
 	// 	})
 	// }
 	// ```
-	// <!--End PulumiCodeChooser -->
 	ConfigurationsJson pulumi.StringPtrInput
 	// One or more `ebsConfig` blocks as defined below. Changing this forces a new resource to be created.
 	EbsConfigs InstanceGroupEbsConfigArrayInput
@@ -505,7 +493,6 @@ func (o InstanceGroupOutput) ClusterId() pulumi.StringOutput {
 
 // A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -545,7 +532,6 @@ func (o InstanceGroupOutput) ClusterId() pulumi.StringOutput {
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func (o InstanceGroupOutput) ConfigurationsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceGroup) pulumi.StringPtrOutput { return v.ConfigurationsJson }).(pulumi.StringPtrOutput)
 }

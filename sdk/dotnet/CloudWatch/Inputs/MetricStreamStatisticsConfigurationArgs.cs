@@ -14,10 +14,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     {
         [Input("additionalStatistics", required: true)]
         private InputList<string>? _additionalStatistics;
-
-        /// <summary>
-        /// The additional statistics to stream for the metrics listed in `include_metrics`.
-        /// </summary>
         public InputList<string> AdditionalStatistics
         {
             get => _additionalStatistics ?? (_additionalStatistics = new InputList<string>());
@@ -26,10 +22,6 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
         [Input("includeMetrics", required: true)]
         private InputList<Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs>? _includeMetrics;
-
-        /// <summary>
-        /// An array that defines the metrics that are to have additional statistics streamed. See details below.
-        /// </summary>
         public InputList<Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs> IncludeMetrics
         {
             get => _includeMetrics ?? (_includeMetrics = new InputList<Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs>());

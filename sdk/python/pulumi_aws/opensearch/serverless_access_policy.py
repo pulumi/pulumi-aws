@@ -194,7 +194,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
 
         ### Grant all collection and index permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -221,11 +220,9 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                 "Principal": [current.arn],
             }]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Grant read-only collection and index permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -255,11 +252,9 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                 "Principal": [current.arn],
             }]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Grant SAML identity permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -288,7 +283,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                 ],
             }]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -320,7 +314,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
 
         ### Grant all collection and index permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -347,11 +340,9 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                 "Principal": [current.arn],
             }]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Grant read-only collection and index permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -381,11 +372,9 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                 "Principal": [current.arn],
             }]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Grant SAML identity permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -414,7 +403,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                 ],
             }]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

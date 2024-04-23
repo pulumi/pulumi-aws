@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     thumbprintLists: ["cf23df2207d99a74fbe169e3eba035e633b65d94"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

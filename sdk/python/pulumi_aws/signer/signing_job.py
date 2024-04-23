@@ -393,7 +393,6 @@ class SigningJob(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -416,7 +415,6 @@ class SigningJob(pulumi.CustomResource):
             ),
             ignore_signing_job_failure=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -444,7 +442,6 @@ class SigningJob(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -467,7 +464,6 @@ class SigningJob(pulumi.CustomResource):
             ),
             ignore_signing_job_failure=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

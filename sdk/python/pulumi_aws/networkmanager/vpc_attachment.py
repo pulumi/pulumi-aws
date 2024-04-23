@@ -378,7 +378,6 @@ class VpcAttachment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,7 +387,6 @@ class VpcAttachment(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             vpc_arn=example_aws_vpc["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -421,7 +419,6 @@ class VpcAttachment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -431,7 +428,6 @@ class VpcAttachment(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             vpc_arn=example_aws_vpc["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

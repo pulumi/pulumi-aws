@@ -13,17 +13,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class ResponseHeadersPolicyCustomHeadersConfigItem
     {
-        /// <summary>
-        /// The HTTP response header name.
-        /// </summary>
         public readonly string Header;
-        /// <summary>
-        /// Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-        /// </summary>
         public readonly bool Override;
-        /// <summary>
-        /// The value for the HTTP response header.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

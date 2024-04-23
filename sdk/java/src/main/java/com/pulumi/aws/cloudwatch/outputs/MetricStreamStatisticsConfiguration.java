@@ -12,29 +12,13 @@ import java.util.Objects;
 
 @CustomType
 public final class MetricStreamStatisticsConfiguration {
-    /**
-     * @return The additional statistics to stream for the metrics listed in `include_metrics`.
-     * 
-     */
     private List<String> additionalStatistics;
-    /**
-     * @return An array that defines the metrics that are to have additional statistics streamed. See details below.
-     * 
-     */
     private List<MetricStreamStatisticsConfigurationIncludeMetric> includeMetrics;
 
     private MetricStreamStatisticsConfiguration() {}
-    /**
-     * @return The additional statistics to stream for the metrics listed in `include_metrics`.
-     * 
-     */
     public List<String> additionalStatistics() {
         return this.additionalStatistics;
     }
-    /**
-     * @return An array that defines the metrics that are to have additional statistics streamed. See details below.
-     * 
-     */
     public List<MetricStreamStatisticsConfigurationIncludeMetric> includeMetrics() {
         return this.includeMetrics;
     }

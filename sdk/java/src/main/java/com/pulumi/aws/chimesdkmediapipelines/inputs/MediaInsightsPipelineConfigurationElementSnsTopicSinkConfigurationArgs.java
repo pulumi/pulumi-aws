@@ -15,14 +15,14 @@ public final class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigur
     public static final MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs Empty = new MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs();
 
     /**
-     * SQS queue to deliver results.
+     * SNS topic to deliver results.
      * 
      */
     @Import(name="insightsTarget", required=true)
     private Output<String> insightsTarget;
 
     /**
-     * @return SQS queue to deliver results.
+     * @return SNS topic to deliver results.
      * 
      */
     public Output<String> insightsTarget() {
@@ -54,7 +54,7 @@ public final class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigur
         }
 
         /**
-         * @param insightsTarget SQS queue to deliver results.
+         * @param insightsTarget SNS topic to deliver results.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigur
         }
 
         /**
-         * @param insightsTarget SQS queue to deliver results.
+         * @param insightsTarget SNS topic to deliver results.
          * 
          * @return builder
          * 

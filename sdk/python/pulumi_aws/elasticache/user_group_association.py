@@ -104,7 +104,6 @@ class UserGroupAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -129,7 +128,6 @@ class UserGroupAssociation(pulumi.CustomResource):
             user_group_id=example.user_group_id,
             user_id=example_user.user_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -157,7 +155,6 @@ class UserGroupAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,7 +179,6 @@ class UserGroupAssociation(pulumi.CustomResource):
             user_group_id=example.user_group_id,
             user_id=example_user.user_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

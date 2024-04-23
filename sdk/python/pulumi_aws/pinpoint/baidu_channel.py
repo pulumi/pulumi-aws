@@ -168,7 +168,6 @@ class BaiduChannel(pulumi.CustomResource):
         > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,7 +178,6 @@ class BaiduChannel(pulumi.CustomResource):
             api_key="",
             secret_key="")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -208,7 +206,6 @@ class BaiduChannel(pulumi.CustomResource):
         > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -219,7 +216,6 @@ class BaiduChannel(pulumi.CustomResource):
             api_key="",
             secret_key="")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

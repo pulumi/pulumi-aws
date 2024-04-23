@@ -201,7 +201,6 @@ class Response(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,7 +217,6 @@ class Response(pulumi.CustomResource):
                 "gatewayresponse.header.Authorization": "'Basic'",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -247,7 +245,6 @@ class Response(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,7 +261,6 @@ class Response(pulumi.CustomResource):
                 "gatewayresponse.header.Authorization": "'Basic'",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

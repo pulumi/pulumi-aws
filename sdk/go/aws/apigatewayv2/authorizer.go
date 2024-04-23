@@ -19,7 +19,6 @@ import (
 //
 // ### Basic WebSocket API
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,11 +48,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Basic HTTP API
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,7 +81,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

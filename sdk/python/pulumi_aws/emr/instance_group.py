@@ -33,7 +33,6 @@ class InstanceGroupArgs:
         :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -54,7 +53,6 @@ class InstanceGroupArgs:
                ]
                \"\"\")
                ```
-               <!--End PulumiCodeChooser -->
         :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
@@ -131,7 +129,6 @@ class InstanceGroupArgs:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -152,7 +149,6 @@ class InstanceGroupArgs:
         ]
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "configurations_json")
 
@@ -230,7 +226,6 @@ class _InstanceGroupState:
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -251,7 +246,6 @@ class _InstanceGroupState:
                ]
                \"\"\")
                ```
-               <!--End PulumiCodeChooser -->
         :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
@@ -325,7 +319,6 @@ class _InstanceGroupState:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -346,7 +339,6 @@ class _InstanceGroupState:
         ]
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "configurations_json")
 
@@ -464,7 +456,6 @@ class InstanceGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -475,7 +466,6 @@ class InstanceGroup(pulumi.CustomResource):
             instance_type="m5.xlarge",
             name="my little instance group")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -492,7 +482,6 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -513,7 +502,6 @@ class InstanceGroup(pulumi.CustomResource):
                ]
                \"\"\")
                ```
-               <!--End PulumiCodeChooser -->
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
@@ -536,7 +524,6 @@ class InstanceGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -547,7 +534,6 @@ class InstanceGroup(pulumi.CustomResource):
             instance_type="m5.xlarge",
             name="my little instance group")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -638,7 +624,6 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
                
-               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -659,7 +644,6 @@ class InstanceGroup(pulumi.CustomResource):
                ]
                \"\"\")
                ```
-               <!--End PulumiCodeChooser -->
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
@@ -715,7 +699,6 @@ class InstanceGroup(pulumi.CustomResource):
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -736,7 +719,6 @@ class InstanceGroup(pulumi.CustomResource):
         ]
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
         """
         return pulumi.get(self, "configurations_json")
 

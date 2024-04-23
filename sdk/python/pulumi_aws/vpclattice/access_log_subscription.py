@@ -179,7 +179,6 @@ class AccessLogSubscription(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,7 +187,6 @@ class AccessLogSubscription(pulumi.CustomResource):
             resource_identifier=example_aws_vpclattice_service_network["id"],
             destination_arn=bucket["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -216,7 +214,6 @@ class AccessLogSubscription(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,7 +222,6 @@ class AccessLogSubscription(pulumi.CustomResource):
             resource_identifier=example_aws_vpclattice_service_network["id"],
             destination_arn=bucket["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

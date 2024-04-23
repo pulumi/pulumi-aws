@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ### Basic
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,11 +42,9 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With File Format
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,11 +68,9 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With Language Code
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,7 +94,6 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -124,9 +118,6 @@ namespace Pulumi.Aws.Kendra
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// The description for a FAQ.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -142,9 +133,6 @@ namespace Pulumi.Aws.Kendra
         [Output("faqId")]
         public Output<string> FaqId { get; private set; } = null!;
 
-        /// <summary>
-        /// The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-        /// </summary>
         [Output("fileFormat")]
         public Output<string?> FileFormat { get; private set; } = null!;
 
@@ -154,9 +142,6 @@ namespace Pulumi.Aws.Kendra
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
-        /// <summary>
-        /// The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-        /// </summary>
         [Output("languageCode")]
         public Output<string> LanguageCode { get; private set; } = null!;
 
@@ -174,8 +159,6 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 location of the FAQ input data. Detailed below.
-        /// 
-        /// The `s3_path` configuration block supports the following arguments:
         /// </summary>
         [Output("s3Path")]
         public Output<Outputs.FaqS3Path> S3Path { get; private set; } = null!;
@@ -186,9 +169,6 @@ namespace Pulumi.Aws.Kendra
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -250,15 +230,9 @@ namespace Pulumi.Aws.Kendra
 
     public sealed class FaqArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description for a FAQ.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-        /// </summary>
         [Input("fileFormat")]
         public Input<string>? FileFormat { get; set; }
 
@@ -268,9 +242,6 @@ namespace Pulumi.Aws.Kendra
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
-        /// <summary>
-        /// The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
@@ -288,18 +259,12 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 location of the FAQ input data. Detailed below.
-        /// 
-        /// The `s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("s3Path", required: true)]
         public Input<Inputs.FaqS3PathArgs> S3Path { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -326,9 +291,6 @@ namespace Pulumi.Aws.Kendra
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
-        /// <summary>
-        /// The description for a FAQ.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -344,9 +306,6 @@ namespace Pulumi.Aws.Kendra
         [Input("faqId")]
         public Input<string>? FaqId { get; set; }
 
-        /// <summary>
-        /// The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-        /// </summary>
         [Input("fileFormat")]
         public Input<string>? FileFormat { get; set; }
 
@@ -356,9 +315,6 @@ namespace Pulumi.Aws.Kendra
         [Input("indexId")]
         public Input<string>? IndexId { get; set; }
 
-        /// <summary>
-        /// The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
@@ -376,8 +332,6 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 location of the FAQ input data. Detailed below.
-        /// 
-        /// The `s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("s3Path")]
         public Input<Inputs.FaqS3PathGetArgs>? S3Path { get; set; }
@@ -390,10 +344,6 @@ namespace Pulumi.Aws.Kendra
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

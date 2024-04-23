@@ -777,7 +777,6 @@ class Domain(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -792,13 +791,11 @@ class Domain(pulumi.CustomResource):
                 "Domain": "TestDomain",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Access Policy
 
         > See also: `opensearch.DomainPolicy` resource
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -827,11 +824,9 @@ class Domain(pulumi.CustomResource):
             domain_name=domain,
             access_policies=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Log publishing to CloudWatch Logs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -858,11 +853,9 @@ class Domain(pulumi.CustomResource):
             log_type="INDEX_SLOW_LOGS",
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### VPC based OpenSearch
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -927,7 +920,6 @@ class Domain(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enabling fine-grained access control on an existing domain
 
@@ -935,7 +927,6 @@ class Domain(pulumi.CustomResource):
 
         ### First apply
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -970,13 +961,11 @@ class Domain(pulumi.CustomResource):
                 volume_size=10,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Second apply
 
         Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1011,7 +1000,6 @@ class Domain(pulumi.CustomResource):
                 volume_size=10,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1076,7 +1064,6 @@ class Domain(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1091,13 +1078,11 @@ class Domain(pulumi.CustomResource):
                 "Domain": "TestDomain",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Access Policy
 
         > See also: `opensearch.DomainPolicy` resource
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1126,11 +1111,9 @@ class Domain(pulumi.CustomResource):
             domain_name=domain,
             access_policies=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Log publishing to CloudWatch Logs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1157,11 +1140,9 @@ class Domain(pulumi.CustomResource):
             log_type="INDEX_SLOW_LOGS",
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### VPC based OpenSearch
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1226,7 +1207,6 @@ class Domain(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enabling fine-grained access control on an existing domain
 
@@ -1234,7 +1214,6 @@ class Domain(pulumi.CustomResource):
 
         ### First apply
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1269,13 +1248,11 @@ class Domain(pulumi.CustomResource):
                 volume_size=10,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Second apply
 
         Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1310,7 +1287,6 @@ class Domain(pulumi.CustomResource):
                 volume_size=10,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

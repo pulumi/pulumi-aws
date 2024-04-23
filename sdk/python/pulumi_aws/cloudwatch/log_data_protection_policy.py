@@ -104,7 +104,6 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -143,7 +142,6 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                 ],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -171,7 +169,6 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -210,7 +207,6 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                 ],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

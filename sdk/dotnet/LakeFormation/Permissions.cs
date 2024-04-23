@@ -27,7 +27,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,7 +52,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
     /// 
@@ -70,7 +68,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,7 +118,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
     /// 
@@ -141,7 +137,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// ### Grant Permissions For A Lake Formation S3 Resource
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -165,11 +160,9 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Grant Permissions For A Glue Catalog Database
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -196,11 +189,9 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Grant Permissions Using Tag-Based Access Control
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -246,7 +237,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:lakeformation/permissions:Permissions")]
     public partial class Permissions : global::Pulumi.CustomResource

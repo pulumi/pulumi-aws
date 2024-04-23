@@ -268,7 +268,6 @@ class BotAlias(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -279,7 +278,6 @@ class BotAlias(pulumi.CustomResource):
             description="Production Version of the OrderFlowers Bot.",
             name="OrderFlowersProd")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -309,7 +307,6 @@ class BotAlias(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -320,7 +317,6 @@ class BotAlias(pulumi.CustomResource):
             description="Production Version of the OrderFlowers Bot.",
             name="OrderFlowersProd")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

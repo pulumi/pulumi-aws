@@ -321,7 +321,6 @@ class Schema(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -354,7 +353,6 @@ class Schema(pulumi.CustomResource):
                 },
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -386,7 +384,6 @@ class Schema(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -419,7 +416,6 @@ class Schema(pulumi.CustomResource):
                 },
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

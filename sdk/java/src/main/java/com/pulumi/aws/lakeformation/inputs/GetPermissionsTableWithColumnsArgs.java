@@ -97,17 +97,9 @@ public final class GetPermissionsTableWithColumnsArgs extends com.pulumi.resourc
         return this.name;
     }
 
-    /**
-     * Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-     * 
-     */
     @Import(name="wildcard")
     private @Nullable Output<Boolean> wildcard;
 
-    /**
-     * @return Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> wildcard() {
         return Optional.ofNullable(this.wildcard);
     }
@@ -270,23 +262,11 @@ public final class GetPermissionsTableWithColumnsArgs extends com.pulumi.resourc
             return name(Output.of(name));
         }
 
-        /**
-         * @param wildcard Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder wildcard(@Nullable Output<Boolean> wildcard) {
             $.wildcard = wildcard;
             return this;
         }
 
-        /**
-         * @param wildcard Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder wildcard(Boolean wildcard) {
             return wildcard(Output.of(wildcard));
         }

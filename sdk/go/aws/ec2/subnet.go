@@ -20,7 +20,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,14 +47,12 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Subnets In Secondary VPC CIDR Blocks
 //
 // When managing subnets in one of a VPC's secondary CIDR blocks created using a `ec2.VpcIpv4CidrBlockAssociation`
 // resource, it is recommended to reference that resource's `vpcId` attribute to ensure correct dependency ordering.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,7 +84,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

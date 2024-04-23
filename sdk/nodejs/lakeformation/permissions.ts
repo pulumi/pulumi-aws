@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  *
  * This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `createDatabaseDefaultPermissions` and `createTableDefaultPermissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,7 +35,6 @@ import * as utilities from "../utilities";
  * }));
  * const test = new aws.lakeformation.DataLakeSettings("test", {admins: [currentGetSessionContext.then(currentGetSessionContext => currentGetSessionContext.issuerArn)]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
  *
@@ -53,7 +51,6 @@ import * as utilities from "../utilities";
  *
  * AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,7 +76,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
  *
@@ -99,7 +95,6 @@ import * as utilities from "../utilities";
  *
  * ### Grant Permissions For A Lake Formation S3 Resource
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -112,11 +107,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Grant Permissions For A Glue Catalog Database
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -134,11 +127,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Grant Permissions Using Tag-Based Access Control
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -168,7 +159,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class Permissions extends pulumi.CustomResource {
     /**

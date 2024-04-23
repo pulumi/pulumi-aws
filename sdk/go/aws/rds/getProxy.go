@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupProxy(ctx *pulumi.Context, args *LookupProxyArgs, opts ...pulumi.InvokeOption) (*LookupProxyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProxyResult

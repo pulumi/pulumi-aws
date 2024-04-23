@@ -243,7 +243,7 @@ class _ClusterState:
                  zookeeper_connect_string_tls: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the MSK cluster.
         :param pulumi.Input[str] bootstrap_brokers: Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
         :param pulumi.Input[str] bootstrap_brokers_public_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[str] bootstrap_brokers_public_sasl_scram: One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
@@ -336,7 +336,7 @@ class _ClusterState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+        Amazon Resource Name (ARN) of the MSK cluster.
         """
         return pulumi.get(self, "arn")
 
@@ -699,7 +699,6 @@ class Cluster(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -800,11 +799,9 @@ class Cluster(pulumi.CustomResource):
         pulumi.export("zookeeperConnectString", example.zookeeper_connect_string)
         pulumi.export("bootstrapBrokersTls", example.bootstrap_brokers_tls)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With volume_throughput argument
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -832,7 +829,6 @@ class Cluster(pulumi.CustomResource):
                 security_groups=[sg["id"]],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -872,7 +868,6 @@ class Cluster(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -973,11 +968,9 @@ class Cluster(pulumi.CustomResource):
         pulumi.export("zookeeperConnectString", example.zookeeper_connect_string)
         pulumi.export("bootstrapBrokersTls", example.bootstrap_brokers_tls)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With volume_throughput argument
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1005,7 +998,6 @@ class Cluster(pulumi.CustomResource):
                 security_groups=[sg["id"]],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1130,7 +1122,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the MSK cluster.
         :param pulumi.Input[str] bootstrap_brokers: Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
         :param pulumi.Input[str] bootstrap_brokers_public_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[str] bootstrap_brokers_public_sasl_scram: One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
@@ -1197,7 +1189,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+        Amazon Resource Name (ARN) of the MSK cluster.
         """
         return pulumi.get(self, "arn")
 

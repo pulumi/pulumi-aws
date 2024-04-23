@@ -33,9 +33,6 @@ namespace Pulumi.Aws.Route53.Outputs
         /// Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
         /// </summary>
         public readonly Outputs.GetTrafficPolicyDocumentRulePrimaryResult? Primary;
-        /// <summary>
-        /// To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetTrafficPolicyDocumentRuleRegionResult> Regions;
         /// <summary>
         /// Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     applicationArn: exampleAwsSsoadminApplication.applicationArn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApplicationAssignments(args: GetApplicationAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationAssignmentsResult> {
 
@@ -69,7 +67,6 @@ export interface GetApplicationAssignmentsResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -78,7 +75,6 @@ export interface GetApplicationAssignmentsResult {
  *     applicationArn: exampleAwsSsoadminApplication.applicationArn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getApplicationAssignmentsOutput(args: GetApplicationAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationAssignmentsResult> {
     return pulumi.output(args).apply((a: any) => getApplicationAssignments(a, opts))

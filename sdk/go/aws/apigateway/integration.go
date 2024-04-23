@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,11 +77,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Lambda integration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -206,11 +203,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## VPC Link
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -300,7 +295,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

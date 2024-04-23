@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ### New MySQL Global Cluster
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primaryClusterInstance, 
+    ///             primaryClusterInstance,
     ///         },
     ///     });
     /// 
@@ -84,11 +83,9 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### New PostgreSQL Global Cluster
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -139,7 +136,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         DependsOn =
     ///         {
-    ///             primaryClusterInstance, 
+    ///             primaryClusterInstance,
     ///         },
     ///     });
     /// 
@@ -155,11 +152,9 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### New Global Cluster From Existing DB Cluster
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -179,13 +174,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Upgrading Engine Versions
     /// 
     /// When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws.rds.Cluster`.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -227,7 +220,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

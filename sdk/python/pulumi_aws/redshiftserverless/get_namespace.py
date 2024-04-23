@@ -156,14 +156,12 @@ def get_namespace(namespace_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.redshiftserverless.get_namespace(namespace_name="example-namespace")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str namespace_name: The name of the namespace.
@@ -194,14 +192,12 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.redshiftserverless.get_namespace(namespace_name="example-namespace")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str namespace_name: The name of the namespace.

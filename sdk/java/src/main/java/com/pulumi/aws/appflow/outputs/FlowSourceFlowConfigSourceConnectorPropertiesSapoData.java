@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
-    /**
-     * @return Object path specified in the SAPOData flow destination.
-     * 
-     */
     private String objectPath;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSapoData() {}
-    /**
-     * @return Object path specified in the SAPOData flow destination.
-     * 
-     */
     public String objectPath() {
         return this.objectPath;
     }

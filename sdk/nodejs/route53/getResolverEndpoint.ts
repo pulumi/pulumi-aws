@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,9 +22,7 @@ import * as utilities from "../utilities";
  *     resolverEndpointId: "rslvr-in-1abc2345ef678g91h",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,7 +34,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverEndpoint(args?: GetResolverEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverEndpointResult> {
     args = args || {};
@@ -93,7 +89,6 @@ export interface GetResolverEndpointResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -102,9 +97,7 @@ export interface GetResolverEndpointResult {
  *     resolverEndpointId: "rslvr-in-1abc2345ef678g91h",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -116,7 +109,6 @@ export interface GetResolverEndpointResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResolverEndpointOutput(args?: GetResolverEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverEndpointResult> {
     return pulumi.output(args).apply((a: any) => getResolverEndpoint(a, opts))

@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The location of the Datadog resource.
-        /// </summary>
         [Input("instanceUrl", required: true)]
         public Input<string> InstanceUrl { get; set; } = null!;
 

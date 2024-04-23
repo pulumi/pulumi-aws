@@ -179,7 +179,6 @@ class BucketReplicationConfig(pulumi.CustomResource):
 
         ### Using replication configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,11 +259,9 @@ class BucketReplicationConfig(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[source_bucket_versioning_v2]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Bi-Directional Replication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,7 +310,6 @@ class BucketReplicationConfig(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[west_bucket_versioning_v2]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -348,7 +344,6 @@ class BucketReplicationConfig(pulumi.CustomResource):
 
         ### Using replication configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -429,11 +424,9 @@ class BucketReplicationConfig(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[source_bucket_versioning_v2]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Bi-Directional Replication
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -482,7 +475,6 @@ class BucketReplicationConfig(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[west_bucket_versioning_v2]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

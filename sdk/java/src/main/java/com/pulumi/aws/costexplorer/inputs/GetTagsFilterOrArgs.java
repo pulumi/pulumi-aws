@@ -17,32 +17,16 @@ public final class GetTagsFilterOrArgs extends com.pulumi.resources.ResourceArgs
 
     public static final GetTagsFilterOrArgs Empty = new GetTagsFilterOrArgs();
 
-    /**
-     * Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
-     * 
-     */
     @Import(name="costCategory")
     private @Nullable Output<GetTagsFilterOrCostCategoryArgs> costCategory;
 
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
-     * 
-     */
     public Optional<Output<GetTagsFilterOrCostCategoryArgs>> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
 
-    /**
-     * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-     * 
-     */
     @Import(name="dimension")
     private @Nullable Output<GetTagsFilterOrDimensionArgs> dimension;
 
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-     * 
-     */
     public Optional<Output<GetTagsFilterOrDimensionArgs>> dimension() {
         return Optional.ofNullable(this.dimension);
     }
@@ -88,44 +72,20 @@ public final class GetTagsFilterOrArgs extends com.pulumi.resources.ResourceArgs
             $ = new GetTagsFilterOrArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder costCategory(@Nullable Output<GetTagsFilterOrCostCategoryArgs> costCategory) {
             $.costCategory = costCategory;
             return this;
         }
 
-        /**
-         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See `cost_category` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder costCategory(GetTagsFilterOrCostCategoryArgs costCategory) {
             return costCategory(Output.of(costCategory));
         }
 
-        /**
-         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimension(@Nullable Output<GetTagsFilterOrDimensionArgs> dimension) {
             $.dimension = dimension;
             return this;
         }
 
-        /**
-         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dimension(GetTagsFilterOrDimensionArgs dimension) {
             return dimension(Output.of(dimension));
         }

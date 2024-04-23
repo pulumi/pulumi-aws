@@ -14,18 +14,15 @@ import * as utilities from "../utilities";
  *
  * ### Get All Resource Tag Mappings
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.resourcegroupstaggingapi.getResources({});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter By Tag Key and Value
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,11 +37,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter By Resource Type
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,7 +48,6 @@ import * as utilities from "../utilities";
  *     resourceTypeFilters: ["ec2:instance"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcesResult> {
     args = args || {};
@@ -119,18 +113,15 @@ export interface GetResourcesResult {
  *
  * ### Get All Resource Tag Mappings
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.resourcegroupstaggingapi.getResources({});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter By Tag Key and Value
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -145,11 +136,9 @@ export interface GetResourcesResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter By Resource Type
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -158,7 +147,6 @@ export interface GetResourcesResult {
  *     resourceTypeFilters: ["ec2:instance"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResourcesOutput(args?: GetResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcesResult> {
     return pulumi.output(args).apply((a: any) => getResources(a, opts))

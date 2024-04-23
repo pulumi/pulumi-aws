@@ -20,7 +20,6 @@ import (
 //
 // ### Python Job
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,11 +49,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Ray Job
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,11 +86,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Scala Job
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -126,11 +121,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Streaming Job
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,11 +154,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Enabling CloudWatch Logs and Metrics
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -202,7 +193,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

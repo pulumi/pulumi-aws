@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse {
-    /**
-     * @return Instructs AWS WAF to allow the web request. See `allow` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow allow;
-    /**
-     * @return Instructs AWS WAF to block the web request. See `block` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock block;
-    /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha captcha;
-    /**
-     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge challenge;
-    /**
-     * @return Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount count;
 
     private WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse() {}
-    /**
-     * @return Instructs AWS WAF to allow the web request. See `allow` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow> allow() {
         return Optional.ofNullable(this.allow);
     }
-    /**
-     * @return Instructs AWS WAF to block the web request. See `block` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock> block() {
         return Optional.ofNullable(this.block);
     }
-    /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha> captcha() {
         return Optional.ofNullable(this.captcha);
     }
-    /**
-     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge> challenge() {
         return Optional.ofNullable(this.challenge);
     }
-    /**
-     * @return Instructs AWS WAF to count the web request and allow it. See `count` below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount> count() {
         return Optional.ofNullable(this.count);
     }

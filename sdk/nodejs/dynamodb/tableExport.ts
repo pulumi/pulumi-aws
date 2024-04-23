@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,11 +34,9 @@ import * as utilities from "../utilities";
  *     s3Bucket: example.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Example with export time
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,7 +47,6 @@ import * as utilities from "../utilities";
  *     tableArn: exampleAwsDynamodbTable.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

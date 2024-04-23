@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +18,6 @@ import * as utilities from "../utilities";
  *     version: "$LATEST",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIntent(args: GetIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetIntentResult> {
 
@@ -94,7 +92,6 @@ export interface GetIntentResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -104,7 +101,6 @@ export interface GetIntentResult {
  *     version: "$LATEST",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getIntentOutput(args: GetIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntentResult> {
     return pulumi.output(args).apply((a: any) => getIntent(a, opts))

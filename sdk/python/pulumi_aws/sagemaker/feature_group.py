@@ -372,7 +372,6 @@ class FeatureGroup(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -390,7 +389,6 @@ class FeatureGroup(pulumi.CustomResource):
                 enable_online_store=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -425,7 +423,6 @@ class FeatureGroup(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -443,7 +440,6 @@ class FeatureGroup(pulumi.CustomResource):
                 enable_online_store=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,7 +25,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> {
     args = args || {};
@@ -87,7 +85,6 @@ export interface GetInternetGatewayResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -101,7 +98,6 @@ export interface GetInternetGatewayResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInternetGatewayOutput(args?: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayResult> {
     return pulumi.output(args).apply((a: any) => getInternetGateway(a, opts))

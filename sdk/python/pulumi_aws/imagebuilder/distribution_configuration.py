@@ -249,7 +249,6 @@ class DistributionConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -272,7 +271,6 @@ class DistributionConfiguration(pulumi.CustomResource):
                 region="us-east-1",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -302,7 +300,6 @@ class DistributionConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,7 +322,6 @@ class DistributionConfiguration(pulumi.CustomResource):
                 region="us-east-1",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

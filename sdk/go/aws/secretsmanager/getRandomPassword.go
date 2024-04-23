@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetRandomPassword(ctx *pulumi.Context, args *GetRandomPasswordArgs, opts ...pulumi.InvokeOption) (*GetRandomPasswordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRandomPasswordResult

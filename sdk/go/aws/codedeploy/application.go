@@ -17,7 +17,6 @@ import (
 //
 // ### ECS Application
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,11 +41,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Lambda Application
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,11 +68,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Server Application
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -100,7 +95,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

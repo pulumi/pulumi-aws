@@ -256,7 +256,6 @@ class Connect(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,7 +268,6 @@ class Connect(pulumi.CustomResource):
             transport_attachment_id=example.id,
             transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -299,7 +297,6 @@ class Connect(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -312,7 +309,6 @@ class Connect(pulumi.CustomResource):
             transport_attachment_id=example.id,
             transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

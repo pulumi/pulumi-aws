@@ -154,7 +154,6 @@ class ConfigurationPolicy(pulumi.CustomResource):
 
         ### Default standards enabled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,11 +181,9 @@ class ConfigurationPolicy(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Disabled Policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,11 +196,9 @@ class ConfigurationPolicy(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Control Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,7 +252,6 @@ class ConfigurationPolicy(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -288,7 +282,6 @@ class ConfigurationPolicy(pulumi.CustomResource):
 
         ### Default standards enabled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,11 +309,9 @@ class ConfigurationPolicy(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Disabled Policy
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -333,11 +324,9 @@ class ConfigurationPolicy(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Custom Control Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,7 +380,6 @@ class ConfigurationPolicy(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

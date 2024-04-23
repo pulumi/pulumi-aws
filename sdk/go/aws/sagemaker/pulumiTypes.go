@@ -3159,11 +3159,11 @@ func (o DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsPtrOu
 }
 
 type DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output struct {
-	// Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
 	LocalPath *string `pulumi:"localPath"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
 	S3UploadMode *string `pulumi:"s3UploadMode"`
-	// The Amazon S3 URI for the constraints resource.
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -3179,11 +3179,11 @@ type DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output
 }
 
 type DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs struct {
-	// Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
 	LocalPath pulumi.StringPtrInput `pulumi:"localPath"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
 	S3UploadMode pulumi.StringPtrInput `pulumi:"s3UploadMode"`
-	// The Amazon S3 URI for the constraints resource.
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -3264,7 +3264,7 @@ func (o DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Out
 	}).(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputPtrOutput)
 }
 
-// Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
 func (o DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputOutput) LocalPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output) *string {
 		return v.LocalPath
@@ -3278,7 +3278,7 @@ func (o DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Out
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 URI for the constraints resource.
+// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output) string {
 		return v.S3Uri
@@ -3309,7 +3309,7 @@ func (o DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Out
 	}).(DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputOutput)
 }
 
-// Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
+// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
 func (o DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputPtrOutput) LocalPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output) *string {
 		if v == nil {
@@ -3329,7 +3329,7 @@ func (o DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Out
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 URI for the constraints resource.
+// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output) *string {
 		if v == nil {
@@ -13731,32 +13731,19 @@ func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) Provisi
 }
 
 type EndpointConfigurationShadowProductionVariant struct {
-	// The size of the Elastic Inference (EI) instance to use for the production variant.
-	AcceleratorType *string `pulumi:"acceleratorType"`
-	// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
-	ContainerStartupHealthCheckTimeoutInSeconds *int `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
-	CoreDumpConfig *EndpointConfigurationShadowProductionVariantCoreDumpConfig `pulumi:"coreDumpConfig"`
-	// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
-	EnableSsmAccess *bool `pulumi:"enableSsmAccess"`
-	// Initial number of instances used for auto-scaling.
-	InitialInstanceCount *int `pulumi:"initialInstanceCount"`
-	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
-	InitialVariantWeight *float64 `pulumi:"initialVariantWeight"`
-	// The type of instance to start.
-	InstanceType *string `pulumi:"instanceType"`
-	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
-	ModelDataDownloadTimeoutInSeconds *int `pulumi:"modelDataDownloadTimeoutInSeconds"`
-	// The name of the model to use.
-	ModelName string `pulumi:"modelName"`
-	// Sets how the endpoint routes incoming traffic. See routingConfig below.
-	RoutingConfigs []EndpointConfigurationShadowProductionVariantRoutingConfig `pulumi:"routingConfigs"`
-	// Specifies configuration for how an endpoint performs asynchronous inference.
-	ServerlessConfig *EndpointConfigurationShadowProductionVariantServerlessConfig `pulumi:"serverlessConfig"`
-	// The name of the variant. If omitted, this provider will assign a random, unique name.
-	VariantName *string `pulumi:"variantName"`
-	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
-	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
+	AcceleratorType                             *string                                                       `pulumi:"acceleratorType"`
+	ContainerStartupHealthCheckTimeoutInSeconds *int                                                          `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	CoreDumpConfig                              *EndpointConfigurationShadowProductionVariantCoreDumpConfig   `pulumi:"coreDumpConfig"`
+	EnableSsmAccess                             *bool                                                         `pulumi:"enableSsmAccess"`
+	InitialInstanceCount                        *int                                                          `pulumi:"initialInstanceCount"`
+	InitialVariantWeight                        *float64                                                      `pulumi:"initialVariantWeight"`
+	InstanceType                                *string                                                       `pulumi:"instanceType"`
+	ModelDataDownloadTimeoutInSeconds           *int                                                          `pulumi:"modelDataDownloadTimeoutInSeconds"`
+	ModelName                                   string                                                        `pulumi:"modelName"`
+	RoutingConfigs                              []EndpointConfigurationShadowProductionVariantRoutingConfig   `pulumi:"routingConfigs"`
+	ServerlessConfig                            *EndpointConfigurationShadowProductionVariantServerlessConfig `pulumi:"serverlessConfig"`
+	VariantName                                 *string                                                       `pulumi:"variantName"`
+	VolumeSizeInGb                              *int                                                          `pulumi:"volumeSizeInGb"`
 }
 
 // EndpointConfigurationShadowProductionVariantInput is an input type that accepts EndpointConfigurationShadowProductionVariantArgs and EndpointConfigurationShadowProductionVariantOutput values.
@@ -13771,32 +13758,19 @@ type EndpointConfigurationShadowProductionVariantInput interface {
 }
 
 type EndpointConfigurationShadowProductionVariantArgs struct {
-	// The size of the Elastic Inference (EI) instance to use for the production variant.
-	AcceleratorType pulumi.StringPtrInput `pulumi:"acceleratorType"`
-	// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
-	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
-	CoreDumpConfig EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrInput `pulumi:"coreDumpConfig"`
-	// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
-	EnableSsmAccess pulumi.BoolPtrInput `pulumi:"enableSsmAccess"`
-	// Initial number of instances used for auto-scaling.
-	InitialInstanceCount pulumi.IntPtrInput `pulumi:"initialInstanceCount"`
-	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
-	InitialVariantWeight pulumi.Float64PtrInput `pulumi:"initialVariantWeight"`
-	// The type of instance to start.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
-	ModelDataDownloadTimeoutInSeconds pulumi.IntPtrInput `pulumi:"modelDataDownloadTimeoutInSeconds"`
-	// The name of the model to use.
-	ModelName pulumi.StringInput `pulumi:"modelName"`
-	// Sets how the endpoint routes incoming traffic. See routingConfig below.
-	RoutingConfigs EndpointConfigurationShadowProductionVariantRoutingConfigArrayInput `pulumi:"routingConfigs"`
-	// Specifies configuration for how an endpoint performs asynchronous inference.
-	ServerlessConfig EndpointConfigurationShadowProductionVariantServerlessConfigPtrInput `pulumi:"serverlessConfig"`
-	// The name of the variant. If omitted, this provider will assign a random, unique name.
-	VariantName pulumi.StringPtrInput `pulumi:"variantName"`
-	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
-	VolumeSizeInGb pulumi.IntPtrInput `pulumi:"volumeSizeInGb"`
+	AcceleratorType                             pulumi.StringPtrInput                                                `pulumi:"acceleratorType"`
+	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput                                                   `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	CoreDumpConfig                              EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrInput   `pulumi:"coreDumpConfig"`
+	EnableSsmAccess                             pulumi.BoolPtrInput                                                  `pulumi:"enableSsmAccess"`
+	InitialInstanceCount                        pulumi.IntPtrInput                                                   `pulumi:"initialInstanceCount"`
+	InitialVariantWeight                        pulumi.Float64PtrInput                                               `pulumi:"initialVariantWeight"`
+	InstanceType                                pulumi.StringPtrInput                                                `pulumi:"instanceType"`
+	ModelDataDownloadTimeoutInSeconds           pulumi.IntPtrInput                                                   `pulumi:"modelDataDownloadTimeoutInSeconds"`
+	ModelName                                   pulumi.StringInput                                                   `pulumi:"modelName"`
+	RoutingConfigs                              EndpointConfigurationShadowProductionVariantRoutingConfigArrayInput  `pulumi:"routingConfigs"`
+	ServerlessConfig                            EndpointConfigurationShadowProductionVariantServerlessConfigPtrInput `pulumi:"serverlessConfig"`
+	VariantName                                 pulumi.StringPtrInput                                                `pulumi:"variantName"`
+	VolumeSizeInGb                              pulumi.IntPtrInput                                                   `pulumi:"volumeSizeInGb"`
 }
 
 func (EndpointConfigurationShadowProductionVariantArgs) ElementType() reflect.Type {
@@ -13850,75 +13824,62 @@ func (o EndpointConfigurationShadowProductionVariantOutput) ToEndpointConfigurat
 	return o
 }
 
-// The size of the Elastic Inference (EI) instance to use for the production variant.
 func (o EndpointConfigurationShadowProductionVariantOutput) AcceleratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *string { return v.AcceleratorType }).(pulumi.StringPtrOutput)
 }
 
-// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
 func (o EndpointConfigurationShadowProductionVariantOutput) ContainerStartupHealthCheckTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *int {
 		return v.ContainerStartupHealthCheckTimeoutInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
 func (o EndpointConfigurationShadowProductionVariantOutput) CoreDumpConfig() EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *EndpointConfigurationShadowProductionVariantCoreDumpConfig {
 		return v.CoreDumpConfig
 	}).(EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrOutput)
 }
 
-// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
 func (o EndpointConfigurationShadowProductionVariantOutput) EnableSsmAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *bool { return v.EnableSsmAccess }).(pulumi.BoolPtrOutput)
 }
 
-// Initial number of instances used for auto-scaling.
 func (o EndpointConfigurationShadowProductionVariantOutput) InitialInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *int { return v.InitialInstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
 func (o EndpointConfigurationShadowProductionVariantOutput) InitialVariantWeight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *float64 { return v.InitialVariantWeight }).(pulumi.Float64PtrOutput)
 }
 
-// The type of instance to start.
 func (o EndpointConfigurationShadowProductionVariantOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
 func (o EndpointConfigurationShadowProductionVariantOutput) ModelDataDownloadTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *int { return v.ModelDataDownloadTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The name of the model to use.
 func (o EndpointConfigurationShadowProductionVariantOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) string { return v.ModelName }).(pulumi.StringOutput)
 }
 
-// Sets how the endpoint routes incoming traffic. See routingConfig below.
 func (o EndpointConfigurationShadowProductionVariantOutput) RoutingConfigs() EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) []EndpointConfigurationShadowProductionVariantRoutingConfig {
 		return v.RoutingConfigs
 	}).(EndpointConfigurationShadowProductionVariantRoutingConfigArrayOutput)
 }
 
-// Specifies configuration for how an endpoint performs asynchronous inference.
 func (o EndpointConfigurationShadowProductionVariantOutput) ServerlessConfig() EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *EndpointConfigurationShadowProductionVariantServerlessConfig {
 		return v.ServerlessConfig
 	}).(EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput)
 }
 
-// The name of the variant. If omitted, this provider will assign a random, unique name.
 func (o EndpointConfigurationShadowProductionVariantOutput) VariantName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *string { return v.VariantName }).(pulumi.StringPtrOutput)
 }
 
-// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
 func (o EndpointConfigurationShadowProductionVariantOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *int { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
 }
@@ -14791,12 +14752,9 @@ func (o EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput) Index
 }
 
 type EndpointDeploymentConfigBlueGreenUpdatePolicy struct {
-	// Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
-	MaximumExecutionTimeoutInSeconds *int `pulumi:"maximumExecutionTimeoutInSeconds"`
-	// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
-	TerminationWaitInSeconds *int `pulumi:"terminationWaitInSeconds"`
-	// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
-	TrafficRoutingConfiguration EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration `pulumi:"trafficRoutingConfiguration"`
+	MaximumExecutionTimeoutInSeconds *int                                                                     `pulumi:"maximumExecutionTimeoutInSeconds"`
+	TerminationWaitInSeconds         *int                                                                     `pulumi:"terminationWaitInSeconds"`
+	TrafficRoutingConfiguration      EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration `pulumi:"trafficRoutingConfiguration"`
 }
 
 // EndpointDeploymentConfigBlueGreenUpdatePolicyInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyArgs and EndpointDeploymentConfigBlueGreenUpdatePolicyOutput values.
@@ -14811,12 +14769,9 @@ type EndpointDeploymentConfigBlueGreenUpdatePolicyInput interface {
 }
 
 type EndpointDeploymentConfigBlueGreenUpdatePolicyArgs struct {
-	// Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
-	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput `pulumi:"maximumExecutionTimeoutInSeconds"`
-	// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
-	TerminationWaitInSeconds pulumi.IntPtrInput `pulumi:"terminationWaitInSeconds"`
-	// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
-	TrafficRoutingConfiguration EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationInput `pulumi:"trafficRoutingConfiguration"`
+	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput                                                            `pulumi:"maximumExecutionTimeoutInSeconds"`
+	TerminationWaitInSeconds         pulumi.IntPtrInput                                                            `pulumi:"terminationWaitInSeconds"`
+	TrafficRoutingConfiguration      EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationInput `pulumi:"trafficRoutingConfiguration"`
 }
 
 func (EndpointDeploymentConfigBlueGreenUpdatePolicyArgs) ElementType() reflect.Type {
@@ -14896,17 +14851,14 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) ToEndpointDeploymen
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput)
 }
 
-// Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicy) *int { return v.MaximumExecutionTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) TerminationWaitInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicy) *int { return v.TerminationWaitInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) TrafficRoutingConfiguration() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicy) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
 		return v.TrafficRoutingConfiguration
@@ -14937,7 +14889,6 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) Elem() EndpointD
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyOutput)
 }
 
-// Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicy) *int {
 		if v == nil {
@@ -14947,7 +14898,6 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) MaximumExecution
 	}).(pulumi.IntPtrOutput)
 }
 
-// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) TerminationWaitInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicy) *int {
 		if v == nil {
@@ -14957,7 +14907,6 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) TerminationWaitI
 	}).(pulumi.IntPtrOutput)
 }
 
-// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) TrafficRoutingConfiguration() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicy) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
 		if v == nil {
@@ -16105,9 +16054,8 @@ func (o FeatureGroupFeatureDefinitionArrayOutput) Index(i pulumi.IntInput) Featu
 
 type FeatureGroupOfflineStoreConfig struct {
 	// The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
-	DataCatalogConfig *FeatureGroupOfflineStoreConfigDataCatalogConfig `pulumi:"dataCatalogConfig"`
-	// Set to `true` to turn Online Store On.
-	DisableGlueTableCreation *bool `pulumi:"disableGlueTableCreation"`
+	DataCatalogConfig        *FeatureGroupOfflineStoreConfigDataCatalogConfig `pulumi:"dataCatalogConfig"`
+	DisableGlueTableCreation *bool                                            `pulumi:"disableGlueTableCreation"`
 	// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
 	S3StorageConfig FeatureGroupOfflineStoreConfigS3StorageConfig `pulumi:"s3StorageConfig"`
 	// Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
@@ -16127,9 +16075,8 @@ type FeatureGroupOfflineStoreConfigInput interface {
 
 type FeatureGroupOfflineStoreConfigArgs struct {
 	// The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
-	DataCatalogConfig FeatureGroupOfflineStoreConfigDataCatalogConfigPtrInput `pulumi:"dataCatalogConfig"`
-	// Set to `true` to turn Online Store On.
-	DisableGlueTableCreation pulumi.BoolPtrInput `pulumi:"disableGlueTableCreation"`
+	DataCatalogConfig        FeatureGroupOfflineStoreConfigDataCatalogConfigPtrInput `pulumi:"dataCatalogConfig"`
+	DisableGlueTableCreation pulumi.BoolPtrInput                                     `pulumi:"disableGlueTableCreation"`
 	// The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
 	S3StorageConfig FeatureGroupOfflineStoreConfigS3StorageConfigInput `pulumi:"s3StorageConfig"`
 	// Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
@@ -16220,7 +16167,6 @@ func (o FeatureGroupOfflineStoreConfigOutput) DataCatalogConfig() FeatureGroupOf
 	}).(FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput)
 }
 
-// Set to `true` to turn Online Store On.
 func (o FeatureGroupOfflineStoreConfigOutput) DisableGlueTableCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfig) *bool { return v.DisableGlueTableCreation }).(pulumi.BoolPtrOutput)
 }
@@ -16271,7 +16217,6 @@ func (o FeatureGroupOfflineStoreConfigPtrOutput) DataCatalogConfig() FeatureGrou
 	}).(FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput)
 }
 
-// Set to `true` to turn Online Store On.
 func (o FeatureGroupOfflineStoreConfigPtrOutput) DisableGlueTableCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfig) *bool {
 		if v == nil {
@@ -16652,7 +16597,6 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) S3Uri() pulumi.S
 }
 
 type FeatureGroupOnlineStoreConfig struct {
-	// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
 	EnableOnlineStore *bool `pulumi:"enableOnlineStore"`
 	// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
 	SecurityConfig *FeatureGroupOnlineStoreConfigSecurityConfig `pulumi:"securityConfig"`
@@ -16674,7 +16618,6 @@ type FeatureGroupOnlineStoreConfigInput interface {
 }
 
 type FeatureGroupOnlineStoreConfigArgs struct {
-	// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
 	EnableOnlineStore pulumi.BoolPtrInput `pulumi:"enableOnlineStore"`
 	// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
 	SecurityConfig FeatureGroupOnlineStoreConfigSecurityConfigPtrInput `pulumi:"securityConfig"`
@@ -16761,7 +16704,6 @@ func (o FeatureGroupOnlineStoreConfigOutput) ToFeatureGroupOnlineStoreConfigPtrO
 	}).(FeatureGroupOnlineStoreConfigPtrOutput)
 }
 
-// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
 func (o FeatureGroupOnlineStoreConfigOutput) EnableOnlineStore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeatureGroupOnlineStoreConfig) *bool { return v.EnableOnlineStore }).(pulumi.BoolPtrOutput)
 }
@@ -16807,7 +16749,6 @@ func (o FeatureGroupOnlineStoreConfigPtrOutput) Elem() FeatureGroupOnlineStoreCo
 	}).(FeatureGroupOnlineStoreConfigOutput)
 }
 
-// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
 func (o FeatureGroupOnlineStoreConfigPtrOutput) EnableOnlineStore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfig) *bool {
 		if v == nil {
@@ -19208,7 +19149,6 @@ func (o ModelContainerModelDataSourceS3DataSourceArrayOutput) Index(i pulumi.Int
 }
 
 type ModelInferenceExecutionConfig struct {
-	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode string `pulumi:"mode"`
 }
 
@@ -19224,7 +19164,6 @@ type ModelInferenceExecutionConfigInput interface {
 }
 
 type ModelInferenceExecutionConfigArgs struct {
-	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode pulumi.StringInput `pulumi:"mode"`
 }
 
@@ -19305,7 +19244,6 @@ func (o ModelInferenceExecutionConfigOutput) ToModelInferenceExecutionConfigPtrO
 	}).(ModelInferenceExecutionConfigPtrOutput)
 }
 
-// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelInferenceExecutionConfigOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelInferenceExecutionConfig) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -19334,7 +19272,6 @@ func (o ModelInferenceExecutionConfigPtrOutput) Elem() ModelInferenceExecutionCo
 	}).(ModelInferenceExecutionConfigOutput)
 }
 
-// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelInferenceExecutionConfigPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelInferenceExecutionConfig) *string {
 		if v == nil {
@@ -19345,23 +19282,14 @@ func (o ModelInferenceExecutionConfigPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 type ModelPrimaryContainer struct {
-	// The DNS host name for the container.
-	ContainerHostname *string `pulumi:"containerHostname"`
-	// Environment variables for the Docker container.
-	// A list of key value pairs.
-	Environment map[string]string `pulumi:"environment"`
-	// The registry path where the inference code image is stored in Amazon ECR.
-	Image *string `pulumi:"image"`
-	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
-	ImageConfig *ModelPrimaryContainerImageConfig `pulumi:"imageConfig"`
-	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-	Mode *string `pulumi:"mode"`
-	// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
-	ModelDataSource *ModelPrimaryContainerModelDataSource `pulumi:"modelDataSource"`
-	// The URL for the S3 location where model artifacts are stored.
-	ModelDataUrl *string `pulumi:"modelDataUrl"`
-	// The Amazon Resource Name (ARN) of the model package to use to create the model.
-	ModelPackageName *string `pulumi:"modelPackageName"`
+	ContainerHostname *string                               `pulumi:"containerHostname"`
+	Environment       map[string]string                     `pulumi:"environment"`
+	Image             *string                               `pulumi:"image"`
+	ImageConfig       *ModelPrimaryContainerImageConfig     `pulumi:"imageConfig"`
+	Mode              *string                               `pulumi:"mode"`
+	ModelDataSource   *ModelPrimaryContainerModelDataSource `pulumi:"modelDataSource"`
+	ModelDataUrl      *string                               `pulumi:"modelDataUrl"`
+	ModelPackageName  *string                               `pulumi:"modelPackageName"`
 }
 
 // ModelPrimaryContainerInput is an input type that accepts ModelPrimaryContainerArgs and ModelPrimaryContainerOutput values.
@@ -19376,23 +19304,14 @@ type ModelPrimaryContainerInput interface {
 }
 
 type ModelPrimaryContainerArgs struct {
-	// The DNS host name for the container.
-	ContainerHostname pulumi.StringPtrInput `pulumi:"containerHostname"`
-	// Environment variables for the Docker container.
-	// A list of key value pairs.
-	Environment pulumi.StringMapInput `pulumi:"environment"`
-	// The registry path where the inference code image is stored in Amazon ECR.
-	Image pulumi.StringPtrInput `pulumi:"image"`
-	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
-	ImageConfig ModelPrimaryContainerImageConfigPtrInput `pulumi:"imageConfig"`
-	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
-	ModelDataSource ModelPrimaryContainerModelDataSourcePtrInput `pulumi:"modelDataSource"`
-	// The URL for the S3 location where model artifacts are stored.
-	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
-	// The Amazon Resource Name (ARN) of the model package to use to create the model.
-	ModelPackageName pulumi.StringPtrInput `pulumi:"modelPackageName"`
+	ContainerHostname pulumi.StringPtrInput                        `pulumi:"containerHostname"`
+	Environment       pulumi.StringMapInput                        `pulumi:"environment"`
+	Image             pulumi.StringPtrInput                        `pulumi:"image"`
+	ImageConfig       ModelPrimaryContainerImageConfigPtrInput     `pulumi:"imageConfig"`
+	Mode              pulumi.StringPtrInput                        `pulumi:"mode"`
+	ModelDataSource   ModelPrimaryContainerModelDataSourcePtrInput `pulumi:"modelDataSource"`
+	ModelDataUrl      pulumi.StringPtrInput                        `pulumi:"modelDataUrl"`
+	ModelPackageName  pulumi.StringPtrInput                        `pulumi:"modelPackageName"`
 }
 
 func (ModelPrimaryContainerArgs) ElementType() reflect.Type {
@@ -19472,43 +19391,34 @@ func (o ModelPrimaryContainerOutput) ToModelPrimaryContainerPtrOutputWithContext
 	}).(ModelPrimaryContainerPtrOutput)
 }
 
-// The DNS host name for the container.
 func (o ModelPrimaryContainerOutput) ContainerHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
 }
 
-// Environment variables for the Docker container.
-// A list of key value pairs.
 func (o ModelPrimaryContainerOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
-// The registry path where the inference code image is stored in Amazon ECR.
 func (o ModelPrimaryContainerOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 func (o ModelPrimaryContainerOutput) ImageConfig() ModelPrimaryContainerImageConfigPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *ModelPrimaryContainerImageConfig { return v.ImageConfig }).(ModelPrimaryContainerImageConfigPtrOutput)
 }
 
-// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelPrimaryContainerOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
 func (o ModelPrimaryContainerOutput) ModelDataSource() ModelPrimaryContainerModelDataSourcePtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *ModelPrimaryContainerModelDataSource { return v.ModelDataSource }).(ModelPrimaryContainerModelDataSourcePtrOutput)
 }
 
-// The URL for the S3 location where model artifacts are stored.
 func (o ModelPrimaryContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the model package to use to create the model.
 func (o ModelPrimaryContainerOutput) ModelPackageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelPackageName }).(pulumi.StringPtrOutput)
 }
@@ -19537,7 +19447,6 @@ func (o ModelPrimaryContainerPtrOutput) Elem() ModelPrimaryContainerOutput {
 	}).(ModelPrimaryContainerOutput)
 }
 
-// The DNS host name for the container.
 func (o ModelPrimaryContainerPtrOutput) ContainerHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -19547,8 +19456,6 @@ func (o ModelPrimaryContainerPtrOutput) ContainerHostname() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Environment variables for the Docker container.
-// A list of key value pairs.
 func (o ModelPrimaryContainerPtrOutput) Environment() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) map[string]string {
 		if v == nil {
@@ -19558,7 +19465,6 @@ func (o ModelPrimaryContainerPtrOutput) Environment() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// The registry path where the inference code image is stored in Amazon ECR.
 func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -19568,7 +19474,6 @@ func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 func (o ModelPrimaryContainerPtrOutput) ImageConfig() ModelPrimaryContainerImageConfigPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *ModelPrimaryContainerImageConfig {
 		if v == nil {
@@ -19578,7 +19483,6 @@ func (o ModelPrimaryContainerPtrOutput) ImageConfig() ModelPrimaryContainerImage
 	}).(ModelPrimaryContainerImageConfigPtrOutput)
 }
 
-// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelPrimaryContainerPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -19588,7 +19492,6 @@ func (o ModelPrimaryContainerPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
 func (o ModelPrimaryContainerPtrOutput) ModelDataSource() ModelPrimaryContainerModelDataSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *ModelPrimaryContainerModelDataSource {
 		if v == nil {
@@ -19598,7 +19501,6 @@ func (o ModelPrimaryContainerPtrOutput) ModelDataSource() ModelPrimaryContainerM
 	}).(ModelPrimaryContainerModelDataSourcePtrOutput)
 }
 
-// The URL for the S3 location where model artifacts are stored.
 func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -19608,7 +19510,6 @@ func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the model package to use to create the model.
 func (o ModelPrimaryContainerPtrOutput) ModelPackageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
 		if v == nil {
@@ -26470,8 +26371,7 @@ func (o UserProfileUserSettingsCustomPosixUserConfigPtrOutput) Uid() pulumi.IntP
 type UserProfileUserSettingsJupyterLabAppSettings struct {
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 	CodeRepositories []UserProfileUserSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
-	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-	CustomImages []UserProfileUserSettingsJupyterLabAppSettingsCustomImage `pulumi:"customImages"`
+	CustomImages     []UserProfileUserSettingsJupyterLabAppSettingsCustomImage    `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -26492,8 +26392,7 @@ type UserProfileUserSettingsJupyterLabAppSettingsInput interface {
 type UserProfileUserSettingsJupyterLabAppSettingsArgs struct {
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 	CodeRepositories UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
-	// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-	CustomImages UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayInput `pulumi:"customImages"`
+	CustomImages     UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayInput    `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -26584,7 +26483,6 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) CodeRepositories() U
 	}).(UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
 }
 
-// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) CustomImages() UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettings) []UserProfileUserSettingsJupyterLabAppSettingsCustomImage {
 		return v.CustomImages
@@ -26637,7 +26535,6 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) CodeRepositories(
 	}).(UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput)
 }
 
-// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
 func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) CustomImages() UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) []UserProfileUserSettingsJupyterLabAppSettingsCustomImage {
 		if v == nil {

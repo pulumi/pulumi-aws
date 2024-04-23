@@ -205,7 +205,6 @@ class V2modelsBotVersion(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,7 +217,6 @@ class V2modelsBotVersion(pulumi.CustomResource):
                 ),
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -250,7 +248,6 @@ class V2modelsBotVersion(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,7 +260,6 @@ class V2modelsBotVersion(pulumi.CustomResource):
                 ),
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

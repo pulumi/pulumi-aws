@@ -307,7 +307,6 @@ class AppMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,7 +315,6 @@ class AppMonitor(pulumi.CustomResource):
             name="example",
             domain="localhost")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -346,7 +344,6 @@ class AppMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -355,7 +352,6 @@ class AppMonitor(pulumi.CustomResource):
             name="example",
             domain="localhost")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

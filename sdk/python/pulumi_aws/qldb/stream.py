@@ -304,7 +304,6 @@ class Stream(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,7 +321,6 @@ class Stream(pulumi.CustomResource):
                 "example": "tag",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -345,7 +343,6 @@ class Stream(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -363,7 +360,6 @@ class Stream(pulumi.CustomResource):
                 "example": "tag",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param StreamArgs args: The arguments to use to populate this resource's properties.

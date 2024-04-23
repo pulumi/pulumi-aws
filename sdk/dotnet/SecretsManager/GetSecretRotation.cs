@@ -18,7 +18,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// ### Retrieve Secret Rotation Configuration
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSecretRotationResult> InvokeAsync(GetSecretRotationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretRotationResult>("aws:secretsmanager/getSecretRotation:getSecretRotation", args ?? new GetSecretRotationArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// ### Retrieve Secret Rotation Configuration
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSecretRotationResult> Invoke(GetSecretRotationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretRotationResult>("aws:secretsmanager/getSecretRotation:getSecretRotation", args ?? new GetSecretRotationInvokeArgs(), options.WithDefaults());

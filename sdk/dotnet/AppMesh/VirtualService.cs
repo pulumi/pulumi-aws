@@ -16,7 +16,6 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ### Virtual Node Provider
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,11 +42,9 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Virtual Router Provider
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,7 +71,6 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

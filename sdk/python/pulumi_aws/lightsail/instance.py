@@ -534,7 +534,6 @@ class Instance(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -550,13 +549,11 @@ class Instance(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example With User Data
 
         Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -568,11 +565,9 @@ class Instance(pulumi.CustomResource):
             bundle_id="nano_3_0",
             user_data="sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enable Auto Snapshots
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -591,7 +586,6 @@ class Instance(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -637,7 +631,6 @@ class Instance(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -653,13 +646,11 @@ class Instance(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example With User Data
 
         Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -671,11 +662,9 @@ class Instance(pulumi.CustomResource):
             bundle_id="nano_3_0",
             user_data="sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enable Auto Snapshots
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -694,7 +683,6 @@ class Instance(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

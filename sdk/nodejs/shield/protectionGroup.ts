@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ### Create protection group for all resources
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,11 +23,9 @@ import * as utilities from "../utilities";
  *     pattern: "ALL",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create protection group for arbitrary number of resources
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,11 +46,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleProtection],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create protection group for a type of resource
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,7 +60,6 @@ import * as utilities from "../utilities";
  *     resourceType: "ELASTIC_IP_ALLOCATION",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -207,10 +207,6 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
     def __init__(__self__, *,
                  classification: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[str] classification: The classification within a configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A set of properties specified within a configuration classification.
-        """
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
         if properties is not None:
@@ -219,9 +215,6 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
     @property
     @pulumi.getter
     def classification(self) -> Optional[pulumi.Input[str]]:
-        """
-        The classification within a configuration.
-        """
         return pulumi.get(self, "classification")
 
     @classification.setter
@@ -231,9 +224,6 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
     @property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A set of properties specified within a configuration classification.
-        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -566,18 +556,12 @@ class VirtualClusterContainerProviderInfoArgs:
 class VirtualClusterContainerProviderInfoEksInfoArgs:
     def __init__(__self__, *,
                  namespace: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] namespace: The namespace where the EMR Containers cluster is running
-        """
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
-        """
-        The namespace where the EMR Containers cluster is running
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter

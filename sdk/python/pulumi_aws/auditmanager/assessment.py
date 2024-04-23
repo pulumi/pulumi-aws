@@ -345,7 +345,6 @@ class Assessment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -370,7 +369,6 @@ class Assessment(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -405,7 +403,6 @@ class Assessment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -430,7 +427,6 @@ class Assessment(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

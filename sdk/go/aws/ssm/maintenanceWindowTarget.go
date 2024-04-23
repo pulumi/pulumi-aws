@@ -18,7 +18,6 @@ import (
 //
 // ### Instance Target
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,11 +61,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Resource Group Target
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,7 +107,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

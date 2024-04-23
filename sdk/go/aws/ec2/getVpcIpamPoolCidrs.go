@@ -19,7 +19,6 @@ import (
 //
 // Basic usage:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,7 +61,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Filtering:
 func GetVpcIpamPoolCidrs(ctx *pulumi.Context, args *GetVpcIpamPoolCidrsArgs, opts ...pulumi.InvokeOption) (*GetVpcIpamPoolCidrsResult, error) {

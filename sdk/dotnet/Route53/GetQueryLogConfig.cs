@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,9 +31,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetQueryLogConfigResult> InvokeAsync(GetQueryLogConfigArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueryLogConfigResult>("aws:route53/getQueryLogConfig:getQueryLogConfig", args ?? new GetQueryLogConfigArgs(), options.WithDefaults());
@@ -78,7 +74,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -94,9 +89,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -130,7 +123,6 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetQueryLogConfigResult> Invoke(GetQueryLogConfigInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueryLogConfigResult>("aws:route53/getQueryLogConfig:getQueryLogConfig", args ?? new GetQueryLogConfigInvokeArgs(), options.WithDefaults());

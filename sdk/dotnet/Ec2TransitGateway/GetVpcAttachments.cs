@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// ### By Filter
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcAttachmentsResult> InvokeAsync(GetVpcAttachmentsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcAttachmentsResult>("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args ?? new GetVpcAttachmentsArgs(), options.WithDefaults());
@@ -58,7 +56,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// ### By Filter
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -86,7 +83,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcAttachmentsResult> Invoke(GetVpcAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcAttachmentsResult>("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args ?? new GetVpcAttachmentsInvokeArgs(), options.WithDefaults());

@@ -106,7 +106,6 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -135,7 +134,6 @@ class RolePolicyAttachment(pulumi.CustomResource):
             role=role.name,
             policy_arn=policy_policy.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -165,7 +163,6 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -194,7 +191,6 @@ class RolePolicyAttachment(pulumi.CustomResource):
             role=role.name,
             policy_arn=policy_policy.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

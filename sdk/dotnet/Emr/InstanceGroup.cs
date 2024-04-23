@@ -19,7 +19,6 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.Emr
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -72,7 +70,6 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -102,7 +99,6 @@ namespace Pulumi.Aws.Emr
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Output("configurationsJson")]
         public Output<string?> ConfigurationsJson { get; private set; } = null!;
@@ -216,7 +212,6 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -246,7 +241,6 @@ namespace Pulumi.Aws.Emr
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("configurationsJson")]
         public Input<string>? ConfigurationsJson { get; set; }
@@ -316,7 +310,6 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -346,7 +339,6 @@ namespace Pulumi.Aws.Emr
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("configurationsJson")]
         public Input<string>? ConfigurationsJson { get; set; }

@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Signer.Outputs
     [OutputType]
     public sealed class SigningJobSignedObjectS3
     {
-        /// <summary>
-        /// Name of the S3 bucket.
-        /// </summary>
         public readonly string? Bucket;
-        /// <summary>
-        /// Key name of the object that contains your unsigned code.
-        /// </summary>
         public readonly string? Key;
 
         [OutputConstructor]

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode {
-    /**
-     * @return The access token used to access the connector on your behalf.
-     * 
-     */
     private @Nullable String accessToken;
-    /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest oauthRequest;
-    /**
-     * @return The refresh token used to refresh an expired access token.
-     * 
-     */
     private @Nullable String refreshToken;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode() {}
-    /**
-     * @return The access token used to access the connector on your behalf.
-     * 
-     */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
-    /**
-     * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
-    /**
-     * @return The refresh token used to refresh an expired access token.
-     * 
-     */
     public Optional<String> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }

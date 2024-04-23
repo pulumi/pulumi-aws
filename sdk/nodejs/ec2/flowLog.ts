@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ### CloudWatch Logging
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,11 +59,9 @@ import * as utilities from "../utilities";
  *     policy: example.then(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### S3 Logging
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,11 +74,9 @@ import * as utilities from "../utilities";
  *     vpcId: exampleAwsVpc.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### S3 Logging in Apache Parquet format with per-hour partitions
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,7 +93,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

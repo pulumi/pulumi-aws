@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,11 +46,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Usage with SSM Contact
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,11 +84,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Usage With All Fields
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,7 +156,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -241,7 +241,7 @@ class CustomLogSourceConfigurationCrawlerConfiguration(dict):
     def __init__(__self__, *,
                  role_arn: str):
         """
-        :param str role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        :param str role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
         """
         pulumi.set(__self__, "role_arn", role_arn)
 
@@ -249,7 +249,7 @@ class CustomLogSourceConfigurationCrawlerConfiguration(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
         """
         return pulumi.get(self, "role_arn")
 
@@ -276,27 +276,17 @@ class CustomLogSourceConfigurationProviderIdentity(dict):
     def __init__(__self__, *,
                  external_id: str,
                  principal: str):
-        """
-        :param str external_id: The external ID used to estalish trust relationship with the AWS identity.
-        :param str principal: The AWS identity principal.
-        """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "principal", principal)
 
     @property
     @pulumi.getter(name="externalId")
     def external_id(self) -> str:
-        """
-        The external ID used to estalish trust relationship with the AWS identity.
-        """
         return pulumi.get(self, "external_id")
 
     @property
     @pulumi.getter
     def principal(self) -> str:
-        """
-        The AWS identity principal.
-        """
         return pulumi.get(self, "principal")
 
 
@@ -324,7 +314,7 @@ class CustomLogSourceProviderDetail(dict):
                  role_arn: str):
         """
         :param str location: The location of the partition in the Amazon S3 bucket for Security Lake.
-        :param str role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        :param str role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -341,7 +331,7 @@ class CustomLogSourceProviderDetail(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+        The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
         """
         return pulumi.get(self, "role_arn")
 

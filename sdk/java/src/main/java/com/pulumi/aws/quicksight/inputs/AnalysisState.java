@@ -37,14 +37,14 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * ARN of the analysis.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource.
+     * @return ARN of the analysis.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -310,7 +310,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the resource.
+         * @param arn ARN of the analysis.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the resource.
+         * @param arn ARN of the analysis.
          * 
          * @return builder
          * 

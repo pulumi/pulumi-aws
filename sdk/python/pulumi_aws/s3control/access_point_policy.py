@@ -120,7 +120,6 @@ class AccessPointPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -150,7 +149,6 @@ class AccessPointPolicy(pulumi.CustomResource):
                 }],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -178,7 +176,6 @@ class AccessPointPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -208,7 +205,6 @@ class AccessPointPolicy(pulumi.CustomResource):
                 }],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

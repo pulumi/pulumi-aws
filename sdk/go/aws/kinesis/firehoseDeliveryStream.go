@@ -20,7 +20,6 @@ import (
 //
 // ### Extended S3 Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -149,13 +148,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Extended S3 Destination with dynamic partitioning
 //
 // These examples use built-in Firehose functionality, rather than requiring a lambda.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -220,13 +217,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameterValue`.
 //
 // The following example adds the Dynamic Partitioning Keys: `storeId` and `customerId` to the S3 prefix.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -279,11 +274,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Redshift Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -350,11 +343,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Elasticsearch Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -415,11 +406,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Elasticsearch Destination With VPC
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -536,11 +525,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### OpenSearch Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -600,11 +587,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### OpenSearch Destination With VPC
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -723,11 +708,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### OpenSearch Serverless Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -787,11 +770,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Splunk Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -830,11 +811,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### HTTP Endpoint (e.g., New Relic) Destination
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -888,7 +867,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -935,9 +913,8 @@ type FirehoseDeliveryStream struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Specifies the table version for the output data schema. Defaults to `LATEST`.
-	VersionId pulumi.StringOutput `pulumi:"versionId"`
+	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
+	VersionId pulumi.StringOutput    `pulumi:"versionId"`
 }
 
 // NewFirehoseDeliveryStream registers a new resource with the given unique name, arguments, and options.
@@ -1007,9 +984,8 @@ type firehoseDeliveryStreamState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Specifies the table version for the output data schema. Defaults to `LATEST`.
-	VersionId *string `pulumi:"versionId"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
+	VersionId *string           `pulumi:"versionId"`
 }
 
 type FirehoseDeliveryStreamState struct {
@@ -1047,8 +1023,7 @@ type FirehoseDeliveryStreamState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
-	// Specifies the table version for the output data schema. Defaults to `LATEST`.
+	TagsAll   pulumi.StringMapInput
 	VersionId pulumi.StringPtrInput
 }
 
@@ -1087,9 +1062,8 @@ type firehoseDeliveryStreamArgs struct {
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the table version for the output data schema. Defaults to `LATEST`.
-	VersionId *string `pulumi:"versionId"`
+	Tags      map[string]string `pulumi:"tags"`
+	VersionId *string           `pulumi:"versionId"`
 }
 
 // The set of arguments for constructing a FirehoseDeliveryStream resource.
@@ -1124,8 +1098,7 @@ type FirehoseDeliveryStreamArgs struct {
 	// Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Specifies the table version for the output data schema. Defaults to `LATEST`.
+	Tags      pulumi.StringMapInput
 	VersionId pulumi.StringPtrInput
 }
 
@@ -1319,7 +1292,6 @@ func (o FirehoseDeliveryStreamOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Specifies the table version for the output data schema. Defaults to `LATEST`.
 func (o FirehoseDeliveryStreamOutput) VersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.VersionId }).(pulumi.StringOutput)
 }

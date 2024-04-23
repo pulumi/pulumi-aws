@@ -18,7 +18,6 @@ import (
 //
 // ### For a Firewall Policy resource
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,11 +66,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### For a Rule Group resource
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -119,7 +116,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

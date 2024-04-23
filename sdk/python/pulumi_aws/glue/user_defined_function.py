@@ -299,7 +299,6 @@ class UserDefinedFunction(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,7 +316,6 @@ class UserDefinedFunction(pulumi.CustomResource):
                 uri="uri",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -348,7 +346,6 @@ class UserDefinedFunction(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -366,7 +363,6 @@ class UserDefinedFunction(pulumi.CustomResource):
                 uri="uri",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

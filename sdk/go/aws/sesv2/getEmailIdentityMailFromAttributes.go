@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,7 +46,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupEmailIdentityMailFromAttributes(ctx *pulumi.Context, args *LookupEmailIdentityMailFromAttributesArgs, opts ...pulumi.InvokeOption) (*LookupEmailIdentityMailFromAttributesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEmailIdentityMailFromAttributesResult

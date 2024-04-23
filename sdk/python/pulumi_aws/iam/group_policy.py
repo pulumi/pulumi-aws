@@ -178,7 +178,6 @@ class GroupPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -199,7 +198,6 @@ class GroupPolicy(pulumi.CustomResource):
                 }],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -231,7 +229,6 @@ class GroupPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -252,7 +249,6 @@ class GroupPolicy(pulumi.CustomResource):
                 }],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

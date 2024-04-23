@@ -119,7 +119,6 @@ class TopicRuleDestination(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -131,7 +130,6 @@ class TopicRuleDestination(pulumi.CustomResource):
             vpc_id=example_aws_vpc["id"],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -155,7 +153,6 @@ class TopicRuleDestination(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -167,7 +164,6 @@ class TopicRuleDestination(pulumi.CustomResource):
             vpc_id=example_aws_vpc["id"],
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

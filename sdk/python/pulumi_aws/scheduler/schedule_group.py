@@ -227,14 +227,12 @@ class ScheduleGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.scheduler.ScheduleGroup("example", name="my-schedule-group")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -265,14 +263,12 @@ class ScheduleGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.scheduler.ScheduleGroup("example", name="my-schedule-group")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

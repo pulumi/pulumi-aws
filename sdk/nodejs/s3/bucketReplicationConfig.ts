@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * ### Using replication configuration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -111,11 +110,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [sourceBucketVersioningV2],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Bi-Directional Replication
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -170,7 +167,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [westBucketVersioningV2],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

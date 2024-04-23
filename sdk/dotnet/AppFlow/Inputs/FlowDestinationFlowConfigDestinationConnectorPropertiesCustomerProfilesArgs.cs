@@ -12,15 +12,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Unique name of the Amazon Connect Customer Profiles domain.
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// Object specified in the Amazon Connect Customer Profiles flow destination.
-        /// </summary>
         [Input("objectTypeName")]
         public Input<string>? ObjectTypeName { get; set; }
 

@@ -26,7 +26,6 @@ import (
 //
 // ### Basic Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,11 +97,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Lambda Layers
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -132,13 +129,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Lambda Ephemeral Storage
 //
 // Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -198,13 +193,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Lambda File Systems
 //
 // Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -282,7 +275,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Lambda retries
 //
@@ -292,7 +284,6 @@ import (
 //
 // For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -376,7 +367,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Specifying the Deployment Package
 //
@@ -398,7 +388,7 @@ type Function struct {
 
 	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
 	Architectures pulumi.StringArrayOutput `pulumi:"architectures"`
-	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+	// Amazon Resource Name (ARN) identifying your Lambda Function.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.ArchiveOutput `pulumi:"code"`
@@ -527,7 +517,7 @@ func GetFunction(ctx *pulumi.Context,
 type functionState struct {
 	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
 	Architectures []string `pulumi:"architectures"`
-	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+	// Amazon Resource Name (ARN) identifying your Lambda Function.
 	Arn *string `pulumi:"arn"`
 	// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.Archive `pulumi:"code"`
@@ -624,7 +614,7 @@ type functionState struct {
 type FunctionState struct {
 	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
 	Architectures pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+	// Amazon Resource Name (ARN) identifying your Lambda Function.
 	Arn pulumi.StringPtrInput
 	// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.ArchiveInput
@@ -965,7 +955,7 @@ func (o FunctionOutput) Architectures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.Architectures }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+// Amazon Resource Name (ARN) identifying your Lambda Function.
 func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

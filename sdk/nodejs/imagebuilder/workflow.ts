@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,17 +38,16 @@ import * as utilities from "../utilities";
  *     action: TerminateInstance
  *     onFailure: Continue
  *     inputs:
- *       instanceId.$: "$.stepOutputs.LaunchTestInstance.instanceId"
+ *       instanceId.: ".stepOutputs.LaunchTestInstance.instanceId"
  *
  *   - name: WaitForActionAtEnd
  *     action: WaitForAction
  *     if:
  *       booleanEquals: true
- *       value: "$.parameters.waitForActionAtEnd"
+ *       value: ".parameters.waitForActionAtEnd"
  * `,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

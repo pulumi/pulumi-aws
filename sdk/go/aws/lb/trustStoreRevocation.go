@@ -18,7 +18,6 @@ import (
 //
 // ### Trust Store With Revocations
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,7 +51,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * By instanceAlias
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,11 +19,9 @@ import * as utilities from "../utilities";
  *     instanceAlias: "foo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * By instanceId
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,7 +30,6 @@ import * as utilities from "../utilities";
  *     instanceId: "97afc98d-101a-ba98-ab97-ae114fc115ec",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     args = args || {};
@@ -122,7 +118,6 @@ export interface GetInstanceResult {
  *
  * By instanceAlias
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -131,11 +126,9 @@ export interface GetInstanceResult {
  *     instanceAlias: "foo",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * By instanceId
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -144,7 +137,6 @@ export interface GetInstanceResult {
  *     instanceId: "97afc98d-101a-ba98-ab97-ae114fc115ec",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
     return pulumi.output(args).apply((a: any) => getInstance(a, opts))

@@ -206,14 +206,12 @@ def get_listener(listener_identifier: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.vpclattice.get_listener()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str listener_identifier: ID or Amazon Resource Name (ARN) of the listener
@@ -256,14 +254,12 @@ def get_listener_output(listener_identifier: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.vpclattice.get_listener()
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str listener_identifier: ID or Amazon Resource Name (ARN) of the listener

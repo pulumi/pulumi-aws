@@ -243,7 +243,6 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -255,11 +254,9 @@ class Cluster(pulumi.CustomResource):
                 value="enabled",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example with Log Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,7 +278,6 @@ class Cluster(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -310,7 +306,6 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,11 +317,9 @@ class Cluster(pulumi.CustomResource):
                 value="enabled",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example with Log Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -348,7 +341,6 @@ class Cluster(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

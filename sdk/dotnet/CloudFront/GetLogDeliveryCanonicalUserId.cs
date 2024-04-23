@@ -17,7 +17,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,7 +54,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLogDeliveryCanonicalUserIdResult> InvokeAsync(GetLogDeliveryCanonicalUserIdArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args ?? new GetLogDeliveryCanonicalUserIdArgs(), options.WithDefaults());
@@ -66,7 +64,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -104,7 +101,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLogDeliveryCanonicalUserIdResult> Invoke(GetLogDeliveryCanonicalUserIdInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args ?? new GetLogDeliveryCanonicalUserIdInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     version: "2.8.0",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKafkaVersion(args?: GetKafkaVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaVersionResult> {
     args = args || {};
@@ -71,7 +69,6 @@ export interface GetKafkaVersionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -87,7 +84,6 @@ export interface GetKafkaVersionResult {
  *     version: "2.8.0",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getKafkaVersionOutput(args?: GetKafkaVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaVersionResult> {
     return pulumi.output(args).apply((a: any) => getKafkaVersion(a, opts))

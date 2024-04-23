@@ -248,7 +248,6 @@ class ResourceLfTag(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -262,7 +261,6 @@ class ResourceLfTag(pulumi.CustomResource):
                 value="stowe",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -293,7 +291,6 @@ class ResourceLfTag(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,7 +304,6 @@ class ResourceLfTag(pulumi.CustomResource):
                 value="stowe",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

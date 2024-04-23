@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smbActiveDirectorySettings` in the `aws.storagegateway.Gateway` resource.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,13 +27,11 @@ import * as utilities from "../utilities";
  *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Guest Authentication
  *
  * > **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smbGuestPassword` in the `aws.storagegateway.Gateway` resource.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,7 +43,6 @@ import * as utilities from "../utilities";
  *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

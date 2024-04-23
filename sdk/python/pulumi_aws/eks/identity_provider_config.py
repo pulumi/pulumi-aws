@@ -191,7 +191,6 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -204,7 +203,6 @@ class IdentityProviderConfig(pulumi.CustomResource):
                 issuer_url="your issuer_url",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -231,7 +229,6 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,7 +241,6 @@ class IdentityProviderConfig(pulumi.CustomResource):
                 issuer_url="your issuer_url",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

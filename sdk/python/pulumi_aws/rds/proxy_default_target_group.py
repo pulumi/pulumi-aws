@@ -139,7 +139,6 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -173,7 +172,6 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
                 session_pinning_filters=["EXCLUDE_VARIABLE_SETS"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -201,7 +199,6 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,7 +232,6 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
                 session_pinning_filters=["EXCLUDE_VARIABLE_SETS"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -18,7 +18,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,13 +41,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Default Configuration
 //
 // By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,7 +75,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **NOTE:** If an `emr.BlockPublicAccessConfiguration` resource is destroyed, the configuration will reset to this default configuration.
 //
@@ -86,7 +82,6 @@ import (
 //
 // The resource permits specification of multiple `permittedPublicSecurityGroupRuleRange` blocks.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -120,13 +115,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Disabling Block Public Access
 //
 // To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this resource.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -150,7 +143,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

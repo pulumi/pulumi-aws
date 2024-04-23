@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### By Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +25,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### By Identifier
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,7 +36,6 @@ import * as utilities from "../utilities";
  *     id: "tgw-attach-12345678",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringAttachmentResult> {
     args = args || {};
@@ -106,7 +102,6 @@ export interface GetPeeringAttachmentResult {
  *
  * ### By Filter
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -118,11 +113,9 @@ export interface GetPeeringAttachmentResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### By Identifier
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -131,7 +124,6 @@ export interface GetPeeringAttachmentResult {
  *     id: "tgw-attach-12345678",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPeeringAttachmentOutput(args?: GetPeeringAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getPeeringAttachment(a, opts))

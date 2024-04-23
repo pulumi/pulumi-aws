@@ -19,7 +19,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,13 +67,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Ignoring Changes to Desired Count
 //
 // You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,11 +95,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Daemon Scheduling Strategy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -129,11 +124,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### CloudWatch Deployment Alarms
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -165,11 +158,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### External Deployment Controller
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -197,7 +188,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

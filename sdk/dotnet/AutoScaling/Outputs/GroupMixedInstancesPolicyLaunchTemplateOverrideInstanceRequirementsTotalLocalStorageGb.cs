@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb
     {
-        /// <summary>
-        /// Maximum.
-        /// </summary>
         public readonly double? Max;
-        /// <summary>
-        /// Minimum.
-        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

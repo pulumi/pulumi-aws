@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleSharedDirectoryAccepter = new aws.directoryservice.SharedDirectoryAccepter("example", {sharedDirectoryId: example.sharedDirectoryId});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

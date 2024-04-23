@@ -41,14 +41,14 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return this.applicationIntegrationUrl;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * The ARN of the WAF WebACL.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * @return The ARN of the WAF WebACL.
      * 
      */
     public Output<String> arn() {

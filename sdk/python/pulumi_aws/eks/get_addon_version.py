@@ -92,7 +92,6 @@ def get_addon_version(addon_name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -109,7 +108,6 @@ def get_addon_version(addon_name: Optional[str] = None,
     pulumi.export("default", default.version)
     pulumi.export("latest", latest.version)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str addon_name: Name of the EKS add-on. The name must match one of
@@ -142,7 +140,6 @@ def get_addon_version_output(addon_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -159,7 +156,6 @@ def get_addon_version_output(addon_name: Optional[pulumi.Input[str]] = None,
     pulumi.export("default", default.version)
     pulumi.export("latest", latest.version)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str addon_name: Name of the EKS add-on. The name must match one of

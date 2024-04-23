@@ -209,7 +209,6 @@ class Ingestion(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -219,7 +218,6 @@ class Ingestion(pulumi.CustomResource):
             ingestion_id="example-id",
             ingestion_type="FULL_REFRESH")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -251,7 +249,6 @@ class Ingestion(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -261,7 +258,6 @@ class Ingestion(pulumi.CustomResource):
             ingestion_id="example-id",
             ingestion_type="FULL_REFRESH")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

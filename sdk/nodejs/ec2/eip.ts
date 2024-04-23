@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ### Single EIP associated with an instance
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,11 +24,9 @@ import * as utilities from "../utilities";
  *     domain: "vpc",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Multiple EIPs associated with a single network interface
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,11 +49,9 @@ import * as utilities from "../utilities";
  *     associateWithPrivateIp: "10.0.0.11",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -87,11 +82,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [gw],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Allocating EIP from the BYOIP pool
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -101,7 +94,6 @@ import * as utilities from "../utilities";
  *     publicIpv4Pool: "ipv4pool-ec2-012345",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -49,7 +48,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcPeeringConnectionResult> InvokeAsync(GetVpcPeeringConnectionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? new GetVpcPeeringConnectionArgs(), options.WithDefaults());
@@ -60,7 +58,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -92,7 +89,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcPeeringConnectionResult> Invoke(GetVpcPeeringConnectionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcPeeringConnectionResult>("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args ?? new GetVpcPeeringConnectionInvokeArgs(), options.WithDefaults());

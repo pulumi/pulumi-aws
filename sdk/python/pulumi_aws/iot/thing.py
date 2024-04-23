@@ -185,7 +185,6 @@ class Thing(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,7 +195,6 @@ class Thing(pulumi.CustomResource):
                 "First": "examplevalue",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -223,7 +221,6 @@ class Thing(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,7 +231,6 @@ class Thing(pulumi.CustomResource):
                 "First": "examplevalue",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

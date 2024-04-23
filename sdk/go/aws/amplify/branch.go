@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,11 +51,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Basic Authentication
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,13 +93,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Notifications
 //
 // Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enableNotification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -251,7 +246,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

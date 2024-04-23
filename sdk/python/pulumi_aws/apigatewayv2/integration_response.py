@@ -236,7 +236,6 @@ class IntegrationResponse(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,7 +245,6 @@ class IntegrationResponse(pulumi.CustomResource):
             integration_id=example_aws_apigatewayv2_integration["id"],
             integration_response_key="/200/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -279,7 +277,6 @@ class IntegrationResponse(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,7 +286,6 @@ class IntegrationResponse(pulumi.CustomResource):
             integration_id=example_aws_apigatewayv2_integration["id"],
             integration_response_key="/200/")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

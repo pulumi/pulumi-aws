@@ -332,7 +332,6 @@ class Configuration(pulumi.CustomResource):
 
         ### ActiveMQ
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,11 +351,9 @@ class Configuration(pulumi.CustomResource):
         </broker>
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### RabbitMQ
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -370,7 +367,6 @@ class Configuration(pulumi.CustomResource):
         consumer_timeout = 1800000
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -407,7 +403,6 @@ class Configuration(pulumi.CustomResource):
 
         ### ActiveMQ
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -427,11 +422,9 @@ class Configuration(pulumi.CustomResource):
         </broker>
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### RabbitMQ
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,7 +438,6 @@ class Configuration(pulumi.CustomResource):
         consumer_timeout = 1800000
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -29,7 +29,6 @@ namespace Pulumi.Aws
         /// The following example shows how this data source might be used to derive
         /// VPC and subnet CIDR prefixes systematically for an availability zone.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -94,7 +93,6 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAvailabilityZoneResult> InvokeAsync(GetAvailabilityZoneArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? new GetAvailabilityZoneArgs(), options.WithDefaults());
@@ -117,7 +115,6 @@ namespace Pulumi.Aws
         /// The following example shows how this data source might be used to derive
         /// VPC and subnet CIDR prefixes systematically for an availability zone.
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -182,7 +179,6 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAvailabilityZoneResult> Invoke(GetAvailabilityZoneInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? new GetAvailabilityZoneInvokeArgs(), options.WithDefaults());

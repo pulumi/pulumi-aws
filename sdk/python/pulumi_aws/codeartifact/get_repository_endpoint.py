@@ -102,7 +102,6 @@ def get_repository_endpoint(domain: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -111,7 +110,6 @@ def get_repository_endpoint(domain: Optional[str] = None,
         repository=test_aws_codeartifact_repository["repository"],
         format="npm")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain: Name of the domain that contains the repository.
@@ -147,7 +145,6 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,7 +153,6 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[str]] = None,
         repository=test_aws_codeartifact_repository["repository"],
         format="npm")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str domain: Name of the domain that contains the repository.

@@ -442,7 +442,6 @@ class Application(pulumi.CustomResource):
 
         ### Apache Flink Application
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -504,11 +503,9 @@ class Application(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SQL Application
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -608,11 +605,9 @@ class Application(pulumi.CustomResource):
                 log_stream_arn=example_log_stream.arn,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### VPC Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -645,7 +640,6 @@ class Application(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -683,7 +677,6 @@ class Application(pulumi.CustomResource):
 
         ### Apache Flink Application
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -745,11 +738,9 @@ class Application(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SQL Application
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -849,11 +840,9 @@ class Application(pulumi.CustomResource):
                 log_stream_arn=example_log_stream.arn,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### VPC Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -886,7 +875,6 @@ class Application(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

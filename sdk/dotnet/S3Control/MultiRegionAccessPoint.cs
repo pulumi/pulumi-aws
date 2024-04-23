@@ -18,7 +18,6 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ### Multiple AWS Buckets in Different Regions
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,7 +57,6 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

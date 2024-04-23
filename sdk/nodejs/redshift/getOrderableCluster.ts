@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOrderableCluster(args?: GetOrderableClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableClusterResult> {
     args = args || {};
@@ -80,7 +78,6 @@ export interface GetOrderableClusterResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -93,7 +90,6 @@ export interface GetOrderableClusterResult {
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOrderableClusterOutput(args?: GetOrderableClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableClusterResult> {
     return pulumi.output(args).apply((a: any) => getOrderableCluster(a, opts))

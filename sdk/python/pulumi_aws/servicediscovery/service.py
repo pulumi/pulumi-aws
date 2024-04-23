@@ -375,7 +375,6 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -402,9 +401,7 @@ class Service(pulumi.CustomResource):
                 failure_threshold=1,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -427,7 +424,6 @@ class Service(pulumi.CustomResource):
                 type="HTTP",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -460,7 +456,6 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -487,9 +482,7 @@ class Service(pulumi.CustomResource):
                 failure_threshold=1,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -512,7 +505,6 @@ class Service(pulumi.CustomResource):
                 type="HTTP",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

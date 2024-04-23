@@ -14,13 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping
     {
         public readonly int CaptionChannel;
-        /// <summary>
-        /// Selects a specific three-letter language code from within an audio source.
-        /// </summary>
         public readonly string LanguageCode;
-        /// <summary>
-        /// Human readable information to indicate captions available for players (eg. English, or Spanish).
-        /// </summary>
         public readonly string LanguageDescription;
 
         [OutputConstructor]

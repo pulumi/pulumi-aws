@@ -11,14 +11,12 @@ import * as utilities from "../utilities";
  *
  * Usage:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.ServicecatalogPortfolioStatus("example", {status: "Enabled"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

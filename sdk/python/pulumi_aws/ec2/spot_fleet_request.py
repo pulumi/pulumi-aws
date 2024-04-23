@@ -1031,7 +1031,6 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         ### Using launch specifications
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1070,11 +1069,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using launch templates
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1097,14 +1094,12 @@ class SpotFleetRequest(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
-        <!--End PulumiCodeChooser -->
 
         > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
         launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
 
         ### Using multiple launch specifications
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1129,11 +1124,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         > In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1166,11 +1159,9 @@ class SpotFleetRequest(pulumi.CustomResource):
             wait_for_fulfillment=True,
             terminate_instances_with_expiration=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using multiple launch configurations
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1208,7 +1199,6 @@ class SpotFleetRequest(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1291,7 +1281,6 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         ### Using launch specifications
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1330,11 +1319,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using launch templates
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1357,14 +1344,12 @@ class SpotFleetRequest(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
-        <!--End PulumiCodeChooser -->
 
         > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
         launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
 
         ### Using multiple launch specifications
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1389,11 +1374,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         > In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1426,11 +1409,9 @@ class SpotFleetRequest(pulumi.CustomResource):
             wait_for_fulfillment=True,
             terminate_instances_with_expiration=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using multiple launch configurations
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1468,7 +1449,6 @@ class SpotFleetRequest(pulumi.CustomResource):
             )],
             opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

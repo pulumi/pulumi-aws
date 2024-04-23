@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo {
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig errorHandlingConfig;
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     private String object;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo() {}
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
-    /**
-     * @return Object specified in the flow destination.
-     * 
-     */
     public String object() {
         return this.object;
     }

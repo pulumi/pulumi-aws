@@ -7,7 +7,6 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -16,7 +15,6 @@ import * as utilities from "../utilities";
  *     name: "development",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getHttpNamespace(args: GetHttpNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetHttpNamespaceResult> {
 
@@ -70,7 +68,6 @@ export interface GetHttpNamespaceResult {
 /**
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,7 +76,6 @@ export interface GetHttpNamespaceResult {
  *     name: "development",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getHttpNamespaceOutput(args: GetHttpNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHttpNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getHttpNamespace(a, opts))

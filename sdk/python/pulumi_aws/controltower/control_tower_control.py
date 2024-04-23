@@ -103,7 +103,6 @@ class ControlTowerControl(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -115,7 +114,6 @@ class ControlTowerControl(pulumi.CustomResource):
             control_identifier=f"arn:aws:controltower:{current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
             target_identifier=[x.arn for x in example_get_organizational_units.children if x.name == "Infrastructure"][0])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -142,7 +140,6 @@ class ControlTowerControl(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,7 +151,6 @@ class ControlTowerControl(pulumi.CustomResource):
             control_identifier=f"arn:aws:controltower:{current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
             target_identifier=[x.arn for x in example_get_organizational_units.children if x.name == "Infrastructure"][0])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

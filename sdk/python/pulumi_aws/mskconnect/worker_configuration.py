@@ -178,7 +178,6 @@ class WorkerConfiguration(pulumi.CustomResource):
 
         ### Basic configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,7 +188,6 @@ class WorkerConfiguration(pulumi.CustomResource):
         value.converter=org.apache.kafka.connect.storage.StringConverter
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -220,7 +218,6 @@ class WorkerConfiguration(pulumi.CustomResource):
 
         ### Basic configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,7 +228,6 @@ class WorkerConfiguration(pulumi.CustomResource):
         value.converter=org.apache.kafka.connect.storage.StringConverter
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

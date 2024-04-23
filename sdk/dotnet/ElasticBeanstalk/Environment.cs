@@ -19,7 +19,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Option Settings
     /// 
@@ -59,7 +57,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// ### Example With Options
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -98,7 +95,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

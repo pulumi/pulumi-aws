@@ -22,7 +22,6 @@ import (
 //
 // ### Dynamic Invocation Example Using Triggers
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,11 +73,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### CRUD Lifecycle Scope
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,7 +111,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // > **NOTE:** `lifecycleScope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumiKey` argument.
 //

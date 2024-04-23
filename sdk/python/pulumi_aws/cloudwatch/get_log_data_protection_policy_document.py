@@ -106,7 +106,6 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -152,7 +151,6 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
         log_group_name=example_aws_cloudwatch_log_group["name"],
         policy_document=example.json)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the data protection policy document.
@@ -192,7 +190,6 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -238,7 +235,6 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
         log_group_name=example_aws_cloudwatch_log_group["name"],
         policy_document=example.json)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the data protection policy document.

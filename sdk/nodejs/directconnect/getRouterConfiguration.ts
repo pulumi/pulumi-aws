@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "../utilities";
  *     routerTypeIdentifier: "CiscoSystemsInc-2900SeriesRouters-IOS124",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRouterConfiguration(args: GetRouterConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRouterConfigurationResult> {
 
@@ -96,7 +94,6 @@ export interface GetRouterConfigurationResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -106,7 +103,6 @@ export interface GetRouterConfigurationResult {
  *     routerTypeIdentifier: "CiscoSystemsInc-2900SeriesRouters-IOS124",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getRouterConfigurationOutput(args: GetRouterConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouterConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getRouterConfiguration(a, opts))

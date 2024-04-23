@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         /// For example, if matching against tag `Name`, use:
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

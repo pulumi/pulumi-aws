@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     user: "an_example_user_name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccessKeys(args: GetAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessKeysResult> {
 
@@ -62,7 +60,6 @@ export interface GetAccessKeysResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,7 +68,6 @@ export interface GetAccessKeysResult {
  *     user: "an_example_user_name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getAccessKeysOutput(args: GetAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessKeysResult> {
     return pulumi.output(args).apply((a: any) => getAccessKeys(a, opts))

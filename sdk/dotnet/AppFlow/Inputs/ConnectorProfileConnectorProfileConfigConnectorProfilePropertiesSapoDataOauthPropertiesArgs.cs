@@ -12,27 +12,17 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
-        /// </summary>
         [Input("authCodeUrl", required: true)]
         public Input<string> AuthCodeUrl { get; set; } = null!;
 
         [Input("oauthScopes", required: true)]
         private InputList<string>? _oauthScopes;
-
-        /// <summary>
-        /// The OAuth scopes required for OAuth type authentication.
-        /// </summary>
         public InputList<string> OauthScopes
         {
             get => _oauthScopes ?? (_oauthScopes = new InputList<string>());
             set => _oauthScopes = value;
         }
 
-        /// <summary>
-        /// The token URL required for OAuth 2.0 authentication.
-        /// </summary>
         [Input("tokenUrl", required: true)]
         public Input<string> TokenUrl { get; set; } = null!;
 

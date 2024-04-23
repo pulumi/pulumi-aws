@@ -16,7 +16,6 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ### Basic Response
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,11 +63,9 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Response with Custom Header and Model
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -147,7 +144,6 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

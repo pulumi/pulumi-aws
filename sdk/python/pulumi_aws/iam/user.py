@@ -267,7 +267,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,7 +288,6 @@ class User(pulumi.CustomResource):
             user=lb.name,
             policy=lb_ro.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -322,7 +320,6 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,7 +341,6 @@ class User(pulumi.CustomResource):
             user=lb.name,
             policy=lb_ro.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

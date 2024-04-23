@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetSites(ctx *pulumi.Context, args *GetSitesArgs, opts ...pulumi.InvokeOption) (*GetSitesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSitesResult

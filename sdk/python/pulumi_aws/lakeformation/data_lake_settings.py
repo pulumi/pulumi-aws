@@ -349,7 +349,6 @@ class DataLakeSettings(pulumi.CustomResource):
 
         ### Data Lake Admins
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,11 +358,9 @@ class DataLakeSettings(pulumi.CustomResource):
             test_aws_iam_role["arn"],
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create Default Permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -386,11 +383,9 @@ class DataLakeSettings(pulumi.CustomResource):
                 principal=test_aws_iam_role["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enable EMR access to LakeFormation resources
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,7 +414,6 @@ class DataLakeSettings(pulumi.CustomResource):
             ],
             authorized_session_tag_value_lists=["Amazon EMR"])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -450,7 +444,6 @@ class DataLakeSettings(pulumi.CustomResource):
 
         ### Data Lake Admins
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -460,11 +453,9 @@ class DataLakeSettings(pulumi.CustomResource):
             test_aws_iam_role["arn"],
         ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create Default Permissions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -487,11 +478,9 @@ class DataLakeSettings(pulumi.CustomResource):
                 principal=test_aws_iam_role["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enable EMR access to LakeFormation resources
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -520,7 +509,6 @@ class DataLakeSettings(pulumi.CustomResource):
             ],
             authorized_session_tag_value_lists=["Amazon EMR"])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param DataLakeSettingsArgs args: The arguments to use to populate this resource's properties.

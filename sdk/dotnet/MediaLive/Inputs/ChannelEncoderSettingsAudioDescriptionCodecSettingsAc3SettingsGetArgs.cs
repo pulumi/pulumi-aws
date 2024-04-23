@@ -25,7 +25,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? BitstreamMode { get; set; }
 
         /// <summary>
-        /// Mono, Stereo, or 5.1 channel layout.
+        /// Dolby Digital coding mode.
         /// </summary>
         [Input("codingMode")]
         public Input<string>? CodingMode { get; set; }

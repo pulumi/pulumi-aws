@@ -345,8 +345,8 @@ class EventConnectionAuthParametersInvocationHttpParametersBody(dict):
                  value: Optional[str] = None):
         """
         :param bool is_value_secret: Specified whether the value is secret.
-        :param str key: Header Name.
-        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        :param str key: The key for the parameter.
+        :param str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
@@ -367,7 +367,7 @@ class EventConnectionAuthParametersInvocationHttpParametersBody(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Header Name.
+        The key for the parameter.
         """
         return pulumi.get(self, "key")
 
@@ -375,7 +375,7 @@ class EventConnectionAuthParametersInvocationHttpParametersBody(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Header Value. Created and stored in AWS Secrets Manager.
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
 
@@ -405,8 +405,8 @@ class EventConnectionAuthParametersInvocationHttpParametersHeader(dict):
                  value: Optional[str] = None):
         """
         :param bool is_value_secret: Specified whether the value is secret.
-        :param str key: Header Name.
-        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        :param str key: The key for the parameter.
+        :param str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
@@ -427,7 +427,7 @@ class EventConnectionAuthParametersInvocationHttpParametersHeader(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Header Name.
+        The key for the parameter.
         """
         return pulumi.get(self, "key")
 
@@ -435,7 +435,7 @@ class EventConnectionAuthParametersInvocationHttpParametersHeader(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Header Value. Created and stored in AWS Secrets Manager.
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
 
@@ -465,8 +465,8 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryString(dict):
                  value: Optional[str] = None):
         """
         :param bool is_value_secret: Specified whether the value is secret.
-        :param str key: Header Name.
-        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        :param str key: The key for the parameter.
+        :param str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
@@ -487,7 +487,7 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryString(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Header Name.
+        The key for the parameter.
         """
         return pulumi.get(self, "key")
 
@@ -495,7 +495,7 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryString(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Header Value. Created and stored in AWS Secrets Manager.
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
 
@@ -708,8 +708,8 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBody(dict):
                  value: Optional[str] = None):
         """
         :param bool is_value_secret: Specified whether the value is secret.
-        :param str key: Header Name.
-        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        :param str key: The key for the parameter.
+        :param str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
@@ -730,7 +730,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBody(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Header Name.
+        The key for the parameter.
         """
         return pulumi.get(self, "key")
 
@@ -738,7 +738,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBody(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Header Value. Created and stored in AWS Secrets Manager.
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
 
@@ -768,8 +768,8 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeader(dict):
                  value: Optional[str] = None):
         """
         :param bool is_value_secret: Specified whether the value is secret.
-        :param str key: Header Name.
-        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        :param str key: The key for the parameter.
+        :param str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
@@ -790,7 +790,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeader(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Header Name.
+        The key for the parameter.
         """
         return pulumi.get(self, "key")
 
@@ -798,7 +798,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeader(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Header Value. Created and stored in AWS Secrets Manager.
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
 
@@ -828,8 +828,8 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
                  value: Optional[str] = None):
         """
         :param bool is_value_secret: Specified whether the value is secret.
-        :param str key: Header Name.
-        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        :param str key: The key for the parameter.
+        :param str value: The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
@@ -850,7 +850,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
     @pulumi.getter
     def key(self) -> Optional[str]:
         """
-        Header Name.
+        The key for the parameter.
         """
         return pulumi.get(self, "key")
 
@@ -858,7 +858,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        Header Value. Created and stored in AWS Secrets Manager.
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         """
         return pulumi.get(self, "value")
 
@@ -2550,27 +2550,17 @@ class MetricStreamStatisticsConfiguration(dict):
     def __init__(__self__, *,
                  additional_statistics: Sequence[str],
                  include_metrics: Sequence['outputs.MetricStreamStatisticsConfigurationIncludeMetric']):
-        """
-        :param Sequence[str] additional_statistics: The additional statistics to stream for the metrics listed in `include_metrics`.
-        :param Sequence['MetricStreamStatisticsConfigurationIncludeMetricArgs'] include_metrics: An array that defines the metrics that are to have additional statistics streamed. See details below.
-        """
         pulumi.set(__self__, "additional_statistics", additional_statistics)
         pulumi.set(__self__, "include_metrics", include_metrics)
 
     @property
     @pulumi.getter(name="additionalStatistics")
     def additional_statistics(self) -> Sequence[str]:
-        """
-        The additional statistics to stream for the metrics listed in `include_metrics`.
-        """
         return pulumi.get(self, "additional_statistics")
 
     @property
     @pulumi.getter(name="includeMetrics")
     def include_metrics(self) -> Sequence['outputs.MetricStreamStatisticsConfigurationIncludeMetric']:
-        """
-        An array that defines the metrics that are to have additional statistics streamed. See details below.
-        """
         return pulumi.get(self, "include_metrics")
 
 
@@ -2596,27 +2586,17 @@ class MetricStreamStatisticsConfigurationIncludeMetric(dict):
     def __init__(__self__, *,
                  metric_name: str,
                  namespace: str):
-        """
-        :param str metric_name: The name of the metric.
-        :param str namespace: Name of the metric namespace in the filter.
-        """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> str:
-        """
-        The name of the metric.
-        """
         return pulumi.get(self, "metric_name")
 
     @property
     @pulumi.getter
     def namespace(self) -> str:
-        """
-        Name of the metric namespace in the filter.
-        """
         return pulumi.get(self, "namespace")
 
 

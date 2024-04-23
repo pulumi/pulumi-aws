@@ -215,14 +215,14 @@ public class Image extends com.pulumi.resources.CustomResource {
         return this.infrastructureConfigurationArn;
     }
     /**
-     * The name of the Workflow parameter.
+     * Name of the AMI.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Workflow parameter.
+     * @return Name of the AMI.
      * 
      */
     public Output<String> name() {

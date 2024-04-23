@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,7 +40,6 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -60,9 +58,6 @@ namespace Pulumi.Aws.Kendra
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The description for a thesaurus.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -86,8 +81,6 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 path where your thesaurus file sits in S3. Detailed below.
-        /// 
-        /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
         [Output("sourceS3Path")]
         public Output<Outputs.ThesaurusSourceS3Path> SourceS3Path { get; private set; } = null!;
@@ -98,9 +91,6 @@ namespace Pulumi.Aws.Kendra
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -159,9 +149,6 @@ namespace Pulumi.Aws.Kendra
 
     public sealed class ThesaurusArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The description for a thesaurus.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -185,18 +172,12 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 path where your thesaurus file sits in S3. Detailed below.
-        /// 
-        /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("sourceS3Path", required: true)]
         public Input<Inputs.ThesaurusSourceS3PathArgs> SourceS3Path { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -217,9 +198,6 @@ namespace Pulumi.Aws.Kendra
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        /// <summary>
-        /// The description for a thesaurus.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -243,8 +221,6 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 path where your thesaurus file sits in S3. Detailed below.
-        /// 
-        /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("sourceS3Path")]
         public Input<Inputs.ThesaurusSourceS3PathGetArgs>? SourceS3Path { get; set; }
@@ -257,10 +233,6 @@ namespace Pulumi.Aws.Kendra
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

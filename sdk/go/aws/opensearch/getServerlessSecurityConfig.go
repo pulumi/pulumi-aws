@@ -17,7 +17,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupServerlessSecurityConfig(ctx *pulumi.Context, args *LookupServerlessSecurityConfigArgs, opts ...pulumi.InvokeOption) (*LookupServerlessSecurityConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessSecurityConfigResult

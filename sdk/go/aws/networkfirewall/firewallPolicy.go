@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,11 +58,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Policy with a HOME_NET Override
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -118,11 +115,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Policy with a Custom Action for Stateless Inspection
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -169,7 +164,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

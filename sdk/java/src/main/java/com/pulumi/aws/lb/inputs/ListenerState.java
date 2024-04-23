@@ -36,18 +36,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the target group.
-     * 
-     * The following arguments are optional:
+     * ARN of the listener (matches `id`).
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the target group.
-     * 
-     * The following arguments are optional:
+     * @return ARN of the listener (matches `id`).
      * 
      */
     public Optional<Output<String>> arn() {
@@ -261,9 +257,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the target group.
-         * 
-         * The following arguments are optional:
+         * @param arn ARN of the listener (matches `id`).
          * 
          * @return builder
          * 
@@ -274,9 +268,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the target group.
-         * 
-         * The following arguments are optional:
+         * @param arn ARN of the listener (matches `id`).
          * 
          * @return builder
          * 

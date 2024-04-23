@@ -72,7 +72,6 @@ def get_event_categories(source_type: Optional[str] = None,
 
     List the event categories of all the RDS resources.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -80,11 +79,9 @@ def get_event_categories(source_type: Optional[str] = None,
     example = aws.rds.get_event_categories()
     pulumi.export("example", example.event_categories)
     ```
-    <!--End PulumiCodeChooser -->
 
     List the event categories specific to the RDS resource `db-snapshot`.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -92,7 +89,6 @@ def get_event_categories(source_type: Optional[str] = None,
     example = aws.rds.get_event_categories(source_type="db-snapshot")
     pulumi.export("example", example.event_categories)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str source_type: Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
@@ -116,7 +112,6 @@ def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]
 
     List the event categories of all the RDS resources.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -124,11 +119,9 @@ def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]
     example = aws.rds.get_event_categories()
     pulumi.export("example", example.event_categories)
     ```
-    <!--End PulumiCodeChooser -->
 
     List the event categories specific to the RDS resource `db-snapshot`.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -136,7 +129,6 @@ def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]
     example = aws.rds.get_event_categories(source_type="db-snapshot")
     pulumi.export("example", example.event_categories)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str source_type: Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.

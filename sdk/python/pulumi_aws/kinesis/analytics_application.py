@@ -458,7 +458,6 @@ class AnalyticsApplication(pulumi.CustomResource):
 
         ### Kinesis Stream Input
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -494,11 +493,9 @@ class AnalyticsApplication(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Starting An Application
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -559,7 +556,6 @@ class AnalyticsApplication(pulumi.CustomResource):
             )],
             start_application=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -602,7 +598,6 @@ class AnalyticsApplication(pulumi.CustomResource):
 
         ### Kinesis Stream Input
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -638,11 +633,9 @@ class AnalyticsApplication(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Starting An Application
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -703,7 +696,6 @@ class AnalyticsApplication(pulumi.CustomResource):
             )],
             start_application=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

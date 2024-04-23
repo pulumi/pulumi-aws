@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string FileKey;
         /// <summary>
-        /// The ARN of the IAM Role used to send application messages.
+        /// The IAM Role ARN to read the data.
         /// </summary>
         public readonly string RoleArn;
 

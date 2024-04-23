@@ -253,7 +253,6 @@ class CachePolicy(pulumi.CustomResource):
 
         Use the `cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,7 +284,6 @@ class CachePolicy(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -315,7 +313,6 @@ class CachePolicy(pulumi.CustomResource):
 
         Use the `cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -347,7 +344,6 @@ class CachePolicy(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

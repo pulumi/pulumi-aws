@@ -332,14 +332,12 @@ class Zone(pulumi.CustomResource):
 
         ### Public Zone
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         primary = aws.route53.Zone("primary", name="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Public Subdomain Zone
 
@@ -347,7 +345,6 @@ class Zone(pulumi.CustomResource):
         `route53.Record` of type `NS` as well as the subdomain
         zone.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -365,7 +362,6 @@ class Zone(pulumi.CustomResource):
             ttl=30,
             records=dev.name_servers)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Private Zone
 
@@ -373,7 +369,6 @@ class Zone(pulumi.CustomResource):
 
         > **NOTE:** Private zones require at least one VPC association at all times.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -384,7 +379,6 @@ class Zone(pulumi.CustomResource):
                 vpc_id=example["id"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -416,14 +410,12 @@ class Zone(pulumi.CustomResource):
 
         ### Public Zone
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         primary = aws.route53.Zone("primary", name="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Public Subdomain Zone
 
@@ -431,7 +423,6 @@ class Zone(pulumi.CustomResource):
         `route53.Record` of type `NS` as well as the subdomain
         zone.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -449,7 +440,6 @@ class Zone(pulumi.CustomResource):
             ttl=30,
             records=dev.name_servers)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Private Zone
 
@@ -457,7 +447,6 @@ class Zone(pulumi.CustomResource):
 
         > **NOTE:** Private zones require at least one VPC association at all times.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -468,7 +457,6 @@ class Zone(pulumi.CustomResource):
                 vpc_id=example["id"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

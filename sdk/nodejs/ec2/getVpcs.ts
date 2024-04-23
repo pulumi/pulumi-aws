@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * The following shows outputting all VPC Ids.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,7 +31,6 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
  */
@@ -88,7 +86,6 @@ export interface GetVpcsResult {
  *
  * The following shows outputting all VPC Ids.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -104,7 +101,6 @@ export interface GetVpcsResult {
  *     };
  * }
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * An example use case would be interpolate the `aws.ec2.getVpcs` output into `count` of an aws.ec2.FlowLog resource.
  */

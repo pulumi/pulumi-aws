@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.customerprofiles.Domain("example", {domainName: "example"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With SQS DLQ and KMS set
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -81,7 +78,6 @@ import * as utilities from "../utilities";
  *     defaultExpirationDays: 365,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

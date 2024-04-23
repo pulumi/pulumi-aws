@@ -18,7 +18,6 @@ import (
 //
 // ### Memcached Serverless
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,11 +69,9 @@ import (
 // return pulumiArr
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Redis Serverless
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -128,7 +125,6 @@ import (
 // return pulumiArr
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

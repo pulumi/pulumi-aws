@@ -226,7 +226,6 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,7 +236,6 @@ class Project(pulumi.CustomResource):
                 product_id=example_aws_servicecatalog_product["id"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -267,7 +265,6 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,7 +275,6 @@ class Project(pulumi.CustomResource):
                 product_id=example_aws_servicecatalog_product["id"],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

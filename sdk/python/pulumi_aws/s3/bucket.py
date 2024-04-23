@@ -830,7 +830,6 @@ class Bucket(pulumi.CustomResource):
 
         ### Private Bucket w/ Tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -843,11 +842,9 @@ class Bucket(pulumi.CustomResource):
                 "Environment": "Dev",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Static Website Hosting
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -871,11 +868,9 @@ class Bucket(pulumi.CustomResource):
         \"\"\",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using CORS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -894,11 +889,9 @@ class Bucket(pulumi.CustomResource):
                 max_age_seconds=3000,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using versioning
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -910,11 +903,9 @@ class Bucket(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enable Logging
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -930,11 +921,9 @@ class Bucket(pulumi.CustomResource):
                 target_prefix="log/",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using object lifecycle
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -998,13 +987,11 @@ class Bucket(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using replication configuration
 
         > **NOTE:** See the `s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1100,11 +1087,9 @@ class Bucket(pulumi.CustomResource):
             role=replication.name,
             policy_arn=replication_policy.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enable Default Server Side Encryption
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1123,11 +1108,9 @@ class Bucket(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using ACL policy grants
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1151,7 +1134,6 @@ class Bucket(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1208,7 +1190,6 @@ class Bucket(pulumi.CustomResource):
 
         ### Private Bucket w/ Tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1221,11 +1202,9 @@ class Bucket(pulumi.CustomResource):
                 "Environment": "Dev",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Static Website Hosting
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1249,11 +1228,9 @@ class Bucket(pulumi.CustomResource):
         \"\"\",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using CORS
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1272,11 +1249,9 @@ class Bucket(pulumi.CustomResource):
                 max_age_seconds=3000,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using versioning
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1288,11 +1263,9 @@ class Bucket(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enable Logging
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1308,11 +1281,9 @@ class Bucket(pulumi.CustomResource):
                 target_prefix="log/",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using object lifecycle
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1376,13 +1347,11 @@ class Bucket(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using replication configuration
 
         > **NOTE:** See the `s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1478,11 +1447,9 @@ class Bucket(pulumi.CustomResource):
             role=replication.name,
             policy_arn=replication_policy.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enable Default Server Side Encryption
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1501,11 +1468,9 @@ class Bucket(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using ACL policy grants
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1529,7 +1494,6 @@ class Bucket(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

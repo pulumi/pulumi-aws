@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,7 +46,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

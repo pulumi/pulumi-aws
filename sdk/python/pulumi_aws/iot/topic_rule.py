@@ -781,7 +781,6 @@ class TopicRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -827,7 +826,6 @@ class TopicRule(pulumi.CustomResource):
             role=myrole.id,
             policy=mypolicy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -858,7 +856,6 @@ class TopicRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -904,7 +901,6 @@ class TopicRule(pulumi.CustomResource):
             role=myrole.id,
             policy=mypolicy.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

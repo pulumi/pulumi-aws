@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetExperienceResult> InvokeAsync(GetExperienceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperienceResult>("aws:kendra/getExperience:getExperience", args ?? new GetExperienceArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetExperienceResult> Invoke(GetExperienceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperienceResult>("aws:kendra/getExperience:getExperience", args ?? new GetExperienceInvokeArgs(), options.WithDefaults());

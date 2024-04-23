@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -50,7 +49,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAttachmentResult> InvokeAsync(GetAttachmentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachmentResult>("aws:ec2transitgateway/getAttachment:getAttachment", args ?? new GetAttachmentArgs(), options.WithDefaults());
@@ -60,7 +58,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -94,7 +91,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAttachmentResult> Invoke(GetAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachmentResult>("aws:ec2transitgateway/getAttachment:getAttachment", args ?? new GetAttachmentInvokeArgs(), options.WithDefaults());

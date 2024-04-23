@@ -238,7 +238,6 @@ class LocationFsxLustre(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,7 +246,6 @@ class LocationFsxLustre(pulumi.CustomResource):
             fsx_filesystem_arn=example_aws_fsx_lustre_file_system["arn"],
             security_group_arns=[example_aws_security_group["arn"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -275,7 +273,6 @@ class LocationFsxLustre(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -284,7 +281,6 @@ class LocationFsxLustre(pulumi.CustomResource):
             fsx_filesystem_arn=example_aws_fsx_lustre_file_system["arn"],
             security_group_arns=[example_aws_security_group["arn"]])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -287,7 +287,6 @@ class DeviceFleet(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,7 +298,6 @@ class DeviceFleet(pulumi.CustomResource):
                 s3_output_location=f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -331,7 +329,6 @@ class DeviceFleet(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,7 +340,6 @@ class DeviceFleet(pulumi.CustomResource):
                 s3_output_location=f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -939,7 +939,6 @@ class Environment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -954,11 +953,9 @@ class Environment(pulumi.CustomResource):
             ),
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example with Airflow configuration options
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -977,13 +974,11 @@ class Environment(pulumi.CustomResource):
             ),
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example with logging configurations
 
         Note that Airflow task logs are enabled by default with the `INFO` log level.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1020,11 +1015,9 @@ class Environment(pulumi.CustomResource):
             ),
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example with tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1043,7 +1036,6 @@ class Environment(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1093,7 +1085,6 @@ class Environment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1108,11 +1099,9 @@ class Environment(pulumi.CustomResource):
             ),
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example with Airflow configuration options
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1131,13 +1120,11 @@ class Environment(pulumi.CustomResource):
             ),
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example with logging configurations
 
         Note that Airflow task logs are enabled by default with the `INFO` log level.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1174,11 +1161,9 @@ class Environment(pulumi.CustomResource):
             ),
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example with tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1197,7 +1182,6 @@ class Environment(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

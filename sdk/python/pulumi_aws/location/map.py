@@ -248,7 +248,6 @@ class Map(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,7 +258,6 @@ class Map(pulumi.CustomResource):
             ),
             map_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -289,7 +287,6 @@ class Map(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -300,7 +297,6 @@ class Map(pulumi.CustomResource):
             ),
             map_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

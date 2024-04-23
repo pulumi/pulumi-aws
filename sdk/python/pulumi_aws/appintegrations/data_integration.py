@@ -273,7 +273,6 @@ class DataIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -292,7 +291,6 @@ class DataIntegration(pulumi.CustomResource):
                 "Key1": "Value1",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -322,7 +320,6 @@ class DataIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,7 +338,6 @@ class DataIntegration(pulumi.CustomResource):
                 "Key1": "Value1",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

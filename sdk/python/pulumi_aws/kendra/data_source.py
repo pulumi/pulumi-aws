@@ -496,7 +496,6 @@ class DataSource(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -511,13 +510,11 @@ class DataSource(pulumi.CustomResource):
                 "hello": "world",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 Connector
 
         ### With Schedule
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -534,11 +531,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Access Control List
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -557,11 +552,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Documents Metadata Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -583,13 +576,11 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Web Crawler Connector
 
         ### With Seed URLs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -609,11 +600,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Site Maps
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -633,11 +622,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Web Crawler Mode
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -658,11 +645,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Authentication Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -690,11 +675,9 @@ class DataSource(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_aws_secretsmanager_secret_version]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Crawl Depth
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -715,11 +698,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Max Links Per Page
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -740,11 +721,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Max Urls Per Minute Crawl Rate
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -765,11 +744,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Proxy Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -795,11 +772,9 @@ class DataSource(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_aws_secretsmanager_secret_version]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With URL Exclusion and Inclusion Patterns
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -821,7 +796,6 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -859,7 +833,6 @@ class DataSource(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -874,13 +847,11 @@ class DataSource(pulumi.CustomResource):
                 "hello": "world",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### S3 Connector
 
         ### With Schedule
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -897,11 +868,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Access Control List
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -920,11 +889,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Documents Metadata Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -946,13 +913,11 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Web Crawler Connector
 
         ### With Seed URLs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -972,11 +937,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Site Maps
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -996,11 +959,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Web Crawler Mode
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1021,11 +982,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Authentication Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1053,11 +1012,9 @@ class DataSource(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_aws_secretsmanager_secret_version]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Crawl Depth
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1078,11 +1035,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Max Links Per Page
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1103,11 +1058,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Max Urls Per Minute Crawl Rate
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1128,11 +1081,9 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Proxy Configuration
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1158,11 +1109,9 @@ class DataSource(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_aws_secretsmanager_secret_version]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With URL Exclusion and Inclusion Patterns
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1184,7 +1133,6 @@ class DataSource(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

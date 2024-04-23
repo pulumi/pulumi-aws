@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -160,18 +159,16 @@ namespace Pulumi.Aws.Workspaces
     ///     {
     ///         DependsOn =
     ///         {
-    ///             workspacesDefaultServiceAccess, 
-    ///             workspacesDefaultSelfServiceAccess, 
+    ///             workspacesDefaultServiceAccess,
+    ///             workspacesDefaultSelfServiceAccess,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### IP Groups
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -196,7 +193,6 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

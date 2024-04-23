@@ -192,7 +192,6 @@ class OrganizationalUnit(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -201,7 +200,6 @@ class OrganizationalUnit(pulumi.CustomResource):
             name="example",
             parent_id=example_aws_organizations_organization["roots"][0]["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -228,7 +226,6 @@ class OrganizationalUnit(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,7 +234,6 @@ class OrganizationalUnit(pulumi.CustomResource):
             name="example",
             parent_id=example_aws_organizations_organization["roots"][0]["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -120,14 +120,12 @@ def get_configuration(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.msk.get_configuration(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the configuration.
@@ -155,14 +153,12 @@ def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.msk.get_configuration(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the configuration.

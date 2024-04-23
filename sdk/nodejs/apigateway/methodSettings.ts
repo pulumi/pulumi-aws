@@ -20,7 +20,6 @@ import {RestApi} from "./index";
  *
  * ### Off
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,11 +33,9 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Errors Only
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -54,11 +51,9 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Errors and Info Logs
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,11 +69,9 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Full Request and Response Logs
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -94,7 +87,6 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     resourceArn: exampleAwsVpclatticeServiceNetwork.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
 
@@ -61,7 +59,6 @@ export interface GetResourcePolicyResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,7 +67,6 @@ export interface GetResourcePolicyResult {
  *     resourceArn: exampleAwsVpclatticeServiceNetwork.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePolicyResult> {
     return pulumi.output(args).apply((a: any) => getResourcePolicy(a, opts))

@@ -22,7 +22,6 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ### Two-Way Trust
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,11 +62,9 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### One-Way Trust
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -108,7 +105,6 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

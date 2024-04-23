@@ -22,7 +22,6 @@ import (
 //
 // ### Account Access
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,11 +72,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Organization Access
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -139,11 +136,9 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Multiple Statements
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -223,7 +218,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

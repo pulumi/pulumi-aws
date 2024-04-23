@@ -21,7 +21,6 @@ import (
 //
 // ### Private Bucket w/ Tags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,11 +49,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Static Website Hosting
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,11 +100,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Using CORS
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -150,11 +145,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Using versioning
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -182,11 +175,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Enable Logging
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -224,11 +215,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Using object lifecycle
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -314,13 +303,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Using replication configuration
 //
 // > **NOTE:** See the `s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -462,11 +449,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Enable Default Server Side Encryption
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -506,11 +491,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Using ACL policy grants
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -555,7 +538,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

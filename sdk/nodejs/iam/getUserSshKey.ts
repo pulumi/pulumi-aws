@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     username: "test-user",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserSshKey(args: GetUserSshKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSshKeyResult> {
 
@@ -79,7 +77,6 @@ export interface GetUserSshKeyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,7 +87,6 @@ export interface GetUserSshKeyResult {
  *     username: "test-user",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserSshKeyOutput(args: GetUserSshKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSshKeyResult> {
     return pulumi.output(args).apply((a: any) => getUserSshKey(a, opts))

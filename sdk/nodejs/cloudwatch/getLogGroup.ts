@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     name: "MyImportantLogs",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> {
 
@@ -82,7 +80,6 @@ export interface GetLogGroupResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -91,7 +88,6 @@ export interface GetLogGroupResult {
  *     name: "MyImportantLogs",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLogGroupOutput(args: GetLogGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupResult> {
     return pulumi.output(args).apply((a: any) => getLogGroup(a, opts))

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool? DeleteOnTermination;
         /// <summary>
-        /// Name of the device to mount.
+        /// Device name, e.g., `/dev/sdh` or `xvdh`.
         /// </summary>
         public readonly string? DeviceName;
         /// <summary>

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     public sealed class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension
     {
         /// <summary>
-        /// Name of the policy. Must be between 1 and 255 characters in length.
+        /// Name of the dimension.
         /// </summary>
         public readonly string Name;
         /// <summary>

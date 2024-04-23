@@ -50,7 +50,6 @@ class FirehoseDeliveryStreamArgs:
                **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs'] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
         """
         pulumi.set(__self__, "destination", destination)
         if arn is not None:
@@ -266,9 +265,6 @@ class FirehoseDeliveryStreamArgs:
     @property
     @pulumi.getter(name="versionId")
     def version_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the table version for the output data schema. Defaults to `LATEST`.
-        """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
@@ -315,7 +311,6 @@ class _FirehoseDeliveryStreamState:
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs'] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -552,9 +547,6 @@ class _FirehoseDeliveryStreamState:
     @property
     @pulumi.getter(name="versionId")
     def version_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the table version for the output data schema. Defaults to `LATEST`.
-        """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
@@ -593,7 +585,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
         ### Extended S3 Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -648,13 +639,11 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             bucket=bucket.id,
             acl="private")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Extended S3 Destination with dynamic partitioning
 
         These examples use built-in Firehose functionality, rather than requiring a lambda.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -701,13 +690,11 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameter_value`.
 
         The following example adds the Dynamic Partitioning Keys: `store_id` and `customer_id` to the S3 prefix.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -742,11 +729,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Redshift Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -786,11 +771,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Elasticsearch Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -823,11 +806,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Elasticsearch Destination With VPC
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -901,11 +882,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### OpenSearch Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -937,11 +916,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### OpenSearch Destination With VPC
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1021,11 +998,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### OpenSearch Serverless Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1057,11 +1032,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Splunk Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1084,11 +1057,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### HTTP Endpoint (e.g., New Relic) Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1126,7 +1097,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1155,7 +1125,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamSplunkConfigurationArgs']] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
         """
         ...
     @overload
@@ -1172,7 +1141,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
         ### Extended S3 Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1227,13 +1195,11 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             bucket=bucket.id,
             acl="private")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Extended S3 Destination with dynamic partitioning
 
         These examples use built-in Firehose functionality, rather than requiring a lambda.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1280,13 +1246,11 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameter_value`.
 
         The following example adds the Dynamic Partitioning Keys: `store_id` and `customer_id` to the S3 prefix.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1321,11 +1285,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Redshift Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1365,11 +1327,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Elasticsearch Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1402,11 +1362,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Elasticsearch Destination With VPC
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1480,11 +1438,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### OpenSearch Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1516,11 +1472,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### OpenSearch Destination With VPC
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1600,11 +1554,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### OpenSearch Serverless Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1636,11 +1588,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Splunk Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1663,11 +1613,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### HTTP Endpoint (e.g., New Relic) Destination
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1705,7 +1653,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1826,7 +1773,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamSplunkConfigurationArgs']] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1984,8 +1930,5 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @property
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[str]:
-        """
-        Specifies the table version for the output data schema. Defaults to `LATEST`.
-        """
         return pulumi.get(self, "version_id")
 

@@ -71,14 +71,14 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the channel in MediaPackage that is the destination for this output group.
+     * ID of the Channel.
      * 
      */
     @Import(name="channelId")
     private @Nullable Output<String> channelId;
 
     /**
-     * @return ID of the channel in MediaPackage that is the destination for this output group.
+     * @return ID of the Channel.
      * 
      */
     public Optional<Output<String>> channelId() {
@@ -376,7 +376,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param channelId ID of the channel in MediaPackage that is the destination for this output group.
+         * @param channelId ID of the Channel.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param channelId ID of the channel in MediaPackage that is the destination for this output group.
+         * @param channelId ID of the Channel.
          * 
          * @return builder
          * 

@@ -22,7 +22,6 @@ import (
 //
 // ### Basic Example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,7 +65,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

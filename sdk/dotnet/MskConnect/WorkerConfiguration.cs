@@ -16,7 +16,6 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// ### Basic configuration
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

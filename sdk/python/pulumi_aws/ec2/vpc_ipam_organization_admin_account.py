@@ -128,7 +128,6 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -136,7 +135,6 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
         delegated = aws.get_caller_identity()
         example = aws.ec2.VpcIpamOrganizationAdminAccount("example", delegated_admin_account_id=delegated.account_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -162,7 +160,6 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -170,7 +167,6 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
         delegated = aws.get_caller_identity()
         example = aws.ec2.VpcIpamOrganizationAdminAccount("example", delegated_admin_account_id=delegated.account_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

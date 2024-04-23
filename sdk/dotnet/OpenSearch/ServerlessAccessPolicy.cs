@@ -16,7 +16,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ### Grant all collection and index permissions
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,11 +73,9 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Grant read-only collection and index permissions
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -137,11 +134,9 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Grant SAML identity permissions
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -198,7 +193,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -225,7 +225,6 @@ class Plan(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,7 +246,6 @@ class Plan(pulumi.CustomResource):
                 resource_type="EC2",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -275,7 +273,6 @@ class Plan(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,7 +294,6 @@ class Plan(pulumi.CustomResource):
                 resource_type="EC2",
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

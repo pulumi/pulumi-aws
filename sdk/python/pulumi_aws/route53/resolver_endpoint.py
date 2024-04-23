@@ -334,7 +334,6 @@ class ResolverEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -363,7 +362,6 @@ class ResolverEndpoint(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -397,7 +395,6 @@ class ResolverEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -426,7 +423,6 @@ class ResolverEndpoint(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -17,9 +17,6 @@ namespace Pulumi.Aws.Batch.Outputs
         /// Specifies the name of the job definition.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The value of the environment variable.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -243,14 +243,12 @@ class GeofenceCollection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.location.GeofenceCollection("example", collection_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -280,14 +278,12 @@ class GeofenceCollection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.location.GeofenceCollection("example", collection_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -355,7 +355,6 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -366,7 +365,6 @@ class LinkAggregationGroup(pulumi.CustomResource):
             location="EqDC2",
             force_destroy=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -399,7 +397,6 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -410,7 +407,6 @@ class LinkAggregationGroup(pulumi.CustomResource):
             location="EqDC2",
             force_destroy=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

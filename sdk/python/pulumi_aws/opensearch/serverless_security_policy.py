@@ -196,7 +196,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
 
         ### Applies to a single collection
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -214,11 +213,9 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "AWSOwnedKey": True,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Applies to multiple collections
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -236,11 +233,9 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "AWSOwnedKey": True,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using a customer managed key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -259,13 +254,11 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "KmsARN": "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Network Security Policy
 
         ### Allow public access to the collection endpoint and the Dashboards endpoint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -290,11 +283,9 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "AllowFromPublic": True,
             }]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Allow VPC access to the collection endpoint and the Dashboards endpoint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -320,11 +311,9 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "SourceVPCEs": ["vpce-050f79086ee71ac05"],
             }]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Mixed access for different collections
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -360,7 +349,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 },
             ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -394,7 +382,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
 
         ### Applies to a single collection
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -412,11 +399,9 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "AWSOwnedKey": True,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Applies to multiple collections
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -434,11 +419,9 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "AWSOwnedKey": True,
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Using a customer managed key
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -457,13 +440,11 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "KmsARN": "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Network Security Policy
 
         ### Allow public access to the collection endpoint and the Dashboards endpoint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -488,11 +469,9 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "AllowFromPublic": True,
             }]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Allow VPC access to the collection endpoint and the Dashboards endpoint
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -518,11 +497,9 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "SourceVPCEs": ["vpce-050f79086ee71ac05"],
             }]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Mixed access for different collections
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -558,7 +535,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 },
             ]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

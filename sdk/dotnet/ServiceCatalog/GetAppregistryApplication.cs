@@ -18,7 +18,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAppregistryApplicationResult> InvokeAsync(GetAppregistryApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppregistryApplicationResult>("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", args ?? new GetAppregistryApplicationArgs(), options.WithDefaults());
@@ -46,7 +44,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAppregistryApplicationResult> Invoke(GetAppregistryApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppregistryApplicationResult>("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", args ?? new GetAppregistryApplicationInvokeArgs(), options.WithDefaults());

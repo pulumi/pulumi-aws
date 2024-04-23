@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,7 +40,6 @@ import * as utilities from "../utilities";
  *     query: pulumi.interpolate`SELECT * FROM ${hogeDatabase.name} limit 10;`,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

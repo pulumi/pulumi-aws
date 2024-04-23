@@ -302,7 +302,6 @@ class Policy(pulumi.CustomResource):
 
         ### DynamoDB Table Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,11 +325,9 @@ class Policy(pulumi.CustomResource):
                 target_value=70,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### ECS Service Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,11 +354,9 @@ class Policy(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Preserve desired count when updating an autoscaled ECS Service
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -372,11 +367,9 @@ class Policy(pulumi.CustomResource):
             task_definition="taskDefinitionFamily:1",
             desired_count=2)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Aurora Read Replica Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -402,11 +395,9 @@ class Policy(pulumi.CustomResource):
                 scale_out_cooldown=300,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create target tracking scaling policy using metric math
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -475,11 +466,9 @@ class Policy(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### MSK / Kafka Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -503,7 +492,6 @@ class Policy(pulumi.CustomResource):
                 target_value=55,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -536,7 +524,6 @@ class Policy(pulumi.CustomResource):
 
         ### DynamoDB Table Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -560,11 +547,9 @@ class Policy(pulumi.CustomResource):
                 target_value=70,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### ECS Service Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -591,11 +576,9 @@ class Policy(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Preserve desired count when updating an autoscaled ECS Service
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -606,11 +589,9 @@ class Policy(pulumi.CustomResource):
             task_definition="taskDefinitionFamily:1",
             desired_count=2)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Aurora Read Replica Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -636,11 +617,9 @@ class Policy(pulumi.CustomResource):
                 scale_out_cooldown=300,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Create target tracking scaling policy using metric math
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -709,11 +688,9 @@ class Policy(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### MSK / Kafka Autoscaling
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -737,7 +714,6 @@ class Policy(pulumi.CustomResource):
                 target_value=55,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

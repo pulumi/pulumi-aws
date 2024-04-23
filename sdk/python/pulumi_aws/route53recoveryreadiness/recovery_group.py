@@ -182,14 +182,12 @@ class RecoveryGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53recoveryreadiness.RecoveryGroup("example", recovery_group_name="my-high-availability-app")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -218,14 +216,12 @@ class RecoveryGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53recoveryreadiness.RecoveryGroup("example", recovery_group_name="my-high-availability-app")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

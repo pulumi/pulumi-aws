@@ -370,7 +370,6 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -380,11 +379,9 @@ class VpcPeeringConnection(pulumi.CustomResource):
             peer_vpc_id=bar["id"],
             vpc_id=foo_aws_vpc["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         Basic usage with connection options:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -400,11 +397,9 @@ class VpcPeeringConnection(pulumi.CustomResource):
                 allow_remote_vpc_dns_resolution=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Basic usage with tags:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -420,11 +415,9 @@ class VpcPeeringConnection(pulumi.CustomResource):
                 "Name": "VPC Peering between foo and bar",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         Basic usage with region:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -437,7 +430,6 @@ class VpcPeeringConnection(pulumi.CustomResource):
             vpc_id=foo_vpc.id,
             peer_region="us-east-1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Notes
 
@@ -493,7 +485,6 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -503,11 +494,9 @@ class VpcPeeringConnection(pulumi.CustomResource):
             peer_vpc_id=bar["id"],
             vpc_id=foo_aws_vpc["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         Basic usage with connection options:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -523,11 +512,9 @@ class VpcPeeringConnection(pulumi.CustomResource):
                 allow_remote_vpc_dns_resolution=True,
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         Basic usage with tags:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -543,11 +530,9 @@ class VpcPeeringConnection(pulumi.CustomResource):
                 "Name": "VPC Peering between foo and bar",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         Basic usage with region:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -560,7 +545,6 @@ class VpcPeeringConnection(pulumi.CustomResource):
             vpc_id=foo_vpc.id,
             peer_region="us-east-1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Notes
 

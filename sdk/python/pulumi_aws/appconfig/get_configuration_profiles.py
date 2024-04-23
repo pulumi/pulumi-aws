@@ -75,7 +75,6 @@ def get_configuration_profiles(application_id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -84,7 +83,6 @@ def get_configuration_profiles(application_id: Optional[str] = None,
     example_get_configuration_profile = {__key: aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
         application_id=example_aws_appconfig_application["id"]) for __key, __value in example.configuration_profile_ids}
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ID of the AppConfig Application.
@@ -111,7 +109,6 @@ def get_configuration_profiles_output(application_id: Optional[pulumi.Input[str]
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -120,7 +117,6 @@ def get_configuration_profiles_output(application_id: Optional[pulumi.Input[str]
     example_get_configuration_profile = {__key: aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
         application_id=example_aws_appconfig_application["id"]) for __key, __value in example.configuration_profile_ids}
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ID of the AppConfig Application.

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// ### Server Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,11 +81,9 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Lambda Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -136,7 +133,6 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -17,7 +17,6 @@ import (
 //
 // ### By Transit Gateway and Direct Connect Gateway Identifiers
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetDirectConnectGatewayAttachment(ctx *pulumi.Context, args *GetDirectConnectGatewayAttachmentArgs, opts ...pulumi.InvokeOption) (*GetDirectConnectGatewayAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDirectConnectGatewayAttachmentResult

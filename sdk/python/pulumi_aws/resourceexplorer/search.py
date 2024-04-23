@@ -100,7 +100,6 @@ def search(query_string: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -108,7 +107,6 @@ def search(query_string: Optional[str] = None,
     example = aws.resourceexplorer.search(query_string="region:us-west-2",
         view_arn=test["arn"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str query_string: String that includes keywords and filters that specify the resources that you want to include in the results. For the complete syntax supported by the QueryString parameter, see Search query syntax reference for [Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html). The search is completely case insensitive. You can specify an empty string to return all results up to the limit of 1,000 total results. The operation can return only the first 1,000 results. If the resource you want is not included, then use a different value for QueryString to refine the results.
@@ -147,7 +145,6 @@ def search_output(query_string: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -155,7 +152,6 @@ def search_output(query_string: Optional[pulumi.Input[str]] = None,
     example = aws.resourceexplorer.search(query_string="region:us-west-2",
         view_arn=test["arn"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str query_string: String that includes keywords and filters that specify the resources that you want to include in the results. For the complete syntax supported by the QueryString parameter, see Search query syntax reference for [Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html). The search is completely case insensitive. You can specify an empty string to return all results up to the limit of 1,000 total results. The operation can return only the first 1,000 results. If the resource you want is not included, then use a different value for QueryString to refine the results.

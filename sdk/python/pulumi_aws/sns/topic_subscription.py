@@ -515,7 +515,6 @@ class TopicSubscription(pulumi.CustomResource):
 
         You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -525,11 +524,9 @@ class TopicSubscription(pulumi.CustomResource):
             protocol="sqs",
             endpoint="arn:aws:sqs:us-west-2:432981146916:queue-too")
         ```
-        <!--End PulumiCodeChooser -->
 
         Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -541,11 +538,9 @@ class TopicSubscription(pulumi.CustomResource):
             protocol="sqs",
             endpoint=user_updates_queue.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -641,7 +636,6 @@ class TopicSubscription(pulumi.CustomResource):
             protocol="sqs",
             endpoint=sqs_queue.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -691,7 +685,6 @@ class TopicSubscription(pulumi.CustomResource):
 
         You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -701,11 +694,9 @@ class TopicSubscription(pulumi.CustomResource):
             protocol="sqs",
             endpoint="arn:aws:sqs:us-west-2:432981146916:queue-too")
         ```
-        <!--End PulumiCodeChooser -->
 
         Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -717,11 +708,9 @@ class TopicSubscription(pulumi.CustomResource):
             protocol="sqs",
             endpoint=user_updates_queue.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -817,7 +806,6 @@ class TopicSubscription(pulumi.CustomResource):
             protocol="sqs",
             endpoint=sqs_queue.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

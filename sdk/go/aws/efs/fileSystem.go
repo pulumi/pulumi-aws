@@ -17,7 +17,6 @@ import (
 //
 // ### EFS File System w/ tags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,11 +43,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Using lifecycle policy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,7 +74,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

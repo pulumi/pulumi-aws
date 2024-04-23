@@ -13,17 +13,8 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties
     {
-        /// <summary>
-        /// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-        /// </summary>
         public readonly string Oauth2GrantType;
-        /// <summary>
-        /// The token URL required for OAuth 2.0 authentication.
-        /// </summary>
         public readonly string TokenUrl;
-        /// <summary>
-        /// Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? TokenUrlCustomProperties;
 
         [OutputConstructor]

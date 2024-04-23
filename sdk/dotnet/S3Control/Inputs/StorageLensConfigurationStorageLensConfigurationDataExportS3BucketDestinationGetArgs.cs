@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3Control.Inputs
     public sealed class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+        /// The account ID of the owner of the S3 Storage Lens metrics export bucket.
         /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        /// The Amazon Resource Name (ARN) of the bucket.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;

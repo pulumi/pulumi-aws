@@ -19,7 +19,6 @@ namespace Pulumi.Aws.Shield
     /// 
     /// ### Create an association between a protected EIP and a Route53 Health Check
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -78,7 +77,6 @@ namespace Pulumi.Aws.Shield
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

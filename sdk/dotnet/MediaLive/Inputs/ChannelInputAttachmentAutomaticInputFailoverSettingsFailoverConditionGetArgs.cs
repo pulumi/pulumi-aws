@@ -12,9 +12,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Failover condition type-specific settings. See Failover Condition Settings for more details.
-        /// </summary>
         [Input("failoverConditionSettings")]
         public Input<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsGetArgs>? FailoverConditionSettings { get; set; }
 

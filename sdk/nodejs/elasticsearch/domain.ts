@@ -16,7 +16,6 @@ import {PolicyDocument} from "../iam";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,13 +31,11 @@ import {PolicyDocument} from "../iam";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Access Policy
  *
  * > See also: `aws.elasticsearch.DomainPolicy` resource
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,11 +63,9 @@ import {PolicyDocument} from "../iam";
  * `),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Log Publishing to CloudWatch Logs
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -100,11 +95,9 @@ import {PolicyDocument} from "../iam";
  *     logType: "INDEX_SLOW_LOGS",
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### VPC based ES
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -176,7 +169,6 @@ import {PolicyDocument} from "../iam";
  *     dependsOn: [esServiceLinkedRole],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

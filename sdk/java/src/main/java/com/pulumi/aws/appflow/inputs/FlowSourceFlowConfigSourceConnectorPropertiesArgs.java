@@ -75,32 +75,16 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         return Optional.ofNullable(this.datadog);
     }
 
-    /**
-     * Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="dynatrace")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs> dynatrace;
 
-    /**
-     * @return Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs>> dynatrace() {
         return Optional.ofNullable(this.dynatrace);
     }
 
-    /**
-     * Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-     * 
-     */
     @Import(name="googleAnalytics")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs> googleAnalytics;
 
-    /**
-     * @return Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs>> googleAnalytics() {
         return Optional.ofNullable(this.googleAnalytics);
     }
@@ -225,17 +209,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
         return Optional.ofNullable(this.slack);
     }
 
-    /**
-     * Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="trendmicro")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs> trendmicro;
 
-    /**
-     * @return Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs>> trendmicro() {
         return Optional.ofNullable(this.trendmicro);
     }
@@ -372,44 +348,20 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
             return datadog(Output.of(datadog));
         }
 
-        /**
-         * @param dynatrace Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dynatrace(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs> dynatrace) {
             $.dynatrace = dynatrace;
             return this;
         }
 
-        /**
-         * @param dynatrace Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dynatrace(FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs dynatrace) {
             return dynatrace(Output.of(dynatrace));
         }
 
-        /**
-         * @param googleAnalytics Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder googleAnalytics(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs> googleAnalytics) {
             $.googleAnalytics = googleAnalytics;
             return this;
         }
 
-        /**
-         * @param googleAnalytics Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder googleAnalytics(FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs googleAnalytics) {
             return googleAnalytics(Output.of(googleAnalytics));
         }
@@ -582,23 +534,11 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
             return slack(Output.of(slack));
         }
 
-        /**
-         * @param trendmicro Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trendmicro(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs> trendmicro) {
             $.trendmicro = trendmicro;
             return this;
         }
 
-        /**
-         * @param trendmicro Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trendmicro(FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs trendmicro) {
             return trendmicro(Output.of(trendmicro));
         }

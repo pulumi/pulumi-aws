@@ -14,13 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings
     {
         public readonly double? BitDepth;
-        /// <summary>
-        /// Mono, Stereo, or 5.1 channel layout.
-        /// </summary>
         public readonly string? CodingMode;
-        /// <summary>
-        /// Sample rate in Hz.
-        /// </summary>
         public readonly double? SampleRate;
 
         [OutputConstructor]

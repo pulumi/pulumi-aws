@@ -34,7 +34,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,13 +64,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Access Policy
 //
 // > See also: `opensearch.DomainPolicy` resource
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -147,11 +144,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Log publishing to CloudWatch Logs
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -221,11 +216,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### VPC based OpenSearch
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -362,7 +355,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Enabling fine-grained access control on an existing domain
 //
@@ -370,7 +362,6 @@ import (
 //
 // ### First apply
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -421,13 +412,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Second apply
 //
 // Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -478,7 +467,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

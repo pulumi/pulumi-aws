@@ -316,7 +316,6 @@ class Rule(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -336,7 +335,6 @@ class Rule(pulumi.CustomResource):
                 "test_tag_key": "test_tag_value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -369,7 +367,6 @@ class Rule(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,7 +386,6 @@ class Rule(pulumi.CustomResource):
                 "test_tag_key": "test_tag_value",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

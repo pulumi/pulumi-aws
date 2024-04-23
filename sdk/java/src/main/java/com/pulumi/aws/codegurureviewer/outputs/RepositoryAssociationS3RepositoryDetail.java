@@ -13,18 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RepositoryAssociationS3RepositoryDetail {
-    /**
-     * @return The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-     * 
-     */
     private @Nullable String bucketName;
     private @Nullable List<RepositoryAssociationS3RepositoryDetailCodeArtifact> codeArtifacts;
 
     private RepositoryAssociationS3RepositoryDetail() {}
-    /**
-     * @return The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-     * 
-     */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }

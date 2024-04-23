@@ -18,7 +18,6 @@ import (
 //
 // ### Amazon Cognito domain
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,11 +48,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Custom Cognito domain
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,7 +104,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

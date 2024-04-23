@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Msk
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.Msk
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetKafkaVersionResult> InvokeAsync(GetKafkaVersionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKafkaVersionResult>("aws:msk/getKafkaVersion:getKafkaVersion", args ?? new GetKafkaVersionArgs(), options.WithDefaults());
@@ -52,7 +50,6 @@ namespace Pulumi.Aws.Msk
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.Aws.Msk
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetKafkaVersionResult> Invoke(GetKafkaVersionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaVersionResult>("aws:msk/getKafkaVersion:getKafkaVersion", args ?? new GetKafkaVersionInvokeArgs(), options.WithDefaults());

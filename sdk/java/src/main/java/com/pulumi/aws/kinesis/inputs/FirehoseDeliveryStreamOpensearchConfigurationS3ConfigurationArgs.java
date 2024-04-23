@@ -34,14 +34,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationA
     }
 
     /**
-     * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+     * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
      * 
      */
     @Import(name="bufferingInterval")
     private @Nullable Output<Integer> bufferingInterval;
 
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+     * @return Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
      * 
      */
     public Optional<Output<Integer>> bufferingInterval() {
@@ -49,14 +49,16 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationA
     }
 
     /**
-     * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+     * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+     * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
      * 
      */
     @Import(name="bufferingSize")
     private @Nullable Output<Integer> bufferingSize;
 
     /**
-     * @return Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+     * @return Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+     * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
      * 
      */
     public Optional<Output<Integer>> bufferingSize() {
@@ -141,14 +143,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationA
     }
 
     /**
-     * The ARN of the role used to access the Amazon MSK cluster.
+     * The ARN of the AWS credentials.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the role used to access the Amazon MSK cluster.
+     * @return The ARN of the AWS credentials.
      * 
      */
     public Output<String> roleArn() {
@@ -209,7 +211,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationA
         }
 
         /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
          * 
          * @return builder
          * 
@@ -220,7 +222,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationA
         }
 
         /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
          * 
          * @return builder
          * 
@@ -230,7 +232,8 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationA
         }
 
         /**
-         * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          * 
          * @return builder
          * 
@@ -241,7 +244,8 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationA
         }
 
         /**
-         * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          * 
          * @return builder
          * 
@@ -358,7 +362,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationA
         }
 
         /**
-         * @param roleArn The ARN of the role used to access the Amazon MSK cluster.
+         * @param roleArn The ARN of the AWS credentials.
          * 
          * @return builder
          * 
@@ -369,7 +373,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationA
         }
 
         /**
-         * @param roleArn The ARN of the role used to access the Amazon MSK cluster.
+         * @param roleArn The ARN of the AWS credentials.
          * 
          * @return builder
          * 

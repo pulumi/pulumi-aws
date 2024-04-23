@@ -18,7 +18,6 @@ import (
 //
 // ### From Source Template
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,7 +48,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -61,7 +59,7 @@ import (
 type Template struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the template.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
@@ -131,7 +129,7 @@ func GetTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Template resources.
 type templateState struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the template.
 	Arn *string `pulumi:"arn"`
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
@@ -166,7 +164,7 @@ type templateState struct {
 }
 
 type TemplateState struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the template.
 	Arn pulumi.StringPtrInput
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
@@ -330,7 +328,7 @@ func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) Templat
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// ARN of the template.
 func (o TemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

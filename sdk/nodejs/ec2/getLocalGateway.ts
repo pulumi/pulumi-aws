@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * The following example shows how one might accept a local gateway id as a variable.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     id: localGatewayId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGateway(args?: GetLocalGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayResult> {
     args = args || {};
@@ -93,7 +91,6 @@ export interface GetLocalGatewayResult {
  *
  * The following example shows how one might accept a local gateway id as a variable.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -104,7 +101,6 @@ export interface GetLocalGatewayResult {
  *     id: localGatewayId,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getLocalGatewayOutput(args?: GetLocalGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayResult> {
     return pulumi.output(args).apply((a: any) => getLocalGateway(a, opts))

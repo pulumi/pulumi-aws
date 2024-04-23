@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Iot.Outputs
     public sealed class TopicRuleErrorActionTimestreamDimension
     {
         /// <summary>
-        /// The name of the rule.
+        /// The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The value of the HTTP header.
+        /// The value to write in this column of the database record.
         /// </summary>
         public readonly string Value;
 

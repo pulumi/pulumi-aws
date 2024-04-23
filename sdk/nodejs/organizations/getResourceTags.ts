@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     resourceId: "123456123846",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResourceTags(args: GetResourceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTagsResult> {
 
@@ -62,7 +60,6 @@ export interface GetResourceTagsResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,7 +68,6 @@ export interface GetResourceTagsResult {
  *     resourceId: "123456123846",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResourceTagsOutput(args: GetResourceTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceTagsResult> {
     return pulumi.output(args).apply((a: any) => getResourceTags(a, opts))

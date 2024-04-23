@@ -272,7 +272,6 @@ class ProxyTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,7 +309,6 @@ class ProxyTarget(pulumi.CustomResource):
             db_proxy_name=example.name,
             target_group_name=example_proxy_default_target_group.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -349,7 +347,6 @@ class ProxyTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -387,7 +384,6 @@ class ProxyTarget(pulumi.CustomResource):
             db_proxy_name=example.name,
             target_group_name=example_proxy_default_target_group.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

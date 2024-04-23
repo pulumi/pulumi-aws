@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:iam::123456789:saml-provider/myprovider",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSamlProvider(args: GetSamlProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSamlProviderResult> {
 
@@ -82,7 +80,6 @@ export interface GetSamlProviderResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -91,7 +88,6 @@ export interface GetSamlProviderResult {
  *     arn: "arn:aws:iam::123456789:saml-provider/myprovider",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSamlProviderOutput(args: GetSamlProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlProviderResult> {
     return pulumi.output(args).apply((a: any) => getSamlProvider(a, opts))

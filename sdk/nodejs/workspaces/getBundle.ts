@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### By ID
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,11 +22,9 @@ import * as utilities from "../utilities";
  *     bundleId: "wsb-b0s22j3d7",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### By Owner & Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,7 +34,6 @@ import * as utilities from "../utilities";
  *     name: "Value with Windows 10 and Office 2016",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBundle(args?: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> {
     args = args || {};
@@ -112,7 +108,6 @@ export interface GetBundleResult {
  *
  * ### By ID
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -121,11 +116,9 @@ export interface GetBundleResult {
  *     bundleId: "wsb-b0s22j3d7",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### By Owner & Name
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -135,7 +128,6 @@ export interface GetBundleResult {
  *     name: "Value with Windows 10 and Office 2016",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getBundleOutput(args?: GetBundleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBundleResult> {
     return pulumi.output(args).apply((a: any) => getBundle(a, opts))

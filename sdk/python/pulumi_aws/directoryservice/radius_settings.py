@@ -327,7 +327,6 @@ class RadiusSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,7 +341,6 @@ class RadiusSettings(pulumi.CustomResource):
             radius_timeout=1,
             shared_secret="12345678")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -375,7 +373,6 @@ class RadiusSettings(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -390,7 +387,6 @@ class RadiusSettings(pulumi.CustomResource):
             radius_timeout=1,
             shared_secret="12345678")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

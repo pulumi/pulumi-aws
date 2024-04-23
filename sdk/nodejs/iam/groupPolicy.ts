@@ -13,7 +13,6 @@ import {PolicyDocument} from "./index";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,7 +34,6 @@ import {PolicyDocument} from "./index";
  *     }),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

@@ -17,7 +17,6 @@ import (
 //
 // ### By Filter
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,11 +47,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### By Identifier
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,7 +73,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupTransitGateway(ctx *pulumi.Context, args *LookupTransitGatewayArgs, opts ...pulumi.InvokeOption) (*LookupTransitGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTransitGatewayResult

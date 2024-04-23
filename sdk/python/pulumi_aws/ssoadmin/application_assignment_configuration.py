@@ -109,7 +109,6 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -118,7 +117,6 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
             application_arn=example_aws_ssoadmin_application["applicationArn"],
             assignment_required=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -151,7 +149,6 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,7 +157,6 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
             application_arn=example_aws_ssoadmin_application["applicationArn"],
             assignment_required=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

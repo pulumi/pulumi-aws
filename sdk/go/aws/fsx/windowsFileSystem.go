@@ -22,7 +22,6 @@ import (
 //
 // Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,13 +51,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Using a Self-Managed Microsoft Active Directory
 //
 // Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,7 +93,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -159,19 +159,9 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.hypervisor);
     }
 
-    /**
-     * Path to an S3 object containing an image manifest, e.g., created
-     * by the `ec2-upload-bundle` command in the EC2 command line tools.
-     * 
-     */
     @Import(name="imageLocation")
     private @Nullable Output<String> imageLocation;
 
-    /**
-     * @return Path to an S3 object containing an image manifest, e.g., created
-     * by the `ec2-upload-bundle` command in the EC2 command line tools.
-     * 
-     */
     public Optional<Output<String>> imageLocation() {
         return Optional.ofNullable(this.imageLocation);
     }
@@ -221,19 +211,9 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.imdsSupport);
     }
 
-    /**
-     * ID of the kernel image (AKI) that will be used as the paravirtual
-     * kernel in created instances.
-     * 
-     */
     @Import(name="kernelId")
     private @Nullable Output<String> kernelId;
 
-    /**
-     * @return ID of the kernel image (AKI) that will be used as the paravirtual
-     * kernel in created instances.
-     * 
-     */
     public Optional<Output<String>> kernelId() {
         return Optional.ofNullable(this.kernelId);
     }
@@ -320,19 +300,9 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.public_);
     }
 
-    /**
-     * ID of an initrd image (ARI) that will be used when booting the
-     * created instances.
-     * 
-     */
     @Import(name="ramdiskId")
     private @Nullable Output<String> ramdiskId;
 
-    /**
-     * @return ID of an initrd image (ARI) that will be used when booting the
-     * created instances.
-     * 
-     */
     public Optional<Output<String>> ramdiskId() {
         return Optional.ofNullable(this.ramdiskId);
     }
@@ -367,19 +337,9 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.rootSnapshotId);
     }
 
-    /**
-     * When set to &#34;simple&#34; (the default), enables enhanced networking
-     * for created instances. No other value is supported at this time.
-     * 
-     */
     @Import(name="sriovNetSupport")
     private @Nullable Output<String> sriovNetSupport;
 
-    /**
-     * @return When set to &#34;simple&#34; (the default), enables enhanced networking
-     * for created instances. No other value is supported at this time.
-     * 
-     */
     public Optional<Output<String>> sriovNetSupport() {
         return Optional.ofNullable(this.sriovNetSupport);
     }
@@ -738,25 +698,11 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
             return hypervisor(Output.of(hypervisor));
         }
 
-        /**
-         * @param imageLocation Path to an S3 object containing an image manifest, e.g., created
-         * by the `ec2-upload-bundle` command in the EC2 command line tools.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageLocation(@Nullable Output<String> imageLocation) {
             $.imageLocation = imageLocation;
             return this;
         }
 
-        /**
-         * @param imageLocation Path to an S3 object containing an image manifest, e.g., created
-         * by the `ec2-upload-bundle` command in the EC2 command line tools.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageLocation(String imageLocation) {
             return imageLocation(Output.of(imageLocation));
         }
@@ -824,25 +770,11 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
             return imdsSupport(Output.of(imdsSupport));
         }
 
-        /**
-         * @param kernelId ID of the kernel image (AKI) that will be used as the paravirtual
-         * kernel in created instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelId(@Nullable Output<String> kernelId) {
             $.kernelId = kernelId;
             return this;
         }
 
-        /**
-         * @param kernelId ID of the kernel image (AKI) that will be used as the paravirtual
-         * kernel in created instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelId(String kernelId) {
             return kernelId(Output.of(kernelId));
         }
@@ -961,25 +893,11 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
             return public_(Output.of(public_));
         }
 
-        /**
-         * @param ramdiskId ID of an initrd image (ARI) that will be used when booting the
-         * created instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ramdiskId(@Nullable Output<String> ramdiskId) {
             $.ramdiskId = ramdiskId;
             return this;
         }
 
-        /**
-         * @param ramdiskId ID of an initrd image (ARI) that will be used when booting the
-         * created instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ramdiskId(String ramdiskId) {
             return ramdiskId(Output.of(ramdiskId));
         }
@@ -1026,25 +944,11 @@ public final class AmiState extends com.pulumi.resources.ResourceArgs {
             return rootSnapshotId(Output.of(rootSnapshotId));
         }
 
-        /**
-         * @param sriovNetSupport When set to &#34;simple&#34; (the default), enables enhanced networking
-         * for created instances. No other value is supported at this time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sriovNetSupport(@Nullable Output<String> sriovNetSupport) {
             $.sriovNetSupport = sriovNetSupport;
             return this;
         }
 
-        /**
-         * @param sriovNetSupport When set to &#34;simple&#34; (the default), enables enhanced networking
-         * for created instances. No other value is supported at this time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sriovNetSupport(String sriovNetSupport) {
             return sriovNetSupport(Output.of(sriovNetSupport));
         }

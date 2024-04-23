@@ -74,7 +74,6 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -83,7 +82,6 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
             cdr_bucket="example-bucket-name",
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -110,7 +108,6 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -119,7 +116,6 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
             cdr_bucket="example-bucket-name",
         ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,32 +14,16 @@ public final class IpSetIpSetDescriptorArgs extends com.pulumi.resources.Resourc
 
     public static final IpSetIpSetDescriptorArgs Empty = new IpSetIpSetDescriptorArgs();
 
-    /**
-     * Type of the IP address - `IPV4` or `IPV6`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of the IP address - `IPV4` or `IPV6`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
 
-    /**
-     * An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -69,44 +53,20 @@ public final class IpSetIpSetDescriptorArgs extends com.pulumi.resources.Resourc
             $ = new IpSetIpSetDescriptorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type Type of the IP address - `IPV4` or `IPV6`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of the IP address - `IPV4` or `IPV6`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param value An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

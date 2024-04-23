@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLambdaFunctionAssociationResult> InvokeAsync(GetLambdaFunctionAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLambdaFunctionAssociationResult>("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args ?? new GetLambdaFunctionAssociationArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLambdaFunctionAssociationResult> Invoke(GetLambdaFunctionAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLambdaFunctionAssociationResult>("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args ?? new GetLambdaFunctionAssociationInvokeArgs(), options.WithDefaults());

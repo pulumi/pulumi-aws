@@ -232,7 +232,6 @@ class EndpointAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,7 +240,6 @@ class EndpointAuthorization(pulumi.CustomResource):
             account="01234567910",
             cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -269,7 +267,6 @@ class EndpointAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,7 +275,6 @@ class EndpointAuthorization(pulumi.CustomResource):
             account="01234567910",
             cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

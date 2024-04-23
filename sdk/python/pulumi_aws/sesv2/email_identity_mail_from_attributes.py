@@ -138,7 +138,6 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -149,7 +148,6 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
             behavior_on_mx_failure="REJECT_MESSAGE",
             mail_from_domain=example.email_identity.apply(lambda email_identity: f"subdomain.{email_identity}"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -178,7 +176,6 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,7 +186,6 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
             behavior_on_mx_failure="REJECT_MESSAGE",
             mail_from_domain=example.email_identity.apply(lambda email_identity: f"subdomain.{email_identity}"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

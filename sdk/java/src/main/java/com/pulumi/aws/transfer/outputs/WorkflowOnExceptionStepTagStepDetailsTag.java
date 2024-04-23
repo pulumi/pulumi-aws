@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkflowOnExceptionStepTagStepDetailsTag {
-    /**
-     * @return The name assigned to the tag that you create.
-     * 
-     */
     private String key;
-    /**
-     * @return The value that corresponds to the key.
-     * 
-     */
     private String value;
 
     private WorkflowOnExceptionStepTagStepDetailsTag() {}
-    /**
-     * @return The name assigned to the tag that you create.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The value that corresponds to the key.
-     * 
-     */
     public String value() {
         return this.value;
     }

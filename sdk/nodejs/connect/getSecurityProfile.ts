@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * By `name`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,11 +20,9 @@ import * as utilities from "../utilities";
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * By `securityProfileId`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,7 +32,6 @@ import * as utilities from "../utilities";
  *     securityProfileId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSecurityProfile(args: GetSecurityProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityProfileResult> {
 
@@ -109,7 +105,6 @@ export interface GetSecurityProfileResult {
  *
  * By `name`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -119,11 +114,9 @@ export interface GetSecurityProfileResult {
  *     name: "Example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * By `securityProfileId`
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -133,7 +126,6 @@ export interface GetSecurityProfileResult {
  *     securityProfileId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getSecurityProfileOutput(args: GetSecurityProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityProfileResult> {
     return pulumi.output(args).apply((a: any) => getSecurityProfile(a, opts))

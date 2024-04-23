@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,9 +20,7 @@ import * as utilities from "../utilities";
  *     name: "simpleapp",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,7 +31,6 @@ import * as utilities from "../utilities";
  *     meshOwner: current.accountId,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMesh(args: GetMeshArgs, opts?: pulumi.InvokeOptions): Promise<GetMeshResult> {
 
@@ -104,7 +100,6 @@ export interface GetMeshResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,9 +108,7 @@ export interface GetMeshResult {
  *     name: "simpleapp",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -126,7 +119,6 @@ export interface GetMeshResult {
  *     meshOwner: current.accountId,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getMeshOutput(args: GetMeshOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMeshResult> {
     return pulumi.output(args).apply((a: any) => getMesh(a, opts))

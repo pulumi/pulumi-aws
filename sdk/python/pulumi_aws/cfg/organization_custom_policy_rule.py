@@ -492,7 +492,6 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -516,7 +515,6 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         \"\"\",
             resource_types_scopes=["AWS::DynamoDB::Table"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -559,7 +557,6 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -583,7 +580,6 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         \"\"\",
             resource_types_scopes=["AWS::DynamoDB::Table"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

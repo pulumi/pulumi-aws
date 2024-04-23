@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetQuerySuggestionsBlockListResult> InvokeAsync(GetQuerySuggestionsBlockListArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuerySuggestionsBlockListResult>("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args ?? new GetQuerySuggestionsBlockListArgs(), options.WithDefaults());
@@ -43,7 +41,6 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetQuerySuggestionsBlockListResult> Invoke(GetQuerySuggestionsBlockListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuerySuggestionsBlockListResult>("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args ?? new GetQuerySuggestionsBlockListInvokeArgs(), options.WithDefaults());

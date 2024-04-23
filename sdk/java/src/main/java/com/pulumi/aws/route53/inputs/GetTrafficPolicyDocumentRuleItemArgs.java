@@ -15,32 +15,16 @@ public final class GetTrafficPolicyDocumentRuleItemArgs extends com.pulumi.resou
 
     public static final GetTrafficPolicyDocumentRuleItemArgs Empty = new GetTrafficPolicyDocumentRuleItemArgs();
 
-    /**
-     * References to an endpoint.
-     * 
-     */
     @Import(name="endpointReference")
     private @Nullable Output<String> endpointReference;
 
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<Output<String>> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
 
-    /**
-     * If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     @Import(name="healthCheck")
     private @Nullable Output<String> healthCheck;
 
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<Output<String>> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
@@ -70,44 +54,20 @@ public final class GetTrafficPolicyDocumentRuleItemArgs extends com.pulumi.resou
             $ = new GetTrafficPolicyDocumentRuleItemArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpointReference References to an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointReference(@Nullable Output<String> endpointReference) {
             $.endpointReference = endpointReference;
             return this;
         }
 
-        /**
-         * @param endpointReference References to an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointReference(String endpointReference) {
             return endpointReference(Output.of(endpointReference));
         }
 
-        /**
-         * @param healthCheck If you want to associate a health check with the endpoint or rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(@Nullable Output<String> healthCheck) {
             $.healthCheck = healthCheck;
             return this;
         }
 
-        /**
-         * @param healthCheck If you want to associate a health check with the endpoint or rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(String healthCheck) {
             return healthCheck(Output.of(healthCheck));
         }

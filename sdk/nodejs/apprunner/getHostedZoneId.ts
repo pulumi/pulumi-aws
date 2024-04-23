@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,7 +26,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> {
     args = args || {};
@@ -65,7 +63,6 @@ export interface GetHostedZoneIdResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -82,7 +79,6 @@ export interface GetHostedZoneIdResult {
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneIdResult> {
     return pulumi.output(args).apply((a: any) => getHostedZoneId(a, opts))

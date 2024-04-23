@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  * The following example retrieves a text object (which must have a `Content-Type`
  * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,7 +29,6 @@ import * as utilities from "../utilities";
  *     userData: bootstrapScript.then(bootstrapScript => bootstrapScript.body),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * The following, more-complex example retrieves only the metadata for a zip
  * file stored in S3, which is then used to pass the most recent `versionId`
@@ -38,7 +36,6 @@ import * as utilities from "../utilities";
  * Lambda functions is available in the documentation for
  * `aws.lambda.Function`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,7 +53,6 @@ import * as utilities from "../utilities";
  *     handler: "exports.test",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getObject(args: GetObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectResult> {
 
@@ -230,7 +226,6 @@ export interface GetObjectResult {
  * The following example retrieves a text object (which must have a `Content-Type`
  * value starting with `text/`) and uses it as the `userData` for an EC2 instance:
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -245,7 +240,6 @@ export interface GetObjectResult {
  *     userData: bootstrapScript.then(bootstrapScript => bootstrapScript.body),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * The following, more-complex example retrieves only the metadata for a zip
  * file stored in S3, which is then used to pass the most recent `versionId`
@@ -253,7 +247,6 @@ export interface GetObjectResult {
  * Lambda functions is available in the documentation for
  * `aws.lambda.Function`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -271,7 +264,6 @@ export interface GetObjectResult {
  *     handler: "exports.test",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getObjectOutput(args: GetObjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectResult> {
     return pulumi.output(args).apply((a: any) => getObject(a, opts))

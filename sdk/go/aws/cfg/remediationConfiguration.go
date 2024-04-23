@@ -20,7 +20,6 @@ import (
 //
 // AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,7 +80,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

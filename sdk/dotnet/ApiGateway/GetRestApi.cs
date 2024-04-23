@@ -19,7 +19,6 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRestApiResult> InvokeAsync(GetRestApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiArgs(), options.WithDefaults());
@@ -48,7 +46,6 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -64,7 +61,6 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());

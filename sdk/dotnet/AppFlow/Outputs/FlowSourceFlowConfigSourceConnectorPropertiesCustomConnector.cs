@@ -13,13 +13,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector
     {
-        /// <summary>
-        /// Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomProperties;
-        /// <summary>
-        /// Entity specified in the custom connector as a destination in the flow.
-        /// </summary>
         public readonly string EntityName;
 
         [OutputConstructor]

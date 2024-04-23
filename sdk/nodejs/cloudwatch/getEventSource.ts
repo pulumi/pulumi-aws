@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     namePrefix: "aws.partner/examplepartner.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEventSource(args?: GetEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSourceResult> {
     args = args || {};
@@ -74,7 +72,6 @@ export interface GetEventSourceResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -83,7 +80,6 @@ export interface GetEventSourceResult {
  *     namePrefix: "aws.partner/examplepartner.com",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getEventSourceOutput(args?: GetEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSourceResult> {
     return pulumi.output(args).apply((a: any) => getEventSource(a, opts))

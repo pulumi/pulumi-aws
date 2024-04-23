@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ### Conditional Trigger
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,11 +50,9 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### On-Demand Trigger
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,11 +76,9 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Scheduled Trigger
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -108,13 +103,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Conditional Trigger with Crawler Action
     /// 
     /// **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -149,13 +142,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Conditional Trigger with Crawler Condition
     /// 
     /// **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -190,7 +181,6 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -258,7 +248,7 @@ namespace Pulumi.Aws.Glue
         public Output<bool?> StartOnCreation { get; private set; } = null!;
 
         /// <summary>
-        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        /// The current state of the trigger.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -492,7 +482,7 @@ namespace Pulumi.Aws.Glue
         public Input<bool>? StartOnCreation { get; set; }
 
         /// <summary>
-        /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        /// The current state of the trigger.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

@@ -18,7 +18,6 @@ import (
 //
 // ### Filter by AWS account ID
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,11 +60,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Filter by date range
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,11 +103,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Filter by destination IPv4 address
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -148,11 +143,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Filter by finding's confidence
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -190,11 +183,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Filter by resource tags
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -234,7 +225,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule {
-    /**
-     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
-     * 
-     */
     private Integer interval;
-    /**
-     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
-     * 
-     */
     private String intervalUnit;
 
     private LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule() {}
-    /**
-     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
-     * 
-     */
     public Integer interval() {
         return this.interval;
     }
-    /**
-     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
-     * 
-     */
     public String intervalUnit() {
         return this.intervalUnit;
     }

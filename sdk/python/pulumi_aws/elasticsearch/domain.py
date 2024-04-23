@@ -664,7 +664,6 @@ class Domain(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -679,13 +678,11 @@ class Domain(pulumi.CustomResource):
                 "Domain": "TestDomain",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Access Policy
 
         > See also: `elasticsearch.DomainPolicy` resource
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -714,11 +711,9 @@ class Domain(pulumi.CustomResource):
         }}
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Log Publishing to CloudWatch Logs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -745,11 +740,9 @@ class Domain(pulumi.CustomResource):
             log_type="INDEX_SLOW_LOGS",
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### VPC based ES
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -800,15 +793,15 @@ class Domain(pulumi.CustomResource):
                 "rest.action.multi.allow_explicit_index": "true",
             },
             access_policies=f\"\"\"{{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{{
-        			"Action": "es:*",
-        			"Principal": "*",
-        			"Effect": "Allow",
-        			"Resource": "arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"
-        		}}
-        	]
+        \\x09"Version": "2012-10-17",
+        \\x09"Statement": [
+        \\x09\\x09{{
+        \\x09\\x09\\x09"Action": "es:*",
+        \\x09\\x09\\x09"Principal": "*",
+        \\x09\\x09\\x09"Effect": "Allow",
+        \\x09\\x09\\x09"Resource": "arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"
+        \\x09\\x09}}
+        \\x09]
         }}
         \"\"\",
             tags={
@@ -816,7 +809,6 @@ class Domain(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[es_service_linked_role]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -860,7 +852,6 @@ class Domain(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -875,13 +866,11 @@ class Domain(pulumi.CustomResource):
                 "Domain": "TestDomain",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Access Policy
 
         > See also: `elasticsearch.DomainPolicy` resource
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -910,11 +899,9 @@ class Domain(pulumi.CustomResource):
         }}
         \"\"\")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Log Publishing to CloudWatch Logs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -941,11 +928,9 @@ class Domain(pulumi.CustomResource):
             log_type="INDEX_SLOW_LOGS",
         )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### VPC based ES
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -996,15 +981,15 @@ class Domain(pulumi.CustomResource):
                 "rest.action.multi.allow_explicit_index": "true",
             },
             access_policies=f\"\"\"{{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{{
-        			"Action": "es:*",
-        			"Principal": "*",
-        			"Effect": "Allow",
-        			"Resource": "arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"
-        		}}
-        	]
+        \\x09"Version": "2012-10-17",
+        \\x09"Statement": [
+        \\x09\\x09{{
+        \\x09\\x09\\x09"Action": "es:*",
+        \\x09\\x09\\x09"Principal": "*",
+        \\x09\\x09\\x09"Effect": "Allow",
+        \\x09\\x09\\x09"Resource": "arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"
+        \\x09\\x09}}
+        \\x09]
         }}
         \"\"\",
             tags={
@@ -1012,7 +997,6 @@ class Domain(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[es_service_linked_role]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

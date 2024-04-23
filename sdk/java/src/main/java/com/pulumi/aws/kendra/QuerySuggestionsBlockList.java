@@ -87,17 +87,9 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description for a block list.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description for a block list.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -160,16 +152,12 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     /**
      * S3 path where your block list text file is located. See details below.
      * 
-     * The `source_s3_path` configuration block supports the following arguments:
-     * 
      */
     @Export(name="sourceS3Path", refs={QuerySuggestionsBlockListSourceS3Path.class}, tree="[0]")
     private Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path;
 
     /**
      * @return S3 path where your block list text file is located. See details below.
-     * 
-     * The `source_s3_path` configuration block supports the following arguments:
      * 
      */
     public Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path() {
@@ -181,17 +169,9 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

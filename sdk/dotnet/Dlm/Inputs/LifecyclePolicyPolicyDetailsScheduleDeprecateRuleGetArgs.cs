@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Dlm.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailsScheduleDeprecateRuleGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
-        /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
-        /// <summary>
-        /// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
-        /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
-        /// <summary>
-        /// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
-        /// </summary>
         [Input("intervalUnit")]
         public Input<string>? IntervalUnit { get; set; }
 

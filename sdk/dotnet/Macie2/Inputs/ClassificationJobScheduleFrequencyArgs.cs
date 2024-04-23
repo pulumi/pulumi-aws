@@ -20,8 +20,6 @@ namespace Pulumi.Aws.Macie2.Inputs
 
         /// <summary>
         /// Specifies a monthly recurrence pattern for running the job.
-        /// 
-        /// The `s3_job_definition` object supports the following:
         /// </summary>
         [Input("monthlySchedule")]
         public Input<int>? MonthlySchedule { get; set; }

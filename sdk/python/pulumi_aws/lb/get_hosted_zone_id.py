@@ -70,7 +70,6 @@ def get_hosted_zone_id(load_balancer_type: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -86,7 +85,6 @@ def get_hosted_zone_id(load_balancer_type: Optional[str] = None,
             evaluate_target_health=True,
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str load_balancer_type: Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
@@ -114,7 +112,6 @@ def get_hosted_zone_id_output(load_balancer_type: Optional[pulumi.Input[Optional
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -130,7 +127,6 @@ def get_hosted_zone_id_output(load_balancer_type: Optional[pulumi.Input[Optional
             evaluate_target_health=True,
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str load_balancer_type: Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.

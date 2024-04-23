@@ -19,7 +19,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,7 +50,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 func GetTaskExecution(ctx *pulumi.Context, args *GetTaskExecutionArgs, opts ...pulumi.InvokeOption) (*GetTaskExecutionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTaskExecutionResult

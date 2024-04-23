@@ -11,7 +11,6 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,11 +31,9 @@ import {RestApi} from "./index";
  *     authorization: "NONE",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Usage with Cognito User Pool Authorizer
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -69,7 +66,6 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

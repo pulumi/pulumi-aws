@@ -70,14 +70,12 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iam.SecurityTokenServicePreferences("example", global_endpoint_token_version="v2Token")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -94,14 +92,12 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iam.SecurityTokenServicePreferences("example", global_endpoint_token_version="v2Token")
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param SecurityTokenServicePreferencesArgs args: The arguments to use to populate this resource's properties.

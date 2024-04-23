@@ -13,19 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll all;
     private @Nullable List<String> excludedCookies;
     private @Nullable List<String> includedCookies;
 
     private RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern() {}
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll> all() {
         return Optional.ofNullable(this.all);
     }

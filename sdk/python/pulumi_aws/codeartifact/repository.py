@@ -323,7 +323,6 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -336,11 +335,9 @@ class Repository(pulumi.CustomResource):
             repository="example",
             domain=example_domain.domain)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Upstream Repository
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -355,11 +352,9 @@ class Repository(pulumi.CustomResource):
                 repository_name=upstream.repository,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With External Connection
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -374,7 +369,6 @@ class Repository(pulumi.CustomResource):
                 external_connection_name="public:npmjs",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -405,7 +399,6 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -418,11 +411,9 @@ class Repository(pulumi.CustomResource):
             repository="example",
             domain=example_domain.domain)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Upstream Repository
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -437,11 +428,9 @@ class Repository(pulumi.CustomResource):
                 repository_name=upstream.repository,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With External Connection
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -456,7 +445,6 @@ class Repository(pulumi.CustomResource):
                 external_connection_name="public:npmjs",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

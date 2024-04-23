@@ -441,7 +441,6 @@ class Application(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -451,11 +450,9 @@ class Application(pulumi.CustomResource):
             release_label="emr-6.6.0",
             type="hive")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Initial Capacity Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -475,11 +472,9 @@ class Application(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Maximum Capacity Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -493,7 +488,6 @@ class Application(pulumi.CustomResource):
                 memory="10 GB",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -530,7 +524,6 @@ class Application(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -540,11 +533,9 @@ class Application(pulumi.CustomResource):
             release_label="emr-6.6.0",
             type="hive")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Initial Capacity Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -564,11 +555,9 @@ class Application(pulumi.CustomResource):
                 ),
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Maximum Capacity Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -582,7 +571,6 @@ class Application(pulumi.CustomResource):
                 memory="10 GB",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -232,7 +232,6 @@ class Deployment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -243,7 +242,6 @@ class Deployment(pulumi.CustomResource):
             application_version=1,
             start=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -273,7 +271,6 @@ class Deployment(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -284,7 +281,6 @@ class Deployment(pulumi.CustomResource):
             application_version=1,
             start=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -216,7 +216,6 @@ def get_faq(faq_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -224,7 +223,6 @@ def get_faq(faq_id: Optional[str] = None,
     test = aws.kendra.get_faq(faq_id="87654321-1234-4321-4321-321987654321",
         index_id="12345678-1234-1234-1234-123456789123")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str faq_id: Identifier of the FAQ.
@@ -266,7 +264,6 @@ def get_faq_output(faq_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -274,7 +271,6 @@ def get_faq_output(faq_id: Optional[pulumi.Input[str]] = None,
     test = aws.kendra.get_faq(faq_id="87654321-1234-4321-4321-321987654321",
         index_id="12345678-1234-1234-1234-123456789123")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str faq_id: Identifier of the FAQ.

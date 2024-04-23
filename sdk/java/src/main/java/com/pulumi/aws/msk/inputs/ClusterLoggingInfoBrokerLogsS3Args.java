@@ -17,47 +17,23 @@ public final class ClusterLoggingInfoBrokerLogsS3Args extends com.pulumi.resourc
 
     public static final ClusterLoggingInfoBrokerLogsS3Args Empty = new ClusterLoggingInfoBrokerLogsS3Args();
 
-    /**
-     * Name of the S3 bucket to deliver logs to.
-     * 
-     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
-    /**
-     * @return Name of the S3 bucket to deliver logs to.
-     * 
-     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
-    /**
-     * Controls whether provisioned throughput is enabled or not. Default value: `false`.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Controls whether provisioned throughput is enabled or not. Default value: `false`.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * Prefix to append to the folder name.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Prefix to append to the folder name.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -88,65 +64,29 @@ public final class ClusterLoggingInfoBrokerLogsS3Args extends com.pulumi.resourc
             $ = new ClusterLoggingInfoBrokerLogsS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the S3 bucket to deliver logs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the S3 bucket to deliver logs to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param enabled Controls whether provisioned throughput is enabled or not. Default value: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Controls whether provisioned throughput is enabled or not. Default value: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param prefix Prefix to append to the folder name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Prefix to append to the folder name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

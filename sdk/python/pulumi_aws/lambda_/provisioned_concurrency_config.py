@@ -179,7 +179,6 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
 
         ### Alias Name
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,11 +188,9 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
             provisioned_concurrent_executions=1,
             qualifier=example_aws_lambda_alias["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Function Version
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,7 +200,6 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
             provisioned_concurrent_executions=1,
             qualifier=example_aws_lambda_function["version"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -237,7 +233,6 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
 
         ### Alias Name
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,11 +242,9 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
             provisioned_concurrent_executions=1,
             qualifier=example_aws_lambda_alias["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Function Version
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -261,7 +254,6 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
             provisioned_concurrent_executions=1,
             qualifier=example_aws_lambda_function["version"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

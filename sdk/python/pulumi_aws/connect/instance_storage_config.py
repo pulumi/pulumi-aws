@@ -155,7 +155,6 @@ class InstanceStorageConfig(pulumi.CustomResource):
 
         ### Storage Config Kinesis Firehose Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -170,11 +169,9 @@ class InstanceStorageConfig(pulumi.CustomResource):
                 storage_type="KINESIS_FIREHOSE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Storage Config Kinesis Stream Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,11 +186,9 @@ class InstanceStorageConfig(pulumi.CustomResource):
                 storage_type="KINESIS_STREAM",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Storage Config Kinesis Video Stream Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -213,11 +208,9 @@ class InstanceStorageConfig(pulumi.CustomResource):
                 storage_type="KINESIS_VIDEO_STREAM",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Storage Config S3 Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,11 +226,9 @@ class InstanceStorageConfig(pulumi.CustomResource):
                 storage_type="S3",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Storage Config S3 Config with Encryption Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,7 +248,6 @@ class InstanceStorageConfig(pulumi.CustomResource):
                 storage_type="S3",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -287,7 +277,6 @@ class InstanceStorageConfig(pulumi.CustomResource):
 
         ### Storage Config Kinesis Firehose Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -302,11 +291,9 @@ class InstanceStorageConfig(pulumi.CustomResource):
                 storage_type="KINESIS_FIREHOSE",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Storage Config Kinesis Stream Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -321,11 +308,9 @@ class InstanceStorageConfig(pulumi.CustomResource):
                 storage_type="KINESIS_STREAM",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Storage Config Kinesis Video Stream Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -345,11 +330,9 @@ class InstanceStorageConfig(pulumi.CustomResource):
                 storage_type="KINESIS_VIDEO_STREAM",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Storage Config S3 Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -365,11 +348,9 @@ class InstanceStorageConfig(pulumi.CustomResource):
                 storage_type="S3",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Storage Config S3 Config with Encryption Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,7 +370,6 @@ class InstanceStorageConfig(pulumi.CustomResource):
                 storage_type="S3",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -22,7 +22,6 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ### EC2 Type
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -177,17 +176,15 @@ namespace Pulumi.Aws.Batch
     ///     {
     ///         DependsOn =
     ///         {
-    ///             awsBatchServiceRoleRolePolicyAttachment, 
+    ///             awsBatchServiceRoleRolePolicyAttachment,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Fargate Type
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -218,17 +215,15 @@ namespace Pulumi.Aws.Batch
     ///     {
     ///         DependsOn =
     ///         {
-    ///             awsBatchServiceRole, 
+    ///             awsBatchServiceRole,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Setting Update Policy
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -270,7 +265,6 @@ namespace Pulumi.Aws.Batch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

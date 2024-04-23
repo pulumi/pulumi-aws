@@ -151,7 +151,6 @@ class Region(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,7 +159,6 @@ class Region(pulumi.CustomResource):
             region_name="ap-southeast-3",
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -187,7 +185,6 @@ class Region(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,7 +193,6 @@ class Region(pulumi.CustomResource):
             region_name="ap-southeast-3",
             enabled=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

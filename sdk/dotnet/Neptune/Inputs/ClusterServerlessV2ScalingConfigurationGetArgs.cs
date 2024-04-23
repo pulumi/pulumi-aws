@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Neptune.Inputs
 
     public sealed class ClusterServerlessV2ScalingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        /// </summary>
         [Input("maxCapacity")]
         public Input<double>? MaxCapacity { get; set; }
 
-        /// <summary>
-        /// The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        /// </summary>
         [Input("minCapacity")]
         public Input<double>? MinCapacity { get; set; }
 

@@ -71,14 +71,12 @@ class AdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.fms.AdminAccount("example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -103,14 +101,12 @@ class AdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.fms.AdminAccount("example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

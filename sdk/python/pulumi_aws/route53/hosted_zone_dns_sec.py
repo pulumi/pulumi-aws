@@ -115,7 +115,6 @@ class HostedZoneDnsSec(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -162,7 +161,6 @@ class HostedZoneDnsSec(pulumi.CustomResource):
         example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id,
         opts=pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -194,7 +192,6 @@ class HostedZoneDnsSec(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -241,7 +238,6 @@ class HostedZoneDnsSec(pulumi.CustomResource):
         example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id,
         opts=pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

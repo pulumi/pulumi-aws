@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,7 +34,6 @@ import * as utilities from "../utilities";
  *     port: 443,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
     args = args || {};
@@ -96,7 +94,6 @@ export interface GetListenerResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -115,7 +112,6 @@ export interface GetListenerResult {
  *     port: 443,
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getListenerOutput(args?: GetListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerResult> {
     return pulumi.output(args).apply((a: any) => getListener(a, opts))

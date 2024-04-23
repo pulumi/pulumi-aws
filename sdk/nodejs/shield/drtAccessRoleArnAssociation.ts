@@ -15,7 +15,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,7 +39,6 @@ import * as utilities from "../utilities";
  * });
  * const testDrtAccessRoleArnAssociation = new aws.shield.DrtAccessRoleArnAssociation("test", {roleArn: test.arn});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

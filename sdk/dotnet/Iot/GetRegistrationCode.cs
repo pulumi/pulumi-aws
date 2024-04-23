@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Iot
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Aws.Iot
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRegistrationCodeResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", InvokeArgs.Empty, options.WithDefaults());
@@ -55,7 +53,6 @@ namespace Pulumi.Aws.Iot
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -84,7 +81,6 @@ namespace Pulumi.Aws.Iot
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRegistrationCodeResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", InvokeArgs.Empty, options.WithDefaults());

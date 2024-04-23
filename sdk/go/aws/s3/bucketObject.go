@@ -18,7 +18,6 @@ import (
 //
 // ### Uploading a file to a bucket
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,11 +51,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Encrypting with KMS Key
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -104,11 +101,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Server Side Encryption with S3 Default Master Key
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -148,11 +143,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Server Side Encryption with AWS-Managed Key
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -192,11 +185,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### S3 Object Lock
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -251,7 +242,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

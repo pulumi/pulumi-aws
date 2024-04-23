@@ -21,7 +21,6 @@ import (
 //
 // ### Create a basic user pool client
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,11 +51,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create a user pool client with no SRP authentication
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,11 +88,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create a user pool client with pinpoint analytics
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -201,11 +196,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Create a user pool client with Cognito as the identity provider
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -251,7 +244,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

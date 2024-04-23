@@ -441,7 +441,6 @@ class CertificateAuthority(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -456,11 +455,9 @@ class CertificateAuthority(pulumi.CustomResource):
             ),
             permanent_deletion_time_in_days=7)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Short-lived certificate
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -475,11 +472,9 @@ class CertificateAuthority(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enable Certificate Revocation List
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -525,7 +520,6 @@ class CertificateAuthority(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -561,7 +555,6 @@ class CertificateAuthority(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -576,11 +569,9 @@ class CertificateAuthority(pulumi.CustomResource):
             ),
             permanent_deletion_time_in_days=7)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Short-lived certificate
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -595,11 +586,9 @@ class CertificateAuthority(pulumi.CustomResource):
                 ),
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Enable Certificate Revocation List
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -645,7 +634,6 @@ class CertificateAuthority(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

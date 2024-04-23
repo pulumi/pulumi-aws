@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,11 +23,9 @@ import * as utilities from "../utilities";
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With description
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,11 +36,9 @@ import * as utilities from "../utilities";
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With tags
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,11 +51,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### With targetTable
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,7 +67,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

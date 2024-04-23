@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,7 +89,6 @@ namespace Pulumi.Aws.Elb
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:elb/sslNegotiationPolicy:SslNegotiationPolicy")]
     public partial class SslNegotiationPolicy : global::Pulumi.CustomResource
@@ -117,7 +115,7 @@ namespace Pulumi.Aws.Elb
         public Output<string> LoadBalancer { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the attribute
+        /// The name of the SSL negotiation policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -210,7 +208,7 @@ namespace Pulumi.Aws.Elb
         public Input<string> LoadBalancer { get; set; } = null!;
 
         /// <summary>
-        /// The name of the attribute
+        /// The name of the SSL negotiation policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -267,7 +265,7 @@ namespace Pulumi.Aws.Elb
         public Input<string>? LoadBalancer { get; set; }
 
         /// <summary>
-        /// The name of the attribute
+        /// The name of the SSL negotiation policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

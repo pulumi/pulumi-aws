@@ -14,28 +14,17 @@ namespace Pulumi.Aws.Pipes.Inputs
     {
         [Input("headerParameters")]
         private InputMap<string>? _headerParameters;
-
-        /// <summary>
-        /// Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-        /// </summary>
         public InputMap<string> HeaderParameters
         {
             get => _headerParameters ?? (_headerParameters = new InputMap<string>());
             set => _headerParameters = value;
         }
 
-        /// <summary>
-        /// The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
-        /// </summary>
         [Input("pathParameterValues")]
         public Input<string>? PathParameterValues { get; set; }
 
         [Input("queryStringParameters")]
         private InputMap<string>? _queryStringParameters;
-
-        /// <summary>
-        /// Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
-        /// </summary>
         public InputMap<string> QueryStringParameters
         {
             get => _queryStringParameters ?? (_queryStringParameters = new InputMap<string>());

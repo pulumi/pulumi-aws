@@ -22,7 +22,6 @@ import (
 //
 // ### Object Lock configuration for new or existing buckets
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,7 +66,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

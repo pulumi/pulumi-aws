@@ -180,7 +180,6 @@ class BucketVersioningV2(pulumi.CustomResource):
 
         ### With Versioning Enabled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,11 +194,9 @@ class BucketVersioningV2(pulumi.CustomResource):
                 status="Enabled",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Versioning Disabled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,7 +211,6 @@ class BucketVersioningV2(pulumi.CustomResource):
                 status="Disabled",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Object Dependency On Versioning
 
@@ -224,7 +220,6 @@ class BucketVersioningV2(pulumi.CustomResource):
 
         This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,7 +235,6 @@ class BucketVersioningV2(pulumi.CustomResource):
             key="droeloe",
             source=pulumi.FileAsset("example.txt"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -287,7 +281,6 @@ class BucketVersioningV2(pulumi.CustomResource):
 
         ### With Versioning Enabled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -302,11 +295,9 @@ class BucketVersioningV2(pulumi.CustomResource):
                 status="Enabled",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Versioning Disabled
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -321,7 +312,6 @@ class BucketVersioningV2(pulumi.CustomResource):
                 status="Disabled",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Object Dependency On Versioning
 
@@ -331,7 +321,6 @@ class BucketVersioningV2(pulumi.CustomResource):
 
         This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -347,7 +336,6 @@ class BucketVersioningV2(pulumi.CustomResource):
             key="droeloe",
             source=pulumi.FileAsset("example.txt"))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

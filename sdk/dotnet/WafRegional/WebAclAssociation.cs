@@ -18,7 +18,6 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// ### Application Load Balancer Association
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -116,7 +115,6 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

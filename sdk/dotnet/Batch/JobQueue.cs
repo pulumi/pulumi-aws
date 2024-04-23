@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ### Basic Job Queue
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,11 +46,9 @@ namespace Pulumi.Aws.Batch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Job Queue with a fair share scheduling policy
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,7 +98,6 @@ namespace Pulumi.Aws.Batch
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -261,7 +261,6 @@ class Vocabulary(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,7 +282,6 @@ class Vocabulary(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[object]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -316,7 +314,6 @@ class Vocabulary(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -338,7 +335,6 @@ class Vocabulary(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[object]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

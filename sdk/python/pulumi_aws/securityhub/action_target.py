@@ -151,7 +151,6 @@ class ActionTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -163,7 +162,6 @@ class ActionTarget(pulumi.CustomResource):
             description="This is custom action sends selected findings to chat",
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -190,7 +188,6 @@ class ActionTarget(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,7 +199,6 @@ class ActionTarget(pulumi.CustomResource):
             description="This is custom action sends selected findings to chat",
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

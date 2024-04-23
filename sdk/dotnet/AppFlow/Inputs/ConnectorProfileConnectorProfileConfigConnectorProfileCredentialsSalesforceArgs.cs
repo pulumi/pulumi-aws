@@ -14,10 +14,6 @@ namespace Pulumi.Aws.AppFlow.Inputs
     {
         [Input("accessToken")]
         private Input<string>? _accessToken;
-
-        /// <summary>
-        /// The access token used to access the connector on your behalf.
-        /// </summary>
         public Input<string>? AccessToken
         {
             get => _accessToken;
@@ -28,33 +24,18 @@ namespace Pulumi.Aws.AppFlow.Inputs
             }
         }
 
-        /// <summary>
-        /// The secret manager ARN, which contains the client ID and client secret of the connected app.
-        /// </summary>
         [Input("clientCredentialsArn")]
         public Input<string>? ClientCredentialsArn { get; set; }
 
-        /// <summary>
-        /// A JSON web token (JWT) that authorizes access to Salesforce records.
-        /// </summary>
         [Input("jwtToken")]
         public Input<string>? JwtToken { get; set; }
 
-        /// <summary>
-        /// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-        /// </summary>
         [Input("oauth2GrantType")]
         public Input<string>? Oauth2GrantType { get; set; }
 
-        /// <summary>
-        /// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
-        /// </summary>
         [Input("oauthRequest")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs>? OauthRequest { get; set; }
 
-        /// <summary>
-        /// The refresh token used to refresh an expired access token.
-        /// </summary>
         [Input("refreshToken")]
         public Input<string>? RefreshToken { get; set; }
 

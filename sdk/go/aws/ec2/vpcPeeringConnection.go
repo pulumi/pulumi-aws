@@ -30,7 +30,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,11 +55,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Basic usage with connection options:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,11 +89,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Basic usage with tags:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -138,11 +133,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Basic usage with region:
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -181,7 +174,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Notes
 //

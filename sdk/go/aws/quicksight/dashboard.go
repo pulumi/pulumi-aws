@@ -18,7 +18,6 @@ import (
 //
 // ### From Source Template
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,7 +54,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -67,7 +65,7 @@ import (
 type Dashboard struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the dashboard.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
@@ -144,7 +142,7 @@ func GetDashboard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dashboard resources.
 type dashboardState struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the dashboard.
 	Arn *string `pulumi:"arn"`
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
@@ -186,7 +184,7 @@ type dashboardState struct {
 }
 
 type DashboardState struct {
-	// The Amazon Resource Name (ARN) of the resource.
+	// ARN of the dashboard.
 	Arn pulumi.StringPtrInput
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
@@ -369,7 +367,7 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the resource.
+// ARN of the dashboard.
 func (o DashboardOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

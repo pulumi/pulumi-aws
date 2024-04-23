@@ -97,7 +97,8 @@ class _ResourceSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceSet resources.
-        :param pulumi.Input[str] arn: NLB resource ARN.
+        :param pulumi.Input[str] arn: ARN of the resource set
+               * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]] resources: List of resources to add to this resource set. See below.
@@ -126,7 +127,8 @@ class _ResourceSetState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        NLB resource ARN.
+        ARN of the resource set
+        * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
         """
         return pulumi.get(self, "arn")
 
@@ -215,7 +217,6 @@ class ResourceSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,7 +228,6 @@ class ResourceSet(pulumi.CustomResource):
                 resource_arn=example_aws_cloudwatch_metric_alarm["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -257,7 +257,6 @@ class ResourceSet(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,7 +268,6 @@ class ResourceSet(pulumi.CustomResource):
                 resource_arn=example_aws_cloudwatch_metric_alarm["arn"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -342,7 +340,8 @@ class ResourceSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: NLB resource ARN.
+        :param pulumi.Input[str] arn: ARN of the resource set
+               * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]] resources: List of resources to add to this resource set. See below.
@@ -367,7 +366,8 @@ class ResourceSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        NLB resource ARN.
+        ARN of the resource set
+        * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
         """
         return pulumi.get(self, "arn")
 

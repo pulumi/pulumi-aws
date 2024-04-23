@@ -220,7 +220,6 @@ class DirectoryBucket(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,7 +230,6 @@ class DirectoryBucket(pulumi.CustomResource):
                 name="usw2-az1",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -260,7 +258,6 @@ class DirectoryBucket(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,7 +268,6 @@ class DirectoryBucket(pulumi.CustomResource):
                 name="usw2-az1",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

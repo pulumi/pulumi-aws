@@ -16,7 +16,6 @@ namespace Pulumi.Aws.WafRegional
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.WafRegional
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRateBasedModResult> InvokeAsync(GetRateBasedModArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedModResult>("aws:wafregional/getRateBasedMod:getRateBasedMod", args ?? new GetRateBasedModArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.WafRegional
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.WafRegional
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRateBasedModResult> Invoke(GetRateBasedModInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRateBasedModResult>("aws:wafregional/getRateBasedMod:getRateBasedMod", args ?? new GetRateBasedModInvokeArgs(), options.WithDefaults());

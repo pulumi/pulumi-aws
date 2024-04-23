@@ -19,7 +19,6 @@ import (
 //
 // The following shows outputting all VPC Ids.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,7 +45,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // An example use case would be interpolate the `ec2.getVpcs` output into `count` of an ec2.FlowLog resource.
 func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption) (*GetVpcsResult, error) {

@@ -134,7 +134,6 @@ class BucketAccessKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,7 +143,6 @@ class BucketAccessKey(pulumi.CustomResource):
             bundle_id="small_1_0")
         test_lightsail_bucket_access_key_access_key = aws.index.LightsailBucketAccessKeyAccessKey("test", bucket_name=test_aws_lightsail_bucket_access_key.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -169,7 +167,6 @@ class BucketAccessKey(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,7 +176,6 @@ class BucketAccessKey(pulumi.CustomResource):
             bundle_id="small_1_0")
         test_lightsail_bucket_access_key_access_key = aws.index.LightsailBucketAccessKeyAccessKey("test", bucket_name=test_aws_lightsail_bucket_access_key.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

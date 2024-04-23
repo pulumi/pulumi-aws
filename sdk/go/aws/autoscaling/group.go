@@ -20,7 +20,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -100,11 +99,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With Latest Version Of Launch Template
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -146,11 +143,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Mixed Instances Policy
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -205,11 +200,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -271,13 +264,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
 //
 // When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -342,13 +333,11 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Mixed Instances Policy with Attribute-based Instance Type Selection
 //
 // As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -405,11 +394,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Dynamic tagging
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -470,11 +457,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Automatically refresh all instances after the group is updated
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -548,11 +533,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Auto Scaling group with Warm Pool
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -598,7 +581,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public Input<bool>? IsValueSecret { get; set; }
 
         /// <summary>
-        /// Header Name.
+        /// The key for the parameter.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         private Input<string>? _value;
 
         /// <summary>
-        /// Header Value. Created and stored in AWS Secrets Manager.
+        /// The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
         /// </summary>
         public Input<string>? Value
         {

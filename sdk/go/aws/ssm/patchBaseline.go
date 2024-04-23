@@ -23,7 +23,6 @@ import (
 //
 // Using `approvedPatches` only.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,11 +49,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Advanced Usage, specifying patch filters
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -147,11 +144,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Advanced usage, specifying Microsoft application and Windows patch rules
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -216,11 +211,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Advanced usage, specifying alternate patch source repository
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -274,7 +267,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

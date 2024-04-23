@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     type: exampleAwsOpensearchserverlessAccessPolicy.type,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServerlessAccessPolicy(args: GetServerlessAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessAccessPolicyResult> {
 
@@ -73,7 +71,6 @@ export interface GetServerlessAccessPolicyResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -83,7 +80,6 @@ export interface GetServerlessAccessPolicyResult {
  *     type: exampleAwsOpensearchserverlessAccessPolicy.type,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getServerlessAccessPolicyOutput(args: GetServerlessAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getServerlessAccessPolicy(a, opts))

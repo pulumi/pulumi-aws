@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,7 +65,6 @@ namespace Pulumi.Aws.Iot
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:iot/policyAttachment:PolicyAttachment")]
     public partial class PolicyAttachment : global::Pulumi.CustomResource

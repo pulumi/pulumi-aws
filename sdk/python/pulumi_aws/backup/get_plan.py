@@ -109,14 +109,12 @@ def get_plan(plan_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.backup.get_plan(plan_id="my_example_backup_plan_id")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str plan_id: Backup plan ID.
@@ -146,14 +144,12 @@ def get_plan_output(plan_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.backup.get_plan(plan_id="my_example_backup_plan_id")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str plan_id: Backup plan ID.

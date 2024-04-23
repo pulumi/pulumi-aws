@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,7 +19,6 @@ import * as utilities from "../utilities";
  *     name: "stream-name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirehoseDeliveryStream(args: GetFirehoseDeliveryStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetFirehoseDeliveryStreamResult> {
 
@@ -61,7 +59,6 @@ export interface GetFirehoseDeliveryStreamResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,7 +67,6 @@ export interface GetFirehoseDeliveryStreamResult {
  *     name: "stream-name",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getFirehoseDeliveryStreamOutput(args: GetFirehoseDeliveryStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirehoseDeliveryStreamResult> {
     return pulumi.output(args).apply((a: any) => getFirehoseDeliveryStream(a, opts))

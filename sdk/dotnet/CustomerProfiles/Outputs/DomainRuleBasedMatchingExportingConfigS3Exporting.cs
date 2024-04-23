@@ -13,13 +13,7 @@ namespace Pulumi.Aws.CustomerProfiles.Outputs
     [OutputType]
     public sealed class DomainRuleBasedMatchingExportingConfigS3Exporting
     {
-        /// <summary>
-        /// The name of the S3 bucket where Identity Resolution Jobs write result files.
-        /// </summary>
         public readonly string S3BucketName;
-        /// <summary>
-        /// The S3 key name of the location where Identity Resolution Jobs write result files.
-        /// </summary>
         public readonly string? S3KeyName;
 
         [OutputConstructor]

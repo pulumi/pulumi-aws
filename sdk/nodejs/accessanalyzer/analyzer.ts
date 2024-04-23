@@ -14,18 +14,15 @@ import * as utilities from "../utilities";
  *
  * ### Account Analyzer
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.accessanalyzer.Analyzer("example", {analyzerName: "example"});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Organization Analyzer
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,7 +35,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

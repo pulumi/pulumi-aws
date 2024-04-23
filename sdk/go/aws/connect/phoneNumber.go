@@ -19,7 +19,6 @@ import (
 //
 // ### Basic
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,11 +47,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Description
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,11 +76,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Prefix to filter phone numbers
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,7 +105,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

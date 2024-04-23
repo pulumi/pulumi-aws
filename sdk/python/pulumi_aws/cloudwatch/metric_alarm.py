@@ -838,7 +838,6 @@ class MetricAlarm(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -855,11 +854,9 @@ class MetricAlarm(pulumi.CustomResource):
             alarm_description="This metric monitors ec2 cpu utilization",
             insufficient_data_actions=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example in Conjunction with Scaling Policies
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -885,11 +882,9 @@ class MetricAlarm(pulumi.CustomResource):
             alarm_description="This metric monitors ec2 cpu utilization",
             alarm_actions=[bat.arn])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example with an Expression
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -936,9 +931,7 @@ class MetricAlarm(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -973,11 +966,9 @@ class MetricAlarm(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1000,7 +991,6 @@ class MetricAlarm(pulumi.CustomResource):
                 "LoadBalancer": lb["arnSuffix"],
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
         You must choose one or the other
@@ -1058,7 +1048,6 @@ class MetricAlarm(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1075,11 +1064,9 @@ class MetricAlarm(pulumi.CustomResource):
             alarm_description="This metric monitors ec2 cpu utilization",
             insufficient_data_actions=[])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example in Conjunction with Scaling Policies
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1105,11 +1092,9 @@ class MetricAlarm(pulumi.CustomResource):
             alarm_description="This metric monitors ec2 cpu utilization",
             alarm_actions=[bat.arn])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example with an Expression
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1156,9 +1141,7 @@ class MetricAlarm(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1193,11 +1176,9 @@ class MetricAlarm(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1220,7 +1201,6 @@ class MetricAlarm(pulumi.CustomResource):
                 "LoadBalancer": lb["arnSuffix"],
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
         You must choose one or the other

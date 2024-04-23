@@ -15,17 +15,9 @@ public final class LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs extends
 
     public static final LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs Empty = new LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs();
 
-    /**
-     * The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -54,23 +46,11 @@ public final class LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs extends
             $ = new LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param version The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

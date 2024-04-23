@@ -535,7 +535,6 @@ class Endpoint(pulumi.CustomResource):
 
         ### ALB Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -556,11 +555,9 @@ class Endpoint(pulumi.CustomResource):
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Network Interface Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -580,7 +577,6 @@ class Endpoint(pulumi.CustomResource):
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -621,7 +617,6 @@ class Endpoint(pulumi.CustomResource):
 
         ### ALB Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -642,11 +637,9 @@ class Endpoint(pulumi.CustomResource):
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Network Interface Example
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -666,7 +659,6 @@ class Endpoint(pulumi.CustomResource):
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -14,17 +14,9 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Finger
 
     public static final RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs Empty = new RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs();
 
-    /**
-     * The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-     * 
-     */
     @Import(name="fallbackBehavior", required=true)
     private Output<String> fallbackBehavior;
 
-    /**
-     * @return The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-     * 
-     */
     public Output<String> fallbackBehavior() {
         return this.fallbackBehavior;
     }
@@ -53,23 +45,11 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Finger
             $ = new RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fallbackBehavior The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackBehavior(Output<String> fallbackBehavior) {
             $.fallbackBehavior = fallbackBehavior;
             return this;
         }
 
-        /**
-         * @param fallbackBehavior The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackBehavior(String fallbackBehavior) {
             return fallbackBehavior(Output.of(fallbackBehavior));
         }

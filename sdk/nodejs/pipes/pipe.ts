@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -81,11 +80,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Enrichment Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -111,11 +108,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Filter Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -136,7 +131,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -175,7 +169,7 @@ export class Pipe extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+     * ARN of this pipe.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -298,7 +292,7 @@ export class Pipe extends pulumi.CustomResource {
  */
 export interface PipeState {
     /**
-     * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+     * ARN of this pipe.
      */
     arn?: pulumi.Input<string>;
     /**

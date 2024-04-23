@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -108,7 +106,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string> InfrastructureConfigurationArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Workflow parameter.
+        /// Name of the AMI.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -346,7 +344,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? InfrastructureConfigurationArn { get; set; }
 
         /// <summary>
-        /// The name of the Workflow parameter.
+        /// Name of the AMI.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

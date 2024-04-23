@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeSourceParametersKinesisStreamParametersDeadLetterConfig {
     /**
-     * @return The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+     * @return ARN of this pipe.
      * 
      */
     private @Nullable String arn;
 
     private PipeSourceParametersKinesisStreamParametersDeadLetterConfig() {}
     /**
-     * @return The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+     * @return ARN of this pipe.
      * 
      */
     public Optional<String> arn() {

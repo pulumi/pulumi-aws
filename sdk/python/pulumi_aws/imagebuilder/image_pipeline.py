@@ -561,7 +561,6 @@ class ImagePipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -574,7 +573,6 @@ class ImagePipeline(pulumi.CustomResource):
                 schedule_expression="cron(0 0 * * ? *)",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -612,7 +610,6 @@ class ImagePipeline(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -625,7 +622,6 @@ class ImagePipeline(pulumi.CustomResource):
                 schedule_expression="cron(0 0 * * ? *)",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

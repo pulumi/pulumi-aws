@@ -144,7 +144,6 @@ def get_policy_document(override_json: Optional[str] = None,
 
     ### Basic Example
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -184,13 +183,11 @@ def get_policy_document(override_json: Optional[str] = None,
         path="/",
         policy=example.json)
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Example Multiple Condition Keys and Values
 
     You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -223,7 +220,6 @@ def get_policy_document(override_json: Optional[str] = None,
         ],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
 
@@ -231,7 +227,6 @@ def get_policy_document(override_json: Optional[str] = None,
 
     You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -257,11 +252,9 @@ def get_policy_document(override_json: Optional[str] = None,
         ],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Example Using A Source Document
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -287,13 +280,11 @@ def get_policy_document(override_json: Optional[str] = None,
             ],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
 
     ### Example Using An Override Document
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -319,7 +310,6 @@ def get_policy_document(override_json: Optional[str] = None,
             ),
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
 
@@ -327,7 +317,6 @@ def get_policy_document(override_json: Optional[str] = None,
 
     You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -345,7 +334,6 @@ def get_policy_document(override_json: Optional[str] = None,
     politik = aws.iam.get_policy_document(source_policy_documents=[source.json],
         override_policy_documents=[override.json])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_iam_policy_document.politik.json` will evaluate to:
 
@@ -353,7 +341,6 @@ def get_policy_document(override_json: Optional[str] = None,
 
     Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -385,13 +372,11 @@ def get_policy_document(override_json: Optional[str] = None,
         source_two.json,
     ])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_iam_policy_document.combined.json` will evaluate to:
 
     ### Example of Merging Override Documents
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -433,7 +418,6 @@ def get_policy_document(override_json: Optional[str] = None,
             resources=["*"],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_iam_policy_document.combined.json` will evaluate to:
 
@@ -485,7 +469,6 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
 
     ### Basic Example
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -525,13 +508,11 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
         path="/",
         policy=example.json)
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Example Multiple Condition Keys and Values
 
     You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -564,7 +545,6 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
         ],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
 
@@ -572,7 +552,6 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
 
     You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -598,11 +577,9 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
         ],
     )])
     ```
-    <!--End PulumiCodeChooser -->
 
     ### Example Using A Source Document
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -628,13 +605,11 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
             ],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
 
     ### Example Using An Override Document
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -660,7 +635,6 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
             ),
         ])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
 
@@ -668,7 +642,6 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
 
     You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -686,7 +659,6 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
     politik = aws.iam.get_policy_document(source_policy_documents=[source.json],
         override_policy_documents=[override.json])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_iam_policy_document.politik.json` will evaluate to:
 
@@ -694,7 +666,6 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
 
     Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -726,13 +697,11 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
         source_two.json,
     ])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_iam_policy_document.combined.json` will evaluate to:
 
     ### Example of Merging Override Documents
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -774,7 +743,6 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
             resources=["*"],
         )])
     ```
-    <!--End PulumiCodeChooser -->
 
     `data.aws_iam_policy_document.combined.json` will evaluate to:
 

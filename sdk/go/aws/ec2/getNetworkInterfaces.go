@@ -15,7 +15,6 @@ import (
 //
 // The following shows outputting all network interface ids in a region.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,11 +37,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,12 +66,10 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // The following example retrieves a network interface ids which associated
 // with specific subnet.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -104,7 +99,6 @@ import (
 // })
 // }
 // ```
-// <!--End PulumiCodeChooser -->
 func GetNetworkInterfaces(ctx *pulumi.Context, args *GetNetworkInterfacesArgs, opts ...pulumi.InvokeOption) (*GetNetworkInterfacesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkInterfacesResult

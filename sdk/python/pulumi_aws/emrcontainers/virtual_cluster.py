@@ -178,7 +178,6 @@ class VirtualCluster(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,7 +194,6 @@ class VirtualCluster(pulumi.CustomResource):
             ),
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -224,7 +222,6 @@ class VirtualCluster(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,7 +238,6 @@ class VirtualCluster(pulumi.CustomResource):
             ),
             name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

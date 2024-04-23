@@ -16,7 +16,6 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// ### Basic Example
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,13 +66,11 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Threshold Expression Example
     /// 
     /// ### Using a Percentage Threshold
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -117,11 +114,9 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Using an `and` Expression
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -186,11 +181,9 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### SNS Example
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -313,13 +306,12 @@ namespace Pulumi.Aws.CostExplorer
     ///     {
     ///         DependsOn =
     ///         {
-    ///             @default, 
+    ///             @default,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

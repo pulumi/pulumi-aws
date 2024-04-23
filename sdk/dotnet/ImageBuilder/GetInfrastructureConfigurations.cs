@@ -16,7 +16,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetInfrastructureConfigurationsResult> InvokeAsync(GetInfrastructureConfigurationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsArgs(), options.WithDefaults());
@@ -52,7 +50,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -78,7 +75,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetInfrastructureConfigurationsResult> Invoke(GetInfrastructureConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsInvokeArgs(), options.WithDefaults());

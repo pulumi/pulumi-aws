@@ -478,18 +478,14 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.alpnPolicy);
     }
     /**
-     * ARN of the target group.
-     * 
-     * The following arguments are optional:
+     * ARN of the listener (matches `id`).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the target group.
-     * 
-     * The following arguments are optional:
+     * @return ARN of the listener (matches `id`).
      * 
      */
     public Output<String> arn() {

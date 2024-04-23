@@ -357,7 +357,6 @@ class StackSetInstance(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -367,11 +366,9 @@ class StackSetInstance(pulumi.CustomResource):
             region="us-east-1",
             stack_set_name=example_aws_cloudformation_stack_set["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example IAM Setup in Target Account
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,11 +400,9 @@ class StackSetInstance(pulumi.CustomResource):
             policy=a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy.json,
             role=a_ws_cloud_formation_stack_set_execution_role.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Deployment across Organizations account
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,7 +414,6 @@ class StackSetInstance(pulumi.CustomResource):
             region="us-east-1",
             stack_set_name=example_aws_cloudformation_stack_set["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -471,7 +465,6 @@ class StackSetInstance(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -481,11 +474,9 @@ class StackSetInstance(pulumi.CustomResource):
             region="us-east-1",
             stack_set_name=example_aws_cloudformation_stack_set["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example IAM Setup in Target Account
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -517,11 +508,9 @@ class StackSetInstance(pulumi.CustomResource):
             policy=a_ws_cloud_formation_stack_set_execution_role_minimum_execution_policy.json,
             role=a_ws_cloud_formation_stack_set_execution_role.name)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example Deployment across Organizations account
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -533,7 +522,6 @@ class StackSetInstance(pulumi.CustomResource):
             region="us-east-1",
             stack_set_name=example_aws_cloudformation_stack_set["name"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

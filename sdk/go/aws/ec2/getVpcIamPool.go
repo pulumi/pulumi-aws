@@ -23,7 +23,6 @@ import (
 // via RAM, and using that pool id to create a VPC with a CIDR derived from
 // AWS IPAM.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,7 +66,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // Deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
 func GetVpcIamPool(ctx *pulumi.Context, args *GetVpcIamPoolArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolResult, error) {

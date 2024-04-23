@@ -17,7 +17,6 @@ import (
 //
 // By `name`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,11 +41,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // By `vocabularyId`
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,7 +68,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func LookupVocabulary(ctx *pulumi.Context, args *LookupVocabularyArgs, opts ...pulumi.InvokeOption) (*LookupVocabularyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVocabularyResult

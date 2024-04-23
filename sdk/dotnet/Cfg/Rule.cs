@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,7 +78,7 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             foo, 
+    ///             foo,
     ///         },
     ///     });
     /// 
@@ -111,13 +110,11 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Custom Rules
     /// 
     /// Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -149,18 +146,16 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
-    ///             examplePermission, 
+    ///             example,
+    ///             examplePermission,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Custom Policies
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -202,7 +197,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

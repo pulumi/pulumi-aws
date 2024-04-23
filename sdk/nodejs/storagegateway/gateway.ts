@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Local Cache
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,11 +34,9 @@ import * as utilities from "../utilities";
  *     gatewayArn: testAwsStoragegatewayGateway.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### FSx File Gateway
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,11 +53,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### S3 File Gateway
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,11 +67,9 @@ import * as utilities from "../utilities";
  *     gatewayType: "FILE_S3",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Tape Gateway
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,11 +83,9 @@ import * as utilities from "../utilities";
  *     tapeDriveType: "IBM-ULT3580-TD5",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Volume Gateway (Cached)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -106,11 +97,9 @@ import * as utilities from "../utilities";
  *     gatewayType: "CACHED",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Volume Gateway (Stored)
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -122,7 +111,6 @@ import * as utilities from "../utilities";
  *     gatewayType: "STORED",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

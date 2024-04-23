@@ -36,9 +36,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// Header value sent by the client must begin with the specified characters.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

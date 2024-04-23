@@ -123,14 +123,12 @@ def get_saml_provider(arn: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_saml_provider(arn="arn:aws:iam::123456789:saml-provider/myprovider")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN assigned by AWS for the provider.
@@ -163,14 +161,12 @@ def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_saml_provider(arn="arn:aws:iam::123456789:saml-provider/myprovider")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN assigned by AWS for the provider.

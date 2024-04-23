@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Pinpoint
     /// &gt; **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Data Lake Admins
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,11 +25,9 @@ import * as utilities from "../utilities";
  *     testAwsIamRole.arn,
  * ]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create Default Permissions
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -54,11 +51,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Enable EMR access to LakeFormation resources
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -88,7 +83,6 @@ import * as utilities from "../utilities";
  *     authorizedSessionTagValueLists: ["Amazon EMR"],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class DataLakeSettings extends pulumi.CustomResource {
     /**

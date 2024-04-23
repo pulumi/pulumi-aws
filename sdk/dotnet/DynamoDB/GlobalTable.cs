@@ -18,7 +18,6 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,14 +80,13 @@ namespace Pulumi.Aws.DynamoDB
     ///     {
     ///         DependsOn =
     ///         {
-    ///             us_east_1, 
-    ///             us_west_2, 
+    ///             us_east_1,
+    ///             us_west_2,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

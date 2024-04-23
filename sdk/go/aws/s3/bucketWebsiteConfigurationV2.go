@@ -20,7 +20,6 @@ import (
 //
 // ### With `routingRule` configured
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,11 +59,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### With `routingRules` configured
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -105,7 +102,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

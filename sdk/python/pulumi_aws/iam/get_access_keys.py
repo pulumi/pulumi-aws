@@ -74,14 +74,12 @@ def get_access_keys(user: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_access_keys(user="an_example_user_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str user: Name of the IAM user associated with the access keys.
@@ -106,14 +104,12 @@ def get_access_keys_output(user: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_access_keys(user="an_example_user_name")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str user: Name of the IAM user associated with the access keys.

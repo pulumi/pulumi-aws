@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic configuration
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -42,7 +41,6 @@ import * as utilities from "../utilities";
  *     workspaceId: exampleWorkspace.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

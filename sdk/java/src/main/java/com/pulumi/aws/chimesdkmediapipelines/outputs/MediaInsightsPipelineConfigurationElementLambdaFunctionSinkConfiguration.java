@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration {
     /**
-     * @return SQS queue to deliver results.
+     * @return Lambda Function to deliver results.
      * 
      */
     private String insightsTarget;
 
     private MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration() {}
     /**
-     * @return SQS queue to deliver results.
+     * @return Lambda Function to deliver results.
      * 
      */
     public String insightsTarget() {

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties {
-    /**
-     * @return The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-     * 
-     */
     private String oauth2GrantType;
-    /**
-     * @return The token URL required for OAuth 2.0 authentication.
-     * 
-     */
     private String tokenUrl;
-    /**
-     * @return Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
-     * 
-     */
     private @Nullable Map<String,String> tokenUrlCustomProperties;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties() {}
-    /**
-     * @return The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
-     * 
-     */
     public String oauth2GrantType() {
         return this.oauth2GrantType;
     }
-    /**
-     * @return The token URL required for OAuth 2.0 authentication.
-     * 
-     */
     public String tokenUrl() {
         return this.tokenUrl;
     }
-    /**
-     * @return Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
-     * 
-     */
     public Map<String,String> tokenUrlCustomProperties() {
         return this.tokenUrlCustomProperties == null ? Map.of() : this.tokenUrlCustomProperties;
     }

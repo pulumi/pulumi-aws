@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,7 +23,6 @@ import * as utilities from "./utilities";
  *     }],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPartition(args?: GetPartitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
     args = args || {};
@@ -72,7 +70,6 @@ export interface GetPartitionResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -86,7 +83,6 @@ export interface GetPartitionResult {
  *     }],
  * }));
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getPartitionOutput(args?: GetPartitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartitionResult> {
     return pulumi.output(args).apply((a: any) => getPartition(a, opts))

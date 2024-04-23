@@ -183,17 +183,9 @@ public class Faq extends com.pulumi.resources.CustomResource {
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * The description for a FAQ.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description for a FAQ.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -225,17 +217,9 @@ public class Faq extends com.pulumi.resources.CustomResource {
     public Output<String> faqId() {
         return this.faqId;
     }
-    /**
-     * The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-     * 
-     */
     @Export(name="fileFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileFormat;
 
-    /**
-     * @return The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
-     * 
-     */
     public Output<Optional<String>> fileFormat() {
         return Codegen.optional(this.fileFormat);
     }
@@ -253,17 +237,9 @@ public class Faq extends com.pulumi.resources.CustomResource {
     public Output<String> indexId() {
         return this.indexId;
     }
-    /**
-     * The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-     * 
-     */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
-    /**
-     * @return The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-     * 
-     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
@@ -298,16 +274,12 @@ public class Faq extends com.pulumi.resources.CustomResource {
     /**
      * The S3 location of the FAQ input data. Detailed below.
      * 
-     * The `s3_path` configuration block supports the following arguments:
-     * 
      */
     @Export(name="s3Path", refs={FaqS3Path.class}, tree="[0]")
     private Output<FaqS3Path> s3Path;
 
     /**
      * @return The S3 location of the FAQ input data. Detailed below.
-     * 
-     * The `s3_path` configuration block supports the following arguments:
      * 
      */
     public Output<FaqS3Path> s3Path() {
@@ -327,17 +299,9 @@ public class Faq extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

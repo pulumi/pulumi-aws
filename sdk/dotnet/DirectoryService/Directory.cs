@@ -16,7 +16,6 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ### SimpleAD
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,11 +65,9 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Microsoft Active Directory (MicrosoftAD)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,11 +118,9 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Microsoft Active Directory Connector (ADConnector)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -177,7 +172,6 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

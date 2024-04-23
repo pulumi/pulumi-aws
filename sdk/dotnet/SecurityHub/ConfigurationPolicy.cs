@@ -18,7 +18,6 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ### Default standards enabled
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,7 +43,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
@@ -69,17 +68,15 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleOrganizationConfiguration, 
+    ///             exampleOrganizationConfiguration,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Disabled Policy
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -100,17 +97,15 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Custom Control Configuration
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -188,13 +183,12 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example, 
+    ///             example,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

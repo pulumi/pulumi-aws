@@ -20,7 +20,6 @@ import (
 //
 // ### Basic S3
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,11 +48,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Basic EFS
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,7 +83,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

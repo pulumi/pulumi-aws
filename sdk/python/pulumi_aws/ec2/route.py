@@ -591,7 +591,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -601,11 +600,9 @@ class Route(pulumi.CustomResource):
             destination_cidr_block="10.0.1.0/22",
             vpc_peering_connection_id="pcx-45ff3dc1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example IPv6 Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -619,7 +616,6 @@ class Route(pulumi.CustomResource):
             destination_ipv6_cidr_block="::/0",
             egress_only_gateway_id=egress.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -683,7 +679,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -693,11 +688,9 @@ class Route(pulumi.CustomResource):
             destination_cidr_block="10.0.1.0/22",
             vpc_peering_connection_id="pcx-45ff3dc1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Example IPv6 Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -711,7 +704,6 @@ class Route(pulumi.CustomResource):
             destination_ipv6_cidr_block="::/0",
             egress_only_gateway_id=egress.id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

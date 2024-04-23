@@ -214,7 +214,6 @@ class DelegatedAdministrator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,7 +222,6 @@ class DelegatedAdministrator(pulumi.CustomResource):
             account_id="123456789012",
             service_principal="principal")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -249,7 +247,6 @@ class DelegatedAdministrator(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,7 +255,6 @@ class DelegatedAdministrator(pulumi.CustomResource):
             account_id="123456789012",
             service_principal="principal")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

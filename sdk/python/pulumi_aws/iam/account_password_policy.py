@@ -355,7 +355,6 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -368,7 +367,6 @@ class AccountPasswordPolicy(pulumi.CustomResource):
             require_symbols=True,
             allow_users_to_change_password=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -405,7 +403,6 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -418,7 +415,6 @@ class AccountPasswordPolicy(pulumi.CustomResource):
             require_symbols=True,
             allow_users_to_change_password=True)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

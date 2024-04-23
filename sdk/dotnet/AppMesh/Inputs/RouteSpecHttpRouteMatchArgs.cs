@@ -43,7 +43,8 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Header value sent by the client must begin with the specified characters.
+        /// Path with which to match requests.
+        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

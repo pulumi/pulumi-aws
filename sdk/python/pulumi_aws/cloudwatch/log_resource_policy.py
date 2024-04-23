@@ -104,7 +104,6 @@ class LogResourcePolicy(pulumi.CustomResource):
 
         ### Elasticsearch Log Publishing
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -125,11 +124,9 @@ class LogResourcePolicy(pulumi.CustomResource):
             policy_document=elasticsearch_log_publishing_policy.json,
             policy_name="elasticsearch-log-publishing-policy")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Route53 Query Logging
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -149,7 +146,6 @@ class LogResourcePolicy(pulumi.CustomResource):
             policy_document=route53_query_logging_policy.json,
             policy_name="route53-query-logging-policy")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -177,7 +173,6 @@ class LogResourcePolicy(pulumi.CustomResource):
 
         ### Elasticsearch Log Publishing
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -198,11 +193,9 @@ class LogResourcePolicy(pulumi.CustomResource):
             policy_document=elasticsearch_log_publishing_policy.json,
             policy_name="elasticsearch-log-publishing-policy")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Route53 Query Logging
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,7 +215,6 @@ class LogResourcePolicy(pulumi.CustomResource):
             policy_document=route53_query_logging_policy.json,
             policy_name="route53-query-logging-policy")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

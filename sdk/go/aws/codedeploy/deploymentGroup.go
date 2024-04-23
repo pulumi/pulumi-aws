@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -131,11 +130,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Blue Green Deployments with ECS
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -209,11 +206,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Blue Green Deployments with Servers and Classic ELB
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -268,7 +263,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

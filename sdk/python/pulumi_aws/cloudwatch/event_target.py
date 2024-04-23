@@ -648,7 +648,6 @@ class EventTarget(pulumi.CustomResource):
 
         ### Kinesis Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -684,11 +683,9 @@ class EventTarget(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SSM Document Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -757,11 +754,9 @@ class EventTarget(pulumi.CustomResource):
                 values=["midnight"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### RunCommand Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -781,11 +776,9 @@ class EventTarget(pulumi.CustomResource):
                 values=["midnight"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### ECS Run Task with Role and Task Override Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -840,11 +833,9 @@ class EventTarget(pulumi.CustomResource):
                 }],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### API Gateway target
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -866,11 +857,9 @@ class EventTarget(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Cross-Account Event Bus target
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -907,11 +896,9 @@ class EventTarget(pulumi.CustomResource):
             rule=stop_instances.name,
             role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Input Transformer Usage - JSON Object
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -932,11 +919,9 @@ class EventTarget(pulumi.CustomResource):
         \"\"\",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Input Transformer Usage - Simple String
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -953,11 +938,9 @@ class EventTarget(pulumi.CustomResource):
                 input_template="\\"<instance> is in state <status>\\"",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Cloudwatch Log Group Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1013,7 +996,6 @@ class EventTarget(pulumi.CustomResource):
             rule=example_event_rule.name,
             arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1062,7 +1044,6 @@ class EventTarget(pulumi.CustomResource):
 
         ### Kinesis Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1098,11 +1079,9 @@ class EventTarget(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### SSM Document Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1171,11 +1150,9 @@ class EventTarget(pulumi.CustomResource):
                 values=["midnight"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### RunCommand Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1195,11 +1172,9 @@ class EventTarget(pulumi.CustomResource):
                 values=["midnight"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### ECS Run Task with Role and Task Override Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1254,11 +1229,9 @@ class EventTarget(pulumi.CustomResource):
                 }],
             }))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### API Gateway target
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1280,11 +1253,9 @@ class EventTarget(pulumi.CustomResource):
                 },
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Cross-Account Event Bus target
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1321,11 +1292,9 @@ class EventTarget(pulumi.CustomResource):
             rule=stop_instances.name,
             role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Input Transformer Usage - JSON Object
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1346,11 +1315,9 @@ class EventTarget(pulumi.CustomResource):
         \"\"\",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Input Transformer Usage - Simple String
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1367,11 +1334,9 @@ class EventTarget(pulumi.CustomResource):
                 input_template="\\"<instance> is in state <status>\\"",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Cloudwatch Log Group Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1427,7 +1392,6 @@ class EventTarget(pulumi.CustomResource):
             rule=example_event_rule.name,
             arn=example.arn)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

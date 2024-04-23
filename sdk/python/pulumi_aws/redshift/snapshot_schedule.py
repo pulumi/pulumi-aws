@@ -275,7 +275,6 @@ class SnapshotSchedule(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -284,7 +283,6 @@ class SnapshotSchedule(pulumi.CustomResource):
             identifier="tf-redshift-snapshot-schedule",
             definitions=["rate(12 hours)"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -313,7 +311,6 @@ class SnapshotSchedule(pulumi.CustomResource):
         """
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,7 +319,6 @@ class SnapshotSchedule(pulumi.CustomResource):
             identifier="tf-redshift-snapshot-schedule",
             definitions=["rate(12 hours)"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

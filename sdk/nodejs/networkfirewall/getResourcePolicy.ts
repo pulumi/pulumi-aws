@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     resourceArn: resourcePolicyArn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
 
@@ -57,7 +55,6 @@ export interface GetResourcePolicyResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,7 +63,6 @@ export interface GetResourcePolicyResult {
  *     resourceArn: resourcePolicyArn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePolicyResult> {
     return pulumi.output(args).apply((a: any) => getResourcePolicy(a, opts))

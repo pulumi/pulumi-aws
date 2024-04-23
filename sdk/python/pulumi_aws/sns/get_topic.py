@@ -74,14 +74,12 @@ def get_topic(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.sns.get_topic(name="an_example_topic")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Friendly name of the topic to match.
@@ -107,14 +105,12 @@ def get_topic_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.sns.get_topic(name="an_example_topic")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Friendly name of the topic to match.

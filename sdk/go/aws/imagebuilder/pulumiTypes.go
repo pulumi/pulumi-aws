@@ -3035,7 +3035,7 @@ type ImageOutputResourceAmi struct {
 	Description *string `pulumi:"description"`
 	// Identifier of the AMI.
 	Image *string `pulumi:"image"`
-	// The name of the Workflow parameter.
+	// Name of the AMI.
 	Name *string `pulumi:"name"`
 	// Region of the container image.
 	Region *string `pulumi:"region"`
@@ -3059,7 +3059,7 @@ type ImageOutputResourceAmiArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Identifier of the AMI.
 	Image pulumi.StringPtrInput `pulumi:"image"`
-	// The name of the Workflow parameter.
+	// Name of the AMI.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Region of the container image.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -3131,7 +3131,7 @@ func (o ImageOutputResourceAmiOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Workflow parameter.
+// Name of the AMI.
 func (o ImageOutputResourceAmiOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

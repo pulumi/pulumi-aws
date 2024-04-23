@@ -180,7 +180,6 @@ class GroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,7 +188,6 @@ class GroupMembership(pulumi.CustomResource):
             group_name="all-access-users",
             member_name="john_smith")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -217,7 +215,6 @@ class GroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,7 +223,6 @@ class GroupMembership(pulumi.CustomResource):
             group_name="all-access-users",
             member_name="john_smith")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

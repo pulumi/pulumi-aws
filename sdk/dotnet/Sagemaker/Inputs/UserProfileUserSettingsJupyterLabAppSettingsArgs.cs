@@ -26,10 +26,6 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
         [Input("customImages")]
         private InputList<Inputs.UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs>? _customImages;
-
-        /// <summary>
-        /// A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        /// </summary>
         public InputList<Inputs.UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs> CustomImages
         {
             get => _customImages ?? (_customImages = new InputList<Inputs.UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs>());

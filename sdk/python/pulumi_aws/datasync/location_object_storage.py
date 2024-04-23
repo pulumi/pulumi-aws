@@ -421,7 +421,6 @@ class LocationObjectStorage(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -431,7 +430,6 @@ class LocationObjectStorage(pulumi.CustomResource):
             server_hostname="example",
             bucket_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -467,7 +465,6 @@ class LocationObjectStorage(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -477,7 +474,6 @@ class LocationObjectStorage(pulumi.CustomResource):
             server_hostname="example",
             bucket_name="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

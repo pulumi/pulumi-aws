@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,7 +20,6 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserGroup(args: GetUserGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserGroupResult> {
 
@@ -76,7 +74,6 @@ export interface GetUserGroupResult {
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -86,7 +83,6 @@ export interface GetUserGroupResult {
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getUserGroupOutput(args: GetUserGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserGroupResult> {
     return pulumi.output(args).apply((a: any) => getUserGroup(a, opts))

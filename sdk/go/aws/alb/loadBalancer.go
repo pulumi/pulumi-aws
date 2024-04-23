@@ -19,7 +19,6 @@ import (
 //
 // ### Specifying Elastic IPs
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,11 +53,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Specifying private IP addresses for an internal-facing load balancer
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,7 +90,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

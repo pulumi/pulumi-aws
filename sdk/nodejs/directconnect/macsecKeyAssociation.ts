@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Create MACSec key with CKN and CAK
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,11 +29,9 @@ import * as utilities from "../utilities";
  *     cak: "abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Create MACSec key with existing Secrets Manager secret
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,7 +47,6 @@ import * as utilities from "../utilities";
  *     secretArn: exampleGetSecret.then(exampleGetSecret => exampleGetSecret.arn),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class MacsecKeyAssociation extends pulumi.CustomResource {
     /**

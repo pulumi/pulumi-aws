@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetSecurityGroupRule(ctx *pulumi.Context, args *GetSecurityGroupRuleArgs, opts ...pulumi.InvokeOption) (*GetSecurityGroupRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecurityGroupRuleResult

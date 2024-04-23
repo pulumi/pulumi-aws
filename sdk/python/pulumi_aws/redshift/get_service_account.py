@@ -76,7 +76,6 @@ def get_service_account(region: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -111,7 +110,6 @@ def get_service_account(region: Optional[str] = None,
         bucket=bucket.id,
         policy=allow_audit_logging.json)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str region: Name of the region whose AWS Redshift account ID is desired.
@@ -140,7 +138,6 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -175,7 +172,6 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
         bucket=bucket.id,
         policy=allow_audit_logging.json)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str region: Name of the region whose AWS Redshift account ID is desired.

@@ -33,14 +33,12 @@ class SharingWithOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ram.SharingWithOrganization("example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -66,14 +64,12 @@ class SharingWithOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ram.SharingWithOrganization("example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

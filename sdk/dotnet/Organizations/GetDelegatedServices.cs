@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDelegatedServicesResult> InvokeAsync(GetDelegatedServicesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedServicesResult>("aws:organizations/getDelegatedServices:getDelegatedServices", args ?? new GetDelegatedServicesArgs(), options.WithDefaults());
@@ -42,7 +40,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,7 +55,6 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDelegatedServicesResult> Invoke(GetDelegatedServicesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDelegatedServicesResult>("aws:organizations/getDelegatedServices:getDelegatedServices", args ?? new GetDelegatedServicesInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,7 +17,6 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOutpost(args?: GetOutpostArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostResult> {
     args = args || {};
@@ -105,7 +103,6 @@ export interface GetOutpostResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -114,7 +111,6 @@ export interface GetOutpostResult {
  *     name: "example",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getOutpostOutput(args?: GetOutpostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostResult> {
     return pulumi.output(args).apply((a: any) => getOutpost(a, opts))

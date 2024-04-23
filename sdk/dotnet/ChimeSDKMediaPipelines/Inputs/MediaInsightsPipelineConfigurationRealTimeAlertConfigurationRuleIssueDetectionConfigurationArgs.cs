@@ -12,9 +12,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines.Inputs
 
     public sealed class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Rule name.
-        /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
 

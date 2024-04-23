@@ -153,19 +153,12 @@ class InstanceAccessControlAttributesAttributeArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgs']]]):
-        """
-        :param pulumi.Input[str] key: The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgs']]] values: The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -175,9 +168,6 @@ class InstanceAccessControlAttributesAttributeArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgs']]]:
-        """
-        The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -189,17 +179,11 @@ class InstanceAccessControlAttributesAttributeArgs:
 class InstanceAccessControlAttributesAttributeValueArgs:
     def __init__(__self__, *,
                  sources: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] sources: The identity source to use when mapping a specified attribute to AWS SSO.
-        """
         pulumi.set(__self__, "sources", sources)
 
     @property
     @pulumi.getter
     def sources(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The identity source to use when mapping a specified attribute to AWS SSO.
-        """
         return pulumi.get(self, "sources")
 
     @sources.setter

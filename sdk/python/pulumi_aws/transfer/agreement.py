@@ -328,7 +328,6 @@ class Agreement(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,7 +340,6 @@ class Agreement(pulumi.CustomResource):
             partner_profile_id=partner["profileId"],
             server_id=test_aws_transfer_server["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -374,7 +372,6 @@ class Agreement(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -387,7 +384,6 @@ class Agreement(pulumi.CustomResource):
             partner_profile_id=partner["profileId"],
             server_id=test_aws_transfer_server["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

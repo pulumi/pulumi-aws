@@ -135,7 +135,6 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,7 +159,6 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             vpc_id=example_vpc_association_authorization.vpc_id,
             zone_id=example_vpc_association_authorization.zone_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -187,7 +185,6 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -212,7 +209,6 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             vpc_id=example_vpc_association_authorization.vpc_id,
             zone_id=example_vpc_association_authorization.zone_id)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

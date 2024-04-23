@@ -16,7 +16,6 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// ### ALB Example
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,11 +51,9 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Network Interface Example
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -88,7 +85,6 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

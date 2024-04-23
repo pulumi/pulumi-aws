@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ### Basic example
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,11 +35,9 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Encrypted string using default SSM KMS key
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,7 +74,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

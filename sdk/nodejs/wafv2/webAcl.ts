@@ -40,7 +40,7 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public /*out*/ readonly applicationIntegrationUrl!: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * The ARN of the WAF WebACL.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -176,7 +176,7 @@ export interface WebAclState {
      */
     applicationIntegrationUrl?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+     * The ARN of the WAF WebACL.
      */
     arn?: pulumi.Input<string>;
     /**

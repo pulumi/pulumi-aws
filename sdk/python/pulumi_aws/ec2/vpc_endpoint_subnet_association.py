@@ -110,7 +110,6 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -119,7 +118,6 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
             vpc_endpoint_id=ec2["id"],
             subnet_id=sn["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -153,7 +151,6 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -162,7 +159,6 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
             vpc_endpoint_id=ec2["id"],
             subnet_id=sn["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

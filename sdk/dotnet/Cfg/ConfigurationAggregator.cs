@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ### Account Based Aggregation
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,11 +42,9 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Organization Based Aggregation
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -106,13 +103,12 @@ namespace Pulumi.Aws.Cfg
     ///     {
     ///         DependsOn =
     ///         {
-    ///             organizationRolePolicyAttachment, 
+    ///             organizationRolePolicyAttachment,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

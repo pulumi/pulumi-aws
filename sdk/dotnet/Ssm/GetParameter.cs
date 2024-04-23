@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
         /// </summary>
@@ -44,7 +42,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -60,7 +57,6 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
         /// </summary>

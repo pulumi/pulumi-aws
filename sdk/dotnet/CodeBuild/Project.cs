@@ -14,7 +14,6 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -287,7 +286,6 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

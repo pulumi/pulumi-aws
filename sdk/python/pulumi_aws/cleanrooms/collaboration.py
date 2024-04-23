@@ -415,7 +415,6 @@ class Collaboration(pulumi.CustomResource):
 
         ### Collaboration with tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -444,7 +443,6 @@ class Collaboration(pulumi.CustomResource):
                 "Project": "Pulumi",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -491,7 +489,6 @@ class Collaboration(pulumi.CustomResource):
 
         ### Collaboration with tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -520,7 +517,6 @@ class Collaboration(pulumi.CustomResource):
                 "Project": "Pulumi",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -508,7 +508,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
         The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -529,7 +528,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             global_replication_group_id=example.global_replication_group_id,
             num_cache_clusters=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Managing Redis Engine Versions
 
@@ -545,7 +543,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         and then upgraded to Redis 6.2 once added to the Global Replication Group.
         The secondary replication group will be created with Redis 6.2.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -567,7 +564,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             global_replication_group_id=example.global_replication_group_id,
             num_cache_clusters=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -617,7 +613,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
         The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -638,7 +633,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             global_replication_group_id=example.global_replication_group_id,
             num_cache_clusters=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Managing Redis Engine Versions
 
@@ -654,7 +648,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         and then upgraded to Redis 6.2 once added to the Global Replication Group.
         The secondary replication group will be created with Redis 6.2.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -676,7 +669,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             global_replication_group_id=example.global_replication_group_id,
             num_cache_clusters=1)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

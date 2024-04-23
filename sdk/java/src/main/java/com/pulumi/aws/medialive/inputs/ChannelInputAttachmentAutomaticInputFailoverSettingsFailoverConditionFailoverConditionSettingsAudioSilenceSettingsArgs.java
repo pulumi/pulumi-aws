@@ -17,32 +17,16 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
     public static final ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs Empty = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs();
 
-    /**
-     * The name of the audio selector used as the source for this AudioDescription.
-     * 
-     */
     @Import(name="audioSelectorName", required=true)
     private Output<String> audioSelectorName;
 
-    /**
-     * @return The name of the audio selector used as the source for this AudioDescription.
-     * 
-     */
     public Output<String> audioSelectorName() {
         return this.audioSelectorName;
     }
 
-    /**
-     * The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
-     * 
-     */
     @Import(name="audioSilenceThresholdMsec")
     private @Nullable Output<Integer> audioSilenceThresholdMsec;
 
-    /**
-     * @return The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
-     * 
-     */
     public Optional<Output<Integer>> audioSilenceThresholdMsec() {
         return Optional.ofNullable(this.audioSilenceThresholdMsec);
     }
@@ -72,44 +56,20 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
             $ = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param audioSelectorName The name of the audio selector used as the source for this AudioDescription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioSelectorName(Output<String> audioSelectorName) {
             $.audioSelectorName = audioSelectorName;
             return this;
         }
 
-        /**
-         * @param audioSelectorName The name of the audio selector used as the source for this AudioDescription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioSelectorName(String audioSelectorName) {
             return audioSelectorName(Output.of(audioSelectorName));
         }
 
-        /**
-         * @param audioSilenceThresholdMsec The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioSilenceThresholdMsec(@Nullable Output<Integer> audioSilenceThresholdMsec) {
             $.audioSilenceThresholdMsec = audioSilenceThresholdMsec;
             return this;
         }
 
-        /**
-         * @param audioSilenceThresholdMsec The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioSilenceThresholdMsec(Integer audioSilenceThresholdMsec) {
             return audioSilenceThresholdMsec(Output.of(audioSilenceThresholdMsec));
         }

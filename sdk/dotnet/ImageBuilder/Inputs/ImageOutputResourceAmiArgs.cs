@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public Input<string>? Image { get; set; }
 
         /// <summary>
-        /// The name of the Workflow parameter.
+        /// Name of the AMI.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,7 +22,6 @@ import * as utilities from "../utilities";
  *     infrastructureConfigurationArn: exampleAwsImagebuilderInfrastructureConfiguration.arn,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -104,7 +102,7 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly infrastructureConfigurationArn!: pulumi.Output<string>;
     /**
-     * The name of the Workflow parameter.
+     * Name of the AMI.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -245,7 +243,7 @@ export interface ImageState {
      */
     infrastructureConfigurationArn?: pulumi.Input<string>;
     /**
-     * The name of the Workflow parameter.
+     * Name of the AMI.
      */
     name?: pulumi.Input<string>;
     /**

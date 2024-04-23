@@ -99,14 +99,12 @@ def get_stream_key(channel_arn: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ivs.get_stream_key(channel_arn="arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str channel_arn: ARN of the Channel.
@@ -137,14 +135,12 @@ def get_stream_key_output(channel_arn: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ivs.get_stream_key(channel_arn="arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str channel_arn: ARN of the Channel.

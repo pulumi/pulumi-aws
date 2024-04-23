@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,7 +56,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetPublicKey(ctx *pulumi.Context, args *GetPublicKeyArgs, opts ...pulumi.InvokeOption) (*GetPublicKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicKeyResult

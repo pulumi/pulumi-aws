@@ -13,7 +13,6 @@ import {RestApi} from "./index";
  *
  * ### Basic Response
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,11 +45,9 @@ import {RestApi} from "./index";
  *     statusCode: "200",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Response with Custom Header and Model
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -106,7 +103,6 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

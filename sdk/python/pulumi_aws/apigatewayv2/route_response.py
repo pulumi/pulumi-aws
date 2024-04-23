@@ -203,7 +203,6 @@ class RouteResponse(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -213,7 +212,6 @@ class RouteResponse(pulumi.CustomResource):
             route_id=example_aws_apigatewayv2_route["id"],
             route_response_key="$default")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Enabling Two-Way Communication
 
@@ -251,7 +249,6 @@ class RouteResponse(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -261,7 +258,6 @@ class RouteResponse(pulumi.CustomResource):
             route_id=example_aws_apigatewayv2_route["id"],
             route_response_key="$default")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Enabling Two-Way Communication
 

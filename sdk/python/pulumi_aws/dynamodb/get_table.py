@@ -244,14 +244,12 @@ def get_table(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     table_name = aws.dynamodb.get_table(name="tableName")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the DynamoDB table.
@@ -298,14 +296,12 @@ def get_table_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     table_name = aws.dynamodb.get_table(name="tableName")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the DynamoDB table.

@@ -18,47 +18,23 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs extends
 
     public static final LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs Empty = new LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs();
 
-    /**
-     * The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
-     * 
-     */
     @Import(name="encryptionConfiguration", required=true)
     private Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs> encryptionConfiguration;
 
-    /**
-     * @return The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
-     * 
-     */
     public Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs> encryptionConfiguration() {
         return this.encryptionConfiguration;
     }
 
-    /**
-     * Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-     * 
-     */
     @Import(name="retainRule")
     private @Nullable Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs> retainRule;
 
-    /**
-     * @return Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-     * 
-     */
     public Optional<Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs>> retainRule() {
         return Optional.ofNullable(this.retainRule);
     }
 
-    /**
-     * The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-     * 
-     */
     @Import(name="target", required=true)
     private Output<String> target;
 
-    /**
-     * @return The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-     * 
-     */
     public Output<String> target() {
         return this.target;
     }
@@ -89,65 +65,29 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs extends
             $ = new LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionConfiguration The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs> encryptionConfiguration) {
             $.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
 
-        /**
-         * @param encryptionConfiguration The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs encryptionConfiguration) {
             return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
-        /**
-         * @param retainRule Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retainRule(@Nullable Output<LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs> retainRule) {
             $.retainRule = retainRule;
             return this;
         }
 
-        /**
-         * @param retainRule Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retainRule(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs retainRule) {
             return retainRule(Output.of(retainRule));
         }
 
-        /**
-         * @param target The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(Output<String> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(String target) {
             return target(Output.of(target));
         }

@@ -17,14 +17,14 @@ public final class ProjectEnvironmentEnvironmentVariableArgs extends com.pulumi.
     public static final ProjectEnvironmentEnvironmentVariableArgs Empty = new ProjectEnvironmentEnvironmentVariableArgs();
 
     /**
-     * Project&#39;s name.
+     * Environment variable&#39;s name or key.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Project&#39;s name.
+     * @return Environment variable&#39;s name or key.
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class ProjectEnvironmentEnvironmentVariableArgs extends com.pulumi.
     }
 
     /**
-     * Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+     * Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+     * @return Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -88,7 +88,7 @@ public final class ProjectEnvironmentEnvironmentVariableArgs extends com.pulumi.
         }
 
         /**
-         * @param name Project&#39;s name.
+         * @param name Environment variable&#39;s name or key.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ProjectEnvironmentEnvironmentVariableArgs extends com.pulumi.
         }
 
         /**
-         * @param name Project&#39;s name.
+         * @param name Environment variable&#39;s name or key.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ProjectEnvironmentEnvironmentVariableArgs extends com.pulumi.
         }
 
         /**
-         * @param type Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+         * @param type Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ProjectEnvironmentEnvironmentVariableArgs extends com.pulumi.
         }
 
         /**
-         * @param type Build output artifact&#39;s type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
+         * @param type Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
          * 
          * @return builder
          * 

@@ -1302,10 +1302,8 @@ func (o DataSourceLambdaConfigPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 }
 
 type DataSourceOpensearchserviceConfig struct {
-	// HTTP endpoint of the Elasticsearch domain.
-	Endpoint string `pulumi:"endpoint"`
-	// AWS region of the DynamoDB table. Defaults to current region.
-	Region *string `pulumi:"region"`
+	Endpoint string  `pulumi:"endpoint"`
+	Region   *string `pulumi:"region"`
 }
 
 // DataSourceOpensearchserviceConfigInput is an input type that accepts DataSourceOpensearchserviceConfigArgs and DataSourceOpensearchserviceConfigOutput values.
@@ -1320,10 +1318,8 @@ type DataSourceOpensearchserviceConfigInput interface {
 }
 
 type DataSourceOpensearchserviceConfigArgs struct {
-	// HTTP endpoint of the Elasticsearch domain.
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// AWS region of the DynamoDB table. Defaults to current region.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Endpoint pulumi.StringInput    `pulumi:"endpoint"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (DataSourceOpensearchserviceConfigArgs) ElementType() reflect.Type {
@@ -1403,12 +1399,10 @@ func (o DataSourceOpensearchserviceConfigOutput) ToDataSourceOpensearchserviceCo
 	}).(DataSourceOpensearchserviceConfigPtrOutput)
 }
 
-// HTTP endpoint of the Elasticsearch domain.
 func (o DataSourceOpensearchserviceConfigOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceOpensearchserviceConfig) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// AWS region of the DynamoDB table. Defaults to current region.
 func (o DataSourceOpensearchserviceConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceOpensearchserviceConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -1437,7 +1431,6 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) Elem() DataSourceOpensearchs
 	}).(DataSourceOpensearchserviceConfigOutput)
 }
 
-// HTTP endpoint of the Elasticsearch domain.
 func (o DataSourceOpensearchserviceConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) *string {
 		if v == nil {
@@ -1447,7 +1440,6 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) Endpoint() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS region of the DynamoDB table. Defaults to current region.
 func (o DataSourceOpensearchserviceConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) *string {
 		if v == nil {

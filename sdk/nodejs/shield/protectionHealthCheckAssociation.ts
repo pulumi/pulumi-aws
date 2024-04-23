@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Create an association between a protected EIP and a Route53 Health Check
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,7 +47,6 @@ import * as utilities from "../utilities";
  *     shieldProtectionId: exampleProtection.id,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

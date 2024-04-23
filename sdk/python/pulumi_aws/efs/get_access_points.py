@@ -84,14 +84,12 @@ def get_access_points(file_system_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.efs.get_access_points(file_system_id="fs-12345678")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str file_system_id: EFS File System identifier.
@@ -116,14 +114,12 @@ def get_access_points_output(file_system_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.efs.get_access_points(file_system_id="fs-12345678")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str file_system_id: EFS File System identifier.

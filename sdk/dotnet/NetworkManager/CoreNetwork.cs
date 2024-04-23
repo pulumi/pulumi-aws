@@ -16,7 +16,6 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ### Basic
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,11 +31,9 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With description
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,11 +50,9 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With tags
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,7 +72,6 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With VPC Attachment (Single Region)
     /// 
@@ -90,7 +84,6 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// If you require a custom ASN for the edge location, please use the `base_policy_document` argument to pass a specific ASN. For example:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -197,11 +190,9 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Option 2 - create_base_policy only
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -277,7 +268,6 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### With VPC Attachment (Multi-Region)
     /// 
@@ -288,7 +278,6 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ### Option 1 - using base_policy_document
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -429,11 +418,9 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Option 2 - using base_policy_regions
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -542,7 +529,6 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

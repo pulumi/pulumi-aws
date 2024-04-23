@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings {
-    /**
-     * @return If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
-     * 
-     */
     private @Nullable String convert608To708;
-    /**
-     * @return Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-     * 
-     */
     private @Nullable Integer source608ChannelNumber;
 
     private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings() {}
-    /**
-     * @return If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
-     * 
-     */
     public Optional<String> convert608To708() {
         return Optional.ofNullable(this.convert608To708);
     }
-    /**
-     * @return Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-     * 
-     */
     public Optional<Integer> source608ChannelNumber() {
         return Optional.ofNullable(this.source608ChannelNumber);
     }

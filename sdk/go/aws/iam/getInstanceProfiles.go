@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 func GetInstanceProfiles(ctx *pulumi.Context, args *GetInstanceProfilesArgs, opts ...pulumi.InvokeOption) (*GetInstanceProfilesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstanceProfilesResult

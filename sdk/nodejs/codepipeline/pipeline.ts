@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -146,7 +145,6 @@ import * as utilities from "../utilities";
  *     policy: codepipelinePolicy.apply(codepipelinePolicy => codepipelinePolicy.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

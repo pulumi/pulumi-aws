@@ -869,7 +869,6 @@ class Table(pulumi.CustomResource):
 
         The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -913,7 +912,6 @@ class Table(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Global Tables
 
@@ -921,7 +919,6 @@ class Table(pulumi.CustomResource):
 
         > **Note:** dynamodb.TableReplica is an alternate way of configuring Global Tables. Do not use `replica` configuration blocks of `dynamodb.Table` together with aws_dynamodb_table_replica.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -945,13 +942,11 @@ class Table(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Replica Tagging
 
         You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `dynamodb.Tag` resource for the other.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -990,7 +985,6 @@ class Table(pulumi.CustomResource):
             key="Architect",
             value="Gigi")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1057,7 +1051,6 @@ class Table(pulumi.CustomResource):
 
         The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1101,7 +1094,6 @@ class Table(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Global Tables
 
@@ -1109,7 +1101,6 @@ class Table(pulumi.CustomResource):
 
         > **Note:** dynamodb.TableReplica is an alternate way of configuring Global Tables. Do not use `replica` configuration blocks of `dynamodb.Table` together with aws_dynamodb_table_replica.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1133,13 +1124,11 @@ class Table(pulumi.CustomResource):
                 ),
             ])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Replica Tagging
 
         You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `dynamodb.Tag` resource for the other.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1178,7 +1167,6 @@ class Table(pulumi.CustomResource):
             key="Architect",
             value="Gigi")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

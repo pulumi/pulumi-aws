@@ -9,7 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,9 +35,7 @@ import * as utilities from "../utilities";
  * });
  * export const secret = lb.encryptedSecret;
  * ```
- * <!--End PulumiCodeChooser -->
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,7 +47,6 @@ import * as utilities from "../utilities";
  * const testAccessKey = new aws.iam.AccessKey("test", {user: test.name});
  * export const awsIamSmtpPasswordV4 = testAccessKey.sesSmtpPasswordV4;
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

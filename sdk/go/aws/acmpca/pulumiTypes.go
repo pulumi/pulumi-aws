@@ -1358,11 +1358,16 @@ func (o GetCertificateAuthorityRevocationConfigurationArrayOutput) Index(i pulum
 }
 
 type GetCertificateAuthorityRevocationConfigurationCrlConfiguration struct {
-	CustomCname      string `pulumi:"customCname"`
-	Enabled          bool   `pulumi:"enabled"`
-	ExpirationInDays int    `pulumi:"expirationInDays"`
-	S3BucketName     string `pulumi:"s3BucketName"`
-	S3ObjectAcl      string `pulumi:"s3ObjectAcl"`
+	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+	CustomCname string `pulumi:"customCname"`
+	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+	Enabled bool `pulumi:"enabled"`
+	// Number of days until a certificate expires.
+	ExpirationInDays int `pulumi:"expirationInDays"`
+	// Name of the S3 bucket that contains the CRL.
+	S3BucketName string `pulumi:"s3BucketName"`
+	// Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+	S3ObjectAcl string `pulumi:"s3ObjectAcl"`
 }
 
 // GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs and GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput values.
@@ -1377,11 +1382,16 @@ type GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput interfa
 }
 
 type GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs struct {
-	CustomCname      pulumi.StringInput `pulumi:"customCname"`
-	Enabled          pulumi.BoolInput   `pulumi:"enabled"`
-	ExpirationInDays pulumi.IntInput    `pulumi:"expirationInDays"`
-	S3BucketName     pulumi.StringInput `pulumi:"s3BucketName"`
-	S3ObjectAcl      pulumi.StringInput `pulumi:"s3ObjectAcl"`
+	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+	CustomCname pulumi.StringInput `pulumi:"customCname"`
+	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Number of days until a certificate expires.
+	ExpirationInDays pulumi.IntInput `pulumi:"expirationInDays"`
+	// Name of the S3 bucket that contains the CRL.
+	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
+	// Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+	S3ObjectAcl pulumi.StringInput `pulumi:"s3ObjectAcl"`
 }
 
 func (GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ElementType() reflect.Type {
@@ -1435,22 +1445,27 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) To
 	return o
 }
 
+// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) CustomCname() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.CustomCname }).(pulumi.StringOutput)
 }
 
+// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Number of days until a certificate expires.
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ExpirationInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) int { return v.ExpirationInDays }).(pulumi.IntOutput)
 }
 
+// Name of the S3 bucket that contains the CRL.
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
 
+// Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3ObjectAcl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.S3ObjectAcl }).(pulumi.StringOutput)
 }
@@ -1476,7 +1491,9 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutpu
 }
 
 type GetCertificateAuthorityRevocationConfigurationOcspConfiguration struct {
-	Enabled         bool   `pulumi:"enabled"`
+	// Boolean value that specifies whether a custom OCSP responder is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// A CNAME specifying a customized OCSP domain.
 	OcspCustomCname string `pulumi:"ocspCustomCname"`
 }
 
@@ -1492,7 +1509,9 @@ type GetCertificateAuthorityRevocationConfigurationOcspConfigurationInput interf
 }
 
 type GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs struct {
-	Enabled         pulumi.BoolInput   `pulumi:"enabled"`
+	// Boolean value that specifies whether a custom OCSP responder is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A CNAME specifying a customized OCSP domain.
 	OcspCustomCname pulumi.StringInput `pulumi:"ocspCustomCname"`
 }
 
@@ -1547,10 +1566,12 @@ func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) T
 	return o
 }
 
+// Boolean value that specifies whether a custom OCSP responder is enabled.
 func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationOcspConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// A CNAME specifying a customized OCSP domain.
 func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) OcspCustomCname() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationOcspConfiguration) string {
 		return v.OcspCustomCname

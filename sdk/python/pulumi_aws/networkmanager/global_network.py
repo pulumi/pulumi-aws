@@ -142,14 +142,12 @@ class GlobalNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.GlobalNetwork("example", description="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -175,14 +173,12 @@ class GlobalNetwork(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.GlobalNetwork("example", description="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -223,7 +223,7 @@ class _TriggerState:
         :param pulumi.Input['TriggerPredicateArgs'] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         :param pulumi.Input[bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-        :param pulumi.Input[str] state: The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        :param pulumi.Input[str] state: The current state of the trigger.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
@@ -373,7 +373,7 @@ class _TriggerState:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        The current state of the trigger.
         """
         return pulumi.get(self, "state")
 
@@ -457,7 +457,6 @@ class Trigger(pulumi.CustomResource):
 
         ### Conditional Trigger
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -475,11 +474,9 @@ class Trigger(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### On-Demand Trigger
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -491,11 +488,9 @@ class Trigger(pulumi.CustomResource):
                 job_name=example_aws_glue_job["name"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Scheduled Trigger
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -508,13 +503,11 @@ class Trigger(pulumi.CustomResource):
                 job_name=example_aws_glue_job["name"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Conditional Trigger with Crawler Action
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -532,13 +525,11 @@ class Trigger(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Conditional Trigger with Crawler Condition
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -556,7 +547,6 @@ class Trigger(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -593,7 +583,6 @@ class Trigger(pulumi.CustomResource):
 
         ### Conditional Trigger
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -611,11 +600,9 @@ class Trigger(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### On-Demand Trigger
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -627,11 +614,9 @@ class Trigger(pulumi.CustomResource):
                 job_name=example_aws_glue_job["name"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Scheduled Trigger
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -644,13 +629,11 @@ class Trigger(pulumi.CustomResource):
                 job_name=example_aws_glue_job["name"],
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Conditional Trigger with Crawler Action
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -668,13 +651,11 @@ class Trigger(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Conditional Trigger with Crawler Condition
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -692,7 +673,6 @@ class Trigger(pulumi.CustomResource):
                 )],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -795,7 +775,7 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         :param pulumi.Input[bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-        :param pulumi.Input[str] state: The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        :param pulumi.Input[str] state: The current state of the trigger.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
@@ -897,7 +877,7 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
         """
-        The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        The current state of the trigger.
         """
         return pulumi.get(self, "state")
 

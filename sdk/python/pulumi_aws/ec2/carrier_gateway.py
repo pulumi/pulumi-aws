@@ -157,7 +157,6 @@ class CarrierGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,7 +167,6 @@ class CarrierGateway(pulumi.CustomResource):
                 "Name": "example-carrier-gateway",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -194,7 +192,6 @@ class CarrierGateway(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,7 +202,6 @@ class CarrierGateway(pulumi.CustomResource):
                 "Name": "example-carrier-gateway",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

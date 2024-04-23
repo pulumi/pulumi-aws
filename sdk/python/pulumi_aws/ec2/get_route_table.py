@@ -173,7 +173,6 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
 
     The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -186,7 +185,6 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
         destination_cidr_block="10.0.1.0/22",
         vpc_peering_connection_id="pcx-45ff3dc1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: Configuration block. Detailed below.
@@ -237,7 +235,6 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
 
     The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -250,7 +247,6 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
         destination_cidr_block="10.0.1.0/22",
         vpc_peering_connection_id="pcx-45ff3dc1")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: Configuration block. Detailed below.

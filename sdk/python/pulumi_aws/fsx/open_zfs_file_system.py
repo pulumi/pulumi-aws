@@ -832,7 +832,6 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -843,7 +842,6 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -889,7 +887,6 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -900,7 +897,6 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -185,14 +185,12 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Group("example", group_name="tf-example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -220,14 +218,12 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Group("example", group_name="tf-example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

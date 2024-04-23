@@ -145,14 +145,12 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[str] = N
 
     The following example shows how to get a firewall domain list from its ID.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_resolver_firewall_domain_list(firewall_domain_list_id="rslvr-fdl-example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str firewall_domain_list_id: The ID of the domain list.
@@ -190,14 +188,12 @@ def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[p
 
     The following example shows how to get a firewall domain list from its ID.
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_resolver_firewall_domain_list(firewall_domain_list_id="rslvr-fdl-example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str firewall_domain_list_id: The ID of the domain list.

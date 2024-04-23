@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,7 +63,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export class SslNegotiationPolicy extends pulumi.CustomResource {
     /**
@@ -110,7 +108,7 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
      */
     public readonly loadBalancer!: pulumi.Output<string>;
     /**
-     * The name of the attribute
+     * The name of the SSL negotiation policy.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -181,7 +179,7 @@ export interface SslNegotiationPolicyState {
      */
     loadBalancer?: pulumi.Input<string>;
     /**
-     * The name of the attribute
+     * The name of the SSL negotiation policy.
      */
     name?: pulumi.Input<string>;
     /**
@@ -214,7 +212,7 @@ export interface SslNegotiationPolicyArgs {
      */
     loadBalancer: pulumi.Input<string>;
     /**
-     * The name of the attribute
+     * The name of the SSL negotiation policy.
      */
     name?: pulumi.Input<string>;
     /**

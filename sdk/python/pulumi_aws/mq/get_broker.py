@@ -243,7 +243,6 @@ def get_broker(broker_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -258,7 +257,6 @@ def get_broker(broker_id: Optional[str] = None,
     by_id = aws.mq.get_broker(broker_id=broker_id)
     by_name = aws.mq.get_broker(broker_name=broker_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str broker_id: Unique id of the mq broker.
@@ -306,7 +304,6 @@ def get_broker_output(broker_id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -321,7 +318,6 @@ def get_broker_output(broker_id: Optional[pulumi.Input[Optional[str]]] = None,
     by_id = aws.mq.get_broker(broker_id=broker_id)
     by_name = aws.mq.get_broker(broker_name=broker_name)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str broker_id: Unique id of the mq broker.

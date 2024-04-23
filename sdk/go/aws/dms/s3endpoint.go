@@ -24,7 +24,6 @@ import (
 //
 // This is the minimal configuration for an `dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,11 +52,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Complete Configuration
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -131,7 +128,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

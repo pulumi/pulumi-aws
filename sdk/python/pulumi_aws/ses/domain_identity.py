@@ -118,18 +118,15 @@ class DomainIdentity(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ses.DomainIdentity("example", domain="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Route53 Record
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -142,7 +139,6 @@ class DomainIdentity(pulumi.CustomResource):
             ttl=600,
             records=[example.verification_token])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -169,18 +165,15 @@ class DomainIdentity(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ses.DomainIdentity("example", domain="example.com")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Route53 Record
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,7 +186,6 @@ class DomainIdentity(pulumi.CustomResource):
             ttl=600,
             records=[example.verification_token])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Auditmanager.Inputs
         }
 
         /// <summary>
-        /// Unique identifier of the control.
+        /// Unique identifier for the framework.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

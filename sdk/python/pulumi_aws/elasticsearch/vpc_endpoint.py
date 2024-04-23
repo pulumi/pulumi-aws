@@ -122,7 +122,6 @@ class VpcEndpoint(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -140,7 +139,6 @@ class VpcEndpoint(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -168,7 +166,6 @@ class VpcEndpoint(pulumi.CustomResource):
 
         ### Basic Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,7 +183,6 @@ class VpcEndpoint(pulumi.CustomResource):
                 ],
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

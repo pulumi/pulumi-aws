@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionTrustedSigner
     {
         /// <summary>
-        /// Whether Origin Shield is enabled.
+        /// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

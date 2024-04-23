@@ -486,18 +486,15 @@ class CoreNetwork(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.CoreNetwork("example", global_network_id=example_aws_networkmanager_global_network["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With description
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -506,11 +503,9 @@ class CoreNetwork(pulumi.CustomResource):
             global_network_id=example_aws_networkmanager_global_network["id"],
             description="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -521,7 +516,6 @@ class CoreNetwork(pulumi.CustomResource):
                 "hello": "world",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With VPC Attachment (Single Region)
 
@@ -534,7 +528,6 @@ class CoreNetwork(pulumi.CustomResource):
 
         If you require a custom ASN for the edge location, please use the `base_policy_document` argument to pass a specific ASN. For example:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -578,11 +571,9 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             policy_document=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Option 2 - create_base_policy only
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -614,7 +605,6 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             policy_document=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With VPC Attachment (Multi-Region)
 
@@ -625,7 +615,6 @@ class CoreNetwork(pulumi.CustomResource):
 
         ### Option 1 - using base_policy_document
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -698,11 +687,9 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             policy_document=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Option 2 - using base_policy_regions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -760,7 +747,6 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             policy_document=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -818,18 +804,15 @@ class CoreNetwork(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.networkmanager.CoreNetwork("example", global_network_id=example_aws_networkmanager_global_network["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With description
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -838,11 +821,9 @@ class CoreNetwork(pulumi.CustomResource):
             global_network_id=example_aws_networkmanager_global_network["id"],
             description="example")
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With tags
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -853,7 +834,6 @@ class CoreNetwork(pulumi.CustomResource):
                 "hello": "world",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With VPC Attachment (Single Region)
 
@@ -866,7 +846,6 @@ class CoreNetwork(pulumi.CustomResource):
 
         If you require a custom ASN for the edge location, please use the `base_policy_document` argument to pass a specific ASN. For example:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -910,11 +889,9 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             policy_document=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Option 2 - create_base_policy only
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -946,7 +923,6 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             policy_document=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With VPC Attachment (Multi-Region)
 
@@ -957,7 +933,6 @@ class CoreNetwork(pulumi.CustomResource):
 
         ### Option 1 - using base_policy_document
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1030,11 +1005,9 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             policy_document=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Option 2 - using base_policy_regions
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1092,7 +1065,6 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             policy_document=example.json)
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

@@ -134,7 +134,6 @@ def get_virtual_cluster(tags: Optional[Mapping[str, str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -143,7 +142,6 @@ def get_virtual_cluster(tags: Optional[Mapping[str, str]] = None,
     pulumi.export("name", example.name)
     pulumi.export("arn", example.arn)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Key-value mapping of resource tags.
@@ -175,7 +173,6 @@ def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -184,7 +181,6 @@ def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
     pulumi.export("name", example.name)
     pulumi.export("arn", example.arn)
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Key-value mapping of resource tags.

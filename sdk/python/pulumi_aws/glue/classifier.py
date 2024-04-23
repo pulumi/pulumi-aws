@@ -209,7 +209,6 @@ class Classifier(pulumi.CustomResource):
 
         ### Csv Classifier
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,11 +227,9 @@ class Classifier(pulumi.CustomResource):
                 quote_symbol="'",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Grok Classifier
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,11 +241,9 @@ class Classifier(pulumi.CustomResource):
                 grok_pattern="example",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### JSON Classifier
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,11 +254,9 @@ class Classifier(pulumi.CustomResource):
                 json_path="example",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### XML Classifier
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,7 +268,6 @@ class Classifier(pulumi.CustomResource):
                 row_tag="example",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -308,7 +300,6 @@ class Classifier(pulumi.CustomResource):
 
         ### Csv Classifier
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,11 +318,9 @@ class Classifier(pulumi.CustomResource):
                 quote_symbol="'",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Grok Classifier
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,11 +332,9 @@ class Classifier(pulumi.CustomResource):
                 grok_pattern="example",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### JSON Classifier
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,11 +345,9 @@ class Classifier(pulumi.CustomResource):
                 json_path="example",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### XML Classifier
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -374,7 +359,6 @@ class Classifier(pulumi.CustomResource):
                 row_tag="example",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

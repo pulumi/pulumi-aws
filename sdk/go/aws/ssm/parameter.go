@@ -20,7 +20,6 @@ import (
 //
 // ### Basic example
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,11 +45,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Encrypted string using default SSM KMS key
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,7 +93,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

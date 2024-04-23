@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,17 +58,15 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleVpcIpamPoolCidr, 
+    ///             exampleVpcIpamPoolCidr,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// With the `disallowed_cidrs` attribute:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -116,13 +113,12 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleVpcIpamPoolCidr, 
+    ///             exampleVpcIpamPoolCidr,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

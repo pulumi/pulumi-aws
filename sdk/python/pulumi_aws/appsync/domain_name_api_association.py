@@ -102,7 +102,6 @@ class DomainNameApiAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -111,7 +110,6 @@ class DomainNameApiAssociation(pulumi.CustomResource):
             api_id=example_aws_appsync_graphql_api["id"],
             domain_name=example_aws_appsync_domain_name["domainName"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -137,7 +135,6 @@ class DomainNameApiAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,7 +143,6 @@ class DomainNameApiAssociation(pulumi.CustomResource):
             api_id=example_aws_appsync_graphql_api["id"],
             domain_name=example_aws_appsync_domain_name["domainName"])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

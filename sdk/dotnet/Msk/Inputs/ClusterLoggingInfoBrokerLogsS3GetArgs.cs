@@ -12,21 +12,12 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterLoggingInfoBrokerLogsS3GetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the S3 bucket to deliver logs to.
-        /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
-        /// <summary>
-        /// Controls whether provisioned throughput is enabled or not. Default value: `false`.
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// Prefix to append to the folder name.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

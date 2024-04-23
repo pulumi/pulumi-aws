@@ -287,7 +287,6 @@ class ManagedPrefixList(pulumi.CustomResource):
 
         Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,7 +309,6 @@ class ManagedPrefixList(pulumi.CustomResource):
                 "Env": "live",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -353,7 +351,6 @@ class ManagedPrefixList(pulumi.CustomResource):
 
         Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -376,7 +373,6 @@ class ManagedPrefixList(pulumi.CustomResource):
                 "Env": "live",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

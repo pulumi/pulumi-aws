@@ -215,7 +215,6 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,7 +227,6 @@ class Certificate(pulumi.CustomResource):
                 "Name": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -258,7 +256,6 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,7 +268,6 @@ class Certificate(pulumi.CustomResource):
                 "Name": "test",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

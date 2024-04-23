@@ -145,27 +145,23 @@ def get_response_headers_policy(id: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudfront.get_response_headers_policy(name="example-policy")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### AWS-Managed Policies
 
     AWS managed response header policy names are prefixed with `Managed-`:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudfront.get_response_headers_policy(name="Managed-SimpleCORS")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier for the response headers policy.
@@ -200,27 +196,23 @@ def get_response_headers_policy_output(id: Optional[pulumi.Input[Optional[str]]]
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudfront.get_response_headers_policy(name="example-policy")
     ```
-    <!--End PulumiCodeChooser -->
 
     ### AWS-Managed Policies
 
     AWS managed response header policy names are prefixed with `Managed-`:
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudfront.get_response_headers_policy(name="Managed-SimpleCORS")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier for the response headers policy.

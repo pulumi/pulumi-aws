@@ -22,7 +22,6 @@ import (
 //
 // ### Basic Usage
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,11 +54,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Universal Target
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,7 +107,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -122,7 +118,7 @@ import (
 type Schedule struct {
 	pulumi.CustomResourceState
 
-	// ARN of the SQS queue specified as the destination for the dead-letter queue.
+	// ARN of the schedule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Brief description of the schedule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -191,7 +187,7 @@ func GetSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
-	// ARN of the SQS queue specified as the destination for the dead-letter queue.
+	// ARN of the schedule.
 	Arn *string `pulumi:"arn"`
 	// Brief description of the schedule.
 	Description *string `pulumi:"description"`
@@ -222,7 +218,7 @@ type scheduleState struct {
 }
 
 type ScheduleState struct {
-	// ARN of the SQS queue specified as the destination for the dead-letter queue.
+	// ARN of the schedule.
 	Arn pulumi.StringPtrInput
 	// Brief description of the schedule.
 	Description pulumi.StringPtrInput
@@ -402,7 +398,7 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 	return o
 }
 
-// ARN of the SQS queue specified as the destination for the dead-letter queue.
+// ARN of the schedule.
 func (o ScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -22,7 +22,6 @@ import (
 //
 // ### VPN Gateway Association
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,11 +66,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Transit Gateway Association
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,11 +109,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Allowed Prefixes
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -165,7 +160,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

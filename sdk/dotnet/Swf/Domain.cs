@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Swf
     /// 
     /// To register a basic SWF domain:
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Swf
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

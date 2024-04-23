@@ -19,7 +19,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// ## Example Usage
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:lakeformation/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource

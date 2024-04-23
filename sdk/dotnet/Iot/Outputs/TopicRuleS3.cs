@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Iot.Outputs
         /// </summary>
         public readonly string? CannedAcl;
         /// <summary>
-        /// The name of the HTTP header.
+        /// The object key.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The IAM role ARN that allows access to the CloudWatch alarm.
+        /// The ARN of the IAM role that grants access.
         /// </summary>
         public readonly string RoleArn;
 

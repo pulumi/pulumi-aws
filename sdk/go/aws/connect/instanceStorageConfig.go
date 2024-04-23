@@ -19,7 +19,6 @@ import (
 //
 // ### Storage Config Kinesis Firehose Config
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,11 +49,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Storage Config Kinesis Stream Config
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,11 +82,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Storage Config Kinesis Video Stream Config
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -125,11 +120,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Storage Config S3 Config
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,11 +154,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Storage Config S3 Config with Encryption Config
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -201,7 +192,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

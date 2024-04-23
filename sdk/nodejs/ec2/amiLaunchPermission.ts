@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  *
  * ### AWS Account ID
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,11 +20,9 @@ import * as utilities from "../utilities";
  *     accountId: "123456789012",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Public Access
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,11 +32,9 @@ import * as utilities from "../utilities";
  *     group: "all",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Organization Access
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,7 +45,6 @@ import * as utilities from "../utilities";
  *     organizationArn: current.then(current => current.arn),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

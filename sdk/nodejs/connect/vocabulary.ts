@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,17 +17,16 @@ import * as utilities from "../utilities";
  * const example = new aws.connect.Vocabulary("example", {
  *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
  *     name: "example",
- *     content: `Phrase	IPA	SoundsLike	DisplayAs
- * Los-Angeles			Los Angeles
- * F.B.I.	ɛ f b i aɪ		FBI
- * Etienne		eh-tee-en	`,
+ *     content: `Phrase\x09IPA\x09SoundsLike\x09DisplayAs
+ * Los-Angeles\x09\x09\x09Los Angeles
+ * F.B.I.\x09ɛ f b i aɪ\x09\x09FBI
+ * Etienne\x09\x09eh-tee-en\x09`,
  *     languageCode: "en-US",
  *     tags: {
  *         Key1: "Value1",
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

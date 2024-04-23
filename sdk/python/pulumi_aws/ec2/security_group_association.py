@@ -143,7 +143,6 @@ class SecurityGroupAssociation(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -152,7 +151,6 @@ class SecurityGroupAssociation(pulumi.CustomResource):
             vpc_endpoint_id=ec2["id"],
             security_group_id=sg["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +177,6 @@ class SecurityGroupAssociation(pulumi.CustomResource):
 
         Basic usage:
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,7 +185,6 @@ class SecurityGroupAssociation(pulumi.CustomResource):
             vpc_endpoint_id=ec2["id"],
             security_group_id=sg["id"])
         ```
-        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupAssociationArgs args: The arguments to use to populate this resource's properties.

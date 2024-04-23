@@ -27,7 +27,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ### Aurora MySQL 2.x (MySQL 5.7)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,11 +55,9 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Aurora MySQL 1.x (MySQL 5.6)
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,11 +84,9 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Aurora with PostgreSQL engine
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -119,7 +114,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### RDS Multi-AZ Cluster
     /// 
@@ -127,7 +121,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storage_type`, `allocated_storage`, `iops` and `db_cluster_instance_class` attributes.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -156,7 +149,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### RDS Serverless v2 Cluster
     /// 
@@ -167,7 +159,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `aws.rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -203,7 +194,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
     /// 
@@ -211,7 +201,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `master_password` attribute (removal is required).
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -230,7 +219,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
     /// 
@@ -238,7 +226,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -263,11 +250,9 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Global Cluster Restored From Snapshot
     /// 
-    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -299,7 +284,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
-    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 

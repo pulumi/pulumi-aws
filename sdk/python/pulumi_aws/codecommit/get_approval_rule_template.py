@@ -144,14 +144,12 @@ def get_approval_rule_template(name: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.codecommit.get_approval_rule_template(name="MyExampleApprovalRuleTemplate")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name for the approval rule template. This needs to be less than 100 characters.
@@ -181,14 +179,12 @@ def get_approval_rule_template_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.codecommit.get_approval_rule_template(name="MyExampleApprovalRuleTemplate")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name for the approval rule template. This needs to be less than 100 characters.

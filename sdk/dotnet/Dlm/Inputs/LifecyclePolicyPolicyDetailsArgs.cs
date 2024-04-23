@@ -12,42 +12,23 @@ namespace Pulumi.Aws.Dlm.Inputs
 
     public sealed class LifecyclePolicyPolicyDetailsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
-        /// </summary>
         [Input("action")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsActionArgs>? Action { get; set; }
 
-        /// <summary>
-        /// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
-        /// </summary>
         [Input("eventSource")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsEventSourceArgs>? EventSource { get; set; }
 
-        /// <summary>
-        /// Information about the event. See the `parameters` configuration block.
-        /// </summary>
         [Input("parameters")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsParametersArgs>? Parameters { get; set; }
 
-        /// <summary>
-        /// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
-        /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
 
-        /// <summary>
-        /// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
-        /// </summary>
         [Input("resourceLocations")]
         public Input<string>? ResourceLocations { get; set; }
 
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;
-
-        /// <summary>
-        /// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
-        /// </summary>
         public InputList<string> ResourceTypes
         {
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
@@ -56,10 +37,6 @@ namespace Pulumi.Aws.Dlm.Inputs
 
         [Input("schedules")]
         private InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleArgs>? _schedules;
-
-        /// <summary>
-        /// See the `schedule` configuration block.
-        /// </summary>
         public InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleArgs> Schedules
         {
             get => _schedules ?? (_schedules = new InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleArgs>());
@@ -68,12 +45,6 @@ namespace Pulumi.Aws.Dlm.Inputs
 
         [Input("targetTags")]
         private InputMap<string>? _targetTags;
-
-        /// <summary>
-        /// A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
-        /// 
-        /// &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
-        /// </summary>
         public InputMap<string> TargetTags
         {
             get => _targetTags ?? (_targetTags = new InputMap<string>());

@@ -379,14 +379,14 @@ public class Trigger extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.startOnCreation);
     }
     /**
-     * The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+     * The current state of the trigger.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+     * @return The current state of the trigger.
      * 
      */
     public Output<String> state() {

@@ -144,14 +144,12 @@ def get_profiling_group(name: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.codeguruprofiler.get_profiling_group(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the profiling group.
@@ -183,14 +181,12 @@ def get_profiling_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.codeguruprofiler.get_profiling_group(name="example")
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str name: The name of the profiling group.

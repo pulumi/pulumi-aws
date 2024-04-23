@@ -392,7 +392,6 @@ class Queue(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -406,11 +405,9 @@ class Queue(pulumi.CustomResource):
                 "Name": "Example Queue",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Quick Connect IDs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -425,11 +422,9 @@ class Queue(pulumi.CustomResource):
                 "Name": "Example Queue with Quick Connect IDs",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Outbound Caller Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -448,7 +443,6 @@ class Queue(pulumi.CustomResource):
                 "Name": "Example Queue with Outbound Caller Config",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -484,7 +478,6 @@ class Queue(pulumi.CustomResource):
 
         ### Basic
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -498,11 +491,9 @@ class Queue(pulumi.CustomResource):
                 "Name": "Example Queue",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Quick Connect IDs
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -517,11 +508,9 @@ class Queue(pulumi.CustomResource):
                 "Name": "Example Queue with Quick Connect IDs",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ### With Outbound Caller Config
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -540,7 +529,6 @@ class Queue(pulumi.CustomResource):
                 "Name": "Example Queue with Outbound Caller Config",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

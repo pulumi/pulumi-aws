@@ -687,7 +687,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3(dict):
                  bucket: Optional[str] = None,
                  prefix: Optional[str] = None):
         """
-        :param bool enabled: Whether log delivery to Amazon CloudWatch Logs is enabled.
+        :param bool enabled: Specifies whether connector logs get sent to the specified Amazon S3 destination.
         :param str bucket: The name of the S3 bucket that is the destination for log delivery.
         :param str prefix: The S3 prefix that is the destination for log delivery.
         """
@@ -701,7 +701,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether log delivery to Amazon CloudWatch Logs is enabled.
+        Specifies whether connector logs get sent to the specified Amazon S3 destination.
         """
         return pulumi.get(self, "enabled")
 
@@ -860,11 +860,6 @@ class CustomPluginLocationS3(dict):
                  bucket_arn: str,
                  file_key: str,
                  object_version: Optional[str] = None):
-        """
-        :param str bucket_arn: The Amazon Resource Name (ARN) of an S3 bucket.
-        :param str file_key: The file key for an object in an S3 bucket.
-        :param str object_version: The version of an object in an S3 bucket.
-        """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "file_key", file_key)
         if object_version is not None:
@@ -873,25 +868,16 @@ class CustomPluginLocationS3(dict):
     @property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> str:
-        """
-        The Amazon Resource Name (ARN) of an S3 bucket.
-        """
         return pulumi.get(self, "bucket_arn")
 
     @property
     @pulumi.getter(name="fileKey")
     def file_key(self) -> str:
-        """
-        The file key for an object in an S3 bucket.
-        """
         return pulumi.get(self, "file_key")
 
     @property
     @pulumi.getter(name="objectVersion")
     def object_version(self) -> Optional[str]:
-        """
-        The version of an object in an S3 bucket.
-        """
         return pulumi.get(self, "object_version")
 
 

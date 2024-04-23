@@ -19,7 +19,6 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetConfigurationProfilesResult> InvokeAsync(GetConfigurationProfilesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfilesResult>("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args ?? new GetConfigurationProfilesArgs(), options.WithDefaults());
@@ -50,7 +48,6 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// ### Basic Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,7 +65,6 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetConfigurationProfilesResult> Invoke(GetConfigurationProfilesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilesResult>("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args ?? new GetConfigurationProfilesInvokeArgs(), options.WithDefaults());

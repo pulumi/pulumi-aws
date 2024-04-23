@@ -48,9 +48,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("codecSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs>? CodecSettings { get; set; }
 
-        /// <summary>
-        /// Selects a specific three-letter language code from within an audio source.
-        /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
@@ -66,9 +63,6 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("remixSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs>? RemixSettings { get; set; }
 
-        /// <summary>
-        /// Stream name RTMP destinations (URLs of type rtmp://)
-        /// </summary>
         [Input("streamName")]
         public Input<string>? StreamName { get; set; }
 

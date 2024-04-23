@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Eks
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Eks
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetNodeGroupsResult> InvokeAsync(GetNodeGroupsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsArgs(), options.WithDefaults());
@@ -44,7 +42,6 @@ namespace Pulumi.Aws.Eks
         /// 
         /// ## Example Usage
         /// 
-        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,7 +59,6 @@ namespace Pulumi.Aws.Eks
         /// 
         /// });
         /// ```
-        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetNodeGroupsResult> Invoke(GetNodeGroupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsInvokeArgs(), options.WithDefaults());

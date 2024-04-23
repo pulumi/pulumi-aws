@@ -202,7 +202,6 @@ class DomainEntry(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,7 +213,6 @@ class DomainEntry(pulumi.CustomResource):
             type="A",
             target="127.0.0.1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -245,7 +243,6 @@ class DomainEntry(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,7 +254,6 @@ class DomainEntry(pulumi.CustomResource):
             type="A",
             target="127.0.0.1")
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

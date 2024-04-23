@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,11 +34,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Public Workteam Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,11 +63,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Human Loop Activation Config Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -92,15 +87,15 @@ import * as utilities from "../utilities";
  *     humanLoopActivationConfig: {
  *         humanLoopActivationConditionsConfig: {
  *             humanLoopActivationConditions: `        {
- * 			"Conditions": [
- * 			  {
- * 				"ConditionType": "Sampling",
- * 				"ConditionParameters": {
- * 				  "RandomSamplingPercentage": 5
- * 				}
- * 			  }
- * 			]
- * 		}
+ * \x09\x09\x09"Conditions": [
+ * \x09\x09\x09  {
+ * \x09\x09\x09\x09"ConditionType": "Sampling",
+ * \x09\x09\x09\x09"ConditionParameters": {
+ * \x09\x09\x09\x09  "RandomSamplingPercentage": 5
+ * \x09\x09\x09\x09}
+ * \x09\x09\x09  }
+ * \x09\x09\x09]
+ * \x09\x09}
  * `,
  *         },
  *     },
@@ -109,7 +104,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

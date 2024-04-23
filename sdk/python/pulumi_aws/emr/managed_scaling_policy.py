@@ -104,7 +104,6 @@ class ManagedScalingPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -128,7 +127,6 @@ class ManagedScalingPolicy(pulumi.CustomResource):
                 maximum_core_capacity_units=10,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -154,7 +152,6 @@ class ManagedScalingPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,7 +175,6 @@ class ManagedScalingPolicy(pulumi.CustomResource):
                 maximum_core_capacity_units=10,
             )])
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

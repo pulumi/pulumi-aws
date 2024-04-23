@@ -250,14 +250,12 @@ def get_replication_instance(replication_instance_id: Optional[str] = None,
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.dms.get_replication_instance(replication_instance_id=test_aws_dms_replication_instance["replicationInstanceId"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str replication_instance_id: The replication instance identifier.
@@ -298,14 +296,12 @@ def get_replication_instance_output(replication_instance_id: Optional[pulumi.Inp
 
     ## Example Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.dms.get_replication_instance(replication_instance_id=test_aws_dms_replication_instance["replicationInstanceId"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str replication_instance_id: The replication instance identifier.

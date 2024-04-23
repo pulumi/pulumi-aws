@@ -323,7 +323,6 @@ class LogGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -335,7 +334,6 @@ class LogGroup(pulumi.CustomResource):
                 "Application": "serviceA",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -370,7 +368,6 @@ class LogGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -382,7 +379,6 @@ class LogGroup(pulumi.CustomResource):
                 "Application": "serviceA",
             })
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

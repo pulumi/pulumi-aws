@@ -88,14 +88,12 @@ def get_auth_policy(policy: Optional[str] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.vpclattice.get_auth_policy(resource_identifier=test_aws_vpclattice_auth_policy["resourceIdentifier"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
@@ -128,14 +126,12 @@ def get_auth_policy_output(policy: Optional[pulumi.Input[Optional[str]]] = None,
 
     ### Basic Usage
 
-    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.vpclattice.get_auth_policy(resource_identifier=test_aws_vpclattice_auth_policy["resourceIdentifier"])
     ```
-    <!--End PulumiCodeChooser -->
 
 
     :param str policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.

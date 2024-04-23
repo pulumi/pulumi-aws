@@ -177,7 +177,6 @@ class CodeRepository(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,11 +187,9 @@ class CodeRepository(pulumi.CustomResource):
                 repository_url="https://github.com/github/docs.git",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example with Secret
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -213,7 +210,6 @@ class CodeRepository(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -242,7 +238,6 @@ class CodeRepository(pulumi.CustomResource):
 
         ### Basic usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,11 +248,9 @@ class CodeRepository(pulumi.CustomResource):
                 repository_url="https://github.com/github/docs.git",
             ))
         ```
-        <!--End PulumiCodeChooser -->
 
         ### Example with Secret
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -278,7 +271,6 @@ class CodeRepository(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

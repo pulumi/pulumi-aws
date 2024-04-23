@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,7 +21,6 @@ import * as utilities from "../utilities";
  *     name: "tf-test-batch-job-queue",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetJobQueueResult> {
 
@@ -100,7 +98,6 @@ export interface GetJobQueueResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -109,7 +106,6 @@ export interface GetJobQueueResult {
  *     name: "tf-test-batch-job-queue",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getJobQueueOutput(args: GetJobQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobQueueResult> {
     return pulumi.output(args).apply((a: any) => getJobQueue(a, opts))

@@ -31,7 +31,6 @@ import * as utilities from "../utilities";
  *
  * ### Basic Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,13 +46,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Access Policy
  *
  * > See also: `aws.opensearch.DomainPolicy` resource
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -83,11 +80,9 @@ import * as utilities from "../utilities";
  *     accessPolicies: example.then(example => example.json),
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Log publishing to CloudWatch Logs
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -117,11 +112,9 @@ import * as utilities from "../utilities";
  *     logType: "INDEX_SLOW_LOGS",
  * }]});
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### VPC based OpenSearch
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -193,7 +186,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleServiceLinkedRole],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Enabling fine-grained access control on an existing domain
  *
@@ -201,7 +193,6 @@ import * as utilities from "../utilities";
  *
  * ### First apply
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -237,13 +228,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Second apply
  *
  * Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -279,7 +268,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

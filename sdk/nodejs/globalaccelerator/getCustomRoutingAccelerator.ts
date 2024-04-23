@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +24,6 @@ import * as utilities from "../utilities";
  *     name: acceleratorName,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCustomRoutingAccelerator(args?: GetCustomRoutingAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomRoutingAcceleratorResult> {
     args = args || {};
@@ -78,7 +76,6 @@ export interface GetCustomRoutingAcceleratorResult {
  *
  * ## Example Usage
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -91,7 +88,6 @@ export interface GetCustomRoutingAcceleratorResult {
  *     name: acceleratorName,
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  */
 export function getCustomRoutingAcceleratorOutput(args?: GetCustomRoutingAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomRoutingAcceleratorResult> {
     return pulumi.output(args).apply((a: any) => getCustomRoutingAccelerator(a, opts))

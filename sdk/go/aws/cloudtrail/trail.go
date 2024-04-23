@@ -25,7 +25,6 @@ import (
 // Enable CloudTrail to capture all compatible management events in region.
 // For capturing events from services like IAM, `includeGlobalServiceEvents` must be enabled.
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -154,7 +153,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Data Event Logging
 //
@@ -165,7 +163,6 @@ import (
 //
 // ### Logging All Lambda Function Invocations By Using Basic Event Selectors
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -202,11 +199,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Logging All S3 Object Events By Using Basic Event Selectors
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -243,11 +238,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -293,11 +286,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -372,11 +363,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -494,11 +483,9 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ### Sending Events to CloudWatch Logs
 //
-// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -533,7 +520,6 @@ import (
 //	}
 //
 // ```
-// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

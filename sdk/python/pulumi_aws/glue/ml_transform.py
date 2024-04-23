@@ -503,7 +503,6 @@ class MLTransform(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -589,7 +588,6 @@ class MLTransform(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[test_aws_iam_role_policy_attachment]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -625,7 +623,6 @@ class MLTransform(pulumi.CustomResource):
 
         ## Example Usage
 
-        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -711,7 +708,6 @@ class MLTransform(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[test_aws_iam_role_policy_attachment]))
         ```
-        <!--End PulumiCodeChooser -->
 
         ## Import
 

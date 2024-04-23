@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  *
  * ### Extended S3 Destination
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -80,13 +79,11 @@ import * as utilities from "../utilities";
  *     acl: "private",
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Extended S3 Destination with dynamic partitioning
  *
  * These examples use built-in Firehose functionality, rather than requiring a lambda.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -134,13 +131,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameterValue`.
  *
  * The following example adds the Dynamic Partitioning Keys: `storeId` and `customerId` to the S3 prefix.
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -176,11 +171,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Redshift Destination
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -222,11 +215,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Elasticsearch Destination
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -260,11 +251,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Elasticsearch Destination With VPC
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -344,11 +333,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [firehose_elasticsearchRolePolicy],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### OpenSearch Destination
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -381,11 +368,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### OpenSearch Destination With VPC
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -469,11 +454,9 @@ import * as utilities from "../utilities";
  *     dependsOn: [firehose_opensearch],
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### OpenSearch Serverless Destination
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -506,11 +489,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### Splunk Destination
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -534,11 +515,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ### HTTP Endpoint (e.g., New Relic) Destination
  *
- * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -577,7 +556,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -681,9 +659,6 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Specifies the table version for the output data schema. Defaults to `LATEST`.
-     */
     public readonly versionId!: pulumi.Output<string>;
 
     /**
@@ -813,9 +788,6 @@ export interface FirehoseDeliveryStreamState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the table version for the output data schema. Defaults to `LATEST`.
-     */
     versionId?: pulumi.Input<string>;
 }
 
@@ -882,8 +854,5 @@ export interface FirehoseDeliveryStreamArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the table version for the output data schema. Defaults to `LATEST`.
-     */
     versionId?: pulumi.Input<string>;
 }
