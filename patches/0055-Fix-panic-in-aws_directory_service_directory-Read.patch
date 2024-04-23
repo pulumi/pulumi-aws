@@ -48,7 +48,7 @@ new file mode 100644
 index 0000000000..3651319f90
 --- /dev/null
 +++ b/internal/service/ds/directory_internal_test.go
-@@ -0,0 +1,23 @@
+@@ -0,0 +1,22 @@
 +// Copyright (c) HashiCorp, Inc.
 +// SPDX-License-Identifier: MPL-2.0
 +
@@ -58,7 +58,6 @@ index 0000000000..3651319f90
 +	"testing"
 +
 +	"github.com/aws/aws-sdk-go/service/directoryservice"
-+	//"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 +)
 +
 +func TestResourceDirectoryReadDoesNotPanicOnMissingVpcSettings(t *testing.T) {
