@@ -720,7 +720,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__.__dict__["access_key"] = access_key
+            __props__.__dict__["access_key"] = None if access_key is None else pulumi.Output.secret(access_key)
             __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
             __props__.__dict__["assume_role"] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
             __props__.__dict__["assume_role_with_web_identity"] = pulumi.Output.from_input(assume_role_with_web_identity).apply(pulumi.runtime.to_json) if assume_role_with_web_identity is not None else None
@@ -743,7 +743,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["retry_mode"] = retry_mode
             __props__.__dict__["s3_us_east1_regional_endpoint"] = s3_us_east1_regional_endpoint
             __props__.__dict__["s3_use_path_style"] = pulumi.Output.from_input(s3_use_path_style).apply(pulumi.runtime.to_json) if s3_use_path_style is not None else None
-            __props__.__dict__["secret_key"] = secret_key
+            __props__.__dict__["secret_key"] = None if secret_key is None else pulumi.Output.secret(secret_key)
             __props__.__dict__["shared_config_files"] = pulumi.Output.from_input(shared_config_files).apply(pulumi.runtime.to_json) if shared_config_files is not None else None
             __props__.__dict__["shared_credentials_files"] = pulumi.Output.from_input(shared_credentials_files).apply(pulumi.runtime.to_json) if shared_credentials_files is not None else None
             if skip_credentials_validation is None:
@@ -757,10 +757,12 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["skip_region_validation"] = pulumi.Output.from_input(skip_region_validation).apply(pulumi.runtime.to_json) if skip_region_validation is not None else None
             __props__.__dict__["skip_requesting_account_id"] = pulumi.Output.from_input(skip_requesting_account_id).apply(pulumi.runtime.to_json) if skip_requesting_account_id is not None else None
             __props__.__dict__["sts_region"] = sts_region
-            __props__.__dict__["token"] = token
+            __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
             __props__.__dict__["token_bucket_rate_limiter_capacity"] = pulumi.Output.from_input(token_bucket_rate_limiter_capacity).apply(pulumi.runtime.to_json) if token_bucket_rate_limiter_capacity is not None else None
             __props__.__dict__["use_dualstack_endpoint"] = pulumi.Output.from_input(use_dualstack_endpoint).apply(pulumi.runtime.to_json) if use_dualstack_endpoint is not None else None
             __props__.__dict__["use_fips_endpoint"] = pulumi.Output.from_input(use_fips_endpoint).apply(pulumi.runtime.to_json) if use_fips_endpoint is not None else None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessKey", "secretKey", "token"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'aws',
             resource_name,

@@ -107,7 +107,7 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["accessKey"] = args ? args.accessKey : undefined;
+            resourceInputs["accessKey"] = args?.accessKey ? pulumi.secret(args.accessKey) : undefined;
             resourceInputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
             resourceInputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
             resourceInputs["assumeRoleWithWebIdentity"] = pulumi.output(args ? args.assumeRoleWithWebIdentity : undefined).apply(JSON.stringify);
@@ -128,7 +128,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["retryMode"] = args ? args.retryMode : undefined;
             resourceInputs["s3UsEast1RegionalEndpoint"] = args ? args.s3UsEast1RegionalEndpoint : undefined;
             resourceInputs["s3UsePathStyle"] = pulumi.output(args ? args.s3UsePathStyle : undefined).apply(JSON.stringify);
-            resourceInputs["secretKey"] = args ? args.secretKey : undefined;
+            resourceInputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
             resourceInputs["sharedConfigFiles"] = pulumi.output(args ? args.sharedConfigFiles : undefined).apply(JSON.stringify);
             resourceInputs["sharedCredentialsFiles"] = pulumi.output(args ? args.sharedCredentialsFiles : undefined).apply(JSON.stringify);
             resourceInputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? false).apply(JSON.stringify);
@@ -136,12 +136,14 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["skipRegionValidation"] = pulumi.output((args ? args.skipRegionValidation : undefined) ?? true).apply(JSON.stringify);
             resourceInputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
             resourceInputs["stsRegion"] = args ? args.stsRegion : undefined;
-            resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
             resourceInputs["tokenBucketRateLimiterCapacity"] = pulumi.output(args ? args.tokenBucketRateLimiterCapacity : undefined).apply(JSON.stringify);
             resourceInputs["useDualstackEndpoint"] = pulumi.output(args ? args.useDualstackEndpoint : undefined).apply(JSON.stringify);
             resourceInputs["useFipsEndpoint"] = pulumi.output(args ? args.useFipsEndpoint : undefined).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["accessKey", "secretKey", "token"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -129,6 +129,12 @@ namespace Pulumi.Aws
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "accessKey",
+                    "secretKey",
+                    "token",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -139,11 +145,21 @@ namespace Pulumi.Aws
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessKey")]
+        private Input<string>? _accessKey;
+
         /// <summary>
         /// The access key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
-        [Input("accessKey")]
-        public Input<string>? AccessKey { get; set; }
+        public Input<string>? AccessKey
+        {
+            get => _accessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("allowedAccountIds", json: true)]
         private InputList<string>? _allowedAccountIds;
@@ -276,11 +292,21 @@ namespace Pulumi.Aws
         [Input("s3UsePathStyle", json: true)]
         public Input<bool>? S3UsePathStyle { get; set; }
 
+        [Input("secretKey")]
+        private Input<string>? _secretKey;
+
         /// <summary>
         /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
-        [Input("secretKey")]
-        public Input<string>? SecretKey { get; set; }
+        public Input<string>? SecretKey
+        {
+            get => _secretKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("sharedConfigFiles", json: true)]
         private InputList<string>? _sharedConfigFiles;
@@ -338,11 +364,21 @@ namespace Pulumi.Aws
         [Input("stsRegion")]
         public Input<string>? StsRegion { get; set; }
 
+        [Input("token")]
+        private Input<string>? _token;
+
         /// <summary>
         /// session token. A session token is only required if you are using temporary security credentials.
         /// </summary>
-        [Input("token")]
-        public Input<string>? Token { get; set; }
+        public Input<string>? Token
+        {
+            get => _token;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _token = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The capacity of the AWS SDK's token bucket rate limiter.
